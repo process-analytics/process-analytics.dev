@@ -3348,7 +3348,7 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-mdx/gatsby-ssr */ "./node_modules/gatsby-plugin-mdx/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "extensions": [".mdx"],
+    "extensions": [".mdx", ".md"],
     "defaultLayouts": {},
     "gatsbyRemarkPlugins": [],
     "lessBabel": false,
