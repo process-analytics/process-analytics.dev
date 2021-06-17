@@ -10,7 +10,7 @@ const NotFoundPage = () => {
       <p>
         Oops, looks like the page cannot be found...
         <img
-            alt="404 Image"
+            alt="404 not found"
             src={ Img }
             // width="120"
             // height="120"
