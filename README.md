@@ -1,39 +1,43 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
+    <p align="center">
+      <a href="https://github.com/process-analytics/website">
+        <img alt="Process Analytics Logo" src="public/icons/logo_64x64.ico" width="64" />
+      </a>
+    </p>
+    <p align="center"> 
+        <a href="https://github.com/process-analytics/website/releases">
+          <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/process-analytics/website?label=changelog&include_prereleases"> 
+        </a>
+        <br>
+        <a href="CONTRIBUTING.md">
+          <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square"> 
+        </a> 
+        <a href="CODE_OF_CONDUCT.md">
+          <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg"> 
+        </a> 
+        <a href="LICENSE">
+          <img alt="License" src="https://img.shields.io/github/license/process-analytics/website?color=blue"> 
+        </a>
+    </p>
+</p>  
 <h1 align="center">
-  Gatsby minimal starter
+  Process Analytics Website
 </h1>
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+This site is created with Gatsby. 
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
-
+1.  **Start developing.**
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
     npm run develop
     ```
 
-3.  **Open the code and start customizing!**
+    Your site is now running at http://localhost:8000! \
+    You can modify a file from `src` to see your site update in real-time!
+    
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
+2.  **Learn more**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
@@ -46,9 +50,4 @@
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+    
