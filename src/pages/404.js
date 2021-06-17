@@ -12,8 +12,6 @@ const NotFoundPage = () => {
         <img
             alt="404 not found"
             src={ Img }
-            // width="120"
-            // height="120"
         />
         <br/><br/>
         <Link to="/">Go back to home</Link>
