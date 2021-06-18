@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Process Analytics",
+    siteUrl: `https://www.process-analytics.dev`,
   },
   plugins: [
     "gatsby-plugin-image",
