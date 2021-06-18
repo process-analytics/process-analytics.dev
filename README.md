@@ -1,7 +1,7 @@
 <p align="center">
     <p align="center">
-      <a href="https://github.com/process-analytics/website">
-        <img alt="Process Analytics Logo" src="public/icons/logo_64x64.ico" width="64" />
+      <a href="https://github.com/process-analytics/process-analytics.dev">
+        <img alt="Process Analytics Logo" src="src/images/logo_64x64.png" width="64" />
       </a>
     </p>
     <p align="center">
@@ -12,7 +12,7 @@
           <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg"> 
         </a> 
         <a href="LICENSE">
-          <img alt="License" src="https://img.shields.io/github/license/process-analytics/website?color=blue"> 
+          <img alt="License" src="https://img.shields.io/github/license/process-analytics/process-analytics.dev?color=blue"> 
         </a>
     </p>
 </p>  
