@@ -6,15 +6,13 @@ const NotFoundPage = () => {
   return (
     <main>
       <title>Not found</title>
-      <h1>Page not found</h1>
       <p>
-        Oops, looks like the page cannot be found...
-        <img
+        Oops, looks like the page cannot be found... <br/><br/>
+          <Link to="/">Go back to home</Link>
+          <img
             alt="404 not found"
             src={ Img }
-        />
-        <br/><br/>
-        <Link to="/">Go back to home</Link>
+            />
       </p>
     </main>
   )
