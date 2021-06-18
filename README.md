@@ -1,12 +1,9 @@
 <p align="center">
-    <a href="https://github.com/process-analytics/process-analytics.dev/releases">
-        <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/process-analytics/process-analytics.dev?label=changelog&include_prereleases"> 
-    </a>
     <br>
     <a href="CONTRIBUTING.md">
         <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square"> 
     </a> 
-    <a href="CODE_OF_CONDUCT.md">
+    <a href="https://github.com/process-analytics/.github/blob/main/CODE_OF_CONDUCT.md">
         <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg"> 
     </a> 
     <a href="LICENSE">
@@ -23,7 +20,7 @@ This site is created with Gatsby.
 
 1.  **Start developing.**
     ```shell
-    npm run develop
+    npm start
     ```
 
     Your site is now running at http://localhost:8000! \
