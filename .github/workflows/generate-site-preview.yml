@@ -10,6 +10,7 @@ on:
       - '.github/workflows/generate-site-preview.yml'
       - 'src/**/*'
       - 'package.json'
+      - 'package-lock.json'
       - 'gatsby-*.js'
 
 jobs:
