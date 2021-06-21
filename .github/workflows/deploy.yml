@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build site
-        run: npm run gh-pages
+        run: npm run build
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -43,7 +43,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
+          publish_dir: ./public
           keep_files: false # we regenerate the whole site
           user_name: 'process-analytics-bot'
           user_email: '62586190+process-analytics-bot@users.noreply.github.com'
