@@ -4,11 +4,12 @@ import Section from '../components/Section';
 import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import Project from '../components/Project';
-import { useProjectsQuery } from '../queries/useProjectsQuery';
+// import { useProjectsQuery } from '../queries/useProjectsQuery';
 import { SECTION } from '../utils/constants';
+import {projects as projectsContent} from "../../content/ProjectContent";
 
 const Projects = () => {
-  const projects = useProjectsQuery();
+  const projects = projectsContent;
 
   return (
     <Section.Container id={SECTION.projects} Background={Background}>
