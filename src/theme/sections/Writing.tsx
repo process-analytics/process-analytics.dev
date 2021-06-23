@@ -3,12 +3,13 @@ import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
-import { useMediumQuery } from '../queries/useMediumQuery';
+// import { useMediumQuery } from '../queries/useMediumQuery';
 import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
+import {mediumContent} from "../../content/WritingContent";
 
 const Writing = () => {
-  const { posts } = useMediumQuery();
+  const { posts } = mediumContent;
 
   return (
     <Section.Container id={SECTION.writing} Background={Background}>

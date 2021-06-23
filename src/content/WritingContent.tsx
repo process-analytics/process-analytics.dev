@@ -1,6 +1,6 @@
 import {MediumAuthor, MediumPost} from "../theme/types";
 
-export const mediumPosts: MediumPost[] = [{
+const mediumPosts: MediumPost[] = [{
     title: '',
     text: '',
     cover: '',
@@ -9,8 +9,13 @@ export const mediumPosts: MediumPost[] = [{
     time: 0
 }];
 
-export const mediumAuthor: MediumAuthor = {
+const mediumAuthor: MediumAuthor = {
     id: '',
     name: '',
     username: '',
+};
+
+export const mediumContent = {
+    posts: mediumPosts,
+    mediumAuthor,
 };
