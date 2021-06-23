@@ -3,7 +3,6 @@ import { Box, Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MediumAuthor, MediumPost as MediumPostType } from '../types';
-import { MEDIUM_URL } from '../utils/constants';
 import { Card } from './Card';
 import ImageLabel from './ImageLabel';
 
@@ -32,7 +31,7 @@ type MorePostsProps = {
 export const MorePosts = ({ author, number }: MorePostsProps) => (
   <PostContainer
     title={`Open ${author.username} profile`}
-    url={`${MEDIUM_URL}/${author.username}/`}
+    url={`url/${author.username}/`}
   >
     <Flex
       flexDirection="column"
