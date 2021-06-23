@@ -2,14 +2,14 @@ import React from 'react';
 import { Helmet as ReactHelmet } from 'react-helmet';
 import { withTheme } from 'styled-components';
 import { Theme } from '../types';
-import { useHelmetQuery } from '../queries/useHelmetQuery';
+import {helmet} from "../../content/HelmetContent";
 
 type Props = {
   theme: Theme;
 };
 
 const Helmet = ({ theme }: Props) => {
-  const { name, description, profile } = useHelmetQuery();
+  const { name, description, profile } = helmet;
   const title = `${name} Portfolio`;
 
   return (
