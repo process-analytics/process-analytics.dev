@@ -4,11 +4,12 @@ import { Text, Box, Flex } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import SocialLink from './SocialLink';
 import Link from './Link';
-import { useSiteQuery } from '../queries/useSiteQuery';
+// import { useSiteQuery } from '../queries/useSiteQuery';
 import { GATSBY_URL } from '../utils/constants';
+import {landing} from "../../content/LandingContent";
 
 const Footer = () => {
-  const { name, socialLinks } = useSiteQuery();
+  const { name, socialLinks } = landing;
 
   return (
     <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
