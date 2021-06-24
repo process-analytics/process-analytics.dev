@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
 import { Slide } from 'react-awesome-reveal';
 import Link from './Link';
-import { SECTION } from '../utils/constants';
+import {MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 
 type ContainerProps = {
@@ -56,7 +56,7 @@ const SectionContainer = styled.div`
   padding: 5em 1em;
   scroll-behavior: smooth;
 
-  @media (max-width: 400px) {
+  ${MEDIA_QUERY_SMALL} {
     padding: 2em 1em;
   }
 `;

@@ -8,3 +8,5 @@ export enum SECTION {
   libraries = 'Libraries',
   blog = 'Blog Posts',
 }
+
+export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';

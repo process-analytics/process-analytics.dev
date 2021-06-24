@@ -5,6 +5,7 @@ import { Box, Flex, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Library as LibraryType } from '../types';
 import { Card } from './Card';
+import {MEDIA_QUERY_SMALL} from "../utils/constants";
 
 type Props = LibraryType;
 
@@ -59,8 +60,6 @@ const Library = ({
 
 const CARD_HEIGHT = '200px';
 const INFO_CONTAINER_WIDTH = '100px';
-
-const MEDIA_QUERY_SMALL = '@media (max-width: 350px)';
 
 const Title = styled(Text)`
   font-size: 14px;
