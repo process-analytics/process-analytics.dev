@@ -30,7 +30,7 @@ const SocialLink = ({ icon, name, url, invert }: Props) => {
         rel="noreferrer"
         aria-label={name}
       >
-        <FontAwesomeIcon icon={iconDefinition} title={name} />
+        <FontAwesomeIcon icon={iconDefinition} />
       </IconLink>
     </Tippy>
   );
