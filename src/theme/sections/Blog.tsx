@@ -12,7 +12,7 @@ const Blog = () => {
 
   return (
     <Section.Container id={SECTION.blog} Background={Background}>
-      <Section.Header name={SECTION.blog} icon="✍️" label="writing" />
+      <Section.Header name={SECTION.blog} />
       <CardContainer minWidth="300px">
         <Fade direction="down" triggerOnce cascade damping={0.5}>
           {posts.map((p) => (

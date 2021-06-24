@@ -11,7 +11,7 @@ const Libraries = () => {
 
   return (
     <Section.Container id={SECTION.libraries} Background={Background}>
-      <Section.Header name={SECTION.libraries} icon="💻" label="notebook" />
+      <Section.Header name={SECTION.libraries} />
 
       <CardContainer minWidth="300px">
         <Fade direction="down" cascade damping={0.5} triggerOnce>

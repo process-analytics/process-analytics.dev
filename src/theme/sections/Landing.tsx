@@ -5,7 +5,6 @@ import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import ScrollIcon from '../components/ScrollIcon';
 import Triangle from '../components/Triangle';
-// import { useSiteQuery } from '../queries/useSiteQuery';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import {landing} from "../../content/LandingContent";
@@ -13,7 +12,6 @@ import {landing} from "../../content/LandingContent";
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const LandingPage = () => {
-  // const { name, roles, socialLinks, deterministic } = useSiteQuery();
   const { title, roles, socialLinks, deterministic } = {...landing, deterministic: true};
 
   return (
