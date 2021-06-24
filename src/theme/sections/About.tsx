@@ -7,10 +7,10 @@ import Section from '../components/Section';
 import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
 import { SECTION } from '../utils/constants';
-import {aboutMe} from "../../content/AboutMeContent";
+import {about} from "../../content/AboutContent";
 
 const About = () => {
-  const { markdown, profile } = aboutMe;
+  const { markdown, profile } = about;
 
   return (
     <Section.Container id={SECTION.about} Background={Background}>

@@ -21,7 +21,7 @@ export type Library = {
   type: string;
 };
 
-export type AboutMe = {
+export type About = {
   markdown: string;
   profile: Image;
 };
