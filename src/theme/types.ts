@@ -16,7 +16,7 @@ export type Favicon = {
 export type Library = {
   name: string;
   description: string;
-  homepage: string;
+  example: string;
   repository: string;
   type: string;
   publishedDate: string;

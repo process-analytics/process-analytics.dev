@@ -12,7 +12,7 @@ type Props = ProjectType;
 const Library = ({
   name,
   description,
-  homepage,
+  example,
   repository,
   type,
   publishedDate,
@@ -32,8 +32,8 @@ const Library = ({
       </TextContainer>
 
       <ImageContainer>
-        <ProjectImage {...logo} />
-        <ProjectTag>
+        <LibraryImage {...logo} />
+        <LibraryTag>
           <Flex
             m={1}
             style={{
@@ -44,7 +44,7 @@ const Library = ({
               <SocialLink name="Repository" icon="github" url={repository} />
             </Box>
             <Box mx={1} fontSize={4}>
-              <SocialLink name="Homepage" icon="globe" url={homepage} />
+              <SocialLink name="Example" icon="globe" url={example} />
             </Box>
           </Flex>
           <ImageLabel
@@ -60,7 +60,7 @@ const Library = ({
               {publishedDate}
             </ImageLabel>
           </Hide>
-        </ProjectTag>
+        </LibraryTag>
       </ImageContainer>
     </Flex>
   </Card>
@@ -99,7 +99,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const ProjectImage = styled(Image)`
+const LibraryImage = styled(Image)`
   width: ${CARD_HEIGHT};
   height: ${CARD_HEIGHT};
   padding: 40px;
@@ -113,7 +113,7 @@ const ProjectImage = styled(Image)`
   }
 `;
 
-const ProjectTag = styled.div`
+const LibraryTag = styled.div`
   position: relative;
   height: ${CARD_HEIGHT};
   top: calc(
