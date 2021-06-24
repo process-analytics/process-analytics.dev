@@ -4,10 +4,10 @@ import ImageLabel from './ImageLabel';
 import Hide from '../components/Hide';
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { Library as ProjectType } from '../types';
+import { Library as LibraryType } from '../types';
 import { Card } from './Card';
 
-type Props = ProjectType;
+type Props = LibraryType;
 
 const Library = ({
   name,
@@ -15,7 +15,6 @@ const Library = ({
   example,
   repository,
   type,
-  publishedDate,
   logo,
 }: Props) => (
   <Card p={0}>
@@ -55,11 +54,6 @@ const Library = ({
           >
             {type}
           </ImageLabel>
-          <Hide query="md">
-            <ImageLabel bg="muted" color="primary">
-              {publishedDate}
-            </ImageLabel>
-          </Hide>
         </LibraryTag>
       </ImageContainer>
     </Flex>

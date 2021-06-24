@@ -19,7 +19,6 @@ export type Library = {
   example: string;
   repository: string;
   type: string;
-  publishedDate: string;
   logo: Image;
 };
 
