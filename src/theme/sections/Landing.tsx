@@ -14,7 +14,7 @@ const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const LandingPage = () => {
   // const { name, roles, socialLinks, deterministic } = useSiteQuery();
-  const { name, roles, socialLinks, deterministic } = {...landing, deterministic: true};
+  const { title, roles, socialLinks, deterministic } = {...landing, deterministic: true};
 
   return (
     <Section.Container id={SECTION.home} Background={Background}>
@@ -25,7 +25,7 @@ const LandingPage = () => {
         fontSize={[6, 7]}
         mb={[3, 4, 5]}
       >
-        {`Hello, I'm ${name}!`}
+        {title}
       </Heading>
 
       <Heading

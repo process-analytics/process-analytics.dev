@@ -9,14 +9,14 @@ import { GATSBY_URL } from '../utils/constants';
 import {landing} from "../../content/LandingContent";
 
 const Footer = () => {
-  const { name, socialLinks } = landing;
+  const { title, socialLinks } = landing;
 
   return (
     <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
       <FooterContainer>
         <Fade direction="left" triggerOnce>
           <Text fontSize={[2, 3]} color="background">
-            <span>{`${name} Portfolio - Powered by `}</span>
+            <span>{`${title} Portfolio - Powered by `}</span>
             <Link href={GATSBY_URL}>Gatsby</Link>
             <span role="img" aria-label="heart">
               ❤️

@@ -25,7 +25,7 @@ const Header = () => {
               src={profile.bigIcon.src}
               height={['60px', '80px']}
               width={['60px', '80px']}
-              alt="Portfolio Logo"
+              alt="Process Analytics Logo"
               p={2}
               css={{ borderRadius: '20px', cursor: 'pointer' }}
             />

@@ -50,7 +50,7 @@ export type MediumAuthor = {
 };
 
 export type Landing = {
-  name: string;
+  title: string;
   roles: string[];
   socialLinks: SocialLink[];
 };
