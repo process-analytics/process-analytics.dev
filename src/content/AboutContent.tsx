@@ -5,6 +5,6 @@ export const about: About = {
     markdown: `Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.`,
     profile: {
         src: Logo,
-        alt: 'Process analytics Logo'
+        alt: 'Process Analytics Logo'
     }
 };
