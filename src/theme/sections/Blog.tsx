@@ -5,14 +5,14 @@ import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
-import {mediumContent} from "../../content/WritingContent";
+import {postsContent} from "../../content/PostsContent";
 
-const Writing = () => {
-  const { posts } = mediumContent;
+const Blog = () => {
+  const { posts } = postsContent;
 
   return (
-    <Section.Container id={SECTION.writing} Background={Background}>
-      <Section.Header name={SECTION.writing} icon="✍️" label="writing" />
+    <Section.Container id={SECTION.blog} Background={Background}>
+      <Section.Header name={SECTION.blog} icon="✍️" label="writing" />
       <CardContainer minWidth="300px">
         <Fade direction="down" triggerOnce cascade damping={0.5}>
           {posts.map((p) => (
@@ -49,4 +49,4 @@ const Background = () => (
   </>
 );
 
-export default Writing;
+export default Blog;
