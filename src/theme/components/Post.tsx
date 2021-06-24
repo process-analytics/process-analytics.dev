@@ -3,7 +3,7 @@ import { Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
 import { Card } from './Card';
-import ImageLabel from './ImageLabel';
+import CardFooter from './CardFooter';
 
 type PostProps = PostDescription;
 
@@ -16,9 +16,9 @@ export const Post = ({ title, text, cover, url, date, time }: PostProps) => (
     <Text m={3} color="text">
       {text}
     </Text>
-    <ImageLabel bg="primary" color="background" position="bottom-right" round>
+    <CardFooter bg="primary" color="background" position="bottom-right" round>
       {`${date} - ${Math.ceil(time)} min`}
-    </ImageLabel>
+    </CardFooter>
   </PostContainer>
 );
 

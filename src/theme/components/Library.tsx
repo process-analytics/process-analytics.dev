@@ -1,8 +1,7 @@
 import React from 'react';
 import SocialLink from '../components/SocialLink';
-import ImageLabel from './ImageLabel';
-import Hide from '../components/Hide';
-import { Box, Flex, Image, Text } from 'rebass/styled-components';
+import CardFooter from './CardFooter';
+import { Box, Flex, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Library as LibraryType } from '../types';
 import { Card } from './Card';
@@ -10,54 +9,52 @@ import { Card } from './Card';
 type Props = LibraryType;
 
 const Library = ({
-  name,
-  description,
-  example,
-  repository,
-  type,
-  logo,
-}: Props) => (
-  <Card p={0}>
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
+                   name,
+                   description,
+                   example,
+                   repository,
+                   type,
+                 }: Props) => (
+    <Card p={0}>
+      <Flex style={{ height: CARD_HEIGHT }}>
+        <TextContainer>
         <span>
           <Title my={2} pb={1} color="text">
             {name}
           </Title>
         </span>
-        <Text width={[1]} style={{ overflow: 'auto' }} color="text">
-          {description}
-        </Text>
-      </TextContainer>
+          <Text width={[1]} style={{ overflow: 'auto' }} color="text">
+            {description}
+          </Text>
+        </TextContainer>
 
-      <ImageContainer>
-        <LibraryImage {...logo} />
-        <LibraryTag>
-          <Flex
-            m={1}
-            style={{
-              float: 'right',
-            }}
-          >
-            <Box mx={1} fontSize={4}>
-              <SocialLink name="Repository" icon="github" url={repository} />
-            </Box>
-            <Box mx={1} fontSize={4}>
-              <SocialLink name="Example" icon="globe" url={example} />
-            </Box>
-          </Flex>
-          <ImageLabel
-            bg="primary"
-            color="background"
-            position="bottom-right"
-            round
+        <InfoContainer>
+          <LinksContainer>
+            <Flex
+                m={1}
+                style={{
+                  float: 'right',
+                }}
+            >
+              <Box mx={1} fontSize={4}>
+                <SocialLink name="Repository" icon="github" url={repository} />
+              </Box>
+              <Box mx={1} fontSize={4}>
+                <SocialLink name="Example" icon="globe" url={example} />
+              </Box>
+            </Flex>
+          </LinksContainer>
+          <CardFooter
+              bg="primary"
+              color="background"
+              position="bottom-right"
+              round
           >
             {type}
-          </ImageLabel>
-        </LibraryTag>
-      </ImageContainer>
-    </Flex>
-  </Card>
+          </CardFooter>
+        </InfoContainer>
+      </Flex>
+    </Card>
 );
 
 const CARD_HEIGHT = '200px';
@@ -76,7 +73,6 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 100%;
   width: calc(100% - ${CARD_HEIGHT});
 
   ${MEDIA_QUERY_SMALL} {
@@ -84,7 +80,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
+const InfoContainer = styled.div`
   margin: auto;
   width: ${CARD_HEIGHT};
 
@@ -93,30 +89,10 @@ const ImageContainer = styled.div`
   }
 `;
 
-const LibraryImage = styled(Image)`
-  width: ${CARD_HEIGHT};
-  height: ${CARD_HEIGHT};
-  padding: 40px;
-  margin-top: 0px;
-
-  ${MEDIA_QUERY_SMALL} {
-    height: calc(${CARD_HEIGHT} / 2);
-    width: calc(${CARD_HEIGHT} / 2);
-    margin-top: calc(${CARD_HEIGHT} / 4);
-    padding: 10px;
-  }
-`;
-
-const LibraryTag = styled.div`
+const LinksContainer = styled.div`
   position: relative;
   height: ${CARD_HEIGHT};
-  top: calc(
-    -${CARD_HEIGHT} - 3.5px
-  ); /*don't know why I have to add 3.5px here ... */
-
-  ${MEDIA_QUERY_SMALL} {
-    top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
-  }
+  top: 3.5px;
 `;
 
 export default Library;
