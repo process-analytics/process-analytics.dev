@@ -13,7 +13,7 @@ const Libraries = () => {
     <Section.Container id={SECTION.libraries} Background={Background}>
       <Section.Header name={SECTION.libraries} icon="💻" label="notebook" />
 
-      <CardContainer minWidth="350px">
+      <CardContainer minWidth="300px">
         <Fade direction="down" cascade damping={0.5} triggerOnce>
           {libraries.map((p, i) => (
             <Library {...p} key={i} />

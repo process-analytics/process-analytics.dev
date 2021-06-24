@@ -9,57 +9,58 @@ import { Card } from './Card';
 type Props = LibraryType;
 
 const Library = ({
-                   name,
-                   description,
-                   example,
-                   repository,
-                   type,
+                     name,
+                     description,
+                     example,
+                     repository,
+                     type,
                  }: Props) => (
     <Card p={0}>
-      <Flex style={{ height: CARD_HEIGHT }}>
-        <TextContainer>
-        <span>
-          <Title my={2} pb={1} color="text">
-            {name}
-          </Title>
-        </span>
-          <Text width={[1]} style={{ overflow: 'auto' }} color="text">
-            {description}
-          </Text>
-        </TextContainer>
+        <Flex style={{ height: CARD_HEIGHT}}>
+            <TextContainer>
+                <span>
+                  <Title my={2} pb={1} color="text">
+                    {name}
+                  </Title>
+                </span>
+                <Text width={[1]} style={{ overflow: 'auto' }} color="text">
+                    {description}
+                </Text>
+            </TextContainer>
 
-        <InfoContainer>
-          <LinksContainer>
-            <Flex
-                m={1}
-                style={{
-                  float: 'right',
-                }}
-            >
-              <Box mx={1} fontSize={4}>
-                <SocialLink name="Repository" icon="github" url={repository} />
-              </Box>
-              <Box mx={1} fontSize={4}>
-                <SocialLink name="Example" icon="globe" url={example} />
-              </Box>
-            </Flex>
-          </LinksContainer>
-          <CardFooter
-              bg="primary"
-              color="background"
-              position="bottom-right"
-              round
-          >
-            {type}
-          </CardFooter>
-        </InfoContainer>
-      </Flex>
+            <InfoContainer>
+                <LinksContainer>
+                    <Flex
+                        m={1}
+                        style={{
+                            float: 'right',
+                        }}
+                    >
+                        <Box mx={1} fontSize={4}>
+                            <SocialLink name="Repository" icon="github" url={repository} />
+                        </Box>
+                        <Box mx={1} fontSize={4}>
+                            <SocialLink name="Example" icon="globe" url={example} />
+                        </Box>
+                    </Flex>
+                </LinksContainer>
+                <CardFooter
+                    bg="primary"
+                    color="background"
+                    position="bottom-right"
+                    round
+                >
+                    {type}
+                </CardFooter>
+            </InfoContainer>
+        </Flex>
     </Card>
 );
 
 const CARD_HEIGHT = '200px';
+const INFO_CONTAINER_WIDTH = '100px';
 
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
+const MEDIA_QUERY_SMALL = '@media (max-width: 350px)';
 
 const Title = styled(Text)`
   font-size: 14px;
@@ -73,19 +74,19 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: calc(100% - ${CARD_HEIGHT});
+  width: calc(100% - ${INFO_CONTAINER_WIDTH});
 
   ${MEDIA_QUERY_SMALL} {
-    width: calc(100% - (${CARD_HEIGHT} / 2));
+    width: calc(100% - (${INFO_CONTAINER_WIDTH} / 2));
   }
 `;
 
 const InfoContainer = styled.div`
   margin: auto;
-  width: ${CARD_HEIGHT};
+  width: ${INFO_CONTAINER_WIDTH};
 
   ${MEDIA_QUERY_SMALL} {
-    width: calc(${CARD_HEIGHT} / 2);
+    width: calc(${INFO_CONTAINER_WIDTH} / 2);
   }
 `;
 
