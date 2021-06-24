@@ -27,9 +27,9 @@ const Footer = () => {
                 {` ${title} - Powered by `}
               </span>
               <Link href={GATSBY_URL}>Gatsby</Link>
+              <span> and inspired from the </span><Link href="https://github.com/EmaSuriano/gatsby-theme-mate">Gatsby Theme Mate</Link>
               &nbsp;
               <span role="img" aria-label="heart">❤️</span>
-              <span> and inspired from the </span><Link href="https://github.com/EmaSuriano/gatsby-theme-mate">gatsby-theme-mate</Link>
               {/*<span>*/}
               {/*  <i>The process-analytics logo is derived from an icon made by </i>*/}
               {/*</span>*/}
