@@ -1,7 +1,7 @@
 import BigIcon from '../../public/icons/icon-96x96.png';
 
 export const helmet = {
-    name: '',
+    name: 'Process Analytics',
     description: '',
     profile: {
         favicon16: {src: ''},
