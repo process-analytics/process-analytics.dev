@@ -4,12 +4,12 @@ import ImageLabel from './ImageLabel';
 import Hide from '../components/Hide';
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { Project as ProjectType } from '../types';
+import { Library as ProjectType } from '../types';
 import { Card } from './Card';
 
 type Props = ProjectType;
 
-const Project = ({
+const Library = ({
   name,
   description,
   homepage,
@@ -125,4 +125,4 @@ const ProjectTag = styled.div`
   }
 `;
 
-export default Project;
+export default Library;

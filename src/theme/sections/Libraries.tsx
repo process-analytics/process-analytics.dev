@@ -3,22 +3,20 @@ import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
-import Project from '../components/Project';
-// import { useProjectsQuery } from '../queries/useProjectsQuery';
+import Library from '../components/Library';
 import { SECTION } from '../utils/constants';
-import {projects as projectsContent} from "../../content/ProjectContent";
+import { libraries } from "../../content/LibraryContent";
 
-const Projects = () => {
-  const projects = projectsContent;
+const Libraries = () => {
 
   return (
-    <Section.Container id={SECTION.projects} Background={Background}>
-      <Section.Header name={SECTION.projects} icon="💻" label="notebook" />
+    <Section.Container id={SECTION.libraries} Background={Background}>
+      <Section.Header name={SECTION.libraries} icon="💻" label="notebook" />
 
       <CardContainer minWidth="350px">
         <Fade direction="down" cascade damping={0.5} triggerOnce>
-          {projects.map((p, i) => (
-            <Project {...p} key={i} />
+          {libraries.map((p, i) => (
+            <Library {...p} key={i} />
           ))}
         </Fade>
       </CardContainer>
@@ -58,4 +56,4 @@ const Background = () => (
   </>
 );
 
-export default Projects;
+export default Libraries;

@@ -13,7 +13,7 @@ export type Favicon = {
   src: string;
 };
 
-export type Project = {
+export type Library = {
   name: string;
   description: string;
   homepage: string;

@@ -1,6 +1,6 @@
-import { Project} from "../theme/types";
+import { Library } from "../theme/types";
 
-export const projects: Project[] = [{
+export const libraries: Library[] = [{
     name: 'bpmn-visualization',
     description: 'xtc',
     homepage: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
