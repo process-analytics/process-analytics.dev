@@ -17,19 +17,27 @@ const Footer = () => {
         <FooterContainer>
           <Fade direction="left" triggerOnce>
             <Text fontSize={[2, 3]} color="background">
-            <span>
-              <Image
-                  src={profile.bigIcon.src}
-                  height={['15px', '25px']}
-                  width={['15px', '25px']}
-                  alt="Process Analytics Logo"
-              />
-              {` ${title} - Powered by `}
-            </span>
+              <span>
+                <Image
+                    src={profile.bigIcon.src}
+                    height={['15px', '25px']}
+                    width={['15px', '25px']}
+                    alt="Process Analytics Logo"
+                />
+                {` ${title} - Powered by `}
+              </span>
               <Link href={GATSBY_URL}>Gatsby</Link>
-              <span role="img" aria-label="heart">
-              ❤️
-            </span>
+              &nbsp;
+              <span role="img" aria-label="heart">❤️</span>
+              <span> and inspired from the </span><Link href="https://github.com/EmaSuriano/gatsby-theme-mate">gatsby-theme-mate</Link>
+              {/*<span>*/}
+              {/*  <i>The process-analytics logo is derived from an icon made by </i>*/}
+              {/*</span>*/}
+              {/*<Link href="https://www.freepik.com" title="Freepik">Freepik</Link>*/}
+              {/*<span>*/}
+              {/*  <i> from </i>*/}
+              {/*</span>*/}
+              {/*<Link href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</Link>*/}
             </Text>
           </Fade>
           <Flex>
