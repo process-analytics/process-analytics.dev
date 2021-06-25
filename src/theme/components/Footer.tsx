@@ -17,14 +17,16 @@ const Footer = () => {
             <FooterContainer>
                 <Flex>
                     <Fade direction="left" triggerOnce>
-                        <Image
-                            src={profile.bigIcon.src}
-                            height={['15px', '40px']}
-                            width={['15px', '40px']}
-                            alt="Process Analytics Logo"
-                        />
+                        <Box>
+                            <Image
+                                src={profile.bigIcon.src}
+                                height={['15px', '40px']}
+                                width={['15px', '40px']}
+                                alt="Process Analytics Logo"
+                            />
+                        </Box>
                     </Fade>
-                    <Box color="background">
+                    <Box color="background" mx={[1, 2]}>
                         <Fade direction="left" triggerOnce>
                             <Text fontSize={[2, 3]} color="background">
                                 {title}
