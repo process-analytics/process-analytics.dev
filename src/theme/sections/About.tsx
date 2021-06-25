@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Image, Flex } from 'rebass/styled-components';
-import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
@@ -26,8 +25,8 @@ const About = () => {
                     width={[1, 1, 2 / 6]}
                     style={{ maxWidth: '300px', margin: 'auto' }}
                 >
-                    <Fade direction="right" triggerOnce>
-                        <Image mt={[4, 4, 0]} ml={[0, 0, 1]} {...logo} />
+                    <Fade direction="right" triggerOnce style={{ textAlign: 'center' }} >
+                        <Image width={[2/6, 2/6, 1]} mt={[4, 4, 0]} ml={[0, 0, 1]} {...logo} />
                     </Fade>
                 </Box>
             </Flex>
