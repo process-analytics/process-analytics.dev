@@ -23,7 +23,7 @@ export type Library = {
 
 export type About = {
   markdown: string;
-  profile: Image;
+  logo: Image;
 };
 
 export type SocialLink = {
