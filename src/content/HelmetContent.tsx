@@ -1,4 +1,4 @@
-import BigIcon from '../../public/icons/icon-96x96.png';
+import BigIcon from "../images/logo_white.svg";
 
 export const helmet = {
     name: 'Process Analytics',
