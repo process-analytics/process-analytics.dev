@@ -32,6 +32,8 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm ci
+      - name: Check types
+        run: npm run check-types
       - name: Build site
         run: npm run build
       - name: Push to gh-pages

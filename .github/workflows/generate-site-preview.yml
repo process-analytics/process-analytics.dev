@@ -45,4 +45,5 @@ jobs:
           teardown: 'true'
           build: |
             npm ci
+            npm run check-types
             npm run build
