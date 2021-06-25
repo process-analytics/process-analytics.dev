@@ -20,10 +20,12 @@ export const libraries: Library[] = [
         repository: 'https://github.com/maxGraph/maxGraph/',
         type: 'Javascript',
     },
-    {
-        name: 'mxgraph-svg2shape',
-        description: 'mxGraph SVG to Shape translation tools.',
-        repository: 'https://github.com/process-analytics/mxgraph-svg2shape',
-        type: 'Java',
-    },
+    // not displayed for now. We have an issue when this 4th card is displayed on a new line.
+    // The card width is smaller than the cards on the line above
+    // {
+    //     name: 'mxgraph-svg2shape',
+    //     description: 'mxGraph SVG to Shape translation tools.',
+    //     repository: 'https://github.com/process-analytics/mxgraph-svg2shape',
+    //     type: 'Java',
+    // },
 ];
