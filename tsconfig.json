@@ -12,6 +12,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*", "typings/**/*.d.ts"],
+  "include": ["src", "typings"],
   "exclude": ["node_modules", "public", ".cache"]
 }
