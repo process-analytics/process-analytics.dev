@@ -3,7 +3,7 @@ const colors = require('./src/theme/colors.json');
 module.exports =  {
     siteMetadata: {
       title: "Process Analytics",
-      siteUrl: `https://www.process-analytics.dev`,
+      siteUrl: `https://process-analytics.dev`,
     },
     plugins: [
       "gatsby-plugin-sitemap",
