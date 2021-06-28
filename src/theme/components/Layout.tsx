@@ -30,9 +30,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
-    font-family: ${props => props.theme.fonts.body};
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    font-family: ${props => (props.theme as Theme).fonts.body};
+    background: ${props => (props.theme as Theme).colors.background};
+    color: ${props => (props.theme as Theme).colors.text};
   }
 `;
 
