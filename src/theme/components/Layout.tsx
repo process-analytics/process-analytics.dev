@@ -7,6 +7,8 @@ import Helmet from './Helmet';
 import 'tippy.js/dist/tippy.css';
 
 declare module 'styled-components' {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   export type DefaultTheme = Theme;
 }
 
