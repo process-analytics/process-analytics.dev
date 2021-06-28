@@ -7,7 +7,7 @@ import Helmet from './Helmet';
 import 'tippy.js/dist/tippy.css';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {}
+  export type DefaultTheme = Theme;
 }
 
 loadIcons();
@@ -28,9 +28,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
-    font-family: ${(props) => props.theme.fonts.body};
-    background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
+    font-family: ${props => props.theme.fonts.body};
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
   }
 `;
 
@@ -38,7 +38,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme as Theme}>
       <GlobalStyle />

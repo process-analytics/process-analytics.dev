@@ -5,9 +5,9 @@ import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
-import {postsContent} from "../../content/PostsContent";
+import { postsContent } from '../../content/PostsContent';
 
-const Blog = () => {
+const Blog = (): JSX.Element => {
   const { posts } = postsContent;
 
   return (
@@ -15,7 +15,7 @@ const Blog = () => {
       <Section.Header name={SECTION.blog} />
       <CardContainer minWidth="300px">
         <Fade direction="down" triggerOnce cascade damping={0.5}>
-          {posts.map((p) => (
+          {posts.map(p => (
             <Post {...p} key={p.url} />
           ))}
         </Fade>
@@ -24,7 +24,7 @@ const Blog = () => {
   );
 };
 
-const Background = () => (
+const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"

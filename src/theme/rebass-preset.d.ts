@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 declare module '@rebass/preset' {
   export interface Theme {
     colors: Colors;
@@ -55,7 +56,7 @@ declare module '@rebass/preset' {
   }
 
   interface Text {
-/*    heading: HeadingOrRoot;
+    /*    heading: HeadingOrRoot;
     display: Display;
     caps: Caps;*/
     heading: string;

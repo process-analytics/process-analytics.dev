@@ -7,12 +7,15 @@ import ScrollIcon from '../components/ScrollIcon';
 import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
-import {landing} from "../../content/LandingContent";
+import { landing } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
-const LandingPage = () => {
-  const { title, roles, socialLinks, deterministic } = {...landing, deterministic: true};
+const LandingPage = (): JSX.Element => {
+  const { title, roles, socialLinks, deterministic } = {
+    ...landing,
+    deterministic: true,
+  };
 
   return (
     <Section.Container id={SECTION.home} Background={Background}>
@@ -37,7 +40,7 @@ const LandingPage = () => {
         <TextLoop interval={5000}>
           {roles
             .sort(() => (deterministic ? 1 : Math.random() - 0.5))
-            .map((text) => (
+            .map(text => (
               <Text width={[300, 500]} key={text}>
                 {text}
               </Text>
@@ -46,7 +49,7 @@ const LandingPage = () => {
       </Heading>
 
       <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-        {socialLinks.map((sl) => (
+        {socialLinks.map(sl => (
           <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
             <SocialLink {...sl} />
           </Box>
@@ -58,7 +61,7 @@ const LandingPage = () => {
   );
 };
 
-const Background = () => (
+const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"

@@ -7,7 +7,14 @@ import CardFooter from './CardFooter';
 
 type PostProps = PostDescription;
 
-export const Post = ({ title, text, cover, url, date, time }: PostProps) => (
+export const Post = ({
+  title,
+  text,
+  cover,
+  url,
+  date,
+  time,
+}: PostProps): JSX.Element => (
   <PostContainer url={url} title={title}>
     <EllipsisHeading m={3} color="text">
       {title}
@@ -28,7 +35,11 @@ type PostContainerProps = {
   children: ReactNode;
 };
 
-const PostContainer = ({ url, title, children }: PostContainerProps) => (
+const PostContainer = ({
+  url,
+  title,
+  children,
+}: PostContainerProps): JSX.Element => (
   <a
     href={url}
     target="__blank"
