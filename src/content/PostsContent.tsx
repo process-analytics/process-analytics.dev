@@ -14,7 +14,7 @@ const posts: PostDescription[] = [
         text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot.',
         cover: 'https://miro.medium.com/max/350/1*qGWieJvk7s1t7pzK82Lj6A.png', // from the medium article
         url: 'https://medium.com/nerd-for-tech/automated-visual-regression-testing-with-typescript-playwright-jest-and-jest-image-snapshot-86db6f3364f5',
-        date: 'Avril 2021',
+        date: 'April 2021',
         time: 6
     },
     {
