@@ -6,7 +6,6 @@ module.exports =  {
       siteUrl: `https://www.process-analytics.dev`,
     },
     plugins: [
-      "gatsby-plugin-image",
       "gatsby-plugin-sitemap",
       {
         resolve: "gatsby-plugin-manifest",
