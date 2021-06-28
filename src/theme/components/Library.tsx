@@ -17,14 +17,14 @@ const Library = ({
                      type,
                  }: Props) => (
     <Card p={0}>
-        <Flex style={{ height: CARD_HEIGHT}}>
+        <Flex style={{height: CARD_HEIGHT}}>
             <TextContainer>
                 <span>
                   <Title my={2} pb={1} color="text">
                     {name}
                   </Title>
                 </span>
-                <Text width={[1]} style={{ overflow: 'auto' }} color="text">
+                <Text width={[1]} style={{overflow: 'auto'}} color="text">
                     {description}
                 </Text>
             </TextContainer>
@@ -38,11 +38,13 @@ const Library = ({
                         }}
                     >
                         <Box mx={1} fontSize={4}>
-                            <SocialLink name="Repository" icon="github" url={repository} />
+                            <SocialLink name="Repository" icon="github" url={repository}/>
                         </Box>
+                        {example &&
                         <Box mx={1} fontSize={4}>
-                            <SocialLink name="Example" icon="globe" url={example} />
+                            <SocialLink name="Example" icon="globe" url={example}/>
                         </Box>
+                        }
                     </Flex>
                 </LinksContainer>
                 <CardFooter
@@ -59,7 +61,7 @@ const Library = ({
 );
 
 const CARD_HEIGHT = '200px';
-const INFO_CONTAINER_WIDTH = '100px';
+const INFO_CONTAINER_WIDTH = '30px';
 
 const Title = styled(Text)`
   font-size: 14px;
