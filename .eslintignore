@@ -1,7 +1,4 @@
 .github/
 .idea/
-/build/
-/config/
-/dist/
 /public/
 node_modules/
