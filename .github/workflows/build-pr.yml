@@ -1,20 +1,18 @@
-name: Deploy
+name: Build PR
 
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
     paths:
-      - '.github/workflows/deploy.yml'
-      - '.github/pages/**/*'
+      - '.github/workflows/build.yml'
       - 'src/**/*'
       - 'package.json'
       - 'package-lock.json'
-      - 'gatsby-*.js'
+      - 'tsconfig.json'
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -38,11 +36,3 @@ jobs:
         run: npm run check-types
       - name: Build site
         run: npm run build
-      - name: Push to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          keep_files: false # we regenerate the whole site
-          user_name: 'process-analytics-bot'
-          user_email: '62586190+process-analytics-bot@users.noreply.github.com'

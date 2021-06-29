@@ -5,10 +5,9 @@ import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import Library from '../components/Library';
 import { SECTION } from '../utils/constants';
-import { libraries } from "../../content/LibraryContent";
+import { libraries } from '../../content/LibraryContent';
 
-const Libraries = () => {
-
+const Libraries = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.libraries} Background={Background}>
       <Section.Header name={SECTION.libraries} />
@@ -24,7 +23,7 @@ const Libraries = () => {
   );
 };
 
-const Background = () => (
+const Background = (): JSX.Element => (
   <>
     <Triangle
       color="secondary"

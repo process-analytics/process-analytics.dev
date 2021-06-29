@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
 import { Slide } from 'react-awesome-reveal';
 import Link from './Link';
-import {MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
+import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 
 type ContainerProps = {
@@ -16,7 +16,7 @@ const Container = ({
   id,
   children,
   Background = DefaultBackground,
-}: ContainerProps) => (
+}: ContainerProps): JSX.Element => (
   <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
     <Background />
     <SectionContainer>{children}</SectionContainer>
@@ -29,7 +29,7 @@ type HeaderProps = {
   label?: string;
 };
 
-const Header = ({ name, icon, label }: HeaderProps) => (
+const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
     <Heading color="text" mb={4}>
       <Link selected>
@@ -61,7 +61,7 @@ const SectionContainer = styled.div`
   }
 `;
 
-const DefaultBackground = () => <div />;
+const DefaultBackground = (): JSX.Element => <div />;
 
 export default {
   Container,

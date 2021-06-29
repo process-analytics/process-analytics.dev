@@ -61,7 +61,7 @@ type LinkProps = {
   children: ReactNode;
 };
 
-const MarkdownLink = ({ href, children }: LinkProps) => {
+const MarkdownLink = ({ href, children }: LinkProps): JSX.Element => {
   const isInnerLink = href.startsWith('#');
 
   return isInnerLink ? (

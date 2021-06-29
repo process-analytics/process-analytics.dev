@@ -2,13 +2,13 @@ import React from 'react';
 import { Helmet as ReactHelmet } from 'react-helmet';
 import { withTheme } from 'styled-components';
 import { Theme } from '../types';
-import {helmet} from "../../content/HelmetContent";
+import { helmet } from '../../content/HelmetContent';
 
 type Props = {
   theme: Theme;
 };
 
-const Helmet = ({ theme }: Props) => {
+const Helmet = ({ theme }: Props): JSX.Element => {
   const { name, description, profile } = helmet;
   const title = `${name}`;
 

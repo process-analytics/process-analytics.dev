@@ -10,7 +10,7 @@ type Props = SocialLinkType & {
   invert?: boolean;
 };
 
-const SocialLink = ({ icon, name, url, invert }: Props) => {
+const SocialLink = ({ icon, name, url, invert }: Props): JSX.Element | null => {
   const iconDefinition = getIconDefinition(icon);
   if (!iconDefinition) {
     return null;

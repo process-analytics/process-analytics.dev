@@ -1,0 +1,4 @@
+.github/
+.idea/
+/public/
+node_modules/

@@ -41,6 +41,6 @@ const Triangle = styled.div<Props>`
   }
 `;
 
-const invertX = (x: string) => (x === 'right' ? 'left' : 'right');
+const invertX = (x: string): string => (x === 'right' ? 'left' : 'right');
 
 export default Triangle;
