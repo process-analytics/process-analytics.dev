@@ -37,15 +37,18 @@ const LandingPage = (): JSX.Element => {
         textAlign="center"
         style={centerHorizontally}
       >
-        <TextLoop interval={5000}>
-          {roles
-            .sort(() => (deterministic ? 1 : Math.random() - 0.5))
-            .map(text => (
-              <Text width={[300, 500]} key={text}>
-                {text}
-              </Text>
-            ))}
-        </TextLoop>
+          <Text width={[300, 500]} key="presentation">
+              Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.
+          </Text>
+        {/*<TextLoop interval={5000}>*/}
+        {/*  {roles*/}
+        {/*    .sort(() => (deterministic ? 1 : Math.random() - 0.5))*/}
+        {/*    .map(text => (*/}
+        {/*      <Text width={[300, 500]} key={text}>*/}
+        {/*        {text}*/}
+        {/*      </Text>*/}
+        {/*    ))}*/}
+        {/*</TextLoop>*/}
       </Heading>
 
       <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
