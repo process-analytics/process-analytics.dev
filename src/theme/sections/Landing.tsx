@@ -8,6 +8,9 @@ import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
+import {Fade} from "react-awesome-reveal";
+import ReactMarkdown from "react-markdown";
+import markdownRenderer from "../components/MarkdownRenderer";
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -37,9 +40,18 @@ const LandingPage = (): JSX.Element => {
         textAlign="center"
         style={centerHorizontally}
       >
-          <Text width={[300, 500]} key="presentation">
-              Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.
-          </Text>
+          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+              <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
+                  <Fade direction="down" triggerOnce>
+                      <Text width={[300, 500]} key="presentation">
+                          Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.
+                      </Text>
+                  </Fade>
+              </Box>
+          </Flex>
+          {/*<Text width={[300, 500]} key="presentation">*/}
+          {/*    Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.*/}
+          {/*</Text>*/}
         {/*<TextLoop interval={5000}>*/}
         {/*  {roles*/}
         {/*    .sort(() => (deterministic ? 1 : Math.random() - 0.5))*/}
