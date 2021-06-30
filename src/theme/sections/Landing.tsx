@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Flex, Box, Text } from 'rebass/styled-components';
-import TextLoop from 'react-text-loop';
+// import TextLoop from 'react-text-loop';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import ScrollIcon from '../components/ScrollIcon';
@@ -8,16 +8,17 @@ import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
-import {Fade} from "react-awesome-reveal";
-import ReactMarkdown from "react-markdown";
-import markdownRenderer from "../components/MarkdownRenderer";
+import { Fade } from 'react-awesome-reveal';
+// import ReactMarkdown from "react-markdown";
+// import markdownRenderer from "../components/MarkdownRenderer";
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const LandingPage = (): JSX.Element => {
-  const { title, roles, socialLinks, deterministic } = {
+  const { title, socialLinks } = {
+    // const { title, roles, socialLinks, deterministic } = {
     ...landing,
-    deterministic: true,
+    // deterministic: true,
   };
 
   return (
@@ -40,18 +41,20 @@ const LandingPage = (): JSX.Element => {
         textAlign="center"
         style={centerHorizontally}
       >
-          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-              <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
-                  <Fade direction="down" triggerOnce>
-                      <Text width={[300, 500]} key="presentation">
-                          Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.
-                      </Text>
-                  </Fade>
-              </Box>
-          </Flex>
-          {/*<Text width={[300, 500]} key="presentation">*/}
-          {/*    Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.*/}
-          {/*</Text>*/}
+        <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+          <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
+            <Fade direction="down" triggerOnce>
+              <Text width={[300, 500]} key="presentation">
+                Set of open source resources that developers can use to build
+                BPMN-based Process Analytics software to visualize
+                Process-Execution-related data.
+              </Text>
+            </Fade>
+          </Box>
+        </Flex>
+        {/*<Text width={[300, 500]} key="presentation">*/}
+        {/*    Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.*/}
+        {/*</Text>*/}
         {/*<TextLoop interval={5000}>*/}
         {/*  {roles*/}
         {/*    .sort(() => (deterministic ? 1 : Math.random() - 0.5))*/}
