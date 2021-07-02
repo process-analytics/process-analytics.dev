@@ -7,7 +7,7 @@ import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
-import { AboutSubSection } from '../types';
+import { AboutSubSection, Image as ImageType } from '../types';
 
 const About = (): JSX.Element => {
   const { subSections } = about;
@@ -16,31 +16,44 @@ const About = (): JSX.Element => {
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {subSections.map(({ markdown, logo }) => (
-        <SubSection markdown={markdown} logo={logo} />
+      {subSections.map(({ markdown, logo }, index) => (
+        <SubSection
+          markdown={markdown}
+          logo={logo}
+          imageOnRight={Boolean(index % 2)}
+        />
       ))}
     </Section.Container>
   );
 };
 
-const SubSection = ({ markdown, logo }: AboutSubSection): JSX.Element => (
+const SubSection = ({
+  markdown,
+  logo,
+  imageOnRight,
+}: AboutSubSection & { imageOnRight: boolean }): JSX.Element => (
   <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+    {!imageOnRight && <AboutSubSectionImage logo={logo} />}
     <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
       <Fade direction="down" triggerOnce>
         <ReactMarkdown source={markdown} renderers={markdownRenderer} />
       </Fade>
     </Box>
-    <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
-      <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
-        <Image
-          width={[2 / 6, 2 / 6, 1]}
-          mt={[4, 4, 0]}
-          ml={[0, 0, 1]}
-          {...logo}
-        />
-      </Fade>
-    </Box>{' '}
+    {imageOnRight && <AboutSubSectionImage logo={logo} />}
   </Flex>
+);
+
+const AboutSubSectionImage = ({ logo }: { logo: ImageType }): JSX.Element => (
+  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+    <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
+      <Image
+        width={[2 / 6, 2 / 6, 1]}
+        mt={[4, 4, 0]}
+        ml={[0, 0, 1]}
+        {...logo}
+      />
+    </Fade>
+  </Box>
 );
 
 const Background = (): JSX.Element => (
