@@ -22,6 +22,10 @@ export type Library = {
 };
 
 export type About = {
+  subSections: AboutSubSection[];
+};
+
+export type AboutSubSection = {
   markdown: string;
   logo: Image;
 };
