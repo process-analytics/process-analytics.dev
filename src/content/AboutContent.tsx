@@ -8,7 +8,7 @@ export const about: About = {
 Need to analyze and optimize your business processes? 
 Then you need an overview of the execution data: process, data, actors (human and robots) and systems (forms, apps, 3rd party software).
 `,
-      logo: {
+      image: {
         src: Logo,
         alt: 'Process Analytics Logo',
       },
@@ -28,7 +28,7 @@ You can create and build applications to visualize:
 - related resources data
 - and more…
 `,
-      logo: {
+      image: {
         src: Logo,
         alt: 'Process Analytics Logo',
       },
@@ -39,7 +39,7 @@ The Process Analytics project provides a set of libraries that can be integrated
 
 These libraries will make it easy to render processes, human tasks, automatic and robotic (RPA) talks, and system-related execution data. 
 `,
-      logo: {
+      image: {
         src: Logo,
         alt: 'Process Analytics Logo',
       },

@@ -16,10 +16,10 @@ const About = (): JSX.Element => {
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {subSections.map(({ markdown, logo }, index) => (
+      {subSections.map(({ markdown, image }, index) => (
         <SubSection
           markdown={markdown}
-          logo={logo}
+          image={image}
           imageOnRight={Boolean(index % 2)}
         />
       ))}
@@ -29,28 +29,28 @@ const About = (): JSX.Element => {
 
 const SubSection = ({
   markdown,
-  logo,
+  image,
   imageOnRight,
 }: AboutSubSection & { imageOnRight: boolean }): JSX.Element => (
   <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-    {!imageOnRight && <AboutSubSectionImage logo={logo} />}
+    {!imageOnRight && <AboutSubSectionImage image={image} />}
     <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
       <Fade direction="down" triggerOnce>
         <ReactMarkdown source={markdown} renderers={markdownRenderer} />
       </Fade>
     </Box>
-    {imageOnRight && <AboutSubSectionImage logo={logo} />}
+    {imageOnRight && <AboutSubSectionImage image={image} />}
   </Flex>
 );
 
-const AboutSubSectionImage = ({ logo }: { logo: ImageType }): JSX.Element => (
+const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
     <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
       <Image
         width={[2 / 6, 2 / 6, 1]}
         mt={[4, 4, 0]}
         ml={[0, 0, 1]}
-        {...logo}
+        {...image}
       />
     </Fade>
   </Box>

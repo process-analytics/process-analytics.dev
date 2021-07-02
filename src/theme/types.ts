@@ -27,7 +27,7 @@ export type About = {
 
 export type AboutSubSection = {
   markdown: string;
-  logo: Image;
+  image: Image;
 };
 
 export type SocialLink = {
