@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading, Flex, Box, Text } from 'rebass/styled-components';
-// import TextLoop from 'react-text-loop';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import ScrollIcon from '../components/ScrollIcon';
@@ -15,10 +14,8 @@ import { Fade } from 'react-awesome-reveal';
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const LandingPage = (): JSX.Element => {
-  const { title, socialLinks } = {
-    // const { title, roles, socialLinks, deterministic } = {
+  const { title, presentation, socialLinks } = {
     ...landing,
-    // deterministic: true,
   };
 
   return (
@@ -36,34 +33,16 @@ const LandingPage = (): JSX.Element => {
       <Heading
         as="h2"
         color="primary"
-        fontSize={[5, 6]}
+        fontSize={[2, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
       >
-        <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-          <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
-            <Fade direction="down" triggerOnce>
-              <Text width={[300, 500]} key="presentation">
-                Set of open source resources that developers can use to build
-                BPMN-based Process Analytics software to visualize
-                Process-Execution-related data.
-              </Text>
-            </Fade>
-          </Box>
-        </Flex>
-        {/*<Text width={[300, 500]} key="presentation">*/}
-        {/*    Set of open source resources that developers can use to build BPMN-based Process Analytics software to visualize Process-Execution-related data.*/}
-        {/*</Text>*/}
-        {/*<TextLoop interval={5000}>*/}
-        {/*  {roles*/}
-        {/*    .sort(() => (deterministic ? 1 : Math.random() - 0.5))*/}
-        {/*    .map(text => (*/}
-        {/*      <Text width={[300, 500]} key={text}>*/}
-        {/*        {text}*/}
-        {/*      </Text>*/}
-        {/*    ))}*/}
-        {/*</TextLoop>*/}
+        <Fade direction="down" triggerOnce>
+          <Text width={[300, 700]} key="presentation">
+            {presentation}
+          </Text>
+        </Fade>
       </Heading>
 
       <Flex alignItems="center" justifyContent="center" flexWrap="wrap">

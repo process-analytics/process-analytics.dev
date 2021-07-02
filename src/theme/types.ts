@@ -43,6 +43,6 @@ export type PostDescription = {
 
 export type Landing = {
   title: string;
-  roles: string[];
+  presentation: string;
   socialLinks: SocialLink[];
 };
