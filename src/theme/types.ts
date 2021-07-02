@@ -23,7 +23,8 @@ export type Library = {
 
 export type About = {
   markdown: string;
-  logo: Image;
+  // todo rename into image
+  image?: Image;
 };
 
 export type SocialLink = {

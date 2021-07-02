@@ -9,7 +9,7 @@ import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 
 const About = (): JSX.Element => {
-  const { markdown, logo } = about;
+  const { markdown, image } = about;
 
   return (
     <Section.Container id={SECTION.about} Background={Background}>
@@ -30,7 +30,7 @@ const About = (): JSX.Element => {
               width={[2 / 6, 2 / 6, 1]}
               mt={[4, 4, 0]}
               ml={[0, 0, 1]}
-              {...logo}
+              {...image}
             />
           </Fade>
         </Box>
