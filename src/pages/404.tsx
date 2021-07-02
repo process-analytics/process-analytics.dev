@@ -10,7 +10,12 @@ const NotFoundPage = (): JSX.Element => (
   <Layout>
     <Section.Container Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
-        <Image src={Img} width={'100%'} alt="404 not found" />
+        <Image
+          src={Img}
+          marginLeft={['25%', 0]}
+          width={['50%', '100%']}
+          alt="404 not found"
+        />
         <Text
           fontSize={['1rem', '1.5rem', '2rem']}
           fontWeight="bold"
