@@ -36,7 +36,7 @@ const LandingPage = (): JSX.Element => {
       <Heading
         as="h2"
         color="primary"
-        fontSize={[5, 6]}
+        fontSize={[3, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
@@ -44,7 +44,8 @@ const LandingPage = (): JSX.Element => {
         <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
           <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
             <Fade direction="down" triggerOnce>
-              <Text width={[300, 500]} key="presentation">
+              <Text width="100%" key="presentation">
+                {/*<Text width={[300, 500]} key="presentation">*/}
                 Set of open source resources that developers can use to build
                 BPMN-based Process Analytics software to visualize
                 Process-Execution-related data.
