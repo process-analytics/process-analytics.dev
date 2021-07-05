@@ -19,7 +19,7 @@ const About = (): JSX.Element => {
         <SubSection
           markdown={markdown}
           image={image}
-          imageOnRight={Boolean(index % 2)}
+          imageOnLeft={Boolean(index % 2)}
         />
       ))}
     </Section.Container>
@@ -29,17 +29,17 @@ const About = (): JSX.Element => {
 const SubSection = ({
   markdown,
   image,
-  imageOnRight,
-}: AboutSubSection & { imageOnRight: boolean }): JSX.Element => (
+  imageOnLeft,
+}: AboutSubSection & { imageOnLeft: boolean }): JSX.Element => (
   <Box>
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {!imageOnRight && <AboutSubSectionImage image={image} />}
+      {imageOnLeft && <AboutSubSectionImage image={image} />}
       <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
         <Fade direction="down" triggerOnce>
           <ReactMarkdown source={markdown} renderers={markdownRenderer} />
         </Fade>
       </Box>
-      {imageOnRight && <AboutSubSectionImage image={image} />}
+      {!imageOnLeft && <AboutSubSectionImage image={image} />}
     </Flex>
     <Divider />
   </Box>
