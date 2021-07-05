@@ -59,68 +59,12 @@ const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
 );
 
 const Divider = styled.div`
-  width: 30%;
-  height: 1px;
-  display: block;
-  position: relative;
-  margin-bottom: 0em;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  margin-right: 35%;
   margin-left: 35%;
-  padding: 2em 0;
-
-  &:after,
-  &:before {
-    content: '';
-    position: absolute;
-
-    width: 100%;
-    height: 1px;
-    bottom: 50%;
-    left: 0;
-  }
-
-  &:before {
-    background: linear-gradient(
-      90deg,
-      $bg 0%,
-      $bg 50%,
-      transparent 50%,
-      transparent 100%
-    );
-    background-size: $barsize;
-    background-position: center;
-    z-index: 1;
-  }
-
-  &:after {
-    transition: opacity 0.3s ease, animation 0.3s ease;
-
-    background: linear-gradient(
-      to right,
-      #62efab 5%,
-      #f2ea7d 15%,
-      #f2ea7d 25%,
-      #ff8797 35%,
-      #ff8797 45%,
-      #e1a4f4 55%,
-      #e1a4f4 65%,
-      #82fff4 75%,
-      #82fff4 85%,
-      #62efab 95%
-    );
-
-    background-size: 200%;
-    background-position: 0%;
-    animation: bar 15s linear infinite;
-  }
-
-  @keyframes bar {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 200%;
-    }
-  }
+  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.25);
 `;
 
 const Background = (): JSX.Element => (
