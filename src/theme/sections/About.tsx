@@ -59,30 +59,67 @@ const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
 );
 
 const Divider = styled.div`
-  margin: 1.5em auto;
+  width: 30%;
+  height: 1px;
+  display: block;
   position: relative;
-  height: 9px;
-  width: 9px;
-  border: transparent;
-  overflow: visible;
-  background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.5" width="8" height="8" rx="4" fill="%231CB0A8" /></svg>');
+  margin-bottom: 0em;
+  margin-left: 35%;
+  padding: 2em 0;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+    bottom: 50%;
+    left: 0;
+  }
 
   &:before {
-    position: absolute;
-    height: 9px;
-    width: 10px;
-    content: '';
-    background-image: url('data:image/svg+xml;utf8,<svg width="10" height="9" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.91043 1.29752C4.30449 0.688518 5.19551 0.688519 5.58957 1.29752L9.25143 6.95675C9.68196 7.62211 9.20436 8.5 8.41186 8.5H1.08814C0.29564 8.5 -0.181954 7.62211 0.248574 6.95675L3.91043 1.29752Z" fill="%23FCB643" /></svg>');
-    left: -18px;
+    background: linear-gradient(
+      90deg,
+      $bg 0%,
+      $bg 50%,
+      transparent 50%,
+      transparent 100%
+    );
+    background-size: $barsize;
+    background-position: center;
+    z-index: 1;
   }
 
   &:after {
-    position: absolute;
-    height: 9px;
-    width: 9px;
-    content: '';
-    background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.5" width="8" height="8" rx="1" fill="%23EF4056" /></svg>');
-    right: -18px;
+    transition: opacity 0.3s ease, animation 0.3s ease;
+
+    background: linear-gradient(
+      to right,
+      #62efab 5%,
+      #f2ea7d 15%,
+      #f2ea7d 25%,
+      #ff8797 35%,
+      #ff8797 45%,
+      #e1a4f4 55%,
+      #e1a4f4 65%,
+      #82fff4 75%,
+      #82fff4 85%,
+      #62efab 95%
+    );
+
+    background-size: 200%;
+    background-position: 0%;
+    animation: bar 15s linear infinite;
+  }
+
+  @keyframes bar {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
   }
 `;
 
