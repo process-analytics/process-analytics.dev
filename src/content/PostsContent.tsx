@@ -2,6 +2,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Improving Frontend User Experience with Profiling and Performance', // original title which would have been truncated: 'Improving Frontend User Experience with Profiling and Performance'
+    text: 'This article recalls basic foundations of good web application performance, and offers insights from a case study based on Process Analytics BPMN Visualization library.',
+    cover: 'https://miro.medium.com/max/350/0*Le0gSGCuvlKyHln3.png', // image within the article, no cover available
+    url: 'https://bonitasoft.medium.com/improving-frontend-user-experience-with-profiling-and-performance-70921d030dd1',
+    date: 'June 2021',
+    time: 11,
+  },
+  {
     title: 'BPMN Visualization 1st anniversary', // original title which would have been truncated: 'The bpmn-visualization project celebrates its 1st anniversary'
     text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
     cover:
