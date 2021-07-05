@@ -10,13 +10,11 @@ import { about } from '../../content/AboutContent';
 import { AboutSubSection, Image as ImageType } from '../types';
 
 const About = (): JSX.Element => {
-  const { subSections } = about;
-
   return (
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {subSections.map(({ markdown, image }, index) => (
+      {about.map(({ markdown, image }, index) => (
         <SubSection
           markdown={markdown}
           image={image}

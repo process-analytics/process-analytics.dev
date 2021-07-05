@@ -21,9 +21,7 @@ export type Library = {
   type: string;
 };
 
-export type About = {
-  subSections: AboutSubSection[];
-};
+export type About = AboutSubSection[];
 
 export type AboutSubSection = {
   markdown: string;
