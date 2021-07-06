@@ -11,6 +11,13 @@ export const libraries: Library[] = [
     type: 'TypeScript',
   },
   {
+    name: 'BPMN Visualization - R package',
+    description:
+      'A POC to embed the BPMN Visualization library in an R package',
+    repository: 'https://github.com/csouchet/bpmn-visualization-R-poc',
+    type: 'Experimental',
+  },
+  {
     name: 'BPMN Layout Generator',
     description:
       'Tools for generating the graphical layout of the BPMN process (BPMNDI Graphical Model) in BPMN files.',
