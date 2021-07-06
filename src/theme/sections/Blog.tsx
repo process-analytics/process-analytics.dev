@@ -13,7 +13,7 @@ const Blog = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.blog} Background={Background}>
       <Section.Header name={SECTION.blog} />
-      <CardContainer minWidth="300px">
+      <CardContainer minWidth="350px">
         <Fade direction="down" triggerOnce cascade damping={0.5}>
           {posts.map(p => (
             <Post {...p} key={p.url} />
