@@ -1,7 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Text } from 'rebass';
 import styled from 'styled-components';
-import { Components } from 'react-markdown/src/ast-to-react';
+import {
+  Components,
+  ReactBaseProps,
+  ReactMarkdownProps,
+  ReactNode,
+} from 'react-markdown/src/ast-to-react';
 
 const StyledLink = styled.a`
   display: inline-block;
@@ -46,7 +51,9 @@ const MarkdownListItem = styled.li`
   margin-bottom: 1em;
 `;
 
-const MarkdownLink = ({ ...props }): JSX.Element => {
+const MarkdownLink = (
+  props: ReactBaseProps & ReactMarkdownProps,
+): ReactNode => {
   const href = props['href'] as string;
   const isInnerLink = href.startsWith('#');
 
