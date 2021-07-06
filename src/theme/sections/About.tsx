@@ -7,6 +7,7 @@ import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
+import styled from 'styled-components';
 
 const About = (): JSX.Element => {
   const { markdown, logo } = about;
@@ -17,7 +18,12 @@ const About = (): JSX.Element => {
       <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
         <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
           <Fade direction="down" triggerOnce>
-            <ReactMarkdown children={markdown} renderers={markdownRenderer} />
+            <ReactMarkdownRoot>
+              <ReactMarkdown
+                children={markdown}
+                components={markdownRenderer}
+              />
+            </ReactMarkdownRoot>
           </Fade>
         </Box>
 
@@ -38,6 +44,17 @@ const About = (): JSX.Element => {
     </Section.Container>
   );
 };
+
+const ReactMarkdownRoot = styled.div`
+  font-size: large;
+  padding-bottom: 1em;
+  line-height: 2em;
+
+  @media (max-width: 600px) {
+    line-height: 1.5em;
+    font-size: medium;
+  }
+`;
 
 const Background = (): JSX.Element => (
   <>
