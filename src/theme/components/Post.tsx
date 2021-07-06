@@ -16,7 +16,7 @@ export const Post = ({
   time,
 }: PostProps): JSX.Element => (
   <PostContainer url={url} title={title}>
-    <EllipsisHeading m={3} color="text">
+    <EllipsisHeading m={3} color="text" fontSize={3}>
       {title}
     </EllipsisHeading>
     {cover && <CoverImage src={cover} height="200px" alt={title} />}
