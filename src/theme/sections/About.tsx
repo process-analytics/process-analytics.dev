@@ -17,7 +17,7 @@ const About = (): JSX.Element => {
       <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
         <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
           <Fade direction="down" triggerOnce>
-            <ReactMarkdown source={markdown} renderers={markdownRenderer} />
+            <ReactMarkdown children={markdown} renderers={markdownRenderer} />
           </Fade>
         </Box>
 
