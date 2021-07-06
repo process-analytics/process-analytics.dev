@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
-import markdownRenderer from '../components/MarkdownRenderer';
+import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import styled from 'styled-components';
@@ -21,7 +21,7 @@ const About = (): JSX.Element => {
             <ReactMarkdownRoot>
               <ReactMarkdown
                 children={markdown}
-                components={markdownRenderer}
+                components={markdownComponents}
               />
             </ReactMarkdownRoot>
           </Fade>
