@@ -13,7 +13,7 @@ export const libraries: Library[] = [
   {
     name: 'BPMN Visualization - R package',
     description:
-      'An experimental implementation to embed the BPMN Visualization library in an R package',
+      'An experimental implementation to embed the BPMN Visualization library in an R package.',
     repository: 'https://github.com/csouchet/bpmn-visualization-R-poc',
     type: 'Experimental',
   },
