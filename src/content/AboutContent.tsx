@@ -15,9 +15,15 @@ Then you need an overview of the execution data: process, data, actors (human an
     markdown: `WHAT?  
 The Process Analytics project supports the creation of tools that can be used to:
 - give an overview of the execution data
-- help to make the right choices for process understanding and optimization
-
-You can create and build applications to visualize:
+- help to make the right choices for process understanding and optimization`,
+    image: {
+      src: Logo,
+      alt: 'Process Analytics Logo',
+    },
+    withSeparator: false,
+  },
+  {
+    markdown: `You can create and build applications to visualize:
 - monitoring an individual process instance execution
 - monitoring of all process instances for a selected process
 - prediction of a process instance execution 

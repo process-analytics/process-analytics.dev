@@ -15,10 +15,11 @@ const About = (): JSX.Element => {
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {about.map(({ markdown, image }, index) => (
+      {about.map(({ markdown, image, withSeparator }, index) => (
         <SubSection
           markdown={markdown}
           image={image}
+          withSeparator={withSeparator}
           imageOnLeft={Boolean(index % 2)}
         />
       ))}
@@ -29,9 +30,15 @@ const About = (): JSX.Element => {
 const SubSection = ({
   markdown,
   image,
+  withSeparator = true,
   imageOnLeft,
 }: AboutSubSection & { imageOnLeft: boolean }): JSX.Element => (
-  <Box>
+  <Box
+    css={{
+      marginTop: '30px',
+      marginBottom: '30px',
+    }}
+  >
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
       {imageOnLeft && <AboutSubSectionImage image={image} />}
       <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
@@ -46,7 +53,7 @@ const SubSection = ({
       </Box>
       {!imageOnLeft && <AboutSubSectionImage image={image} />}
     </Flex>
-    <Divider />
+    {withSeparator && <Divider />}
   </Box>
 );
 
@@ -66,7 +73,6 @@ const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
 const Divider = styled.div`
   text-align: center;
   padding: 20px 0;
-  margin-bottom: 30px;
   margin-right: 35%;
   margin-left: 35%;
   box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.25);

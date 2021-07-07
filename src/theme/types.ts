@@ -26,6 +26,7 @@ export type About = AboutSubSection[];
 export type AboutSubSection = {
   markdown: string;
   image: Image;
+  withSeparator?: boolean;
 };
 
 export type SocialLink = {
