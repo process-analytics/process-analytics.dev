@@ -2,7 +2,15 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
-    title: 'BPMN Visualization 1st anniversary', // original title which would have been truncated: 'The bpmn-visualization project celebrates its 1st anniversary'
+    title: 'Improving Frontend User Experience with Profiling and Performance', // original title which would have been truncated: 'Improving Frontend User Experience with Profiling and Performance'
+    text: 'This article recalls basic foundations of good web application performance, and offers insights from a case study based on Process Analytics BPMN Visualization library.',
+    cover: 'https://miro.medium.com/max/350/0*Le0gSGCuvlKyHln3.png', // image within the article, no cover available
+    url: 'https://bonitasoft.medium.com/improving-frontend-user-experience-with-profiling-and-performance-70921d030dd1',
+    date: 'June 2021',
+    time: 11,
+  },
+  {
+    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title which would have been truncated: 'The bpmn-visualization project celebrates its 1st anniversary'
     text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--Qh5L0TzO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rf1gct67udbt0vmgqpyo.png', // from the dev.to article
@@ -11,7 +19,8 @@ const posts: PostDescription[] = [
     time: 4,
   },
   {
-    title: 'Automated visual regression testing', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot'
+    title:
+      'Automated visual regression testing with TypeScript, Playwright and Jest', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot'
     text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot.',
     cover: 'https://miro.medium.com/max/350/1*qGWieJvk7s1t7pzK82Lj6A.png', // from the medium article
     url: 'https://medium.com/nerd-for-tech/automated-visual-regression-testing-with-typescript-playwright-jest-and-jest-image-snapshot-86db6f3364f5',
@@ -19,7 +28,7 @@ const posts: PostDescription[] = [
     time: 6,
   },
   {
-    title: 'A Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
+    title: 'Creating a Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
     text: 'A step-by-step tutorial to integrate the BPMN Visualization library in a Bonita UID custom widget.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--8NRwpUAl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tufyv45n77jatwf7ygz5.png', // from the dev.to article

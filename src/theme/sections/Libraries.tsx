@@ -7,12 +7,14 @@ import Library from '../components/Library';
 import { SECTION } from '../utils/constants';
 import { libraries } from '../../content/LibraryContent';
 
+const cardMinWidth = '300px';
+
 const Libraries = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.libraries} Background={Background}>
       <Section.Header name={SECTION.libraries} />
 
-      <CardContainer minWidth="300px">
+      <CardContainer minWidth={cardMinWidth}>
         <Fade direction="down" cascade damping={0.5} triggerOnce>
           {libraries.map((p, i) => (
             <Library {...p} key={i} />
