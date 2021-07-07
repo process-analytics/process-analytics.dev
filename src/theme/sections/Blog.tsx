@@ -7,13 +7,15 @@ import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { postsContent } from '../../content/PostsContent';
 
+const cardMinWidth = '350px';
+
 const Blog = (): JSX.Element => {
   const { posts } = postsContent;
 
   return (
     <Section.Container id={SECTION.blog} Background={Background}>
       <Section.Header name={SECTION.blog} />
-      <CardContainer minWidth="300px">
+      <CardContainer minWidth={cardMinWidth}>
         <Fade direction="down" triggerOnce cascade damping={0.5}>
           {posts.map(p => (
             <Post {...p} key={p.url} />
