@@ -45,5 +45,6 @@ These libraries will make it easy to render processes, human tasks, automatic an
       src: Logo,
       alt: 'Process Analytics Logo',
     },
+    withSeparator: false,
   },
 ];
