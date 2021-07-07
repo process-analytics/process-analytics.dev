@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
-import markdownRenderer from '../components/MarkdownRenderer';
+import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import { AboutSubSection, Image as ImageType } from '../types';
@@ -36,7 +36,12 @@ const SubSection = ({
       {imageOnLeft && <AboutSubSectionImage image={image} />}
       <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
         <Fade direction="down" triggerOnce>
-          <ReactMarkdown source={markdown} renderers={markdownRenderer} />
+          <ReactMarkdownRoot>
+            <ReactMarkdown
+              children={markdown}
+              components={markdownComponents}
+            />
+          </ReactMarkdownRoot>
         </Fade>
       </Box>
       {!imageOnLeft && <AboutSubSectionImage image={image} />}
@@ -65,6 +70,17 @@ const Divider = styled.div`
   margin-right: 35%;
   margin-left: 35%;
   box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.25);
+`;
+
+const ReactMarkdownRoot = styled.div`
+  font-size: large;
+  padding-bottom: 1em;
+  line-height: 2em;
+
+  @media (max-width: 600px) {
+    line-height: 1.5em;
+    font-size: medium;
+  }
 `;
 
 const Background = (): JSX.Element => (
