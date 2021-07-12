@@ -6,11 +6,11 @@ import { helmet } from '../../content/HelmetContent';
 
 type Props = {
   theme: Theme;
+  title: string;
 };
 
-const Helmet = ({ theme }: Props): JSX.Element => {
-  const { name, description, profile } = helmet;
-  const title = `${name}`;
+const Helmet = ({ theme, title }: Props): JSX.Element => {
+  const { description, profile } = helmet;
 
   return (
     <ReactHelmet htmlAttributes={{ lang: 'en' }}>
