@@ -44,7 +44,7 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.13",
+    "@types/react": "^17.0.14",
     "@types/react-headroom": "^2.2.1",
     "@types/react-helmet": "^6.1.1",
     "@types/rebass": "^4.0.8",
