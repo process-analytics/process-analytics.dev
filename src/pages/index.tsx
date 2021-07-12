@@ -8,7 +8,7 @@ import Blog from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
 
 const HomePage = (): JSX.Element => (
-  <Layout>
+  <Layout title="Process Analytics">
     <Header />
     <Landing />
     <About />
