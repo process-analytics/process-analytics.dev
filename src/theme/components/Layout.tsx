@@ -38,13 +38,14 @@ const GlobalStyle = createGlobalStyle`
 
 type Props = {
   children: ReactNode;
+  title: string;
 };
 
-const Layout = ({ children }: Props): JSX.Element => (
+const Layout = ({ children, title }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme as Theme}>
       <GlobalStyle />
-      <Helmet />
+      <Helmet title={title} />
       {children}
     </ThemeProvider>
   </main>
