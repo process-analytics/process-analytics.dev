@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import Img from '../images/404.png';
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout>
+  <Layout title="Page not found">
     <Section.Container Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
         <Image
