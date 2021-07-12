@@ -16,7 +16,65 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"><defs
-   id="defs37" /><sodipodi:namedview
+   id="defs37"><inkscape:path-effect
+     effect="powermask"
+     id="path-effect871"
+     is_visible="true"
+     lpeversion="1"
+     uri="#mask-powermask-path-effect871"
+     invert="false"
+     hide_mask="false"
+     background="true"
+     background_color="#ffffffff" /><filter
+     id="mask-powermask-path-effect847_inverse"
+     inkscape:label="filtermask-powermask-path-effect847"
+     style="color-interpolation-filters:sRGB"
+     height="100"
+     width="100"
+     x="-50"
+     y="-50"><feColorMatrix
+       id="mask-powermask-path-effect847_primitive1"
+       values="1"
+       type="saturate"
+       result="fbSourceGraphic" /><feColorMatrix
+       id="mask-powermask-path-effect847_primitive2"
+       values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+       in="fbSourceGraphic" /></filter><mask
+     maskUnits="userSpaceOnUse"
+     id="mask-powermask-path-effect871"><path
+       id="mask-powermask-path-effect871_box"
+       style="fill:#ffffff;fill-opacity:1"
+       d="M 5.5,5 H 494.7 V 494.2 H 5.5 Z" /><g
+       id="g869"
+       style=""><circle
+         class="st5"
+         id="circle865"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:10;stroke-opacity:1"
+         r="25.799999"
+         cy="422"
+         cx="88.599998"
+         d="M 114.4,422 A 25.799999,25.799999 0 0 1 88.599998,447.8 25.799999,25.799999 0 0 1 62.799999,422 25.799999,25.799999 0 0 1 88.599998,396.2 25.799999,25.799999 0 0 1 114.4,422 Z" /><circle
+         class="st5"
+         cx="414.60001"
+         cy="77.800003"
+         r="25.799999"
+         id="circle867"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:10;stroke-opacity:1"
+         d="m 440.40001,77.800003 a 25.799999,25.799999 0 0 1 -25.8,25.799997 25.799999,25.799999 0 0 1 -25.8,-25.799997 25.799999,25.799999 0 0 1 25.8,-25.799999 25.799999,25.799999 0 0 1 25.8,25.799999 z" /></g></mask><filter
+     id="mask-powermask-path-effect871_inverse"
+     inkscape:label="filtermask-powermask-path-effect871"
+     style="color-interpolation-filters:sRGB"
+     height="100"
+     width="100"
+     x="-50"
+     y="-50"><feColorMatrix
+       id="mask-powermask-path-effect871_primitive1"
+       values="1"
+       type="saturate"
+       result="fbSourceGraphic" /><feColorMatrix
+       id="mask-powermask-path-effect871_primitive2"
+       values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+       in="fbSourceGraphic" /></filter></defs><sodipodi:namedview
    id="namedview35"
    pagecolor="#ffffff"
    bordercolor="#666666"
@@ -42,12 +100,15 @@
 	.st2{fill:#FFFFFF;}
 	.st3{fill:#0A4461;}
 	.st4{fill:none;stroke:#E21D38;stroke-width:2;stroke-miterlimit:10;}
-	.st5{fill:#E21D38;stroke:#FFFFFF;stroke-width:15;stroke-miterlimit:10;}
+	.st5{fill:#E21D38;stroke:#FFFFFF;stroke-width:0;stroke-miterlimit:0;}
 </style>
 <path
    class="st0"
-   d="M485.7,249.6c0,130.1-105.5,235.6-235.6,235.6c-87.3,0-163.5-47.5-204.2-118c-20-34.6-31.4-74.8-31.4-117.6  C14.5,119.5,120,14,250.1,14S485.7,119.5,485.7,249.6z"
-   id="path4" />
+   d="m 485.7,249.6 c 0,130.1 -105.5,235.6 -235.6,235.6 -87.3,0 -163.5,-47.5 -204.2,-118 C 25.9,332.6 14.5,292.4 14.5,249.6 14.5,119.5 120,14 250.1,14 380.2,14 485.7,119.5 485.7,249.6 Z"
+   id="path4"
+   mask="url(#mask-powermask-path-effect871)"
+   inkscape:path-effect="#path-effect871"
+   inkscape:original-d="M485.7,249.6c0,130.1-105.5,235.6-235.6,235.6c-87.3,0-163.5-47.5-204.2-118c-20-34.6-31.4-74.8-31.4-117.6  C14.5,119.5,120,14,250.1,14S485.7,119.5,485.7,249.6z" />
 <g
    id="g24">
 	<defs
@@ -103,24 +164,12 @@
    class="st5"
    cx="88.6"
    cy="422"
-   r="25.8"
+   r="18"
    id="circle30" />
 <circle
    class="st5"
    cx="414.6"
    cy="77.8"
-   r="25.8"
+   r="18"
    id="circle32" />
-<circle
-   class="st5"
-   cx="88.6"
-   cy="422"
-   r="25.8"
-   id="circle30-3"
-   style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:10;stroke-opacity:1" /><circle
-   class="st5"
-   cx="414.6"
-   cy="77.8"
-   r="25.8"
-   id="circle30-3-6"
-   style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:10;stroke-opacity:1" /></svg>
+</svg>
