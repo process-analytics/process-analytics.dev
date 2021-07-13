@@ -28,13 +28,15 @@
             <feColorMatrix
                     id="mask-powermask-path-effect847_primitive2"
                     values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
-                    in="fbSourceGraphic"/></filter>
+                    in="fbSourceGraphic"/>
+        </filter>
         <mask
                 maskUnits="userSpaceOnUse"
-                id="mask-powermask-path-effect871"><path
-       id="mask-powermask-path-effect871_box"
-       style="fill:#ffffff;fill-opacity:1"
-       d="M 5.5,5 H 494.7 V 494.2 H 5.5 Z" />
+                id="mask-powermask-path-effect871">
+            <path
+                    id="mask-powermask-path-effect871_box"
+                    style="fill:#ffffff;fill-opacity:1"
+                    d="M 5.5,5 H 494.7 V 494.2 H 5.5 Z"/>
             <g id="g869" style="">
                 <circle
                         class="st5"
@@ -51,7 +53,9 @@
                         r="25.799999"
                         id="circle867"
                         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:10;stroke-opacity:1"
-                        d="m 440.40001,77.800003 a 25.799999,25.799999 0 0 1 -25.8,25.799997 25.799999,25.799999 0 0 1 -25.8,-25.799997 25.799999,25.799999 0 0 1 25.8,-25.799999 25.799999,25.799999 0 0 1 25.8,25.799999 z"/></g></mask>
+                        d="m 440.40001,77.800003 a 25.799999,25.799999 0 0 1 -25.8,25.799997 25.799999,25.799999 0 0 1 -25.8,-25.799997 25.799999,25.799999 0 0 1 25.8,-25.799999 25.799999,25.799999 0 0 1 25.8,25.799999 z"/>
+            </g>
+        </mask>
         <filter
                 id="mask-powermask-path-effect871_inverse"
                 style="color-interpolation-filters:sRGB"
@@ -67,7 +71,9 @@
             <feColorMatrix
                     id="mask-powermask-path-effect871_primitive2"
                     values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
-                    in="fbSourceGraphic"/></filter></defs>
+                    in="fbSourceGraphic"/>
+        </filter>
+    </defs>
     <style
             type="text/css"
             id="style2">
