@@ -8,8 +8,6 @@ import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
-// import ReactMarkdown from "react-markdown";
-// import markdownRenderer from "../components/MarkdownRenderer";
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
