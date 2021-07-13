@@ -57,6 +57,17 @@ const SubSection = ({
   </Box>
 );
 
+const ReactMarkdownRoot = styled.div`
+  font-size: large;
+  padding-bottom: 1em;
+  line-height: 2em;
+
+  @media (max-width: 600px) {
+    line-height: 1.5em;
+    font-size: medium;
+  }
+`;
+
 const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
     <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
@@ -71,21 +82,21 @@ const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
 );
 
 const Divider = styled.div`
-  text-align: center;
-  padding: 20px 0;
-  margin-right: 35%;
-  margin-left: 35%;
-  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.25);
-`;
-
-const ReactMarkdownRoot = styled.div`
-  font-size: large;
-  padding-bottom: 1em;
-  line-height: 2em;
-
-  @media (max-width: 600px) {
-    line-height: 1.5em;
-    font-size: medium;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      rgb(48, 49, 51),
+      transparent
+    );
   }
 `;
 
