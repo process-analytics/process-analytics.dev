@@ -22,8 +22,9 @@ const LandingPage = (): JSX.Element => {
         textAlign="center"
         as="h1"
         color="primary"
-        fontSize={[6, 7]}
+        fontSize={[6, 8]}
         mb={[3, 4, 5]}
+        mt={4}
       >
         {title}
       </Heading>
@@ -60,13 +61,13 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
+      height={['35vh', '75vh']}
+      width={['95vw', '55vw']}
     />
 
     <Triangle
       color="secondary"
-      height={['38vh', '80vh']}
+      height={['38vh', '75vh']}
       width={['50vw', '35vw']}
     />
 
