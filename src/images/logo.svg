@@ -9,25 +9,12 @@
         viewBox="0 0 500 500"
         style="enable-background:new 0 0 500 500;"
         xml:space="preserve"
-        inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
-        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg"
 >
     <defs id="defs37">
-        <inkscape:path-effect
-                effect="powermask"
-                id="path-effect871"
-                is_visible="true"
-                lpeversion="1"
-                uri="#mask-powermask-path-effect871"
-                invert="false"
-                hide_mask="false"
-                background="true"
-                background_color="#ffffffff"/>
         <filter
                 id="mask-powermask-path-effect847_inverse"
-                inkscape:label="filtermask-powermask-path-effect847"
                 style="color-interpolation-filters:sRGB"
                 height="100"
                 width="100"
@@ -67,7 +54,6 @@
                         d="m 440.40001,77.800003 a 25.799999,25.799999 0 0 1 -25.8,25.799997 25.799999,25.799999 0 0 1 -25.8,-25.799997 25.799999,25.799999 0 0 1 25.8,-25.799999 25.799999,25.799999 0 0 1 25.8,25.799999 z"/></g></mask>
         <filter
                 id="mask-powermask-path-effect871_inverse"
-                inkscape:label="filtermask-powermask-path-effect871"
                 style="color-interpolation-filters:sRGB"
                 height="100"
                 width="100"
@@ -97,8 +83,7 @@
             d="m 485.7,249.6 c 0,130.1 -105.5,235.6 -235.6,235.6 -87.3,0 -163.5,-47.5 -204.2,-118 C 25.9,332.6 14.5,292.4 14.5,249.6 14.5,119.5 120,14 250.1,14 380.2,14 485.7,119.5 485.7,249.6 Z"
             id="path4"
             mask="url(#mask-powermask-path-effect871)"
-            inkscape:path-effect="#path-effect871"
-            inkscape:original-d="M485.7,249.6c0,130.1-105.5,235.6-235.6,235.6c-87.3,0-163.5-47.5-204.2-118c-20-34.6-31.4-74.8-31.4-117.6  C14.5,119.5,120,14,250.1,14S485.7,119.5,485.7,249.6z"/>
+    />
     <g id="g24">
 	<defs id="defs7">
 		<path
