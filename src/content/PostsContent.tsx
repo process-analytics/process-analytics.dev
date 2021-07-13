@@ -28,6 +28,15 @@ const posts: PostDescription[] = [
     time: 6,
   },
   {
+    title:
+      'Using process discovery on BPM through BPMN: the BPMN layout generator', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN: the BPMN layout generator'
+    text: 'Interested in being able to eventually visualize business processes when the applications are not based on BPMN processes ? In this article, we will explain the approach for this transformation, that is, the steps needed to extract the process semantic from the event logs using process mining tools.',
+    cover: 'https://miro.medium.com/max/700/0*qg0OrWHFwe_QjvJf', // from the medium article
+    url: '',
+    date: 'March 2021',
+    time: 4,
+  },
+  {
     title: 'Creating a Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
     text: 'A step-by-step tutorial to integrate the BPMN Visualization library in a Bonita UID custom widget.',
     cover:
@@ -38,10 +47,9 @@ const posts: PostDescription[] = [
   },
   {
     title:
-      'Using Process Discovery on Business Process Management (BPM) through BPMN', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN'
-    text: 'xxxxxx.',
-    cover: 'xxxx',
-    //'https://res.cloudinary.com/practicaldev/image/fetch/s--8NRwpUAl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tufyv45n77jatwf7ygz5.png', // from the dev.to article
+      'Using Process Discovery on Business Process Management (BPM) through BPMN', // original title: 'Using process discovery on business process management (BPM) through BPMN'
+    text: 'Explain how Process Discovery, a technique used in Process Mining, can be used on the event logs of a generic application or process to extract enough information to re-create an accurate process model in Business Process Model Notation.',
+    cover: 'https://miro.medium.com/max/700/0*CBLM-NiaCiqT76Vm',
     url: 'https://medium.com/@olan.anesini/using-process-discovery-on-business-process-management-bpm-through-bpmn-d6ea0120ad1d',
     date: 'June 2020',
     time: 3,
