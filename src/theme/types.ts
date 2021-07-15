@@ -21,9 +21,12 @@ export type Library = {
   type: string;
 };
 
-export type About = {
+export type About = AboutSubSection[];
+
+export type AboutSubSection = {
   markdown: string;
-  logo: Image;
+  image?: Image;
+  withSeparator?: boolean;
 };
 
 export type SocialLink = {
@@ -43,6 +46,6 @@ export type PostDescription = {
 
 export type Landing = {
   title: string;
-  roles: string[];
+  presentation: string;
   socialLinks: SocialLink[];
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading, Flex, Box, Text } from 'rebass/styled-components';
-import TextLoop from 'react-text-loop';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import ScrollIcon from '../components/ScrollIcon';
@@ -8,13 +7,13 @@ import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
+import { Fade } from 'react-awesome-reveal';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const LandingPage = (): JSX.Element => {
-  const { title, roles, socialLinks, deterministic } = {
+  const { title, presentation, socialLinks } = {
     ...landing,
-    deterministic: true,
   };
 
   return (
@@ -23,8 +22,9 @@ const LandingPage = (): JSX.Element => {
         textAlign="center"
         as="h1"
         color="primary"
-        fontSize={[6, 7]}
+        fontSize={[6, 8]}
         mb={[3, 4, 5]}
+        mt={4}
       >
         {title}
       </Heading>
@@ -32,20 +32,16 @@ const LandingPage = (): JSX.Element => {
       <Heading
         as="h2"
         color="primary"
-        fontSize={[5, 6]}
+        fontSize={[2, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
       >
-        <TextLoop interval={5000}>
-          {roles
-            .sort(() => (deterministic ? 1 : Math.random() - 0.5))
-            .map(text => (
-              <Text width={[300, 500]} key={text}>
-                {text}
-              </Text>
-            ))}
-        </TextLoop>
+        <Fade direction="down" triggerOnce>
+          <Text width={[300, 700]} key="presentation">
+            {presentation}
+          </Text>
+        </Fade>
       </Heading>
 
       <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
@@ -65,13 +61,13 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
+      height={['35vh', '75vh']}
+      width={['95vw', '55vw']}
     />
 
     <Triangle
       color="secondary"
-      height={['38vh', '80vh']}
+      height={['38vh', '75vh']}
       width={['50vw', '35vw']}
     />
 
