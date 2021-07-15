@@ -68,7 +68,11 @@ const ReactMarkdownRoot = styled.div`
   }
 `;
 
-const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
+const AboutSubSectionImage = ({
+  image,
+}: {
+  image: ImageType | undefined;
+}): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
     {image && (
       <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
