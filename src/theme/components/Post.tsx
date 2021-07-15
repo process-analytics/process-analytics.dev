@@ -20,7 +20,7 @@ export const Post = ({
       {title}
     </EllipsisHeading>
     {cover && (
-      <Box height="200px">
+      <Box width="100%" height="200px" textAlign="center">
         <CoverImage src={cover} alt={title} />
       </Box>
     )}
@@ -57,7 +57,8 @@ const PostContainer = ({
 );
 
 const CoverImage = styled.img`
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   max-height: 200px;
   object-fit: cover;
