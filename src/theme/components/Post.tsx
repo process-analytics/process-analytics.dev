@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Heading, Text } from 'rebass/styled-components';
+import { Box, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
 import { Card } from './Card';
@@ -19,7 +19,11 @@ export const Post = ({
     <EllipsisHeading m={3} color="text" fontSize={3}>
       {title}
     </EllipsisHeading>
-    {cover && <CoverImage src={cover} height="200px" alt={title} />}
+    {cover && (
+      <Box height="200px">
+        <CoverImage src={cover} alt={title} />
+      </Box>
+    )}
     <Text m={3} color="text">
       {text}
     </Text>
@@ -54,6 +58,8 @@ const PostContainer = ({
 
 const CoverImage = styled.img`
   width: 100%;
+  height: auto;
+  max-height: 200px;
   object-fit: cover;
 `;
 
