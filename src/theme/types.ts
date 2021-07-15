@@ -25,7 +25,7 @@ export type About = AboutSubSection[];
 
 export type AboutSubSection = {
   markdown: string;
-  image: Image;
+  image?: Image;
   withSeparator?: boolean;
 };
 

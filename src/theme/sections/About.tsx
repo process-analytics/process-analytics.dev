@@ -70,14 +70,16 @@ const ReactMarkdownRoot = styled.div`
 
 const AboutSubSectionImage = ({ image }: { image: ImageType }): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
-    <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
-      <Image
-        width={[2 / 6, 2 / 6, 1]}
-        mt={[4, 4, 0]}
-        ml={[0, 0, 1]}
-        {...image}
-      />
-    </Fade>
+    {image && (
+      <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
+        <Image
+          width={[2 / 6, 2 / 6, 1]}
+          mt={[4, 4, 0]}
+          ml={[0, 0, 1]}
+          {...image}
+        />
+      </Fade>
+    )}
   </Box>
 );
 
