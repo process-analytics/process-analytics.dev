@@ -32,7 +32,7 @@ const posts: PostDescription[] = [
       'Using process discovery on BPM through BPMN: the BPMN layout generator', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN: the BPMN layout generator'
     text: 'Interested in being able to eventually visualize business processes when the applications are not based on BPMN processes ? In this article, we will explain the approach for this transformation, that is, the steps needed to extract the process semantic from the event logs using process mining tools.',
     cover: 'https://miro.medium.com/max/700/0*qg0OrWHFwe_QjvJf', // from the medium article
-    url: '',
+    url: 'https://bonitasoft.medium.com/using-process-discovery-on-process-the-bpmn-layout-generator-4e7e0cd1fc25',
     date: 'March 2021',
     time: 4,
   },
