@@ -30,7 +30,7 @@ const posts: PostDescription[] = [
   {
     title:
       'Using process discovery on BPM through BPMN: the BPMN layout generator', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN: the BPMN layout generator'
-    text: 'Interested in being able to eventually visualize business processes when the applications are not based on BPMN processes ? In this article, we will explain the approach for this transformation, that is, the steps needed to extract the process semantic from the event logs using process mining tools.',
+    text: 'Extract the BPMN semantic of a business process (not based on BPMN process) starting with its event logs using Process Mining tools.',
     cover: 'https://miro.medium.com/max/700/0*qg0OrWHFwe_QjvJf', // from the medium article
     url: 'https://bonitasoft.medium.com/using-process-discovery-on-process-the-bpmn-layout-generator-4e7e0cd1fc25',
     date: 'March 2021',
@@ -48,7 +48,7 @@ const posts: PostDescription[] = [
   {
     title:
       'Using Process Discovery on Business Process Management (BPM) through BPMN', // original title: 'Using process discovery on business process management (BPM) through BPMN'
-    text: 'Explain how Process Discovery, a technique used in Process Mining, can be used on the event logs of a generic application or process to extract enough information to re-create an accurate process model in Business Process Model Notation.',
+    text: 'How Process Discovery can be used on the event logs of a generic application to extract information to re-create an accurate process model in BPMN.',
     cover: 'https://miro.medium.com/max/700/0*CBLM-NiaCiqT76Vm',
     url: 'https://medium.com/@olan.anesini/using-process-discovery-on-business-process-management-bpm-through-bpmn-d6ea0120ad1d',
     date: 'June 2020',
