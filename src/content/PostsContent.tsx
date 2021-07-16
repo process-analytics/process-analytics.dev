@@ -10,7 +10,7 @@ const posts: PostDescription[] = [
     time: 11,
   },
   {
-    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title which would have been truncated: 'The bpmn-visualization project celebrates its 1st anniversary'
+    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title: 'The bpmn-visualization project celebrates its 1st anniversary'
     text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--Qh5L0TzO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rf1gct67udbt0vmgqpyo.png', // from the dev.to article
@@ -28,12 +28,30 @@ const posts: PostDescription[] = [
     time: 6,
   },
   {
+    title:
+      'Using process discovery on BPM through BPMN: the BPMN layout generator', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN: the BPMN layout generator'
+    text: 'Extract the BPMN semantic of a business process (not based on BPMN process) starting with its event logs using Process Mining tools.',
+    cover: 'https://miro.medium.com/max/700/0*qg0OrWHFwe_QjvJf', // from the medium article
+    url: 'https://bonitasoft.medium.com/using-process-discovery-on-process-the-bpmn-layout-generator-4e7e0cd1fc25',
+    date: 'March 2021',
+    time: 4,
+  },
+  {
     title: 'Creating a Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
     text: 'A step-by-step tutorial to integrate the BPMN Visualization library in a Bonita UID custom widget.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--8NRwpUAl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tufyv45n77jatwf7ygz5.png', // from the dev.to article
     url: 'https://community.bonitasoft.com/blog/bonita-ui-designer-custom-widget-bpmn-visualization', // https://dev.to/aibcmars/bonita-ui-designer-creating-custom-widget-for-bpmn-visualization-44lk
     date: 'February 2021',
+    time: 3,
+  },
+  {
+    title:
+      'Using Process Discovery on Business Process Management (BPM) through BPMN', // original title: 'Using process discovery on business process management (BPM) through BPMN'
+    text: 'How Process Discovery can be used on the event logs of a generic application to extract information to re-create an accurate process model in BPMN.',
+    cover: 'https://miro.medium.com/max/700/0*CBLM-NiaCiqT76Vm',
+    url: 'https://medium.com/@olan.anesini/using-process-discovery-on-business-process-management-bpm-through-bpmn-d6ea0120ad1d',
+    date: 'June 2020',
     time: 3,
   },
 ];

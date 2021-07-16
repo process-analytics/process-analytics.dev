@@ -19,7 +19,7 @@ export const Post = ({
     <EllipsisHeading m={3} color="text" fontSize={3}>
       {title}
     </EllipsisHeading>
-    {cover && <CoverImage src={cover} height="200px" alt={title} />}
+    {cover && <CoverImage src={cover} alt={title} />}
     <Text m={3} color="text">
       {text}
     </Text>
@@ -54,7 +54,8 @@ const PostContainer = ({
 
 const CoverImage = styled.img`
   width: 100%;
-  object-fit: cover;
+  height: 200px;
+  object-fit: scale-down;
 `;
 
 const EllipsisHeading = styled(Heading)`
