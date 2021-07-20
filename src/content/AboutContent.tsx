@@ -1,10 +1,15 @@
 import { About } from '../theme/types';
 import Logo from '../images/logo.svg';
+import WhyDiagram from '../images/why_diagram.png';
 
 export const about: About = [
   {
     markdown: `Need to analyze and optimize your business processes?  
 Then you need an overview of the execution data: process, data, actors (human and robots) and systems (forms, apps, 3rd party software).`,
+    image: {
+      src: WhyDiagram,
+      alt: 'Email Voting Diagram',
+    },
   },
   {
     markdown: `The Process Analytics project supports the creation of tools that can be used to:
