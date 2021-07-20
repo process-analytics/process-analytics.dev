@@ -40,7 +40,7 @@ const SubSection = ({
     }}
   >
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {imageOnLeft && <AboutSubSectionImage image={image} />}
+      {imageOnLeft && <AboutSubSectionImageOnLeft image={image} />}
       <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
         <Fade direction="down" triggerOnce>
           <ReactMarkdownRoot>
@@ -51,7 +51,7 @@ const SubSection = ({
           </ReactMarkdownRoot>
         </Fade>
       </Box>
-      {!imageOnLeft && <AboutSubSectionImage image={image} />}
+      {!imageOnLeft && <AboutSubSectionImageOnRight image={image} />}
     </Flex>
     {withSeparator && <Divider />}
   </Box>
@@ -68,7 +68,7 @@ const ReactMarkdownRoot = styled.div`
   }
 `;
 
-const AboutSubSectionImage = ({
+const AboutSubSectionImageOnRight = ({
   image,
 }: {
   image: ImageType | undefined;
@@ -79,6 +79,25 @@ const AboutSubSectionImage = ({
         <Image
           width={[2 / 6, 2 / 6, 1]}
           mt={[4, 4, 0]}
+          ml={[0, 0, 1]}
+          {...image}
+        />
+      </Fade>
+    )}
+  </Box>
+);
+
+const AboutSubSectionImageOnLeft = ({
+  image,
+}: {
+  image: ImageType | undefined;
+}): JSX.Element => (
+  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+    {image && (
+      <Fade direction="left" triggerOnce style={{ textAlign: 'center' }}>
+        <Image
+          width={[2 / 6, 2 / 6, 1]}
+          mb={[4, 4, 0]}
           ml={[0, 0, 1]}
           {...image}
         />
