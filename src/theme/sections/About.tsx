@@ -99,7 +99,7 @@ const AboutSubSectionImageOnLeft = ({
         <Image
           width={[2 / 6, 2 / 6, 1]}
           mb={[4, 4, 0]}
-          ml={[0, 0, 1]}
+          mr={[0, 0, 1]}
           {...image}
         />
       </Fade>
