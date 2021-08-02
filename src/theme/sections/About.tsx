@@ -17,6 +17,7 @@ const About = (): JSX.Element => {
 
       {about.map(({ markdown, image, withSeparator }, index) => (
         <SubSection
+          key={index}
           markdown={markdown}
           image={image}
           withSeparator={withSeparator}
