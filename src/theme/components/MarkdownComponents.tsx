@@ -3,7 +3,6 @@ import { Text } from 'rebass';
 import styled from 'styled-components';
 import {
   Components,
-  ReactBaseProps,
   ReactMarkdownProps,
   ReactNode,
 } from 'react-markdown/src/ast-to-react';
@@ -52,7 +51,9 @@ const MarkdownListItem = styled.li`
 `;
 
 const MarkdownLink = (
-  props: ReactBaseProps & ReactMarkdownProps,
+  props: React.ClassAttributes<HTMLAnchorElement> &
+    React.AnchorHTMLAttributes<HTMLAnchorElement> &
+    ReactMarkdownProps,
 ): ReactNode => {
   const href = props['href'] as string;
   const isInnerLink = href.startsWith('#');
