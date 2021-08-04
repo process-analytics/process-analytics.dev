@@ -44,18 +44,6 @@ const Footer = (): JSX.Element => {
                     ❤️
                   </span>
                 </Text>
-                <Text>
-                  <span>
-                    The Process Analytics logo is derived from an icon made by{' '}
-                  </span>
-                  <Link href="https://www.freepik.com" title="Freepik">
-                    Freepik
-                  </Link>
-                  <span> from </span>
-                  <Link href="https://www.flaticon.com/" title="Flaticon">
-                    www.flaticon.com
-                  </Link>
-                </Text>
               </AttributionContainer>
             </Fade>
           </Box>
