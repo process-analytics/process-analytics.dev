@@ -5,7 +5,7 @@ import { loadIcons } from '../utils/icons';
 import { theme } from '../theme';
 import Helmet from './Helmet';
 import 'tippy.js/dist/tippy.css';
-import CookieConsent from 'react-cookie-consent';
+import CookieConsent, { Cookies } from 'react-cookie-consent';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -50,21 +50,24 @@ const Layout = ({ children, title }: Props): JSX.Element => (
       {children}
       <CookieConsent
         location="bottom"
-        cookieName={'pa_ga-disable-G-D2D0FR22RN'}
+        cookieName={'ga-disable-G-D2D0FR22RN'}
         enableDeclineButton={true}
         flipButtons={true}
         cookieValue={false}
         declineCookieValue={true}
-        /*        onDecline={() => {
-          window['pa_ga-disable-G-D2D0FR22RN'] = true;
-          document.cookie =
-            'pa_ga-disable-G-D2D0FR22RN=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/';
-          window.disableStr = 1;
-        }}*/
+        onDecline={() => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          // This function is installed in javascript by the plugin gatsby-plugin-google-gtag
+          gaOptout();
+
+          // Clean the unnecessary cookies
+          Cookies.remove('_ga', { path: '/' });
+          Cookies.remove('_ga_D2D0FR22RN', { path: '/' });
+        }}
       >
         This website uses cookies to enhance the user experience.
       </CookieConsent>
-      {/*      <a href="javascript:gaOptout();">Deactivate Google Tracking</a>*/}
     </ThemeProvider>
   </main>
 );
