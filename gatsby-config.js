@@ -31,6 +31,7 @@ module.exports = {
         gtagConfig: {
           // see https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/#the-gtagconfiganonymize_ip-option
           anonymize_ip: true,
+          cookie_prefix: 'pa',
         },
         // This object is used for configuration specific to this plugin
         pluginConfig: {
