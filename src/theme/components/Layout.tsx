@@ -80,7 +80,7 @@ const Layout = ({ children, title }: Props): JSX.Element => (
           Cookies.remove('_ga_D2D0FR22RN', { path: '/' });
         }}
       >
-        This website uses cookies to enhance the user experience.
+        This website uses cookies to monitor the audience.
       </CookieConsent>
     </ThemeProvider>
   </main>
