@@ -58,7 +58,7 @@ const Layout = ({ children, title }: Props): JSX.Element => (
         onDecline={() => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          // This function is installed in javascript by the plugin gatsby-plugin-google-gtag
+          // This function is made available by the plugin gatsby-plugin-google-gtag at runtime
           gaOptout();
 
           // Clean the unnecessary cookies
