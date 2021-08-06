@@ -53,8 +53,22 @@ const Layout = ({ children, title }: Props): JSX.Element => (
         cookieName={'ga-disable-G-D2D0FR22RN'}
         enableDeclineButton={true}
         flipButtons={true}
+        style={{
+          opacity: '90%',
+        }}
+        contentStyle={{
+          color: theme.colors.background,
+        }}
         cookieValue={false}
+        buttonStyle={{
+          background: '#90EE90',
+          color: theme.colors.primary,
+        }}
         declineCookieValue={true}
+        declineButtonStyle={{
+          background: theme.colors.secondary,
+          color: theme.colors.background,
+        }}
         onDecline={() => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
