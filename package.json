@@ -36,6 +36,7 @@
     "gatsby-plugin-typescript": "^3.10.0",
     "react": "^17.0.1",
     "react-awesome-reveal": "^3.8.1",
+    "react-cookie-consent": "^6.2.4",
     "react-dom": "^17.0.1",
     "react-headroom": "^3.1.1",
     "react-helmet": "^6.1.0",
