@@ -71,6 +71,22 @@ const ReactMarkdownRoot = styled.div`
   }
 `;
 
+function convertPositionToFadeDirection(
+  image: ImageType,
+): 'down' | 'up' | 'left' | 'right' {
+  switch (image.position) {
+    case 'top':
+      return 'down';
+    case 'bottom':
+      return 'up';
+    case 'left':
+      return 'left';
+    case 'right':
+    default:
+      return 'right';
+  }
+}
+
 const AboutSubSectionImageOnRight = ({
   image,
 }: {
@@ -78,7 +94,11 @@ const AboutSubSectionImageOnRight = ({
 }): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
     {image && (
-      <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
+      <Fade
+        direction={convertPositionToFadeDirection(image)}
+        triggerOnce
+        style={{ textAlign: 'center' }}
+      >
         <Image
           width={[2 / 6, 2 / 6, 1]}
           mt={[4, 4, 0]}
@@ -97,7 +117,11 @@ const AboutSubSectionImageOnLeft = ({
 }): JSX.Element => (
   <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
     {image && (
-      <Fade direction="left" triggerOnce style={{ textAlign: 'center' }}>
+      <Fade
+        direction={convertPositionToFadeDirection(image)}
+        triggerOnce
+        style={{ textAlign: 'center' }}
+      >
         <Image
           width={[2 / 6, 2 / 6, 1]}
           mb={[4, 4, 0]}
