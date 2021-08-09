@@ -13,6 +13,11 @@ declare module 'styled-components' {
   export type DefaultTheme = Theme;
 }
 
+declare global {
+  // This function is made available by the plugin gatsby-plugin-google-gtag at runtime
+  function gaOptout(): void;
+}
+
 loadIcons();
 
 const GlobalStyle = createGlobalStyle`
@@ -70,9 +75,6 @@ const Layout = ({ children, title }: Props): JSX.Element => (
           color: theme.colors.background,
         }}
         onDecline={() => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          // This function is made available by the plugin gatsby-plugin-google-gtag at runtime
           gaOptout();
 
           // Clean the unnecessary cookies
