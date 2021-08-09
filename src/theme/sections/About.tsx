@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Flex } from 'rebass/styled-components';
+import { Box, Image, Flex, ImageProps } from 'rebass/styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
@@ -8,7 +8,7 @@ import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import { AboutSubSection, Image as ImageType } from '../types';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 const About = (): JSX.Element => {
   return (
@@ -38,11 +38,21 @@ const SubSection = ({
       marginBottom: '30px',
     }}
   >
+    {image && image.position === 'top' && (
+      <Flex
+        width={getBoxWidth(image)}
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
+      >
+        <AboutSubSectionImage image={image} />
+      </Flex>
+    )}
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {image && (image.position === 'left' || image.position === 'top') && (
-        <AboutSubSectionImageOnLeft image={image} />
+      {image && image.position === 'left' && (
+        <AboutSubSectionImage image={image} />
       )}
-      <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
+      <Box width={getBoxWidth(image)} px={[1, 2, 4]} mt={2}>
         <Fade direction="down" triggerOnce>
           <ReactMarkdownRoot>
             <ReactMarkdown
@@ -52,10 +62,15 @@ const SubSection = ({
           </ReactMarkdownRoot>
         </Fade>
       </Box>
-      {image && (image.position === 'right' || image.position === 'bottom') && (
-        <AboutSubSectionImageOnRight image={image} />
+      {image && image.position === 'right' && (
+        <AboutSubSectionImage image={image} />
       )}
     </Flex>
+    {image && image.position === 'bottom' && (
+      <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+        <AboutSubSectionImage image={image} />
+      </Flex>
+    )}
     {withSeparator && <Divider />}
   </Box>
 );
@@ -70,6 +85,54 @@ const ReactMarkdownRoot = styled.div`
     font-size: medium;
   }
 `;
+
+function getBoxWidth(image: ImageType | undefined): number[] {
+  if (!image) {
+    return [1, 1, 4 / 6];
+  }
+
+  switch (image.position) {
+    case 'top':
+    case 'bottom':
+      return [1, 1, 1];
+    case 'left':
+    case 'right':
+    default:
+      return [1, 1, 4 / 6];
+  }
+}
+
+function getBoxImageWidth(image: ImageType | undefined): number[] {
+  if (!image) {
+    return [1, 1, 2 / 6];
+  }
+
+  switch (image.position) {
+    case 'top':
+    case 'bottom':
+      return [1, 1, 1];
+    case 'left':
+    case 'right':
+    default:
+      return [1, 1, 2 / 6];
+  }
+}
+
+function getBoxImageStyle(image: ImageType | undefined): CSSProperties {
+  if (!image) {
+    return { maxWidth: '300px', margin: 'auto' };
+  }
+
+  switch (image.position) {
+    case 'top':
+    case 'bottom':
+      return {};
+    case 'left':
+    case 'right':
+    default:
+      return { maxWidth: '300px', margin: 'auto' };
+  }
+}
 
 function convertPositionToFadeDirection(
   image: ImageType,
@@ -87,47 +150,37 @@ function convertPositionToFadeDirection(
   }
 }
 
-const AboutSubSectionImageOnRight = ({
-  image,
-}: {
-  image: ImageType | undefined;
-}): JSX.Element => (
-  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
-    {image && (
-      <Fade
-        direction={convertPositionToFadeDirection(image)}
-        triggerOnce
-        style={{ textAlign: 'center' }}
-      >
-        <Image
-          width={[2 / 6, 2 / 6, 1]}
-          mt={[4, 4, 0]}
-          ml={[0, 0, 1]}
-          {...image}
-        />
-      </Fade>
-    )}
-  </Box>
-);
+function getImageProps(image: ImageType): ImageProps {
+  switch (image.position) {
+    case 'top':
+      return { mt: [4, 4, 0], mr: [0, 0, 0] };
+    case 'bottom':
+      return { mt: [4, 4, 0], ml: [0, 0, 0] };
+    case 'left':
+      return { mb: [4, 4, 0], mr: [0, 0, 1] };
+    case 'right':
+    default:
+      return { mt: [4, 4, 0], ml: [0, 0, 1] };
+  }
+}
 
-const AboutSubSectionImageOnLeft = ({
+const AboutSubSectionImage = ({
   image,
 }: {
   image: ImageType | undefined;
 }): JSX.Element => (
-  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+  <Box
+    id="box-image"
+    width={getBoxImageWidth(image)}
+    style={getBoxImageStyle(image)}
+  >
     {image && (
       <Fade
         direction={convertPositionToFadeDirection(image)}
         triggerOnce
         style={{ textAlign: 'center' }}
       >
-        <Image
-          width={[2 / 6, 2 / 6, 1]}
-          mb={[4, 4, 0]}
-          mr={[0, 0, 1]}
-          {...image}
-        />
+        <Image width={[2 / 6, 2 / 6, 1]} {...getImageProps(image)} {...image} />
       </Fade>
     )}
   </Box>
