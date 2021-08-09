@@ -21,7 +21,6 @@ const About = (): JSX.Element => {
           markdown={markdown}
           image={image}
           withSeparator={withSeparator}
-          imageOnLeft={Boolean(index % 2)}
         />
       ))}
     </Section.Container>
@@ -32,8 +31,7 @@ const SubSection = ({
   markdown,
   image,
   withSeparator = true,
-  imageOnLeft,
-}: AboutSubSection & { imageOnLeft: boolean }): JSX.Element => (
+}: AboutSubSection): JSX.Element => (
   <Box
     css={{
       marginTop: '30px',
@@ -41,7 +39,9 @@ const SubSection = ({
     }}
   >
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {imageOnLeft && <AboutSubSectionImageOnLeft image={image} />}
+      {image && (image.position === 'left' || image.position === 'top') && (
+        <AboutSubSectionImageOnLeft image={image} />
+      )}
       <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
         <Fade direction="down" triggerOnce>
           <ReactMarkdownRoot>
@@ -52,7 +52,9 @@ const SubSection = ({
           </ReactMarkdownRoot>
         </Fade>
       </Box>
-      {!imageOnLeft && <AboutSubSectionImageOnRight image={image} />}
+      {image && (image.position === 'right' || image.position === 'bottom') && (
+        <AboutSubSectionImageOnRight image={image} />
+      )}
     </Flex>
     {withSeparator && <Divider />}
   </Box>

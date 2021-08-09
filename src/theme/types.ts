@@ -7,6 +7,7 @@ export type Theme = DefaultTheme & RebassTheme;
 export type Image = {
   src: string;
   alt: string;
+  position?: 'left' | 'right' | 'top' | 'bottom';
 };
 
 export type Favicon = {

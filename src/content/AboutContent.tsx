@@ -9,6 +9,7 @@ Then you need an overview of the execution data: process, data, actors (human an
     image: {
       src: WhyDiagram,
       alt: 'Email Voting Diagram',
+      position: 'top',
     },
   },
   {
@@ -34,6 +35,7 @@ These libraries will make it easy to render processes, human tasks, automatic an
     image: {
       src: Logo,
       alt: 'Process Analytics Logo',
+      position: 'left',
     },
     withSeparator: false,
   },
