@@ -9,6 +9,7 @@ import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import { AboutSubSection, Image as ImageType } from '../types';
 import styled, { CSSProperties } from 'styled-components';
+import { BoxProps } from 'rebass';
 
 const About = (): JSX.Element => {
   return (
@@ -102,35 +103,28 @@ function getBoxWidth(image: ImageType | undefined): number[] {
   }
 }
 
-function getBoxImageWidth(image: ImageType | undefined): number[] {
+function getImageBoxProps(image: ImageType | undefined): BoxProps {
   if (!image) {
-    return [1, 1, 2 / 6];
+    return {
+      width: [1, 1, 2 / 6],
+      style: {
+        maxWidth: '300px',
+        margin: 'auto',
+      },
+    };
   }
 
   switch (image.position) {
     case 'top':
     case 'bottom':
-      return [1, 1, 1];
+      return { width: [1, 1, 1], style: { margin: 'auto' } };
     case 'left':
     case 'right':
     default:
-      return [1, 1, 2 / 6];
-  }
-}
-
-function getBoxImageStyle(image: ImageType | undefined): CSSProperties {
-  if (!image) {
-    return { maxWidth: '300px', margin: 'auto' };
-  }
-
-  switch (image.position) {
-    case 'top':
-    case 'bottom':
-      return {};
-    case 'left':
-    case 'right':
-    default:
-      return { maxWidth: '300px', margin: 'auto' };
+      return {
+        width: [1, 1, 2 / 6],
+        style: { maxWidth: '300px', margin: 'auto' },
+      };
   }
 }
 
@@ -169,11 +163,7 @@ const AboutSubSectionImage = ({
 }: {
   image: ImageType | undefined;
 }): JSX.Element => (
-  <Box
-    id="box-image"
-    width={getBoxImageWidth(image)}
-    style={getBoxImageStyle(image)}
-  >
+  <Box {...getImageBoxProps(image)}>
     {image && (
       <Fade
         direction={convertPositionToFadeDirection(image)}
