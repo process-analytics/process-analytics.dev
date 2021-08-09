@@ -79,6 +79,7 @@ const Layout = ({ children, title }: Props): JSX.Element => (
           Cookies.remove('_ga', { path: '/' });
           Cookies.remove('_ga_D2D0FR22RN', { path: '/' });
         }}
+        overlay={true}
       >
         This website uses cookies to monitor the audience.
       </CookieConsent>
