@@ -196,52 +196,41 @@ function buildAndSortSubSectionImageText(
   markdown: string,
   index: number,
 ): JSX.Element {
-  const subSectionText = (
-    <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
-  );
+  const subSectionContent = sortSubSectionImageText(image, index, markdown);
 
-  if (image?.position) {
-    switch (image.position) {
-      case 'top':
-        return (
-          <Box justifyContent="center" alignItems="center" flexWrap="wrap">
-            <SubSectionImage image={image} />
-            {subSectionText}
-          </Box>
-        );
-      case 'bottom':
-        return (
-          <Box justifyContent="center" alignItems="center" flexWrap="wrap">
-            {subSectionText}
-            <SubSectionImage image={image} />
-          </Box>
-        );
-      case 'left':
-        return (
-          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            <SubSectionImage image={image} />
-            {subSectionText}
-          </Flex>
-        );
-      case 'right':
-      default:
-        return (
-          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            {subSectionText}
-            <SubSectionImage image={image} />
-          </Flex>
-        );
-    }
-  } else {
-    const imageOnLeft = Boolean(index % 2);
+  if (
+    image?.position &&
+    (image.position === 'top' || image.position === 'bottom')
+  ) {
     return (
-      <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-        {imageOnLeft && <SubSectionImage image={image} />}
-        {subSectionText}
-        {!imageOnLeft && <SubSectionImage image={image} />}
-      </Flex>
+      <Box justifyContent="center" alignItems="center" flexWrap="wrap">
+        {subSectionContent}
+      </Box>
     );
   }
+
+  return (
+    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+      {subSectionContent}
+    </Flex>
+  );
+}
+
+function sortSubSectionImageText(
+  image: ImageType | undefined,
+  index: number,
+  markdown: string,
+) {
+  const imageOnLeftTop = image?.position
+    ? image.position === 'left' || image.position === 'top'
+    : Boolean(index % 2);
+  return (
+    <>
+      {imageOnLeftTop && <SubSectionImage image={image} />}
+      <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
+      {!imageOnLeftTop && <SubSectionImage image={image} />}
+    </>
+  );
 }
 
 export default About;
