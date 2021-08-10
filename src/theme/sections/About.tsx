@@ -225,7 +225,7 @@ function sortSubSectionImageText(
   image: ImageType | undefined,
   index: number,
   markdown: string,
-) {
+): JSX.Element {
   const imageOnLeftTop = image?.position
     ? image.position === 'left' || image.position === 'top'
     : Boolean(index % 2);
