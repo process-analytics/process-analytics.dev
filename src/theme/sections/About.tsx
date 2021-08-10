@@ -8,7 +8,7 @@ import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import { AboutSubSection, Image as ImageType } from '../types';
-import styled, { CSSProperties } from 'styled-components';
+import styled from 'styled-components';
 import { BoxProps } from 'rebass';
 
 const About = (): JSX.Element => {
@@ -29,10 +29,13 @@ const About = (): JSX.Element => {
 };
 
 const SubSection = ({
+  plop,
   markdown,
   image,
   withSeparator = true,
-}: AboutSubSection): JSX.Element => (
+}: AboutSubSection & {
+  plop: number;
+}): JSX.Element => (
   <Box
     css={{
       marginTop: '30px',
@@ -41,35 +44,22 @@ const SubSection = ({
   >
     {image && image.position === 'top' && (
       <Flex
-        width={getBoxWidth(image)}
+        width={getTextBoxWidth(image)}
         justifyContent="center"
         alignItems="center"
         flexWrap="wrap"
       >
-        <AboutSubSectionImage image={image} />
+        <SubSectionImage image={image} />
       </Flex>
     )}
     <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {image && image.position === 'left' && (
-        <AboutSubSectionImage image={image} />
-      )}
-      <Box width={getBoxWidth(image)} px={[1, 2, 4]} mt={2}>
-        <Fade direction="down" triggerOnce>
-          <ReactMarkdownRoot>
-            <ReactMarkdown
-              children={markdown}
-              components={markdownComponents}
-            />
-          </ReactMarkdownRoot>
-        </Fade>
-      </Box>
-      {image && image.position === 'right' && (
-        <AboutSubSectionImage image={image} />
-      )}
+      {image && image.position === 'left' && <SubSectionImage image={image} />}
+      <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
+      {image && image.position === 'right' && <SubSectionImage image={image} />}
     </Flex>
     {image && image.position === 'bottom' && (
       <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-        <AboutSubSectionImage image={image} />
+        <SubSectionImage image={image} />
       </Flex>
     )}
     {withSeparator && <Divider />}
@@ -87,7 +77,84 @@ const ReactMarkdownRoot = styled.div`
   }
 `;
 
-function getBoxWidth(image: ImageType | undefined): number[] {
+const SubSectionText = ({
+  markdown,
+  width,
+}: {
+  markdown: string;
+  width: number[];
+}): JSX.Element => (
+  <Box width={width} px={[1, 2, 4]} mt={2}>
+    <Fade direction="down" triggerOnce>
+      <ReactMarkdownRoot>
+        <ReactMarkdown children={markdown} components={markdownComponents} />
+      </ReactMarkdownRoot>
+    </Fade>
+  </Box>
+);
+
+const SubSectionImage = ({
+  image,
+}: {
+  image: ImageType | undefined;
+}): JSX.Element => (
+  <Box {...getImageBoxProps(image)}>
+    {image && (
+      <Fade
+        direction={convertPositionToFadeDirection(image)}
+        triggerOnce
+        style={{ textAlign: 'center' }}
+      >
+        <Image width={[2 / 6, 2 / 6, 1]} {...getImageProps(image)} {...image} />
+      </Fade>
+    )}
+  </Box>
+);
+
+const Divider = styled.div`
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      rgb(48, 49, 51),
+      transparent
+    );
+  }
+`;
+
+const Background = (): JSX.Element => (
+  <>
+    <Triangle
+      color="secondary"
+      height={['50vh', '20vh']}
+      width={['50vw', '50vw']}
+      position="bottom-left"
+    />
+
+    <Triangle
+      color="primary"
+      height={['20vh', '40vh']}
+      width={['75vw', '70vw']}
+      position="top-right"
+    />
+
+    <Triangle
+      color="muted"
+      height={['25vh', '20vh']}
+      width={['100vw', '100vw']}
+    />
+  </>
+);
+
+function getTextBoxWidth(image: ImageType | undefined): number[] {
   if (!image) {
     return [1, 1, 4 / 6];
   }
@@ -157,66 +224,5 @@ function getImageProps(image: ImageType): ImageProps {
       return { mt: [4, 4, 0], ml: [0, 0, 1] };
   }
 }
-
-const AboutSubSectionImage = ({
-  image,
-}: {
-  image: ImageType | undefined;
-}): JSX.Element => (
-  <Box {...getImageBoxProps(image)}>
-    {image && (
-      <Fade
-        direction={convertPositionToFadeDirection(image)}
-        triggerOnce
-        style={{ textAlign: 'center' }}
-      >
-        <Image width={[2 / 6, 2 / 6, 1]} {...getImageProps(image)} {...image} />
-      </Fade>
-    )}
-  </Box>
-);
-
-const Divider = styled.div`
-  position: relative;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 35%;
-    right: 35%;
-    height: 2px;
-    background-image: linear-gradient(
-      to right,
-      transparent,
-      rgb(48, 49, 51),
-      transparent
-    );
-  }
-`;
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="secondary"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      position="bottom-left"
-    />
-
-    <Triangle
-      color="primary"
-      height={['20vh', '40vh']}
-      width={['75vw', '70vw']}
-      position="top-right"
-    />
-
-    <Triangle
-      color="muted"
-      height={['25vh', '20vh']}
-      width={['100vw', '100vw']}
-    />
-  </>
-);
 
 export default About;
