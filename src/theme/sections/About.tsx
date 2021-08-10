@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Flex, ImageProps } from 'rebass/styled-components';
+import { Box, Flex, Image, ImageProps } from 'rebass/styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
@@ -7,7 +7,7 @@ import Triangle from '../components/Triangle';
 import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
-import { AboutSubSection, Image as ImageType } from '../types';
+import { Image as ImageType } from '../types';
 import styled from 'styled-components';
 import { BoxProps } from 'rebass';
 
@@ -16,55 +16,21 @@ const About = (): JSX.Element => {
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {about.map(({ markdown, image, withSeparator }, index) => (
-        <SubSection
+      {about.map(({ markdown, image, withSeparator = true }, index) => (
+        <Box
           key={index}
-          markdown={markdown}
-          image={image}
-          withSeparator={withSeparator}
-        />
+          css={{
+            marginTop: '30px',
+            marginBottom: '30px',
+          }}
+        >
+          {buildAndSortSubSectionImageText(image, markdown, index)}
+          {withSeparator && <Divider />}
+        </Box>
       ))}
     </Section.Container>
   );
 };
-
-const SubSection = ({
-  plop,
-  markdown,
-  image,
-  withSeparator = true,
-}: AboutSubSection & {
-  plop: number;
-}): JSX.Element => (
-  <Box
-    css={{
-      marginTop: '30px',
-      marginBottom: '30px',
-    }}
-  >
-    {image && image.position === 'top' && (
-      <Flex
-        width={getTextBoxWidth(image)}
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
-      >
-        <SubSectionImage image={image} />
-      </Flex>
-    )}
-    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {image && image.position === 'left' && <SubSectionImage image={image} />}
-      <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
-      {image && image.position === 'right' && <SubSectionImage image={image} />}
-    </Flex>
-    {image && image.position === 'bottom' && (
-      <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-        <SubSectionImage image={image} />
-      </Flex>
-    )}
-    {withSeparator && <Divider />}
-  </Box>
-);
 
 const ReactMarkdownRoot = styled.div`
   font-size: large;
@@ -222,6 +188,59 @@ function getImageProps(image: ImageType): ImageProps {
     case 'right':
     default:
       return { mt: [4, 4, 0], ml: [0, 0, 1] };
+  }
+}
+
+function buildAndSortSubSectionImageText(
+  image: ImageType | undefined,
+  markdown: string,
+  index: number,
+): JSX.Element {
+  const subSectionText = (
+    <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
+  );
+
+  if (image?.position) {
+    switch (image.position) {
+      case 'top':
+        return (
+          <Box justifyContent="center" alignItems="center" flexWrap="wrap">
+            <SubSectionImage image={image} />
+            {subSectionText}
+          </Box>
+        );
+      case 'bottom':
+        return (
+          <Box justifyContent="center" alignItems="center" flexWrap="wrap">
+            {subSectionText}
+            <SubSectionImage image={image} />
+          </Box>
+        );
+      case 'left':
+        return (
+          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+            <SubSectionImage image={image} />
+            {subSectionText}
+          </Flex>
+        );
+      case 'right':
+      default:
+        return (
+          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+            {subSectionText}
+            <SubSectionImage image={image} />
+          </Flex>
+        );
+    }
+  } else {
+    const imageOnLeft = Boolean(index % 2);
+    return (
+      <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+        {imageOnLeft && <SubSectionImage image={image} />}
+        {subSectionText}
+        {!imageOnLeft && <SubSectionImage image={image} />}
+      </Flex>
+    );
   }
 }
 
