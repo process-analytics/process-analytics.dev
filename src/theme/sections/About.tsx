@@ -71,7 +71,12 @@ const SubSectionImage = ({
         triggerOnce
         style={{ textAlign: 'center' }}
       >
-        <Image width={[2 / 6, 2 / 6, 1]} {...getImageProps(image)} {...image} />
+        <Image
+          width={[2 / 6, 2 / 6, 1]}
+          style={{ borderRadius: '5px' }}
+          {...getImageProps(image)}
+          {...image}
+        />
       </Fade>
     )}
   </Box>
