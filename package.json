@@ -33,7 +33,7 @@
     "gatsby-plugin-react-helmet": "^4.10.0",
     "gatsby-plugin-sitemap": "^4.6.0",
     "gatsby-plugin-styled-components": "^4.10.0",
-    "gatsby-plugin-typescript": "^3.10.0",
+    "gatsby-plugin-typescript": "^3.11.0",
     "react": "^17.0.1",
     "react-awesome-reveal": "^3.8.1",
     "react-cookie-consent": "^6.2.4",
