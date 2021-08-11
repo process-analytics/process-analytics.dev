@@ -1,5 +1,10 @@
 const colors = require('./src/theme/colors.json');
 
+// Only the variables prefixed by 'GATSBY_' can be available in browser code
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Process Analytics',
@@ -25,7 +30,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          'G-D2D0FR22RN', // Google Analytics
+          process.env.GATSBY_GA_MEASUREMENT_ID, // Google Analytics
         ],
         // This object gets passed directly to the gtag config command
         gtagConfig: {

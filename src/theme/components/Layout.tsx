@@ -53,38 +53,45 @@ const Layout = ({ children, title }: Props): JSX.Element => (
       <GlobalStyle />
       <Helmet title={title} />
       {children}
-      <CookieConsent
-        location="bottom"
-        cookieName={'ga-disable-G-D2D0FR22RN'}
-        enableDeclineButton={true}
-        flipButtons={true}
-        style={{
-          opacity: '90%',
-        }}
-        contentStyle={{
-          color: theme.colors.background,
-        }}
-        cookieValue={false}
-        buttonStyle={{
-          background: '#90EE90',
-          color: theme.colors.primary,
-        }}
-        declineCookieValue={true}
-        declineButtonStyle={{
-          background: theme.colors.secondary,
-          color: theme.colors.background,
-        }}
-        onDecline={() => {
-          gaOptout();
+      {process.env.GATSBY_GA_MEASUREMENT_ID && (
+        <CookieConsent
+          location="bottom"
+          cookieName={`ga-disable-${process.env.GATSBY_GA_MEASUREMENT_ID}`}
+          enableDeclineButton={true}
+          flipButtons={true}
+          style={{
+            opacity: '90%',
+          }}
+          contentStyle={{
+            color: theme.colors.background,
+          }}
+          cookieValue={false}
+          buttonStyle={{
+            background: '#90EE90',
+            color: theme.colors.primary,
+          }}
+          declineCookieValue={true}
+          declineButtonStyle={{
+            background: theme.colors.secondary,
+            color: theme.colors.background,
+          }}
+          onDecline={() => {
+            gaOptout();
 
-          // Clean the unnecessary cookies
-          Cookies.remove('_ga', { path: '/' });
-          Cookies.remove('_ga_D2D0FR22RN', { path: '/' });
-        }}
-        overlay={true}
-      >
-        This website uses cookies to monitor the audience.
-      </CookieConsent>
+            // Clean the unnecessary cookies
+            Cookies.remove('_ga', { path: '/' });
+            Cookies.remove(
+              `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
+              {
+                path: '/',
+              },
+            );
+          }}
+          overlay={true}
+        >
+          This website uses cookies to monitor the audience.
+        </CookieConsent>
+      )}
     </ThemeProvider>
   </main>
 );
