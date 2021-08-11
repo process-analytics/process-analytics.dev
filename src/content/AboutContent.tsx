@@ -1,6 +1,7 @@
 import { About } from '../theme/types';
 import Logo from '../images/logo.svg';
 import WhyDiagram from '../images/why_diagram.png';
+import WhatDiagram from '../images/what_diagram.png';
 
 export const about: About = [
   {
@@ -16,6 +17,11 @@ Then you need an overview of the execution data: process, data, actors (human an
     markdown: `The Process Analytics project supports the creation of tools that can be used to:
 - give an overview of the execution data
 - help to make the right choices for process understanding and optimization`,
+    image: {
+      src: WhatDiagram,
+      alt: 'Total Number Of Executions Diagram',
+      position: 'bottom',
+    },
     withSeparator: false,
   },
   {
