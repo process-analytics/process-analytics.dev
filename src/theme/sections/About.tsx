@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Flex } from 'rebass/styled-components';
+import { Box, Flex, Image, ImageProps } from 'rebass/styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
@@ -7,56 +7,30 @@ import Triangle from '../components/Triangle';
 import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
-import { AboutSubSection, Image as ImageType } from '../types';
+import { Image as ImageType } from '../types';
 import styled from 'styled-components';
+import { BoxProps } from 'rebass';
 
 const About = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {about.map(({ markdown, image, withSeparator }, index) => (
-        <SubSection
+      {about.map(({ markdown, image, withSeparator = true }, index) => (
+        <Box
           key={index}
-          markdown={markdown}
-          image={image}
-          withSeparator={withSeparator}
-          imageOnLeft={Boolean(index % 2)}
-        />
+          css={{
+            marginTop: '30px',
+            marginBottom: '30px',
+          }}
+        >
+          {buildAndSortSubSectionImageText(image, markdown, index)}
+          {withSeparator && <Divider />}
+        </Box>
       ))}
     </Section.Container>
   );
 };
-
-const SubSection = ({
-  markdown,
-  image,
-  withSeparator = true,
-  imageOnLeft,
-}: AboutSubSection & { imageOnLeft: boolean }): JSX.Element => (
-  <Box
-    css={{
-      marginTop: '30px',
-      marginBottom: '30px',
-    }}
-  >
-    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {imageOnLeft && <AboutSubSectionImageOnLeft image={image} />}
-      <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]} mt={2}>
-        <Fade direction="down" triggerOnce>
-          <ReactMarkdownRoot>
-            <ReactMarkdown
-              children={markdown}
-              components={markdownComponents}
-            />
-          </ReactMarkdownRoot>
-        </Fade>
-      </Box>
-      {!imageOnLeft && <AboutSubSectionImageOnRight image={image} />}
-    </Flex>
-    {withSeparator && <Divider />}
-  </Box>
-);
 
 const ReactMarkdownRoot = styled.div`
   font-size: large;
@@ -69,37 +43,38 @@ const ReactMarkdownRoot = styled.div`
   }
 `;
 
-const AboutSubSectionImageOnRight = ({
-  image,
+const SubSectionText = ({
+  markdown,
+  width,
 }: {
-  image: ImageType | undefined;
+  markdown: string;
+  width: number[];
 }): JSX.Element => (
-  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
-    {image && (
-      <Fade direction="right" triggerOnce style={{ textAlign: 'center' }}>
-        <Image
-          width={[2 / 6, 2 / 6, 1]}
-          mt={[4, 4, 0]}
-          ml={[0, 0, 1]}
-          {...image}
-        />
-      </Fade>
-    )}
+  <Box width={width} px={[1, 2, 4]} mt={2}>
+    <Fade direction="down" triggerOnce>
+      <ReactMarkdownRoot>
+        <ReactMarkdown children={markdown} components={markdownComponents} />
+      </ReactMarkdownRoot>
+    </Fade>
   </Box>
 );
 
-const AboutSubSectionImageOnLeft = ({
+const SubSectionImage = ({
   image,
 }: {
   image: ImageType | undefined;
 }): JSX.Element => (
-  <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+  <Box {...getImageBoxProps(image)}>
     {image && (
-      <Fade direction="left" triggerOnce style={{ textAlign: 'center' }}>
+      <Fade
+        direction={convertPositionToFadeDirection(image)}
+        triggerOnce
+        style={{ textAlign: 'center' }}
+      >
         <Image
           width={[2 / 6, 2 / 6, 1]}
-          mb={[4, 4, 0]}
-          ml={[0, 0, 1]}
+          style={{ borderRadius: '5px' }}
+          {...getImageProps(image)}
           {...image}
         />
       </Fade>
@@ -149,5 +124,118 @@ const Background = (): JSX.Element => (
     />
   </>
 );
+
+function getTextBoxWidth(image: ImageType | undefined): number[] {
+  if (!image) {
+    return [1, 1, 4 / 6];
+  }
+
+  switch (image.position) {
+    case 'top':
+    case 'bottom':
+      return [1, 1, 1];
+    case 'left':
+    case 'right':
+    default:
+      return [1, 1, 4 / 6];
+  }
+}
+
+function getImageBoxProps(image: ImageType | undefined): BoxProps {
+  if (!image) {
+    return {
+      width: [1, 1, 2 / 6],
+      style: {
+        maxWidth: '300px',
+        margin: 'auto',
+      },
+    };
+  }
+
+  switch (image.position) {
+    case 'top':
+    case 'bottom':
+      return { width: [1, 1, 1], style: { margin: 'auto' } };
+    case 'left':
+    case 'right':
+    default:
+      return {
+        width: [1, 1, 2 / 6],
+        style: { maxWidth: '300px', margin: 'auto' },
+      };
+  }
+}
+
+function convertPositionToFadeDirection(
+  image: ImageType,
+): 'down' | 'up' | 'left' | 'right' {
+  switch (image.position) {
+    case 'top':
+      return 'down';
+    case 'bottom':
+      return 'up';
+    case 'left':
+      return 'left';
+    case 'right':
+    default:
+      return 'right';
+  }
+}
+
+function getImageProps(image: ImageType): ImageProps {
+  switch (image.position) {
+    case 'top':
+      return { mt: [4, 4, 0], mr: [0, 0, 0] };
+    case 'bottom':
+      return { mt: [4, 4, 0], ml: [0, 0, 0] };
+    case 'left':
+      return { mb: [4, 4, 0], mr: [0, 0, 1] };
+    case 'right':
+    default:
+      return { mt: [4, 4, 0], ml: [0, 0, 1] };
+  }
+}
+
+function buildAndSortSubSectionImageText(
+  image: ImageType | undefined,
+  markdown: string,
+  index: number,
+): JSX.Element {
+  const subSectionContent = sortSubSectionImageText(image, index, markdown);
+
+  if (
+    image?.position &&
+    (image.position === 'top' || image.position === 'bottom')
+  ) {
+    return (
+      <Box justifyContent="center" alignItems="center" flexWrap="wrap">
+        {subSectionContent}
+      </Box>
+    );
+  }
+
+  return (
+    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+      {subSectionContent}
+    </Flex>
+  );
+}
+
+function sortSubSectionImageText(
+  image: ImageType | undefined,
+  index: number,
+  markdown: string,
+): JSX.Element {
+  const imageOnLeftTop = image?.position
+    ? image.position === 'left' || image.position === 'top'
+    : Boolean(index % 2);
+  return (
+    <>
+      {imageOnLeftTop && <SubSectionImage image={image} />}
+      <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
+      {!imageOnLeftTop && <SubSectionImage image={image} />}
+    </>
+  );
+}
 
 export default About;
