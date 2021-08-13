@@ -6,9 +6,6 @@ require('dotenv').config({
 });
 
 module.exports = {
-  flags: {
-    DEV_WEBPACK_CACHE: true,
-  },
   siteMetadata: {
     title: 'Process Analytics',
     siteUrl: `https://process-analytics.dev`,
