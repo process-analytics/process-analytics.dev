@@ -7,7 +7,7 @@ import Triangle from '../components/Triangle';
 import markdownComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
-import { Image as ImageType } from '../types';
+import { Image as ImageType, Theme } from "../types";
 import styled from 'styled-components';
 import { BoxProps } from 'rebass';
 
@@ -95,7 +95,7 @@ const Divider = styled.div`
     background-image: linear-gradient(
       to right,
       transparent,
-      rgb(48, 49, 51),
+      ${props => (props.theme as Theme).colors.primary},
       transparent
     );
   }
