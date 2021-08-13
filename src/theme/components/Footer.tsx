@@ -4,9 +4,10 @@ import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import SocialLink from './SocialLink';
 import Link from './Link';
-import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
+import { GATSBY_URL, MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { helmet } from '../../content/HelmetContent';
+import { capitalize } from '../utils/string';
 
 const Footer = (): JSX.Element => {
   const { title, socialLinks } = landing;
@@ -57,6 +58,28 @@ const Footer = (): JSX.Element => {
             ))}
           </Fade>
         </Flex>
+      </FooterContainer>
+      <FooterContainer justify-content={'center'}>
+        <Fade direction="up" triggerOnce>
+          {/* TODO duplication with HEADER */}
+          <Flex mr={[0, 3, 5]}>
+            {Object.keys(SECTION)
+              .filter(id => id !== 'home')
+              .map(id => (
+                <Box
+                  key={id}
+                  ml={[2, 3]}
+                  color="background"
+                  fontSize={[2, 3]}
+                  mt={60} // TODO responsive
+                >
+                  <Link href={`#${id}`} tabIndex={0}>
+                    {capitalize(id)}
+                  </Link>
+                </Box>
+              ))}
+          </Flex>
+        </Fade>
       </FooterContainer>
     </Box>
   );
