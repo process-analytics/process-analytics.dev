@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren, ReactElement } from 'react';
 import { Text } from 'rebass';
 import styled from 'styled-components';
-import {
-  Components,
-  ReactMarkdownProps,
-  ReactNode,
-} from 'react-markdown/src/ast-to-react';
+import { MDXProviderComponentsProp } from '@mdx-js/react';
 
 const StyledLink = styled.a`
   display: inline-block;
@@ -51,10 +47,8 @@ const MarkdownListItem = styled.li`
 `;
 
 const MarkdownLink = (
-  props: React.ClassAttributes<HTMLAnchorElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement> &
-    ReactMarkdownProps,
-): ReactNode => {
+  props: PropsWithChildren<any>,
+): ReactElement<any, any> => {
   const href = props['href'] as string;
   const isInnerLink = href.startsWith('#');
 
@@ -66,8 +60,7 @@ const MarkdownLink = (
     </StyledLink>
   );
 };
-
-const components: Components = {
+const components: MDXProviderComponentsProp = {
   p: MarkdownParagraph,
   ol: MarkdownList,
   li: MarkdownListItem,

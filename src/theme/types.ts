@@ -25,7 +25,7 @@ export type Library = {
 export type About = AboutSubSection[];
 
 export type AboutSubSection = {
-  markdown: string;
+  mdx: JSX.Element;
   image?: Image;
   withSeparator?: boolean;
 };

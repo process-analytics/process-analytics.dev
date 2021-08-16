@@ -1,22 +1,22 @@
 import React from 'react';
 import { Box, Flex, Image, ImageProps } from 'rebass/styled-components';
-import ReactMarkdown from 'react-markdown';
 import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
-import markdownComponents from '../components/MarkdownComponents';
+import mdxComponents from '../components/MarkdownComponents';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import { Image as ImageType, Theme } from '../types';
 import styled from 'styled-components';
 import { BoxProps } from 'rebass';
+import { MDXProvider } from '@mdx-js/react';
 
 const About = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {about.map(({ markdown, image, withSeparator = true }, index) => (
+      {about.map(({ mdx, image, withSeparator = true }, index) => (
         <Box
           key={index}
           css={{
@@ -24,7 +24,7 @@ const About = (): JSX.Element => {
             marginBottom: '30px',
           }}
         >
-          {buildAndSortSubSectionImageText(image, markdown, index)}
+          {buildAndSortSubSectionImageText(image, mdx, index)}
           {withSeparator && <Divider />}
         </Box>
       ))}
@@ -44,16 +44,16 @@ const ReactMarkdownRoot = styled.div`
 `;
 
 const SubSectionText = ({
-  markdown,
+  mdx,
   width,
 }: {
-  markdown: string;
+  mdx: JSX.Element;
   width: number[];
 }): JSX.Element => (
   <Box width={width} px={[1, 2, 4]} mt={2}>
     <Fade direction="down" triggerOnce>
       <ReactMarkdownRoot>
-        <ReactMarkdown children={markdown} components={markdownComponents} />
+        <MDXProvider components={mdxComponents}>{mdx}</MDXProvider>
       </ReactMarkdownRoot>
     </Fade>
   </Box>
@@ -198,10 +198,10 @@ function getImageProps(image: ImageType): ImageProps {
 
 function buildAndSortSubSectionImageText(
   image: ImageType | undefined,
-  markdown: string,
+  mdx: JSX.Element,
   index: number,
 ): JSX.Element {
-  const subSectionContent = sortSubSectionImageText(image, index, markdown);
+  const subSectionContent = sortSubSectionImageText(image, index, mdx);
 
   if (
     image?.position &&
@@ -224,7 +224,7 @@ function buildAndSortSubSectionImageText(
 function sortSubSectionImageText(
   image: ImageType | undefined,
   index: number,
-  markdown: string,
+  mdx: JSX.Element,
 ): JSX.Element {
   const imageOnLeftTop = image?.position
     ? image.position === 'left' || image.position === 'top'
@@ -232,7 +232,7 @@ function sortSubSectionImageText(
   return (
     <>
       {imageOnLeftTop && <SubSectionImage image={image} />}
-      <SubSectionText width={getTextBoxWidth(image)} markdown={markdown} />
+      <SubSectionText width={getTextBoxWidth(image)} mdx={mdx} />
       {!imageOnLeftTop && <SubSectionImage image={image} />}
     </>
   );
