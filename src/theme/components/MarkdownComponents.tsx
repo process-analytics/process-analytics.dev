@@ -46,6 +46,7 @@ const MarkdownListItem = styled.li`
   margin-bottom: 1em;
 `;
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const MarkdownLink = (
   props: PropsWithChildren<any>,
 ): ReactElement<any, any> => {
@@ -60,6 +61,8 @@ const MarkdownLink = (
     </StyledLink>
   );
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
 const components: MDXProviderComponentsProp = {
   p: MarkdownParagraph,
   ol: MarkdownList,
