@@ -14,7 +14,7 @@ export const about: About = [
     image: {
       src: WhyDiagram,
       alt: 'Email Voting Diagram',
-      position: 'top',
+      positionFromMdx: 'top',
     },
   },
   {
@@ -22,7 +22,7 @@ export const about: About = [
     image: {
       src: WhatDiagram,
       alt: 'Total Number Of Executions Diagram',
-      position: 'bottom',
+      positionFromMdx: 'bottom',
     },
     withSeparator: false,
   },
