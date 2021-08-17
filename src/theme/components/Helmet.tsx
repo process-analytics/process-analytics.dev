@@ -7,47 +7,24 @@ import { helmet } from '../../content/HelmetContent';
 type Props = {
   theme: Theme;
   title: string;
+  keywords?: string[];
 };
 
 const LANG = 'en';
 
-const Helmet = ({ theme, title }: Props): JSX.Element => {
+const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
   const { description, profile } = helmet;
 
-  // TODO add keywords
-  // TODO image info and twitter info
-  //         .concat(
-  //           metaImage
-  //             ? [
-  //                 {
-  //                   property: "og:image",
-  //                   content: image,
-  //                 },
-  //                 {
-  //                   property: "og:image:width",
-  //                   content: metaImage.width,
-  //                 },
-  //                 {
-  //                   property: "og:image:height",
-  //                   content: metaImage.height,
-  //                 },
-  //                 {
-  //                   name: "twitter:card",
-  //                   content: "summary_large_image",
-  //                 },
-  //               ]
-  //             : [
-  //                 {
-  //                   name: "twitter:card",
-  //                   content: "summary",
-  //                 },
-  //               ]
-  //         )
+  const metaKeywords = (
+    keywords ?? ['bpmn', 'process', 'analytics', 'developers', 'open source']
+  ).join(',');
+
   return (
     <ReactHelmet htmlAttributes={{ lang: LANG }}>
-      <meta charSet="utf-8" />
       <title>{title}</title>
+      <meta charSet="utf-8" />
       <meta name="description" content={description} />
+      <meta name="keywords" content={metaKeywords} />
       <meta name="theme-color" content={theme.colors.background} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
