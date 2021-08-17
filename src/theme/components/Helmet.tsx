@@ -39,7 +39,10 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta name="twitter:description" content={description} />
       {/*no need for twitter:image:src here as the svg image is inline in base64 */}
       <meta name="twitter:image" content={`${profile.logo.src}`} />
-      <meta name="google-site-verification" content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM" />
+      <meta
+        name="google-site-verification"
+        content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
+      />
     </ReactHelmet>
   );
 };
