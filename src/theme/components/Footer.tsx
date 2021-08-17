@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
           <Fade direction="left" triggerOnce>
             <Box>
               <Image
-                src={profile.bigIcon.src}
+                src={profile.logo.src}
                 height={['15px', '40px']}
                 width={['15px', '40px']}
                 alt="Process Analytics Logo"
