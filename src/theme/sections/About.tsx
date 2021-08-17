@@ -127,7 +127,7 @@ const Background = (): JSX.Element => (
 
 function getTextBoxWidth(image: ImageType | undefined): number[] {
   if (!image) {
-    return [1, 1, 4 / 6];
+    return [1, 1, 1];
   }
 
   switch (image.position) {
@@ -144,7 +144,7 @@ function getTextBoxWidth(image: ImageType | undefined): number[] {
 function getImageBoxProps(image: ImageType | undefined): BoxProps {
   if (!image) {
     return {
-      width: [1, 1, 2 / 6],
+      width: [1, 1, 1],
       style: {
         maxWidth: '300px',
         margin: 'auto',
@@ -226,13 +226,21 @@ function sortSubSectionImageText(
   index: number,
   mdx: JSX.Element,
 ): JSX.Element {
-  const imageOnLeftTop = image?.position
+  const subSectionText = (
+    <SubSectionText width={getTextBoxWidth(image)} mdx={mdx} />
+  );
+
+  if (!image) {
+    return subSectionText;
+  }
+
+  const imageOnLeftTop = image.position
     ? image.position === 'left' || image.position === 'top'
     : Boolean(index % 2);
   return (
     <>
       {imageOnLeftTop && <SubSectionImage image={image} />}
-      <SubSectionText width={getTextBoxWidth(image)} mdx={mdx} />
+      {subSectionText}
       {!imageOnLeftTop && <SubSectionImage image={image} />}
     </>
   );
