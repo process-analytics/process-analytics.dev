@@ -1,11 +1,9 @@
-import BigIcon from '../images/logo_white.svg';
+import SvgLogoWhite from '../images/logo_white.svg';
+import { landing } from './LandingContent';
 
 export const helmet = {
-  description: 'Process Analytics project website',
+  description: landing.presentation, // This should not be too long (160 chars)  see https://www.gatsbyjs.com/tutorial/seo-and-social-sharing-cards-tutorial/#querying-with-graphql
   profile: {
-    favicon16: { src: '' },
-    favicon32: { src: '' },
-    bigIcon: { src: BigIcon },
-    appleIcon: { src: '' },
+    logo: { src: SvgLogoWhite },
   },
 };

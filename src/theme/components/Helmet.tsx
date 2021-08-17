@@ -7,49 +7,41 @@ import { helmet } from '../../content/HelmetContent';
 type Props = {
   theme: Theme;
   title: string;
+  keywords?: string[];
 };
 
-const Helmet = ({ theme, title }: Props): JSX.Element => {
+const LANG = 'en';
+
+const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
   const { description, profile } = helmet;
 
+  const metaKeywords = (
+    keywords ?? ['bpmn', 'process', 'analytics', 'developers', 'open source']
+  ).join(',');
+
   return (
-    <ReactHelmet htmlAttributes={{ lang: 'en' }}>
-      <meta charSet="utf-8" />
+    <ReactHelmet htmlAttributes={{ lang: LANG }}>
       <title>{title}</title>
+      <meta charSet="utf-8" />
       <meta name="description" content={description} />
-      <link rel="shortcut icon" href={`https:${profile.favicon32.src}`} />
+      <meta name="keywords" content={metaKeywords} />
       <meta name="theme-color" content={theme.colors.background} />
-      <meta name="image" content={`https:${profile.favicon32.src}`} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
-      <meta itemProp="image" content={`https:${profile.favicon32.src}`} />
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
-      <meta name="og:image" content={`https:${profile.bigIcon.src}`} />
+      <meta name="og:image" content={`${profile.logo.src}`} />
       <meta name="og:site_name" content={title} />
-      <meta name="og:locale" content="en_US" />
+      <meta name="og:locale" content={LANG} />
       <meta name="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https:${profile.bigIcon.src}`} />
-      <meta name="twitter:image:src" content={`https:${profile.bigIcon.src}`} />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href={`https:${profile.appleIcon.src}`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href={`https:${profile.favicon32.src}`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`https:${profile.favicon16.src}`}
+      {/*no need for twitter:image:src here as the svg image is inline in base64 */}
+      <meta name="twitter:image" content={`${profile.logo.src}`} />
+      <meta
+        name="google-site-verification"
+        content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
       />
     </ReactHelmet>
   );
