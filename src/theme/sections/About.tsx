@@ -10,13 +10,8 @@ const About = (): JSX.Element => {
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      {about.map(({ mdx, image, withSeparator }, index) => (
-        <DescriptionPanel
-          index={index}
-          mdx={mdx}
-          image={image}
-          withSeparator={withSeparator}
-        />
+      {about.map((subsection, index) => (
+        <DescriptionPanel key={index} index={index} {...subsection} />
       ))}
     </Section.Container>
   );
