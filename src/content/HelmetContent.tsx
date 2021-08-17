@@ -4,9 +4,9 @@ import { landing } from './LandingContent';
 export const helmet = {
   description: landing.presentation,
   profile: {
-    favicon16: { src: '' },
-    favicon32: { src: '' },
+    // favicon16: { src: '' },
+    // favicon32: { src: '' },
     bigIcon: { src: BigIcon },
-    appleIcon: { src: '' },
+    // appleIcon: { src: '' },
   },
 };
