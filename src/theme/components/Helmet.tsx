@@ -12,6 +12,7 @@ type Props = {
 const Helmet = ({ theme, title }: Props): JSX.Element => {
   const { description, profile } = helmet;
 
+  // TODO add keywords
   return (
     <ReactHelmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet="utf-8" />
