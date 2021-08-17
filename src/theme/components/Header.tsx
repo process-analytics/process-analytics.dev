@@ -22,7 +22,7 @@ const Header = (): JSX.Element => {
         <RebassLink href={`#${getSectionHref(SECTION.home)}`} variant="empty">
           <Flex justifyContent="center">
             <Image
-              src={profile.bigIcon.src}
+              src={profile.logo.src}
               height={['60px', '80px']}
               width={['60px', '80px']}
               alt="Process Analytics Logo"

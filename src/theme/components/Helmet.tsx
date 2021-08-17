@@ -54,7 +54,7 @@ const Helmet = ({ theme, title }: Props): JSX.Element => {
       {/*<meta itemProp="image" content={`https:${profile.favicon32.src}`} />*/}
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
-      <meta name="og:image" content={`${profile.bigIcon.src}`} />
+      <meta name="og:image" content={`${profile.logo.src}`} />
       <meta name="og:site_name" content={title} />
       {/*TODO en? taken from somewhere else? */}
       <meta name="og:locale" content="en_US" />
@@ -63,8 +63,8 @@ const Helmet = ({ theme, title }: Props): JSX.Element => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {/*TODO not sure we want to use the same for both*/}
-      <meta name="twitter:image" content={`${profile.bigIcon.src}`} />
-      <meta name="twitter:image:src" content={`${profile.bigIcon.src}`} />
+      <meta name="twitter:image" content={`${profile.logo.src}`} />
+      <meta name="twitter:image:src" content={`${profile.logo.src}`} />
 
       {/*<link*/}
       {/*  rel="apple-touch-icon"*/}
