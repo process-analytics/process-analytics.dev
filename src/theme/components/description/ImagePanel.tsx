@@ -1,16 +1,7 @@
-import { Image as ImageType, ImagePosition } from '../../types';
+import { Image as ImageType } from '../../types';
 import { Box, Image, ImageProps } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import React from 'react';
-import { BoxProps } from 'rebass';
-
-export function isVerticalSubSection(imagePosition: ImagePosition) {
-  return imagePosition === 'top' || imagePosition === 'bottom';
-}
-
-function isHorizontalSubSection(imagePosition: ImagePosition) {
-  return imagePosition === 'left' || imagePosition === 'right';
-}
 
 function getImageProps(image: ImageType): ImageProps {
   switch (image.positionFromMdx) {
@@ -43,27 +34,44 @@ function convertPositionToFadeDirection(
 }
 
 const ImagePanel = ({
-  width,
-  style,
   image,
-}: BoxProps & {
+  isFullPage,
+}: {
   image: ImageType;
-}): JSX.Element => (
-  <Box {...{ width, style }}>
-    {image && (
-      <Fade
-        direction={convertPositionToFadeDirection(image)}
-        triggerOnce
-        style={{ textAlign: 'center' }}
-      >
-        <Image
-          width={[2 / 6, 2 / 6, 1]}
-          style={{ borderRadius: '5px' }}
-          {...getImageProps(image)}
-          {...image}
-        />
-      </Fade>
-    )}
-  </Box>
-);
+  isFullPage: boolean;
+}): JSX.Element => {
+  const boxProps = isFullPage
+    ? {
+        width: [1, 1, 1],
+        style: {
+          margin: 'auto',
+        },
+      }
+    : {
+        width: [1, 1, 1 / 3],
+        style: {
+          margin: 'auto',
+          maxWidth: '300px',
+        },
+      };
+
+  return (
+    <Box {...boxProps}>
+      {image && (
+        <Fade
+          direction={convertPositionToFadeDirection(image)}
+          triggerOnce
+          style={{ textAlign: 'center' }}
+        >
+          <Image
+            width={[2 / 6, 2 / 6, 1]}
+            style={{ borderRadius: '5px' }}
+            {...getImageProps(image)}
+            {...image}
+          />
+        </Fade>
+      )}
+    </Box>
+  );
+};
 export default ImagePanel;

@@ -1,8 +1,8 @@
 import { Box, Flex } from 'rebass/styled-components';
 import React from 'react';
-import { Image as ImageType } from '../../types';
+import { Image as ImageType, ImagePosition } from '../../types';
 import Divider from './../Divider';
-import ImagePanel, { isVerticalSubSection } from './ImagePanel';
+import ImagePanel from './ImagePanel';
 import MDXPanel from './MDXPanel';
 
 type PanelProps = {
@@ -44,6 +44,10 @@ const DescriptionPanel = ({
   );
 };
 
+function isVerticalSubSection(imagePosition: ImagePosition) {
+  return imagePosition === 'top' || imagePosition === 'bottom';
+}
+
 const ContentContainer = ({
   children,
   isFullPage,
@@ -71,50 +75,20 @@ const Content = ({
   isFullPage: boolean;
 }): JSX.Element => {
   if (!image) {
-    return <CustomMDXPanel mdx={mdx} isFullPage={isFullPage} />;
+    return <MDXPanel mdx={mdx} isFullPage={isFullPage} />;
   }
 
   return image.positionFromMdx === 'left' || image.positionFromMdx === 'top' ? (
     <>
-      <CustomImagePanel image={image} isFullPage={isFullPage} />
-      <CustomMDXPanel mdx={mdx} isFullPage={isFullPage} />;
+      <ImagePanel image={image} isFullPage={isFullPage} />
+      <MDXPanel mdx={mdx} isFullPage={isFullPage} />
     </>
   ) : (
     <>
-      <CustomMDXPanel mdx={mdx} isFullPage={isFullPage} />;
-      <CustomImagePanel image={image} isFullPage={isFullPage} />
+      <MDXPanel mdx={mdx} isFullPage={isFullPage} />
+      <ImagePanel image={image} isFullPage={isFullPage} />
     </>
   );
 };
-
-const CustomMDXPanel = ({
-  mdx,
-  isFullPage,
-}: {
-  mdx: JSX.Element;
-  isFullPage: boolean;
-}): JSX.Element =>
-  isFullPage ? (
-    <MDXPanel width={[1, 1, 1]} mdx={mdx} />
-  ) : (
-    <MDXPanel width={[1, 1, 4 / 6]} mdx={mdx} />
-  );
-
-const CustomImagePanel = ({
-  image,
-  isFullPage,
-}: {
-  image: Required<ImageType>;
-  isFullPage: boolean;
-}): JSX.Element =>
-  isFullPage ? (
-    <ImagePanel width={[1, 1, 1]} style={{ margin: 'auto' }} image={image} />
-  ) : (
-    <ImagePanel
-      width={[1, 1, 2 / 6]}
-      style={{ margin: 'auto', maxWidth: '300px' }}
-      image={image}
-    />
-  );
 
 export default DescriptionPanel;

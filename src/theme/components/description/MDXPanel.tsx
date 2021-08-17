@@ -4,22 +4,31 @@ import { MDXProvider } from '@mdx-js/react';
 import mdxComponents from '../MarkdownComponents';
 import styled from 'styled-components';
 import React from 'react';
-import { BoxProps } from 'rebass';
 
 const MDXPanel = ({
   mdx,
-  width,
-}: BoxProps & {
+  isFullPage,
+}: {
   mdx: JSX.Element;
-}): JSX.Element => (
-  <Box {...{ width }} px={[1, 2, 4]} mt={2}>
-    <Fade direction="down" triggerOnce>
-      <CustomBox>
-        <MDXProvider components={mdxComponents}>{mdx}</MDXProvider>
-      </CustomBox>
-    </Fade>
-  </Box>
-);
+  isFullPage: boolean;
+}): JSX.Element => {
+  const boxProps = isFullPage
+    ? {
+        width: [1, 1, 1],
+      }
+    : {
+        width: [1, 1, 2 / 3],
+      };
+  return (
+    <Box {...boxProps} px={[1, 2, 4]} mt={2}>
+      <Fade direction="down" triggerOnce>
+        <CustomBox>
+          <MDXProvider components={mdxComponents}>{mdx}</MDXProvider>
+        </CustomBox>
+      </Fade>
+    </Box>
+  );
+};
 
 const CustomBox = styled.div`
   font-size: large;
