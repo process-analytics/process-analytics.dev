@@ -40,7 +40,6 @@
     "react-dom": "^17.0.1",
     "react-headroom": "^3.1.1",
     "react-helmet": "^6.1.0",
-    "react-markdown": "^6.0.3",
     "rebass": "^4.0.7",
     "styled-components": "^5.3.0"
   },
