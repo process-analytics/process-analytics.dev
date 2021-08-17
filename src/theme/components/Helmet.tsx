@@ -13,6 +13,34 @@ const Helmet = ({ theme, title }: Props): JSX.Element => {
   const { description, profile } = helmet;
 
   // TODO add keywords
+  // TODO image info and twitter info
+  //         .concat(
+  //           metaImage
+  //             ? [
+  //                 {
+  //                   property: "og:image",
+  //                   content: image,
+  //                 },
+  //                 {
+  //                   property: "og:image:width",
+  //                   content: metaImage.width,
+  //                 },
+  //                 {
+  //                   property: "og:image:height",
+  //                   content: metaImage.height,
+  //                 },
+  //                 {
+  //                   name: "twitter:card",
+  //                   content: "summary_large_image",
+  //                 },
+  //               ]
+  //             : [
+  //                 {
+  //                   name: "twitter:card",
+  //                   content: "summary",
+  //                 },
+  //               ]
+  //         )
   return (
     <ReactHelmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet="utf-8" />
@@ -28,13 +56,16 @@ const Helmet = ({ theme, title }: Props): JSX.Element => {
       <meta name="og:description" content={description} />
       <meta name="og:image" content={`${profile.bigIcon.src}`} />
       <meta name="og:site_name" content={title} />
+      {/*TODO en? taken from somewhere else? */}
       <meta name="og:locale" content="en_US" />
       <meta name="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      {/*TODO not sure we want to use the same for both*/}
       <meta name="twitter:image" content={`${profile.bigIcon.src}`} />
       <meta name="twitter:image:src" content={`${profile.bigIcon.src}`} />
+
       {/*<link*/}
       {/*  rel="apple-touch-icon"*/}
       {/*  sizes="180x180"*/}
