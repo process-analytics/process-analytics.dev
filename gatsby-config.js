@@ -5,6 +5,11 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const robotsPolicy = { userAgent: '*' };
+process.env.GATSBY_ROBOTS_ENABLED === 'true'
+  ? (robotsPolicy.allow = '/')
+  : (robotsPolicy.disallow = ['/']);
+
 module.exports = {
   siteMetadata: {
     title: 'Process Analytics',
@@ -24,6 +29,10 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: { policy: [robotsPolicy] },
+    },
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     {

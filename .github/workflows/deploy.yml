@@ -36,6 +36,7 @@ jobs:
         run: |
           touch .env.production
           echo GATSBY_GA_MEASUREMENT_ID =${{ secrets.PROD_GA_MEASUREMENT_ID }} >> .env.production
+          echo GATSBY_ROBOTS_ENABLED = true >> .env.production
       - name: Lint check
         run: npm run lint-check
       - name: Check types
