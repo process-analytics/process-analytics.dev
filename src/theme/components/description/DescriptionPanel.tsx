@@ -22,6 +22,7 @@ const DescriptionPanel = ({
     image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const isFullPage = !image || isVerticalSubSection(image.positionFromMdx!);
 
   return (
@@ -44,7 +45,7 @@ const DescriptionPanel = ({
   );
 };
 
-function isVerticalSubSection(imagePosition: ImagePosition) {
+function isVerticalSubSection(imagePosition: ImagePosition): boolean {
   return imagePosition === 'top' || imagePosition === 'bottom';
 }
 
