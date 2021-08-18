@@ -6,14 +6,14 @@ import React from 'react';
 function getImageProps(image: ImageType): ImageProps {
   switch (image.positionFromMdx) {
     case 'top':
-      return { width: 1, mb: [4, 4, 0], mr: 0 };
+      return { width: 1, mb: [3, 3, 4] };
     case 'bottom':
-      return { width: 1, mt: [4, 4, 0], ml: 0 };
+      return { width: 1, mt: [3, 3, 4] };
     case 'left':
-      return { width: [2 / 6, 2 / 6, 1], mb: [4, 4, 0], mr: [0, 0, 1] };
+      return { width: [2 / 6, 2 / 6, 1], mt: [3, 3, 0], mr: [0, 0, 1] };
     case 'right':
     default:
-      return { width: [2 / 6, 2 / 6, 1], mt: [4, 4, 0], ml: [0, 0, 1] };
+      return { width: [2 / 6, 2 / 6, 1], mb: [3, 3, 0], ml: [0, 0, 1] };
   }
 }
 

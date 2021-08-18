@@ -4,23 +4,15 @@ import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import DescriptionPanel from '../components/description/DescriptionPanel';
-import { Box } from 'rebass/styled-components';
 
 const About = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.about} Background={Background}>
       <Section.Header name={SECTION.about} />
 
-      <Box
-        css={{
-          marginTop: '30px',
-          marginBottom: '30px',
-        }}
-      >
-        {about.map((subsection, index) => (
-          <DescriptionPanel key={index} index={index} {...subsection} />
-        ))}
-      </Box>
+      {about.map((subsection, index) => (
+        <DescriptionPanel key={index} index={index} {...subsection} />
+      ))}
     </Section.Container>
   );
 };

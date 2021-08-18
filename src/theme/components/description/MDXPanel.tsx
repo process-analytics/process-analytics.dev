@@ -32,7 +32,6 @@ const MDXPanel = ({
 
 const CustomBox = styled.div`
   font-size: large;
-  padding-bottom: 1em;
   line-height: 2em;
 
   @media (max-width: 600px) {
