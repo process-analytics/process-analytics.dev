@@ -3,8 +3,7 @@ import { Theme } from '../types';
 
 const Divider = styled.div`
   position: relative;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   &:before {
     content: '';
     position: absolute;

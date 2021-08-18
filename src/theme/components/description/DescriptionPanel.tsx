@@ -26,13 +26,7 @@ const DescriptionPanel = ({
   const isFullPage = !image || isVerticalSubSection(image.positionFromMdx!);
 
   return (
-    <Box
-      key={index}
-      css={{
-        marginTop: '30px',
-        marginBottom: '30px',
-      }}
-    >
+    <Box key={index}>
       <ContentContainer isFullPage={isFullPage}>
         <Content
           mdx={mdx}
