@@ -6,14 +6,14 @@ import React from 'react';
 function getImageProps(image: ImageType): ImageProps {
   switch (image.positionFromMdx) {
     case 'top':
-      return { mt: [4, 4, 0], mr: [0, 0, 0] };
+      return { width: 1, mt: [4, 4, 0], mr: 0 };
     case 'bottom':
-      return { mt: [4, 4, 0], ml: [0, 0, 0] };
+      return { width: 1, mt: [4, 4, 0], ml: 0 };
     case 'left':
-      return { mb: [4, 4, 0], mr: [0, 0, 1] };
+      return { width: [2 / 6, 2 / 6, 1], mb: [4, 4, 0], mr: [0, 0, 1] };
     case 'right':
     default:
-      return { mt: [4, 4, 0], ml: [0, 0, 1] };
+      return { width: [2 / 6, 2 / 6, 1], mt: [4, 4, 0], ml: [0, 0, 1] };
   }
 }
 
@@ -64,7 +64,6 @@ const ImagePanel = ({
           style={{ textAlign: 'center' }}
         >
           <Image
-            width={[2 / 6, 2 / 6, 1]}
             style={{ borderRadius: '5px' }}
             {...getImageProps(image)}
             {...image}
