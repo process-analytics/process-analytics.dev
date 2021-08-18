@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'rebass/styled-components';
-import Tippy from '@tippy.js/react';
+import Tippy from '@tippyjs/react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SocialLink as SocialLinkType } from '../types';
