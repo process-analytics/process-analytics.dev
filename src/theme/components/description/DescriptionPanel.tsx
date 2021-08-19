@@ -28,11 +28,9 @@ const DescriptionPanel = ({
   return (
     <Box
       key={index}
-      css={{
-        marginTop: '30px',
-        marginBottom: '30px',
-        paddingTop: '1.5em',
-      }}
+      mt={['10px', '10px', '30px']}
+      mb={['10px', '10px', '30px']}
+      pt={['1em', '1em', '1.5em']}
     >
       <ContentContainer isFullPage={isFullPage}>
         <Content
