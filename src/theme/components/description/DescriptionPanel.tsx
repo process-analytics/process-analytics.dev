@@ -26,21 +26,23 @@ const DescriptionPanel = ({
   const isFullPage = !image || isVerticalSubSection(image.positionFromMdx!);
 
   return (
-    <Box
-      key={index}
-      mt={['10px', '10px', '30px']}
-      mb={['10px', '10px', '30px']}
-      pt={['1em', '1em', '1.5em']}
-    >
-      <ContentContainer isFullPage={isFullPage}>
-        <Content
-          mdx={mdx}
-          image={image as Required<ImageType> | undefined}
-          isFullPage={isFullPage}
-        />
-      </ContentContainer>
+    <>
+      <Box
+        key={index}
+        mt={['10px', '10px', '30px']}
+        mb={['10px', '10px', '30px']}
+        pt={['1em', '1em', '1.5em']}
+      >
+        <ContentContainer isFullPage={isFullPage}>
+          <Content
+            mdx={mdx}
+            image={image as Required<ImageType> | undefined}
+            isFullPage={isFullPage}
+          />
+        </ContentContainer>
+      </Box>
       {withSeparator && <Divider />}
-    </Box>
+    </>
   );
 };
 
