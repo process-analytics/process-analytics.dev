@@ -28,9 +28,6 @@ export const about: About = [
   },
   {
     mdx: <Content3 />,
-    /*    image: {
-      position: 'bottom',
-    },*/
   },
   {
     mdx: <Content4 />,
