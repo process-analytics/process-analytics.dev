@@ -64,7 +64,9 @@ const ImagePanel = ({
           style={{ textAlign: 'center' }}
         >
           <Image
+            height={'auto'}
             style={{ borderRadius: '5px' }}
+            css={{ aspectRatio: 'attr(width) / attr(height)' }}
             {...getImageProps(image)}
             {...image}
           />
