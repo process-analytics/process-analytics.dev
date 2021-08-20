@@ -58,6 +58,7 @@ const Header = (): JSX.Element => {
             <Button variant="secondary">
               <RebassLink
                 href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                target="_blank"
                 color="inherit"
                 style={{ textDecorationLine: 'inherit' }}
               >
