@@ -17,6 +17,12 @@ export const theme = {
       m: 0,
       background: 'transparent',
     },
+    secondary: {
+      textDecorationLine: 'none',
+      color: colors.background,
+      background: colors.secondary,
+      fontWeight: '600',
+    },
   },
   fonts: {
     body: 'Cabin, Open Sans, sans-serif',
