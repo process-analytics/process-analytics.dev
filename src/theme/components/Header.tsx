@@ -55,29 +55,14 @@ const Header = (): JSX.Element => {
               </Box>
             ))}
           <Box ml={[2, 3]} fontSize={[2, 3]}>
-            <Button variant="outline" mr={2}>
+            <Button variant="secondary">
               <RebassLink
-                href={`#${getSectionHref(SECTION.home)}`}
-                color="background"
-                style={{ textDecorationLine: 'none' }}
-              >
-                Outline
-              </RebassLink>
-            </Button>
-            <Button variant="background" mr={2}>
-              <RebassLink
-                href={`#${getSectionHref(SECTION.home)}`}
+                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
                 color="inherit"
-                style={{ textDecorationLine: 'none' }}
+                style={{ textDecorationLine: 'inherit' }}
               >
-                Background
+                Demo
               </RebassLink>
-            </Button>
-            <Button variant="muted" mr={2}>
-              Muted
-            </Button>
-            <Button variant="secondary" mr={2}>
-              Secondary
             </Button>
           </Box>
         </Flex>
