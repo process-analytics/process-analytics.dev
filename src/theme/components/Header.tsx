@@ -1,6 +1,12 @@
 import React from 'react';
 import Headroom from 'react-headroom';
-import { Box, Link as RebassLink, Flex, Image } from 'rebass/styled-components';
+import {
+  Box,
+  Link as RebassLink,
+  Flex,
+  Image,
+  Button,
+} from 'rebass/styled-components';
 import styled from 'styled-components';
 import Link from './Link';
 import { capitalize } from '../utils/string';
@@ -35,12 +41,31 @@ const Header = (): JSX.Element => {
           {Object.keys(SECTION)
             .filter(id => id !== 'home')
             .map(id => (
-              <Box key={id} ml={[2, 3]} color="background" fontSize={[2, 3]}>
+              <Box
+                key={id}
+                ml={[2, 3]}
+                mt="auto"
+                mb="auto"
+                color="background"
+                fontSize={[2, 3]}
+              >
                 <Link href={`#${id}`} tabIndex={0}>
                   {capitalize(id)}
                 </Link>
               </Box>
             ))}
+          <Box ml={[2, 3]} fontSize={[2, 3]}>
+            <Button variant="secondary">
+              <RebassLink
+                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                target="_blank"
+                color="inherit"
+                style={{ textDecorationLine: 'inherit' }}
+              >
+                Demo
+              </RebassLink>
+            </Button>
+          </Box>
         </Flex>
       </Flex>
     </StyledHeadroom>
