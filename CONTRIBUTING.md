@@ -36,7 +36,7 @@ For all contributions, please respect the following guidelines:
 
 [Fork process-analytics.dev](https://help.github.com/articles/fork-a-repo) and create a branch with a descriptive name. 
 
-A good branch name would be (where issue #25 is the ticket you're working on): **4-customize_404_page**
+A good branch name would be (where issue #4 is the ticket you're working on): **4-customize_404_page**
 
 ```sh
 git checkout -b 4-customize_404_page
