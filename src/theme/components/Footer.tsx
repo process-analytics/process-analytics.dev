@@ -10,7 +10,7 @@ import { helmet } from '../../content/HelmetContent';
 
 const Footer = (): JSX.Element => {
   const { title, socialLinks } = landing;
-  const { profile } = helmet;
+  const { logo } = helmet;
 
   return (
     <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
           <Fade direction="left" triggerOnce>
             <Box>
               <Image
-                src={profile.logo.src}
+                src={logo.src}
                 height={['15px', '40px']}
                 width={['15px', '40px']}
                 alt="Process Analytics Logo"
