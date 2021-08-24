@@ -6,11 +6,11 @@ import SocialLink from './SocialLink';
 import Link from './Link';
 import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
-import { helmet } from '../../content/HelmetContent';
+import { header } from '../../content/HeaderContent';
 
 const Footer = (): JSX.Element => {
   const { title, socialLinks } = landing;
-  const { logo } = helmet;
+  const { logo } = header;
 
   return (
     <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
