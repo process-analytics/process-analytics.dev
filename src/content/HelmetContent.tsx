@@ -6,4 +6,8 @@ export const helmet = {
   profile: {
     logo: { src: SvgLogo },
   },
+  twitter: {
+    creator: 'ProcessAnalyti1',
+    site: 'https://process-analytics.dev',
+  },
 };

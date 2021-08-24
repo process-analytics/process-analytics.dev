@@ -1,4 +1,5 @@
 import { SocialLink } from '../theme/types';
+import { helmet } from './HelmetContent';
 
 export const socialLinks: SocialLink[] = [
   {
@@ -7,7 +8,7 @@ export const socialLinks: SocialLink[] = [
     icon: 'github',
   },
   {
-    url: 'https://twitter.com/ProcessAnalyti1',
+    url: `https://twitter.com/${helmet.twitter.creator}`,
     name: 'Twitter',
     icon: 'twitter',
   },

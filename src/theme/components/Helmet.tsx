@@ -13,7 +13,7 @@ type Props = {
 const LANG = 'en';
 
 const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
-  const { description, profile } = helmet;
+  const { description, profile, twitter } = helmet;
 
   const metaKeywords = (
     keywords ?? ['bpmn', 'process', 'analytics', 'developers', 'open source']
@@ -35,10 +35,9 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta name="og:locale" content={LANG} />
       <meta name="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content={twitter.creator} />
+      <meta name="twitter:creator" content={twitter.creator} />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      {/*no need for twitter:image:src here as the svg image is inline in base64 */}
-      <meta name="twitter:image" content={`${profile.logo.src}`} />
       <meta
         name="google-site-verification"
         content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
