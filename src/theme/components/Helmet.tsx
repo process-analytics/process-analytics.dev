@@ -14,7 +14,7 @@ type Props = {
 const LANG = 'en';
 
 const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
-  const { description, logo, twitter } = helmet;
+  const { description, image_path, twitter } = helmet;
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -41,7 +41,7 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta name="og:description" content={description} />
       <meta
         name="og:image"
-        content={data.site.siteMetadata.siteUrl + logo.src}
+        content={data.site.siteMetadata.siteUrl + image_path}
       />
       <meta name="og:site_name" content={title} />
       <meta name="og:locale" content={LANG} />
