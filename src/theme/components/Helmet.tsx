@@ -24,10 +24,10 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       }
     }
   `);
-  console.log(data.site.siteMetadata.siteUrl);
   const metaKeywords = (
     keywords ?? ['bpmn', 'process', 'analytics', 'developers', 'open source']
   ).join(',');
+
   return (
     <ReactHelmet htmlAttributes={{ lang: LANG }}>
       <title>{title}</title>
@@ -39,7 +39,10 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta itemProp="description" content={description} />
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
-      <meta name="og:image" content={logo.src} />
+      <meta
+        name="og:image"
+        content={data.site.siteMetadata.siteUrl + logo.src}
+      />
       <meta name="og:site_name" content={title} />
       <meta name="og:locale" content={LANG} />
       <meta name="og:type" content="website" />
