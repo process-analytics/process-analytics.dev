@@ -30,7 +30,7 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta itemProp="description" content={description} />
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
-      <meta name="og:image" content={`${profile.logo.src}`} />
+      <meta name="og:image" content={profile.logo.src} />
       <meta name="og:site_name" content={title} />
       <meta name="og:locale" content={LANG} />
       <meta name="og:type" content="website" />
