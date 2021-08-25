@@ -13,7 +13,7 @@ process.env.GATSBY_ROBOTS_ENABLED === 'true'
 module.exports = {
   siteMetadata: {
     title: 'Process Analytics',
-    siteUrl: `https://process-analytics.dev`,
+    siteUrl: 'https://process-analytics.dev',
   },
   plugins: [
     'gatsby-plugin-sitemap',

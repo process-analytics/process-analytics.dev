@@ -6,11 +6,11 @@ import SocialLink from './SocialLink';
 import Link from './Link';
 import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
-import { helmet } from '../../content/HelmetContent';
+import { header } from '../../content/HeaderContent';
 
 const Footer = (): JSX.Element => {
   const { title, socialLinks } = landing;
-  const { profile } = helmet;
+  const { logo } = header;
 
   return (
     <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
           <Fade direction="left" triggerOnce>
             <Box>
               <Image
-                src={profile.logo.src}
+                src={logo.src}
                 height={['15px', '40px']}
                 width={['15px', '40px']}
                 alt="Process Analytics Logo"

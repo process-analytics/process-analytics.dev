@@ -3,6 +3,7 @@ import { Helmet as ReactHelmet } from 'react-helmet';
 import { withTheme } from 'styled-components';
 import { Theme } from '../types';
 import { helmet } from '../../content/HelmetContent';
+import { graphql, useStaticQuery } from 'gatsby';
 
 type Props = {
   theme: Theme;
@@ -13,8 +14,16 @@ type Props = {
 const LANG = 'en';
 
 const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
-  const { description, profile } = helmet;
-
+  const { description, image_path, twitter } = helmet;
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `);
   const metaKeywords = (
     keywords ?? ['bpmn', 'process', 'analytics', 'developers', 'open source']
   ).join(',');
@@ -30,15 +39,17 @@ const Helmet = ({ theme, title, keywords }: Props): JSX.Element => {
       <meta itemProp="description" content={description} />
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
-      <meta name="og:image" content={`${profile.logo.src}`} />
+      <meta
+        name="og:image"
+        content={data.site.siteMetadata.siteUrl + image_path}
+      />
       <meta name="og:site_name" content={title} />
       <meta name="og:locale" content={LANG} />
       <meta name="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content={twitter.username} />
+      <meta name="twitter:creator" content={twitter.username} />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      {/*no need for twitter:image:src here as the svg image is inline in base64 */}
-      <meta name="twitter:image" content={`${profile.logo.src}`} />
       <meta
         name="google-site-verification"
         content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
