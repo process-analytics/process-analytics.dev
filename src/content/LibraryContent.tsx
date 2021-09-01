@@ -28,9 +28,9 @@ export const libraries: Library[] = [
   {
     name: 'BPMN Visualization - R package',
     description:
-      'An experimental implementation to embed the BPMN Visualization library in an R package.',
-    repository: 'https://github.com/csouchet/bpmn-visualization-R-poc',
-    type: 'Experimental',
+      'A R library for visualizing process execution data on BPMN diagrams.',
+    repository: 'https://github.com/process-analytics/bpmn-visualization-R',
+    type: 'R',
   },
   {
     name: 'BPMN Layout Generator',
