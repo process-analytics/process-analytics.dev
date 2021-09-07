@@ -48,7 +48,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-notice": "^0.9.10",
     "eslint-plugin-prettier": "^3.4.1",
-    "gatsby": "^3.12.1",
+    "gatsby": "^3.13.0",
     "gatsby-plugin-google-gtag": "^3.13.0",
     "gatsby-plugin-manifest": "^3.13.0",
     "gatsby-plugin-mdx": "^2.13.0",
