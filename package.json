@@ -55,7 +55,7 @@
     "gatsby-plugin-react-helmet": "^4.11.0",
     "gatsby-plugin-robots-txt": "^1.6.9",
     "gatsby-plugin-sitemap": "^4.9.0",
-    "gatsby-plugin-styled-components": "^4.11.0",
+    "gatsby-plugin-styled-components": "^4.13.0",
     "gatsby-plugin-typescript": "^3.13.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
