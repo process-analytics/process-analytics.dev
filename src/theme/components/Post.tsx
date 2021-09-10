@@ -39,7 +39,7 @@ export const Post = ({
       {text}
     </Text>
     <CardFooter bg="primary" color="background" position="bottom-right" round>
-      {`${date} - ${Math.ceil(time)} min`}
+      {`${date} - ${Math.ceil(time)} min read`}
     </CardFooter>
   </PostContainer>
 );
