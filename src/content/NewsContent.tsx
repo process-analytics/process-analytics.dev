@@ -22,7 +22,7 @@ const news: PostDescription[] = [
     cover: 'https://miro.medium.com/max/350/0*Yymlf2vjfAIINqc2',
     url: 'https://medium.com/@process-analytics/process-analytics-august-2021-newsletter-b793a647e35d',
     date: 'September 2021',
-    time: 3,
+    time: 4,
   },
 ];
 
