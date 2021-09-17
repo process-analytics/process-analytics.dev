@@ -21,8 +21,7 @@ import Triangle from '../components/Triangle';
 import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { newsContent } from '../../content/NewsContent';
-
-const cardMinWidth = '350px';
+import { cardMinWidth } from './Blog';
 
 const News = (): JSX.Element => {
   const { news } = newsContent;

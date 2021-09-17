@@ -22,7 +22,7 @@ import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { postsContent } from '../../content/PostsContent';
 
-const cardMinWidth = '350px';
+export const cardMinWidth = '350px';
 
 const Blog = (): JSX.Element => {
   const { posts } = postsContent;
