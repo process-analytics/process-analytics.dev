@@ -29,8 +29,8 @@ const HomePage = (): JSX.Element => (
     <Landing />
     <About />
     <Libraries />
-    <Blog />
     <News />
+    <Blog />
     <Footer />
   </Layout>
 );

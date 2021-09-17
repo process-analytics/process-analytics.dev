@@ -45,23 +45,29 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['25vh', '20vh']}
+      height={['15vh', '10vh']}
       width={['100vw', '100vw']}
-      position="top-right"
-    />
-
-    <Triangle
-      color="secondary"
-      height={['50vh', '40vh']}
-      width={['70vw', '40vw']}
-      position="bottom-left"
+      position="top-left"
     />
 
     <Triangle
       color="primary"
-      height={['40vh', '15vh']}
+      height={['85vh', '75vh']}
+      width={['35vw', '25vw']}
+      position="bottom-left"
+    />
+
+    <Triangle
+      color="secondary"
+      height={['35vh', '30vh']}
+      width={['80vw', '65vw']}
+      position="bottom-left"
+    />
+    <Triangle
+      color="muted"
+      height={['15vh', '10vh']}
       width={['100vw', '100vw']}
-      position="bottom-right"
+      position="bottom-left"
     />
   </>
 );
