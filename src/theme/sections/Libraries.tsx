@@ -65,7 +65,7 @@ const Background = (): JSX.Element => (
 
     <Triangle
       color="muted"
-      height={['25vh', '20vh']}
+      height={['25vh', '21vh']}
       width={['100vw', '100vw']}
       position="bottom-right"
     />
