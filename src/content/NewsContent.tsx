@@ -18,7 +18,7 @@ import { PostDescription } from '../theme/types';
 const news: PostDescription[] = [
   {
     title: 'August 2021 Newsletter',
-    text: 'The August 2021 newsletter of the project',
+    text: 'Learn about the new Process Analytics website and logo, the new R library and improvements in the BPMN Visualization Typescript library.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--ygpwYYGb--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/drmkymx2bln4ytgkqjfm.png', // image within the article, no cover available
     url: 'https://dev.to/process-analytics/process-analytics-august-2021-newsletter-j7d',
