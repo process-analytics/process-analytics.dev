@@ -21,8 +21,8 @@ export enum SECTION {
   home = 'Home',
   about = 'About',
   libraries = 'Libraries',
-  blog = 'Blog Posts',
   news = 'News',
+  blog = 'Blog Posts',
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
