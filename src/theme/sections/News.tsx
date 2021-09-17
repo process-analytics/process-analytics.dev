@@ -20,19 +20,19 @@ import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
-import { postsContent } from '../../content/PostsContent';
+import { newsContent } from '../../content/NewsContent';
 
 const cardMinWidth = '350px';
 
-const Blog = (): JSX.Element => {
-  const { posts } = postsContent;
+const News = (): JSX.Element => {
+  const { news } = newsContent;
 
   return (
-    <Section.Container id={SECTION.blog} Background={Background}>
-      <Section.Header name={SECTION.blog} />
+    <Section.Container id={SECTION.news} Background={Background}>
+      <Section.Header name={SECTION.news} />
       <CardContainer minWidth={cardMinWidth}>
         <Fade direction="down" triggerOnce cascade damping={0.5}>
-          {posts.map(p => (
+          {news.map(p => (
             <Post {...p} key={p.url} />
           ))}
         </Fade>
@@ -45,39 +45,25 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['15vh', '10vh']}
+      height={['25vh', '25vh']}
       width={['100vw', '100vw']}
-      position="top-left"
+      position="top-right"
     />
 
-    {/*    <Triangle
+    <Triangle
       color="secondary"
-      height={['15vh', '10vh']}
-      width={['100vw', '100vw']}
+      height={['50vh', '40vh']}
+      width={['70vw', '40vw']}
       position="bottom-left"
-    />*/}
+    />
 
     <Triangle
       color="primary"
-      height={['30vh', '50vh']}
-      width={['70vw', '50vw']}
-      position="bottom-right"
-    />
-
-    <Triangle
-      color="secondary"
-      height={['25vh', '20vh']}
-      width={['75vw', '60vw']}
-      position="bottom-left"
-    />
-
-    <Triangle
-      color="muted"
-      height={['25vh', '5vh']}
+      height={['40vh', '15vh']}
       width={['100vw', '100vw']}
-      position="bottom-left"
+      position="bottom-right"
     />
   </>
 );
 
-export default Blog;
+export default News;

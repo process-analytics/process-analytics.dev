@@ -21,6 +21,7 @@ import About from '../theme/sections/About';
 import Libraries from '../theme/sections/Libraries';
 import Blog from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
+import News from '../theme/sections/News';
 
 const HomePage = (): JSX.Element => (
   <Layout title="Process Analytics">
@@ -29,6 +30,7 @@ const HomePage = (): JSX.Element => (
     <About />
     <Libraries />
     <Blog />
+    <News />
     <Footer />
   </Layout>
 );
