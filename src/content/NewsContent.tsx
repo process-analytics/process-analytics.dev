@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const GATSBY_URL = 'https://www.gatsbyjs.org/';
+import { PostDescription } from '../theme/types';
 
-// keys are used by the header
-// values are used as section title
-export enum SECTION {
-  home = 'Home',
-  about = 'About',
-  libraries = 'Libraries',
-  news = 'News',
-  blog = 'Blog Posts',
-}
+const news: PostDescription[] = [
+  {
+    title: 'August 2021 Newsletter',
+    text: 'Learn about the new Process Analytics website and logo, the new R library and improvements in the BPMN Visualization Typescript library.',
+    cover: 'https://miro.medium.com/max/310/0*Yymlf2vjfAIINqc2',
+    url: 'https://medium.com/@process-analytics/process-analytics-august-2021-newsletter-b793a647e35d',
+    date: 'September 2021',
+    time: 4,
+  },
+];
 
-export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
+export const newsContent = {
+  news,
+};

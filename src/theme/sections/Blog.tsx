@@ -22,7 +22,7 @@ import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { postsContent } from '../../content/PostsContent';
 
-const cardMinWidth = '350px';
+export const cardMinWidth = '350px';
 
 const Blog = (): JSX.Element => {
   const { posts } = postsContent;
@@ -45,9 +45,9 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['15vh', '10vh']}
+      height={['25vh', '20vh']}
       width={['100vw', '100vw']}
-      position="top-left"
+      position="top-right"
     />
 
     <Triangle

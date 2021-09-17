@@ -18,21 +18,21 @@ import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
 import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
-import Library from '../components/Library';
+import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
-import { libraries } from '../../content/LibraryContent';
+import { newsContent } from '../../content/NewsContent';
+import { cardMinWidth } from './Blog';
 
-const cardMinWidth = '300px';
+const News = (): JSX.Element => {
+  const { news } = newsContent;
 
-const Libraries = (): JSX.Element => {
   return (
-    <Section.Container id={SECTION.libraries} Background={Background}>
-      <Section.Header name={SECTION.libraries} />
-
+    <Section.Container id={SECTION.news} Background={Background}>
+      <Section.Header name={SECTION.news} />
       <CardContainer minWidth={cardMinWidth}>
-        <Fade direction="down" cascade damping={0.5} triggerOnce>
-          {libraries.map((p, i) => (
-            <Library {...p} key={i} />
+        <Fade direction="down" triggerOnce cascade damping={0.5}>
+          {news.map(p => (
+            <Post {...p} key={p.url} />
           ))}
         </Fade>
       </CardContainer>
@@ -43,33 +43,32 @@ const Libraries = (): JSX.Element => {
 const Background = (): JSX.Element => (
   <>
     <Triangle
-      color="secondary"
-      height={['80vh', '80vh']}
+      color="muted"
+      height={['15vh', '6vh']}
       width={['100vw', '100vw']}
-      position="top-right"
-    />
-
-    <Triangle
-      color="background"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      position="top-right"
+      position="top-left"
     />
 
     <Triangle
       color="primary"
-      height={['25vh', '40vh']}
-      width={['75vw', '60vw']}
-      position="bottom-right"
+      height={['85vh', '75vh']}
+      width={['35vw', '25vw']}
+      position="bottom-left"
     />
 
     <Triangle
+      color="secondary"
+      height={['35vh', '30vh']}
+      width={['80vw', '65vw']}
+      position="bottom-left"
+    />
+    <Triangle
       color="muted"
-      height={['25vh', '21vh']}
+      height={['15vh', '10vh']}
       width={['100vw', '100vw']}
-      position="bottom-right"
+      position="bottom-left"
     />
   </>
 );
 
-export default Libraries;
+export default News;
