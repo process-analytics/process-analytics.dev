@@ -56,7 +56,7 @@ const Background = (): JSX.Element => (
       width={['100vw', '100vw']}
       position="bottom-left"
     />*/}
-
+    {/*
     <Triangle
       color="primary"
       height={['30vh', '50vh']}
@@ -74,6 +74,26 @@ const Background = (): JSX.Element => (
     <Triangle
       color="muted"
       height={['25vh', '5vh']}
+      width={['100vw', '100vw']}
+      position="bottom-left"
+    />*/}
+
+    <Triangle
+      color="primary"
+      height={['80vh', '70vh']}
+      width={['30vw', '20vw']}
+      position="bottom-left"
+    />
+
+    <Triangle
+      color="secondary"
+      height={['30vh', '25vh']}
+      width={['80vw', '60vw']}
+      position="bottom-left"
+    />
+    <Triangle
+      color="muted"
+      height={['15vh', '10vh']}
       width={['100vw', '100vw']}
       position="bottom-left"
     />
