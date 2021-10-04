@@ -48,7 +48,7 @@ const news: PostDescription[] = [
       'https://res.cloudinary.com/practicaldev/image/fetch/s--swGu7XvF--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/vcewdv5tbjnvxb0ws715.png', // from the dev.to article
     url: 'https://dev.to/marcin_michniewicz/hacktoberfest-challenge-398g',
     date: 'October 2020',
-    time: 4,
+    time: 1,
   },
 ];
 
