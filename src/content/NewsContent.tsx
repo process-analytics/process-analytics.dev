@@ -32,6 +32,24 @@ const news: PostDescription[] = [
     date: 'September 2021',
     time: 4,
   },
+  {
+    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title: 'The bpmn-visualization project celebrates its 1st anniversary'
+    text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--Qh5L0TzO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rf1gct67udbt0vmgqpyo.png', // from the dev.to article
+    url: 'https://www.linkedin.com/pulse/bpmn-visualization-project-celebrates-its-1st-thomas-bouffard/', // https://dev.to/tbouffard/the-bpmn-visualization-project-celebrates-its-1st-anniversary-4ae2
+    date: 'May 2021',
+    time: 4,
+  },
+  {
+    title: 'Process Analytics at Hacktoberfest 2020', // original title: 'Hacktoberfest challenge'
+    text: 'Contribute to the bpmn-visualization library during the Hacktoberfest 2020 event.',
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--swGu7XvF--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/vcewdv5tbjnvxb0ws715.png', // from the dev.to article
+    url: 'https://dev.to/marcin_michniewicz/hacktoberfest-challenge-398g',
+    date: 'October 2020',
+    time: 1,
+  },
 ];
 
 export const newsContent = {
