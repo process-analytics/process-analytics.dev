@@ -41,8 +41,15 @@ const news: PostDescription[] = [
     date: 'May 2021',
     time: 4,
   },
-
-  // HAcktober fest 2020
+  {
+    title: 'Process Analytics at Hacktoberfest 2020', // original title: 'Hacktoberfest challenge'
+    text: 'Contribute to the bpmn-visualization library during the Hacktoberfest 2020 event.',
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--swGu7XvF--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/vcewdv5tbjnvxb0ws715.png', // from the dev.to article
+    url: 'https://dev.to/marcin_michniewicz/hacktoberfest-challenge-398g',
+    date: 'October 2020',
+    time: 4,
+  },
 ];
 
 export const newsContent = {
