@@ -25,15 +25,6 @@ const posts: PostDescription[] = [
     time: 11,
   },
   {
-    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title: 'The bpmn-visualization project celebrates its 1st anniversary'
-    text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
-    cover:
-      'https://res.cloudinary.com/practicaldev/image/fetch/s--Qh5L0TzO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rf1gct67udbt0vmgqpyo.png', // from the dev.to article
-    url: 'https://www.linkedin.com/pulse/bpmn-visualization-project-celebrates-its-1st-thomas-bouffard/', // https://dev.to/tbouffard/the-bpmn-visualization-project-celebrates-its-1st-anniversary-4ae2
-    date: 'May 2021',
-    time: 4,
-  },
-  {
     title:
       'Automated visual regression testing with TypeScript, Playwright and Jest', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot'
     text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot.',
@@ -59,6 +50,16 @@ const posts: PostDescription[] = [
     url: 'https://community.bonitasoft.com/blog/bonita-ui-designer-custom-widget-bpmn-visualization', // https://dev.to/aibcmars/bonita-ui-designer-creating-custom-widget-for-bpmn-visualization-44lk
     date: 'February 2021',
     time: 3,
+  },
+  {
+    title:
+      'Simplifying life: Using GitHub Actions for Continuous Integration in BPMN Visualization', // original title: 'Simplifying life: Using GitHub Actions for Continuous Integration in a BPMN Visualization open source project'
+    text: 'A step-by-step tutorial that explains how to setup GitHub Actions to continously build and test a TypeScript project.',
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--vBB9KCW4--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/twfkvzk83m0cpjwz26js.png', // from https://dev.to/parthpandyappp/implemented-github-actions-to-a-django-python-repository-2128
+    url: 'https://dev.to/marcin_michniewicz/simplifying-life-using-github-actions-for-continuous-integration-in-a-bpmn-visualization-open-source-project-42i7',
+    date: 'October 2020',
+    time: 4,
   },
   {
     title:
