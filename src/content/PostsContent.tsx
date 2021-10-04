@@ -53,6 +53,16 @@ const posts: PostDescription[] = [
   },
   {
     title:
+      'Simplifying life: Using GitHub Actions for Continuous Integration in BPMN Visualization', // original title: 'Simplifying life: Using GitHub Actions for Continuous Integration in a BPMN Visualization open source project'
+    text: 'A step-by-step tutorial that explains how to setup GitHub Actions to continously build and test a TypeScript project.',
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--vBB9KCW4--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/twfkvzk83m0cpjwz26js.png', // from https://dev.to/parthpandyappp/implemented-github-actions-to-a-django-python-repository-2128
+    url: 'https://dev.to/marcin_michniewicz/simplifying-life-using-github-actions-for-continuous-integration-in-a-bpmn-visualization-open-source-project-42i7',
+    date: 'October 2020',
+    time: 4,
+  },
+  {
+    title:
       'Using Process Discovery on Business Process Management (BPM) through BPMN', // original title: 'Using process discovery on business process management (BPM) through BPMN'
     text: 'How Process Discovery can be used on the event logs of a generic application to extract information to re-create an accurate process model in BPMN.',
     cover: 'https://miro.medium.com/max/700/0*CBLM-NiaCiqT76Vm',
