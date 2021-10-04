@@ -39,10 +39,15 @@ export const Post = ({
       {text}
     </Text>
     <CardFooter bg="primary" color="background" position="bottom-right" round>
-      {`${date} - ${Math.ceil(time)} min`}
+      <span>{`${date} - `}</span>
+      <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
     </CardFooter>
   </PostContainer>
 );
+
+const TimeReadSpan = styled.span`
+  text-transform: none;
+`;
 
 type PostContainerProps = {
   url: string;
