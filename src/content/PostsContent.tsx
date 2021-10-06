@@ -35,6 +35,15 @@ const posts: PostDescription[] = [
   },
   {
     title:
+      'Automated visual regression testing with TypeScript, Puppeteer and Jest', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Puppeteer, Jest and Jest Image Snapshot'
+    text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Puppeteer, Jest and Jest Image Snapshot.',
+    cover: 'https://miro.medium.com/max/350/1*VoL0OqbLaesqYDaT3fc0HA.png', // from the medium article
+    url: 'https://medium.com/nerd-for-tech/automated-visual-regression-testing-with-typescript-puppeteer-jest-and-jest-image-snapshot-9e14dd9d0fe7',
+    date: 'March 2021',
+    time: 6,
+  },
+  {
+    title:
       'Using process discovery on BPM through BPMN: the BPMN layout generator', // original title which would have been truncated: 'Using process discovery on business process management (BPM) through BPMN: the BPMN layout generator'
     text: 'Extract the BPMN semantic of a business process (not based on BPMN process) starting with its event logs using Process Mining tools.',
     cover: 'https://miro.medium.com/max/700/0*qg0OrWHFwe_QjvJf', // from the medium article
