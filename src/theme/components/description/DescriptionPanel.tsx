@@ -48,13 +48,18 @@ const DescriptionPanel = ({
         mb={['10px', '10px', '30px']}
         pt={['1em', '1em', '1.5em']}
       >
-        <ContentContainer isFullPage={isFullPage}>
+        <Flex
+          flexDirection={isFullPage ? 'column' : 'row'}
+          justifyContent="center"
+          alignItems="center"
+          flexWrap="wrap"
+        >
           <Content
             mdx={mdx}
             image={image as Required<ImageType> | undefined}
             isFullPage={isFullPage}
           />
-        </ContentContainer>
+        </Flex>
       </Box>
       {withSeparator && <Divider />}
     </>
@@ -64,26 +69,6 @@ const DescriptionPanel = ({
 function isVerticalSubSection(imagePosition: ImagePosition): boolean {
   return imagePosition === 'top' || imagePosition === 'bottom';
 }
-
-const ContentContainer = ({
-  children,
-  isFullPage,
-}: {
-  children: JSX.Element;
-  isFullPage: boolean;
-}): JSX.Element => {
-  const flexDirection = isFullPage ? 'column' : 'row';
-  return (
-    <Flex
-      flexDirection={flexDirection}
-      justifyContent="center"
-      alignItems="center"
-      flexWrap="wrap"
-    >
-      {children}
-    </Flex>
-  );
-};
 
 const Content = ({
   mdx,
