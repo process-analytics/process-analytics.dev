@@ -42,25 +42,22 @@ const DescriptionPanel = ({
 
   return (
     <>
-      <Box
+      <Flex
         key={index}
         mt={['10px', '10px', '30px']}
         mb={['10px', '10px', '30px']}
         pt={['1em', '1em', '1.5em']}
+        flexDirection={isFullPage ? 'column' : 'row'}
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
       >
-        <Flex
-          flexDirection={isFullPage ? 'column' : 'row'}
-          justifyContent="center"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          <Content
-            mdx={mdx}
-            image={image as Required<ImageType> | undefined}
-            isFullPage={isFullPage}
-          />
-        </Flex>
-      </Box>
+        <Content
+          mdx={mdx}
+          image={image as Required<ImageType> | undefined}
+          isFullPage={isFullPage}
+        />
+      </Flex>
       {withSeparator && <Divider />}
     </>
   );
