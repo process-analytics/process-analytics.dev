@@ -71,16 +71,19 @@ const ContentContainer = ({
 }: {
   children: JSX.Element;
   isFullPage: boolean;
-}): JSX.Element =>
-  isFullPage ? (
-    <Box justifyContent="center" alignItems="center" flexWrap="wrap">
-      {children}
-    </Box>
-  ) : (
-    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+}): JSX.Element => {
+  const flexDirection = isFullPage ? 'column' : 'row';
+  return (
+    <Flex
+      flexDirection={flexDirection}
+      justifyContent="center"
+      alignItems="center"
+      flexWrap="wrap"
+    >
       {children}
     </Flex>
   );
+};
 
 const Content = ({
   mdx,
