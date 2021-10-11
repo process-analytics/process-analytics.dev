@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Box, Flex } from 'rebass/styled-components';
+import { Flex } from 'rebass/styled-components';
 import React from 'react';
 import { Image as ImageType, ImagePosition } from '../../types';
 import Divider from './../Divider';
@@ -39,23 +39,34 @@ const DescriptionPanel = ({
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const isFullPage = !image || isVerticalSubSection(image.positionFromMdx!);
+  const imageIsOnLeftOrOnRight =
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    image && isImageOnLeftOrOnRight(image.positionFromMdx!);
 
   return (
     <>
-      <Box
+      <Flex
         key={index}
         mt={['10px', '10px', '30px']}
         mb={['10px', '10px', '30px']}
         pt={['1em', '1em', '1.5em']}
+        flexDirection={
+          isFullPage
+            ? imageIsOnLeftOrOnRight
+              ? 'column'
+              : 'column-reverse'
+            : imageIsOnLeftOrOnRight
+            ? 'row'
+            : 'row-reverse'
+        }
+        alignItems="center"
+        flexWrap="wrap"
       >
-        <ContentContainer isFullPage={isFullPage}>
-          <Content
-            mdx={mdx}
-            image={image as Required<ImageType> | undefined}
-            isFullPage={isFullPage}
-          />
-        </ContentContainer>
-      </Box>
+        <>
+          {image && <ImagePanel image={image} isFullPage={isFullPage} />}
+          <MDXPanel mdx={mdx} isFullPage={isFullPage} />
+        </>
+      </Flex>
       {withSeparator && <Divider />}
     </>
   );
@@ -65,47 +76,8 @@ function isVerticalSubSection(imagePosition: ImagePosition): boolean {
   return imagePosition === 'top' || imagePosition === 'bottom';
 }
 
-const ContentContainer = ({
-  children,
-  isFullPage,
-}: {
-  children: JSX.Element;
-  isFullPage: boolean;
-}): JSX.Element =>
-  isFullPage ? (
-    <Box justifyContent="center" alignItems="center" flexWrap="wrap">
-      {children}
-    </Box>
-  ) : (
-    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-      {children}
-    </Flex>
-  );
-
-const Content = ({
-  mdx,
-  image,
-  isFullPage,
-}: {
-  mdx: JSX.Element;
-  image: Required<ImageType> | undefined;
-  isFullPage: boolean;
-}): JSX.Element => {
-  if (!image) {
-    return <MDXPanel mdx={mdx} isFullPage={isFullPage} />;
-  }
-
-  return image.positionFromMdx === 'left' || image.positionFromMdx === 'top' ? (
-    <>
-      <ImagePanel image={image} isFullPage={isFullPage} />
-      <MDXPanel mdx={mdx} isFullPage={isFullPage} />
-    </>
-  ) : (
-    <>
-      <MDXPanel mdx={mdx} isFullPage={isFullPage} />
-      <ImagePanel image={image} isFullPage={isFullPage} />
-    </>
-  );
-};
+function isImageOnLeftOrOnRight(imagePosition: ImagePosition): boolean {
+  return imagePosition === 'left' || imagePosition === 'top';
+}
 
 export default DescriptionPanel;
