@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 declare module '@rebass/preset' {
   export interface Theme {
     colors: Colors;
     fonts: Fonts;
-    fontSizes?: number[] | null;
+    fontSizes?: number[];
     fontWeights: FontWeights;
     lineHeights: LineHeights;
-    space?: number[] | null;
+    space?: number[];
     sizes: Sizes;
     radii: Radii;
     shadows: Shadows;
     text: Text;
+    variants: Variants;
+    buttons: Buttons;
+    styles: Styles;
     queries: Queries;
-    variants: any;
-    buttons: any;
   }
 
   interface Colors {
@@ -37,7 +37,8 @@ declare module '@rebass/preset' {
     primary: string;
     secondary: string;
     muted: string;
-    highlight: string;
+    gray?: string;
+    highlight?: string;
   }
 
   interface Fonts {
@@ -71,12 +72,89 @@ declare module '@rebass/preset' {
   }
 
   interface Text {
-    /*    heading: HeadingOrRoot;
+    heading: HeadingOrRoot;
     display: Display;
-    caps: Caps;*/
-    heading: string;
+    caps: Caps;
+  }
+
+  interface HeadingOrRoot {
+    fontFamily: string;
+    lineHeight: string;
+    fontWeight: string;
+  }
+
+  interface Display {
+    fontFamily: string;
+    fontWeight: string;
+    lineHeight: string;
+    fontSize: number[];
+  }
+
+  interface Caps {
+    textTransform: string;
+    letterSpacing: string;
+  }
+
+  interface Variants {
+    avatar: Avatar;
+    card: Card;
+    link: Link;
+    nav: Nav;
+  }
+
+  interface Avatar {
+    width: string;
+    height: string;
+    borderRadius: string;
+  }
+
+  interface Card {
+    p: number;
+    bg: string;
+    boxShadow: string;
+  }
+
+  interface Link {
+    color: string;
+  }
+
+  interface Nav {
+    fontSize: number;
+    fontWeight: string;
     display: string;
-    caps: string;
+    p: number;
+    color: string;
+    textDecoration: string;
+    ':hover,:focus,.active': Event;
+  }
+
+  interface Event {
+    color: string;
+  }
+
+  interface Buttons {
+    primary?: Button;
+    outline?: Button;
+    secondary?: Button;
+    empty?: Button;
+  }
+
+  interface Button {
+    p?: number;
+    m?: number;
+    variant?: string;
+    color?: string;
+    bg?: string;
+    border?: number;
+    borderRadius?: string;
+    textDecorationLine?: string;
+    fontSize?: number;
+    fontWeight?: string;
+    boxShadow?: string;
+  }
+
+  interface Styles {
+    root: HeadingOrRoot;
   }
 
   interface Queries {
@@ -88,11 +166,13 @@ declare module '@rebass/preset' {
 }
 
 declare module '*.svg' {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const content: any;
   export default content;
 }
 
 declare module '*.json' {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const value: any;
   export default value;
 }

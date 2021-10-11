@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import baseTheme from '@rebass/preset';
+import baseTheme, { Theme } from '@rebass/preset';
 import colors from './colors.json';
 
-export const theme = {
-  ...baseTheme,
+export const theme: Theme = {
+  ...(baseTheme as Theme),
   colors,
   queries: {
     xs: '@media screen and (max-width: 40em)',
@@ -30,12 +30,12 @@ export const theme = {
       p: 0,
       border: 0,
       m: 0,
-      background: 'transparent',
+      bg: 'transparent',
     },
     secondary: {
       textDecorationLine: 'none',
       color: colors.background,
-      background: colors.secondary,
+      bg: colors.secondary,
       fontWeight: '600',
     },
   },

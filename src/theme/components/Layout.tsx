@@ -64,7 +64,7 @@ type Props = {
 
 const Layout = ({ children, title }: Props): JSX.Element => (
   <main>
-    <ThemeProvider theme={theme as Theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Helmet title={title} />
       {children}
