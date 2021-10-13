@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'September 2021 Newsletter',
+    text: 'Learn about the website changes, the Hacktoberfest 2021 participation, the new GitHub organization profile, and the new examples.',
+    cover: 'https://miro.medium.com/max/310/0*uMfxKrDYqTeNwLUF',
+    url: 'https://medium.com/@process-analytics/process-analytics-september-2021-newsletter-51e0b6c3404a',
+    date: 'October 2021',
+    time: 4,
+  },
+  {
     title: 'Hacktoberfest 2021 with Process Analytics',
     text: 'The Process Analytics team is participating in Hacktoberfest 2021, as we did for Hacktoberfest 2020.',
     cover: 'https://miro.medium.com/max/350/0*nuqEJFMVU_qIE2ZO',
