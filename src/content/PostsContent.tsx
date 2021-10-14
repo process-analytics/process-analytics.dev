@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Using BPMN Visualization in R',
+    text: 'The new BPMN Visualization - R Package is being developed to offer another way to visualize process execution data in R.',
+    cover: 'https://miro.medium.com/max/310/0*A9K-8oeH_XT0MwUu',
+    url: 'https://medium.com/@process-analytics/using-bpmn-visualization-in-r-91ab92bd5a8d',
+    date: 'October 2021',
+    time: 3,
+  },
+  {
     title: 'Improving Frontend User Experience with Profiling and Performance', // original title which would have been truncated: 'Improving Frontend User Experience with Profiling and Performance'
     text: 'This article recalls basic foundations of good web application performance, and offers insights from a case study based on Process Analytics BPMN Visualization library.',
     cover: 'https://miro.medium.com/max/350/0*Le0gSGCuvlKyHln3.png', // image within the article, no cover available
