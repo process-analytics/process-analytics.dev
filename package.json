@@ -33,11 +33,11 @@
     "react-headroom": "^3.2.0",
     "react-helmet": "^6.1.0",
     "rebass": "^4.0.7",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.30",
+    "@types/react": "^17.0.33",
     "@types/react-headroom": "^2.2.2",
     "@types/react-helmet": "^6.1.4",
     "@types/rebass": "^4.0.10",
