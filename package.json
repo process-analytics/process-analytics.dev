@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.33",
+    "@types/react": "^17.0.34",
     "@types/react-headroom": "^2.2.2",
     "@types/react-helmet": "^6.1.4",
     "@types/rebass": "^4.0.10",
