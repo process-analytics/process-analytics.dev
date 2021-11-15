@@ -33,6 +33,14 @@ const posts: PostDescription[] = [
     time: 11,
   },
   {
+    title: 'mxGraph Usage in TypeScript Projects',
+    text: 'Learn how to integrate mxGraph in TypeScript project. The article also explains how we did it in bpmn-visualization.',
+    cover: 'https://dz2cdn1.dzone.com/thumbnail?fid=14747584&w=400', // from dzone list when searching for the article
+    url: 'https://dzone.com/articles/mxgraph-usage-in-typescript-projects',
+    date: 'May 2021',
+    time: 7,
+  },
+  {
     title:
       'Automated visual regression testing with TypeScript, Playwright and Jest', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot'
     text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot.',
