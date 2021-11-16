@@ -15,7 +15,8 @@
     "clean": "gatsby clean",
     "check-types": "tsc -p . --noEmit",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0 --fix",
-    "lint-check": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0"
+    "lint-check": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
