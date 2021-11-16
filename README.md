@@ -25,6 +25,8 @@
 This site is created with Gatsby. 
 
 1.  **Start developing.**
+
+    Mininal node version: `14.15.0` (for Gatsby v4)
     ```shell
     npm start
     ```
