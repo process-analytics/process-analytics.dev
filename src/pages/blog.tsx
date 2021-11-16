@@ -15,7 +15,7 @@
  */
 import * as React from 'react';
 import Layout from '../theme/components/Layout';
-import Header from '../theme/components/Header';
+import PageHeader from '../theme/components/PageHeader';
 import Footer from '../theme/components/Footer';
 import Section from '../theme/components/Section';
 import { SECTION } from '../theme/utils/constants';
@@ -31,7 +31,7 @@ const BlogPage = (): JSX.Element => {
   const { posts } = postsContent;
   return (
     <Layout title={SECTION.blog}>
-      <Header />
+      <PageHeader />
       <Section.Container id={SECTION.blog} Background={Background}>
         <Heading
           textAlign="center"
@@ -50,7 +50,6 @@ const BlogPage = (): JSX.Element => {
             ))}
           </Fade>
         </CardContainer>
-        {/*    <Box height="70vh" />*/}
       </Section.Container>
       <Footer />
     </Layout>
