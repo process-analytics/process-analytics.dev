@@ -26,10 +26,10 @@ This site is created with Gatsby.
 
 1.  **Start developing.**
 
-Mininal node version: `14.15.0` (for Gatsby v4)
-```shell
-npm start
-```
+    Mininal node version: `14.15.0` (for Gatsby v4)
+    ```shell
+    npm start
+    ```
 
     Your site is now running at http://localhost:8000! \
     You can modify a file from `src` to see your site update in real-time!
