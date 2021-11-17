@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
@@ -30,36 +30,6 @@ export const Post = ({
   date,
   time,
 }: PostProps): JSX.Element => (
-  <PostContainer url={url} title={title}>
-    <EllipsisHeading m={3} color="text" fontSize={3}>
-      {title}
-    </EllipsisHeading>
-    {cover && <CoverImage src={cover} alt={title} />}
-    <Text m={3} color="text">
-      {text}
-    </Text>
-    <CardFooter bg="primary" color="background" position="bottom-right" round>
-      <span>{`${date} - `}</span>
-      <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
-    </CardFooter>
-  </PostContainer>
-);
-
-const TimeReadSpan = styled.span`
-  text-transform: none;
-`;
-
-type PostContainerProps = {
-  url: string;
-  title: string;
-  children: ReactNode;
-};
-
-const PostContainer = ({
-  url,
-  title,
-  children,
-}: PostContainerProps): JSX.Element => (
   <a
     href={url}
     target="__blank"
@@ -67,10 +37,24 @@ const PostContainer = ({
     style={{ textDecoration: 'none' }}
   >
     <Card p={0} pb={4}>
-      {children}
+      <EllipsisHeading m={3} color="text" fontSize={3}>
+        {title}
+      </EllipsisHeading>
+      {cover && <CoverImage src={cover} alt={title} />}
+      <Text m={3} color="text">
+        {text}
+      </Text>
+      <CardFooter bg="primary" color="background" position="bottom-right" round>
+        <span>{`${date} - `}</span>
+        <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
+      </CardFooter>
     </Card>
   </a>
 );
+
+const TimeReadSpan = styled.span`
+  text-transform: none;
+`;
 
 const CoverImage = styled.img`
   width: 100%;
