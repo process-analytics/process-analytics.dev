@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Button, Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
@@ -83,13 +83,17 @@ export const PostContainer = ({
   displayAll,
 }: PostContainerProps): JSX.Element => {
   return (
-    <CardContainer minWidth={cardMinWidth}>
-      <Fade direction="down" triggerOnce cascade damping={0.5}>
-        {(displayAll ? posts : posts.slice(0, 6)).map(p => (
-          <Post {...p} key={p.url} />
-        ))}
-        {!displayAll && (
-          <Flex width="100%" justifyContent="end">
+    <>
+      <CardContainer minWidth={cardMinWidth}>
+        <DownFade>
+          {(displayAll ? posts : posts.slice(0, 6)).map(p => (
+            <Post {...p} key={p.url} />
+          ))}
+        </DownFade>
+      </CardContainer>
+      {displayAll === false && (
+        <Flex justifyContent="end" mt="3">
+          <DownFade>
             <Button variant="secondary">
               <RebassLink
                 href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
@@ -100,9 +104,15 @@ export const PostContainer = ({
                 More
               </RebassLink>
             </Button>
-          </Flex>
-        )}
-      </Fade>
-    </CardContainer>
+          </DownFade>
+        </Flex>
+      )}
+    </>
   );
 };
+
+const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
+  <Fade direction="down" triggerOnce cascade damping={0.5}>
+    {children}
+  </Fade>
+);
