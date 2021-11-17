@@ -141,7 +141,7 @@ declare module '@rebass/preset' {
   }
 
   interface Button {
-    p?: number;
+    p?: number | string;
     m?: number;
     variant?: string;
     color?: string;

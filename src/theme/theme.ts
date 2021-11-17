@@ -45,6 +45,7 @@ export const theme: Theme = {
       fontWeight: '600',
       border: `3px solid ${colors.secondary}`,
       boxShadow: `inset 0 0 2px ${colors.muted}`,
+      p: '8px 10%',
     },
   },
   fonts: {
