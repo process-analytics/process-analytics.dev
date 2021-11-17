@@ -95,7 +95,7 @@ export const PostContainer = ({
       {pageId && (
         <Flex justifyContent="end" mt="3" fontSize={[2, 3]}>
           <DownFade>
-            <Button variant="secondary">
+            <Button variant="more">
               <RebassLink
                 href={`/${pageId}`}
                 color="inherit"

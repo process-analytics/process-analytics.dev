@@ -137,6 +137,7 @@ declare module '@rebass/preset' {
     outline?: Button;
     secondary?: Button;
     empty?: Button;
+    more?: Button;
   }
 
   interface Button {
@@ -147,7 +148,8 @@ declare module '@rebass/preset' {
     bg?: string;
     border?: number;
     borderRadius?: string;
-    textDecorationLine?: string;
+    borderColor?: string;
+    textDecoration?: string;
     fontSize?: number;
     fontWeight?: string;
     boxShadow?: string;

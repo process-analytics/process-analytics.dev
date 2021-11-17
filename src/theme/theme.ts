@@ -33,10 +33,17 @@ export const theme: Theme = {
       bg: 'transparent',
     },
     secondary: {
-      textDecorationLine: 'none',
+      textDecoration: 'none',
       color: colors.background,
       bg: colors.secondary,
       fontWeight: '600',
+    },
+    more: {
+      textDecoration: 'none',
+      color: colors.text,
+      bg: colors.background,
+      fontWeight: '600',
+      boxShadow: 'inset 0 0 4px red',
     },
   },
   fonts: {
