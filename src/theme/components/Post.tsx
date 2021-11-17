@@ -20,8 +20,9 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { cardMinWidth } from '../sections/Blog';
 import { Link as RebassLink } from 'rebass';
+
+const cardMinWidth = '350px';
 
 type PostProps = PostDescription;
 
