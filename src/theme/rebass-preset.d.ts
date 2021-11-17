@@ -146,9 +146,8 @@ declare module '@rebass/preset' {
     variant?: string;
     color?: string;
     bg?: string;
-    border?: number;
+    border?: number | string;
     borderRadius?: string;
-    borderColor?: string;
     textDecoration?: string;
     fontSize?: number;
     fontWeight?: string;

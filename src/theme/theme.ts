@@ -43,7 +43,8 @@ export const theme: Theme = {
       color: colors.secondary,
       bg: colors.background,
       fontWeight: '600',
-      boxShadow: `inset 0 0 4px ${colors.text}`,
+      border: '1px solid rgba(0,0,0,0.2)',
+      //  boxShadow: `inset 0 0 4px ${colors.text}`,
     },
   },
   fonts: {
