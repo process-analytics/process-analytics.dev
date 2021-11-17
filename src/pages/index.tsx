@@ -22,9 +22,10 @@ import Libraries from '../theme/sections/Libraries';
 import Blog from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
 import News from '../theme/sections/News';
+import { PAGE } from '../theme/utils/constants';
 
 const HomePage = (): JSX.Element => (
-  <Layout title="Process Analytics">
+  <Layout title={PAGE.home}>
     <Header />
     <Landing />
     <About />

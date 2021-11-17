@@ -21,6 +21,7 @@ import { theme } from '../theme';
 import Helmet from './Helmet';
 import 'tippy.js/dist/tippy.css';
 import CookieConsent, { Cookies } from 'react-cookie-consent';
+import { PAGE } from '../utils/constants';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -59,14 +60,14 @@ const GlobalStyle = createGlobalStyle`
 
 type Props = {
   children: ReactNode;
-  title: string;
+  title: PAGE;
 };
 
 const Layout = ({ children, title }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Helmet title={title} />
+      <Helmet title={`Process Analytics - ${title}`} />
       {children}
       {process.env.GATSBY_GA_MEASUREMENT_ID && (
         <CookieConsent

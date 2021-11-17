@@ -18,7 +18,7 @@ import Layout from '../theme/components/Layout';
 import PageHeader from '../theme/components/PageHeader';
 import Footer from '../theme/components/Footer';
 import Section from '../theme/components/Section';
-import { SECTION } from '../theme/utils/constants';
+import { PAGE, SECTION } from '../theme/utils/constants';
 import { Heading } from 'rebass/styled-components';
 import Triangle from '../theme/components/Triangle';
 import { Fade } from 'react-awesome-reveal';
@@ -30,7 +30,7 @@ import { postsContent } from '../content/PostsContent';
 const BlogPage = (): JSX.Element => {
   const { posts } = postsContent;
   return (
-    <Layout title={SECTION.blog}>
+    <Layout title={PAGE.blog}>
       <PageHeader />
       <Section.Container id={SECTION.blog} Background={Background}>
         <Heading
