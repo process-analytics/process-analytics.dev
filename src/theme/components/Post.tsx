@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 import React from 'react';
-import { Heading, Text } from 'rebass/styled-components';
+import { Button, Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
 import { cardMinWidth } from '../sections/Blog';
+import { Link as RebassLink } from 'rebass';
 
 type PostProps = PostDescription;
 
@@ -87,6 +88,20 @@ export const PostContainer = ({
         {(displayAll ? posts : posts.slice(0, 6)).map(p => (
           <Post {...p} key={p.url} />
         ))}
+        {!displayAll && (
+          <Flex width="100%" justifyContent="end">
+            <Button variant="secondary">
+              <RebassLink
+                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                target="_blank"
+                color="inherit"
+                style={{ textDecorationLine: 'inherit' }}
+              >
+                More
+              </RebassLink>
+            </Button>
+          </Flex>
+        )}
       </Fade>
     </CardContainer>
   );
