@@ -93,7 +93,7 @@ export const PostContainer = ({
         </DownFade>
       </CardContainer>
       {pageId && (
-        <Flex justifyContent="end" mt="3" fontSize={[2, 3]}>
+        <Flex justifyContent="center" mt="3" fontSize={[2, 3]}>
           <DownFade>
             <Button variant="more">
               <RebassLink
