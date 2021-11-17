@@ -74,13 +74,17 @@ const EllipsisHeading = styled(Heading)`
 
 type PostContainerProps = {
   posts: PostDescription[];
+  displayAll?: boolean;
 };
 
-export const PostContainer = ({ posts }: PostContainerProps): JSX.Element => {
+export const PostContainer = ({
+  posts,
+  displayAll,
+}: PostContainerProps): JSX.Element => {
   return (
     <CardContainer minWidth={cardMinWidth}>
       <Fade direction="down" triggerOnce cascade damping={0.5}>
-        {posts.map(p => (
+        {(displayAll ? posts : posts.slice(0, 6)).map(p => (
           <Post {...p} key={p.url} />
         ))}
       </Fade>

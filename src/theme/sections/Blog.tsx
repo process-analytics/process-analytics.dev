@@ -25,7 +25,7 @@ export const cardMinWidth = '350px';
 const Blog = (): JSX.Element => (
   <Section.Container id={SECTION.blog} Background={Background}>
     <Section.Header name={SECTION.blog} />
-    <PostContainer posts={postsContent.posts} />
+    <PostContainer posts={postsContent.posts} displayAll={false} />
   </Section.Container>
 );
 
