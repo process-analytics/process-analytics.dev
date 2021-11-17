@@ -40,11 +40,11 @@ export const theme: Theme = {
     },
     more: {
       textDecoration: 'none',
-      color: colors.secondary,
+      color: colors.primary,
       bg: colors.background,
       fontWeight: '600',
-      border: `1px solid ${colors.text}`,
-      //  boxShadow: `inset 0 0 4px ${colors.text}`,
+      border: `3px solid ${colors.secondary}`,
+      boxShadow: `inset 0 0 2px ${colors.muted}`,
     },
   },
   fonts: {
