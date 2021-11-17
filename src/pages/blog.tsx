@@ -32,8 +32,8 @@ const BlogPage = (): JSX.Element => (
         as="h1"
         color="primary"
         fontSize={[6, 8]}
-        mb={[4, 4, 5]}
-        mt={[4, 4, 5]}
+        mb={[5, 5, 6]}
+        mt={[5, 5, 6]}
       >
         {SECTION.blog}
       </Heading>
