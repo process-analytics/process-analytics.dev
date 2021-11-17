@@ -21,40 +21,27 @@ import Section from '../theme/components/Section';
 import { PAGE, SECTION } from '../theme/utils/constants';
 import { Heading } from 'rebass/styled-components';
 import Triangle from '../theme/components/Triangle';
-import { Fade } from 'react-awesome-reveal';
-import { Post } from '../theme/components/Post';
-import { CardContainer } from '../theme/components/Card';
-import { cardMinWidth } from '../theme/sections/Blog';
-import { postsContent } from '../content/PostsContent';
+import { PostContainer } from '../theme/sections/Blog';
 
-const BlogPage = (): JSX.Element => {
-  const { posts } = postsContent;
-  return (
-    <Layout title={PAGE.blog}>
-      <PageHeader />
-      <Section.Container id={SECTION.blog} Background={Background}>
-        <Heading
-          textAlign="center"
-          as="h1"
-          color="primary"
-          fontSize={[6, 8]}
-          mb={[3, 4, 5]}
-          mt={[3, 4, 5]}
-        >
-          {SECTION.blog}
-        </Heading>
-        <CardContainer minWidth={cardMinWidth}>
-          <Fade direction="down" triggerOnce cascade damping={0.5}>
-            {posts.map(p => (
-              <Post {...p} key={p.url} />
-            ))}
-          </Fade>
-        </CardContainer>
-      </Section.Container>
-      <Footer />
-    </Layout>
-  );
-};
+const BlogPage = (): JSX.Element => (
+  <Layout title={PAGE.blog}>
+    <PageHeader />
+    <Section.Container id={SECTION.blog} Background={Background}>
+      <Heading
+        textAlign="center"
+        as="h1"
+        color="primary"
+        fontSize={[6, 8]}
+        mb={[4, 4, 5]}
+        mt={[4, 4, 5]}
+      >
+        {SECTION.blog}
+      </Heading>
+      <PostContainer />
+    </Section.Container>
+    <Footer />
+  </Layout>
+);
 
 export default BlogPage;
 
@@ -74,7 +61,7 @@ const Background = (): JSX.Element => (
 
     <Triangle
       color="primary"
-      height={['5vh', '15vh']}
+      height={['9vh', '15vh']}
       width={['75vw', '60vw']}
       position="top-right"
     />
