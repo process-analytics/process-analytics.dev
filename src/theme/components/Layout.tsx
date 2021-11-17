@@ -67,7 +67,7 @@ const Layout = ({ children, title }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Helmet title={`Process Analytics - ${title}`} />
+      <Helmet title={title} />
       {children}
       {process.env.GATSBY_GA_MEASUREMENT_ID && (
         <CookieConsent
