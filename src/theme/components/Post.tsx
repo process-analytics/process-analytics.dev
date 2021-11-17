@@ -17,8 +17,10 @@ import React from 'react';
 import { Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
-import { Card } from './Card';
+import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
+import { Fade } from 'react-awesome-reveal';
+import { cardMinWidth } from '../sections/Blog';
 
 type PostProps = PostDescription;
 
@@ -69,3 +71,19 @@ const EllipsisHeading = styled(Heading)`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
+
+type PostContainerProps = {
+  posts: PostDescription[];
+};
+
+export const PostContainer = ({ posts }: PostContainerProps): JSX.Element => {
+  return (
+    <CardContainer minWidth={cardMinWidth}>
+      <Fade direction="down" triggerOnce cascade damping={0.5}>
+        {posts.map(p => (
+          <Post {...p} key={p.url} />
+        ))}
+      </Fade>
+    </CardContainer>
+  );
+};
