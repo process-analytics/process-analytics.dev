@@ -24,7 +24,7 @@ import {
 } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { header } from '../../content/HeaderContent';
-import { PAGE, SECTION } from '../utils/constants';
+import { PAGE } from '../utils/constants';
 import Link from './Link';
 import { capitalize } from '../utils/string';
 
