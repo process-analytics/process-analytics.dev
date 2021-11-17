@@ -63,7 +63,7 @@ const PageHeader = (): JSX.Element => {
                 color="background"
                 fontSize={[2, 3]}
               >
-                <Link href={`#${id}`} tabIndex={0}>
+                <Link href={`/${id}`} tabIndex={0}>
                   {capitalize(id)}
                 </Link>
               </Box>
