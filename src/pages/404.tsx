@@ -20,9 +20,10 @@ import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import { Link } from 'gatsby';
 import Img from '../images/404.png';
+import { PAGE } from '../theme/utils/constants';
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout title="Page not found">
+  <Layout title={PAGE.notFound}>
     <Section.Container Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
         <Image
