@@ -76,29 +76,28 @@ const EllipsisHeading = styled(Heading)`
 
 type PostContainerProps = {
   posts: PostDescription[];
-  displayAll?: boolean;
+  pageId?: string;
 };
 
 export const PostContainer = ({
   posts,
-  displayAll,
+  pageId,
 }: PostContainerProps): JSX.Element => {
   return (
     <>
       <CardContainer minWidth={cardMinWidth}>
         <DownFade>
-          {(displayAll ? posts : posts.slice(0, 6)).map(p => (
+          {(pageId ? posts.slice(0, 6) : posts).map(p => (
             <Post {...p} key={p.url} />
           ))}
         </DownFade>
       </CardContainer>
-      {displayAll === false && (
+      {pageId && (
         <Flex justifyContent="end" mt="3" fontSize={[2, 3]}>
           <DownFade>
             <Button variant="secondary">
               <RebassLink
-                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                target="_blank"
+                href={`/${pageId}`}
                 color="inherit"
                 style={{ textDecorationLine: 'inherit' }}
               >

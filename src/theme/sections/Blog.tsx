@@ -23,7 +23,7 @@ import { PostContainer } from '../components/Post';
 const Blog = (): JSX.Element => (
   <Section.Container id={SECTION.blog} Background={Background}>
     <Section.Header name={SECTION.blog} />
-    <PostContainer posts={postsContent.posts} displayAll={false} />
+    <PostContainer posts={postsContent.posts} pageId="blog" />
   </Section.Container>
 );
 
