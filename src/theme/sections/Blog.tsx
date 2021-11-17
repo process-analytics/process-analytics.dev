@@ -24,20 +24,23 @@ import { postsContent } from '../../content/PostsContent';
 
 export const cardMinWidth = '350px';
 
-const Blog = (): JSX.Element => {
-  const { posts } = postsContent;
+const Blog = (): JSX.Element => (
+  <Section.Container id={SECTION.blog} Background={Background}>
+    <Section.Header name={SECTION.blog} />
+    <PostContainer />
+  </Section.Container>
+);
 
+const PostContainer = (): JSX.Element => {
+  const { posts } = postsContent;
   return (
-    <Section.Container id={SECTION.blog} Background={Background}>
-      <Section.Header name={SECTION.blog} />
-      <CardContainer minWidth={cardMinWidth}>
-        <Fade direction="down" triggerOnce cascade damping={0.5}>
-          {posts.map(p => (
-            <Post {...p} key={p.url} />
-          ))}
-        </Fade>
-      </CardContainer>
-    </Section.Container>
+    <CardContainer minWidth={cardMinWidth}>
+      <Fade direction="down" triggerOnce cascade damping={0.5}>
+        {posts.map(p => (
+          <Post {...p} key={p.url} />
+        ))}
+      </Fade>
+    </CardContainer>
   );
 };
 
@@ -66,4 +69,4 @@ const Background = (): JSX.Element => (
   </>
 );
 
-export default Blog;
+export { Blog, PostContainer };

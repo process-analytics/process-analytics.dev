@@ -25,4 +25,12 @@ export enum SECTION {
   blog = 'Blog Posts',
 }
 
+// keys are used by the page header
+// values are used as page title
+export enum PAGE {
+  home = 'Process Analytics',
+  notFound = 'Page not found - Process Analytics',
+  blog = 'Blog Posts - Process Analytics',
+}
+
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
