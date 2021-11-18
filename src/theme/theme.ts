@@ -38,15 +38,6 @@ export const theme: Theme = {
       bg: colors.secondary,
       fontWeight: '600',
     },
-    more: {
-      textDecoration: 'none',
-      color: colors.primary,
-      bg: colors.background,
-      fontWeight: '600',
-      border: `3px solid ${colors.secondary}`,
-      boxShadow: `inset 0 0 2px ${colors.muted}`,
-      p: '8px 10%',
-    },
   },
   fonts: {
     body: 'Cabin, Open Sans, sans-serif',

@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 import React, { ReactNode } from 'react';
-import { Button, Flex, Heading, Text } from 'rebass/styled-components';
+import { Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { Link as RebassLink } from 'rebass';
+import { Link } from 'rebass';
+import colors from '../colors.json';
 
 const cardMinWidth = '350px';
 
@@ -95,15 +96,9 @@ export const PostContainer = ({
       {pageId && (
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
-            <Button variant="more">
-              <RebassLink
-                href={`/${pageId}`}
-                color="inherit"
-                style={{ textDecorationLine: 'inherit' }}
-              >
-                More
-              </RebassLink>
-            </Button>
+            <MoreButton>
+              <StyledLink href={`/${pageId}`}>More</StyledLink>
+            </MoreButton>
           </Flex>
         </DownFade>
       )}
@@ -116,3 +111,19 @@ const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
     {children}
   </Fade>
 );
+
+const StyledLink = styled(Link)``;
+const MoreButton = styled(Card)`
+  border-width: 2px;
+  padding: 0;
+  color: ${colors.text};
+  background: ${colors.background};
+
+  ${StyledLink} {
+    text-decoration: none;
+    display: block;
+    padding: 8px 70px;
+    font-weight: 600;
+    color: inherit;
+  }
+`;
