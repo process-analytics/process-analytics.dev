@@ -54,4 +54,12 @@ const Link = styled.a<Props>`
   }
 `;
 
-export default Link;
+const LinkInButton = styled.a`
+  text-decoration: none;
+  display: block;
+  padding: '8px 16px';
+  font-weight: 600;
+  color: inherit;
+`;
+
+export { Link, LinkInButton };

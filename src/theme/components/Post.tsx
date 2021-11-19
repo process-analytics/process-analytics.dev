@@ -20,6 +20,7 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
+import { LinkInButton } from './Link';
 
 const cardMinWidth = '350px';
 
@@ -113,11 +114,3 @@ const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
     {children}
   </Fade>
 );
-
-const LinkInButton = styled.a`
-  text-decoration: none;
-  display: block;
-  padding: '8px 16px';
-  font-weight: 600;
-  color: inherit;
-`;

@@ -18,7 +18,7 @@ import styled from 'styled-components';
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import SocialLink from './SocialLink';
-import Link from './Link';
+import { Link } from './Link';
 import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { header } from '../../content/HeaderContent';

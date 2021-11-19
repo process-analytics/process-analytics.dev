@@ -25,7 +25,7 @@ import {
 import styled from 'styled-components';
 import { header } from '../../content/HeaderContent';
 import { PAGE } from '../utils/constants';
-import Link from './Link';
+import { Link } from './Link';
 import { capitalize } from '../utils/string';
 
 const PageHeader = (): JSX.Element => {
