@@ -95,9 +95,9 @@ export const PostContainer = ({
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
             <Card
-              as={MoreButton}
+              as={LinkInButton}
               href={`/${pageId}`}
-              style={{ borderWidth: '2px' }}
+              style={{ borderWidth: '2px', padding: '8px 70px' }}
             >
               More
             </Card>
@@ -114,10 +114,10 @@ const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
   </Fade>
 );
 
-const MoreButton = styled.a`
+const LinkInButton = styled.a`
   text-decoration: none;
   display: block;
-  padding: 8px 70px;
+  padding: ${props => props.style?.padding ?? '8px 16px'};
   font-weight: 600;
   color: inherit;
 `;
