@@ -94,9 +94,13 @@ export const PostContainer = ({
       {pageId && (
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
-            <MoreButton as="a" href={`/${pageId}`}>
+            <Card
+              as={MoreButton}
+              href={`/${pageId}`}
+              style={{ borderWidth: '2px' }}
+            >
               More
-            </MoreButton>
+            </Card>
           </Flex>
         </DownFade>
       )}
@@ -110,10 +114,7 @@ const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
   </Fade>
 );
 
-const MoreButton = styled(Card)`
-  border-width: 2px;
-  padding: 0;
-
+const MoreButton = styled.a`
   text-decoration: none;
   display: block;
   padding: 8px 70px;

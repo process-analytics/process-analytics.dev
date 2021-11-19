@@ -39,7 +39,7 @@ export const Card = styled(CardRebass).attrs({
   bg: 'background',
   boxShadow: 0,
 })`
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: ${props => props.style?.borderWidth ?? '1px'} solid rgba(0, 0, 0, 0.2);
   position: relative;
   transition: all 0.25s;
   top: 0;
