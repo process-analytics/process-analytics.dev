@@ -21,7 +21,7 @@ import About from '../theme/sections/About';
 import Libraries from '../theme/sections/Libraries';
 import { Blog } from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
-import News from '../theme/sections/News';
+import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
 
 const HomePage = (): JSX.Element => (

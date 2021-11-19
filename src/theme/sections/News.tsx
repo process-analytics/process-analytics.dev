@@ -14,22 +14,19 @@
  * limitations under the License.
  */
 import React from 'react';
-import Section from '../components/Section';
 import Triangle from '../components/Triangle';
-import { PostContainer } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { newsContent } from '../../content/NewsContent';
+import { SectionWithPosts } from './SectionWithPosts';
 
-const News = (): JSX.Element => {
-  const { news } = newsContent;
-
-  return (
-    <Section.Container id={SECTION.news} Background={Background}>
-      <Section.Header name={SECTION.news} />
-      <PostContainer posts={news} pageId="news" />
-    </Section.Container>
-  );
-};
+const News = (): JSX.Element => (
+  <SectionWithPosts
+    containerTitle={SECTION.news}
+    Background={Background}
+    posts={newsContent.news}
+    pageId="news"
+  />
+);
 
 const Background = (): JSX.Element => (
   <>
@@ -62,4 +59,4 @@ const Background = (): JSX.Element => (
   </>
 );
 
-export default News;
+export { News };
