@@ -135,7 +135,6 @@ declare module '@rebass/preset' {
   interface Buttons {
     primary?: Button;
     outline?: Button;
-    secondary?: Button;
     empty?: Button;
   }
 
