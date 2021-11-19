@@ -25,8 +25,9 @@ import {
 import styled from 'styled-components';
 import { header } from '../../content/HeaderContent';
 import { PAGE } from '../utils/constants';
-import { Link } from './Link';
+import { Link, LinkInButton } from './Link';
 import { capitalize } from '../utils/string';
+import colors from '../colors.json';
 
 const PageHeader = (): JSX.Element => {
   const { logo } = header;
@@ -69,15 +70,16 @@ const PageHeader = (): JSX.Element => {
               </Box>
             ))}
           <Box ml={[2, 3]} fontSize={[2, 3]}>
-            <Button variant="secondary">
-              <RebassLink
-                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                target="_blank"
-                color="inherit"
-                style={{ textDecorationLine: 'inherit' }}
-              >
-                Demo
-              </RebassLink>
+            <Button
+              as={LinkInButton}
+              href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+              target="_blank"
+              style={{
+                color: colors.background,
+                background: colors.secondary,
+              }}
+            >
+              Demo
             </Button>
           </Box>
         </Flex>
