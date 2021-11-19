@@ -117,7 +117,7 @@ const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
 const LinkInButton = styled.a`
   text-decoration: none;
   display: block;
-  padding: ${props => props.style?.padding ?? '8px 16px'};
+  padding: '8px 16px';
   font-weight: 600;
   color: inherit;
 `;
