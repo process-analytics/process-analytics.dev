@@ -20,8 +20,6 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { Link } from 'rebass';
-import colors from '../colors.json';
 
 const cardMinWidth = '350px';
 
@@ -96,8 +94,8 @@ export const PostContainer = ({
       {pageId && (
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
-            <MoreButton>
-              <Link href={`/${pageId}`}>More</Link>
+            <MoreButton as="a" href={`/${pageId}`}>
+              More
             </MoreButton>
           </Flex>
         </DownFade>
@@ -116,11 +114,9 @@ const MoreButton = styled(Card)`
   border-width: 2px;
   padding: 0;
 
-  & > a {
-    text-decoration: none;
-    display: block;
-    padding: 8px 70px;
-    font-weight: 600;
-    color: inherit;
-  }
+  text-decoration: none;
+  display: block;
+  padding: 8px 70px;
+  font-weight: 600;
+  color: inherit;
 `;
