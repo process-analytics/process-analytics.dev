@@ -26,7 +26,7 @@ const News = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.news} Background={Background}>
       <Section.Header name={SECTION.news} />
-      <PostContainer posts={news} />
+      <PostContainer posts={news} pageId="news" />
     </Section.Container>
   );
 };
