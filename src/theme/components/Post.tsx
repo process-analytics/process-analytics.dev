@@ -21,6 +21,7 @@ import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
 import { LinkInButton } from './Link';
+import colors from '../colors.json';
 
 const cardMinWidth = '350px';
 
@@ -98,7 +99,11 @@ export const PostContainer = ({
             <Card
               as={LinkInButton}
               href={`/${pageId}`}
-              style={{ borderWidth: '2px', padding: '8px 70px' }}
+              style={{
+                borderWidth: '2px',
+                padding: '8px 70px',
+                background: colors.background,
+              }}
             >
               More
             </Card>
