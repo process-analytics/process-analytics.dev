@@ -93,7 +93,7 @@ export const PostContainer = ({
           ))}
         </DownFade>
       </CardContainer>
-      {pageId && (
+      {pageId && posts.length > 6 && (
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
             <Card

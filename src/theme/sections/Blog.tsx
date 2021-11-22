@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 import React from 'react';
-import Section from '../components/Section';
 import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { postsContent } from '../../content/PostsContent';
-import { PostContainer } from '../components/Post';
+import { SectionWithPosts } from './SectionWithPosts';
 
 const Blog = (): JSX.Element => (
-  <Section.Container id={SECTION.blog} Background={Background}>
-    <Section.Header name={SECTION.blog} />
-    <PostContainer posts={postsContent.posts} pageId="blog" />
-  </Section.Container>
+  <SectionWithPosts
+    containerTitle={SECTION.blog}
+    Background={Background}
+    posts={postsContent.posts}
+    pageId="blog"
+  />
 );
 
 const Background = (): JSX.Element => (
