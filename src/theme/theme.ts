@@ -32,12 +32,6 @@ export const theme: Theme = {
       m: 0,
       bg: 'transparent',
     },
-    secondary: {
-      textDecoration: 'none',
-      color: colors.background,
-      bg: colors.secondary,
-      fontWeight: '600',
-    },
   },
   fonts: {
     body: 'Cabin, Open Sans, sans-serif',
