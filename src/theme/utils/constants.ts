@@ -30,6 +30,7 @@ export enum SECTION {
 export enum PAGE {
   home = 'Process Analytics',
   notFound = 'Page not found - Process Analytics',
+  news = 'News - Process Analytics',
   blog = 'Blog Posts - Process Analytics',
 }
 

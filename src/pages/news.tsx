@@ -15,15 +15,15 @@
  */
 import * as React from 'react';
 import { PAGE, SECTION } from '../theme/utils/constants';
-import { postsContent } from '../content/PostsContent';
+import { newsContent } from '../content/NewsContent';
 import { PageWithPosts } from '../theme/pages/PageWithPosts';
 
-const BlogPage = (): JSX.Element => (
+const NewsPage = (): JSX.Element => (
   <PageWithPosts
-    layoutTitle={PAGE.blog}
-    containerTitle={SECTION.blog}
-    posts={postsContent.posts}
+    layoutTitle={PAGE.news}
+    containerTitle={SECTION.news}
+    posts={newsContent.news}
   />
 );
 
-export default BlogPage;
+export default NewsPage;
