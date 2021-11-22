@@ -18,11 +18,14 @@ import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import Section from '../components/Section';
-import { Heading } from 'rebass/styled-components';
+import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
 import { PostDescription } from '../types';
 import { PAGE, SECTION } from '../utils/constants';
+
+// TODO duplicated from Landing.tsx
+const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 interface PageWithPostsProps {
   layoutTitle: PAGE;
@@ -47,6 +50,22 @@ export const PageWithPosts = ({
         mt={[5, 5, 6]}
       >
         {containerTitle}
+      </Heading>
+      {/*TODO manage responsiveness (3 media instead of just 2)*/}
+      <Heading
+        as="h2"
+        color="primary"
+        fontSize={[2, 4]}
+        mb={[3, 5]}
+        textAlign="center"
+        style={centerHorizontally}
+      >
+        <Text width={[300, 700]} key="presentation">
+          {/*TODO move to content for a specific content for blog and news*/}
+          Here you will find all the blog posts explaining how to use the
+          libraries developed by Process Analytics, as well as those explaining
+          how they were developed using external technical tools, and more.
+        </Text>
       </Heading>
       <PostContainer posts={posts} />
     </Section.Container>
