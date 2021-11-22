@@ -23,6 +23,7 @@ const NewsPage = (): JSX.Element => (
     layoutTitle={PAGE.news}
     containerTitle={SECTION.news}
     posts={newsContent.news}
+    description=""
   />
 );
 

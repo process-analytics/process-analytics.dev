@@ -31,12 +31,14 @@ interface PageWithPostsProps {
   layoutTitle: PAGE;
   containerTitle: SECTION;
   posts: PostDescription[];
+  description: string;
 }
 
 export const PageWithPosts = ({
   layoutTitle,
   containerTitle,
   posts,
+  description,
 }: PageWithPostsProps): JSX.Element => (
   <Layout title={layoutTitle}>
     <PageHeader />
@@ -61,10 +63,7 @@ export const PageWithPosts = ({
         style={centerHorizontally}
       >
         <Text width={[300, 700]} key="presentation">
-          {/*TODO move to content for a specific content for blog and news*/}
-          Here you will find all the blog posts explaining how to use the
-          libraries developed by Process Analytics, as well as those explaining
-          how they were developed using external technical tools, and more.
+          {description}
         </Text>
       </Heading>
       <PostContainer posts={posts} />
