@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 import React from 'react';
-import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
-import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
-import { Post } from '../components/Post';
+import { PostContainer } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { newsContent } from '../../content/NewsContent';
-import { cardMinWidth } from './Blog';
 
 const News = (): JSX.Element => {
   const { news } = newsContent;
@@ -29,13 +26,7 @@ const News = (): JSX.Element => {
   return (
     <Section.Container id={SECTION.news} Background={Background}>
       <Section.Header name={SECTION.news} />
-      <CardContainer minWidth={cardMinWidth}>
-        <Fade direction="down" triggerOnce cascade damping={0.5}>
-          {news.map(p => (
-            <Post {...p} key={p.url} />
-          ))}
-        </Fade>
-      </CardContainer>
+      <PostContainer posts={news} />
     </Section.Container>
   );
 };

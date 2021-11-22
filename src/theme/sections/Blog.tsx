@@ -14,35 +14,18 @@
  * limitations under the License.
  */
 import React from 'react';
-import { Fade } from 'react-awesome-reveal';
 import Section from '../components/Section';
-import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
-import { Post } from '../components/Post';
 import { SECTION } from '../utils/constants';
 import { postsContent } from '../../content/PostsContent';
-
-export const cardMinWidth = '350px';
+import { PostContainer } from '../components/Post';
 
 const Blog = (): JSX.Element => (
   <Section.Container id={SECTION.blog} Background={Background}>
     <Section.Header name={SECTION.blog} />
-    <PostContainer />
+    <PostContainer posts={postsContent.posts} pageId="blog" />
   </Section.Container>
 );
-
-const PostContainer = (): JSX.Element => {
-  const { posts } = postsContent;
-  return (
-    <CardContainer minWidth={cardMinWidth}>
-      <Fade direction="down" triggerOnce cascade damping={0.5}>
-        {posts.map(p => (
-          <Post {...p} key={p.url} />
-        ))}
-      </Fade>
-    </CardContainer>
-  );
-};
 
 const Background = (): JSX.Element => (
   <>
@@ -69,4 +52,4 @@ const Background = (): JSX.Element => (
   </>
 );
 
-export { Blog, PostContainer };
+export { Blog };

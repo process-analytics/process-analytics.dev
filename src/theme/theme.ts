@@ -33,7 +33,7 @@ export const theme: Theme = {
       bg: 'transparent',
     },
     secondary: {
-      textDecorationLine: 'none',
+      textDecoration: 'none',
       color: colors.background,
       bg: colors.secondary,
       fontWeight: '600',

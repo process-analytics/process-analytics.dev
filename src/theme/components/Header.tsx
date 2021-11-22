@@ -23,7 +23,7 @@ import {
   Button,
 } from 'rebass/styled-components';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from './Link';
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';

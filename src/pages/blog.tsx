@@ -21,7 +21,8 @@ import Section from '../theme/components/Section';
 import { PAGE, SECTION } from '../theme/utils/constants';
 import { Heading } from 'rebass/styled-components';
 import Triangle from '../theme/components/Triangle';
-import { PostContainer } from '../theme/sections/Blog';
+import { PostContainer } from '../theme/components/Post';
+import { postsContent } from '../content/PostsContent';
 
 const BlogPage = (): JSX.Element => (
   <Layout title={PAGE.blog}>
@@ -37,7 +38,7 @@ const BlogPage = (): JSX.Element => (
       >
         {SECTION.blog}
       </Heading>
-      <PostContainer />
+      <PostContainer posts={postsContent.posts} />
     </Section.Container>
     <Footer />
   </Layout>

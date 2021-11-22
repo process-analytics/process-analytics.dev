@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 import React, { ReactNode } from 'react';
-import { Heading, Text } from 'rebass/styled-components';
+import { Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { PostDescription } from '../types';
-import { Card } from './Card';
+import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
+import { Fade } from 'react-awesome-reveal';
+import { LinkInButton } from './Link';
+import colors from '../colors.json';
+
+const cardMinWidth = '350px';
 
 type PostProps = PostDescription;
 
@@ -30,36 +35,6 @@ export const Post = ({
   date,
   time,
 }: PostProps): JSX.Element => (
-  <PostContainer url={url} title={title}>
-    <EllipsisHeading m={3} color="text" fontSize={3}>
-      {title}
-    </EllipsisHeading>
-    {cover && <CoverImage src={cover} alt={title} />}
-    <Text m={3} color="text">
-      {text}
-    </Text>
-    <CardFooter bg="primary" color="background" position="bottom-right" round>
-      <span>{`${date} - `}</span>
-      <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
-    </CardFooter>
-  </PostContainer>
-);
-
-const TimeReadSpan = styled.span`
-  text-transform: none;
-`;
-
-type PostContainerProps = {
-  url: string;
-  title: string;
-  children: ReactNode;
-};
-
-const PostContainer = ({
-  url,
-  title,
-  children,
-}: PostContainerProps): JSX.Element => (
   <a
     href={url}
     target="__blank"
@@ -67,10 +42,24 @@ const PostContainer = ({
     style={{ textDecoration: 'none' }}
   >
     <Card p={0} pb={4}>
-      {children}
+      <EllipsisHeading m={3} color="text" fontSize={3}>
+        {title}
+      </EllipsisHeading>
+      {cover && <CoverImage src={cover} alt={title} />}
+      <Text m={3} color="text">
+        {text}
+      </Text>
+      <CardFooter bg="primary" color="background" position="bottom-right" round>
+        <span>{`${date} - `}</span>
+        <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
+      </CardFooter>
     </Card>
   </a>
 );
+
+const TimeReadSpan = styled.span`
+  text-transform: none;
+`;
 
 const CoverImage = styled.img`
   width: 100%;
@@ -85,3 +74,48 @@ const EllipsisHeading = styled(Heading)`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
+
+type PostContainerProps = {
+  posts: PostDescription[];
+  pageId?: string;
+};
+
+export const PostContainer = ({
+  posts,
+  pageId,
+}: PostContainerProps): JSX.Element => {
+  return (
+    <>
+      <CardContainer minWidth={cardMinWidth}>
+        <DownFade>
+          {(pageId ? posts.slice(0, 6) : posts).map(p => (
+            <Post {...p} key={p.url} />
+          ))}
+        </DownFade>
+      </CardContainer>
+      {pageId && (
+        <DownFade>
+          <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
+            <Card
+              as={LinkInButton}
+              href={`/${pageId}`}
+              style={{
+                borderWidth: '2px',
+                padding: '8px 70px',
+                background: colors.background,
+              }}
+            >
+              More
+            </Card>
+          </Flex>
+        </DownFade>
+      )}
+    </>
+  );
+};
+
+const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
+  <Fade direction="down" triggerOnce cascade damping={0.5}>
+    {children}
+  </Fade>
+);

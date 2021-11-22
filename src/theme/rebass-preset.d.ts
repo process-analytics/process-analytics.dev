@@ -140,14 +140,14 @@ declare module '@rebass/preset' {
   }
 
   interface Button {
-    p?: number;
+    p?: number | string;
     m?: number;
     variant?: string;
     color?: string;
     bg?: string;
-    border?: number;
+    border?: number | string;
     borderRadius?: string;
-    textDecorationLine?: string;
+    textDecoration?: string;
     fontSize?: number;
     fontWeight?: string;
     boxShadow?: string;
