@@ -62,4 +62,5 @@ const news: PostDescription[] = [
 
 export const newsContent = {
   news,
+  description: '',
 };

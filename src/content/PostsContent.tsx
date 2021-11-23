@@ -99,4 +99,6 @@ const posts: PostDescription[] = [
 
 export const postsContent = {
   posts: posts,
+  description:
+    'Here you will find all the blog posts explaining how to use the libraries developed by Process Analytics, as well as those explaining how they were developed using external technical tools, and more.',
 };
