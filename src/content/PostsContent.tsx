@@ -79,7 +79,7 @@ const posts: PostDescription[] = [
   {
     title:
       'Simplifying life: Using GitHub Actions for Continuous Integration in BPMN Visualization', // original title: 'Simplifying life: Using GitHub Actions for Continuous Integration in a BPMN Visualization open source project'
-    text: 'A step-by-step tutorial that explains how to setup GitHub Actions to continously build and test a TypeScript project.',
+    text: 'A step-by-step tutorial that explains how to setup GitHub Actions to continuously build and test a TypeScript project.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--vBB9KCW4--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/twfkvzk83m0cpjwz26js.png', // from https://dev.to/parthpandyappp/implemented-github-actions-to-a-django-python-repository-2128
     url: 'https://dev.to/marcin_michniewicz/simplifying-life-using-github-actions-for-continuous-integration-in-a-bpmn-visualization-open-source-project-42i7',
@@ -100,5 +100,6 @@ const posts: PostDescription[] = [
 export const postsContent = {
   posts: posts,
   description:
-    'Here you will find all the blog posts explaining how to use the libraries developed by Process Analytics, as well as those explaining how they were developed using external technical tools, and more.',
+    'Find all the blog posts explaining how to use the libraries developed by Process Analytics, ' +
+    'as well as those explaining how they were developed using external technical tools, and more.',
 };

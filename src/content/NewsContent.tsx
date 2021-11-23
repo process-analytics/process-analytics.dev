@@ -62,5 +62,5 @@ const news: PostDescription[] = [
 
 export const newsContent = {
   news,
-  description: '',
+  description: 'Find all the news articles about Process Analytics.',
 };
