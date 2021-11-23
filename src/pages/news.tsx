@@ -17,7 +17,6 @@ import * as React from 'react';
 import { PAGE, SECTION } from '../theme/utils/constants';
 import { newsContent } from '../content/NewsContent';
 import { PageWithPosts } from '../theme/pages/PageWithPosts';
-import { postsContent } from '../content/PostsContent';
 
 const NewsPage = (): JSX.Element => (
   <PageWithPosts
