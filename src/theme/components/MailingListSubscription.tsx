@@ -14,29 +14,22 @@
  * limitations under the License.
  */
 import React, { BaseSyntheticEvent } from 'react';
-import { Button, Text } from 'rebass/styled-components';
+import { Box, Button, Flex, Heading, Text } from 'rebass/styled-components';
+import { Input } from '@rebass/forms';
 import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
+import styled from 'styled-components';
 
 export class MailingListSubscription extends React.Component {
-  state: { email: string; result?: MailchimpResponse } = {
-    email: '',
-    result: undefined,
-  };
-  //const [email, setEmail] = useState('')
+  state: { email: string; response?: MailchimpResponse } = { email: '' };
 
   _handleSubmit = async (e: BaseSyntheticEvent): Promise<void> => {
     e.preventDefault();
-    const result = await addToMailchimp(this.state.email);
-    this.setState({ result: result });
+    const response = await addToMailchimp(this.state.email);
+    this.setState({ response });
   };
 
-  _handleInputChange = (event: BaseSyntheticEvent): void => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
+  _handleEmailChange = (event: BaseSyntheticEvent) => {
+    this.setState({ email: event.currentTarget.value });
   };
 
   render(): JSX.Element {
@@ -46,44 +39,47 @@ export class MailingListSubscription extends React.Component {
     ) : this.state.result === "error" ? (
         <div>ERROR</div>
     ) : */
-      /*        .message {
-          color: _palette(accent-orange);
-      }*/
-      <>
-        <div
+      <Flex flexDirection="column" bg="#f2f2f2" color="#2a2a2a" padding="2rem">
+        <Heading as="h2" marginTop="0" marginBottom="1rem" textAlign="center">
+          Subscribe to my email list!
+        </Heading>
+        <Text
+          readOnly={true}
           className="message"
-          dangerouslySetInnerHTML={{ __html: this.state.result?.msg ?? '' }}
+          dangerouslySetInnerHTML={{ __html: this.state.response?.msg ?? '' }}
         />
 
-        <form onSubmit={this._handleSubmit}>
-          <Text
-            id="outlined-email-input"
-            label="Email"
-            type="email"
-            name="email"
-            autoComplete="email"
-            variant="outlined"
-          />
-          <input
-            className="subscribe-email"
-            type="email"
-            name="email"
-            placeholder="Enter Email Address..."
-            value={this.state.email}
-            onChange={this._handleInputChange}
-          />
-
-          <br />
-          <Button
-            variant="contained"
-            color="primary"
-            label="Submit"
-            type="submit"
-          >
-            Subscribe
-          </Button>
-        </form>
-      </>
+        <Box as="form" onSubmit={this._handleSubmit} py={3}>
+          <Flex flexDirection="row" padding="1rem 1.5rem">
+            <Input
+              placeholder="Email address"
+              name="email"
+              type="text"
+              autoComplete="email"
+              onChange={this._handleEmailChange}
+              color="#2a2a2a"
+              backgroundColor="White"
+              style={{ border: 'none' }}
+            />
+            <SubmitButton type="submit">Subscribe</SubmitButton>
+          </Flex>
+        </Box>
+      </Flex>
     );
   }
 }
+
+const SubmitButton = styled(Button)`
+  display: inline-block;
+
+  border: none;
+  background-color: #dd0505;
+  color: white;
+  letter-spacing: 1px;
+  transition: all 0.1s linear;
+
+  &:hover {
+    cursor: pointer;
+    background: darken(#dd0505, 15%);
+  }
+`;
