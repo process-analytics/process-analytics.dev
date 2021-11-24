@@ -28,7 +28,7 @@ export class MailingListSubscription extends React.Component {
     this.setState({ response });
   };
 
-  _handleEmailChange = (event: BaseSyntheticEvent) => {
+  _handleEmailChange = (event: BaseSyntheticEvent): void => {
     this.setState({ email: event.currentTarget.value });
   };
 
