@@ -24,30 +24,13 @@ export class MailingListSubscription extends React.Component {
   };
   //const [email, setEmail] = useState('')
 
-  // 1. via `.then`
-  /*  _handleSubmit = e => {
-    e.preventDefault();
-    addToMailchimp(email, listFields) // listFields are optional if you are only capturing the email address.
-      .then(data => {
-        // I recommend setting data to React state
-        // but you can do whatever you want (including ignoring this `then()` altogether)
-        console.log(data);
-      })
-      .catch(() => {
-        // unnecessary because Mailchimp only ever
-        // returns a 200 status code
-        // see below for how to handle errors
-      });
-  };*/
-
-  // 2. via `async/await`
-  _handleSubmit = async (e: BaseSyntheticEvent) => {
+  _handleSubmit = async (e: BaseSyntheticEvent): Promise<void> => {
     e.preventDefault();
     const result = await addToMailchimp(this.state.email);
     this.setState({ result: result });
   };
 
-  _handleInputChange = (event: BaseSyntheticEvent) => {
+  _handleInputChange = (event: BaseSyntheticEvent): void => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -56,7 +39,7 @@ export class MailingListSubscription extends React.Component {
     });
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       /*    this.state.result === "success" ? (
         <div>SUCCESS</div>
