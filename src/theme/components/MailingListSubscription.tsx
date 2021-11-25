@@ -39,15 +39,20 @@ export class MailingListSubscription extends React.Component {
     ) : this.state.result === "error" ? (
         <div>ERROR</div>
     ) : */
-      <Flex flexDirection="column" bg="#f2f2f2" color="#2a2a2a" padding="2rem">
-        <Heading as="h2" marginTop="0" marginBottom="1rem" textAlign="center">
-          Subscribe to my email list!
-        </Heading>
-        <Text
-          readOnly={true}
-          className="message"
-          dangerouslySetInnerHTML={{ __html: this.state.response?.msg ?? '' }}
-        />
+      <Flex flexDirection="row" bg="#f2f2f2" color="#2a2a2a" padding="2rem">
+        <Box>
+          <Heading as="h2" marginTop="0" marginBottom="1rem" textAlign="center">
+            Join our newsletter
+          </Heading>
+          <Text>
+            Subscribe to our newsletter to receive the features and articles
+            every month.
+          </Text>
+          <Text
+            className="message"
+            dangerouslySetInnerHTML={{ __html: this.state.response?.msg ?? '' }}
+          />
+        </Box>
 
         <Box as="form" onSubmit={this._handleSubmit} py={3}>
           <Flex flexDirection="row" padding="1rem 1.5rem">
