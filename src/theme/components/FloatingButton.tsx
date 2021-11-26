@@ -34,16 +34,6 @@ const Button = styled.button`
   z-index: 10;
 `;
 
-const Feedback = styled.span`
-  position: absolute;
-  color: white;
-  top: 18px;
-  left: 19px;
-  font-weight: 900;
-  opacity: ${(props: Props) => (props.open ? '1' : '0')};
-  transition: opacity 0.3s ease-in-out;
-  white-space: nowrap;
-`;
 const Icon = styled.span`
   position: absolute;
   top: 18px;
@@ -51,20 +41,16 @@ const Icon = styled.span`
   opacity: ${(props: Props) => (props.open ? '0' : '1')};
   transition: opacity 0.3s ease-in-out;
 `;
-const InvisibleButton = styled.div`
-  position: absolute;
-  top: -10px;
-  right: 0px;
-  height: 70px;
-  width: 100px;
-  z-index: 1000;
-`;
 
 interface Props {
   open: boolean;
 }
 
-export function FloatingButton() {
+export const FloatingButton = ({
+  children,
+}: {
+  children: JSX.Element[];
+}): JSX.Element => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -74,17 +60,20 @@ export function FloatingButton() {
     return () => clearTimeout(timer);
   }, [open]);
 
+  const childrenWithProps = React.Children.map(children, child => {
+    // Checking isValidElement is the safe way and avoids a typescript error too.
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { open });
+    }
+    return child;
+  });
+
   return (
     <Button open={open} onClick={() => setOpen(true)}>
-      {open && (
-        <InvisibleButton
-          onClick={() => alert('Clickthrough for feedback')}
-        ></InvisibleButton>
-      )}
       <Icon open={open}>
         <FontAwesomeIcon icon={faCommentDots} />
       </Icon>
-      <Feedback open={open}>Give feedback</Feedback>
+      {childrenWithProps}
     </Button>
   );
-}
+};
