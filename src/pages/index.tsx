@@ -24,6 +24,7 @@ import Footer from '../theme/components/Footer';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/MailingListSubscription';
+import { FloatingButton } from '../theme/components/test';
 
 const HomePage = (): JSX.Element => (
   <Layout title={PAGE.home}>
@@ -34,7 +35,8 @@ const HomePage = (): JSX.Element => (
     <News />
     <Blog />
     <Footer />
-    <MailingListSubscription />
+    {/* <MailingListSubscription />*/}
+    <FloatingButton />
   </Layout>
 );
 
