@@ -24,9 +24,16 @@
 
 This site is created with Gatsby. 
 
-1.  **Start developing.**
+1. **Prerequires**
 
-    Mininal node version: `16.x`
+   Mininal node version: See the [`.nvmrc` file](.nvmrc). 
+
+   If you use `nvm`, you can change the node version used locally with `nvm use`. \
+   It loads the version specified in the `.nvmrc` file.
+
+
+2. **Start developing.**
+
     ```shell
     npm start
     ```
@@ -35,7 +42,7 @@ This site is created with Gatsby.
     You can modify a file from `src` to see your site update in real-time!
     
 
-2.  **Learn more**
+3. **Learn more**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
