@@ -61,7 +61,7 @@ export const PageWithPosts = ({
         textAlign="center"
         style={centerHorizontally}
       >
-        <Text width={[300, 700]} key="presentation">
+        <Text width={[400, 600, 700]} key="presentation">
           {description}
         </Text>
       </Heading>
