@@ -18,6 +18,7 @@ import styled from 'styled-components';
 import { ExpandProps } from './FloatingButton';
 import colors from '../../colors.json';
 import { Box } from 'rebass/styled-components';
+import { Fade } from 'react-awesome-reveal';
 
 /*
 const InvisibleButton = styled.div`
@@ -42,6 +43,8 @@ const Feedback = styled.span`
 `;
 */
 
-export const Form = ({ open }: ExpandProps): JSX.Element => {
-  return open ? <Box></Box> : <></>;
-};
+export const Form = (): JSX.Element => (
+  <Fade>
+    <Box></Box>
+  </Fade>
+);

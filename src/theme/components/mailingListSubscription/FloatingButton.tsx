@@ -101,13 +101,14 @@ export const FloatingButton = ({
           <FontAwesomeIcon icon={faPen} />
         </Icon>
         {open && (
-          <Icon open={!open}>
-            <FontAwesomeIcon color={colors.secondary} icon={faWindowClose} />
-          </Icon>
+          <>
+            <Icon open={!open}>
+              <FontAwesomeIcon color={colors.secondary} icon={faWindowClose} />
+            </Icon>
+            <Form />
+          </>
         )}
         {/*      {childrenWithProps}*/}
-
-        <Form open={open} />
       </FormContainer>
     </>
   );
