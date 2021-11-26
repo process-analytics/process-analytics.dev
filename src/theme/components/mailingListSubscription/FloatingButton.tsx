@@ -16,9 +16,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { Overlay } from './Overlay';
 import { Form } from './Form';
+import colors from '../../colors.json';
 
 const Button = styled.button`
   position: fixed;
@@ -28,7 +29,7 @@ const Button = styled.button`
   width: ${(props: ExpandProps) => (props.open ? '130px' : '50px')};
   transition: width 0.3s ease-in-out;
   border-radius: 25px;
-  background: black;
+  background: ${colors.secondary};
   color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: none;
@@ -76,7 +77,7 @@ export const FloatingButton = ({
   return (
     <Button open={open} onClick={() => setOpen(true)}>
       <Icon open={open}>
-        <FontAwesomeIcon icon={faCommentDots} />
+        <FontAwesomeIcon icon={faPen} />
       </Icon>
       {/*      {childrenWithProps}*/}
 
