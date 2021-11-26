@@ -16,12 +16,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { Overlay } from './Overlay';
 import { Form } from './Form';
 import colors from '../../colors.json';
+import { Flex } from 'rebass/styled-components';
 
-const FormContainer = styled.div`
+const FormContainer = styled(Flex)`
   position: fixed;
   bottom: 2.5vh;
   right: 2.5vh;
@@ -44,21 +45,21 @@ const FormContainer = styled.div`
 
   ${(props: ExpandProps) =>
     props.open &&
-    `cursor: auto;
+    `background-color: ${colors.background};
+     cursor: auto;
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
      width: 70%;
-     height: 610px;
      max-width: 610px;
+     height: 30%;
      padding: 0;
      transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
      `};
 `;
 
 const Icon = styled.span`
-  position: absolute;
-  top: 18px;
-  left: 19px;
+  cursor: pointer;
+  margin: auto;
   opacity: ${(props: ExpandProps) => (props.open ? '0' : '1')};
   transition: opacity 0.3s ease-in-out;
 `;
@@ -93,14 +94,21 @@ export const FloatingButton = ({
   });*/
 
   return (
-    <FormContainer open={open} onClick={() => setOpen(true)}>
-      <Icon open={open}>
-        <FontAwesomeIcon icon={faPen} />
-      </Icon>
-      {/*      {childrenWithProps}*/}
-
+    <>
       <Overlay open={open} onClick={() => setOpen(false)} />
-      <Form open={open} />
-    </FormContainer>
+      <FormContainer open={open} onClick={() => setOpen(true)}>
+        <Icon open={open}>
+          <FontAwesomeIcon icon={faPen} />
+        </Icon>
+        {open && (
+          <Icon open={!open}>
+            <FontAwesomeIcon color={colors.secondary} icon={faWindowClose} />
+          </Icon>
+        )}
+        {/*      {childrenWithProps}*/}
+
+        <Form open={open} />
+      </FormContainer>
+    </>
   );
 };
