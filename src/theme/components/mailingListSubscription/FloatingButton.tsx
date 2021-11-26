@@ -21,20 +21,38 @@ import { Overlay } from './Overlay';
 import { Form } from './Form';
 import colors from '../../colors.json';
 
-const Button = styled.button`
+const FormContainer = styled.div`
   position: fixed;
-  bottom: 15px;
-  right: 15px;
-  height: 50px;
-  width: ${(props: ExpandProps) => (props.open ? '130px' : '50px')};
-  transition: width 0.3s ease-in-out;
-  border-radius: 25px;
-  background: ${colors.secondary};
-  color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  bottom: 2.5vh;
+  right: 2.5vh;
+  background-color: ${colors.secondary};
+  color: ${colors.background};
+  border-radius: 50%;
+  width: 3.5rem;
+  max-width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
   border: none;
   cursor: pointer;
   z-index: 10;
+  transition: all 0.2s 0.45s, height 0.2s $easer 0.25s,
+    max-width 0.2s $easer 0.35s, width 0.2s $easer 0.35s;
+
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  ${(props: ExpandProps) =>
+    props.open &&
+    `cursor: auto;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
+     border-radius: 0;
+     width: 70%;
+     height: 610px;
+     max-width: 610px;
+     padding: 0;
+     transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
+     `};
 `;
 
 const Icon = styled.span`
@@ -75,7 +93,7 @@ export const FloatingButton = ({
   });*/
 
   return (
-    <Button open={open} onClick={() => setOpen(true)}>
+    <FormContainer open={open} onClick={() => setOpen(true)}>
       <Icon open={open}>
         <FontAwesomeIcon icon={faPen} />
       </Icon>
@@ -83,6 +101,6 @@ export const FloatingButton = ({
 
       <Overlay open={open} onClick={() => setOpen(false)} />
       <Form open={open} />
-    </Button>
+    </FormContainer>
   );
 };
