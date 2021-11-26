@@ -105,7 +105,7 @@ export const PostContainer = ({
                 background: colors.background,
               }}
             >
-              More
+              See all
             </Card>
           </Flex>
         </DownFade>
