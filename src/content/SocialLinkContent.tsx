@@ -26,4 +26,14 @@ export const socialLinks: SocialLink[] = [
     name: 'Twitter',
     icon: 'twitter',
   },
+  {
+    url: 'https://medium.com/@process-analytics',
+    name: 'Medium',
+    icon: 'medium',
+  },
+  {
+    url: 'https://dev.to/process-analytics',
+    name: 'Dev.to',
+    icon: 'dev',
+  },
 ];
