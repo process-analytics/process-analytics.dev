@@ -15,6 +15,7 @@
  */
 import React from 'react';
 import styled from 'styled-components';
+import { ExpandProps } from './FloatingButton';
 
 const InvisibleButton = styled.div`
   position: absolute;
@@ -31,24 +32,21 @@ const Feedback = styled.span`
   top: 18px;
   left: 19px;
   font-weight: 900;
-  opacity: ${(props: Props) => (props.open ? '1' : '0')};
+  opacity: ${(props: ExpandProps) => (props.open ? '1' : '0')};
   transition: opacity 0.3s ease-in-out;
   white-space: nowrap;
+  z-index: 1000;
 `;
 
-interface Props {
-  open: boolean;
-}
-
-export const Form = ({ open }: Props): JSX.Element => {
-  return (
+export const Form = ({ open }: ExpandProps): JSX.Element => {
+  return open ? (
     <>
-      {open && (
-        <InvisibleButton
-          onClick={() => alert('Clickthrough for feedback')}
-        ></InvisibleButton>
-      )}
+      <InvisibleButton
+        onClick={() => alert('Clickthrough for feedback')}
+      ></InvisibleButton>
       <Feedback open={open}>Give feedback</Feedback>
     </>
+  ) : (
+    <></>
   );
 };

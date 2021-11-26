@@ -23,7 +23,7 @@ const Button = styled.button`
   bottom: 15px;
   right: 15px;
   height: 50px;
-  width: ${(props: Props) => (props.open ? '130px' : '50px')};
+  width: ${(props: ExpandProps) => (props.open ? '130px' : '50px')};
   transition: width 0.3s ease-in-out;
   border-radius: 25px;
   background: black;
@@ -38,11 +38,11 @@ const Icon = styled.span`
   position: absolute;
   top: 18px;
   left: 19px;
-  opacity: ${(props: Props) => (props.open ? '0' : '1')};
+  opacity: ${(props: ExpandProps) => (props.open ? '0' : '1')};
   transition: opacity 0.3s ease-in-out;
 `;
 
-interface Props {
+export interface ExpandProps {
   open: boolean;
 }
 
@@ -50,15 +50,16 @@ export const FloatingButton = ({
   children,
 }: {
   children: JSX.Element[];
+  // ExpandProps
 }): JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(false);
     }, 3000);
     return () => clearTimeout(timer);
-  }, [open]);
+  }, [open]);*/
 
   const childrenWithProps = React.Children.map(children, child => {
     // Checking isValidElement is the safe way and avoids a typescript error too.

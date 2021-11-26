@@ -26,6 +26,7 @@ import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/MailingListSubscription';
 import { FloatingButton } from '../theme/components/FloatingButton';
 import { Form } from '../theme/components/Form';
+import { Overlay } from '../theme/components/Overlay';
 
 const HomePage = (): JSX.Element => (
   <Layout title={PAGE.home}>
@@ -38,6 +39,7 @@ const HomePage = (): JSX.Element => (
     <Footer />
     {/* <MailingListSubscription />*/}
     <FloatingButton>
+      <Overlay />
       <Form />
     </FloatingButton>
   </Layout>
