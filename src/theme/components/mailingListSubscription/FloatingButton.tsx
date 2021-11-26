@@ -17,6 +17,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { Overlay } from './Overlay';
+import { Form } from './Form';
 
 const Button = styled.button`
   position: fixed;
@@ -44,6 +46,7 @@ const Icon = styled.span`
 
 export interface ExpandProps {
   open: boolean;
+  submitted?: boolean;
 }
 
 export const FloatingButton = ({
@@ -53,6 +56,7 @@ export const FloatingButton = ({
   // ExpandProps
 }): JSX.Element => {
   const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   /*  useEffect(() => {
     const timer = setTimeout(() => {
@@ -61,20 +65,23 @@ export const FloatingButton = ({
     return () => clearTimeout(timer);
   }, [open]);*/
 
-  const childrenWithProps = React.Children.map(children, child => {
+  /*  const childrenWithProps = React.Children.map(children, child => {
     // Checking isValidElement is the safe way and avoids a typescript error too.
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { open });
     }
     return child;
-  });
+  });*/
 
   return (
     <Button open={open} onClick={() => setOpen(true)}>
       <Icon open={open}>
         <FontAwesomeIcon icon={faCommentDots} />
       </Icon>
-      {childrenWithProps}
+      {/*      {childrenWithProps}*/}
+
+      <Overlay open={open} onClick={() => setOpen(false)} />
+      <Form open={open} />
     </Button>
   );
 };

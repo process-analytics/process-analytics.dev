@@ -23,10 +23,10 @@ import { Blog } from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
-import { MailingListSubscription } from '../theme/components/MailingListSubscription';
-import { FloatingButton } from '../theme/components/FloatingButton';
-import { Form } from '../theme/components/Form';
-import { Overlay } from '../theme/components/Overlay';
+import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
+import { FloatingButton } from '../theme/components/mailingListSubscription/FloatingButton';
+import { Form } from '../theme/components/mailingListSubscription/Form';
+import { Overlay } from '../theme/components/mailingListSubscription/Overlay';
 
 const HomePage = (): JSX.Element => (
   <Layout title={PAGE.home}>
@@ -39,8 +39,9 @@ const HomePage = (): JSX.Element => (
     <Footer />
     {/* <MailingListSubscription />*/}
     <FloatingButton>
-      <Overlay />
-      <Form />
+      {/* <Overlay onClick={() => setOpen(false)} />*/}
+      {/*      <Overlay />
+      <Form />*/}
     </FloatingButton>
   </Layout>
 );
