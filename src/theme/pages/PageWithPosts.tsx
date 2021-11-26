@@ -48,14 +48,13 @@ export const PageWithPosts = ({
         as="h1"
         color="primary"
         fontSize={[6, 8]}
-        mb={[5, 5, 6]}
+        mb={[3, 4, 4]}
         mt={[5, 5, 6]}
       >
         {containerTitle}
       </Heading>
-      {/*TODO manage responsiveness (3 media instead of just 2)*/}
       <Heading
-        as="h2"
+        as="p"
         color="primary"
         fontSize={[2, 4]}
         mb={[3, 5]}
