@@ -20,7 +20,7 @@ import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { Overlay } from './Overlay';
 import { Form } from './Form';
 import colors from '../../colors.json';
-import { Flex } from 'rebass/styled-components';
+import { Box, Flex } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 
 const FormContainer = styled(Flex)`
@@ -52,22 +52,50 @@ const FormContainer = styled(Flex)`
      border-radius: 0;
      width: 70%;
      max-width: 610px;
-     height: 30%;
+     height: 40%;
      padding: 0;
      transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
      `};
 `;
 
-const Icon = styled.span`
+const Icon = styled(Box)`
   cursor: pointer;
   margin: auto;
   opacity: ${(props: ExpandProps) => (props.open ? '0' : '1')};
   transition: opacity 0.3s ease-in-out;
 `;
 
+const OpenIcon = styled(Icon)`
+  &:hover {
+    -webkit-animation: wiggle 0.1s linear infinite;
+    animation: wiggle 0.1s linear infinite;
+  }
+  @keyframes wiggle {
+    0%,
+    100% {
+      -webkit-transform: rotate(-15deg);
+      transform: rotate(-15deg);
+    }
+    50% {
+      -webkit-transform: rotate(15deg);
+      transform: rotate(15deg);
+    }
+  }
+  @-webkit-keyframes wiggle {
+    0%,
+    100% {
+      -webkit-transform: rotate(-15deg);
+      transform: rotate(-15deg);
+    }
+    50% {
+      -webkit-transform: rotate(15deg);
+      transform: rotate(15deg);
+    }
+`;
+
 export interface ExpandProps {
   open: boolean;
-  submitted?: boolean;
+  // submitted?: boolean;
 }
 
 export const FloatingButton = ({
@@ -77,7 +105,7 @@ export const FloatingButton = ({
   // ExpandProps
 }): JSX.Element => {
   const [open, setOpen] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
 
   /*  useEffect(() => {
     const timer = setTimeout(() => {
@@ -99,13 +127,17 @@ export const FloatingButton = ({
       {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
       <FormContainer open={open} flexDirection={'column'}>
         {!open && (
-          <Icon open={open} onClick={() => setOpen(true)}>
+          <OpenIcon open={open} onClick={() => setOpen(true)}>
             <FontAwesomeIcon icon={faPen} />
-          </Icon>
+          </OpenIcon>
         )}
         {open && (
           <>
-            <Icon open={!open} onClick={() => setOpen(false)}>
+            <Icon
+              open={!open}
+              onClick={() => setOpen(false)}
+              css={{ marginTop: '1rem', marginBottom: '1rem' }}
+            >
               <FontAwesomeIcon icon={faWindowClose} />
             </Icon>
             <Fade>

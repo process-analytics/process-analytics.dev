@@ -13,48 +13,117 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { BaseSyntheticEvent, Component } from 'react';
+import React, { BaseSyntheticEvent, Component, useState } from 'react';
 import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
-import { Box, Button, Flex, Heading, Text } from 'rebass/styled-components';
-import { Input, Select } from '@rebass/forms';
+import { Heading, Text } from 'rebass/styled-components';
+import colors from '../../colors.json';
+
+interface SubscriptionProps extends SubmitProps {
+  email: string;
+  response?: MailchimpResponse;
+}
+
+interface SubmitProps {
+  error: boolean;
+  submitted: boolean;
+}
 
 export class SubscriptionForm extends Component {
-  state: { email: string; response?: MailchimpResponse } = { email: '' };
+  state: SubscriptionProps = {
+    email: '',
+    error: false,
+    submitted: false,
+  };
 
-  _handleSubmit = async (e: BaseSyntheticEvent): Promise<void> => {
+  _handleSubmit = async (e: BaseSyntheticEvent): Promise<boolean> => {
+    this.setState({ error: false });
     e.preventDefault();
-    const response = await addToMailchimp(this.state.email);
-    this.setState({ response });
+
+    /*    form.find('.input').each(function () {
+      if ($(this).val() == '') {
+        $(this).addClass('form-error');
+        $(this).select();
+        this.setState({ error: true });
+        return false;
+      } else if ($(this).hasClass('email') && !isValidEmail($(this).val())) {
+        $(this).addClass('form-error');
+        $(this).select();
+         this.setState({ error: true });
+        return false;
+      }
+    });*/
+
+    if (!this.state.email || !this._isValidEmail(this.state.email)) {
+      this.setState({ error: true });
+      return false;
+    }
+
+    if (!this.state.error) {
+      const response = await addToMailchimp(this.state.email);
+      this.setState({ response, submitted: true });
+      /* setTimeout(function () {
+        $(form).trigger('reset');
+      }, 1000);*/
+      return true;
+    }
+    return false;
   };
 
   _handleEmailChange = (event: BaseSyntheticEvent): void => {
     this.setState({ email: event.currentTarget.value });
   };
 
+  _isValidEmail = (email: string): boolean => {
+    const pattern =
+      /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(email);
+  };
+
   render(): JSX.Element {
+    /*    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(false);*/
     return (
       <>
-        <FormHeader id="form-head">
-          <FormTitle className="pre">Get in touch</FormTitle>
-          <Text className="pre">Good choice...</Text>
-          <FormTitle className="post">Thanks!</FormTitle>
-          <Text className="post">I'll be in touch ASAP</Text>
+        <FormHeader
+          id="form-head"
+          submitted={this.state.submitted}
+          error={this.state.error}
+        >
+          {!this.state.submitted && (
+            <>
+              <FormTitle as="h1">Sign up</FormTitle>
+              <Text>Receive our newsletter every month</Text>
+            </>
+          )}
+          {this.state.submitted && (
+            <>
+              <FormTitle as="h1">Thanks!</FormTitle>
+              <Text>We'll be in touch ASAP</Text>
+            </>
+          )}
         </FormHeader>
-        <Form>
-          <FormInput
-            className="input name"
-            name="user_name"
-            placeholder="Your name please"
-            type="text"
-          />
-          <FormInput
-            as={Button}
-            className="input submit"
-            type="submit"
-            value="Send Message"
-          />
-        </Form>
+        {!this.state.submitted && (
+          <Form onSubmit={this._handleSubmit}>
+            <FormInput
+              className="email"
+              name="email"
+              placeholder="Email address"
+              type="text"
+              autoComplete="email"
+              onChange={this._handleEmailChange}
+              submitted={this.state.submitted}
+              error={this.state.error}
+            />
+            <FormInput
+              as={SubmitButton}
+              type="submit"
+              value="Subscribe"
+              bg={colors.background}
+              submitted={this.state.submitted}
+            />
+          </Form>
+        )}
       </>
     );
     {
@@ -87,34 +156,12 @@ export class SubscriptionForm extends Component {
   }
 }
 
-/*
-const SubmitButton = styled(Button)`
-  display: inline-block;
-
-  border: none;
-  background-color: #dd0505;
-  color: white;
-  letter-spacing: 1px;
-  transition: all 0.1s linear;
-
-  &:hover {
-    cursor: pointer;
-    background: darken(#dd0505, 15 %);
-  }
-`;
-*/
-
-const FormTitle = styled.h1`
-  font-weight: 700;
-  color: $col-accent;
-  font-weight: 700;
-  font-size: 4 em;
-  margin: 0;
-  padding: 0 20px;
+const FormTitle = styled(Heading)`
+  color: ${colors.background};
 `;
 
 const Form = styled.form`
-  color: $col-accent;
+  color: ${colors.secondary};
   width: 100%;
   height: 100%;
   padding: 0 20px 20px 20px;
@@ -136,22 +183,13 @@ const FormHeader = styled.div`
     padding: 0;
     margin: 0;
   }
-  .pre {
-    display: block;
-  }
-  .post {
-    display: none;
-  }
 
-  .form-submitted {
+  ${(props: SubmitProps) =>
+    props.submitted &&
+    `
     transform: translateY(250%);
-    .pre {
-      display: none;
-    }
-    .post {
-      display: block;
-    }
-  }
+    display: block;
+  `}
 `;
 
 const FormInput = styled.input`
@@ -168,37 +206,48 @@ const FormInput = styled.input`
   box-shadow: none;
   transform: translateX(0);
 
-  color: $col-accent;
+  color: ${colors.background};
 
   transition: transform 0s 1s;
 
-  .message {
-    resize: none;
-    height: 150px;
-    padding: 10px;
-  }
-
-  .submit {
-    background-color: $col-accent;
-    color: $col-primary;
-    font-size: 120%;
-    height: 80px;
-    box-shadow: 0 5px rgba(0, 0, 0, 0.5);
-    transition: all 0.1s, transform 0s 0.6s;
-
-    &:active {
-      margin-top: 15px;
-      box-shadow: 0 0 rgba(0, 0, 0, 0.5);
-    }
-  }
-
-  .form-error {
-    animation: error 0.8s ease;
+  ${(props: SubmitProps) =>
+    props.error &&
+    `animation: error 0.8s ease;
     background: rgba(0, 0, 0, 0.7);
+    
+    @keyframes error {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-6px);
+            transform: translateX(-6px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
+  }
+  @-webkit-keyframes error {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-6px);
+            transform: translateX(-6px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
+  }
+}
+}
+ `};
 
-  .form-submitted {
-    transform: translateX(150%);
+  ${(props: SubmitProps) =>
+    props.submitted &&
+    `transform: translateX(150%);
     opacity: 0;
     transition: all 0.5s, transform 0.4s $easer 0s;
 
@@ -207,9 +256,23 @@ const FormInput = styled.input`
         transition-delay: #{$i / 10}s;
       }
     }
-  }
+ `};
 
   -webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  }
+`;
+
+const SubmitButton = styled(FormInput)`
+  background-color: ${colors.background};
+  color: ${colors.secondary};
+  font-size: 120%;
+  height: 80px;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s, transform 0s 0.6s;
+
+  &:active {
+    margin-top: 15px;
+    box-shadow: 0 0 rgba(0, 0, 0, 0.5);
   }
 `;
