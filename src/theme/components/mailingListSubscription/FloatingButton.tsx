@@ -21,6 +21,7 @@ import { Overlay } from './Overlay';
 import { Form } from './Form';
 import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
+import { Fade } from 'react-awesome-reveal';
 
 const FormContainer = styled(Flex)`
   position: fixed;
@@ -45,7 +46,7 @@ const FormContainer = styled(Flex)`
 
   ${(props: ExpandProps) =>
     props.open &&
-    `background-color: ${colors.background};
+    `background-color: ${colors.secondary};
      cursor: auto;
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
@@ -95,17 +96,21 @@ export const FloatingButton = ({
 
   return (
     <>
-      <Overlay open={open} onClick={() => setOpen(false)} />
-      <FormContainer open={open} onClick={() => setOpen(true)}>
-        <Icon open={open}>
-          <FontAwesomeIcon icon={faPen} />
-        </Icon>
+      {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
+      <FormContainer open={open} flexDirection={'column'}>
+        {!open && (
+          <Icon open={open} onClick={() => setOpen(true)}>
+            <FontAwesomeIcon icon={faPen} />
+          </Icon>
+        )}
         {open && (
           <>
-            <Icon open={!open}>
-              <FontAwesomeIcon color={colors.secondary} icon={faWindowClose} />
+            <Icon open={!open} onClick={() => setOpen(false)}>
+              <FontAwesomeIcon icon={faWindowClose} />
             </Icon>
-            <Form />
+            <Fade>
+              <FormContent id="form-content" />
+            </Fade>
           </>
         )}
         {/*      {childrenWithProps}*/}
@@ -113,3 +118,19 @@ export const FloatingButton = ({
     </>
   );
 };
+
+const FormContent = styled(Form)`
+  font-family: $font-stack;
+  transform: translateY(150%);
+  width: 100%;
+  opacity: 0;
+  text-align: left;
+  transition: transform 0.2s $easer, opacity 0.2s 0.2s;
+
+  &.expand {
+    transform: translateY(0px);
+    opacity: 1;
+
+    transition: transform 0.7s $easer 0.3s, opacity 0s;
+  }
+`;

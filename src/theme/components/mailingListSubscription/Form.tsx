@@ -19,6 +19,7 @@ import { ExpandProps } from './FloatingButton';
 import colors from '../../colors.json';
 import { Box } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
+import { SubscriptionForm } from './SubscriptionForm';
 
 /*
 const InvisibleButton = styled.div`
@@ -43,8 +44,4 @@ const Feedback = styled.span`
 `;
 */
 
-export const Form = (): JSX.Element => (
-  <Fade>
-    <Box></Box>
-  </Fade>
-);
+export const Form = (): JSX.Element => /*<Box></Box>*/ <SubscriptionForm />;
