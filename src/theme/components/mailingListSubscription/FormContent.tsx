@@ -124,6 +124,7 @@ export class FormContent extends Component {
             />
           </Form>
         )}
+        {this.state.submitted && <Text>{this.state.response?.msg}</Text>}
       </>
     );
     {
