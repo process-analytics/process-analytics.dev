@@ -18,7 +18,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { Overlay } from './Overlay';
-import { Form } from './Form';
+import { FormContent } from './FormContent';
 import colors from '../../colors.json';
 import { Box, Flex } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
@@ -56,6 +56,19 @@ const FormContainer = styled(Flex)`
      padding: 0;
      transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
      `};
+
+  @media (max-width: 600px) {
+    ${(props: ExpandProps) =>
+      props.open &&
+      `
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+      overflow: initial;
+      overflow-x: hidden;
+      bottom: 0;
+   `};
+  }
 `;
 
 const Icon = styled(Box)`
@@ -91,6 +104,13 @@ const OpenIcon = styled(Icon)`
       -webkit-transform: rotate(15deg);
       transform: rotate(15deg);
     }
+  }
+
+  @media (max-width: 600px) {
+    :hover {
+      animation: none;
+    }
+  }
 `;
 
 export interface ExpandProps {
@@ -98,10 +118,10 @@ export interface ExpandProps {
   // submitted?: boolean;
 }
 
-export const FloatingButton = ({
+export const MailingListSubscription = ({
   children,
 }: {
-  children: JSX.Element[];
+  children?: JSX.Element[];
   // ExpandProps
 }): JSX.Element => {
   const [open, setOpen] = useState(false);
@@ -141,7 +161,7 @@ export const FloatingButton = ({
               <FontAwesomeIcon icon={faWindowClose} />
             </Icon>
             <Fade>
-              <FormContent id="form-content" />
+              <Form open={open} />
             </Fade>
           </>
         )}
@@ -151,18 +171,20 @@ export const FloatingButton = ({
   );
 };
 
-const FormContent = styled(Form)`
-  font-family: $font-stack;
+const Form = styled(FormContent)`
+  // font-family: $font-stack;
   transform: translateY(150%);
   width: 100%;
   opacity: 0;
   text-align: left;
   transition: transform 0.2s $easer, opacity 0.2s 0.2s;
 
-  &.expand {
+  ${(props: ExpandProps) =>
+    props.open &&
+    `
     transform: translateY(0px);
     opacity: 1;
 
     transition: transform 0.7s $easer 0.3s, opacity 0s;
-  }
+  `}
 `;

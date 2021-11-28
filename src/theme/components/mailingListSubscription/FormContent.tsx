@@ -29,7 +29,7 @@ interface SubmitProps {
   submitted: boolean;
 }
 
-export class SubscriptionForm extends Component {
+export class FormContent extends Component {
   state: SubscriptionProps = {
     email: '',
     error: false,
@@ -158,6 +158,10 @@ export class SubscriptionForm extends Component {
 
 const FormTitle = styled(Heading)`
   color: ${colors.background};
+
+  @media (max-width: 600px) {
+    font-size: 300%;
+  }
 `;
 
 const Form = styled.form`
@@ -276,3 +280,26 @@ const SubmitButton = styled(FormInput)`
     box-shadow: 0 0 rgba(0, 0, 0, 0.5);
   }
 `;
+
+/*
+
+::-webkit-input-placeholder {/!* Safari, Chrome and Opera *!/
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}/!* Firefox 18- *!/:-moz-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}/!* Firefox 19+ *!/::-moz-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}/!* IE 10+ *!/:-ms-input-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}/!* Edge *!/::-ms-input-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}/!* Default *!/:placeholder-shown {
+  color: rgba(255,255,255,0.8);
+  font-size: 90%;
+}
+*/

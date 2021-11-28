@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import styled from 'styled-components';
-import { ExpandProps } from './FloatingButton';
+import { ExpandProps } from './MailingListSubscription';
 
 export const Overlay = styled.div`
   width: ${(props: ExpandProps) => (props.open ? '100vw' : '0%')};
@@ -37,4 +37,9 @@ export const Overlay = styled.div`
       background: #119da4;
       transition: background 0.6s;
     }`};
+
+  @media (max-width: 600px) {
+    display: none;
+    transition: none;
+  }
 `;
