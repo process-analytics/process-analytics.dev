@@ -53,18 +53,17 @@ export const PageWithPosts = ({
       >
         {containerTitle}
       </Heading>
-      <Heading
+      <Text
         as="p"
+        width={['85%', '80%', '70%']}
         color="primary"
         fontSize={[2, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
       >
-        <Text width={[400, 600, 700]} key="presentation">
-          {description}
-        </Text>
-      </Heading>
+        {description}
+      </Text>
       <PostContainer posts={posts} />
     </Section.Container>
     <Footer />
