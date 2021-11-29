@@ -13,15 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import { Overlay } from './Overlay';
 import { FormContent } from './FormContent';
 import colors from '../../colors.json';
 import { Box, Flex } from 'rebass/styled-components';
-import { Fade } from 'react-awesome-reveal';
+import { Icon, OpenIcon, StyledOpenIcon } from './Icon';
 
 const FormContainer = styled(Flex)`
   position: fixed;
@@ -52,7 +51,7 @@ const FormContainer = styled(Flex)`
      border-radius: 0;
      width: 70%;
      max-width: 610px;
-     height: 40%;
+     height: 30%;
      padding: 0;
      transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
      `};
@@ -71,61 +70,12 @@ const FormContainer = styled(Flex)`
   }
 `;
 
-const Icon = styled(Box)`
-  cursor: pointer;
-  margin: auto;
-  opacity: ${(props: ExpandProps) => (props.open ? '0' : '1')};
-  transition: opacity 0.3s ease-in-out;
-`;
-
-const OpenIcon = styled(Icon)`
-  &:hover {
-    -webkit-animation: wiggle 0.1s linear infinite;
-    animation: wiggle 0.1s linear infinite;
-  }
-  @keyframes wiggle {
-    0%,
-    100% {
-      -webkit-transform: rotate(-15deg);
-      transform: rotate(-15deg);
-    }
-    50% {
-      -webkit-transform: rotate(15deg);
-      transform: rotate(15deg);
-    }
-  }
-  @-webkit-keyframes wiggle {
-    0%,
-    100% {
-      -webkit-transform: rotate(-15deg);
-      transform: rotate(-15deg);
-    }
-    50% {
-      -webkit-transform: rotate(15deg);
-      transform: rotate(15deg);
-    }
-  }
-
-  @media (max-width: 600px) {
-    :hover {
-      animation: none;
-    }
-  }
-`;
-
 export interface ExpandProps {
   open: boolean;
-  // submitted?: boolean;
 }
 
-export const MailingListSubscription = ({
-  children,
-}: {
-  children?: JSX.Element[];
-  // ExpandProps
-}): JSX.Element => {
+export const MailingListSubscription = (): JSX.Element => {
   const [open, setOpen] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
 
   /*  useEffect(() => {
     const timer = setTimeout(() => {
@@ -134,57 +84,27 @@ export const MailingListSubscription = ({
     return () => clearTimeout(timer);
   }, [open]);*/
 
-  /*  const childrenWithProps = React.Children.map(children, child => {
-    // Checking isValidElement is the safe way and avoids a typescript error too.
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, { open });
-    }
-    return child;
-  });*/
-
   return (
     <>
       {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
       <FormContainer open={open} flexDirection={'column'}>
         {!open && (
-          <OpenIcon open={open} onClick={() => setOpen(true)}>
-            <FontAwesomeIcon icon={faPen} />
-          </OpenIcon>
+          <OpenIcon visible={open} icon={faPen} onClick={() => setOpen(true)} />
         )}
         {open && (
+          /*  <Fade>*/
           <>
             <Icon
-              open={!open}
+              visible={!open}
+              icon={faWindowClose}
               onClick={() => setOpen(false)}
               css={{ marginTop: '1rem', marginBottom: '1rem' }}
-            >
-              <FontAwesomeIcon icon={faWindowClose} />
-            </Icon>
-            <Fade>
-              <Form open={open} />
-            </Fade>
+            />
+            <FormContent open={open} />
           </>
+          /*</Fade>*/
         )}
-        {/*      {childrenWithProps}*/}
       </FormContainer>
     </>
   );
 };
-
-const Form = styled(FormContent)`
-  // font-family: $font-stack;
-  transform: translateY(150%);
-  width: 100%;
-  opacity: 0;
-  text-align: left;
-  transition: transform 0.2s $easer, opacity 0.2s 0.2s;
-
-  ${(props: ExpandProps) =>
-    props.open &&
-    `
-    transform: translateY(0px);
-    opacity: 1;
-
-    transition: transform 0.7s $easer 0.3s, opacity 0s;
-  `}
-`;
