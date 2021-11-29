@@ -18,22 +18,27 @@ import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import Section from '../components/Section';
-import { Heading } from 'rebass/styled-components';
+import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
 import { PostDescription } from '../types';
 import { PAGE, SECTION } from '../utils/constants';
 
+// TODO duplicated from Landing.tsx
+const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
+
 interface PageWithPostsProps {
   layoutTitle: PAGE;
   containerTitle: SECTION;
   posts: PostDescription[];
+  description: string;
 }
 
 export const PageWithPosts = ({
   layoutTitle,
   containerTitle,
   posts,
+  description,
 }: PageWithPostsProps): JSX.Element => (
   <Layout title={layoutTitle}>
     <PageHeader />
@@ -43,11 +48,22 @@ export const PageWithPosts = ({
         as="h1"
         color="primary"
         fontSize={[6, 8]}
-        mb={[5, 5, 6]}
+        mb={[3, 4, 4]}
         mt={[5, 5, 6]}
       >
         {containerTitle}
       </Heading>
+      <Text
+        as="p"
+        width={['85%', '80%', '70%']}
+        color="primary"
+        fontSize={[2, 4]}
+        mb={[3, 5]}
+        textAlign="center"
+        style={centerHorizontally}
+      >
+        {description}
+      </Text>
       <PostContainer posts={posts} />
     </Section.Container>
     <Footer />

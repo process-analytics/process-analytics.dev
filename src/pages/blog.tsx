@@ -23,6 +23,7 @@ const BlogPage = (): JSX.Element => (
     layoutTitle={PAGE.blog}
     containerTitle={SECTION.blog}
     posts={postsContent.posts}
+    description={postsContent.description}
   />
 );
 
