@@ -38,13 +38,13 @@
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.36",
+    "@types/react": "^17.0.37",
     "@types/react-headroom": "^2.2.2",
     "@types/react-helmet": "^6.1.4",
     "@types/rebass": "^4.0.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "babel-plugin-styled-components": "^1.13.3",
+    "babel-plugin-styled-components": "^2.0.2",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-notice": "^0.9.10",
@@ -60,7 +60,7 @@
     "gatsby-plugin-typescript": "^4.2.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.0",
     "typescript": "^4.5.2"
   },
   "lint-staged": {
