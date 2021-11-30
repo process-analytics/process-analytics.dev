@@ -19,7 +19,47 @@ import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FormContent } from './FormContent';
 import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
-import { Icon, OpenIcon } from './Icon';
+import { Icon } from './Icon';
+
+export interface ExpandProps {
+  open: boolean;
+}
+
+export const MailingListSubscription = (): JSX.Element => {
+  const [open, setOpen] = useState(false);
+
+  /*  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [open]);*/
+
+  return (
+    <>
+      {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
+      <FormContainer open={open} flexDirection={'column'}>
+        {!open && (
+          <Icon
+            withWiggleAnimation={true}
+            icon={faPen}
+            onClick={() => setOpen(true)}
+          />
+        )}
+        {open && (
+          <>
+            <Icon
+              withWiggleAnimation={false}
+              icon={faWindowClose}
+              onClick={() => setOpen(false)}
+            />
+            <FormContent open={open} />
+          </>
+        )}
+      </FormContainer>
+    </>
+  );
+};
 
 const FormContainer = styled(Flex)`
   position: fixed;
@@ -68,41 +108,3 @@ const FormContainer = styled(Flex)`
    `};
   }
 `;
-
-export interface ExpandProps {
-  open: boolean;
-}
-
-export const MailingListSubscription = (): JSX.Element => {
-  const [open, setOpen] = useState(false);
-
-  /*  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [open]);*/
-
-  return (
-    <>
-      {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
-      <FormContainer open={open} flexDirection={'column'}>
-        {!open && (
-          <OpenIcon visible={open} icon={faPen} onClick={() => setOpen(true)} />
-        )}
-        {open && (
-          /*  <Fade>*/
-          <>
-            <Icon
-              visible={!open}
-              icon={faWindowClose}
-              onClick={() => setOpen(false)}
-            />
-            <FormContent open={open} />
-          </>
-          /*</Fade>*/
-        )}
-      </FormContainer>
-    </>
-  );
-};

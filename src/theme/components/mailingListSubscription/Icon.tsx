@@ -13,36 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled, { keyframes } from 'styled-components';
 import { Button } from 'rebass/styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Fade } from 'react-awesome-reveal';
+import styled from 'styled-components';
 
-export interface IconProps extends StyledIconProps {
+export interface IconProps {
   icon: IconDefinition;
   onClick: () => void;
-}
-
-interface StyledIconProps {
-  visible: boolean;
+  withWiggleAnimation: boolean;
 }
 
 export const Icon = (props: IconProps) => {
   return (
     <Fade duration={0.3} style={{ margin: 'auto' }}>
-      <Button as={StyledIcon} onClick={() => props.onClick()}>
-        <FontAwesomeIcon icon={props.icon} />
-      </Button>
-    </Fade>
-  );
-};
-
-export const OpenIcon = (props: IconProps) => {
-  return (
-    <Fade duration={0.3} style={{ margin: 'auto' }}>
-      <Button as={StyledOpenIcon} onClick={() => props.onClick()}>
+      <Button
+        as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
+        onClick={() => props.onClick()}
+      >
         <FontAwesomeIcon icon={props.icon} />
       </Button>
     </Fade>
@@ -57,9 +47,6 @@ const StyledIcon = styled(Button)`
 `;
 
 const StyledOpenIcon = styled(StyledIcon)`
-  width: 100%;
-  height: 100%;
-
   &:hover {
     -webkit-animation: wiggle 0.1s linear infinite;
     animation: wiggle 0.1s linear infinite;
