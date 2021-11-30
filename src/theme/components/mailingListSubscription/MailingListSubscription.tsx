@@ -97,7 +97,6 @@ export const MailingListSubscription = (): JSX.Element => {
               visible={!open}
               icon={faWindowClose}
               onClick={() => setOpen(false)}
-              css={{ marginTop: '1rem', marginBottom: '1rem' }}
             />
             <FormContent open={open} />
           </>

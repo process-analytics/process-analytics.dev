@@ -18,12 +18,11 @@ import { Button } from 'rebass/styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { AttentionSeeker } from 'react-awesome-reveal';
+/*import { AttentionSeeker } from 'react-awesome-reveal';*/
 
 export interface IconProps extends StyledIconProps {
   icon: IconDefinition;
   onClick: () => void;
-  css?: CSSObject;
 }
 
 interface StyledIconProps {
@@ -33,7 +32,7 @@ interface StyledIconProps {
 export const Icon = (props: IconProps) => {
   return (
     /* <AttentionSeeker effect="pulse" style={{ margin: 'auto' }}>*/
-    <StyledIcon css={props.css} onClick={() => props.onClick()}>
+    <StyledIcon onClick={() => props.onClick()}>
       <FontAwesomeIcon icon={props.icon} />
     </StyledIcon>
     /*   </AttentionSeeker>*/
@@ -43,7 +42,7 @@ export const Icon = (props: IconProps) => {
 export const OpenIcon = (props: IconProps) => {
   return (
     /* <AttentionSeeker effect="pulse" style={{ margin: 'auto' }}>*/
-    <StyledOpenIcon css={props.css} onClick={() => props.onClick()}>
+    <StyledOpenIcon onClick={() => props.onClick()}>
       <FontAwesomeIcon icon={props.icon} />
     </StyledOpenIcon>
     /*   </AttentionSeeker>*/
