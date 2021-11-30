@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import styled, { CSSObject } from 'styled-components';
-import { Box } from 'rebass/styled-components';
+import { Button } from 'rebass/styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -50,12 +50,17 @@ export const OpenIcon = (props: IconProps) => {
   );
 };
 
-const StyledIcon = styled(Box)`
+const StyledIcon = styled(Button)`
   cursor: pointer;
   margin: auto;
+  padding: 0;
+  background: transparent;
 `;
 
 const StyledOpenIcon = styled(StyledIcon)`
+  width: 100%;
+  height: 100%;
+
   &:hover {
     -webkit-animation: wiggle 0.1s linear infinite;
     animation: wiggle 0.1s linear infinite;

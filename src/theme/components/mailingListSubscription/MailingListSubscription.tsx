@@ -15,12 +15,11 @@
  */
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FormContent } from './FormContent';
 import colors from '../../colors.json';
-import { Box, Flex } from 'rebass/styled-components';
-import { Icon, OpenIcon, StyledOpenIcon } from './Icon';
+import { Flex } from 'rebass/styled-components';
+import { Icon, OpenIcon } from './Icon';
 
 const FormContainer = styled(Flex)`
   position: fixed;
