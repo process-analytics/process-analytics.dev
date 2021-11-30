@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled, { CSSObject } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Button } from 'rebass/styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-/*import { AttentionSeeker } from 'react-awesome-reveal';*/
+import { Fade } from 'react-awesome-reveal';
 
 export interface IconProps extends StyledIconProps {
   icon: IconDefinition;
@@ -31,21 +31,21 @@ interface StyledIconProps {
 
 export const Icon = (props: IconProps) => {
   return (
-    /* <AttentionSeeker effect="pulse" style={{ margin: 'auto' }}>*/
-    <StyledIcon onClick={() => props.onClick()}>
-      <FontAwesomeIcon icon={props.icon} />
-    </StyledIcon>
-    /*   </AttentionSeeker>*/
+    <Fade duration={0.3} style={{ margin: 'auto' }}>
+      <Button as={StyledIcon} onClick={() => props.onClick()}>
+        <FontAwesomeIcon icon={props.icon} />
+      </Button>
+    </Fade>
   );
 };
 
 export const OpenIcon = (props: IconProps) => {
   return (
-    /* <AttentionSeeker effect="pulse" style={{ margin: 'auto' }}>*/
-    <StyledOpenIcon onClick={() => props.onClick()}>
-      <FontAwesomeIcon icon={props.icon} />
-    </StyledOpenIcon>
-    /*   </AttentionSeeker>*/
+    <Fade duration={0.3} style={{ margin: 'auto' }}>
+      <Button as={StyledOpenIcon} onClick={() => props.onClick()}>
+        <FontAwesomeIcon icon={props.icon} />
+      </Button>
+    </Fade>
   );
 };
 
