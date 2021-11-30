@@ -20,6 +20,7 @@ import { FormContent } from './FormContent';
 import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
 import { Icon } from './Icon';
+import { Overlay } from './Overlay';
 
 export interface ExpandProps {
   open: boolean;
@@ -37,7 +38,7 @@ export const MailingListSubscription = (): JSX.Element => {
 
   return (
     <>
-      {/*<Overlay open={open} onClick={() => setOpen(false)} />*/}
+      <Overlay open={open} onClick={() => setOpen(false)} />
       <FormContainer open={open} flexDirection={'column'}>
         {!open && (
           <Icon
