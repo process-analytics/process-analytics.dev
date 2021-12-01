@@ -15,7 +15,7 @@
  */
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { faPen, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FormContent } from './FormContent';
 import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
@@ -43,7 +43,7 @@ export const MailingListSubscription = (): JSX.Element => {
         {!open && (
           <Icon
             withWiggleAnimation={true}
-            icon={faPen}
+            icon={faEnvelope}
             onClick={() => setOpen(true)}
           />
         )}
