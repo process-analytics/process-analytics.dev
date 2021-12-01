@@ -26,7 +26,7 @@ export interface IconProps {
   withWiggleAnimation: boolean;
 }
 
-export const Icon = (props: IconProps) => {
+export const Icon = (props: IconProps): JSX.Element => {
   return (
     <Button
       as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}

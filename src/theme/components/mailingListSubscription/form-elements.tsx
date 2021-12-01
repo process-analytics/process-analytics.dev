@@ -39,7 +39,7 @@ export const EmailInput = forwardRef(
   (
     props: PropsWithChildren<FormContentProps>,
     ref: ForwardedRef<ForwardedEmailInput>,
-  ) => {
+  ): JSX.Element => {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState('');
 
@@ -77,7 +77,7 @@ export const EmailInput = forwardRef(
   },
 );
 
-export const SubmitButton = (props: FormContentProps) => {
+export const SubmitButton = (props: FormContentProps): JSX.Element => {
   return (
     <StyledInput
       as={StyledSubmitButton}

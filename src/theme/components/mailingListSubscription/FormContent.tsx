@@ -30,7 +30,7 @@ export interface FormContentProps {
   submitted: boolean;
 }
 
-export const FormContent = (props: ExpandProps) => {
+export const FormContent = (props: ExpandProps): JSX.Element => {
   const [submitted, setSubmitted] = useState(false);
   const [response, setResponse] = useState({} as MailchimpResponse);
 

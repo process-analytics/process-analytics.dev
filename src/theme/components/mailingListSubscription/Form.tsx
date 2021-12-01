@@ -16,12 +16,7 @@
 import styled from 'styled-components';
 import colors from '../../colors.json';
 import { EmailInput, ForwardedEmailInput, SubmitButton } from './form-elements';
-import React, {
-  BaseSyntheticEvent,
-  MutableRefObject,
-  useRef,
-  useState,
-} from 'react';
+import React, { BaseSyntheticEvent, MutableRefObject, useRef } from 'react';
 import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import { FormContentProps } from './FormContent';
 
@@ -29,7 +24,7 @@ export interface FormProps extends FormContentProps {
   onSubmit: (response: MailchimpResponse, submitted: boolean) => void;
 }
 
-export const Form = (props: FormProps) => {
+export const Form = (props: FormProps): JSX.Element => {
   const childRef: MutableRefObject<ForwardedEmailInput | null> = useRef(null);
 
   const handleSubmit = async (e: BaseSyntheticEvent): Promise<boolean> => {
@@ -41,10 +36,6 @@ export const Form = (props: FormProps) => {
 
     const response = await addToMailchimp(childRef.current.getEmail());
     props.onSubmit(response, true);
-
-    /* setTimeout(function () {
-                  $(form).trigger('reset');
-                }, 1000);*/
     return true;
   };
 
