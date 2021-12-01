@@ -75,7 +75,7 @@ const FormContainer = styled(Flex)`
   text-align: center;
   border: none;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1001;
   transition: all 0.2s 0.45s, height 0.2s $easer 0.25s,
     max-width 0.2s $easer 0.35s, width 0.2s $easer 0.35s;
 

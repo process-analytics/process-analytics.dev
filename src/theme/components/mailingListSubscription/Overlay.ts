@@ -24,7 +24,7 @@ export const Overlay = styled.div`
   position: fixed;
   opacity: ${(props: ExpandProps) => (props.open ? 0.7 : 0)};
   background: #000;
-  ${(props: ExpandProps) => props.open && 'z-index: 9'};
+  ${(props: ExpandProps) => props.open && 'z-index: 1000'};
 
   transition: ${(props: ExpandProps) =>
     props.open
