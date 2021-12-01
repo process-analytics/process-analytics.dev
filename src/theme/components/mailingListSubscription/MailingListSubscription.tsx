@@ -16,7 +16,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { faEnvelope, faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import { FormContent } from './FormContent';
+import { ContainerContent } from './ContainerContent';
 import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
 import { Icon } from './Icon';
@@ -54,7 +54,7 @@ export const MailingListSubscription = (): JSX.Element => {
               icon={faWindowClose}
               onClick={() => setOpen(false)}
             />
-            <FormContent open={open} />
+            <ContainerContent open={open} />
           </>
         )}
       </FormContainer>

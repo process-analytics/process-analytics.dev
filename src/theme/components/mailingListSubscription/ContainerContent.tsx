@@ -21,35 +21,30 @@ import colors from '../../colors.json';
 import { Form } from './Form';
 import { ExpandProps } from './MailingListSubscription';
 
-/*interface SubscriptionProps extends FormProps {
-  email: string;
-  response?: MailchimpResponse;
-}*/
-
-export interface FormContentProps {
+export interface ContainerContentProps {
   submitted: boolean;
 }
 
-export const FormContent = (props: ExpandProps): JSX.Element => {
+export const ContainerContent = (props: ExpandProps): JSX.Element => {
   const [submitted, setSubmitted] = useState(false);
   const [response, setResponse] = useState({} as MailchimpResponse);
 
   return (
-    <StyleFormContent open={props.open}>
-      <FormHeader id="form-head" submitted={submitted}>
+    <StyleContent open={props.open}>
+      <Header submitted={submitted}>
         {!submitted && (
           <>
-            <FormTitle as="h1">Sign up</FormTitle>
+            <Title as="h1">Sign up</Title>
             <Text>Receive our newsletter every month</Text>
           </>
         )}
         {submitted && (
           <>
-            <FormTitle as="h1">Thanks!</FormTitle>
+            <Title as="h1">Thanks!</Title>
             <Text>We'll be in touch ASAP</Text>
           </>
         )}
-      </FormHeader>
+      </Header>
       {!submitted && (
         <Form
           submitted={submitted}
@@ -60,11 +55,11 @@ export const FormContent = (props: ExpandProps): JSX.Element => {
         />
       )}
       {submitted && <Text>{response?.msg}</Text>}
-    </StyleFormContent>
+    </StyleContent>
   );
 };
 
-const StyleFormContent = styled.div`
+const StyleContent = styled.div`
   transform: translateY(150%);
   width: 100%;
   opacity: 0;
@@ -78,7 +73,7 @@ const StyleFormContent = styled.div`
     transition: transform 0.7s $easer 0.3s, opacity 0s;`}
 `;
 
-const FormTitle = styled(Heading)`
+const Title = styled(Heading)`
   color: ${colors.background};
 
   @media (max-width: 600px) {
@@ -86,7 +81,7 @@ const FormTitle = styled(Heading)`
   }
 `;
 
-const FormHeader = styled.div`
+const Header = styled.div`
   font-size: 100%;
   padding: 0;
   margin: 0 20px;
@@ -100,7 +95,7 @@ const FormHeader = styled.div`
     margin: 0;
   }
 
-  ${(props: FormContentProps) =>
+  ${(props: ContainerContentProps) =>
     props.submitted &&
     `transform: translateY(250%);
     display: block;`}
