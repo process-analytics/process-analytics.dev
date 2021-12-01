@@ -28,14 +28,14 @@ export interface IconProps {
 
 export const Icon = (props: IconProps) => {
   return (
-    <Fade duration={0.3} style={{ margin: 'auto' }}>
-      <Button
-        as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
-        onClick={() => props.onClick()}
-      >
+    <Button
+      as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
+      onClick={() => props.onClick()}
+    >
+      <Fade duration={0.3} style={{ margin: 'auto' }}>
         <FontAwesomeIcon icon={props.icon} />
-      </Button>
-    </Fade>
+      </Fade>
+    </Button>
   );
 };
 
