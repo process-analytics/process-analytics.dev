@@ -61,8 +61,7 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
 
 const StyleContent = styled(Box)`
   transform: translateY(150%);
-  /*  width: 100%;*/
-  height: 100%;
+  height: calc(100% - 0.8rem - 1em);
 
   opacity: 0;
   text-align: left;
@@ -96,8 +95,7 @@ const Header = styled.div`
   ${(props: ContainerContentProps) =>
     props.submitted &&
     `height:50%;
-   transform: translateY(25%);
-    /* display: block;*/`}
+    transform: translateY(25%);`}
 `;
 
 /*
