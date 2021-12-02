@@ -35,13 +35,13 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
         {!submitted && (
           <>
             <Title as="h1">Sign up</Title>
-            <Text>Receive our newsletter every month</Text>
+            <Text as="p">Receive our newsletter every month</Text>
           </>
         )}
         {submitted && (
           <>
             <Title as="h1">Thanks!</Title>
-            <Text>We'll be in touch ASAP</Text>
+            <Text as="p">We'll be in touch ASAP</Text>
           </>
         )}
       </Header>
@@ -61,17 +61,18 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
 
 const StyleContent = styled(Box)`
   transform: translateY(150%);
-  width: 100%;
+  /*  width: 100%;*/
   height: 100%;
+
   opacity: 0;
   text-align: left;
-  transition: transform 0.2s $easer, opacity 0.2s 0.2s;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
 
   ${(props: ExpandProps) =>
     props.open &&
     `transform: translateY(0px);
     opacity: 1;
-    transition: transform 0.7s $easer 0.3s, opacity 0s;`}
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s, opacity 0s;`}
 `;
 
 const Title = styled(Heading)`
@@ -83,23 +84,20 @@ const Title = styled(Heading)`
 `;
 
 const Header = styled.div`
-  font-size: 100%;
-  padding: 0;
   margin: 0 20px;
-  color: $col-accent;
   text-align: center;
   transition: all 0.8s 0.6s;
 
   h1,
   p {
-    padding: 0;
     margin: 0;
   }
 
   ${(props: ContainerContentProps) =>
     props.submitted &&
-    `/*transform: translateY(250%);*/
-    display: block;`}
+    `height:50%;
+   transform: translateY(25%);
+    /* display: block;*/`}
 `;
 
 /*

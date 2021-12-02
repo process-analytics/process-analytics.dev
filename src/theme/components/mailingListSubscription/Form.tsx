@@ -93,8 +93,8 @@ const StyledInput = styled.input`
   display: block;
   height: 50px;
   width: 100%;
-  margin: 10px 0;
-  padding: 0 10px;
+  margin: 0.6rem 0;
+  padding: 0 0.6rem;
   border-width: 0;
   box-sizing: border-box;
   border: none;
@@ -145,9 +145,9 @@ const StyledInput = styled.input`
     props.submitted &&
     `transform: translateX(150%);
     opacity: 0;
-    transition: all 0.5s, transform 0.4s $easer 0s;
+    transition: all 0.5s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
-    @for $i from 1 to ($formElements + 1) {
+    @for $i from 1 to 3 {
       &:nth-child(#{$i}) {
         transition-delay: #{$i / 10}s;
       }

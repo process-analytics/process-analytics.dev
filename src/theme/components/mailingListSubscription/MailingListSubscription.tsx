@@ -76,8 +76,9 @@ const FormContainer = styled(Flex)`
   border: none;
   cursor: pointer;
   z-index: 1001;
-  transition: all 0.2s 0.45s, height 0.2s $easer 0.25s,
-    max-width 0.2s $easer 0.35s, width 0.2s $easer 0.35s;
+  transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
+    max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s,
+    width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
 
   margin: 0 auto;
   overflow: hidden;
@@ -93,7 +94,7 @@ const FormContainer = styled(Flex)`
      max-width: 610px;
      height: 30%;
      padding: 0;
-     transition: all 0.2s, max-width 0.2s $easer 0.1s, height 0.3s ease 0.25s;
+     transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
      `};
 
   @media (max-width: 600px) {
