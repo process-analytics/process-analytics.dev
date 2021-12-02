@@ -16,7 +16,7 @@
 import React, { useState } from 'react';
 import { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
-import { Heading, Text } from 'rebass/styled-components';
+import { Box, Heading, Text } from 'rebass/styled-components';
 import colors from '../../colors.json';
 import { Form } from './Form';
 import { ExpandProps } from './MailingListSubscription';
@@ -59,9 +59,10 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
   );
 };
 
-const StyleContent = styled.div`
+const StyleContent = styled(Box)`
   transform: translateY(150%);
   width: 100%;
+  height: 100%;
   opacity: 0;
   text-align: left;
   transition: transform 0.2s $easer, opacity 0.2s 0.2s;
@@ -97,7 +98,7 @@ const Header = styled.div`
 
   ${(props: ContainerContentProps) =>
     props.submitted &&
-    `transform: translateY(250%);
+    `/*transform: translateY(250%);*/
     display: block;`}
 `;
 
