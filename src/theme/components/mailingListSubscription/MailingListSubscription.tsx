@@ -65,7 +65,7 @@ export const MailingListSubscription = (): JSX.Element => {
 const FormContainer = styled(Flex)`
   position: fixed;
   bottom: 2.5vh;
-  right: 2.5vh;
+  right: 2.5vw;
   background-color: ${colors.secondary};
   color: ${colors.background};
   border-radius: 50%;
@@ -91,8 +91,8 @@ const FormContainer = styled(Flex)`
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
      width: 70%;
-     max-width: 610px;
-     height: 30%;
+     max-width: 52vw;
+     height: 30vh;
      padding: 0;
      transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
      `};
@@ -101,12 +101,13 @@ const FormContainer = styled(Flex)`
     ${(props: ExpandProps) =>
       props.open &&
       `
-      height: 100%;
-      width: 100%;
-      max-width: 100%;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
       overflow: initial;
       overflow-x: hidden;
       bottom: 0;
+      right:0;
    `};
   }
 `;
