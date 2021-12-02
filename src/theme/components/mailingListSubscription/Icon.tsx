@@ -29,8 +29,14 @@ export interface IconProps {
 export const Icon = (props: IconProps): JSX.Element => {
   return (
     <Button
-      as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
+      as={props.withWiggleAnimation ? StyledOpenIcon : Button}
       onClick={() => props.onClick()}
+      css={{
+        cursor: 'pointer',
+        margin: 'auto',
+        padding: 0,
+        background: 'transparent',
+      }}
     >
       <Fade duration={0.3} style={{ margin: 'auto' }}>
         <FontAwesomeIcon icon={props.icon} />
@@ -39,14 +45,7 @@ export const Icon = (props: IconProps): JSX.Element => {
   );
 };
 
-const StyledIcon = styled(Button)`
-  cursor: pointer;
-  margin: auto;
-  padding: 0;
-  background: transparent;
-`;
-
-const StyledOpenIcon = styled(StyledIcon)`
+const StyledOpenIcon = styled(Button)`
   &:hover {
     -webkit-animation: wiggle 0.1s linear infinite;
     animation: wiggle 0.1s linear infinite;
