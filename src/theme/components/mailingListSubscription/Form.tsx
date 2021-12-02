@@ -82,8 +82,6 @@ export const Form = (props: FormProps): JSX.Element => {
 
 const StyledForm = styled.form`
   color: ${colors.secondary};
-  width: 100%;
-  height: 100%;
   margin-bottom: 10px;
   box-sizing: border-box;
   text-align: left;

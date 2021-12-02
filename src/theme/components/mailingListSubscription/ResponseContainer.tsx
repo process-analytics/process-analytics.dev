@@ -42,8 +42,6 @@ export const ResponseContainer = (
   );
 };
 
-/*Overflow-wrap: break-word;*/
-
 const Message = styled(Flex)`
   justify-content: start;
   align-items: center;
