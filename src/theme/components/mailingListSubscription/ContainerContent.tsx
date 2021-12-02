@@ -62,6 +62,7 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
 const StyleContent = styled(Box)`
   transform: translateY(150%);
   height: calc(100% - 0.8rem - 1em);
+  margin: 0 20px 20px 20px;
 
   opacity: 0;
   text-align: left;
@@ -83,7 +84,6 @@ const Title = styled(Heading)`
 `;
 
 const Header = styled.div`
-  margin: 0 20px;
   text-align: center;
   transition: all 0.8s 0.6s;
 
