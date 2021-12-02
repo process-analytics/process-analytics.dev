@@ -75,7 +75,7 @@ const FormContainer = styled(Flex)`
   text-align: center;
   border: none;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 901;
   transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
     max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s,
     width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
