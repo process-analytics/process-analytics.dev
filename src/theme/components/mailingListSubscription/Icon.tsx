@@ -29,11 +29,10 @@ export interface IconProps {
 export const Icon = (props: IconProps): JSX.Element => {
   return (
     <Button
-      as={props.withWiggleAnimation ? StyledOpenIcon : Button}
+      as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
       onClick={() => props.onClick()}
       css={{
         cursor: 'pointer',
-        margin: 'auto',
         padding: 0,
         background: 'transparent',
       }}
@@ -45,7 +44,13 @@ export const Icon = (props: IconProps): JSX.Element => {
   );
 };
 
+const StyledIcon = styled(Button)`
+  margin: 0.4rem auto;
+`;
+
 const StyledOpenIcon = styled(Button)`
+  width: 100%;
+  height: 100%;
   &:hover {
     -webkit-animation: wiggle 0.1s linear infinite;
     animation: wiggle 0.1s linear infinite;
