@@ -20,18 +20,15 @@ import { Box, Heading, Text } from 'rebass/styled-components';
 import colors from '../../colors.json';
 import { Form } from './Form';
 import { ExpandProps } from './MailingListSubscription';
+import { ResponseContainer } from './ResponseContainer';
 
 export interface ContainerContentProps {
   submitted: boolean;
 }
 
-interface MessageProps {
-  error: boolean;
-}
-
 export const ContainerContent = (props: ExpandProps): JSX.Element => {
   const [submitted, setSubmitted] = useState(false);
-  const [response, setResponse] = useState({} as MailchimpResponse);
+  const [response, setResponse] = useState<MailchimpResponse>();
 
   return (
     <StyleContent open={props.open}>
@@ -50,7 +47,10 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
         )}
       </Header>
       {response && (
-        <Message error={response?.result === 'error'}>{response?.msg}</Message>
+        <ResponseContainer
+          error={response.result === 'error'}
+          msg={response.msg}
+        />
       )}
       {!submitted && (
         <Form
@@ -102,25 +102,6 @@ const Header = styled.div`
     props.submitted &&
     `height:50%;
     transform: translateY(25%);`}
-`;
-
-const Message = styled(Text)`
-  padding: 0.5rem 0.6rem;
-
-  ${(props: MessageProps) =>
-    !props.error &&
-    `color: #2b7515;
-    background: #ecffd6;
-    border: 1px solid #617c42;
-    `}
-
-  ${(props: MessageProps) =>
-    props.error &&
-    `margin: 0.5rem auto;
-    color: #ba3939;
-    background: #ffe0e0;
-    border: 1px solid #a33a3a;
-    `}
 `;
 
 /*
