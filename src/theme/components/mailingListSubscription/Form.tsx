@@ -41,7 +41,9 @@ export const Form = (props: FormProps): JSX.Element => {
     }
 
     const response = await addToMailchimp(email);
-    props.onSubmit(response, true);
+    const failed = response.result === 'error';
+    setError(failed);
+    props.onSubmit(response, !failed);
   };
 
   const isEmailValid = (): boolean => {

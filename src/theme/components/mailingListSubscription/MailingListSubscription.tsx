@@ -92,7 +92,7 @@ const FormContainer = styled(Flex)`
      border-radius: 0;
      width: 70%;
      max-width: 52vw;
-     height: 30vh;
+     height: 32vh;
      padding: 0;
      transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
      `};

@@ -23,6 +23,7 @@ import { ExpandProps } from './MailingListSubscription';
 
 export interface ContainerContentProps {
   submitted: boolean;
+  response?: MailchimpResponse;
 }
 
 export const ContainerContent = (props: ExpandProps): JSX.Element => {
@@ -45,6 +46,7 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
           </>
         )}
       </Header>
+      {response && <Text as="p">{response?.msg}</Text>}
       {!submitted && (
         <Form
           submitted={submitted}
@@ -54,7 +56,6 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
           }}
         />
       )}
-      {submitted && <Text>{response?.msg}</Text>}
     </StyleContent>
   );
 };
@@ -94,6 +95,13 @@ const Header = styled.div`
 
   ${(props: ContainerContentProps) =>
     props.submitted &&
+    `height:50%;
+    transform: translateY(25%);`}
+`;
+
+const Message = styled(Text)`
+  ${(props: ContainerContentProps) =>
+    props.response?.result === 'error' &&
     `height:50%;
     transform: translateY(25%);`}
 `;
