@@ -15,12 +15,12 @@
  */
 import styled from 'styled-components';
 import { Flex, Text } from 'rebass/styled-components';
-import { ExpandProps } from './MailingListSubscription';
-import React, { useState } from 'react';
-import { MailchimpResponse } from 'gatsby-plugin-mailchimp';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import { Form } from './Form';
+import {
+  faCheckCircle,
+  faExclamationTriangle,
+} from '@fortawesome/free-solid-svg-icons';
 
 export interface ResponseContainerProps extends MessageProps {
   msg: string;
@@ -36,6 +36,7 @@ export const ResponseContainer = (
   return (
     <Message error={props.error}>
       {props.error && <FontAwesomeIcon icon={faExclamationTriangle} />}
+      {!props.error && <FontAwesomeIcon icon={faCheckCircle} />}
       <Text overflow={{ wrap: 'break-word' }}>{props.msg}</Text>
     </Message>
   );
