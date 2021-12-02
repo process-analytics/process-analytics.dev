@@ -32,7 +32,7 @@ export const MailingListSubscription = (): JSX.Element => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(false);
-    }, 3000);
+    }, 10000);
     return () => clearTimeout(timer);
   }, [open]);
 
