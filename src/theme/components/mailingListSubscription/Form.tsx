@@ -41,6 +41,10 @@ export const Form = (props: FormProps): JSX.Element => {
     }
 
     const response = await addToMailchimp(email);
+    /*   const response: MailchimpResponse = {
+      result: 'success',
+      msg: 'thomas.bouffard@bonitasoft.com is already subscribed to list Process Analytics. <a href="https://gmail.us20.list-manage.com/subscribe/send-email?e=dGhvbWFzLmJvdWZmYXJkQGJvbml0YXNvZnQuY29t&u=98bed213911ed14e04f519b82&id=9c27a4ee73">Click here to update your profile</a>',
+    };*/
     const failed = response.result === 'error';
     setError(failed);
     props.onSubmit(response, !failed);
@@ -82,7 +86,6 @@ export const Form = (props: FormProps): JSX.Element => {
 
 const StyledForm = styled.form`
   color: ${colors.secondary};
-  margin-bottom: 10px;
   box-sizing: border-box;
   text-align: left;
 `;
@@ -165,9 +168,4 @@ const StyledSubmitButton = styled(Button)`
   height: 65px;
   box-shadow: 0 5px rgba(0, 0, 0, 0.5);
   transition: all 0.1s, transform 0s 0.6s;
-
-  /*  &:active {
-    margin-top: 15px;
-    box-shadow: 0 0 rgba(0, 0, 0, 0.5);
-  }*/
 `;
