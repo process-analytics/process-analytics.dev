@@ -34,14 +34,20 @@ export const ResponseContainer = (
   props: ResponseContainerProps,
 ): JSX.Element => {
   return (
-    <Message error={props.error}>
-      {props.error && <FontAwesomeIcon icon={faExclamationTriangle} />}
-      {!props.error && <FontAwesomeIcon icon={faCheckCircle} />}
-      <Text
-        overflow={{ wrap: 'break-word' }}
-        dangerouslySetInnerHTML={{ __html: props.msg }}
-      />
-    </Message>
+    <Flex
+      height={props.error ? 'auto' : '15vh'}
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Message error={props.error}>
+        {props.error && <FontAwesomeIcon icon={faExclamationTriangle} />}
+        {!props.error && <FontAwesomeIcon icon={faCheckCircle} />}
+        <Text
+          overflow={{ wrap: 'break-word' }}
+          dangerouslySetInnerHTML={{ __html: props.msg }}
+        />
+      </Message>
+    </Flex>
   );
 };
 
