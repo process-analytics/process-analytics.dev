@@ -37,7 +37,10 @@ export const ResponseContainer = (
     <Message error={props.error}>
       {props.error && <FontAwesomeIcon icon={faExclamationTriangle} />}
       {!props.error && <FontAwesomeIcon icon={faCheckCircle} />}
-      <Text overflow={{ wrap: 'break-word' }}>{props.msg}</Text>
+      <Text
+        overflow={{ wrap: 'break-word' }}
+        dangerouslySetInnerHTML={{ __html: props.msg }}
+      />
     </Message>
   );
 };
