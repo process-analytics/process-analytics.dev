@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import styled from 'styled-components';
-import { Flex, Text } from 'rebass/styled-components';
+import { Box, Flex, Text } from 'rebass/styled-components';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -34,12 +34,8 @@ export const ResponseContainer = (
   props: ResponseContainerProps,
 ): JSX.Element => {
   return (
-    <Flex
-      height={props.error ? 'auto' : '15vh'}
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Message error={props.error}>
+    <Box>
+      <Message error={props.error} maxWidth="100%" margin="auto" height="auto">
         {props.error && <FontAwesomeIcon icon={faExclamationTriangle} />}
         {!props.error && <FontAwesomeIcon icon={faCheckCircle} />}
         <Text
@@ -47,7 +43,7 @@ export const ResponseContainer = (
           dangerouslySetInnerHTML={{ __html: props.msg }}
         />
       </Message>
-    </Flex>
+    </Box>
   );
 };
 

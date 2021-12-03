@@ -83,8 +83,8 @@ const FormContainer = styled(Flex)`
      cursor: auto;
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
-     width: 50%;
-     max-width: 45vw;
+     width: 40vw;
+     max-width: 610px;
      height: auto;
      padding: 0;
      transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;

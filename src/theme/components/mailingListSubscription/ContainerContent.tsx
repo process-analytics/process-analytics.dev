@@ -16,7 +16,7 @@
 import React, { useState } from 'react';
 import { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
-import { Box, Heading, Text } from 'rebass/styled-components';
+import { Flex, Heading, Text } from 'rebass/styled-components';
 import colors from '../../colors.json';
 import { Form } from './Form';
 import { ExpandProps } from './MailingListSubscription';
@@ -26,12 +26,14 @@ export interface ContainerContentProps {
   submitted: boolean;
 }
 
+interface ContentProps extends ContainerContentProps, ExpandProps {}
+
 export const ContainerContent = (props: ExpandProps): JSX.Element => {
   const [submitted, setSubmitted] = useState(false);
   const [response, setResponse] = useState<MailchimpResponse>();
 
   return (
-    <StyleContent open={props.open}>
+    <StyleContent open={props.open} submitted={submitted}>
       <Header submitted={submitted}>
         {!submitted && (
           <>
@@ -65,20 +67,27 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
   );
 };
 
-const StyleContent = styled(Box)`
+const StyleContent = styled(Flex)`
+  flex-direction: column;
+  justify-content: center;
   transform: translateY(150%);
-  height: calc(100% - 0.8rem - 1em);
   margin: 0 20px 20px 20px;
 
   opacity: 0;
   text-align: left;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
 
-  ${(props: ExpandProps) =>
+  ${(props: ContentProps) =>
     props.open &&
     `transform: translateY(0px);
     opacity: 1;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s, opacity 0s;`}
+
+  ${(props: ContentProps) =>
+    props.submitted &&
+    `height: 21.6vh;
+     justify-content: space-evenly;
+     transition: justify-content;`}
 `;
 
 const Title = styled(Heading)`
@@ -93,15 +102,14 @@ const Header = styled.div`
   text-align: center;
   transition: all 0.8s 0.6s;
 
-  h1,
-  p {
+  & > * {
     margin: 0;
   }
 
   ${(props: ContainerContentProps) =>
     props.submitted &&
-    `height:50%;
-    transform: translateY(25%);`}
+    `/*height:50%;*/
+   /* transform: translateY(25%);*/`}
 `;
 
 /*
