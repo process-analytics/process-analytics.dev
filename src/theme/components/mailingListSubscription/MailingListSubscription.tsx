@@ -29,13 +29,6 @@ export interface ExpandProps {
 export const MailingListSubscription = (): JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(false);
-    }, 60000);
-    return () => clearTimeout(timer);
-  }, [open]);
-
   return (
     <>
       <Overlay open={open} onClick={() => setOpen(false)} />
