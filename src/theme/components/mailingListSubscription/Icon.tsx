@@ -39,7 +39,7 @@ export const Icon = (props: IconProps): JSX.Element => {
       }}
     >
       <Fade duration={0.3} style={{ margin: 'auto' }}>
-        <FontAwesomeIcon icon={props.icon} />
+        <FontAwesomeIcon icon={props.icon} size="lg" />
       </Fade>
     </Button>
   );
