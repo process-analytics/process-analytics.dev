@@ -41,10 +41,7 @@ export const Form = (props: FormProps): JSX.Element => {
     }
 
     const response = await addToMailchimp(email);
-    /*   const response: MailchimpResponse = {
-      result: 'success',
-      msg: 'thomas.bouffard@bonitasoft.com is already subscribed to list Process Analytics. <a href="https://gmail.us20.list-manage.com/subscribe/send-email?e=dGhvbWFzLmJvdWZmYXJkQGJvbml0YXNvZnQuY29t&u=98bed213911ed14e04f519b82&id=9c27a4ee73">Click here to update your profile</a>',
-    };*/
+
     const failed = response.result === 'error';
     setError(failed);
     props.onSubmit(response, !failed);
