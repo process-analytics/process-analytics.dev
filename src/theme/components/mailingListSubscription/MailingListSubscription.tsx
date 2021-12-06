@@ -21,6 +21,7 @@ import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
 import { Icon } from './Icon';
 import { Overlay } from './Overlay';
+import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 export interface ExpandProps {
   open: boolean;
@@ -57,8 +58,8 @@ export const MailingListSubscription = (): JSX.Element => {
 
 const FormContainer = styled(Flex)`
   position: fixed;
-  bottom: 2.5vh;
-  right: 2.5vw;
+  bottom: 7vh;
+  right: 2vw;
   background-color: ${colors.secondary};
   color: ${colors.background};
   border-radius: 50%;
@@ -90,7 +91,10 @@ const FormContainer = styled(Flex)`
      transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
      `};
 
-  @media (max-width: 600px) {
+  ${MEDIA_QUERY_MEDIUM} {
+    bottom: 8vh;
+    right: 3vw;
+
     ${(props: ExpandProps) =>
       props.open &&
       `

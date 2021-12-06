@@ -35,3 +35,4 @@ export enum PAGE {
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
+export const MEDIA_QUERY_MEDIUM = '@media (max-width: 600px)';
