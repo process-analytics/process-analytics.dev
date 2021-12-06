@@ -84,7 +84,7 @@ const FormContainer = styled(Flex)`
      cursor: auto;
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
-     width: 40vw;
+     width: 30vw;
      max-width: 610px;
      height: auto;
      padding: 0;
