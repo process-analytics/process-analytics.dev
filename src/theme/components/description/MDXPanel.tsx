@@ -19,6 +19,7 @@ import { MDXProvider } from '@mdx-js/react';
 import mdxComponents from '../MarkdownComponents';
 import styled from 'styled-components';
 import React from 'react';
+import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 const MDXPanel = ({
   mdx,
@@ -49,7 +50,7 @@ const CustomBox = styled.div`
   font-size: large;
   line-height: 2em;
 
-  @media (max-width: 600px) {
+  ${MEDIA_QUERY_MEDIUM} {
     line-height: 1.5em;
     font-size: medium;
   }

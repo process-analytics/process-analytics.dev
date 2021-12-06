@@ -19,6 +19,7 @@ import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
+import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 export interface IconProps {
   icon: IconDefinition;
@@ -78,7 +79,7 @@ const StyledOpenIcon = styled(Button)`
     }
   }
 
-  @media (max-width: 600px) {
+  ${MEDIA_QUERY_MEDIUM} {
     :hover {
       animation: none;
     }

@@ -15,6 +15,7 @@
  */
 import styled from 'styled-components';
 import { ExpandProps } from './MailingListSubscription';
+import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 export const Overlay = styled.div`
   width: ${(props: ExpandProps) => (props.open ? '100vw' : '0%')};
@@ -38,7 +39,7 @@ export const Overlay = styled.div`
       transition: background 0.6s;
     }`};
 
-  @media (max-width: 600px) {
+  ${MEDIA_QUERY_MEDIUM} {
     display: none;
     transition: none;
   }

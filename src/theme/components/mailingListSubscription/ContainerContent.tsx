@@ -21,6 +21,7 @@ import colors from '../../colors.json';
 import { Form } from './Form';
 import { ExpandProps } from './MailingListSubscription';
 import { ResponseContainer } from './ResponseContainer';
+import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 export interface ContainerContentProps {
   submitted: boolean;
@@ -34,7 +35,7 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
 
   return (
     <StyleContent open={props.open} submitted={submitted}>
-      <Header submitted={submitted}>
+      <Header>
         {!submitted && (
           <>
             <Title as="h1">Sign up</Title>
@@ -93,7 +94,7 @@ const StyleContent = styled(Flex)`
 const Title = styled(Heading)`
   color: ${colors.background};
 
-  @media (max-width: 600px) {
+  ${MEDIA_QUERY_MEDIUM} {
     font-size: 300%;
   }
 `;
@@ -105,11 +106,6 @@ const Header = styled.div`
   & > * {
     margin: 0;
   }
-
-  ${(props: ContainerContentProps) =>
-    props.submitted &&
-    `/*height:50%;*/
-   /* transform: translateY(25%);*/`}
 `;
 
 /*
