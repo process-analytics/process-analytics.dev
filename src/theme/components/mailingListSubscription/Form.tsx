@@ -17,15 +17,16 @@ import styled from 'styled-components';
 import colors from '../../colors.json';
 import React, { BaseSyntheticEvent, useState } from 'react';
 import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
-import { ContainerContentProps } from './ContainerContent';
 import { Button } from 'rebass/styled-components';
 
-export interface FormProps extends ContainerContentProps {
+export interface FormProps {
   onSubmit: (response: MailchimpResponse, submitted: boolean) => void;
+  submitted: boolean;
 }
 
-interface InputProps extends ContainerContentProps {
+interface InputProps {
   error?: boolean;
+  submitted: boolean;
 }
 
 export const Form = (props: FormProps): JSX.Element => {
@@ -41,7 +42,6 @@ export const Form = (props: FormProps): JSX.Element => {
     }
 
     const response = await addToMailchimp(email);
-
     const failed = response.result === 'error';
     setError(failed);
     props.onSubmit(response, !failed);

@@ -14,30 +14,34 @@
  * limitations under the License.
  */
 import styled from 'styled-components';
-import { ExpandProps } from './MailingListSubscription';
 import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
+import colors from '../../colors.json';
 
+interface OverlayProps {
+  open: boolean;
+  submitted: boolean;
+}
 export const Overlay = styled.div`
-  width: ${(props: ExpandProps) => (props.open ? '100vw' : '0%')};
+  width: ${(props: OverlayProps) => (props.open ? '100vw' : '0%')};
   height: 100vh;
   top: 0;
   left: 0;
   position: fixed;
-  opacity: ${(props: ExpandProps) => (props.open ? 0.7 : 0)};
+  opacity: ${(props: OverlayProps) => (props.open ? 0.7 : 0)};
   background: #000;
-  ${(props: ExpandProps) => props.open && 'z-index: 900'};
+  ${(props: OverlayProps) => props.open && 'z-index: 900'};
 
-  transition: ${(props: ExpandProps) =>
+  transition: ${(props: OverlayProps) =>
     props.open
       ? 'background 1s, opacity 0.4s, width 0s'
       : 'background 1s, opacity 0.4s, width 0s 0.4s'};
 
-  ${(props: ExpandProps) =>
+  ${(props: OverlayProps) =>
     props.open &&
-    `body.form-submitted {
-      background: #119da4;
-      transition: background 0.6s;
-    }`};
+    props.submitted &&
+    `background: ${colors.primary};
+    opacity: 0.9;
+    transition: background 0.6s, opacity 0.4s;`};
 
   ${MEDIA_QUERY_MEDIUM} {
     display: none;

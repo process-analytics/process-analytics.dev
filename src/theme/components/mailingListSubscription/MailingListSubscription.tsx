@@ -23,16 +23,18 @@ import { Icon } from './Icon';
 import { Overlay } from './Overlay';
 import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
-export interface ExpandProps {
-  open: boolean;
-}
-
 export const MailingListSubscription = (): JSX.Element => {
   const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const closeForm = (): void => {
+    setOpen(false);
+    setSubmitted(false);
+  };
 
   return (
     <>
-      <Overlay open={open} onClick={() => setOpen(false)} />
+      <Overlay open={open} submitted={submitted} onClick={() => closeForm()} />
       <FormContainer open={open} flexDirection={'column'}>
         {!open && (
           <Icon
@@ -46,15 +48,25 @@ export const MailingListSubscription = (): JSX.Element => {
             <Icon
               withWiggleAnimation={false}
               icon={faWindowClose}
-              onClick={() => setOpen(false)}
+              onClick={() => closeForm()}
             />
-            <ContainerContent open={open} />
+            <ContainerContent
+              open={open}
+              submitted={submitted}
+              onSubmit={(submitted: boolean) => {
+                setSubmitted(submitted);
+              }}
+            />
           </>
         )}
       </FormContainer>
     </>
   );
 };
+
+interface FormContainerProps {
+  open: boolean;
+}
 
 const FormContainer = styled(Flex)`
   position: fixed;
@@ -78,7 +90,7 @@ const FormContainer = styled(Flex)`
   overflow: hidden;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-  ${(props: ExpandProps) =>
+  ${(props: FormContainerProps) =>
     props.open &&
     `background-color: ${colors.secondary};
      cursor: auto;
@@ -95,7 +107,7 @@ const FormContainer = styled(Flex)`
     bottom: 8vh;
     right: 3vw;
 
-    ${(props: ExpandProps) =>
+    ${(props: FormContainerProps) =>
       props.open &&
       `width: 100vw;
       max-width: 100vw;

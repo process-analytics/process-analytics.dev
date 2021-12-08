@@ -19,30 +19,28 @@ import styled from 'styled-components';
 import { Flex, Heading, Text } from 'rebass/styled-components';
 import colors from '../../colors.json';
 import { Form } from './Form';
-import { ExpandProps } from './MailingListSubscription';
 import { ResponseContainer } from './ResponseContainer';
 import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 export interface ContainerContentProps {
+  open: boolean;
   submitted: boolean;
+  onSubmit: (submitted: boolean) => void;
 }
 
-interface ContentProps extends ContainerContentProps, ExpandProps {}
-
-export const ContainerContent = (props: ExpandProps): JSX.Element => {
-  const [submitted, setSubmitted] = useState(false);
+export const ContainerContent = (props: ContainerContentProps): JSX.Element => {
   const [response, setResponse] = useState<MailchimpResponse>();
 
   return (
-    <StyleContent open={props.open} submitted={submitted}>
+    <StyledContent open={props.open} submitted={props.submitted}>
       <Header>
-        {!submitted && (
+        {!props.submitted && (
           <>
             <Title as="h1">Sign up</Title>
             <Text as="p">Receive our newsletter every month</Text>
           </>
         )}
-        {submitted && (
+        {props.submitted && (
           <>
             <Title as="h1">Thanks!</Title>
             <Text as="p">We'll be in touch ASAP</Text>
@@ -55,20 +53,24 @@ export const ContainerContent = (props: ExpandProps): JSX.Element => {
           msg={response.msg}
         />
       )}
-      {!submitted && (
+      {!props.submitted && (
         <Form
-          submitted={submitted}
+          submitted={props.submitted}
           onSubmit={(response: MailchimpResponse, submitted: boolean) => {
             setResponse(response);
-            setSubmitted(submitted);
+            props.onSubmit(submitted);
           }}
         />
       )}
-    </StyleContent>
+    </StyledContent>
   );
 };
 
-const StyleContent = styled(Flex)`
+interface StyledContentProps {
+  open: boolean;
+  submitted: boolean;
+}
+const StyledContent = styled(Flex)`
   flex-direction: column;
   justify-content: center;
   transform: translateY(150%);
@@ -77,13 +79,13 @@ const StyleContent = styled(Flex)`
   text-align: left;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
 
-  ${(props: ContentProps) =>
+  ${(props: StyledContentProps) =>
     props.open &&
     `transform: translateY(0px);
     opacity: 1;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s, opacity 0s;`}
 
-  ${(props: ContentProps) =>
+  ${(props: StyledContentProps) =>
     props.submitted &&
     `height: 21.6vh;
      justify-content: space-evenly;
