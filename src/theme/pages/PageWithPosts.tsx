@@ -23,6 +23,7 @@ import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
 import { PostDescription } from '../types';
 import { PAGE, SECTION } from '../utils/constants';
+import { MailingListSubscription } from '../components/mailingListSubscription/MailingListSubscription';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -67,6 +68,7 @@ export const PageWithPosts = ({
       <PostContainer posts={posts} />
     </Section.Container>
     <Footer />
+    <MailingListSubscription />
   </Layout>
 );
 
