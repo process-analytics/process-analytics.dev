@@ -73,7 +73,6 @@ const StyleContent = styled(Flex)`
   justify-content: center;
   transform: translateY(150%);
   margin: 0 20px 20px 20px;
-
   opacity: 0;
   text-align: left;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
@@ -107,26 +106,3 @@ const Header = styled.div`
     margin: 0;
   }
 `;
-
-/*
-
-::-webkit-input-placeholder {/!* Safari, Chrome and Opera *!/
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}/!* Firefox 18- *!/:-moz-placeholder {
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}/!* Firefox 19+ *!/::-moz-placeholder {
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}/!* IE 10+ *!/:-ms-input-placeholder {
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}/!* Edge *!/::-ms-input-placeholder {
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}/!* Default *!/:placeholder-shown {
-  color: rgba(255,255,255,0.8);
-  font-size: 90%;
-}
-*/

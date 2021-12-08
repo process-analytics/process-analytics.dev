@@ -53,28 +53,14 @@ const StyledOpenIcon = styled(Button)`
   width: 100%;
   height: 100%;
   &:hover {
-    -webkit-animation: wiggle 0.1s linear infinite;
     animation: wiggle 0.1s linear infinite;
   }
   @keyframes wiggle {
     0%,
     100% {
-      -webkit-transform: rotate(-15deg);
       transform: rotate(-15deg);
     }
     50% {
-      -webkit-transform: rotate(15deg);
-      transform: rotate(15deg);
-    }
-  }
-  @-webkit-keyframes wiggle {
-    0%,
-    100% {
-      -webkit-transform: rotate(-15deg);
-      transform: rotate(-15deg);
-    }
-    50% {
-      -webkit-transform: rotate(15deg);
       transform: rotate(15deg);
     }
   }

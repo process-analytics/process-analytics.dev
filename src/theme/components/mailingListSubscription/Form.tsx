@@ -89,9 +89,11 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
   background: rgba(0, 0, 0, 0.2);
+  color: ${colors.background};
   display: block;
   height: 50px;
   width: 100%;
+  font-size: inherit;
   margin: 0.6rem 0;
   padding: 0 0.6rem;
   border-width: 0;
@@ -100,10 +102,13 @@ const StyledInput = styled.input`
   outline: none;
   box-shadow: none;
   transform: translateX(0);
-
-  color: ${colors.background};
-
   transition: transform 0s 1s;
+
+  &::placeholder {
+    font-size: 80%;
+    color: inherit;
+    opacity: 55%;
+  }
 
   ${(props: InputProps) =>
     props.error &&
@@ -112,30 +117,13 @@ const StyledInput = styled.input`
     
     @keyframes error {
       0%, 100% {
-        -webkit-transform: translateX(0);
-                transform: translateX(0);
+        transform: translateX(0);
       }
       10%, 30%, 50%, 70%, 90% {
-        -webkit-transform: translateX(-6px);
-                transform: translateX(-6px);
+        transform: translateX(-6px);
       }
       20%, 40%, 60%, 80% {
-        -webkit-transform: translateX(6px);
-                transform: translateX(6px);
-      }
-    }
-    @-webkit-keyframes error {
-      0%, 100% {
-        -webkit-transform: translateX(0);
-                transform: translateX(0);
-      }
-      10%, 30%, 50%, 70%, 90% {
-        -webkit-transform: translateX(-6px);
-                transform: translateX(-6px);
-      }
-      20%, 40%, 60%, 80% {
-        -webkit-transform: translateX(6px);
-                transform: translateX(6px);
+        transform: translateX(6px);
       }
     }
  `};

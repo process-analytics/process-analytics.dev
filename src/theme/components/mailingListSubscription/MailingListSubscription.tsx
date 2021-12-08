@@ -97,8 +97,7 @@ const FormContainer = styled(Flex)`
 
     ${(props: ExpandProps) =>
       props.open &&
-      `
-      width: 100vw;
+      `width: 100vw;
       max-width: 100vw;
       height: 100vh;
       overflow: initial;
