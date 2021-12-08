@@ -23,6 +23,7 @@ import { Blog } from '../theme/sections/Blog';
 import Footer from '../theme/components/Footer';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
+import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
 const HomePage = (): JSX.Element => (
   <Layout title={PAGE.home}>
@@ -33,6 +34,7 @@ const HomePage = (): JSX.Element => (
     <News />
     <Blog />
     <Footer />
+    <MailingListSubscription />
   </Layout>
 );
 
