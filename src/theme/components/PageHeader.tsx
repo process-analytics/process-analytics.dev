@@ -24,9 +24,7 @@ import {
 } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { header } from '../../content/HeaderContent';
-import { PAGE } from '../utils/constants';
-import { Link, LinkInButton } from './Link';
-import { capitalize } from '../utils/string';
+import { LinkInButton } from './Link';
 import colors from '../colors.json';
 
 const PageHeader = (): JSX.Element => {
