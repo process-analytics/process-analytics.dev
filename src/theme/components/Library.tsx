@@ -27,8 +27,9 @@ type Props = LibraryType;
 const Library = ({
   name,
   description,
-  example,
   repository,
+  documentation,
+  examples,
   type,
 }: Props): JSX.Element => (
   <Card p={0}>
@@ -55,9 +56,18 @@ const Library = ({
             <Box mx={1} fontSize={4}>
               <SocialLink name="Repository" icon="github" url={repository} />
             </Box>
-            {example && (
+            {documentation && (
               <Box mx={1} fontSize={4}>
-                <SocialLink name="Example" icon="globe" url={example} />
+                <SocialLink
+                  name="Documentation"
+                  icon="book"
+                  url={documentation}
+                />
+              </Box>
+            )}
+            {examples && (
+              <Box mx={1} fontSize={4}>
+                <SocialLink name="Examples" icon="globe" url={examples} />
               </Box>
             )}
           </Flex>
