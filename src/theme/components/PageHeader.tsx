@@ -24,9 +24,7 @@ import {
 } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { header } from '../../content/HeaderContent';
-import { PAGE } from '../utils/constants';
-import { Link, LinkInButton } from './Link';
-import { capitalize } from '../utils/string';
+import { LinkInButton } from './Link';
 import colors from '../colors.json';
 
 const PageHeader = (): JSX.Element => {
@@ -53,22 +51,6 @@ const PageHeader = (): JSX.Element => {
           </Flex>
         </RebassLink>
         <Flex mr={[0, 3, 5]}>
-          {Object.keys(PAGE)
-            .filter(id => id !== 'home' && id !== 'notFound')
-            .map(id => (
-              <Box
-                key={id}
-                ml={[2, 3]}
-                mt="auto"
-                mb="auto"
-                color="background"
-                fontSize={[2, 3]}
-              >
-                <Link href={`/${id}`} tabIndex={0}>
-                  {capitalize(id)}
-                </Link>
-              </Box>
-            ))}
           <Box ml={[2, 3]} fontSize={[2, 3]}>
             <Button
               as={LinkInButton}
