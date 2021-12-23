@@ -21,9 +21,13 @@ import Triangle from '../theme/components/Triangle';
 import { Link } from 'gatsby';
 import Img from '../images/404.png';
 import { PAGE } from '../theme/utils/constants';
+import PageHeader from '../theme/components/PageHeader';
+import Footer from '../theme/components/Footer';
+import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
 const NotFoundPage = (): JSX.Element => (
   <Layout title={PAGE.notFound}>
+    <PageHeader />
     <Section.Container Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
         <Image
@@ -43,13 +47,16 @@ const NotFoundPage = (): JSX.Element => (
         </Text>
       </Box>
     </Section.Container>
+    <Footer />
+    <MailingListSubscription />
   </Layout>
 );
 
 const Background = (): JSX.Element => (
   <>
     <Triangle
-      color="muted"
+      color="secondary"
+      // color="muted"
       height={['35vh', '80vh']}
       width={['95vw', '60vw']}
     />
@@ -62,7 +69,7 @@ const Background = (): JSX.Element => (
     />
 
     <Triangle
-      color="secondary"
+      color="muted"
       height={['10vh', '20vh']}
       width={['50vw', '50vw']}
       position="top-right"
