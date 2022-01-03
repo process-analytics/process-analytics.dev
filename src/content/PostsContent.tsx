@@ -17,6 +17,16 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title:
+      'Visualizing processes in BPMN standard using the BPMN layout generator', // original title which would have been truncated: 'Visualizing processes in BPMN standard: using the BPMN layout generator to show activities, transitions, and gateways'
+    text: 'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.', // abstract in Bonitasoft Community: 'In this article, we will see how you can visualize event logs with the BPMN layout generator. We will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process we will add BPMN objects such as gateways.'
+    cover:
+      'https://lh5.googleusercontent.com/Kjqn5B3-PPYtJZ8k8iXtODqcIHS3AL3qlUWclH_ec-njXdCtZVnSFXz7ESRVILJCVLuXu047y_8tHxgaQ77miVPEqkoB3JIiLgpM1jqOjtQ1-8MLjGw2cfG_pFt5BaBSelY8r8GS',
+    url: 'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and',
+    date: 'December 2021',
+    time: 3,
+  },
+  {
     title: 'Using BPMN Visualization in R',
     text: 'The new BPMN Visualization - R Package is being developed to offer another way to visualize process execution data in R.',
     cover: 'https://miro.medium.com/max/310/0*A9K-8oeH_XT0MwUu',
