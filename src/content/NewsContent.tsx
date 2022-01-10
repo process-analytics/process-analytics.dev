@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'December 2021 Newsletter',
+    text: 'Learn about the website changes and improvements in the BPMN Visualization Typescript library.',
+    cover: 'https://miro.medium.com/max/800/0*uVMqQZHCS3Fg0-T8',
+    url: 'https://medium.com/@process-analytics/process-analytics-december-2021-newsletter-89459219f151',
+    date: 'January 2022',
+    time: 4,
+  },
+  {
     title: 'November 2021 Newsletter',
     text: 'Learn about the website changes and improvements in the BPMN Visualization Typescript library.',
     cover: 'https://miro.medium.com/max/450/0*pTAacquotB7OIAgV',
