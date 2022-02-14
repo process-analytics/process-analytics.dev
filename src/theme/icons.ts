@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faMedium,
   faTwitter,
@@ -21,4 +22,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons';
 
-export const ICONS = [faMedium, faDev, faTwitter, faGithub, faGlobe, faBook];
+export const ICONS: IconDefinition[] = [
+  faMedium,
+  faDev,
+  faTwitter,
+  faGithub,
+  faGlobe,
+  faBook,
+];
