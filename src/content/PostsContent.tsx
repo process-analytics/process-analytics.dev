@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Hacktoberfest 2021: Process Analytics makes its mark',
+    text: 'Retrospective of the Process Analytics project’s participation in Hacktoberfest 2021.',
+    cover: 'https://miro.medium.com/max/700/0*qB-6GcQRd7q0Kx3u',
+    url: 'https://medium.com/@process-analytics/hacktoberfest-2021-process-analytics-makes-its-mark-d217ce6b0791',
+    date: 'Februrary 2022',
+    time: 4,
+  },
+  {
     title:
       'Visualizing processes in BPMN standard using the BPMN layout generator', // original title which would have been truncated: 'Visualizing processes in BPMN standard: using the BPMN layout generator to show activities, transitions, and gateways'
     text: 'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.', // abstract in Bonitasoft Community: 'In this article, we will see how you can visualize event logs with the BPMN layout generator. We will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process we will add BPMN objects such as gateways.'
