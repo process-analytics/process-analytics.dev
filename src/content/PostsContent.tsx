@@ -21,7 +21,7 @@ const posts: PostDescription[] = [
     text: 'Retrospective of the Process Analytics project’s participation in Hacktoberfest 2021.',
     cover: 'https://miro.medium.com/max/700/0*qB-6GcQRd7q0Kx3u',
     url: 'https://medium.com/@process-analytics/hacktoberfest-2021-process-analytics-makes-its-mark-d217ce6b0791',
-    date: 'Februrary 2022',
+    date: 'February 2022',
     time: 4,
   },
   {
