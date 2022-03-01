@@ -37,7 +37,7 @@ export const ContainerContent = (props: ContainerContentProps): JSX.Element => {
         {!props.submitted && (
           <>
             <Title as="h1">Sign up</Title>
-            <Text as="p">Receive our newsletter</Text>
+            <Text as="p">Receive our low-traffic Newsletter</Text>
           </>
         )}
         {props.submitted && (
