@@ -1,7 +1,19 @@
 {
-  "text": "#333333",
+  "text": "#000000",
   "background": "#FFFFFF",
-  "muted": "#ccd6dd",
-  "primary": "#0b4361",
-  "secondary": "#e31937"
+  "muted": "#EDEEF5",
+  "primary": "#002395",
+  "primary_light": "#DBEFFF",
+  "secondary": "#E20613",
+  "secondary_light": "#F9DADC",
+  "spicy": "#05D99E",
+  "sweet": "#FFD560",
+  "manufacture": "#E86A63",
+  "education": "#FFD560",
+  "telecom": "#F1ACC6",
+  "financial": "#62BFEC",
+  "energy": "#2A574A",
+  "health": "#05D99E",
+  "government": "#86BEC2",
+  "distribution": "#7E4F95"
 }
