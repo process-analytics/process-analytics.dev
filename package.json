@@ -58,7 +58,7 @@
     "gatsby-plugin-mdx": "^3.10.1",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
-    "gatsby-plugin-sitemap": "^5.10.1",
+    "gatsby-plugin-sitemap": "^5.10.2",
     "gatsby-plugin-styled-components": "^5.10.0",
     "gatsby-plugin-typescript": "^4.10.1",
     "husky": "^7.0.4",
