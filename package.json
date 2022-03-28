@@ -55,7 +55,7 @@
     "gatsby-plugin-google-gtag": "^4.10.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.10.1",
-    "gatsby-plugin-mdx": "^3.10.1",
+    "gatsby-plugin-mdx": "^3.10.2",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sitemap": "^5.10.1",
@@ -64,7 +64,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.0",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.3"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
