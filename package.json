@@ -60,7 +60,7 @@
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sitemap": "^5.10.2",
     "gatsby-plugin-styled-components": "^5.10.0",
-    "gatsby-plugin-typescript": "^4.10.0",
+    "gatsby-plugin-typescript": "^4.10.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.0",
