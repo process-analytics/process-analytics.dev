@@ -55,7 +55,7 @@
     "gatsby-plugin-google-gtag": "^4.10.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.11.1",
-    "gatsby-plugin-mdx": "^3.10.2",
+    "gatsby-plugin-mdx": "^3.11.1",
     "gatsby-plugin-react-helmet": "^5.11.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sitemap": "^5.11.1",
