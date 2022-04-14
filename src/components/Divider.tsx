@@ -13,7 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+<<<<<<<< HEAD:old/src/components/Divider.tsx
 import { styled } from '@mui/material';
+========
+import styled from 'styled-components';
+import { Theme } from 'old/src/theme/types';
+>>>>>>>> ffd0b73c (Move old theme in another folder):old/src/theme/components/Divider.tsx
 
 export const Divider = styled('div')`
   position: relative;

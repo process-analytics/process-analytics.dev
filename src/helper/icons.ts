@@ -19,6 +19,7 @@ import {
   findIconDefinition,
   IconDefinition,
 } from '@fortawesome/fontawesome-svg-core';
+
 import {
   faDev,
   faDiscord,

@@ -13,8 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+<<<<<<< HEAD:src/content/LandingContent.tsx
 import { LandingContent } from '../sections/home/Landing';
 import { socialLinkContent } from './SocialLinkContent';
+=======
+import { Landing } from 'old/src/theme/types';
+import { socialLinks } from 'old/src/content/SocialLinkContent';
+>>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/LandingContent.tsx
 
 export const landingContent: LandingContent = {
   title: 'Process Analytics',

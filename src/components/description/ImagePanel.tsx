@@ -13,6 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+<<<<<<<< HEAD:old/src/components/description/ImagePanel.tsx
+========
+import { Image as ImageType } from 'old/src/theme/types';
+import { Box, Image, ImageProps } from 'rebass/styled-components';
+import { Fade } from 'react-awesome-reveal';
+import React from 'react';
+>>>>>>>> ffd0b73c (Move old theme in another folder):old/src/theme/components/description/ImagePanel.tsx
 
 import React, { FC } from 'react';
 

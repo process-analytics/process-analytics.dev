@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Bonitasoft S.A.
+ * Copyright 2022 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,48 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<< HEAD:src/content/HeaderContent.tsx
-=======
-import SvgLogoWhite from 'old/src/images/logo_white.svg';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/HeaderContent.tsx
+
+import { Components, Theme } from '@mui/material';
 
 /**
 =========================================================
 * Material Kit 2 React - v2.0.0
 =========================================================
+
 * Product Page: https://www.creative-tim.com/product/material-kit-react
 * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
 Coded by www.creative-tim.com
+
  =========================================================
+
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-/**
- All routes for the Material Kit 2 React  are added here,
- You can add a new route, customize the routes and delete the routes here.
-
- Once you add a new route on this file it will be visible automatically on the Navbar.
- */
-
-import { brandContent } from './BrandContent';
-import { HeaderContent } from '../components';
-
-export const headerContent: HeaderContent = {
-  brand: brandContent,
-
-  // TODO: Mutualize with FooterRoutes
-  routes: [
-    {
-      type: 'internal',
-      name: 'model generation application',
-      url: '/model-generation-application',
-    },
-    { type: 'internal', name: 'news', url: '/news' },
-    { type: 'internal', name: 'blog', url: '/blog' },
-    {
-      type: 'internal',
-      name: 'Terms & Policies',
-      url: '/model-generation-application-conditions',
-    },
-  ],
+export const MuiLink: Components<Theme>['MuiLink'] = {
+  defaultProps: {
+    underline: 'none',
+    color: 'inherit',
+  },
 };

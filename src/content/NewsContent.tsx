@@ -13,7 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+<<<<<<< HEAD:src/content/NewsContent.tsx
 import { PostContent } from '../components';
+=======
+import { PostDescription } from 'old/src/theme/types';
+>>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/NewsContent.tsx
 
 const news: PostContent[] = [
   {

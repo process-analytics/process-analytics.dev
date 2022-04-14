@@ -17,12 +17,30 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
+<<<<<<< HEAD:src/pages/index.tsx
 import { Layout, SEO } from '../components';
 import { DataProps } from '../hooks';
 import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
 import { PAGE } from '../helper';
 import { footerContent, headerContent } from '../content';
 import { Testimonials } from '../sections/home/Testimonials';
+=======
+import { SEO } from '../../src/components/seo';
+import { DataProps } from '../../src/hooks/use-site-metadata';
+
+import { Footer } from 'old/src/theme/components/Footer';
+import Layout from 'old/src/theme/components/Layout';
+import Header from 'old/src/theme/components/Header';
+import Landing from 'old/src/theme/sections/Landing';
+import About from 'old/src/theme/sections/About';
+import Libraries from 'old/src/theme/sections/Libraries';
+import { Blog } from 'old/src/theme/sections/Blog';
+import { News } from 'old/src/theme/sections/News';
+import { PAGE } from 'old/src/theme/utils/constants';
+import { MailingListSubscription } from 'old/src/theme/components/mailingListSubscription/MailingListSubscription';
+
+import { footerRoutes } from '../content/FooterRoutes';
+>>>>>>> ffd0b73c (Move old theme in another folder):old/src/pages/index.tsx
 
 const HomePage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>

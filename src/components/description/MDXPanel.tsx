@@ -19,6 +19,13 @@ import { Box, Typography } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
+<<<<<<<< HEAD:old/src/components/description/MDXPanel.tsx
+========
+import { StyledMDXComponents } from 'old/src/theme/components/MarkdownComponents';
+import styled from 'styled-components';
+import React from 'react';
+import { MEDIA_QUERY_MEDIUM } from 'old/src/theme/utils/constants';
+>>>>>>>> ffd0b73c (Move old theme in another folder):old/src/theme/components/description/MDXPanel.tsx
 
 import { StyledMDXComponents } from '../MarkdownComponents';
 

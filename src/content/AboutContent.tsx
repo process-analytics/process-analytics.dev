@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import * as React from 'react';
+<<<<<<< HEAD:src/content/AboutContent.tsx
 
 import { AboutContent } from '../sections/home/About';
 
@@ -24,6 +25,16 @@ import Content1 from './about_content_1.mdx';
 import Content2 from './about_content_2.mdx';
 import Content3 from './about_content_3.mdx';
 import Content4 from './about_content_4.mdx';
+=======
+import { About } from 'old/src/theme/types';
+import Logo from 'old/src/images/logo.svg';
+import WhyDiagram from 'old/src/images/why_diagram.svg';
+import WhatDiagram from 'old/src/images/what_diagram.png';
+import Content1 from 'old/src/content/about_content_1.mdx';
+import Content2 from 'old/src/content/about_content_2.mdx';
+import Content3 from 'old/src/content/about_content_3.mdx';
+import Content4 from 'old/src/content/about_content_4.mdx';
+>>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/AboutContent.tsx
 
 export const aboutContent: AboutContent = [
   {
