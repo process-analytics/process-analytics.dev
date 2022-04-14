@@ -17,7 +17,6 @@ import React, { FC } from 'react';
 
 import { HeadProps, Link } from 'gatsby';
 
-<<<<<<< HEAD:src/pages/404.tsx
 import { Box } from '@mui/material';
 
 import { DataProps } from '../hooks';
@@ -26,22 +25,6 @@ import { footerContent, headerContent } from '../content';
 
 import { Layout, Section, SEO, MKTypography } from '../components';
 import { PAGE } from '../helper';
-=======
-import { DataProps } from '../../src/hooks/use-site-metadata';
-
-import { footerRoutes } from 'old/src/content/FooterRoutes';
-import { Footer } from 'old/src/theme/components/Footer';
-import Layout from 'old/src/theme/components/Layout';
-import Section from 'old/src/theme/components/Section';
-import Triangle from 'old/src/theme/components/Triangle';
-import { PAGE } from 'old/src/theme/utils/constants';
-import PageHeader from 'old/src/theme/components/PageHeader';
-import { MailingListSubscription } from 'old/src/theme/components/mailingListSubscription/MailingListSubscription';
-
-import Img from 'old/src/images/404.png';
-
-import { SEO } from '../../src/components/seo';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/pages/404.tsx
 
 import Img from '../assets/images/404.png';
 

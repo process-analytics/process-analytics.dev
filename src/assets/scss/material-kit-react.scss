@@ -11,16 +11,14 @@
  *
  * ========================================================= */
 
-@import "core/variables";
-@import "core/mixins";
-@import "core/solid";
+@import "src/assets/scss/core/variables";
+@import "src/assets/scss/core/mixins";
+@import "src/assets/scss/core/solid";
 
 // Core Components
-@import "core/misc";
+@import "src/assets/scss/core/misc";
 
 // Core Plugins
 
-// @import "plugins/plugin-datetime-picker";
-@import "plugins/plugin-nouislider";
-@import "plugins/plugin-react-datetime";
-@import "plugins/plugin-react-slick";
+@import "src/assets/scss/plugins/plugin-nouislider";
+@import "src/assets/scss/plugins/plugin-react-slick";

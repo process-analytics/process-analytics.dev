@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2022 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,10 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { title } from '../../../material-kit-react';
 
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.gif';
-declare module '*.svg';
-// TODO rename the file as we are not declaring images only
-declare module '*.mdx';
+const workStyle = {
+  section: {
+    padding: '70px 0',
+  },
+  title: {
+    ...title,
+    marginBottom: '50px',
+    marginTop: '30px',
+    minHeight: '32px',
+    textDecoration: 'none',
+    textAlign: 'center',
+  },
+  description: {
+    color: '#999',
+    textAlign: 'center',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textArea: {
+    marginRight: '15px',
+    marginLeft: '15px',
+  },
+};
+
+export default workStyle;
