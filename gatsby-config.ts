@@ -38,6 +38,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Process Analytics',
+        short_name: 'PA',
         start_url: '/',
         background_color: '#f0f2f5',
         theme_color: '#002395',
@@ -100,6 +101,10 @@ const config: GatsbyConfig = {
         plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
+    'gatsby-plugin-resolve-src',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-material-ui',
   ],
 };
 

@@ -4,3 +4,9 @@
 /.cache/
 /public/
 .env.*
+/gatsby-casper
+/gatsby-material-kit-react
+/gatsby-starter-casual
+/material-kit-react-main
+/material-kit-react-main-converted-2
+/old2

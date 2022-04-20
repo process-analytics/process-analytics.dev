@@ -1,0 +1,133 @@
+HOME
+
+Process ?
+We can find process everywhere: in the real life, in the industry, in the software...
+
+Example: day activity
+
+One way to structure a process is to use the BPMN 2.0 standard.
+
+
+Data ?
+On observe ce qui se passe et on enregistre
+
+On peut en extraire des données communes à chaque activité/processus
+un identifiant: un activité unique qu’on peut désigner
+une date d'exécution
+un nom d’activité: levé, passer un appel, faire du sport
+des ressources: lit, bureau, café et aussi des personnes
+des données d’entrées et de sorties: appel téléphonique question et réponse d’un client
+
+
+Merge = process analytics
+dans le monde du BPM: on est dans le cadre de processus structuré, cadré
+dans le cadre de l’exemple précédent, processus implicite, non structuré, la donnée est brute,
+
+data mining: extraction et structuration de la donnée
+process mining: faire parler les données pour faire émergé des processus et de nouvelles informations
+
+
+Let's talk about the components
+
+1. Open Source
+
+2. Customizable
+
+3. Easy to use
+
+Example monitoring fréquence
+Style par défaut neutre, pour ne pas surcharger le rendu et facilite l’affichage des données spécifiques
+
+Venez participer à notre communauté !
+
+
+ABOUT
+
+Process Analytics est un projet Open Source à l’initiative de la société Bonitasoft.
+Celui-ci vise à mettre à disposition des développeurs et des data scientists un écosystème de composants et d’outils Open Source personnalisable.
+Le projet permet actuellement de visualiser des données d’exécution de processus métier, tout en ayant une intégration simple dans des applications de :
+- BPM
+- Process Mining
+- Business Intelligence
+- RPA
+automation tools, process mining, Business Intelligence tools, RPA, services orchestration, and others.
+
+
+
+Il a pour but de donner aux utilisateurs finaux une meilleure compréhension de leurs données et de leur permettre de les exploiter dans des applications de manière simple et intuitive.
+Ainsi, ils pourront prendre les bonnes décisions pour optimiser leur utilisation de leurs ressources, améliorer leur processus et éviter les erreurs de processus.
+
+
+Example de use case supporté :
+You can create and build applications to visualize:
+Mettre des captures des démos & liens
+    Monitoring of a process instance execution with a real-time visualization
+    Monitoring of all process instances for a selected process and a selected user
+    Prediction of a process instance execution
+    Drill down through process execution flow with a real-time visualization
+    Process instance execution history
+
+
+    Mise en évidence de modèle de processus, à partir des logs, sous forme de diagramme BPMN
+statistiques de temps d'exécution, de fréquence.
+conformance checking
+prédictive analysis : bottleneck, task prédiction, trace prédiction.
+
+Diagnostique
+Performance
+Conformité
+Causes
+
+Monitoring
+Tableaux de bord
+Alarmes
+
+Prescription: amélioration de l’efficacité des processus
+Recommandation
+Meilleur futur chemin
+
+Solution de démonstration de l'agrégation de différents composants fournis par le projet PA
+event logs (entrée XES pour faire de la découverte du processus) qui décrivent les activités observées
+
+
+création d’un modèle enrichi ensuite utilisé par PA pour améliorer la visualisation:
+Simplification du processus et Ajout de gateways: traitement avec R et java
+Représentation BPMN: javascript
+
+Ensuite, ce processus structuré BPMN peut être ensuite injecté dans une solution BPM comme Bonita pour initier un projet d’automatisation.
+
+
+
+Description
+Process Discovery
+Process navigation
+
+
+
+
+
+L’environnement technologique utilisé est :
+- JavaScript
+- TypeScript
+- Java
+- R
+- BPMN 2.0
+
+
+COMPONENTS
+
+
+
+NEWS
+
+
+ARTICLES
+
+
+OUR TEAM
+
+
+CONTACT
+
+
+DEMO
