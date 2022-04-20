@@ -1,7 +1,7 @@
 <p align="center">
     <p align="center">
       <a href="https://github.com/process-analytics/process-analytics.dev">
-        <img alt="Process Analytics Logo" src="src/images/logo.svg" width="64" />
+        <img alt="Process Analytics Logo" src="old/src/images/logo.svg" width="64" />
       </a>
     </p>
     <p align="center">

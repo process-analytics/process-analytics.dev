@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const colors = require('./src/theme/colors.json');
+const colors = require('./old/src/theme/colors.json');
 
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
 require('dotenv').config({
@@ -36,11 +36,12 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Process Analytics',
-        start_url: '/',
+        short_name: 'PA',
+        start_url: '/Presentation/',
         background_color: colors.background,
         theme_color: colors.primary,
         display: 'minimal-ui',
-        icon: 'src/images/logo.svg',
+        icon: 'old/src/images/logo.svg',
       },
     },
     'gatsby-plugin-react-helmet',
@@ -84,5 +85,9 @@ module.exports = {
         timeout: 3500, //the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
+    'gatsby-plugin-resolve-src',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-material-ui',
   ],
 };
