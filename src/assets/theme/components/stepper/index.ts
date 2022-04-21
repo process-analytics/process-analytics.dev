@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<<< HEAD:old/src/assets/theme/components/stepper/index.ts
-========
-import { SECTION } from 'old/src/theme/utils/constants';
->>>>>>>> ffd0b73c (Move old theme in another folder):old/src/theme/utils/helpers.ts
 
 export { MuiStepper } from './muiStepper';
 export { MuiStep } from './muiStep';

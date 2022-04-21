@@ -29,7 +29,7 @@ const Card = ({
   plain,
   carousel,
   ...rest
-}: CardProps): JSX.Element => {
+}: React.PropsWithChildren<CardProps>): JSX.Element => {
   const cardClasses = classNames({
     [classes.card]: true,
     [classes.cardPlain]: plain,
@@ -46,7 +46,6 @@ const Card = ({
 };
 
 interface CardProps {
-  children: JSX.Element | JSX.Element[];
   classes: { [key: string]: any };
   className?: {
     [key: string]: string;
@@ -55,4 +54,6 @@ interface CardProps {
   carousel?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export default withStyles(cardStyle)(Card);

@@ -16,6 +16,7 @@
 
 declare module '*.png';
 declare module '*.jpg';
+declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.svg';
 // TODO rename the file as we are not declaring images only

@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Property } from 'csstype';
+
 const cardStyle = {
   card: {
     border: '0',
@@ -24,9 +26,9 @@ const cardStyle = {
     width: '100%',
     boxShadow:
       '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
-    position: 'relative',
+    position: 'relative' as Property.Position,
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as Property.FlexDirection,
     minWidth: '0',
     wordWrap: 'break-word',
     fontSize: '.875rem',

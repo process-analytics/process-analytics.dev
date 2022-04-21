@@ -31,7 +31,7 @@ const GridContainer = ({
   children,
   className,
   ...rest
-}: GridContainerProps): JSX.Element => (
+}: React.PropsWithChildren<GridContainerProps>): JSX.Element => (
   <Grid container {...rest} className={classes.grid + ' ' + className}>
     {children}
   </Grid>
@@ -43,7 +43,6 @@ GridContainer.defaultProps = {
 
 interface GridContainerProps {
   classes: { [key: string]: string };
-  children: JSX.Element | JSX.Element[];
   className: {
     [key: string]: string;
   };
