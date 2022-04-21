@@ -33,23 +33,24 @@ class CustomTabs extends React.Component {
     value: 0,
   };
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   handleChange = (event, value): void => {
     this.setState({ value });
   };
 
   render(): JSX.Element {
     const { classes, headerColor, plainTabs, tabs, title, rtlActive } = this
-      .props as CustomTabsProps;
+      .props as React.PropsWithChildren<CustomTabsProps>;
     const cardTitle = classNames({
       [classes.cardTitle]: true,
       [classes.cardTitleRTL]: rtlActive,
     });
+
     return (
       <Card plain={plainTabs}>
         <CardHeader color={headerColor} plain={plainTabs}>
-          {title !== undefined ? (
-            <div className={cardTitle}>{title}</div>
-          ) : null}
+          {title && <div className={cardTitle}>{title}</div>}
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
@@ -70,10 +71,13 @@ class CustomTabs extends React.Component {
                     ),
                 };
               }
+
               return (
                 <Tab
                   classes={{
                     root: classes.tabRootButton,
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     labelContainer: classes.tabLabelContainer,
                     label: classes.tabLabel,
                     selected: classes.tabSelected,
@@ -88,12 +92,13 @@ class CustomTabs extends React.Component {
           </Tabs>
         </CardHeader>
         <CardBody>
-          {tabs.map((prop, key) => {
-            if (key === this.state.value) {
-              return <div key={key}>{prop.tabContent}</div>;
-            }
-            return null;
-          })}
+          {tabs
+            .map((prop, key) => {
+              if (key === this.state.value) {
+                return <div key={key}>{prop.tabContent}</div>;
+              }
+            })
+            .filter(x => x)}
         </CardBody>
       </Card>
     );
@@ -107,13 +112,14 @@ interface TabProps {
 }
 
 interface CustomTabsProps {
-  children: JSX.Element | JSX.Element[];
   classes: { [key: string]: any };
   headerColor: 'warning' | 'success' | 'danger' | 'info' | 'primary' | 'rose';
-  title: string;
+  title: JSX.Element;
   tabs: TabProps[];
   rtlActive: boolean;
   plainTabs: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export default withStyles(customTabsStyle)(CustomTabs);

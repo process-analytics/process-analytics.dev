@@ -27,7 +27,7 @@ const CardBody = ({
   className,
   children,
   ...rest
-}: CardBodyProps): JSX.Element => {
+}: React.PropsWithChildren<CardBodyProps>): JSX.Element => {
   const cardBodyClasses = classNames({
     [classes.cardBody]: true,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -42,7 +42,6 @@ const CardBody = ({
 };
 
 interface CardBodyProps {
-  children: JSX.Element | JSX.Element[];
   classes: { [key: string]: string };
   className?: {
     [key: string]: string;

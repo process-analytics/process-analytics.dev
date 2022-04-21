@@ -22,7 +22,9 @@ import { withStyles } from '@mui/styles';
 // core components
 import cardFooterStyle from '../../assets/jss/material-kit-react/components/cardFooterStyle';
 
-const CardFooter = ({ ...props }: CardFooterProps): JSX.Element => {
+const CardFooter = ({
+  ...props
+}: React.PropsWithChildren<CardFooterProps>): JSX.Element => {
   const { classes, className, children, ...rest } = props;
 
   const cardFooterClasses = classNames({
@@ -39,7 +41,6 @@ const CardFooter = ({ ...props }: CardFooterProps): JSX.Element => {
 };
 
 interface CardFooterProps {
-  children: JSX.Element | JSX.Element[];
   classes: { [key: string]: string };
   className: {
     [key: string]: string;

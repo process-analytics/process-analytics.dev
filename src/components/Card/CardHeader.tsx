@@ -22,7 +22,9 @@ import { withStyles } from '@mui/styles';
 // core components
 import cardHeaderStyle from '../../assets/jss/material-kit-react/components/cardHeaderStyle';
 
-const CardHeader = ({ ...props }: CardHeaderProps): JSX.Element => {
+const CardHeader = ({
+  ...props
+}: React.PropsWithChildren<CardHeaderProps>): JSX.Element => {
   const { classes, className, children, color, plain, ...rest } = props;
 
   const cardHeaderClasses = classNames({
@@ -41,12 +43,11 @@ const CardHeader = ({ ...props }: CardHeaderProps): JSX.Element => {
 };
 
 interface CardHeaderProps {
-  children: JSX.Element | JSX.Element[];
   classes: { [key: string]: string };
   className?: {
     [key: string]: string;
   };
-  color: 'warning' | 'success' | 'danger' | 'info' | 'primary';
+  color: 'warning' | 'success' | 'danger' | 'info' | 'primary' | 'rose';
   plain?: boolean;
 }
 

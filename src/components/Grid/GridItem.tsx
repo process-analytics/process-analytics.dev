@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Property } from 'csstype';
 import React from 'react';
 import { withStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
 
 const style = {
   grid: {
-    position: 'relative',
+    position: 'relative' as Property.Position,
     width: '100%',
     minHeight: '1px',
     paddingRight: '15px',
