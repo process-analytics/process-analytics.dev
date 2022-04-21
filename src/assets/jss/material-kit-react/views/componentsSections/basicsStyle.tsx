@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { container, title } from '../../../material-kit-react';
-import customCheckboxRadioSwitch from '../../customCheckboxRadioSwitch';
 
 const basicsStyle = {
   sections: {
@@ -40,7 +39,6 @@ const basicsStyle = {
     height: '17px',
     color: '#FFFFFF',
   },
-  ...customCheckboxRadioSwitch,
 };
 
 export default basicsStyle;

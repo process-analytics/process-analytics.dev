@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Grid from '@mui/material/Grid';
 import React, { useState } from 'react';
+
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 import SwipeableViews from 'react-swipeable-views';
@@ -29,8 +29,6 @@ import GridItem from '../Grid/GridItem';
 
 import navPillsStyle from '../../assets/jss/material-kit-react/components/navPillsStyle';
 
-const state = useState(null);
-
 const NavPills = ({
   classes,
   tabs,
@@ -38,11 +36,9 @@ const NavPills = ({
   color,
   horizontal,
   alignCenter,
-  active,
+  active: initActive,
 }: React.PropsWithChildren<NavPillsProps>): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  state['active'] = active;
+  const [active, setActive] = useState<undefined | number>(initActive);
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined,
@@ -56,12 +52,8 @@ const NavPills = ({
         flexContainer: flexContainerClasses,
         indicator: classes.displayNone,
       }}
-      value={
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        state['active']
-      }
-      onChange={handleChange}
+      value={active}
+      onChange={(event: any, active: number): void => setActive(active)}
       centered={alignCenter}
     >
       {tabs.map((prop, key) => {
@@ -81,12 +73,15 @@ const NavPills = ({
             label={prop.tabButton}
             key={key}
             {...icon}
+            iconPosition="start"
+            disableRipple={true}
+            disableFocusRipple={true}
             classes={{
               root: pillsClasses,
-              //  labelContainer: classes.labelContainer,
+              labelIcon: classes.labelContainer,
+              textColorInherit: classes.label,
               textColorPrimary: classes.label,
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
+              textColorSecondary: classes.label,
               selected: classes[color],
             }}
           />
@@ -98,12 +93,8 @@ const NavPills = ({
     <div className={classes.contentWrapper}>
       <SwipeableViews
         axis={direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          state['active']
-        }
-        onChangeIndex={handleChangeIndex}
+        index={active}
+        onChangeIndex={(index: number): void => setActive(index)}
       >
         {tabs.map((prop, key) => {
           return (
@@ -128,17 +119,6 @@ const NavPills = ({
   );
 };
 
-const handleChange = (event: any, active: any): void => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  state['active'] = active;
-};
-const handleChangeIndex = (index: any): void => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  state['active'] = index;
-};
-
 NavPills.defaultProps = {
   active: 0,
   color: 'primary',
@@ -155,7 +135,7 @@ interface NavPillsProps {
   // index of the default active pill
   active?: number;
   tabs: TabProps[];
-  color?: 'primary' | 'warning' | 'danger' | 'success' | 'info' | 'rose';
+  color: 'primary' | 'warning' | 'danger' | 'success' | 'info' | 'rose';
   direction: string;
   horizontal: {
     tabsGrid: any;

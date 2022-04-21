@@ -21,6 +21,7 @@ import { withStyles } from '@mui/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Icon from '@mui/material/Icon';
+
 // core components
 import Card from '../Card/Card';
 import CardBody from '../Card/CardBody';
@@ -42,6 +43,7 @@ class CustomTabs extends React.Component {
   render(): JSX.Element {
     const { classes, headerColor, plainTabs, tabs, title, rtlActive } = this
       .props as React.PropsWithChildren<CustomTabsProps>;
+
     const cardTitle = classNames({
       [classes.cardTitle]: true,
       [classes.cardTitleRTL]: rtlActive,
@@ -55,8 +57,8 @@ class CustomTabs extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
             classes={{
-              root: classes.tabsRoot,
-              indicator: classes.displayNone,
+              root: classNames(classes.tabsRoot),
+              indicator: classNames(classes.displayNone),
             }}
           >
             {tabs.map((prop, key) => {
@@ -75,16 +77,19 @@ class CustomTabs extends React.Component {
               return (
                 <Tab
                   classes={{
-                    root: classes.tabRootButton,
+                    root: "minHeight: 'unset !important', backgroundColor: 'transparent'",
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    labelContainer: classes.tabLabelContainer,
-                    label: classes.tabLabel,
-                    selected: classes.tabSelected,
-                    wrapper: classes.tabWrapper,
+                    labelContainer: classNames(classes.tabLabelContainer),
+                    label: classNames(classes.tabLabel),
+                    textColorInherit: classNames(classes.tabLabel),
+                    selected: classNames(classes.tabSelected),
+                    wrapper: classNames(classes.tabWrapper),
                   }}
                   key={key}
                   label={prop.tabName}
+                  textColor="inherit"
+                  disableRipple
                   {...icon}
                 />
               );

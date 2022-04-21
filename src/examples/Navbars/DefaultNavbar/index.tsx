@@ -56,6 +56,7 @@ import DefaultNavbarMobile from './DefaultNavbarMobile';
 
 // Material Kit 2 React base styles
 import breakpoints from '../../../assets/theme/base/breakpoints';
+import { Box } from '@mui/material';
 
 function DefaultNavbar({
   brand,
@@ -73,7 +74,7 @@ function DefaultNavbar({
   const [nestedDropdown, setNestedDropdown] = useState(false);
   const [nestedDropdownEl, setNestedDropdownEl] = useState(null);
   const [nestedDropdownName, setNestedDropdownName] = useState('');
-  const [arrowRef, setArrowRef] = useState(null as HTMLSpanElement | null);
+  const [arrowRef, setArrowRef] = useState(null as HTMLElement | null);
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
 
@@ -367,7 +368,9 @@ function DefaultNavbar({
         >
           <MKBox borderRadius="lg">
             <MKTypography variant="h1" color="white">
-              <ArrowDropUpIcon ref={setArrowRef} sx={{ mt: -3 }} />
+              <Box ref={setArrowRef}>
+                <ArrowDropUpIcon sx={{ mt: -3 }} />
+              </Box>
             </MKTypography>
 
             <MKBox shadow="lg" borderRadius="lg" p={2} mt={2}>

@@ -28,6 +28,7 @@ const customTabsStyle = {
   },
   tabsRoot: {
     minHeight: 'unset !important',
+    backgroundColor: 'transparent',
   },
   tabRootButton: {
     minHeight: 'unset !important',
