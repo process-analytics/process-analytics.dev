@@ -15,6 +15,12 @@
  */
 import * as React from 'react';
 
-const TeamPage = (): JSX.Element => <></>;
+import Team from '../layouts/pages/landing-pages/about-us/sections/Team';
+
+const TeamPage = (): JSX.Element => (
+  <>
+    <Team />
+  </>
+);
 
 export default TeamPage;
