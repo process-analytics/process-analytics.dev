@@ -43,10 +43,10 @@ import DefaultNavbar from '../../../examples/Navbars/DefaultNavbar';
 import DefaultFooter from '../../../examples/Footers/DefaultFooter';
 
 // About Us page sections
-import Information from '../../../pages/LandingPages/AboutUs/sections/Information';
-import Team from '../../../pages/LandingPages/AboutUs/sections/Team';
-import Featuring from '../../../pages/LandingPages/AboutUs/sections/Featuring';
-import Newsletter from '../../../pages/LandingPages/AboutUs/sections/Newsletter';
+import Information from '../../../layouts/pages/landing-pages/about-us/sections/Information';
+import Team from '../../../layouts/pages/landing-pages/about-us/sections/Team';
+import Featuring from '../../../layouts/pages/landing-pages/about-us/sections/Featuring';
+import Newsletter from '../../../layouts/pages/landing-pages/about-us/sections/Newsletter';
 
 // Routes
 import footerRoutes from '../../../footer.routes';

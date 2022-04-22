@@ -15,7 +15,6 @@
  */
 
 // Material Kit 2 React pages
-
 import React from 'react';
 import AboutUs from '../../../../pages/LandingPages/AboutUs';
 

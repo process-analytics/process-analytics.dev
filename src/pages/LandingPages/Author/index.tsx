@@ -28,10 +28,10 @@ import MKBox from '../../../components/MKBox';
 import DefaultNavbar from '../../../examples/Navbars/DefaultNavbar';
 
 // Author page sections
-import Profile from '../../../pages/LandingPages/Author/sections/Profile';
-import Posts from '../../../pages/LandingPages/Author/sections/Posts';
-import Contact from '../../../pages/LandingPages/Author/sections/Contact';
-import Footer from '../../../pages/LandingPages/Author/sections/Footer';
+import Profile from '../../../layouts/pages/landing-pages/author/sections/Profile';
+import Posts from '../../../layouts/pages/landing-pages/author/sections/Posts';
+import Contact from '../../../layouts/pages/landing-pages/author/sections/Contact';
+import Footer from '../../../layouts/pages/landing-pages/author/sections/Footer';
 
 // Images
 import bgImage from '../../../assets/images/city-profile.jpg';

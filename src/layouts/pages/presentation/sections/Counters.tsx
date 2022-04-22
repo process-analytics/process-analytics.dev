@@ -20,10 +20,10 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 
 // Material Kit 2 React components
-import MKBox from '../../../components/MKBox';
+import MKBox from '../../../../components/MKBox';
 
 // Material Kit 2 React examples
-import DefaultCounterCard from '../../../examples/Cards/CounterCards/DefaultCounterCard';
+import DefaultCounterCard from '../../../../examples/Cards/CounterCards/DefaultCounterCard';
 
 import React from 'react';
 
