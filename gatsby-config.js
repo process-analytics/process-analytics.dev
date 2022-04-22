@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const colors = require('./old/src/theme/colors.json');
+//const colors = require('./src/theme/colors.json');
 
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
 require('dotenv').config({
@@ -38,10 +38,10 @@ module.exports = {
         name: 'Process Analytics',
         short_name: 'PA',
         start_url: '/Presentation/',
-        background_color: colors.background,
-        theme_color: colors.primary,
+        /*        background_color: colors.background,
+        theme_color: colors.primary,*/
         display: 'minimal-ui',
-        icon: 'old/src/images/logo.svg',
+        icon: 'src/assets/PA-images/logo.svg',
       },
     },
     'gatsby-plugin-react-helmet',
