@@ -41,6 +41,16 @@ export type Colors = PaletteOptions & {
   coloredShadows: any;
   inputBorderColor: any;
   tabs: any;
+  spicy: string;
+  sweet: string;
+  manufacture: string;
+  education: string;
+  telecom: string;
+  financial: string;
+  energy: string;
+  health: string;
+  government: string;
+  distribution: string;
 };
 
 const palette: Colors = {
@@ -50,8 +60,8 @@ const palette: Colors = {
   },
 
   text: {
-    primary: '#7b809a',
-    secondary: '#7b809a',
+    primary: '#000000',
+    secondary: '#DBEFFF',
     disabled: '#7b809a',
   },
 
@@ -71,13 +81,15 @@ const palette: Colors = {
   },
 
   primary: {
-    main: '#e91e63',
-    contrastText: '#e91e63',
+    main: '#002395',
+    contrastText: '#DBEFFF',
   },
 
   secondary: {
-    main: '#7b809a',
-    contrastText: '#8f93a9',
+    main: '#E20613',
+    dark: '#E20613',
+    light: '#F9DADC',
+    contrastText: '#F9DADC',
   },
 
   info: {
@@ -101,9 +113,20 @@ const palette: Colors = {
   },
 
   light: {
-    main: '#f0f2f5',
+    main: '#EDEEF5',
     contrastText: '#f0f2f5',
   },
+
+  spicy: '#05D99E',
+  sweet: '#FFD560',
+  manufacture: '#E86A63',
+  education: '#FFD560',
+  telecom: '#F1ACC6',
+  financial: '#62BFEC',
+  energy: '#2A574A',
+  health: '#05D99E',
+  government: '#86BEC2',
+  distribution: '#7E4F95',
 
   dark: {
     main: '#344767',
@@ -129,8 +152,10 @@ const palette: Colors = {
     },
 
     secondary: {
-      main: '#747b8a',
-      dark: '#495361',
+      main: '#E20613',
+      dark: '#E20613',
+      light: '#F9DADC',
+      contrastText: '#F9DADC',
     },
 
     info: {
