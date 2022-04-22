@@ -14,8 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "check-types": "tsc -p . --noEmit",
-    "lint": "eslint \"src/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0 --fix",
-    "lint-check": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\" NOTICE --fix",
+    "lint-check": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE",
     "prepare": "husky install"
   },
   "dependencies": {
