@@ -13,35 +13,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import * as React from 'react';
-import { HeadProps } from 'gatsby';
-
-import { Layout, SEO } from '../components';
-import { DataProps } from '../hooks';
-import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
-import { PAGE } from '../helper';
-import { footerContent, headerContent } from '../content';
-import { Testimonials } from '../sections/home/Testimonials';
 
 const HomePage = (): JSX.Element => (
-  <Layout footerContent={footerContent} headerContent={headerContent}>
-    <Landing />
-    <About />
-    <Libraries />
-    <News />
-    <Blog />
-    <Testimonials />
-    <Newsletter />
-  </Layout>
-);
-export default HomePage;
+  <>
+    {/*    Process ?
+    We can find process everywhere: in the real life, in the industry, in the software...
 
-/*
- * You can only define the Head export inside a page, not in a component.
- * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
- * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
-  <SEO title={PAGE.home} pathname={location.pathname} />
+    Example: day activity
+
+    One way to structure a process is to use the BPMN 2.0 standard.
+
+
+    Data ?
+    On observe ce qui se passe et on enregistre
+
+    On peut en extraire des données communes à chaque activité/processus
+    un identifiant: un activité unique qu’on peut désigner
+    une date d'exécution
+    un nom d’activité: levé, passer un appel, faire du sport
+    des ressources: lit, bureau, café et aussi des personnes
+    des données d’entrées et de sorties: appel téléphonique question et réponse d’un client
+
+
+    Merge = process analytics
+    dans le monde du BPM: on est dans le cadre de processus structuré, cadré
+    dans le cadre de l’exemple précédent, processus implicite, non structuré, la donnée est brute,
+
+    data mining: extraction et structuration de la donnée
+    process mining: faire parler les données pour faire émergé des processus et de nouvelles informations
+
+
+    Let's talk about the components
+
+    1. Open Source
+
+    2. Customizable
+
+    3. Easy to use
+
+    Example monitoring fréquence
+    Style par défaut neutre, pour ne pas surcharger le rendu et facilite l’affichage des données spécifiques
+
+    Venez participer à notre communauté !*/}
+  </>
 );
+
+export default HomePage;

@@ -13,25 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as React from 'react';
 
+import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
+import { Layout, SEO } from '../components';
 import { DataProps } from '../hooks';
-import { SEO, PageWithPosts } from '../components';
-import { footerContent, headerContent, newsContent } from '../content';
-import { PAGE, SECTION } from '../helper';
+import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
+import { PAGE } from '../helper';
+import { footerContent, headerContent } from '../content';
+import { Testimonials } from '../sections/home/Testimonials';
 
-const NewsPage = (): JSX.Element => (
-  <PageWithPosts
-    containerTitle={SECTION.news}
-    description={newsContent.description}
-    postContents={newsContent.news}
-    headerContent={headerContent}
-    footerContent={footerContent}
-  />
+const HomePage = (): JSX.Element => (
+  <Layout footerContent={footerContent} headerContent={headerContent}>
+    <Landing />
+    <About />
+    <Libraries />
+    <News />
+    <Blog />
+    <Testimonials />
+    <Newsletter />
+  </Layout>
 );
-export default NewsPage;
+export default HomePage;
 
 /*
  * You can only define the Head export inside a page, not in a component.
@@ -39,4 +43,5 @@ export default NewsPage;
  * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
-  <SEO title={PAGE.news} pathname={location.pathname} />
+  <SEO title={PAGE.home} pathname={location.pathname} />
+);
