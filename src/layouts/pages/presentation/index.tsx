@@ -15,8 +15,8 @@
  */
 
 // Material Kit 2 React pages
-
 import React from 'react';
+
 import Presentation from '../../../pages/Presentation';
 
 export default function PresentationPage(): JSX.Element {

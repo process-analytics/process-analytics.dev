@@ -44,15 +44,15 @@ import DefaultFooter from '../../examples/Footers/DefaultFooter';
 import FilledInfoCard from '../../examples/Cards/InfoCards/FilledInfoCard';
 
 // Presentation page sections
-import Counters from './sections/Counters';
-import Information from './sections/Information';
-import DesignBlocks from './sections/DesignBlocks';
-import Pages from './sections/Pages';
-import Testimonials from './sections/Testimonials';
-import Download from './sections/Download';
+import Counters from '../../layouts/pages/presentation/sections/Counters';
+import Information from '../../layouts/pages/presentation/sections/Information';
+import DesignBlocks from '../../layouts/pages/presentation/sections/DesignBlocks';
+import Pages from '../../layouts/pages/presentation/sections/Pages';
+import Testimonials from '../../layouts/pages/presentation/sections/Testimonials';
+import Download from '../../layouts/pages/presentation/sections/Download';
 
 // Presentation page components
-import BuiltByDevelopers from './components/BuiltByDevelopers';
+import BuiltByDevelopers from '../../layouts/pages/presentation/components/BuiltByDevelopers';
 
 // Material Kit 2 React themes
 import theme from '../../assets/theme';

@@ -19,8 +19,8 @@ import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
 // Material Kit 2 React components
-import MKBox from '../../../../components/MKBox';
-import MKTypography from '../../../../components/MKTypography';
+import MKBox from '../../../../../components/MKBox';
+import MKTypography from '../../../../../components/MKTypography';
 
 function ExampleCard({
   image,

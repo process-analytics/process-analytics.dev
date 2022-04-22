@@ -30,8 +30,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Material Kit 2 React components
-import MKBox from '../../../../components/MKBox';
-import MKTypography from '../../../../components/MKTypography';
+import MKBox from '../../../../../components/MKBox';
+import MKTypography from '../../../../../components/MKTypography';
 
 function Footer(): JSX.Element {
   return (

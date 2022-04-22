@@ -21,9 +21,9 @@ import Grid from '@mui/material/Grid';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import MKBox from '../../../components/MKBox';
-import MKBadge from '../../../components/MKBadge';
-import MKTypography from '../../../components/MKTypography';
+import MKBox from '../../../../components/MKBox';
+import MKBadge from '../../../../components/MKBadge';
+import MKTypography from '../../../../components/MKTypography';
 
 // Presentation page components
 import ExampleCard from '../components/ExampleCard';
