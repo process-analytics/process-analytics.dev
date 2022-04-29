@@ -14,8 +14,18 @@
  * limitations under the License.
  */
 
-import { Apps, Flag, PrecisionManufacturing } from '@mui/icons-material';
+import {
+  Apps,
+  ArrowForward,
+  ContentCopy,
+  Devices,
+  Flag,
+  FlipToFront,
+  PriceChange,
+  TouchApp,
+} from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
 // @mui material components
@@ -24,7 +34,8 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import DefaultCounterCard from 'src/examples/Cards/CounterCards/DefaultCounterCard';
+import DefaultInfoCard from '../examples/Cards/InfoCards/DefaultInfoCard';
+import MKBadge from '../components/MKBadge';
 
 import { CustomTypography } from '../assets/theme/base/typography';
 
@@ -46,80 +57,683 @@ import DefaultFooter from '../examples/Footers/DefaultFooter';
 import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 
 // Presentation page sections
-import Counters from '../layouts/pages/presentation/sections/Counters';
-import Information from '../layouts/pages/presentation/sections/Information';
-import DesignBlocks from '../layouts/pages/presentation/sections/DesignBlocks';
-import Pages from '../layouts/pages/presentation/sections/Pages';
-import Testimonials from '../layouts/pages/presentation/sections/Testimonials';
-import Download from '../layouts/pages/presentation/sections/Download';
 
 // Presentation page components
-import BuiltByDevelopers from '../layouts/pages/presentation/components/BuiltByDevelopers';
 
 // Material Kit 2 React themes
 import theme from '../assets/theme';
 
 // Routes
-import footerRoutes from '../footer.routes';
+import footerRoutes from '../PA-footer.routes';
 import routes from '../PA-routes';
 
 // Images
-import bgImage from '../assets/PA-images/bg-presentation.png';
+import BgImg from '../assets/PA-images/bg-presentation.png';
 
-const HomePage = (): JSX.Element => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <DefaultNavbar
-      brand="Process Analytics"
-      routes={routes}
-      action={{
-        type: 'external',
-        route:
-          'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
-        label: 'Demo',
-        color: 'secondary',
-      }}
-      sticky
-    />
+// https://www.freepik.com/free-vector/woman-daily-routine-set-with-isolated-icons-with-doodle-style-female-characters-during-various-everyday-activities-illustration_15481388.htm#query=daily%20activities&position=38&from_view=keyword
+import DayActivitiesImg from '../assets/PA-images/woman_daily_routine.jpg';
 
+const navbar = (
+  <DefaultNavbar
+    brand="Process Analytics"
+    routes={routes}
+    action={{
+      type: 'external',
+      route:
+        'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+      label: 'Demo',
+      color: 'secondary',
+    }}
+    sticky
+  />
+);
+
+const header = (
+  <MKBox
+    minHeight="75vh"
+    width="100%"
+    sx={{
+      backgroundImage: `url(${BgImg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'top',
+      display: 'grid',
+      placeItems: 'center',
+    }}
+  >
+    <Container>
+      <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
+        <MKTypography
+          variant="h1"
+          color="white"
+          mt={-6}
+          mb={1}
+          sx={({ breakpoints, typography }) => ({
+            [breakpoints.down('md')]: {
+              fontSize: (typography as CustomTypography).size['3xl'],
+            },
+          })}
+        >
+          Process Analytics
+        </MKTypography>
+        <MKTypography
+          variant="body1"
+          color="white"
+          textAlign="center"
+          px={{ xs: 6, lg: 12 }}
+          mt={1}
+        >
+          Open Source &amp; Customizable components based on BPMN 2.0
+        </MKTypography>
+      </Grid>
+    </Container>
+  </MKBox>
+);
+
+const processSection = (
+  <MKBox component="section" my={6} py={6}>
+    <Container>
+      <Grid
+        container
+        item
+        xs={12}
+        lg={6}
+        flexDirection="column"
+        alignItems="center"
+        sx={{ textAlign: 'center', my: 6, mx: 'auto', px: 0.75 }}
+      >
+        <MKBadge
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          variant="contained"
+          color="info"
+          badgeContent="Base"
+          container
+          sx={{ mb: 2 }}
+        />
+
+        <MKTypography variant="h2" fontWeight="bold">
+          Process
+        </MKTypography>
+
+        <MKTypography variant="body1" color="text">
+          We can find process everywhere: in the real life, in the industry, in
+          the software...
+        </MKTypography>
+      </Grid>
+    </Container>
+    <Container sx={{ mt: 6 }}>
+      <Grid container spacing={3} sx={{ mb: 10 }}>
+        <Grid item xs={12} lg={3} my="auto">
+          <MKBox pb={{ xs: 2, lg: 6 }}>
+            <MKTypography variant="h3" fontWeight="bold" mb={1}>
+              Example
+            </MKTypography>
+
+            <MKTypography
+              variant="body2"
+              fontWeight="regular"
+              color="secondary"
+              mb={1}
+              pr={2}
+            >
+              Day Activity
+            </MKTypography>
+          </MKBox>
+        </Grid>
+        <Grid item xs={12} lg={9}>
+          <MKBox
+            component="img"
+            src={DayActivitiesImg}
+            alt="pattern-lines"
+            borderRadius="xl"
+            my={2}
+            /* py={6}*/
+            width="100%"
+          />
+        </Grid>
+      </Grid>
+    </Container>
+    <Container sx={{ mt: 6 }}>
+      <MKBox pb={{ xs: 2, lg: 6 }} sx={{ textAlign: 'center' }}>
+        <MKTypography
+          variant="h3"
+          // fontWeight="bold"
+          color="spicy"
+          mb={1}
+          pr={2}
+        >
+          One way to structure a process is to use the BPMN 2.0 standard.
+        </MKTypography>
+      </MKBox>
+    </Container>
+  </MKBox>
+);
+
+const dataSection = (
+  <MKBox component="section" my={6} py={6}>
+    <Container>
+      <Grid
+        container
+        item
+        xs={12}
+        lg={6}
+        flexDirection="column"
+        alignItems="center"
+        sx={{ textAlign: 'center', my: 6, mx: 'auto', px: 0.75 }}
+      >
+        <MKBadge
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          variant="contained"
+          color="info"
+          badgeContent="Data"
+          container
+          sx={{ mb: 2 }}
+        />
+
+        <MKTypography variant="h2" fontWeight="bold">
+          How generate Execution Data ?
+        </MKTypography>
+
+        <MKTypography variant="body1" color="text">
+          On observe ce qui se passe et on enregistre les données. On peut en
+          extraire des données communes à chaque activité/processus.
+        </MKTypography>
+      </Grid>
+    </Container>
+    {/*    <Container sx={{ mt: 6 }}>
+      <Grid container spacing={3} sx={{ mb: 10 }}>
+        <Grid item xs={12} lg={3}>
+          <MKBox my={2} py={6} pb={{ xs: 2, lg: 6 }}>
+            <MKTypography
+              variant="body2"
+              fontWeight="regular"
+              color="primary"
+              mb={1}
+              pr={2}
+            >
+              <List>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  un identifiant: un activité unique qu’on peut désigner
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  une date d'exécution: la date et l’heure de l’exécution
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  un nom d’activité: levé, passer un appel, faire du sport
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  des ressources: lit, bureau, café et aussi des personnes
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  des données d'entrée: appel téléphonique, question d’un client
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyle: 'disc' }}>
+                  des données de sortie: appel téléphonique, réponse à un client
+                </ListItem>
+              </List>
+            </MKTypography>
+          </MKBox>
+        </Grid>
+      </Grid>
+    </Container>*/}
+
+    <Container>
+      <Grid
+        container
+        item
+        xs={11}
+        spacing={3}
+        alignItems="center"
+        sx={{ mx: 'auto' }}
+      >
+        <Grid item xs={12} lg={11} sx={{ ml: 'auto' }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<ContentCopy />}
+                title="1 identifier"
+                description="une activité unique qu’on peut désigner"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<ContentCopy />}
+                title="1 execution date"
+                description="la date et l’heure de l’exécution"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<FlipToFront />}
+                title="1 activity name"
+                description="levé, passer un appel, faire du sport"
+              />
+            </Grid>
+          </Grid>
+
+          <Grid container spacing={3} sx={{ mt: { xs: 0, md: 6 } }}>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<PriceChange />}
+                title="des ressources"
+                description="lit, bureau, café et aussi des personnes"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<PriceChange />}
+                title="des données d'entrée"
+                description="appel téléphonique, question d’un client"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <DefaultInfoCard
+                icon={<Devices />}
+                title="des données de sortie"
+                description="appel téléphonique, réponse à un client"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
+  </MKBox>
+);
+
+const paSection = (
+  <MKBox component="section" my={6} py={6}>
+    <Container>
+      <Grid
+        container
+        item
+        xs={12}
+        lg={6}
+        flexDirection="column"
+        alignItems="center"
+        sx={{ textAlign: 'center', my: 6, mx: 'auto', px: 0.75 }}
+      >
+        <MKBadge
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          variant="contained"
+          color="info"
+          badgeContent="Process Analytics"
+          container
+          sx={{ mb: 2 }}
+        />
+
+        <MKTypography variant="h2" fontWeight="bold">
+          Collisition entre 2 mondes
+        </MKTypography>
+
+        <MKTypography variant="body1" color="text">
+          dans le monde du BPM: on est dans le cadre de processus structuré,
+          cadré
+        </MKTypography>
+        <MKTypography variant="body1" color="text">
+          dans le cadre de l’exemple précédent, processus implicite, non
+          structuré, la donnée est brute
+        </MKTypography>
+        <MKTypography variant="body1" color="text">
+          data mining: extraction et structuration de la donnée
+        </MKTypography>
+        <MKTypography variant="body1" color="text">
+          process mining: faire parler les données pour faire émergé des
+          processus et de nouvelles informations
+        </MKTypography>
+      </Grid>
+    </Container>
+  </MKBox>
+);
+
+const componentsSection = (
+  <MKBox component="section">
+    <MKBox py={3}>
+      <Container>
+        <Grid
+          container
+          item
+          xs={12}
+          lg={6}
+          flexDirection="column"
+          alignItems="center"
+          sx={{ textAlign: 'center', my: 6, mx: 'auto', px: 0.75 }}
+        >
+          <MKBadge
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            variant="contained"
+            color="info"
+            badgeContent="Components"
+            container
+            sx={{ mb: 2 }}
+          />
+
+          <MKTypography variant="h2" fontWeight="bold">
+            Let's talk about the components!
+          </MKTypography>
+        </Grid>
+
+        <Grid container item xs={12} lg={9} sx={{ mx: 'auto' }}>
+          <Grid item xs={12} md={4}>
+            <MKBox p={2} textAlign="center" lineHeight={1} bgColor="primary">
+              <MKTypography variant="h5" mt={2} mb={1} color="light">
+                Open Source
+              </MKTypography>
+            </MKBox>
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={4}
+            display="flex"
+            justifyContent="space-between"
+          >
+            <Divider
+              orientation="vertical"
+              sx={{ display: { xs: 'none', md: 'block' }, mx: 0 }}
+            />
+            <MKBox p={2} textAlign="center" lineHeight={1}>
+              <MKTypography variant="h5" mt={2} mb={1} color="secondary">
+                Customizable
+              </MKTypography>
+            </MKBox>
+            <Divider
+              orientation="vertical"
+              sx={{ display: { xs: 'none', md: 'block' }, ml: 0 }}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <MKBox p={2} textAlign="center" lineHeight={1} bgColor="secondary">
+              <MKTypography variant="h5" mt={2} mb={1} color="light">
+                Easy to use
+              </MKTypography>
+            </MKBox>
+          </Grid>
+        </Grid>
+      </Container>
+    </MKBox>
+    <MKBox py={{ xs: 0, sm: 12 }}>
+      Example monitoring fréquence Style par défaut neutre, pour ne pas
+      surcharger le rendu et facilite l’affichage des données spécifiques
+      <MKBox
+        variant="gradient"
+        bgColor="dark"
+        position="relative"
+        borderRadius="xl"
+        sx={{ overflow: 'hidden' }}
+      >
+        <MKBox
+          borderRadius="xl"
+          padding={1}
+          component="img"
+          src="https://process-analytics.dev/static/what_diagram-fa973be68f79774cdca19ac09815e3c4.png"
+          alt="pattern-lines"
+          width="100%"
+        />
+      </MKBox>
+      <Container>
+        <Grid container item xs={6} mx="auto">
+          <MKBox textAlign="center">
+            <MKTypography variant="h3" mt={6} mb={3}>
+              Available on these technologies
+            </MKTypography>
+
+            <Grid container spacing={3} justifyContent="center">
+              <Grid item xs={4} lg={2}>
+                <Tooltip title="JavaScript">
+                  <MKBox
+                    component="a"
+                    href="https://github.com/process-analytics/bpmn-visualization-js"
+                    target="_blank"
+                  >
+                    <MKBox
+                      component="img"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Javascript_Logo.png/640px-Javascript_Logo.png"
+                      width="100%"
+                    />
+                  </MKBox>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={4} lg={2}>
+                <Tooltip title="TypeScript">
+                  <MKBox
+                    component="a"
+                    href="https://github.com/process-analytics/bpmn-visualization-js"
+                    target="_blank"
+                  >
+                    <MKBox
+                      component="img"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png?20210506173343"
+                      width="100%"
+                    />
+                  </MKBox>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={4} lg={2}>
+                <Tooltip title="Java">
+                  <MKBox
+                    component="a"
+                    href="https://github.com/process-analytics/bpmn-layout-generators"
+                    target="_blank"
+                  >
+                    <MKBox
+                      component="img"
+                      src="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg"
+                      width="100%"
+                    />
+                  </MKBox>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={4} lg={2}>
+                <Tooltip title="R">
+                  <MKBox
+                    component="a"
+                    href="https://github.com/process-analytics/bpmn-visualization-R"
+                    target="_blank"
+                  >
+                    <MKBox
+                      component="img"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1448px-R_logo.svg.png"
+                      width="100%"
+                    />
+                  </MKBox>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={4} lg={2}>
+                <Tooltip title="BPMN 2.0">
+                  <MKBox
+                    component="img"
+                    src="https://www.omg.org/images/logos/BPMN-logo.svg"
+                    width="100%"
+                  />
+                </Tooltip>
+              </Grid>
+            </Grid>
+          </MKBox>
+        </Grid>
+      </Container>
+    </MKBox>
+  </MKBox>
+);
+
+const documentationSection = (
+  <Container sx={{ mt: 6 }}>
     <MKBox
-      minHeight="75vh"
-      width="100%"
+      display="flex"
+      alignItems="center"
+      borderRadius="xl"
+      my={2}
+      py={6}
       sx={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: ({
+          functions: { linearGradient, rgba },
+          palette: { gradient },
+        }: any) =>
+          `${linearGradient(
+            rgba(gradient.dark.main, 0.8),
+            rgba(gradient.dark.dark, 0.8),
+          )}, url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'top',
-        display: 'grid',
-        placeItems: 'center',
+        backgroundPosition: 'center',
       }}
     >
       <Container>
-        <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
-          <MKTypography
-            variant="h1"
-            color="white"
-            mt={-6}
-            mb={1}
-            sx={({ breakpoints, typography }) => ({
-              [breakpoints.down('md')]: {
-                fontSize: (typography as CustomTypography).size['3xl'],
-              },
-            })}
-          >
-            Process Analytics
+        <Grid container item xs={12} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
+          <MKTypography variant="h4" color="white" fontWeight="bold">
+            Built by developers
+          </MKTypography>
+
+          <MKTypography variant="h1" color="white" mb={1}>
+            User Documentation
+          </MKTypography>
+
+          <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
+            From BPMN support, theme customization, diagram navigation, custom
+            behavior, overlays, style, and more, you will find the full
+            documentation. Play with the style API and you will create unlimited
+            combinations for our components.
           </MKTypography>
           <MKTypography
-            variant="body1"
+            component="a"
+            href="https://process-analytics.github.io/bpmn-visualization-js/"
+            target="_blank"
+            rel="noreferrer"
+            variant="body2"
             color="white"
-            textAlign="center"
-            px={{ xs: 6, lg: 12 }}
-            mt={1}
+            fontWeight="regular"
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              '& .material-icons-round': {
+                fontSize: '1.125rem',
+                transform: `translateX(3px)`,
+                transition: 'transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1.3)',
+              },
+              '&:hover .material-icons-round, &:focus .material-icons-round': {
+                transform: `translateX(6px)`,
+              },
+            }}
           >
-            Open Source &amp; Customizable components based on BPMN 2.0
+            Read docs <ArrowForward sx={{ fontWeight: 'bold' }} />
           </MKTypography>
         </Grid>
       </Container>
     </MKBox>
+  </Container>
+);
+
+const moreSection = (
+  <Container>
+    <Grid container spacing={3}>
+      <Grid item xs={12} lg={6}>
+        <FilledInfoCard
+          variant="gradient"
+          color="info"
+          icon={<Flag />}
+          title="Getting Started"
+          description="Check the possible ways of working with our product and the necessary files for building your own project."
+          action={{
+            type: 'external',
+            route:
+              'https://github.com/process-analytics/bpmn-visualization-js#%EF%B8%8F-usage',
+            label: "Let's start",
+          }}
+        />
+      </Grid>
+      <Grid item xs={12} lg={6}>
+        <FilledInfoCard
+          color="info"
+          icon={<Apps />}
+          title="Components"
+          description="Material Kit is giving you a lot of pre-made components, that will help you to build UI's faster."
+          action={{
+            type: 'internal',
+            route: '/components',
+            label: 'Read more',
+          }}
+        />
+      </Grid>
+    </Grid>
+  </Container>
+);
+
+const conclusionSection = (
+  <MKBox pt={18} pb={6}>
+    <Container>
+      <Grid container spacing={3}>
+        <Grid
+          item
+          xs={12}
+          lg={5}
+          ml="auto"
+          sx={{ textAlign: { xs: 'center', lg: 'left' } }}
+        >
+          <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
+            Venez participer à notre communauté !
+          </MKTypography>
+
+          <MKTypography variant="body1" color="text">
+            We deliver the best web products
+          </MKTypography>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          lg={5}
+          my={{ xs: 5, lg: 'auto' }}
+          mr={{ xs: 0, lg: 'auto' }}
+          sx={{ textAlign: { xs: 'center', lg: 'right' } }}
+        >
+          <MKSocialButton
+            component="a"
+            href="https://twitter.com/intent/tweet?text=Discover%20Process%20Analytics%20components&amp;url=https%3A%2F%2Fprocess-analytics.dev"
+            target="_blank"
+            color="twitter"
+            sx={{ mr: 1 }}
+          >
+            <FontAwesomeIcon icon={faTwitter} />
+            &nbsp;Tweet
+          </MKSocialButton>
+          <MKSocialButton
+            component="a"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://process-analytics.dev/"
+            target="_blank"
+            color="facebook"
+            sx={{ mr: 1 }}
+          >
+            <FontAwesomeIcon icon={faFacebook} />
+            &nbsp;Share
+          </MKSocialButton>
+          <MKSocialButton
+            component="a"
+            href="https://www.pinterest.com/pin/create/button/?url=https://process-analytics.dev/"
+            target="_blank"
+            color="pinterest"
+          >
+            <FontAwesomeIcon icon={faPinterest} />
+            &nbsp;Pin it
+          </MKSocialButton>
+        </Grid>
+      </Grid>
+    </Container>
+  </MKBox>
+);
+
+const footer = (
+  <MKBox pt={6} px={1} mt={6}>
+    <DefaultFooter content={footerRoutes} />
+  </MKBox>
+);
+
+const HomePage = (): JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    {navbar}
+    {header}
     <Card
       sx={{
         p: 2,
@@ -132,185 +746,15 @@ const HomePage = (): JSX.Element => (
         boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
       }}
     >
-      <Container sx={{ mt: 6 }}>
-        Process ? We can find process everywhere: in the real life, in the
-        industry, in the software... Example: day activity One way to structure
-        a process is to use the BPMN 2.0 standard.
-      </Container>
-      <Container sx={{ mt: 6 }}>
-        Data ? On observe ce qui se passe et on enregistre On peut en extraire
-        des données communes à chaque activité/processus un identifiant: un
-        activité unique qu’on peut désigner une date d'exécution un nom
-        d’activité: levé, passer un appel, faire du sport des ressources: lit,
-        bureau, café et aussi des personnes des données d’entrées et de sorties:
-        appel téléphonique question et réponse d’un client
-      </Container>
-      <Container sx={{ mt: 6 }}>
-        Merge = process analytics dans le monde du BPM: on est dans le cadre de
-        processus structuré, cadré dans le cadre de l’exemple précédent,
-        processus implicite, non structuré, la donnée est brute, data mining:
-        extraction et structuration de la donnée process mining: faire parler
-        les données pour faire émergé des processus et de nouvelles informations
-      </Container>
-      <MKBox component="section" py={3}>
-        <Container>
-          Let's talk about the components
-          <Grid container item xs={12} lg={9} sx={{ mx: 'auto' }}>
-            <Grid item xs={12} md={4}>
-              Open Source
-            </Grid>
-
-            <Grid item xs={12} md={4} display="flex">
-              <Divider
-                orientation="vertical"
-                sx={{ display: { xs: 'none', md: 'block' }, mx: 0 }}
-              />
-              Customizable
-              <Divider
-                orientation="vertical"
-                sx={{ display: { xs: 'none', md: 'block' }, ml: 0 }}
-              />
-            </Grid>
-
-            <Grid item xs={12} md={4}>
-              Easy to use
-            </Grid>
-          </Grid>
-        </Container>
-      </MKBox>
-      <Container sx={{ mt: 6 }}>
-        Example monitoring fréquence Style par défaut neutre, pour ne pas
-        surcharger le rendu et facilite l’affichage des données spécifiques
-      </Container>
-      <Container sx={{ mt: 6 }}>
-        {' '}
-        Venez participer à notre communauté !
-      </Container>
-
-      <Counters />
-      <Information />
-      <DesignBlocks />
-      <Pages />
-
-      <Container sx={{ mt: 6 }}>
-        <BuiltByDevelopers />
-      </Container>
-      <Container>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={4}>
-            <FilledInfoCard
-              variant="gradient"
-              color="info"
-              icon={<Flag />}
-              title="Getting Started"
-              description="Check the possible ways of working with our product and the necessary files for building your own project."
-              action={{
-                type: 'external',
-                route:
-                  'https://www.creative-tim.com/learning-lab/react/overview/material-kit/',
-                label: "Let's start",
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={12} lg={4}>
-            <FilledInfoCard
-              color="info"
-              icon={<PrecisionManufacturing />}
-              title="Plugins"
-              description="Get inspiration and have an overview about the plugins that we used to create the Material Kit."
-              action={{
-                type: 'external',
-                route:
-                  'https://www.creative-tim.com/learning-lab/react/overview/datepicker/',
-                label: 'Read more',
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={12} lg={4}>
-            <FilledInfoCard
-              color="info"
-              icon={<Apps />}
-              title="Components"
-              description="Material Kit is giving you a lot of pre-made components, that will help you to build UI's faster."
-              action={{
-                type: 'external',
-                route:
-                  'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
-                label: 'Read more',
-              }}
-            />
-          </Grid>
-        </Grid>
-      </Container>
-      {/*<Testimonials />*/}
-      <Download />
-
-      <MKBox pt={18} pb={6}>
-        <Container>
-          <Grid container spacing={3}>
-            <Grid
-              item
-              xs={12}
-              lg={5}
-              ml="auto"
-              sx={{ textAlign: { xs: 'center', lg: 'left' } }}
-            >
-              <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
-                Thank you for your support!
-              </MKTypography>
-
-              <MKTypography variant="body1" color="text">
-                We deliver the best web products
-              </MKTypography>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              lg={5}
-              my={{ xs: 5, lg: 'auto' }}
-              mr={{ xs: 0, lg: 'auto' }}
-              sx={{ textAlign: { xs: 'center', lg: 'right' } }}
-            >
-              <MKSocialButton
-                component="a"
-                href="https://twitter.com/intent/tweet?text=Check%20Material%20Design%20System%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23mui5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit-react"
-                target="_blank"
-                color="twitter"
-                sx={{ mr: 1 }}
-              >
-                <FontAwesomeIcon icon={faTwitter} />
-                &nbsp;Tweet
-              </MKSocialButton>
-              <MKSocialButton
-                component="a"
-                href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit-react"
-                target="_blank"
-                color="facebook"
-                sx={{ mr: 1 }}
-              >
-                <FontAwesomeIcon icon={faFacebook} />
-                &nbsp;Share
-              </MKSocialButton>
-              <MKSocialButton
-                component="a"
-                href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit-react"
-                target="_blank"
-                color="pinterest"
-              >
-                <FontAwesomeIcon icon={faPinterest} />
-                &nbsp;Pin it
-              </MKSocialButton>
-            </Grid>
-          </Grid>
-        </Container>
-      </MKBox>
+      {processSection}
+      {dataSection}
+      {paSection}
+      {componentsSection}
+      {documentationSection}
+      {moreSection}
+      {conclusionSection}
     </Card>
-
-    <MKBox pt={6} px={1} mt={6}>
-      <DefaultFooter content={footerRoutes} />
-    </MKBox>
+    {footer}
   </ThemeProvider>
 );
 

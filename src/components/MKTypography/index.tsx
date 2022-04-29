@@ -21,7 +21,7 @@ import React, { forwardRef } from 'react';
 import MKTypographyRoot from './MKTypographyRoot';
 
 const MKTypography = forwardRef<
-  HTMLSpanElement | HTMLLinkElement,
+  HTMLSpanElement | HTMLLinkElement | HTMLElement,
   React.PropsWithChildren<MKTypographyProps & TypographyProps>
 >(
   (
@@ -79,7 +79,17 @@ interface MKTypographyProps {
     | 'light'
     | 'dark'
     | 'text'
-    | 'inherit';
+    | 'inherit'
+    | 'spicy'
+    | 'sweet'
+    | 'manufacture'
+    | 'education'
+    | 'telecom'
+    | 'financial'
+    | 'energy'
+    | 'health'
+    | 'government'
+    | 'distribution';
   fontWeight?: false | 'light' | 'regular' | 'medium' | 'bold';
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
   verticalAlign?:
