@@ -41,16 +41,16 @@ export type Colors = PaletteOptions & {
   coloredShadows: any;
   inputBorderColor: any;
   tabs: any;
-  spicy: string;
-  sweet: string;
-  manufacture: string;
-  education: string;
-  telecom: string;
-  financial: string;
-  energy: string;
-  health: string;
-  government: string;
-  distribution: string;
+  spicy: SimplePaletteColorOptions;
+  sweet: SimplePaletteColorOptions;
+  manufacture: SimplePaletteColorOptions;
+  education: SimplePaletteColorOptions;
+  telecom: SimplePaletteColorOptions;
+  financial: SimplePaletteColorOptions;
+  energy: SimplePaletteColorOptions;
+  health: SimplePaletteColorOptions;
+  government: SimplePaletteColorOptions;
+  distribution: SimplePaletteColorOptions;
 };
 
 const palette: Colors = {
@@ -82,6 +82,7 @@ const palette: Colors = {
 
   primary: {
     main: '#002395',
+    light: '#DBEFFF',
     contrastText: '#DBEFFF',
   },
 
@@ -117,16 +118,36 @@ const palette: Colors = {
     contrastText: '#f0f2f5',
   },
 
-  spicy: '#05D99E',
-  sweet: '#FFD560',
-  manufacture: '#E86A63',
-  education: '#FFD560',
-  telecom: '#F1ACC6',
-  financial: '#62BFEC',
-  energy: '#2A574A',
-  health: '#05D99E',
-  government: '#86BEC2',
-  distribution: '#7E4F95',
+  spicy: {
+    main: '#05D99E',
+  },
+  sweet: {
+    main: '#FFD560',
+  },
+  manufacture: {
+    main: '#E86A63',
+  },
+  education: {
+    main: '#FFD560',
+  },
+  telecom: {
+    main: '#F1ACC6',
+  },
+  financial: {
+    main: '#62BFEC',
+  },
+  energy: {
+    main: '#2A574A',
+  },
+  health: {
+    main: '#05D99E',
+  },
+  government: {
+    main: '#86BEC2',
+  },
+  distribution: {
+    main: '#7E4F95',
+  },
 
   dark: {
     main: '#344767',
