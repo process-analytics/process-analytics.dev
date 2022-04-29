@@ -64,7 +64,7 @@ import footerRoutes from '../footer.routes';
 import routes from '../PA-routes';
 
 // Images
-import bgImage from '../assets/images/bg-presentation.jpg';
+import bgImage from '../assets/PA-images/bg-presentation.png';
 
 const HomePage = (): JSX.Element => (
   <ThemeProvider theme={theme}>
