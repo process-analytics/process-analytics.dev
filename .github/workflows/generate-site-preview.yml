@@ -50,5 +50,5 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            npm ci
+            npm ci --force
             npm run build

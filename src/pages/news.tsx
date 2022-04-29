@@ -14,17 +14,7 @@
  * limitations under the License.
  */
 import * as React from 'react';
-import { PAGE, SECTION } from '../theme/utils/constants';
-import { newsContent } from '../content/NewsContent';
-import { PageWithPosts } from '../theme/pages/PageWithPosts';
 
-const NewsPage = (): JSX.Element => (
-  <PageWithPosts
-    layoutTitle={PAGE.news}
-    containerTitle={SECTION.news}
-    posts={newsContent.news}
-    description={newsContent.description}
-  />
-);
+const NewsPage = (): JSX.Element => <></>;
 
 export default NewsPage;
