@@ -106,7 +106,11 @@ const isPermitted = (originUrl: string, whitelisted_domains: any): boolean => {
 
 const buildSrcParams = (): string[] => {
   let iframeParams: string[] = [];
-  if (window.location.href && window.location.href.indexOf('?') > -1) {
+  if (
+    typeof window !== 'undefined' &&
+    window.location.href &&
+    window.location.href.indexOf('?') > -1
+  ) {
     iframeParams = iframeParams.concat(
       window.location.href
         .substr(window.location.href.indexOf('?') + 1)
@@ -128,7 +132,11 @@ export const Jotform = (): React.DetailedHTMLProps<
     <iframe
       id="JotFormIFrame-221232749309354"
       title="BPMN generation from event logs"
-      onLoad={() => window.parent.scrollTo(0, 0)}
+      onLoad={() => {
+        if (typeof window !== 'undefined') {
+          window.parent.scrollTo(0, 0);
+        }
+      }}
       allowTransparency={true}
       allowFullScreen={true}
       allow="geolocation; microphone; camera"
@@ -147,7 +155,7 @@ export const Jotform = (): React.DetailedHTMLProps<
     ></iframe>
   );
 
-  if (window.addEventListener) {
+  if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('message', handleIFrameMessage, false);
     /*  } else if (window.attachEvent) {
         window.attachEvent('onmessage', handleIFrameMessage);*/
