@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import React from 'react';
 
-const handleIFrameMessage = function (e: any): void {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const handleIFrameMessage = (e: any): void => {
   if (typeof e.data === 'object') {
     return;
   }
@@ -85,10 +85,7 @@ const handleIFrameMessage = function (e: any): void {
   }
 };
 
-const isPermitted = function (
-  originUrl: string,
-  whitelisted_domains: any,
-): boolean {
+const isPermitted = (originUrl: string, whitelisted_domains: any): boolean => {
   const url = document.createElement('a');
   url.href = originUrl;
   const hostname = url.hostname;
@@ -107,7 +104,7 @@ const isPermitted = function (
   return result;
 };
 
-function buildSrcParams() {
+const buildSrcParams = (): string[] => {
   let iframeParams: string[] = [];
   if (window.location.href && window.location.href.indexOf('?') > -1) {
     iframeParams = iframeParams.concat(
@@ -118,7 +115,7 @@ function buildSrcParams() {
   }
   iframeParams.push('isIframeEmbed=1');
   return iframeParams;
-}
+};
 
 export const Jotform = (): React.DetailedHTMLProps<
   React.IframeHTMLAttributes<HTMLIFrameElement>,
