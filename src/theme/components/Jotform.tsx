@@ -107,11 +107,24 @@ const isPermitted = function (
   return result;
 };
 
+function buildSrcParams() {
+  let iframeParams: string[] = [];
+  if (window.location.href && window.location.href.indexOf('?') > -1) {
+    iframeParams = iframeParams.concat(
+      window.location.href
+        .substr(window.location.href.indexOf('?') + 1)
+        .split('&'),
+    );
+  }
+  iframeParams.push('isIframeEmbed=1');
+  return iframeParams;
+}
+
 export const Jotform = (): React.DetailedHTMLProps<
   React.IframeHTMLAttributes<HTMLIFrameElement>,
   HTMLIFrameElement
 > => {
-  let ifr: React.DetailedHTMLProps<
+  const ifr: React.DetailedHTMLProps<
     React.IframeHTMLAttributes<HTMLIFrameElement>,
     HTMLIFrameElement
   > = (
@@ -122,7 +135,9 @@ export const Jotform = (): React.DetailedHTMLProps<
       allowTransparency={true}
       allowFullScreen={true}
       allow="geolocation; microphone; camera"
-      src="https://form.jotform.com/221232749309354?isIframeEmbed=1"
+      src={
+        'https://form.jotform.com/221232749309354?' + buildSrcParams().join('&')
+      }
       frameBorder="0"
       style={{
         border: 'none',
@@ -134,26 +149,6 @@ export const Jotform = (): React.DetailedHTMLProps<
       scrolling="no"
     ></iframe>
   );
-
-  let src = ifr.src;
-  let iframeParams: string[] = [];
-  if (window.location.href && window.location.href.indexOf('?') > -1) {
-    iframeParams = iframeParams.concat(
-      window.location.href
-        .substr(window.location.href.indexOf('?') + 1)
-        .split('&'),
-    );
-  }
-  if (src && src.indexOf('?') > -1) {
-    iframeParams = iframeParams.concat(
-      src.substr(src.indexOf('?') + 1).split('&'),
-    );
-    src = src.substr(0, src.indexOf('?'));
-  }
-  ifr = {
-    ...ifr,
-    src: src + '?' + iframeParams.join('&'),
-  };
 
   if (window.addEventListener) {
     window.addEventListener('message', handleIFrameMessage, false);
