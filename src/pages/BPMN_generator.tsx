@@ -120,7 +120,10 @@ const isPermitted = function (
 };
 
 const BPMNGeneratorPage = (): JSX.Element => {
-  const ifr: JSX.Element = (
+  const ifr: React.DetailedHTMLProps<
+    React.IframeHTMLAttributes<HTMLIFrameElement>,
+    HTMLIFrameElement
+  > = (
     <iframe
       id="JotFormIFrame-221232749309354"
       title="BPMN generation from event logs"
@@ -141,25 +144,23 @@ const BPMNGeneratorPage = (): JSX.Element => {
     ></iframe>
   );
 
-  if (ifr instanceof HTMLIFrameElement) {
-    let src = ifr.src;
-    let iframeParams: string[] = [];
-    if (window.location.href && window.location.href.indexOf('?') > -1) {
-      iframeParams = iframeParams.concat(
-        window.location.href
-          .substr(window.location.href.indexOf('?') + 1)
-          .split('&'),
-      );
-    }
-    if (src && src.indexOf('?') > -1) {
-      iframeParams = iframeParams.concat(
-        src.substr(src.indexOf('?') + 1).split('&'),
-      );
-      src = src.substr(0, src.indexOf('?'));
-    }
-    iframeParams.push('isIframeEmbed=1');
-    ifr.src = src + '?' + iframeParams.join('&');
+  let src = ifr.src;
+  let iframeParams: string[] = [];
+  if (window.location.href && window.location.href.indexOf('?') > -1) {
+    iframeParams = iframeParams.concat(
+      window.location.href
+        .substr(window.location.href.indexOf('?') + 1)
+        .split('&'),
+    );
   }
+  if (src && src.indexOf('?') > -1) {
+    iframeParams = iframeParams.concat(
+      src.substr(src.indexOf('?') + 1).split('&'),
+    );
+    src = src.substr(0, src.indexOf('?'));
+  }
+  iframeParams.push('isIframeEmbed=1');
+  ifr.src = src + '?' + iframeParams.join('&');
 
   if (window.addEventListener) {
     window.addEventListener('message', handleIFrameMessage, false);
