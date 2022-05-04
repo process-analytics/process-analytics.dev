@@ -27,11 +27,13 @@ export enum SECTION {
 
 // keys are used by the page header
 // values are used as page title
+
 export enum PAGE {
   home = 'Process Analytics',
   notFound = 'Page not found - Process Analytics',
   news = 'News - Process Analytics',
   blog = 'Blog Posts - Process Analytics',
+  bpmn_generator = 'BPMN generation from event logs',
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
