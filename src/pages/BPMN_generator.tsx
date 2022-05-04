@@ -27,7 +27,7 @@ import { PAGE } from '../theme/utils/constants';
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
-// eslint-disable @typescript-eslint/no-explicit-any
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const handleIFrameMessage = function (e: any): void {
   if (typeof e.data === 'object') {
     return;
