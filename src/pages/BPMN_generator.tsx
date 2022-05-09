@@ -15,8 +15,10 @@
  */
 
 import React from 'react';
-import { Heading, Text } from 'rebass/styled-components';
+import { Box, Flex, Heading, Text } from 'rebass/styled-components';
 
+import { Card } from '../theme/components/Card';
+import CardFooter from '../theme/components/CardFooter';
 import { Jotform } from '../theme/components/Jotform';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
@@ -24,12 +26,103 @@ import Footer from '../theme/components/Footer';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
+import { CardContainer } from '../theme/components/Card';
+import {
+  CoverImage,
+  EllipsisHeading,
+  TimeReadSpan,
+} from '../theme/components/Post';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const BPMNGeneratorPage = (): JSX.Element => {
   const ifr = Jotform();
+
+  const articleContainer = (
+    <CardContainer minWidth={'50%'} style={{ width: '80%' }}>
+      <a
+        href={
+          'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and'
+        }
+        target="__blank"
+        title={
+          'Visualizing processes in BPMN standard using the BPMN layout generator'
+        }
+        style={{ textDecoration: 'none' }}
+      >
+        <Card p={0} pb={4}>
+          <EllipsisHeading m={3} color="text" fontSize={3}>
+            {
+              'Visualizing processes in BPMN standard using the BPMN layout generator'
+            }
+          </EllipsisHeading>
+          <CoverImage
+            src={
+              'https://lh5.googleusercontent.com/Kjqn5B3-PPYtJZ8k8iXtODqcIHS3AL3qlUWclH_ec-njXdCtZVnSFXz7ESRVILJCVLuXu047y_8tHxgaQ77miVPEqkoB3JIiLgpM1jqOjtQ1-8MLjGw2cfG_pFt5BaBSelY8r8GS'
+            }
+            alt={
+              'Visualizing processes in BPMN standard using the BPMN layout generator'
+            }
+          />
+          <Text m={3} color="text">
+            {
+              'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.'
+            }
+          </Text>
+          <CardFooter
+            bg="primary"
+            color="background"
+            position="bottom-right"
+            round
+          >
+            <span>{`${'December 2021'} - `}</span>
+            <TimeReadSpan>{`${Math.ceil(3)} min read`}</TimeReadSpan>
+          </CardFooter>
+        </Card>
+      </a>
+    </CardContainer>
+  );
+
+  const description = (
+    <Box mb={[0, 3, 5]} style={{ width: '80%' }}>
+      <Text as="p" color="primary" mb={3} fontSize={[2, 3]}>
+        Need a tool to generate process diagrams from events logs?
+        <br />
+        We have a solution for you.
+      </Text>
+      <Text as="p" color="primary" fontSize={[2, 3]}>
+        This is a free tool that will help you generate and visualize the
+        activities of your process in BPMN standard.
+      </Text>
+    </Box>
+  );
+
+  const video = (
+    <Box
+      mb={[0, 3, 5]}
+      width={'80%'}
+      height={'300px'}
+      color={'background'}
+      backgroundColor="secondary"
+      style={{ width: '80%' }}
+      textAlign={'center'}
+    >
+      Movie
+    </Box>
+  );
+
+  const explanation = (
+    <Text
+      as="p"
+      color="primary"
+      fontSize={[2, 3]}
+      mb={[0, 3, 5]}
+      style={{ width: '80%' }}
+    >
+      For more information, please visit the following article:
+    </Text>
+  );
 
   return (
     <Layout title={PAGE.bpmn_generator}>
@@ -43,20 +136,23 @@ const BPMNGeneratorPage = (): JSX.Element => {
           mb={[3, 4, 4]}
           mt={[5, 5, 6]}
         >
-          BPMN generation from event logs
+          BPMN model generation
         </Heading>
-        <Text
-          as="p"
-          width={['85%', '80%', '70%']}
-          color="primary"
-          fontSize={[2, 4]}
-          mb={[3, 5]}
-          textAlign="center"
-          style={centerHorizontally}
-        >
-          Description
-        </Text>
-        {ifr}
+        <Flex marginTop={['2rem', '6rem', '10rem']}>
+          {ifr}
+          <Flex
+            ml={[0, 3, 6]}
+            flexDirection={['row', 'column']}
+            justifyContent="center"
+            alignItems="center"
+            width={'80%'}
+          >
+            {description}
+            {video}
+            {explanation}
+            {articleContainer}
+          </Flex>
+        </Flex>
       </Section.Container>
       <Footer />
     </Layout>

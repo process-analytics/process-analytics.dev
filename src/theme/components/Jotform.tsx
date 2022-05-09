@@ -149,6 +149,7 @@ export const Jotform = (): React.DetailedHTMLProps<
         minWidth: '25%',
         width: '30vw',
         height: '75vh',
+        borderRadius: '10px',
         // margin: '1rem',
       }}
       scrolling="no"
