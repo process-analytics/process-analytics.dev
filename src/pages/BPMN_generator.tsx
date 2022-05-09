@@ -33,9 +33,6 @@ import {
   TimeReadSpan,
 } from '../theme/components/Post';
 
-// TODO duplicated from Landing.tsx
-const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
-
 const BPMNGeneratorPage = (): JSX.Element => {
   const ifr = Jotform();
 
