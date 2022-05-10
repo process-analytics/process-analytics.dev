@@ -78,13 +78,28 @@ const LandingPage = (): JSX.Element => {
           ))}
         </Flex>
       </Flex>
-      <LandingCard style={{ bottom: '1rem' }} marginTop={[2, 3, 5]}>
+      <LandingCard
+        style={{ bottom: '1rem' }}
+        marginTop={[2, 3, 5]}
+        minHeight={['10rem']}
+      >
+        <Box
+          backgroundColor="secondary"
+          width="100%"
+          height="100%"
+          style={{ position: 'absolute', borderRadius: '0.5rem' }}
+          opacity="0.15"
+        />
         <Image
           src={Img}
           opacity="0.15"
           width="100%"
           height="100%"
-          style={{ objectFit: 'cover', position: 'absolute' }}
+          style={{
+            objectFit: 'cover',
+            position: 'absolute',
+            borderRadius: '0.5rem',
+          }}
         />
         <Flex
           flexDirection="column"
@@ -130,7 +145,6 @@ const Background = (): JSX.Element => (
 );
 
 const LandingCard = styled(Box).attrs({
-  bg: 'muted',
   boxShadow: 0,
 })`
   border: none;
