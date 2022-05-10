@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Link } from 'gatsby';
 import React from 'react';
-import { Heading, Flex, Box, Text } from 'rebass/styled-components';
+import { Heading, Flex, Box, Text, Image } from 'rebass/styled-components';
+import styled from 'styled-components';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import ScrollIcon from '../components/ScrollIcon';
@@ -23,6 +25,9 @@ import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
+
+// https://www.pngegg.com/en/png-blrjm
+import Img from '../../images/pngegg.png';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -33,40 +38,69 @@ const LandingPage = (): JSX.Element => {
 
   return (
     <Section.Container id={SECTION.home} Background={Background}>
-      <Heading
-        textAlign="center"
-        as="h1"
-        color="primary"
-        fontSize={[6, 8]}
-        mb={[3, 4, 5]}
-        mt={4}
+      <Flex
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        marginTop={[2, 3, 5]}
       >
-        {title}
-      </Heading>
+        <Heading
+          textAlign="center"
+          as="h1"
+          color="primary"
+          fontSize={[6, 8]}
+          mb={[3, 4, 5]}
+          mt={4}
+        >
+          {title}
+        </Heading>
 
-      <Heading
-        as="h2"
-        color="primary"
-        fontSize={[2, 4]}
-        mb={[3, 5]}
-        textAlign="center"
-        style={centerHorizontally}
-      >
-        <Fade direction="down" triggerOnce>
-          <Text width={[300, 700]} key="presentation">
-            {presentation}
-          </Text>
-        </Fade>
-      </Heading>
+        <Heading
+          as="h2"
+          color="primary"
+          fontSize={[2, 4]}
+          mb={[3, 5]}
+          textAlign="center"
+          style={centerHorizontally}
+        >
+          <Fade direction="down" triggerOnce>
+            <Text width={[300, 700]} key="presentation">
+              {presentation}
+            </Text>
+          </Fade>
+        </Heading>
 
-      <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-        {socialLinks.map(sl => (
-          <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
-            <SocialLink {...sl} />
-          </Box>
-        ))}
+        <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+          {socialLinks.map(sl => (
+            <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
+              <SocialLink {...sl} />
+            </Box>
+          ))}
+        </Flex>
       </Flex>
-
+      <LandingCard style={{ bottom: '1rem' }} marginTop={[2, 3, 5]}>
+        <Image
+          src={Img}
+          opacity="0.15"
+          width="100%"
+          height="100%"
+          style={{ objectFit: 'cover', position: 'absolute' }}
+        />
+        <Flex
+          flexDirection="column"
+          alignItems="start"
+          justifyContent="center"
+          paddingX={[2, 3, 5]}
+          width="100%"
+          height="100%"
+        >
+          <Text as={'h2'} mb={[2, 3]}>
+            Title
+          </Text>
+          <Text mb={[2, 3]}>Description</Text>
+          <Link to="/BPMN_generator"> See the new service</Link>
+        </Flex>
+      </LandingCard>
       <ScrollIcon href={`#${getSectionHref(SECTION.about)}`} />
     </Section.Container>
   );
@@ -76,30 +110,41 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['35vh', '75vh']}
+      height={['35vh', '40vh']}
       width={['95vw', '55vw']}
     />
 
     <Triangle
       color="secondary"
-      height={['38vh', '75vh']}
+      height={['38vh', '55vh']}
       width={['50vw', '35vw']}
     />
 
     <Triangle
       color="primary"
-      height={['25vh', '35vh']}
+      height={['25vh', '30vh']}
       width={['75vw', '60vw']}
       position="top-right"
     />
-
-    <Triangle
-      color="muted"
-      height={['20vh', '20vh']}
-      width={['100vw', '100vw']}
-      position="bottom-right"
-    />
   </>
 );
+
+const LandingCard = styled(Box).attrs({
+  bg: 'muted',
+  boxShadow: 0,
+})`
+  border: none;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 0.25s;
+  top: 0;
+  width: 80vw;
+  height: 20vh;
+
+  &:hover {
+    top: -10px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  }
+`;
 
 export default LandingPage;
