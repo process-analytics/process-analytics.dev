@@ -15,7 +15,14 @@
  */
 import { Link } from 'gatsby';
 import React from 'react';
-import { Heading, Flex, Box, Text, Image } from 'rebass/styled-components';
+import {
+  Heading,
+  Flex,
+  Box,
+  Text,
+  Image,
+  Button,
+} from 'rebass/styled-components';
 import styled from 'styled-components';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
@@ -80,7 +87,7 @@ const LandingPage = (): JSX.Element => {
         </Flex>
       </Flex>
       <LandingCard
-        style={{ bottom: '1rem' }}
+        style={{ bottom: '1rem', boxSizing: 'border-box' }}
         marginTop={[2, 3, 5]}
         minHeight={['10rem']}
       >
@@ -88,7 +95,7 @@ const LandingPage = (): JSX.Element => {
           backgroundColor="secondary"
           width="100%"
           height="100%"
-          style={{ position: 'absolute', borderRadius: '0.5rem' }}
+          style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
           opacity="0.15"
         />
         <Image
@@ -100,6 +107,7 @@ const LandingPage = (): JSX.Element => {
             objectFit: 'cover',
             position: 'absolute',
             borderRadius: '0.5rem',
+            zIndex: -1,
           }}
         />
         <Flex
@@ -110,21 +118,29 @@ const LandingPage = (): JSX.Element => {
           width="100%"
           height="100%"
         >
-          <Text as={'h2'} mb={[2, 3]}>
+          <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
             Need a tool to generate process diagrams from events logs?
           </Text>
-          <Text mb={[2, 3]}>
+          <Text mb={[2, 3]} fontSize={['1rem', '1.2rem']}>
             We develop a free tool that will help you generate and visualize the
             activities of your process in BPMN standard.
           </Text>
-          <Text>
-            <Link to="/BPMN_generator">Test the new service</Link>
+          <Button fontSize={['0.9rem', '1.1rem']}>
             <FontAwesomeIcon
               icon="arrow-right"
               size="lg"
-              style={{ marginLeft: '0.5rem' }}
+              style={{ marginRight: '0.5rem' }}
             />
-          </Text>
+            <Link
+              to="/BPMN_generator"
+              style={{
+                color: 'White',
+                textDecorationLine: 'None',
+              }}
+            >
+              Get started for free
+            </Link>
+          </Button>
         </Flex>
       </LandingCard>
       <ScrollIcon href={`#${getSectionHref(SECTION.about)}`} />
