@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { Box, Flex, Heading, Text } from 'rebass/styled-components';
+import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components';
 
 import { Card } from '../theme/components/Card';
 import CardFooter from '../theme/components/CardFooter';
@@ -32,6 +32,8 @@ import {
   EllipsisHeading,
   TimeReadSpan,
 } from '../theme/components/Post';
+
+import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 
 const BPMNGeneratorPage = (): JSX.Element => {
   const ifr = Jotform();
@@ -100,12 +102,16 @@ const BPMNGeneratorPage = (): JSX.Element => {
       mb={[0, 3, 5]}
       width={'80%'}
       height={'300px'}
-      color={'background'}
-      backgroundColor="secondary"
       style={{ width: '80%' }}
       textAlign={'center'}
     >
-      Movie
+      <Image
+        height={'auto'}
+        style={{ borderRadius: '5px' }}
+        css={{ aspectRatio: 'attr(width) / attr(height)' }}
+        src={AppPreview}
+        alt={'Generation Model Application Demo'}
+      />
     </Box>
   );
 
