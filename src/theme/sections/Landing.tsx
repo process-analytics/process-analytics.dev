@@ -28,6 +28,7 @@ import { Fade } from 'react-awesome-reveal';
 
 // https://www.pngegg.com/en/png-blrjm
 import Img from '../../images/pngegg.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -110,10 +111,20 @@ const LandingPage = (): JSX.Element => {
           height="100%"
         >
           <Text as={'h2'} mb={[2, 3]}>
-            Title
+            Need a tool to generate process diagrams from events logs?
           </Text>
-          <Text mb={[2, 3]}>Description</Text>
-          <Link to="/BPMN_generator"> See the new service</Link>
+          <Text mb={[2, 3]}>
+            We develop a free tool that will help you generate and visualize the
+            activities of your process in BPMN standard.
+          </Text>
+          <Text>
+            <Link to="/BPMN_generator">Test the new service</Link>
+            <FontAwesomeIcon
+              icon="arrow-right"
+              size="lg"
+              style={{ marginLeft: '0.5rem' }}
+            />
+          </Text>
         </Flex>
       </LandingCard>
       <ScrollIcon href={`#${getSectionHref(SECTION.about)}`} />
