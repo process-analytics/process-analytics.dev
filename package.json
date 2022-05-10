@@ -60,7 +60,7 @@
     "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sitemap": "^5.13.0",
     "gatsby-plugin-styled-components": "^5.13.0",
-    "gatsby-plugin-typescript": "^4.12.1",
+    "gatsby-plugin-typescript": "^4.13.0",
     "gatsby-remark-responsive-iframe": "^5.13.0",
     "gatsby-transformer-remark": "^5.13.0",
     "husky": "^8.0.1",
