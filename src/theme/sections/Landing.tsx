@@ -165,11 +165,6 @@ const LandingCard = styled(Box).attrs({
   top: 0;
   width: 80vw;
   height: 20vh;
-
-  &:hover {
-    top: -10px;
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-  }
 `;
 
 export default LandingPage;
