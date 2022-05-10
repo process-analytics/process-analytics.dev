@@ -26,10 +26,8 @@ import {
 import styled from 'styled-components';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
-import ScrollIcon from '../components/ScrollIcon';
 import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
-import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
 
@@ -87,8 +85,9 @@ const LandingPage = (): JSX.Element => {
         </Flex>
       </Flex>
       <LandingCard
-        style={{ bottom: '1rem', boxSizing: 'border-box' }}
+        style={{ boxSizing: 'border-box' }}
         marginTop={[2, 3, 5]}
+        marginX="auto"
         minHeight={['10rem']}
       >
         <Box
@@ -143,7 +142,6 @@ const LandingPage = (): JSX.Element => {
           </Button>
         </Flex>
       </LandingCard>
-      <ScrollIcon href={`#${getSectionHref(SECTION.about)}`} />
     </Section.Container>
   );
 };
