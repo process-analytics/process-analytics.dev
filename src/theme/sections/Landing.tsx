@@ -49,6 +49,7 @@ const LandingPage = (): JSX.Element => {
         alignItems="center"
         justifyContent="center"
         marginTop={[2, 3, 5]}
+        height="calc(100vh - 25rem)"
       >
         <Heading
           textAlign="center"
@@ -86,9 +87,8 @@ const LandingPage = (): JSX.Element => {
       </Flex>
       <LandingCard
         style={{ boxSizing: 'border-box' }}
-        marginTop={[2, 3, 5]}
         marginX="auto"
-        minHeight={['10rem']}
+        minHeight={['13rem']}
       >
         <Box
           backgroundColor="secondary"
@@ -99,7 +99,7 @@ const LandingPage = (): JSX.Element => {
         />
         <Image
           src={Img}
-          opacity="0.15"
+          opacity="0.1"
           width="100%"
           height="100%"
           style={{
@@ -120,11 +120,11 @@ const LandingPage = (): JSX.Element => {
           <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
             Need a tool to generate process diagrams from events logs?
           </Text>
-          <Text mb={[2, 3]} fontSize={['1rem', '1.2rem']}>
+          <Text mb={[1, 2, 3]} fontSize={['1rem', '1.2rem']}>
             We develop a free tool that will help you generate and visualize the
             activities of your process in BPMN standard.
           </Text>
-          <Button fontSize={['0.9rem', '1.1rem']}>
+          <Button fontSize={['0.8rem', '0.9rem', '1.1rem']}>
             <FontAwesomeIcon
               icon="arrow-right"
               size="lg"
