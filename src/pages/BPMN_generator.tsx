@@ -197,27 +197,19 @@ const BPMNGeneratorPage = (): JSX.Element => {
           </Flex>
         </PartWithSingleColumn>
 
-        <Part padding={'104px 0'}>
-          {ifr}
-          <Part
-            ml={[0, 3, 6]}
-            flexDirection="column"
-            justifyContent="start"
-            alignItems="start"
-            width="80%"
-          >
-            <Box mb={[0, 3, 5]}>
-              <PartTitle>For more information</PartTitle>
-              <Paragraph>Please visit the following article:</Paragraph>
-            </Box>
+        <Part padding={'104px 0'}>{ifr}</Part>
 
-            <PostContainer
-              posts={postsContent.posts.filter(
-                (post: PostDescription) => post.isBPMNLayoutGenerator,
-              )}
-              pageId="blog"
-            />
-          </Part>
+        <PartWithSingleColumn>
+          <PartTitle>For more information</PartTitle>
+          <Paragraph>Please visit the following article:</Paragraph>
+        </PartWithSingleColumn>
+        <Part paddingBottom="104px">
+          <PostContainer
+            posts={postsContent.posts.filter(
+              (post: PostDescription) => post.isBPMNLayoutGenerator,
+            )}
+            pageId="blog"
+          />
         </Part>
       </Section.Container>
       <Footer />
