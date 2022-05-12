@@ -19,6 +19,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components';
 
+import { postsContent } from '../content/PostsContent';
+
+import { PostDescription } from '../theme/types';
 import { Card } from '../theme/components/Card';
 import CardFooter from '../theme/components/CardFooter';
 import { Jotform } from '../theme/components/Jotform';
@@ -32,6 +35,7 @@ import { CardContainer } from '../theme/components/Card';
 import {
   CoverImage,
   EllipsisHeading,
+  PostContainer,
   TimeReadSpan,
 } from '../theme/components/Post';
 
@@ -125,51 +129,6 @@ const Paragraph = (props: React.PropsWithChildren<any>): JSX.Element => {
 const BPMNGeneratorPage = (): JSX.Element => {
   const ifr = Jotform();
 
-  const articleContainer = (
-    <CardContainer minWidth={'50%'}>
-      <a
-        href={
-          'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and'
-        }
-        target="__blank"
-        title={
-          'Visualizing processes in BPMN standard using the BPMN layout generator'
-        }
-        style={{ textDecoration: 'none' }}
-      >
-        <Card p={0} pb={4}>
-          <EllipsisHeading m={3} color="text" fontSize={3}>
-            {
-              'Visualizing processes in BPMN standard using the BPMN layout generator'
-            }
-          </EllipsisHeading>
-          <CoverImage
-            src={
-              'https://lh5.googleusercontent.com/Kjqn5B3-PPYtJZ8k8iXtODqcIHS3AL3qlUWclH_ec-njXdCtZVnSFXz7ESRVILJCVLuXu047y_8tHxgaQ77miVPEqkoB3JIiLgpM1jqOjtQ1-8MLjGw2cfG_pFt5BaBSelY8r8GS'
-            }
-            alt={
-              'Visualizing processes in BPMN standard using the BPMN layout generator'
-            }
-          />
-          <Text m={3} color="text">
-            {
-              'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.'
-            }
-          </Text>
-          <CardFooter
-            bg="primary"
-            color="background"
-            position="bottom-right"
-            round
-          >
-            <span>{`${'December 2021'} - `}</span>
-            <TimeReadSpan>{`${Math.ceil(3)} min read`}</TimeReadSpan>
-          </CardFooter>
-        </Card>
-      </a>
-    </CardContainer>
-  );
-
   return (
     <Layout title={PAGE.bpmn_generator}>
       <PageHeader />
@@ -240,7 +199,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
           {ifr}
           <Flex
             ml={[0, 3, 6]}
-            flexDirection={['row', 'column']}
+            flexDirection="column"
             justifyContent="start"
             alignItems="start"
             width="80%"
@@ -250,7 +209,12 @@ const BPMNGeneratorPage = (): JSX.Element => {
               <Paragraph>Please visit the following article:</Paragraph>
             </Box>
 
-            {articleContainer}
+            <PostContainer
+              posts={postsContent.posts.filter(
+                (post: PostDescription) => post.isBPMNLayoutGenerator,
+              )}
+              pageId="blog"
+            />
           </Flex>
         </Part>
       </Section.Container>
