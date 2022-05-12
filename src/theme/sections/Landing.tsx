@@ -43,13 +43,13 @@ const LandingPage = (): JSX.Element => {
   };
 
   return (
+    // TODO justify-content: space-around; on small screen
     <Section.Container id={SECTION.home} Background={Background}>
       <Flex
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
         marginTop={[2, 3, 5]}
-        height="calc(100vh - 25rem)"
       >
         <Heading
           textAlign="center"
@@ -175,7 +175,6 @@ const LandingCard = styled(Box).attrs({
   top: 0;
   height: 20vh;
   width: 100%;
-  // margin-top: auto;
 `;
 
 export default LandingPage;
