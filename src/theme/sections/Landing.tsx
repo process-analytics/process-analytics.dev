@@ -113,10 +113,10 @@ const LandingPage = (): JSX.Element => {
           width="100%"
           height="100%"
         >
-          <Text as="h2" fontSize={[3, 4]} mb={[2, 3]}>
+          <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
             Need a tool to generate process diagrams from events logs?
           </Text>
-          <Text fontSize={[2, 2, 3]} mb={[3]}>
+          <Text fontSize={[1, 2, 3]} mb={[3]}>
             We develop a free tool that will help you generate and visualize the
             activities of your process in BPMN standard.
           </Text>
@@ -175,6 +175,7 @@ const LandingCard = styled(Box).attrs({
   top: 0;
   height: 20vh;
   width: 100%;
+  // margin-top: auto;
 `;
 
 export default LandingPage;
