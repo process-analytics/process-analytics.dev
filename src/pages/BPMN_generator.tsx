@@ -20,6 +20,8 @@ import React from 'react';
 import { FlexProps, TextProps } from 'rebass';
 import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components';
 
+import { FeaturesThree } from '../theme/components/FeaturesThree';
+
 import { postsContent } from '../content/PostsContent';
 
 import { PostDescription } from '../theme/types';
@@ -184,15 +186,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
             Need a tool to generate process diagrams from events logs?
           </PartTitle>
           <HighlightMessage>We have a solution for you!</HighlightMessage>
-          <Paragraph>
-            This is a free tool that will help you generate and visualize the
-            activities of your process in BPMN standard. <br />
-            built by assembling various libraries provided by the Process
-            Analytics project.
-            <br />
-            All you need is to provide the events logs and select the format of
-            the generated diagram.
-          </Paragraph>
+          <FeaturesThree></FeaturesThree>
         </PartWithSingleColumn>
 
         <PartWithSingleColumn backgroundColor="muted">
