@@ -58,8 +58,8 @@ export const FeaturesThree = (): JSX.Element => {
       <CardBox>
         <CardWithIcon
           iconColor="muted"
-          icon="globe"
-          title="Built from Process Analytics libraries"
+          icon="tools"
+          title="Built from"
           description="Built by assembling various libraries provided by the Process Analytics project."
         />
       </CardBox>
