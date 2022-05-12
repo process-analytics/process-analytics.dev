@@ -85,11 +85,7 @@ const LandingPage = (): JSX.Element => {
           ))}
         </Flex>
       </Flex>
-      <LandingCard
-        style={{ boxSizing: 'border-box' }}
-        marginX="16px"
-        minHeight={['13rem']}
-      >
+      <LandingCard style={{ boxSizing: 'border-box' }} minHeight={['13rem']}>
         <Box
           backgroundColor="secondary"
           width="100%"
@@ -117,14 +113,14 @@ const LandingPage = (): JSX.Element => {
           width="100%"
           height="100%"
         >
-          <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
+          <Text as="h2" fontSize={[3, 4]} mb={[2, 3]}>
             Need a tool to generate process diagrams from events logs?
           </Text>
-          <Text mb={[1, 2, 3]} fontSize={['1rem', '1.2rem']}>
+          <Text fontSize={[2, 2, 3]} mb={[3]}>
             We develop a free tool that will help you generate and visualize the
             activities of your process in BPMN standard.
           </Text>
-          <Button fontSize={['0.8rem', '0.9rem', '1.1rem']}>
+          <Button fontSize={[1, 2, 3]}>
             <FontAwesomeIcon
               icon="arrow-right"
               size="lg"
@@ -178,6 +174,7 @@ const LandingCard = styled(Box).attrs({
   transition: all 0.25s;
   top: 0;
   height: 20vh;
+  width: 100%;
 `;
 
 export default LandingPage;
