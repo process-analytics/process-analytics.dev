@@ -37,7 +37,60 @@ import {
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 
-const SectionTitle = (props: React.PropsWithChildren<any>): JSX.Element => {
+const Part = ({
+  padding,
+  children,
+}: React.PropsWithChildren<any>): JSX.Element => {
+  return (
+    <Flex
+      marginX={['auto', 'auto', '16px']}
+      fontSize="1.25rem"
+      fontWeight={400}
+      lineHeight={1.625}
+      letterSpacing={'0.00938em'}
+      style={{
+        position: 'relative',
+        borderRadius: '0.75rem',
+        padding: padding,
+      }}
+    >
+      {children}
+    </Flex>
+  );
+};
+
+const PartWithSingleColumn = ({
+  backgroundColor,
+  children,
+}: React.PropsWithChildren<any>): JSX.Element => {
+  const background = (
+    <Box
+      backgroundColor={backgroundColor}
+      width="100%"
+      height="100%"
+      style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
+      opacity="0.3"
+      margin={0}
+    />
+  );
+
+  const padding = (withBackgroundColor: boolean) =>
+    withBackgroundColor ? '104px 24px' : 0;
+
+  return (
+    <Part padding={padding(!backgroundColor)}>
+      {backgroundColor && background}
+      <Box
+        style={{ width: '80%', padding: padding(backgroundColor) }}
+        marginX="auto"
+      >
+        {children}
+      </Box>
+    </Part>
+  );
+};
+
+const PartTitle = (props: React.PropsWithChildren<any>): JSX.Element => {
   return (
     <Text
       as="h3"
@@ -73,7 +126,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
   const ifr = Jotform();
 
   const articleContainer = (
-    <CardContainer minWidth={'50%'} style={{ width: '80%' }}>
+    <CardContainer minWidth={'50%'}>
       <a
         href={
           'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and'
@@ -117,13 +170,6 @@ const BPMNGeneratorPage = (): JSX.Element => {
     </CardContainer>
   );
 
-  const explanation = (
-    <Box width="80%" mb={[0, 3, 5]}>
-      <SectionTitle>For more information</SectionTitle>
-      <Paragraph>Please visit the following article:</Paragraph>
-    </Box>
-  );
-
   return (
     <Layout title={PAGE.bpmn_generator}>
       <PageHeader />
@@ -139,107 +185,74 @@ const BPMNGeneratorPage = (): JSX.Element => {
           BPMN model generation
         </Heading>
 
-        <Box
-          marginX={['auto', 'auto', '16px']}
-          backgroundColor="background"
-          fontSize="1.25rem"
-          fontWeight={400}
-          lineHeight={1.625}
-          letterSpacing={'0.00938em'}
-          style={{
-            borderRadius: '0.75rem',
-            padding: '104px 24px',
-          }}
-        >
-          <Box style={{ width: '80%' }} marginX="auto">
-            <Box mb={[0, 3, 5]}>
-              <SectionTitle>
-                Need a tool to generate process diagrams from events logs?
-              </SectionTitle>
-              <Paragraph>
-                We have a solution for you! <br />
-                This is a free tool that will help you generate and visualize
-                the activities of your process in BPMN standard.
-                <br />
-                All you need is to provide the events logs and select the format
-                of the generated diagram.
-              </Paragraph>
-            </Box>
-            <Box
-              style={{ border: '1px solid Chartreuse', borderRadius: '5px' }}
-            >
-              <Image
-                style={{ borderRadius: '5px' }}
-                css={{ aspectRatio: 'attr(width) / attr(height)' }}
-                src={AppPreview}
-                alt={'Generation Model Application Demo'}
-              />
-            </Box>
+        <PartWithSingleColumn>
+          <Box mb={[0, 3, 5]}>
+            <PartTitle>
+              Need a tool to generate process diagrams from events logs?
+            </PartTitle>
+            <Paragraph>
+              We have a solution for you! <br />
+              This is a free tool that will help you generate and visualize the
+              activities of your process in BPMN standard.
+              <br />
+              All you need is to provide the events logs and select the format
+              of the generated diagram.
+            </Paragraph>
           </Box>
-        </Box>
-
-        <Box
-          marginX={['auto', 'auto', '16px']}
-          fontSize="1.25rem"
-          fontWeight={400}
-          lineHeight={1.625}
-          letterSpacing={'0.00938em'}
-          style={{
-            borderRadius: '0.75rem',
-            position: 'relative',
-          }}
-        >
-          <Box
-            backgroundColor="muted"
-            width="100%"
-            height="100%"
-            style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
-            opacity="0.3"
-            margin={0}
-          />
-          <Box style={{ padding: '104px 24px', width: '80%' }} marginX="auto">
-            <Flex justifyContent="space-around">
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                style={{
-                  width: '6.875rem',
-                  height: '6.875rem',
-                  borderRadius: '0.75rem',
-                  backgroundColor: 'Chartreuse',
-                }}
-              />
-              <Paragraph>
-                This tool is currently in beta. We are working on improving the
-                performance and usability of the tool.
-                <br />
-                For now, you can fill in the following form to send your events
-                logs and your email address. <br />
-                We will send you the generated BPMN model as soon as it is
-                ready.
-              </Paragraph>
-            </Flex>
+          <Box style={{ border: '1px solid Chartreuse', borderRadius: '5px' }}>
+            <Image
+              style={{ borderRadius: '5px' }}
+              css={{ aspectRatio: 'attr(width) / attr(height)' }}
+              src={AppPreview}
+              alt={'Generation Model Application Demo'}
+            />
           </Box>
-        </Box>
+        </PartWithSingleColumn>
 
-        <Flex
-          marginTop={['2rem', '6rem', '10rem']}
-          fontSize={[6, '1.25rem']}
-          fontWeight={400}
-          lineHeight={1.625}
-          letterSpacing={'0.00938em'}
-        >
+        <PartWithSingleColumn backgroundColor="muted">
+          <PartTitle>How it works?</PartTitle>
+          <Paragraph>Plop</Paragraph>
+        </PartWithSingleColumn>
+
+        <PartWithSingleColumn>
+          <Flex justifyContent="space-between">
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              style={{
+                width: '6.875rem',
+                height: '6.875rem',
+                borderRadius: '0.75rem',
+                backgroundColor: 'Chartreuse',
+              }}
+            />
+            <Paragraph>
+              This tool is currently in beta. We are working on improving the
+              performance and usability of the tool.
+              <br />
+              For now, you can fill in the following form to send your events
+              logs and your email address. <br />
+              We will send you the generated BPMN model as soon as it is ready.
+            </Paragraph>
+          </Flex>
+        </PartWithSingleColumn>
+
+        <Part padding={'104px 0'}>
           {ifr}
           <Flex
             ml={[0, 3, 6]}
             flexDirection={['row', 'column']}
             justifyContent="start"
-            alignItems="center"
-            width={'80%'}
+            alignItems="start"
+            width="80%"
           >
-            {explanation}
+            <Box mb={[0, 3, 5]}>
+              <PartTitle>For more information</PartTitle>
+              <Paragraph>Please visit the following article:</Paragraph>
+            </Box>
+
             {articleContainer}
           </Flex>
-        </Flex>
+        </Part>
       </Section.Container>
       <Footer />
     </Layout>

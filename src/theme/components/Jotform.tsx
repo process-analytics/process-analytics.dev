@@ -150,7 +150,6 @@ export const Jotform = (): React.DetailedHTMLProps<
         width: '30vw',
         height: '75vh',
         borderRadius: '10px',
-        // margin: '1rem',
       }}
       scrolling="no"
     ></iframe>
