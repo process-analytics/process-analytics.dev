@@ -44,6 +44,7 @@ import AppPreview from '../images/model-generation-app/model_generation_app_prev
 const Part = ({
   padding,
   children,
+  ...props
 }: React.PropsWithChildren<any>): JSX.Element => {
   return (
     <Flex
@@ -57,6 +58,7 @@ const Part = ({
         borderRadius: '0.75rem',
         padding: padding,
       }}
+      {...props}
     >
       {children}
     </Flex>
@@ -197,7 +199,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
 
         <Part padding={'104px 0'}>
           {ifr}
-          <Flex
+          <Part
             ml={[0, 3, 6]}
             flexDirection="column"
             justifyContent="start"
@@ -215,7 +217,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
               )}
               pageId="blog"
             />
-          </Flex>
+          </Part>
         </Part>
       </Section.Container>
       <Footer />
