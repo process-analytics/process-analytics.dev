@@ -67,7 +67,17 @@ const PartWithSingleColumn = ({
       backgroundColor={backgroundColor}
       width="100%"
       height="100%"
-      style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
+      style={{
+        position: 'absolute',
+        zIndex: -1,
+        border: '0px solid rgba(0, 0, 0, 0.125)',
+        borderRadius: '0.5rem',
+        color: 'rgba(0, 0, 0, 0.87)',
+        boxShadow:
+          'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
+        transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+        backgroundClip: 'border-box',
+      }}
       opacity="0.3"
       margin={0}
     />
@@ -192,15 +202,37 @@ const BPMNGeneratorPage = (): JSX.Element => {
           </Flex>
         </PartWithSingleColumn>
 
-        <Part padding="104px 0">
+        <Part
+          marginBottom="104px"
+          style={{
+            boxSizing: 'border-box',
+            flexFlow: 'row wrap',
+            color: 'rgb(52, 71, 103)',
+            borderRadius: '0.75rem',
+            boxShadow:
+              'rgba(0, 0, 0, 0.1) 0rem 1.25rem 1.5625rem -0.3125rem, rgba(0, 0, 0, 0.04) 0rem 0.625rem 0.625rem -0.3125rem',
+            overflow: 'hidden',
+          }}
+        >
           <Jotform />
         </Part>
 
-        <PartWithSingleColumn>
-          <PartTitle>For more information</PartTitle>
-          <Paragraph>Please visit the following article:</Paragraph>
-        </PartWithSingleColumn>
-        <Part paddingBottom="104px">
+        <Part
+          marginY="104px"
+          flexDirection="column"
+          maxWidth="1320px"
+          style={{ overflowWrap: 'break-word' }}
+        >
+          <Part
+            flexDirection="column"
+            marginX={0}
+            paddingBottom="50px"
+            maxWidth="50%"
+            style={{ overflowWrap: 'break-word', boxSizing: 'border-box' }}
+          >
+            <PartTitle>For more information</PartTitle>
+            <Paragraph>Please visit the following articles:</Paragraph>
+          </Part>
           <PostContainer
             posts={postsContent.posts.filter(
               (post: PostDescription) => post.isBPMNLayoutGenerator,

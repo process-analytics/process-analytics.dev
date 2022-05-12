@@ -142,8 +142,7 @@ export const Jotform = (): JSX.Element => {
         border: 'none',
         minWidth: '25%',
         width: '100%',
-        /*height: '75vh',*/
-        borderRadius: '10px',
+        borderRadius: 'inherit',
       }}
       scrolling="no"
     ></iframe>
