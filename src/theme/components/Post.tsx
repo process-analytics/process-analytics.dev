@@ -57,17 +57,17 @@ export const Post = ({
   </a>
 );
 
-export const TimeReadSpan = styled.span`
+const TimeReadSpan = styled.span`
   text-transform: none;
 `;
 
-export const CoverImage = styled.img`
+const CoverImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: scale-down;
 `;
 
-export const EllipsisHeading = styled(Heading)`
+const EllipsisHeading = styled(Heading)`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-inline-box;

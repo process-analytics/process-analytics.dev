@@ -17,13 +17,12 @@
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { FlexProps, TextProps } from 'rebass';
 import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components';
 
 import { postsContent } from '../content/PostsContent';
 
 import { PostDescription } from '../theme/types';
-import { Card } from '../theme/components/Card';
-import CardFooter from '../theme/components/CardFooter';
 import { Jotform } from '../theme/components/Jotform';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
@@ -31,13 +30,7 @@ import Footer from '../theme/components/Footer';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
-import { CardContainer } from '../theme/components/Card';
-import {
-  CoverImage,
-  EllipsisHeading,
-  PostContainer,
-  TimeReadSpan,
-} from '../theme/components/Post';
+import { PostContainer } from '../theme/components/Post';
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 
@@ -45,10 +38,11 @@ const Part = ({
   padding,
   children,
   ...props
-}: React.PropsWithChildren<any>): JSX.Element => {
+}: React.PropsWithChildren<FlexProps>): JSX.Element => {
   return (
     <Flex
       marginX={['auto', 'auto', '16px']}
+      padding={padding}
       fontSize="1.25rem"
       fontWeight={400}
       lineHeight={1.625}
@@ -56,7 +50,6 @@ const Part = ({
       style={{
         position: 'relative',
         borderRadius: '0.75rem',
-        padding: padding,
       }}
       {...props}
     >
@@ -68,7 +61,7 @@ const Part = ({
 const PartWithSingleColumn = ({
   backgroundColor,
   children,
-}: React.PropsWithChildren<any>): JSX.Element => {
+}: React.PropsWithChildren<FlexProps>): JSX.Element => {
   const background = (
     <Box
       backgroundColor={backgroundColor}
@@ -80,14 +73,14 @@ const PartWithSingleColumn = ({
     />
   );
 
-  const padding = (withBackgroundColor: boolean) =>
-    withBackgroundColor ? '104px 24px' : 0;
+  const padding = (withPadding: boolean): string | number =>
+    withPadding ? '104px 24px' : 0;
 
   return (
     <Part padding={padding(!backgroundColor)}>
       {backgroundColor && background}
       <Box
-        style={{ width: '80%', padding: padding(backgroundColor) }}
+        style={{ width: '80%', padding: padding(Boolean(backgroundColor)) }}
         marginX="auto"
       >
         {children}
@@ -96,7 +89,9 @@ const PartWithSingleColumn = ({
   );
 };
 
-const PartTitle = (props: React.PropsWithChildren<any>): JSX.Element => {
+const PartTitle = ({
+  children,
+}: React.PropsWithChildren<TextProps>): JSX.Element => {
   return (
     <Text
       as="h3"
@@ -105,14 +100,16 @@ const PartTitle = (props: React.PropsWithChildren<any>): JSX.Element => {
       fontSize="1.875rem"
       fontWeight={700}
       lineHeight={1.375}
-      letterSpacing={'-0.125px'}
+      letterSpacing="-0.125px"
     >
-      {props.children}
+      {children}
     </Text>
   );
 };
 
-const Paragraph = (props: React.PropsWithChildren<any>): JSX.Element => {
+const Paragraph = ({
+  children,
+}: React.PropsWithChildren<TextProps>): JSX.Element => {
   return (
     <Text
       as="p"
@@ -121,16 +118,14 @@ const Paragraph = (props: React.PropsWithChildren<any>): JSX.Element => {
       fontSize="1.25rem"
       fontWeight={300}
       lineHeight={1.625}
-      letterSpacing={'-0.125px'}
+      letterSpacing="-0.125px"
     >
-      {props.children}
+      {children}
     </Text>
   );
 };
 
 const BPMNGeneratorPage = (): JSX.Element => {
-  const ifr = Jotform();
-
   return (
     <Layout title={PAGE.bpmn_generator}>
       <PageHeader />
@@ -197,7 +192,9 @@ const BPMNGeneratorPage = (): JSX.Element => {
           </Flex>
         </PartWithSingleColumn>
 
-        <Part padding={'104px 0'}>{ifr}</Part>
+        <Part padding="104px 0">
+          <Jotform />
+        </Part>
 
         <PartWithSingleColumn>
           <PartTitle>For more information</PartTitle>

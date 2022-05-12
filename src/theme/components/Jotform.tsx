@@ -121,14 +121,8 @@ const buildSrcParams = (): string[] => {
   return iframeParams;
 };
 
-export const Jotform = (): React.DetailedHTMLProps<
-  React.IframeHTMLAttributes<HTMLIFrameElement>,
-  HTMLIFrameElement
-> => {
-  const ifr: React.DetailedHTMLProps<
-    React.IframeHTMLAttributes<HTMLIFrameElement>,
-    HTMLIFrameElement
-  > = (
+export const Jotform = (): JSX.Element => {
+  const ifr: JSX.Element = (
     <iframe
       id="JotFormIFrame-221232749309354"
       title="BPMN generation from event logs"
