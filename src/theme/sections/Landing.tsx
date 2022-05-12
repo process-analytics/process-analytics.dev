@@ -87,7 +87,7 @@ const LandingPage = (): JSX.Element => {
       </Flex>
       <LandingCard
         style={{ boxSizing: 'border-box' }}
-        marginX="auto"
+        marginX="16px"
         minHeight={['13rem']}
       >
         <Box
@@ -177,7 +177,6 @@ const LandingCard = styled(Box).attrs({
   position: relative;
   transition: all 0.25s;
   top: 0;
-  width: 80vw;
   height: 20vh;
 `;
 
