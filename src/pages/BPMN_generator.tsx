@@ -127,6 +127,7 @@ const HighlightMessage = ({
       as="h4"
       color="secondary"
       marginBottom="2rem"
+      paddingY={['0.5rem', '0.5rem', '1.5rem']}
       fontSize="1.675rem"
       fontWeight={700}
       lineHeight={1.375}
