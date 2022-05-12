@@ -117,6 +117,25 @@ const PartTitle = ({
   );
 };
 
+const HighlightMessage = ({
+  children,
+}: React.PropsWithChildren<TextProps>): JSX.Element => {
+  return (
+    <Text
+      as="h4"
+      color="secondary"
+      marginBottom="2rem"
+      fontSize="1.675rem"
+      fontWeight={700}
+      lineHeight={1.375}
+      letterSpacing="-0.125px"
+      textAlign="center"
+    >
+      {children}
+    </Text>
+  );
+};
+
 const Paragraph = ({
   children,
 }: React.PropsWithChildren<TextProps>): JSX.Element => {
@@ -151,28 +170,29 @@ const BPMNGeneratorPage = (): JSX.Element => {
           BPMN model generation
         </Heading>
 
+        <Box style={{ border: '1px solid Chartreuse', borderRadius: '5px' }}>
+          <Image
+            style={{ borderRadius: '5px' }}
+            css={{ aspectRatio: 'attr(width) / attr(height)' }}
+            src={AppPreview}
+            alt={'Generation Model Application Demo'}
+          />
+        </Box>
+
         <PartWithSingleColumn>
-          <Box mb={[0, 3, 5]}>
-            <PartTitle>
-              Need a tool to generate process diagrams from events logs?
-            </PartTitle>
-            <Paragraph>
-              We have a solution for you! <br />
-              This is a free tool that will help you generate and visualize the
-              activities of your process in BPMN standard.
-              <br />
-              All you need is to provide the events logs and select the format
-              of the generated diagram.
-            </Paragraph>
-          </Box>
-          <Box style={{ border: '1px solid Chartreuse', borderRadius: '5px' }}>
-            <Image
-              style={{ borderRadius: '5px' }}
-              css={{ aspectRatio: 'attr(width) / attr(height)' }}
-              src={AppPreview}
-              alt={'Generation Model Application Demo'}
-            />
-          </Box>
+          <PartTitle>
+            Need a tool to generate process diagrams from events logs?
+          </PartTitle>
+          <HighlightMessage>We have a solution for you!</HighlightMessage>
+          <Paragraph>
+            This is a free tool that will help you generate and visualize the
+            activities of your process in BPMN standard. <br />
+            built by assembling various libraries provided by the Process
+            Analytics project.
+            <br />
+            All you need is to provide the events logs and select the format of
+            the generated diagram.
+          </Paragraph>
         </PartWithSingleColumn>
 
         <PartWithSingleColumn backgroundColor="muted">
@@ -231,7 +251,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
             style={{ overflowWrap: 'break-word', boxSizing: 'border-box' }}
           >
             <PartTitle>For more information</PartTitle>
-            <Paragraph>Please visit the following articles:</Paragraph>
+            <Paragraph>Please read the following articles:</Paragraph>
           </Part>
           <PostContainer
             posts={postsContent.posts.filter(
