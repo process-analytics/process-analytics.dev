@@ -173,7 +173,13 @@ const BPMNGeneratorPage = (): JSX.Element => {
           BPMN model generation
         </Heading>
 
-        <Box style={{ border: '1px solid Chartreuse', borderRadius: '5px' }}>
+        <Box
+          style={{
+            borderWidth: '3px',
+            borderStyle: 'solid none',
+            borderColor: 'rgba(0, 0, 0, 0.125)',
+          }}
+        >
           <Image
             style={{ borderRadius: '5px' }}
             css={{ aspectRatio: 'attr(width) / attr(height)' }}
