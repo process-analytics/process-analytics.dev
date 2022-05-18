@@ -18,7 +18,9 @@ import { Box, BoxProps, Flex } from 'rebass/styled-components';
 
 import { CardWithIcon } from './CardWithIcon';
 
-const CardBox = ({ children }: React.PropsWithChildren<BoxProps>) => (
+const CardBox = ({
+  children,
+}: React.PropsWithChildren<BoxProps>): JSX.Element => (
   <Box
     paddingLeft={'24px'}
     paddingTop={'24px'}

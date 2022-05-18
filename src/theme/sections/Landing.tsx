@@ -20,7 +20,7 @@ import {
   Flex,
   Box,
   Text,
-  Image,
+  // Image,
   Button,
 } from 'rebass/styled-components';
 import styled from 'styled-components';
