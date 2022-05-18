@@ -25,16 +25,20 @@ type ContainerProps = {
   id?: SECTION;
   children: ReactNode;
   Background?: () => JSX.Element;
+  justifyContent?: string;
 };
 
 const Container = ({
   id,
   children,
   Background = DefaultBackground,
+  justifyContent = 'center',
 }: ContainerProps): JSX.Element => (
   <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer>{children}</SectionContainer>
+    <SectionContainer justifyContent={justifyContent}>
+      {children}
+    </SectionContainer>
   </section>
 );
 
@@ -59,7 +63,11 @@ const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
   </Slide>
 );
 
-const SectionContainer = styled.div`
+type SectionContainerProps = {
+  justifyContent?: string;
+};
+
+const SectionContainer = styled.div<SectionContainerProps>`
   min-height: 100vh;
   min-width: 320px;
   max-width: 1366px;
@@ -67,9 +75,7 @@ const SectionContainer = styled.div`
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
-  // TODO temp must be configurable for home title
-  justify-content: center;
-  // justify-content: space-around;
+  justify-content: ${({ justifyContent }) => justifyContent};
   padding: 5em 1em;
   scroll-behavior: smooth;
 

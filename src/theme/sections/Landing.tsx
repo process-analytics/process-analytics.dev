@@ -44,8 +44,11 @@ const LandingPage = (): JSX.Element => {
   };
 
   return (
-    // TODO justify-content: space-around in Section.Container - make it configurable
-    <Section.Container id={SECTION.home} Background={Background}>
+    <Section.Container
+      id={SECTION.home}
+      Background={Background}
+      justifyContent="space-around"
+    >
       <Flex
         flexDirection="column"
         alignItems="center"
