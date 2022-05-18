@@ -22,18 +22,24 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faGlobe,
+  faBoltLightning,
   faBook,
   faArrowRight,
   faTools,
+  faLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const ICONS: IconDefinition[] = [
-  faMedium,
+  // brands
   faDev,
-  faTwitter,
   faGithub,
-  faGlobe,
-  faBook,
+  faMedium,
+  faTwitter,
+  // solid
   faArrowRight,
+  faBoltLightning,
+  faBook,
+  faGlobe,
+  faLightbulb,
   faTools,
 ];

@@ -203,7 +203,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             Need a tool to generate process diagrams from events logs?
           </PartTitle>
           <HighlightMessage>We have a solution for you!</HighlightMessage>
-          <FeaturesThree></FeaturesThree>
+          <FeaturesThree />
         </PartWithSingleColumn>
 
         <PartWithSingleColumn backgroundColor="muted">

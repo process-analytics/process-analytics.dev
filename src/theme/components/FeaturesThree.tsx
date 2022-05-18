@@ -50,7 +50,7 @@ export const FeaturesThree = (): JSX.Element => {
       <CardBox>
         <CardWithIcon
           iconColor="muted"
-          icon="globe"
+          icon="lightbulb"
           title="Free tool"
           description="It will help you generate and visualize the activities of your process in BPMN standard."
         />
@@ -58,7 +58,7 @@ export const FeaturesThree = (): JSX.Element => {
       <CardBox>
         <CardWithIcon
           iconColor="muted"
-          icon="tools"
+          icon="bolt-lightning"
           title="Built from"
           description="Built by assembling various libraries provided by the Process Analytics project."
         />
