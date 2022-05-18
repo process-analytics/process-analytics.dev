@@ -124,8 +124,8 @@ const LandingPage = (): JSX.Element => {
             Need a tool to generate process diagrams from events logs?
           </Text>
           <Text fontSize={[1, 2, 3]} mb={[3]}>
-            We develop a free tool that will help you generate and visualize the
-            activities of your process in BPMN standard.
+            We are developing a free tool that will help you generate and
+            visualize your process activities in the BPMN standard.
           </Text>
           <Button fontSize={[1, 2, 3]}>
             <FontAwesomeIcon
@@ -140,7 +140,7 @@ const LandingPage = (): JSX.Element => {
                 textDecorationLine: 'None',
               }}
             >
-              Get started for free
+              Get started
             </Link>
           </Button>
         </Flex>
