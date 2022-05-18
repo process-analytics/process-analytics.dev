@@ -121,6 +121,7 @@ const PartTitle = ({
       fontWeight={700}
       lineHeight={1.375}
       letterSpacing="-0.125px"
+      textAlign="center"
     >
       {children}
     </Text>
@@ -206,6 +207,10 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <FeaturesThree></FeaturesThree>
         </PartWithSingleColumn>
 
+        {/*<PartWithSingleColumn>*/}
+        {/*  <PartTitle>How it works?</PartTitle>*/}
+        {/*</PartWithSingleColumn>*/}
+
         <PartWithSingleColumn backgroundColor="muted">
           <PartTitle>How it works?</PartTitle>
           <Part marginTop="24px">
@@ -274,22 +279,16 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <Jotform />
         </Part>
 
+        <PartWithSingleColumn>
+          <PartTitle>More information in this series of articles</PartTitle>
+        </PartWithSingleColumn>
+
         <Part
           marginBottom="50px"
           maxWidth="1320px"
           style={{ overflowWrap: 'break-word' }}
           flexDirection="column"
         >
-          <Part
-            flexDirection="column"
-            marginX={0}
-            paddingBottom="50px"
-            maxWidth="50%"
-            style={{ overflowWrap: 'break-word', boxSizing: 'border-box' }}
-          >
-            <PartTitle>For more information</PartTitle>
-            <Paragraph>Please read the following articles:</Paragraph>
-          </Part>
           <PostContainer
             posts={postsContent.posts.filter(
               (post: PostDescription) => post.isBPMNLayoutGenerator,
