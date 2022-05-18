@@ -221,7 +221,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
               alt={'Generation Model Application Demo'}
               width="45%"
             />
-            <Paragraph width="40%">
+            <Paragraph width="40%" fontSize={[1, 1, 2, 3]}>
               The Model Generation Application is a
               <Link href="https://shiny.rstudio.com/">
                 {' '}
@@ -246,17 +246,18 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         </PartWithSingleColumn>
 
         <PartWithSingleColumn>
-          <Flex justifyContent="space-between">
+          <Flex justifyContent="space-between" alignItems="center">
             <FontAwesomeIcon
               icon={faChevronRight}
               style={{
                 width: '6.875rem',
                 height: '6.875rem',
                 borderRadius: '0.75rem',
-                backgroundColor: 'Chartreuse',
+                backgroundColor: 'muted',
+                flexShrink: 0,
               }}
             />
-            <Paragraph>
+            <Paragraph fontSize={[1, 1, 2, 3]} marginLeft={'5%'}>
               This tool is currently in preview. We are working on improving the
               performance and usability of the tool.
               <br /> <br />
