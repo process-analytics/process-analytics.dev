@@ -94,11 +94,15 @@ const PartWithSingleColumn = ({
 
   const partPadding = !backgroundColor ? '104px 24px' : 0;
   const boxPadding = !backgroundColor ? 0 : '52px 24px';
+  const boxWidth = !backgroundColor ? 80 : 100;
 
   return (
     <Part padding={partPadding}>
       {backgroundColor && background}
-      <Box style={{ width: '80%', padding: boxPadding }} marginX="auto">
+      <Box
+        style={{ width: `${boxWidth}%`, padding: boxPadding }}
+        marginX="auto"
+      >
         {children}
       </Box>
     </Part>
@@ -207,12 +211,17 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
 
         <PartWithSingleColumn backgroundColor="muted">
           <PartTitle marginBottom="52px">How it works?</PartTitle>
-          <Part marginTop="24px">
+          <Part
+            marginTop="24px"
+            justifyContent={'space-around'}
+            alignItems={'center'}
+          >
             <Image
               src={HowItWorksImg}
               alt={'Generation Model Application Demo'}
+              width="45%"
             />
-            <Paragraph paddingLeft="24px" width="80%" justifyContent="center">
+            <Paragraph width="40%">
               The Model Generation Application is a
               <Link href="https://shiny.rstudio.com/">
                 {' '}
