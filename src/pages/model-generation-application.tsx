@@ -28,11 +28,10 @@ import {
 } from 'rebass/styled-components';
 
 import { FeaturesThree } from '../theme/components/modelGenerationApp/FeaturesThree';
+import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
 
 import { postsContent } from '../content/PostsContent';
-
 import { PostDescription } from '../theme/types';
-import { Jotform } from '../theme/components/Jotform';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import Footer from '../theme/components/Footer';
