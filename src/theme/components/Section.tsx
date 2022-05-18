@@ -67,7 +67,9 @@ const SectionContainer = styled.div`
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
+  // TODO temp must be configurable for home title
   justify-content: center;
+  // justify-content: space-around;
   padding: 5em 1em;
   scroll-behavior: smooth;
 

@@ -44,20 +44,13 @@ const LandingPage = (): JSX.Element => {
   };
 
   return (
-    // TODO justify-content: space-around; on small screen
-    // too much padding-bottom
-    //   padding: 5em 1em;
-    //   scroll-behavior: smooth;
-    //
-    //   ${MEDIA_QUERY_SMALL} {
-    //     padding: 2em 1em;
-    //   }
+    // TODO justify-content: space-around in Section.Container - make it configurable
     <Section.Container id={SECTION.home} Background={Background}>
       <Flex
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        marginTop={[2, 3, 5]}
+        marginTop={5}
       >
         <Heading
           textAlign="center"
@@ -93,7 +86,11 @@ const LandingPage = (): JSX.Element => {
           ))}
         </Flex>
       </Flex>
-      <LandingCard style={{ boxSizing: 'border-box' }} minHeight={['13rem']}>
+      <LandingCard
+        style={{ boxSizing: 'border-box' }}
+        minHeight={['13rem']}
+        width={['100%', '100%', '80%']}
+      >
         <Box
           backgroundColor="secondary"
           width="100%"
@@ -128,7 +125,8 @@ const LandingPage = (): JSX.Element => {
             We are developing a free tool that will help you generate and
             visualize your process activities in the BPMN standard.
           </Text>
-          <Button fontSize={[1, 2, 3]}>
+
+          <Button fontSize={[1, 2, 3]} mt={[3, 0, 0]}>
             <FontAwesomeIcon
               icon="arrow-right"
               size="lg"
@@ -182,7 +180,6 @@ const LandingCard = styled(Box).attrs({
   transition: all 0.25s;
   top: 0;
   height: 20vh;
-  width: 80%;
   align-self: center;
 `;
 
