@@ -194,7 +194,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
             style={{ borderRadius: '5px' }}
             css={{ aspectRatio: 'attr(width) / attr(height)' }}
             src={AppPreview}
-            alt={'Generation Model Application Demo'}
+            alt={'Model Generation Application Demo'}
           />
         </Box>
 
