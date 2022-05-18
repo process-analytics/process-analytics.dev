@@ -42,6 +42,7 @@ import { PostContainer } from '../theme/components/Post';
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
+import colors from '../theme/colors.json';
 
 const Part = ({
   padding,
@@ -170,9 +171,6 @@ const Paragraph = ({
   );
 };
 
-// TODO should be taken from the theme
-const chevronIconBackgroundColor = 'lightgray';
-
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout title={PAGE.modelGenerationApplication}>
@@ -256,7 +254,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
                 width: '6.875rem',
                 height: '6.875rem',
                 borderRadius: '0.75rem',
-                backgroundColor: chevronIconBackgroundColor,
+                color: 'white',
+                backgroundColor: colors.primary,
                 flexShrink: 0,
               }}
             />
