@@ -44,6 +44,13 @@ const LandingPage = (): JSX.Element => {
 
   return (
     // TODO justify-content: space-around; on small screen
+    // too much padding-bottom
+    //   padding: 5em 1em;
+    //   scroll-behavior: smooth;
+    //
+    //   ${MEDIA_QUERY_SMALL} {
+    //     padding: 2em 1em;
+    //   }
     <Section.Container id={SECTION.home} Background={Background}>
       <Flex
         flexDirection="column"
