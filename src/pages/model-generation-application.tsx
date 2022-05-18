@@ -27,7 +27,7 @@ import {
   Text,
 } from 'rebass/styled-components';
 
-import { FeaturesThree } from '../theme/components/FeaturesThree';
+import { FeaturesThree } from '../theme/components/modelGenerationApp/FeaturesThree';
 
 import { postsContent } from '../content/PostsContent';
 
