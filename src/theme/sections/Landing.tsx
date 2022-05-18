@@ -131,7 +131,7 @@ const LandingPage = (): JSX.Element => {
               style={{ marginRight: '0.5rem' }}
             />
             <Link
-              to="/BPMN_generator"
+              to="/model-generation-application"
               style={{
                 color: 'White',
                 textDecorationLine: 'None',

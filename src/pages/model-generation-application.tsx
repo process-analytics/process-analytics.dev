@@ -169,7 +169,7 @@ const Paragraph = ({
 
 const BPMNGeneratorPage = (): JSX.Element => {
   return (
-    <Layout title={PAGE.bpmn_generator}>
+    <Layout title={PAGE.modelGenerationApplication}>
       <PageHeader />
       <Section.Container Background={Background}>
         <Heading
@@ -180,7 +180,7 @@ const BPMNGeneratorPage = (): JSX.Element => {
           mb={[5, 5, 6]}
           mt={[5, 5, 6]}
         >
-          BPMN model generation
+          Model Generation Application
         </Heading>
 
         <Box

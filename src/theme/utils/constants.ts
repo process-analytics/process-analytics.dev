@@ -33,7 +33,7 @@ export enum PAGE {
   notFound = 'Page not found - Process Analytics',
   news = 'News - Process Analytics',
   blog = 'Blog Posts - Process Analytics',
-  bpmn_generator = 'BPMN generation from event logs',
+  modelGenerationApplication = 'Generate models from event logs',
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
