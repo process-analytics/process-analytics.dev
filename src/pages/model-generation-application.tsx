@@ -93,16 +93,13 @@ const PartWithSingleColumn = ({
     />
   );
 
-  const padding = (withPadding: boolean): string | number =>
-    withPadding ? '104px 24px' : 0;
+  const partPadding = !backgroundColor ? '104px 24px' : 0;
+  const boxPadding = !backgroundColor ? 0 : '52px 24px';
 
   return (
-    <Part padding={padding(!backgroundColor)}>
+    <Part padding={partPadding}>
       {backgroundColor && background}
-      <Box
-        style={{ width: '80%', padding: padding(Boolean(backgroundColor)) }}
-        marginX="auto"
-      >
+      <Box style={{ width: '80%', padding: boxPadding }} marginX="auto">
         {children}
       </Box>
     </Part>
@@ -111,6 +108,7 @@ const PartWithSingleColumn = ({
 
 const PartTitle = ({
   children,
+  ...props
 }: React.PropsWithChildren<TextProps>): JSX.Element => {
   return (
     <Text
@@ -122,6 +120,7 @@ const PartTitle = ({
       lineHeight={1.375}
       letterSpacing="-0.125px"
       textAlign="center"
+      {...props}
     >
       {children}
     </Text>
@@ -207,12 +206,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <FeaturesThree></FeaturesThree>
         </PartWithSingleColumn>
 
-        {/*<PartWithSingleColumn>*/}
-        {/*  <PartTitle>How it works?</PartTitle>*/}
-        {/*</PartWithSingleColumn>*/}
-
         <PartWithSingleColumn backgroundColor="muted">
-          <PartTitle>How it works?</PartTitle>
+          <PartTitle marginBottom="52px">How it works?</PartTitle>
           <Part marginTop="24px">
             <Image
               src={HowItWorksImg}
