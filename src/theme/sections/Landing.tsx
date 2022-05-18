@@ -31,8 +31,9 @@ import { SECTION } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
 
+// TODO find a svg image instead - the following is too large
 // https://www.pngegg.com/en/png-blrjm
-import Img from '../../images/pngegg.png';
+// import Img from '../../images/pngegg.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -100,18 +101,18 @@ const LandingPage = (): JSX.Element => {
           style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
           opacity="0.15"
         />
-        <Image
-          src={Img}
-          opacity="0.1"
-          width="100%"
-          height="100%"
-          style={{
-            objectFit: 'cover',
-            position: 'absolute',
-            borderRadius: '0.5rem',
-            zIndex: -1,
-          }}
-        />
+        {/*<Image*/}
+        {/*  src={Img}*/}
+        {/*  opacity="0.1"*/}
+        {/*  width="100%"*/}
+        {/*  height="100%"*/}
+        {/*  style={{*/}
+        {/*    objectFit: 'cover',*/}
+        {/*    position: 'absolute',*/}
+        {/*    borderRadius: '0.5rem',*/}
+        {/*    zIndex: -1,*/}
+        {/*  }}*/}
+        {/*/>*/}
         <Flex
           flexDirection="column"
           alignItems="start"
@@ -181,7 +182,8 @@ const LandingCard = styled(Box).attrs({
   transition: all 0.25s;
   top: 0;
   height: 20vh;
-  width: 100%;
+  width: 80%;
+  align-self: center;
 `;
 
 export default LandingPage;
