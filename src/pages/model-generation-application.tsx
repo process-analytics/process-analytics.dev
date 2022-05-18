@@ -170,6 +170,9 @@ const Paragraph = ({
   );
 };
 
+// TODO should be taken from the theme
+const chevronIconBackgroundColor = 'lightgray';
+
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout title={PAGE.modelGenerationApplication}>
@@ -253,7 +256,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
                 width: '6.875rem',
                 height: '6.875rem',
                 borderRadius: '0.75rem',
-                backgroundColor: 'muted',
+                backgroundColor: chevronIconBackgroundColor,
                 flexShrink: 0,
               }}
             />
