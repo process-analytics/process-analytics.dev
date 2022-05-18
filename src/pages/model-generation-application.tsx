@@ -41,7 +41,7 @@ import { PAGE } from '../theme/utils/constants';
 import { PostContainer } from '../theme/components/Post';
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
-import HowItWorksImg from '../images/model-generation-app/how_it_works.svg';
+import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
 
 const Part = ({
   padding,
