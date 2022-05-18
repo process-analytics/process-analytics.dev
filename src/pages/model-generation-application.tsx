@@ -167,7 +167,7 @@ const Paragraph = ({
   );
 };
 
-const BPMNGeneratorPage = (): JSX.Element => {
+const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout title={PAGE.modelGenerationApplication}>
       <PageHeader />
@@ -327,4 +327,4 @@ const Background = (): JSX.Element => (
   </>
 );
 
-export default BPMNGeneratorPage;
+export default ModelGenerationApplicationPage;
