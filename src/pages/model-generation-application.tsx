@@ -264,7 +264,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
               performance and usability of the tool.
               <br /> <br />
               For now, you can fill in the following form to send your events
-              logs and your email address. <br />
+              logs (anonymized or without confidential data) and your email
+              address. <br />
               We will send you the generated result as soon as it is ready.
             </Paragraph>
           </Flex>
