@@ -303,6 +303,91 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             pageId="blog"
           />
         </Part>
+
+        <PartWithSingleColumn>
+          <PartTitle id={'terms-of-use'}>Terms of Use</PartTitle>
+          <Paragraph fontSize={[1, 1, 2, 3]}>
+            The <b>Model Generation Application</b> is edited by{' '}
+            <code>
+              Process Analytics p/o Bonitasoft 32 Rue Gustave Eiffel 38000
+              GRENOBLE FRANCE
+            </code>
+            <br />
+            Contact:{' '}
+            <a href="mailto:process.analytics.dev@gmail.com">
+              process.analytics.dev@gmail.com
+            </a>
+          </Paragraph>
+          <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]}>
+            The form used to submit data is provided by&nbsp;
+            <a href="https://www.jotform.com">JOTForm</a>. The following rules
+            apply
+            <ul>
+              <li>
+                <a href="https://www.jotform.com/terms/">JOTForm terms</a>
+              </li>
+              <li>
+                <a href="https://www.jotform.com/privacy/">JOTForm privacy</a>.
+                In particular, please read the
+                <i>"INFORMATION WE COLLECT / From Form Responders"</i> and{' '}
+                <i>
+                  "HOW WE USE AND DISCLOSE YOUR INFORMATION / Form responders"
+                </i>{' '}
+                paragraphs
+              </li>
+            </ul>
+          </Paragraph>
+
+          <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]} marginBottom={[4]}>
+            The <code>Process Analytics Project</code> collects data (name,
+            email, XES file) in the sole purpose of sending you the results of
+            the processing.
+            <br />
+            The <code>Process Analytics Project</code> does not sell personal
+            information gathered from form responses.
+            <br />
+            The <code>Process Analytics Project</code> won’t make available form
+            responses to third parties without permission, and won’t use any
+            contact details collected in the form except for sending the results
+            of the processing.
+            <br />
+          </Paragraph>
+
+          <PartTitle>
+            Disclaimer of Warranties and Limitation of Liability
+          </PartTitle>
+          <Paragraph fontSize={[1, 1, 2, 3]}>
+            <b>(a) Warranty Disclaimer:</b> THE SITE AND THE SITE CONTENT ARE
+            PROVIDED STRICTLY ON AN “AS IS” AND “AS AVAILABLE” BASIS, AND THE
+            PROCESS ANALYTICS PROJECT MAKES NO WARRANTY THAT THE SITE OR THE
+            SITE CONTENT IS COMPLETE, SUITABLE FOR YOUR PURPOSE, OR ACCURATE.
+            THE PROCESS ANALYTICS PROJECT HEREBY EXPRESSLY DISCLAIMS ANY AND ALL
+            IMPLIED, STATUTORY OR OTHER WARRANTIES WITH RESPECT TO THE SITE,
+            AVAILABILITY OF THE SITE AND THE SITE CONTENT, INCLUDING, WITHOUT
+            LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+            PARTICULAR PURPOSE AND NON-INFRINGEMENT. THE ENTIRE RISK AS TO
+            RESULTS OBTAINED THROUGH USE OF THE SITE AND/OR THE SITE CONTENT
+            RESTS WITH YOU AND THE PROCESS ANALYTICS PROJECT MAKES NO
+            REPRESENTATION OR WARRANTY THAT THE SITE AVAILABILITY WILL BE
+            UNINTERRUPTED, OR THE SITE AND/OR THE SITE CONTENT WILL BE ERROR
+            FREE.
+          </Paragraph>
+          <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]}>
+            <b>(b) Limitation of Liability:</b> TO THE FULLEST EXTENT PERMITTED
+            BY APPLICABLE LAW, YOU AGREE THAT THE PROCESS ANALYTICS PROJECT
+            SHALL NOT BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF OR
+            CONNECTED TO YOUR USE OF, OR INABILITY TO USE, THE SITE, INCLUDING,
+            WITHOUT LIMITATION, ANY AND ALL DIRECT, INDIRECT,
+            INCIDENTAL,CONSEQUENTIAL, PUNITIVE, SPECIAL, EXEMPLARY OR STATUTORY
+            DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF BUSINESS, LOSS OR
+            PROFITS, LOSS OF REVENUE, LOSS OF DATA, LOSS OF GOODWILL OR FOR ANY
+            COST OF COVER OR COST OF PROCUREMENT OF SUBSTITUTE GOODS OR
+            SERVICES), EVEN IF THE PROCESS ANALYTICS PROJECT HAS BEEN ADVISED OF
+            THE POSSIBILITY OF SUCH DAMAGES, AND REGARDLESS OF THE LEGAL THEORY
+            UNDER WHICH DAMAGES ARE SOUGHT, WHETHER IN BREACH OF CONTRACT OR IN
+            TORT, INCLUDING NEGLIGENCE.
+          </Paragraph>
+        </PartWithSingleColumn>
       </Section.Container>
       <Footer />
     </Layout>
