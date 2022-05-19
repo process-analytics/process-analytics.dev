@@ -174,7 +174,7 @@ const Paragraph = ({
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout title={PAGE.modelGenerationApplication}>
-      <PageHeader />
+      <PageHeader displayDemoButton={false} />
       <Section.Container Background={Background}>
         <Heading
           textAlign="center"
