@@ -34,7 +34,7 @@ const CardBox = ({
   </Box>
 );
 
-export const FeaturesThree = (): JSX.Element => {
+export const Features = (): JSX.Element => {
   return (
     <Flex
       style={{

@@ -27,7 +27,7 @@ import {
   Text,
 } from 'rebass/styled-components';
 
-import { FeaturesThree } from '../theme/components/modelGenerationApp/FeaturesThree';
+import { Features } from '../theme/components/modelGenerationApp/Features';
 import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
 
 import { postsContent } from '../content/PostsContent';
@@ -207,7 +207,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             Need a tool to generate process diagrams from events logs?
           </PartTitle>
           <HighlightMessage>We have a solution for you!</HighlightMessage>
-          <FeaturesThree />
+          <Features />
         </PartWithSingleColumn>
 
         <PartWithSingleColumn backgroundColor="muted">
