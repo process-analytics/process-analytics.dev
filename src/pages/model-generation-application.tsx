@@ -336,6 +336,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
                 </i>{' '}
                 paragraphs
               </li>
+              <li>Submissions are deleted 90 days after they're received</li>
+              <li>Data are only stored in Europe (Germany)</li>
             </ul>
           </Paragraph>
 
