@@ -305,7 +305,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         </Part>
 
         <PartWithSingleColumn>
-          <PartTitle id={'terms-of-use'}>Terms of Use</PartTitle>
+          <PartTitle id={'terms'}>Terms of Use</PartTitle>
           <Paragraph fontSize={[1, 1, 2, 3]}>
             The <b>Model Generation Application</b> is edited by{' '}
             <code>
