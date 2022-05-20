@@ -298,7 +298,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         >
           <PostContainer
             posts={postsContent.posts.filter(
-              (post: PostDescription) => post.isBPMNLayoutGenerator,
+              (post: PostDescription) => post.isInModelGenerationAppPage,
             )}
             pageId="blog"
           />

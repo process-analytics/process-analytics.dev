@@ -56,7 +56,7 @@ export type PostDescription = {
   url: string;
   date: string;
   time: number;
-  isBPMNLayoutGenerator?: boolean;
+  isInModelGenerationAppPage?: boolean;
 };
 
 export type Landing = {
