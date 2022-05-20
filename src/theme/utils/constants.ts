@@ -25,9 +25,10 @@ export enum SECTION {
   blog = 'Blog Posts',
 }
 
-// keys are used by the page header
-// values are used as page title
-
+/**
+ * `Keys` are used by the page header <br>
+ * `Values` are used as page title
+ */
 export enum PAGE {
   home = 'Process Analytics',
   notFound = 'Page not found - Process Analytics',
