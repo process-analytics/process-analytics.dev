@@ -15,14 +15,7 @@
  */
 import { Link } from 'gatsby';
 import React from 'react';
-import {
-  Heading,
-  Flex,
-  Box,
-  Text,
-  // Image,
-  Button,
-} from 'rebass/styled-components';
+import { Heading, Flex, Box, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
@@ -30,10 +23,6 @@ import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
-
-// TODO find a svg image instead - the following is too large
-// https://www.pngegg.com/en/png-blrjm
-// import Img from '../../images/pngegg.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -101,18 +90,6 @@ const LandingPage = (): JSX.Element => {
           style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
           opacity="0.15"
         />
-        {/*<Image*/}
-        {/*  src={Img}*/}
-        {/*  opacity="0.1"*/}
-        {/*  width="100%"*/}
-        {/*  height="100%"*/}
-        {/*  style={{*/}
-        {/*    objectFit: 'cover',*/}
-        {/*    position: 'absolute',*/}
-        {/*    borderRadius: '0.5rem',*/}
-        {/*    zIndex: -1,*/}
-        {/*  }}*/}
-        {/*/>*/}
         <Flex
           flexDirection="column"
           alignItems="start"
