@@ -272,6 +272,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         </PartWithSingleColumn>
 
         <Part
+          id={'form'}
           marginBottom="156px"
           style={{
             boxSizing: 'border-box',
