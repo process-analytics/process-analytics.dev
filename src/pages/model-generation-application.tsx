@@ -68,7 +68,7 @@ const Part = ({
   );
 };
 
-const PartWithSingleColumn = ({
+export const PartWithSingleColumn = ({
   backgroundColor,
   children,
 }: React.PropsWithChildren<FlexProps>): JSX.Element => {
@@ -110,7 +110,7 @@ const PartWithSingleColumn = ({
   );
 };
 
-const PartTitle = ({
+export const PartTitle = ({
   children,
   ...props
 }: React.PropsWithChildren<TextProps>): JSX.Element => {
@@ -151,7 +151,7 @@ const HighlightMessage = ({
   );
 };
 
-const Paragraph = ({
+export const Paragraph = ({
   children,
   ...props
 }: React.PropsWithChildren<TextProps>): JSX.Element => {

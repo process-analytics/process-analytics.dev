@@ -15,8 +15,13 @@
  */
 
 import React from 'react';
-import { FlexProps, TextProps } from 'rebass';
-import { Box, Flex, Heading, Text } from 'rebass/styled-components';
+import { Heading } from 'rebass/styled-components';
+
+import {
+  PartWithSingleColumn,
+  Paragraph,
+  PartTitle,
+} from './model-generation-application';
 
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
@@ -25,136 +30,7 @@ import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
 
-import colors from '../theme/colors.json';
-
-const Part = ({
-  padding,
-  children,
-  ...props
-}: React.PropsWithChildren<FlexProps>): JSX.Element => {
-  return (
-    <Flex
-      marginX={['auto', 'auto', '16px']}
-      padding={padding}
-      fontSize="1.25rem"
-      fontWeight={400}
-      lineHeight={1.625}
-      letterSpacing={'0.00938em'}
-      style={{
-        position: 'relative',
-        borderRadius: '0.75rem',
-      }}
-      {...props}
-    >
-      {children}
-    </Flex>
-  );
-};
-
-const PartWithSingleColumn = ({
-  backgroundColor,
-  children,
-}: React.PropsWithChildren<FlexProps>): JSX.Element => {
-  const background = (
-    <Box
-      backgroundColor={backgroundColor}
-      width="100%"
-      height="100%"
-      style={{
-        position: 'absolute',
-        zIndex: -1,
-        border: '0px solid rgba(0, 0, 0, 0.125)',
-        borderRadius: '0.5rem',
-        color: 'rgba(0, 0, 0, 0.87)',
-        boxShadow:
-          'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
-        transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-        backgroundClip: 'border-box',
-      }}
-      opacity="0.3"
-      margin={0}
-    />
-  );
-
-  const partPadding = !backgroundColor ? '104px 24px' : 0;
-  const boxPadding = !backgroundColor ? 0 : '52px 24px';
-  const boxWidth = !backgroundColor ? 80 : 100;
-
-  return (
-    <Part padding={partPadding}>
-      {backgroundColor && background}
-      <Box
-        style={{ width: `${boxWidth}%`, padding: boxPadding }}
-        marginX="auto"
-      >
-        {children}
-      </Box>
-    </Part>
-  );
-};
-
-const PartTitle = ({
-  children,
-  ...props
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
-  return (
-    <Text
-      as="h3"
-      color="text"
-      marginBottom="24px"
-      fontSize="1.875rem"
-      fontWeight={700}
-      lineHeight={1.375}
-      letterSpacing="-0.125px"
-      textAlign="center"
-      {...props}
-    >
-      {children}
-    </Text>
-  );
-};
-
-const HighlightMessage = ({
-  children,
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
-  return (
-    <Text
-      as="h4"
-      color="secondary"
-      marginBottom="2rem"
-      paddingY={['0.5rem', '0.5rem', '1.5rem']}
-      fontSize="1.675rem"
-      fontWeight={700}
-      lineHeight={1.375}
-      letterSpacing="-0.125px"
-      textAlign="center"
-    >
-      {children}
-    </Text>
-  );
-};
-
-const Paragraph = ({
-  children,
-  ...props
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
-  return (
-    <Text
-      as="p"
-      color="text"
-      margin="0"
-      fontSize="1.25rem"
-      fontWeight={300}
-      lineHeight={1.625}
-      letterSpacing="-0.125px"
-      {...props}
-    >
-      {children}
-    </Text>
-  );
-};
-
-const ModelGenerationApplicationPage = (): JSX.Element => {
+const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
     <Layout title={PAGE.modelGenerationApplication}>
       <PageHeader displayDemoButton={false} />
@@ -292,4 +168,4 @@ const Background = (): JSX.Element => (
   </>
 );
 
-export default ModelGenerationApplicationPage;
+export default ModelGenerationApplicationConditionPage;
