@@ -24,11 +24,8 @@ const CardBox = ({
   <Box
     paddingLeft={'24px'}
     paddingTop={'24px'}
-    style={{
-      flexBasis: 'calc(100% / 3)',
-      flexGrow: '0',
-      maxWidth: 'calc(100% / 3)',
-    }}
+    flexBasis={['auto', 'auto', 'calc(100% / 3)']}
+    maxWidth={['100%', '100%', 'calc(100% / 3)']}
   >
     {children}
   </Box>
@@ -37,13 +34,14 @@ const CardBox = ({
 export const Features = (): JSX.Element => {
   return (
     <Flex
+      flexDirection={['column', 'column', 'row']}
+      flexWrap="wrap"
       style={{
         fontSize: '1.25rem',
         fontWeight: '400',
         lineHeight: '1.625',
         letterSpacing: '0.00938em',
         boxSizing: 'border-box',
-        flexFlow: 'row wrap',
         marginTop: '-24px',
         width: 'calc(100% + 24px)',
         marginLeft: '-24px',
