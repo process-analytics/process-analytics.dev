@@ -188,9 +188,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
 
         <Box
           style={{
-            borderWidth: '3px',
-            borderStyle: 'solid none',
-            borderColor: 'rgba(0, 0, 0, 0.125)',
+            boxShadow:
+              'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
           }}
         >
           <Image
