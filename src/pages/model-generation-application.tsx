@@ -44,7 +44,7 @@ import AppPreview from '../images/model-generation-app/model_generation_app_prev
 import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
 import colors from '../theme/colors.json';
 
-const Part = ({
+export const Part = ({
   padding,
   children,
   ...props
@@ -243,34 +243,38 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           </Part>
         </PartWithSingleColumn>
 
-        <PartWithSingleColumn>
-          <Flex justifyContent="space-between" alignItems="center">
-            <FontAwesomeIcon
-              icon={faChevronRight}
-              style={{
-                width: '6.875rem',
-                height: '6.875rem',
-                borderRadius: '0.75rem',
-                color: 'white',
-                backgroundColor: colors.primary,
-                flexShrink: 0,
-              }}
-            />
-            <Paragraph fontSize={[1, 1, 2, 3]} marginLeft={'5%'}>
-              This tool is currently in preview. We are working on improving the
-              performance and usability of the tool.
-              <br /> <br />
-              For now, you can fill in the following form to send your events
-              logs (anonymized or without confidential data) and your email
-              address. <br />
-              We will send you the generated result as soon as it is ready.
-            </Paragraph>
-          </Flex>
-        </PartWithSingleColumn>
+        <Part
+          justifyContent="space-between"
+          alignItems="center"
+          padding="114px 24px"
+          width="80%"
+          marginX="auto"
+        >
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            style={{
+              width: '6.875rem',
+              height: '6.875rem',
+              borderRadius: '0.75rem',
+              color: 'white',
+              backgroundColor: colors.primary,
+              flexShrink: 0,
+            }}
+          />
+          <Paragraph fontSize={[1, 1, 2, 3]} marginLeft={'5%'}>
+            This tool is currently in preview. We are working on improving the
+            performance and usability of the tool.
+            <br /> <br />
+            For now, you can fill in the following form to send your events logs
+            (anonymized or without confidential data) and your email address.{' '}
+            <br />
+            We will send you the generated result as soon as it is ready.
+          </Paragraph>
+        </Part>
 
         <Part
           id={'form'}
-          marginBottom="156px"
+          marginBottom="124px"
           style={{
             boxSizing: 'border-box',
             flexFlow: 'row wrap',
@@ -284,16 +288,15 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <Jotform />
         </Part>
 
-        <PartWithSingleColumn>
-          <PartTitle>More information in this series of articles</PartTitle>
-        </PartWithSingleColumn>
-
         <Part
-          marginBottom="50px"
+          marginBottom="52px"
           maxWidth="1320px"
           style={{ overflowWrap: 'break-word' }}
           flexDirection="column"
         >
+          <PartTitle marginBottom="52px" width="100%">
+            More information in this series of articles
+          </PartTitle>
           <PostContainer
             posts={postsContent.posts.filter(
               (post: PostDescription) => post.isInModelGenerationAppPage,

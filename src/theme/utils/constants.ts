@@ -35,6 +35,7 @@ export enum PAGE {
   news = 'News - Process Analytics',
   blog = 'Blog Posts - Process Analytics',
   modelGenerationApplication = 'Model Generation Application',
+  modelGenerationApplicationConditions = ' Usage conditions of Model Generation Application',
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';

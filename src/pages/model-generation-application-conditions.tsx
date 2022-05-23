@@ -17,11 +17,7 @@
 import React from 'react';
 import { Heading } from 'rebass/styled-components';
 
-import {
-  PartWithSingleColumn,
-  Paragraph,
-  PartTitle,
-} from './model-generation-application';
+import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
@@ -32,7 +28,7 @@ import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
-    <Layout title={PAGE.modelGenerationApplication}>
+    <Layout title={PAGE.modelGenerationApplicationConditions}>
       <PageHeader displayDemoButton={false} />
       <Section.Container Background={Background}>
         <Heading
@@ -40,21 +36,20 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           as="h1"
           color="primary"
           fontSize={[6, 8]}
-          mb={[5, 5, 6]}
-          mt={[5, 5, 6]}
+          marginY={[5, 5, '12rem']}
         >
-          Conditions
+          Usage conditions of Model Generation Application
         </Heading>
 
-        <PartWithSingleColumn>
-          <PartTitle id={'terms'}>Terms of Use</PartTitle>
+        <Part flexDirection="column" width="80%" marginX="auto">
+          <PartTitle>Terms of Use</PartTitle>
           <Paragraph fontSize={[1, 1, 2, 3]}>
             The <b>Model Generation Application</b> is edited by:
             <br />
             <code>
-              Process Analytics p/o
+              Process Analytics p/o Bonitasoft
               <br />
-              Bonitasoft 32 Rue Gustave Eiffel 38000
+              32 Rue Gustave Eiffel 38000
               <br />
               GRENOBLE FRANCE
             </code>
@@ -101,8 +96,14 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             of the processing.
             <br />
           </Paragraph>
-        </PartWithSingleColumn>
-        <PartWithSingleColumn>
+        </Part>
+        <Part
+          flexDirection="column"
+          width="80%"
+          marginX="auto"
+          marginTop="104px"
+          marginBottom="24px"
+        >
           <PartTitle>
             Disclaimer of Warranties and Limitation of Liability
           </PartTitle>
@@ -137,7 +138,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             UNDER WHICH DAMAGES ARE SOUGHT, WHETHER IN BREACH OF CONTRACT OR IN
             TORT, INCLUDING NEGLIGENCE.
           </Paragraph>
-        </PartWithSingleColumn>
+        </Part>
       </Section.Container>
       <Footer />
     </Layout>
