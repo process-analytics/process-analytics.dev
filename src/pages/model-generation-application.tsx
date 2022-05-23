@@ -261,7 +261,10 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
               flexShrink: 0,
             }}
           />
-          <Paragraph fontSize={[1, 1, 2, 3]} marginLeft={'5%'}>
+          <Paragraph
+            fontSize={[1, 1, 2, 3]}
+            marginLeft={['2rem', '3rem', '5rem']}
+          >
             This tool is currently in preview. We are working on improving the
             performance and usability of the tool.
             <br /> <br />
