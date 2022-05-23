@@ -27,6 +27,7 @@ import {
   faArrowRight,
   faTools,
   faLightbulb,
+  faInfo,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const ICONS: IconDefinition[] = [
@@ -42,4 +43,5 @@ export const ICONS: IconDefinition[] = [
   faGlobe,
   faLightbulb,
   faTools,
+  faInfo,
 ];

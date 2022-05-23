@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { FlexProps, TextProps } from 'rebass';
@@ -250,17 +250,28 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           width="80%"
           marginX="auto"
         >
-          <FontAwesomeIcon
-            icon={faChevronRight}
+          <Flex
+            width={['5rem', '5.5rem', '6.875rem']}
+            height={['5rem', '5.5rem', '6.875rem']}
+            alignItems="center"
             style={{
-              width: '6.875rem',
-              height: '6.875rem',
               borderRadius: '0.75rem',
-              color: 'white',
-              backgroundColor: colors.primary,
+              borderColor: colors.primary,
+              borderWidth: '5px',
+              borderStyle: 'solid',
+              color: colors.secondary,
               flexShrink: 0,
+              boxShadow:
+                'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
             }}
-          />
+          >
+            <FontAwesomeIcon
+              icon={faInfo}
+              width="100%"
+              height="100%"
+              size="2x"
+            />
+          </Flex>
           <Paragraph
             fontSize={[1, 1, 2, 3]}
             marginLeft={['2rem', '3rem', '5rem']}
