@@ -43,6 +43,7 @@ const LandingPage = (): JSX.Element => {
         alignItems="center"
         justifyContent="center"
         marginTop={5}
+        marginBottom={5}
       >
         <Heading
           textAlign="center"
