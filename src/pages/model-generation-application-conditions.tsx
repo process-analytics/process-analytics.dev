@@ -49,9 +49,11 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             <code>
               Process Analytics p/o Bonitasoft
               <br />
-              32 Rue Gustave Eiffel 38000
+              32 Rue Gustave Eiffel
               <br />
-              GRENOBLE FRANCE
+              38000 GRENOBLE
+              <br />
+              FRANCE
             </code>
             .
             <br />
