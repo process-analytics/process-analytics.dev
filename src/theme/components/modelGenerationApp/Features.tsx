@@ -52,15 +52,7 @@ export const Features = (): JSX.Element => {
           iconColor="muted"
           icon="lightbulb"
           title="Free tool"
-          description="It will help you generate and visualize the activities of your process in BPMN standard."
-        />
-      </CardBox>
-      <CardBox>
-        <CardWithIcon
-          iconColor="muted"
-          icon="bolt-lightning"
-          title="Built from"
-          description="Built by assembling various libraries provided by the Process Analytics project."
+          description="Generate and visualize process activities in BPMN Standards."
         />
       </CardBox>
       <CardBox>
@@ -68,8 +60,15 @@ export const Features = (): JSX.Element => {
           iconColor="muted"
           icon="tools"
           title="Simple usage"
-          description="All you need is to provide the events logs and select the format of the
-          generated diagram."
+          description="Provide event logs and select the format of the diagram to be generated."
+        />
+      </CardBox>
+      <CardBox>
+        <CardWithIcon
+          iconColor="muted"
+          icon="bolt-lightning"
+          title="Powered by Open Source components"
+          description="Built by assembling various libraries provided by the Process Analytics project."
         />
       </CardBox>
     </Flex>

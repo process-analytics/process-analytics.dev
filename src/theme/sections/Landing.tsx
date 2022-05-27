@@ -104,7 +104,7 @@ const LandingPage = (): JSX.Element => {
           </Text>
           <Text fontSize={[1, 2, 3]} mb={[3]}>
             We are developing a free tool that will help you generate and
-            visualize your process activities in BPMN standard.
+            visualize your process activities using BPMN Standards.
           </Text>
 
           <Button fontSize={[1, 2, 3]} mt={[3, 0, 0]}>

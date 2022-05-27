@@ -278,10 +278,10 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             This tool is currently in preview. We are working on improving the
             performance and usability of the tool.
             <br /> <br />
-            For now, you can fill in the following form to send your events logs
-            (anonymized or without confidential data) and your email address.{' '}
-            <br />
-            We will send you the generated result as soon as it is ready.
+            Please complete the form to send your events logs (anonymized or
+            without confidential data) and your email address. <br />
+            We will send you back the generated results as soon as they are
+            ready.
           </Paragraph>
         </Part>
 
