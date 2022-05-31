@@ -67,7 +67,7 @@ export const Features = (): JSX.Element => {
         <CardWithIcon
           iconColor="muted"
           icon="bolt-lightning"
-          title="Powered by Open Source components"
+          title="Process Analytics"
           description="Built by assembling various libraries provided by the Process Analytics project."
         />
       </CardBox>
