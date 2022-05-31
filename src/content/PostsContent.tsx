@@ -33,6 +33,7 @@ const posts: PostDescription[] = [
     url: 'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and',
     date: 'December 2021',
     time: 3,
+    isInModelGenerationAppPage: true,
   },
   {
     title: 'Using BPMN Visualization in R',
@@ -84,6 +85,7 @@ const posts: PostDescription[] = [
     url: 'https://bonitasoft.medium.com/using-process-discovery-on-process-the-bpmn-layout-generator-4e7e0cd1fc25',
     date: 'March 2021',
     time: 4,
+    isInModelGenerationAppPage: true,
   },
   {
     title: 'Creating a Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
@@ -112,6 +114,7 @@ const posts: PostDescription[] = [
     url: 'https://medium.com/@olan.anesini/using-process-discovery-on-business-process-management-bpm-through-bpmn-d6ea0120ad1d',
     date: 'June 2020',
     time: 3,
+    isInModelGenerationAppPage: true,
   },
 ];
 

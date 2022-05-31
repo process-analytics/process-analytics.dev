@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Link } from 'gatsby';
 import React from 'react';
-import { Heading, Flex, Box, Text } from 'rebass/styled-components';
+import { Heading, Flex, Box, Text, Button } from 'rebass/styled-components';
+import styled from 'styled-components';
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
-import ScrollIcon from '../components/ScrollIcon';
 import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
-import { getSectionHref } from '../utils/helpers';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -32,42 +33,98 @@ const LandingPage = (): JSX.Element => {
   };
 
   return (
-    <Section.Container id={SECTION.home} Background={Background}>
-      <Heading
-        textAlign="center"
-        as="h1"
-        color="primary"
-        fontSize={[6, 8]}
-        mb={[3, 4, 5]}
-        mt={4}
+    <Section.Container
+      id={SECTION.home}
+      Background={Background}
+      justifyContent="space-around"
+    >
+      <Flex
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        marginTop={5}
+        marginBottom={5}
       >
-        {title}
-      </Heading>
+        <Heading
+          textAlign="center"
+          as="h1"
+          color="primary"
+          fontSize={[6, 8]}
+          mb={[3, 4, 5]}
+          mt={4}
+        >
+          {title}
+        </Heading>
 
-      <Heading
-        as="h2"
-        color="primary"
-        fontSize={[2, 4]}
-        mb={[3, 5]}
-        textAlign="center"
-        style={centerHorizontally}
-      >
-        <Fade direction="down" triggerOnce>
-          <Text width={[300, 700]} key="presentation">
-            {presentation}
-          </Text>
-        </Fade>
-      </Heading>
+        <Heading
+          as="h2"
+          color="primary"
+          fontSize={[2, 4]}
+          mb={[3, 5]}
+          textAlign="center"
+          style={centerHorizontally}
+        >
+          <Fade direction="down" triggerOnce>
+            <Text width={[300, 700]} key="presentation">
+              {presentation}
+            </Text>
+          </Fade>
+        </Heading>
 
-      <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-        {socialLinks.map(sl => (
-          <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
-            <SocialLink {...sl} />
-          </Box>
-        ))}
+        <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+          {socialLinks.map(sl => (
+            <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
+              <SocialLink {...sl} />
+            </Box>
+          ))}
+        </Flex>
       </Flex>
+      <LandingCard
+        style={{ boxSizing: 'border-box' }}
+        minHeight={['13rem']}
+        width={['100%', '100%', '80%']}
+      >
+        <Box
+          backgroundColor="secondary"
+          width="100%"
+          height="100%"
+          style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
+          opacity="0.15"
+        />
+        <Flex
+          flexDirection="column"
+          alignItems="start"
+          justifyContent="center"
+          paddingX={[2, 3, 5]}
+          width="100%"
+          height="100%"
+        >
+          <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
+            Need a tool to generate process diagrams from events logs?
+          </Text>
+          <Text fontSize={[1, 2, 3]} mb={[3]}>
+            We are developing a free tool that will help you generate and
+            visualize your process activities using BPMN Standards.
+          </Text>
 
-      <ScrollIcon href={`#${getSectionHref(SECTION.about)}`} />
+          <Button fontSize={[1, 2, 3]} mt={[3, 0, 0]}>
+            <FontAwesomeIcon
+              icon="arrow-right"
+              size="lg"
+              style={{ marginRight: '0.5rem' }}
+            />
+            <Link
+              to="/model-generation-application"
+              style={{
+                color: 'White',
+                textDecorationLine: 'None',
+              }}
+            >
+              Get started
+            </Link>
+          </Button>
+        </Flex>
+      </LandingCard>
     </Section.Container>
   );
 };
@@ -76,30 +133,35 @@ const Background = (): JSX.Element => (
   <>
     <Triangle
       color="muted"
-      height={['35vh', '75vh']}
+      height={['35vh', '40vh']}
       width={['95vw', '55vw']}
     />
 
     <Triangle
       color="secondary"
-      height={['38vh', '75vh']}
+      height={['38vh', '55vh']}
       width={['50vw', '35vw']}
     />
 
     <Triangle
       color="primary"
-      height={['25vh', '35vh']}
+      height={['25vh', '30vh']}
       width={['75vw', '60vw']}
       position="top-right"
     />
-
-    <Triangle
-      color="muted"
-      height={['20vh', '20vh']}
-      width={['100vw', '100vw']}
-      position="bottom-right"
-    />
   </>
 );
+
+const LandingCard = styled(Box).attrs({
+  boxShadow: 0,
+})`
+  border: none;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 0.25s;
+  top: 0;
+  height: 20vh;
+  align-self: center;
+`;
 
 export default LandingPage;

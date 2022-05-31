@@ -25,13 +25,17 @@ export enum SECTION {
   blog = 'Blog Posts',
 }
 
-// keys are used by the page header
-// values are used as page title
+/**
+ * `Keys` are used by the page header <br>
+ * `Values` are used as page title
+ */
 export enum PAGE {
   home = 'Process Analytics',
   notFound = 'Page not found - Process Analytics',
   news = 'News - Process Analytics',
   blog = 'Blog Posts - Process Analytics',
+  modelGenerationApplication = 'Model Generation Application',
+  modelGenerationApplicationConditions = ' Usage conditions of Model Generation Application',
 }
 
 export const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';

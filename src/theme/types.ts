@@ -26,10 +26,6 @@ export type Image = {
   positionFromMdx?: ImagePosition;
 };
 
-export type Favicon = {
-  src: string;
-};
-
 export type Library = {
   name: string;
   description: string;
@@ -60,6 +56,7 @@ export type PostDescription = {
   url: string;
   date: string;
   time: number;
+  isInModelGenerationAppPage?: boolean;
 };
 
 export type Landing = {

@@ -15,4 +15,6 @@
  */
 
 declare module '*.png';
+declare module '*.gif';
+// TODO rename the file as we are not declaring images only
 declare module '*.mdx';
