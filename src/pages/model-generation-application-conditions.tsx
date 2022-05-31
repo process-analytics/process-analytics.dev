@@ -25,6 +25,7 @@ import Footer from '../theme/components/Footer';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
+import styled from 'styled-components';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
@@ -44,7 +45,11 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
         <Part flexDirection="column" width="80%" marginX="auto">
           <PartTitle>Terms of Use</PartTitle>
           <Paragraph fontSize={[1, 1, 2, 3]}>
-            The <b>Model Generation Application</b> is edited by:
+            The{' '}
+            <a href={'/model-generation-application'}>
+              <Bold>Model Generation Application</Bold>{' '}
+            </a>
+            is edited by:
             <br />
             <code>
               Process Analytics p/o Bonitasoft
@@ -63,7 +68,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
               process.analytics.dev@gmail.com
             </a>
           </Paragraph>
-          <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]}>
+          <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4, 5]}>
             The form used to submit data is provided by&nbsp;
             <a href="https://www.jotform.com">JOTForm</a>. The following rules
             apply:
@@ -73,29 +78,35 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
               </li>
               <li>
                 <a href="https://www.jotform.com/privacy/">JOTForm privacy</a>.
-                In particular, please read the
-                <i>"INFORMATION WE COLLECT / From Form Responders"</i> and
-                <i>
-                  "HOW WE USE AND DISCLOSE YOUR INFORMATION / Form responders"
-                </i>{' '}
-                paragraphs.
+                In particular, please read the following paragraphs
+                <ul>
+                  <li>
+                    <i>"INFORMATION WE COLLECT / From Form Responders"</i>
+                  </li>
+                  <li>
+                    <i>
+                      "HOW WE USE AND DISCLOSE YOUR INFORMATION / Form
+                      responders"
+                    </i>
+                  </li>
+                </ul>
               </li>
               <li>Submissions are deleted 90 days after they're received</li>
-              <li>Data are only stored in Europe (Germany)</li>
+              <li>Data is only stored in Europe (Germany)</li>
             </ul>
           </Paragraph>
           <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]} marginBottom={[4]}>
-            The <code>Process Analytics Project</code> collects data (name,
-            email, XES file) in the sole purpose of sending you the results of
-            the processing.
+            The <Bold>Process Analytics Project</Bold> collects data (name,
+            email, XES file) for the sole purpose of sending you the processing
+            results.
             <br />
-            The <code>Process Analytics Project</code> does not sell personal
+            The <Bold>Process Analytics Project</Bold> does not sell personal
             information gathered from form responses.
             <br />
-            The <code>Process Analytics Project</code> won’t make available form
-            responses to third parties without permission, and won’t use any
-            contact details collected in the form except for sending the results
-            of the processing.
+            The <Bold>Process Analytics Project</Bold> will not make form
+            responses available to third parties without permission, and we
+            won’t use any contact details collected in the form except for
+            sending the processing results.
             <br />
           </Paragraph>
         </Part>
@@ -110,9 +121,9 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             Disclaimer of Warranties and Limitation of Liability
           </PartTitle>
           <Paragraph fontSize={[1, 1, 2, 3]}>
-            <b>(a) Warranty Disclaimer:</b> THE SITE AND THE SITE CONTENT ARE
-            PROVIDED STRICTLY ON AN “AS IS” AND “AS AVAILABLE” BASIS, AND THE
-            PROCESS ANALYTICS PROJECT MAKES NO WARRANTY THAT THE SITE OR THE
+            <Bold>(a) Warranty Disclaimer:</Bold> THE SITE AND THE SITE CONTENT
+            ARE PROVIDED STRICTLY ON AN “AS IS” AND “AS AVAILABLE” BASIS, AND
+            THE PROCESS ANALYTICS PROJECT MAKES NO WARRANTY THAT THE SITE OR THE
             SITE CONTENT IS COMPLETE, SUITABLE FOR YOUR PURPOSE, OR ACCURATE.
             THE PROCESS ANALYTICS PROJECT HEREBY EXPRESSLY DISCLAIMS ANY AND ALL
             IMPLIED, STATUTORY OR OTHER WARRANTIES WITH RESPECT TO THE SITE,
@@ -126,19 +137,19 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             FREE.
           </Paragraph>
           <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]}>
-            <b>(b) Limitation of Liability:</b> TO THE FULLEST EXTENT PERMITTED
-            BY APPLICABLE LAW, YOU AGREE THAT THE PROCESS ANALYTICS PROJECT
-            SHALL NOT BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF OR
+            <Bold>(b) Limitation of Liability:</Bold> TO THE FULLEST EXTENT
+            PERMITTED BY APPLICABLE LAW, YOU AGREE THAT THE PROCESS ANALYTICS
+            PROJECT SHALL NOT BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF OR
             CONNECTED TO YOUR USE OF, OR INABILITY TO USE, THE SITE, INCLUDING,
-            WITHOUT LIMITATION, ANY AND ALL DIRECT, INDIRECT,
-            INCIDENTAL,CONSEQUENTIAL, PUNITIVE, SPECIAL, EXEMPLARY OR STATUTORY
-            DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF BUSINESS, LOSS OR
-            PROFITS, LOSS OF REVENUE, LOSS OF DATA, LOSS OF GOODWILL OR FOR ANY
-            COST OF COVER OR COST OF PROCUREMENT OF SUBSTITUTE GOODS OR
-            SERVICES), EVEN IF THE PROCESS ANALYTICS PROJECT HAS BEEN ADVISED OF
-            THE POSSIBILITY OF SUCH DAMAGES, AND REGARDLESS OF THE LEGAL THEORY
-            UNDER WHICH DAMAGES ARE SOUGHT, WHETHER IN BREACH OF CONTRACT OR IN
-            TORT, INCLUDING NEGLIGENCE.
+            WITHOUT LIMITATION, ANY AND ALL DIRECT, INDIRECT, INCIDENTAL,
+            CONSEQUENTIAL, PUNITIVE, SPECIAL, EXEMPLARY OR STATUTORY DAMAGES
+            (INCLUDING, WITHOUT LIMITATION, LOSS OF BUSINESS, LOSS OR PROFITS,
+            LOSS OF REVENUE, LOSS OF DATA, LOSS OF GOODWILL OR FOR ANY COST OF
+            COVER OR COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES), EVEN
+            IF THE PROCESS ANALYTICS PROJECT HAS BEEN ADVISED OF THE POSSIBILITY
+            OF SUCH DAMAGES, AND REGARDLESS OF THE LEGAL THEORY UNDER WHICH
+            DAMAGES ARE SOUGHT, WHETHER IN BREACH OF CONTRACT OR IN TORT,
+            INCLUDING NEGLIGENCE.
           </Paragraph>
         </Part>
       </Section.Container>
@@ -170,5 +181,9 @@ const Background = (): JSX.Element => (
     />
   </>
 );
+
+const Bold = styled.b`
+  font-weight: 700;
+`;
 
 export default ModelGenerationApplicationConditionPage;
