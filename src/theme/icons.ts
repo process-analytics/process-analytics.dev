@@ -20,13 +20,28 @@ import {
   faGithub,
   faDev,
 } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGlobe,
+  faBoltLightning,
+  faBook,
+  faArrowRight,
+  faTools,
+  faLightbulb,
+  faInfo,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const ICONS: IconDefinition[] = [
-  faMedium,
+  // brands
   faDev,
-  faTwitter,
   faGithub,
-  faGlobe,
+  faMedium,
+  faTwitter,
+  // solid
+  faArrowRight,
+  faBoltLightning,
   faBook,
+  faGlobe,
+  faLightbulb,
+  faTools,
+  faInfo,
 ];

@@ -27,7 +27,13 @@ import { header } from '../../content/HeaderContent';
 import { LinkInButton } from './Link';
 import colors from '../colors.json';
 
-const PageHeader = (): JSX.Element => {
+type PageHeaderProps = {
+  displayDemoButton?: boolean;
+};
+
+const PageHeader = ({
+  displayDemoButton = true,
+}: PageHeaderProps): JSX.Element => {
   const { logo } = header;
 
   return (
@@ -50,21 +56,23 @@ const PageHeader = (): JSX.Element => {
             />
           </Flex>
         </RebassLink>
-        <Flex mr={[0, 3, 5]}>
-          <Box ml={[2, 3]} fontSize={[2, 3]}>
-            <Button
-              as={LinkInButton}
-              href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-              target="_blank"
-              style={{
-                color: colors.background,
-                background: colors.secondary,
-              }}
-            >
-              Demo
-            </Button>
-          </Box>
-        </Flex>
+        {displayDemoButton && (
+          <Flex mr={[0, 3, 5]}>
+            <Box ml={[2, 3]} fontSize={[2, 3]}>
+              <Button
+                as={LinkInButton}
+                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                target="_blank"
+                style={{
+                  color: colors.background,
+                  background: colors.secondary,
+                }}
+              >
+                Demo
+              </Button>
+            </Box>
+          </Flex>
+        )}
       </Flex>
     </StyledHeadroom>
   );

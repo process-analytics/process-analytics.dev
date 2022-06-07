@@ -34,7 +34,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+        if: github.event.action != 'closed'
       - name: create .env.production file
+        if: github.event.action != 'closed'
         run: |
           touch .env.production
           echo GATSBY_GA_MEASUREMENT_ID =${{ secrets.TEST_GA_MEASUREMENT_ID }} >> .env.production
