@@ -13,6 +13,10 @@ on:
       - 'package-lock.json'
       - 'gatsby-*.js'
 
+permissions:
+  # Push to gh-pages
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
