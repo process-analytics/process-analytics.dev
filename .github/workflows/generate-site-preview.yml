@@ -13,6 +13,10 @@ on:
       - 'package-lock.json'
       - 'gatsby-*.js'
 
+permissions:
+  # surge-preview: PR comments
+  pull-requests: write
+
 jobs:
   # inspired from https://github.com/process-analytics/github-actions-playground/pull/23
   check_secrets:
