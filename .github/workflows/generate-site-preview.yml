@@ -54,5 +54,5 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            npm ci
+            npm ci --legacy-peer-deps
             npm run build
