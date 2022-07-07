@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'June 2022 News',
+    text: 'Learn about the events we attended and the enhancements to the BPMN Visualization TS library that took place in June 2022.',
+    cover: 'https://miro.medium.com/max/400/0*YYyqzRs6s00XJKpN',
+    url: 'https://medium.com/@process-analytics/29a5001d6009',
+    date: 'July 2022',
+    time: 4,
+  },
+  {
     title: 'May 2022 News',
     text: 'Learn about the new “Model Generation Application”, available on the website, and the enhancements to the BPMN Visualization TS library.',
     cover: 'https://miro.medium.com/max/400/0*pHjzedOzbdU412Z7',
