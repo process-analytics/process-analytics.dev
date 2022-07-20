@@ -23,7 +23,7 @@ import { HeadProps, Link } from 'gatsby';
 import Img from '../images/404.png';
 import { PAGE } from '../theme/utils/constants';
 import PageHeader from '../theme/components/PageHeader';
-import Footer from '../theme/components/Footer';
+import OldFooter from '../theme/components/OldFooter';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 import { SEO } from '../components/seo';
 
@@ -49,7 +49,7 @@ const NotFoundPage = (): JSX.Element => (
         </Text>
       </Box>
     </Section.Container>
-    <Footer />
+    <OldFooter />
     <MailingListSubscription />
   </Layout>
 );

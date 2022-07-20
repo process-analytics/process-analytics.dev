@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
+import React, { forwardRef } from 'react';
+
 import { AvatarProps } from '@mui/material';
 import { BoxProps } from '@mui/material/Box/Box';
-import React, { forwardRef } from 'react';
 
 // Custom styles for MKBox
 import MKBoxRoot from './MKBoxRoot';
+
+import { BgColor, Color, ColoredShadow } from '../../../types';
 
 const MKBox = forwardRef<
   JSX.Element,
@@ -55,8 +58,13 @@ const MKBox = forwardRef<
 );
 
 // Setting default values for the props of MKBox
+
 MKBox.defaultProps = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   variant: 'contained',
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   bgColor: 'transparent',
   color: 'dark',
   opacity: 1,
@@ -68,21 +76,12 @@ MKBox.defaultProps = {
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: string;
-  color?: string;
+  bgColor?: BgColor;
+  color?: Color;
   opacity?: number;
   borderRadius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section' | 'none';
   shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset' | 'none';
-  coloredShadow?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'none';
+  coloredShadow?: ColoredShadow;
   to?: string;
   method?: string;
   autocomplete?: string;

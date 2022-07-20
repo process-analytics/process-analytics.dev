@@ -23,7 +23,7 @@ import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { header } from '../../content/HeaderContent';
 
-const Footer = (): JSX.Element => {
+const OldFooter = (): JSX.Element => {
   const { title, socialLinks } = landing;
   const { logo } = header;
 
@@ -103,4 +103,4 @@ const AttributionContainer = styled.div`
   }
 `;
 
-export default Footer;
+export default OldFooter;

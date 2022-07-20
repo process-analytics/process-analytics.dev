@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import logo from 'src/images/logo.svg';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -46,7 +47,7 @@ export type AboutSubSection = {
 export type SocialLink = {
   url: string;
   name: string;
-  icon: IconName;
+  icon: IconName | JSX.Element;
 };
 
 export type PostDescription = {
@@ -64,3 +65,56 @@ export type Landing = {
   presentation: string;
   socialLinks: SocialLink[];
 };
+
+export type FooterRoutes = {
+  brand: Link & { image: string };
+  copyright: { name: string; href: string };
+  socials: Omit<SocialLink, 'name'>[];
+  menus: Menu[];
+};
+export type Menu = { name: string; items: Link[] };
+export type Link = { name: string; route: string };
+
+export type Color =
+  | 'transparent'
+  | 'white'
+  | 'black'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
+  | 'light'
+  | 'dark'
+  | 'text'
+  | 'grey-100'
+  | 'grey-200'
+  | 'grey-300'
+  | 'grey-400'
+  | 'grey-500'
+  | 'grey-600'
+  | 'grey-700'
+  | 'grey-800'
+  | 'grey-900';
+
+export type BgColor =
+  | 'primary'
+  | 'secondary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'dark'
+  | 'light';
+
+export type ColoredShadow =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
+  | 'light'
+  | 'dark'
+  | 'none';

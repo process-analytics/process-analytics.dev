@@ -16,7 +16,7 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
-import Footer from '../components/Footer';
+import OldFooter from '../components/OldFooter';
 import Section from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
@@ -65,7 +65,7 @@ export const PageWithPosts = ({
       </Text>
       <PostContainer posts={posts} />
     </Section.Container>
-    <Footer />
+    <OldFooter />
     <MailingListSubscription />
   </Layout>
 );

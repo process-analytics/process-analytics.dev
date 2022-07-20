@@ -18,11 +18,13 @@
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
+import { BgColor, Color, ColoredShadow } from '../../../types';
+
 interface MKBoxRootProps {
   ownerState: {
     variant?: 'gradient' | 'contained';
-    bgColor?: string;
-    color?: string;
+    bgColor?: BgColor;
+    color?: Color;
     opacity?: number;
     borderRadius?:
       | 'xs'
@@ -34,16 +36,7 @@ interface MKBoxRootProps {
       | 'section'
       | 'none';
     shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset' | 'none';
-    coloredShadow?:
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'info'
-      | 'warning'
-      | 'error'
-      | 'light'
-      | 'dark'
-      | 'none';
+    coloredShadow?: ColoredShadow;
   };
 }
 
@@ -78,105 +71,43 @@ export default styled(Box)<MKBoxRootProps>(({ theme, ownerState }) => {
       }
     : undefined;
 
-  const validGradients = [
-    'primary',
-    'secondary',
-    'info',
-    'success',
-    'warning',
-    'error',
-    'dark',
-    'light',
-  ];
-
-  const validColors = [
-    'transparent',
-    'white',
-    'black',
-    'primary',
-    'secondary',
-    'info',
-    'success',
-    'warning',
-    'error',
-    'light',
-    'dark',
-    'text',
-    'grey-100',
-    'grey-200',
-    'grey-300',
-    'grey-400',
-    'grey-500',
-    'grey-600',
-    'grey-700',
-    'grey-800',
-    'grey-900',
-  ];
-
-  const validBorderRadius = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'section'];
-  const validBoxShadows = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'inset'];
-
   // background value
-  let backgroundValue = bgColor;
-
+  let backgroundValue;
   if (variant === 'gradient') {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const gradientBgColor = gradient[bgColor];
-    backgroundValue = validGradients.find(el => el === bgColor)
-      ? linearGradient(gradientBgColor.main, gradientBgColor.dark)
+    backgroundValue = bgColor
+      ? linearGradient(gradient[bgColor].main, gradient[bgColor].dark)
       : 'White';
-  } else if (validColors.find(el => el === bgColor)) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const paletteBgColor = palette[bgColor];
-
-    backgroundValue = paletteBgColor
-      ? paletteBgColor.main
-      : greyColors
-      ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        greyColors[bgColor]
-      : undefined;
+  } else {
+    backgroundValue =
+      bgColor && palette[bgColor]
+        ? palette[bgColor].main
+        : greyColors
+        ? bgColor &&
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          greyColors[bgColor]
+        : undefined;
   }
 
   // color value
-  let colorValue = color;
-
-  if (validColors.find(el => el === color)) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    colorValue = palette[color]
-      ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        palette[color].main
+  const colorValue =
+    color && palette[color]
+      ? palette[color].main
       : greyColors
       ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         greyColors[color]
       : undefined;
-  }
 
   // borderRadius value
-  let borderRadiusValue = '';
-  if (
-    borderRadius &&
-    borderRadius !== 'none' &&
-    validBorderRadius.find(el => el === borderRadius)
-  ) {
+  let borderRadiusValue = 'none';
+  if (borderRadius && borderRadius !== 'none') {
     borderRadiusValue = radius[borderRadius];
-  } else if (borderRadius) {
-    borderRadiusValue = borderRadius;
   }
 
   // boxShadow value
   let boxShadowValue = 'none';
-
-  if (
-    shadow &&
-    shadow !== 'none' &&
-    validBoxShadows.find(el => el === shadow)
-  ) {
+  if (shadow && shadow !== 'none') {
     boxShadowValue = boxShadows[shadow];
   } else if (coloredShadow && coloredShadow !== 'none') {
     boxShadowValue = colored[coloredShadow] ? colored[coloredShadow] : 'none';

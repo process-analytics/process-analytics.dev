@@ -24,7 +24,7 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import Footer from '../theme/components/Footer';
+import OldFooter from '../theme/components/OldFooter';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
@@ -156,7 +156,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           </Paragraph>
         </Part>
       </Section.Container>
-      <Footer />
+      <OldFooter />
     </Layout>
   );
 };
