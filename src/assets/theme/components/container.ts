@@ -17,22 +17,19 @@
 // Material Kit 2 React base styles
 import breakpoints from '../base/breakpoints';
 
-// Material Kit 2 React helper functions
-import pxToRem from '../functions/pxToRem';
-
 const {
   values: { sm, md, lg, xl, xxl },
 } = breakpoints;
 
-const SM = `@media (min-width: ${sm}px)`;
-const MD = `@media (min-width: ${md}px)`;
-const LG = `@media (min-width: ${lg}px)`;
-const XL = `@media (min-width: ${xl}px)`;
-const XXL = `@media (min-width: ${xxl}px)`;
+const SM = `@media (min-width: ${sm}rem)`;
+const MD = `@media (min-width: ${md}rem)`;
+const LG = `@media (min-width: ${lg}rem)`;
+const XL = `@media (min-width: ${xl}rem)`;
+const XXL = `@media (min-width: ${xxl}rem)`;
 
 const sharedClasses = {
-  paddingRight: `${pxToRem(24)} !important`,
-  paddingLeft: `${pxToRem(24)} !important`,
+  paddingRight: `2rem !important`,
+  paddingLeft: `2rem !important`,
   marginRight: 'auto !important',
   marginLeft: 'auto !important',
   width: '100% !important',
@@ -43,31 +40,31 @@ export default {
   [SM]: {
     '.MuiContainer-root': {
       ...sharedClasses,
-      maxWidth: '540px !important',
+      maxWidth: `${sm}rem !important`,
     },
   },
   [MD]: {
     '.MuiContainer-root': {
       ...sharedClasses,
-      maxWidth: '720px !important',
+      maxWidth: `${md}rem !important`,
     },
   },
   [LG]: {
     '.MuiContainer-root': {
       ...sharedClasses,
-      maxWidth: '960px !important',
+      maxWidth: `${lg}rem !important`,
     },
   },
   [XL]: {
     '.MuiContainer-root': {
       ...sharedClasses,
-      maxWidth: '1140px !important',
+      maxWidth: `${xl}rem !important`,
     },
   },
   [XXL]: {
     '.MuiContainer-root': {
       ...sharedClasses,
-      maxWidth: '1320px !important',
+      maxWidth: `${xxl}rem !important`,
     },
   },
 };
