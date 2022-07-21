@@ -15,12 +15,22 @@
  */
 
 import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
-import { Mixins } from '@mui/material/styles/createMixins';
-import { Transitions } from '@mui/material/styles/createTransitions';
-import { Shadows } from '@mui/material/styles/shadows';
+import { TypographyStyle } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
+  type BoxShadowColor = {
+    primary: string;
+    secondary: string;
+    info: string;
+    success: string;
+    warning: string;
+    error: string;
+    light: string;
+    dark: string;
+    white: string;
+  };
+
   interface Theme {
     /*    mixins: Mixins;
     shadows: Shadows;
@@ -37,17 +47,7 @@ declare module '@mui/material/styles' {
       xl: string;
       xxl: string;
       inset: string;
-      colored: {
-        primary: string;
-        secondary: string;
-        info: string;
-        success: string;
-        warning: string;
-        error: string;
-        light: string;
-        dark: string;
-        white: string;
-      };
+      colored: BoxShadowColor;
       sliderBoxShadow: {
         thumb: string;
       };
@@ -120,14 +120,28 @@ declare module '@mui/material/styles' {
 
   interface CustomTypography {
     fontWeightLighter: number;
-    d1: any;
-    d2: any;
-    d3: any;
-    d4: any;
-    d5: any;
-    d6: any;
-    size: any;
-    lineHeight: any;
+    d1: TypographyStyle;
+    d2: TypographyStyle;
+    d3: TypographyStyle;
+    d4: TypographyStyle;
+    d5: TypographyStyle;
+    d6: TypographyStyle;
+    size: {
+      xxs: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+      '3xl': string;
+    };
+
+    lineHeight: {
+      sm: number;
+      md: number;
+      lg: number;
+    };
   }
 
   // allow configuration using `createTheme`
@@ -143,17 +157,7 @@ declare module '@mui/material/styles' {
       xl: string;
       xxl: string;
       inset: string;
-      colored: {
-        primary: string;
-        secondary: string;
-        info: string;
-        success: string;
-        warning: string;
-        error: string;
-        light: string;
-        dark: string;
-        white: string;
-      };
+      colored: BoxShadowColor;
       sliderBoxShadow: {
         thumb: string;
       };

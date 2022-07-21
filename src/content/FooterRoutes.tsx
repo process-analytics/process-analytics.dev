@@ -34,7 +34,7 @@ export const footerRoutes: FooterRoutes = {
     image: logo,
     route: '/',
   },
-  copyright: { name: 'Bonitasoft S.A.', href: 'https://www.bonitasoft.com' },
+  copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: [
     {
       icon: <GitHubIcon />,
@@ -77,10 +77,10 @@ export const footerRoutes: FooterRoutes = {
       items: [{ name: 'contact us', route: '/contact-us' }],
     },
     {
-      name: 'company',
+      name: 'Project',
       items: [
         { name: 'about us', route: '/about-us' },
-        { name: 'terms & policies', route: '' },
+        { name: 'terms & policies', route: '/terms-and-policies' },
       ],
     },
   ],

@@ -32,7 +32,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
-  const color = light ? 'white' : 'secondary';
+  const color = light ? 'light' : 'secondary';
 
   const renderLinks =
     menus &&
@@ -41,7 +41,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         <MKTypography
           key={item.name}
           component={GatsbyLink}
-          href={item.route}
+          to={item.route}
           variant="body2"
           color={color}
           fontWeight="regular"
@@ -72,7 +72,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
       Copyright &copy; {year}{' '}
       <MKTypography
         component={GatsbyLink}
-        href={brand.route}
+        to={brand.route}
         rel="noreferrer"
         variant="caption"
         fontWeight="regular"
@@ -84,7 +84,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
       by{' '}
       <MKTypography
         component={MaterialLink}
-        href={copyright.href}
+        href={copyright.url}
         target="_blank"
         rel="noreferrer"
         variant="caption"

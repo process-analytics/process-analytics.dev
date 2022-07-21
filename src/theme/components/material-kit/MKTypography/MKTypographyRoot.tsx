@@ -18,13 +18,27 @@
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
+import {
+  FontWeight,
+  PaletteColorName,
+  TextTransform,
+  VerticalAlign,
+} from '../../../types';
+
 interface MKTypographyRootProps {
-  ownerState: any;
+  ownerState: {
+    color?: PaletteColorName;
+    textTransform?: TextTransform;
+    verticalAlign?: VerticalAlign;
+    fontWeight?: FontWeight;
+    opacity?: number;
+    textGradient?: boolean;
+  };
 }
 
-export default styled(Typography)<MKTypographyRootProps>(
+export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, typography, functions } = theme;
+    const { palette, functions } = theme;
     const {
       color,
       textTransform,
@@ -34,58 +48,29 @@ export default styled(Typography)<MKTypographyRootProps>(
       textGradient,
     } = ownerState;
 
-    const { gradient } = palette;
-    /*    const {
-      fontWeightLight,
-      fontWeightRegular,
-      fontWeightMedium,
-      fontWeightBold,
-    } = typography;*/
     const { linearGradient } = functions;
 
-    // fontWeight styles
-    /*    const fontWeights = {
-      light: fontWeightLight,
-      regular: fontWeightRegular,
-      medium: fontWeightMedium,
-      bold: fontWeightBold,
-    };*/
-
-    // styles for the typography with textGradient={true}
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const gradientColor = gradient[color];
-    const gradientStyles = (): any => ({
-      backgroundImage:
-        color !== 'inherit' &&
-        color !== 'text' &&
-        color !== 'white' &&
-        gradientColor
-          ? linearGradient(gradientColor.main, gradientColor.dark)
-          : linearGradient(gradient.dark.main, gradient.dark.dark),
-      display: 'inline-block',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      position: 'relative',
-      zIndex: 1,
-    });
-
-    // color value
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const paletteColor = palette[color];
-    const colorValue =
-      color === 'inherit' || !paletteColor ? 'inherit' : paletteColor.main;
-
+    const paletteColor = color && palette[color];
+    const gradientColor = color && palette.gradient[color];
     return {
       opacity,
-      textTransform,
+      textTransform: textTransform ?? 'none',
       verticalAlign,
       textDecoration: 'none',
-      color: colorValue,
+      color: !paletteColor ? 'inherit' : paletteColor.main,
       letterSpacing: '-0.125px',
       fontWeight: fontWeight,
-      ...(textGradient && gradientStyles()),
+      ...(textGradient && {
+        backgroundImage:
+          color !== 'text' && gradientColor
+            ? linearGradient(gradientColor.main, gradientColor.dark)
+            : linearGradient(gradientColor.dark.main, gradientColor.dark.dark),
+        display: 'inline-block',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        position: 'relative',
+        zIndex: 1,
+      }),
     };
   },
 );

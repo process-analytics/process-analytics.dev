@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 import { Link } from 'rebass/styled-components';
 import Tippy from '@tippyjs/react';
@@ -26,7 +27,7 @@ type Props = SocialLinkType & {
 };
 
 const SocialLink = ({ icon, name, url, invert }: Props): JSX.Element | null => {
-  const iconDefinition = getIconDefinition(icon);
+  const iconDefinition = getIconDefinition(icon as IconName);
   if (!iconDefinition) {
     return null;
   }
