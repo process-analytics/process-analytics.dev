@@ -66,7 +66,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
                 ({ icon, url }: Omit<SocialLink, 'name'>, key: number) => (
                   <MKTypography
                     key={url}
-                    component="a"
+                    component={MaterialLink}
                     href={url}
                     target="_blank"
                     rel="noreferrer"
@@ -115,7 +115,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
                     >
                       <MKTypography
                         component={GatsbyLink}
-                        href={route}
+                        to={route}
                         rel="noreferrer"
                         variant="button"
                         fontWeight="regular"
@@ -135,7 +135,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
               Copyright &copy; {year}{' '}
               <MKTypography
                 component={GatsbyLink}
-                href={brand.route}
+                to={brand.route}
                 rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
@@ -145,7 +145,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
               by{' '}
               <MKTypography
                 component={MaterialLink}
-                href={copyright.href}
+                href={copyright.url}
                 target="_blank"
                 rel="noreferrer"
                 variant="caption"

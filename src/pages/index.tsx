@@ -15,7 +15,7 @@
  */
 
 import * as React from 'react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import { HeadProps } from 'gatsby';
 
 import { SEO } from '../components/seo';
@@ -33,7 +33,7 @@ import OldFooter from '../theme/components/OldFooter';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
-import { footerRoutes } from '../content/footer.routes';
+import { footerRoutes } from '../content/FooterRoutes';
 import CenteredFooter from '../theme/components/CenteredFooter';
 
 const HomePage = (): JSX.Element => (
@@ -46,7 +46,8 @@ const HomePage = (): JSX.Element => (
     <Blog />
     <OldFooter />
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/*Use ScopedCssBaseline until we need to keep the old theme. After use CssBaseline*/}
+      <ScopedCssBaseline />
       <DefaultFooter content={footerRoutes} />
       <CenteredFooter content={footerRoutes} light={false} />
     </ThemeProvider>

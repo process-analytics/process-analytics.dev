@@ -15,109 +15,104 @@
  */
 
 // @mui material components
+import { Color } from '@mui/material';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import {
+  BoxShadowColor,
+  CustomPalette,
+  Palette,
+  styled,
+} from '@mui/material/styles';
 
-import { BgColor, Color, ColoredShadow } from '../../../types';
+import {
+  BorderRadius,
+  GreyColorName,
+  PaletteColorName,
+  ShadowSize,
+} from '../../../types';
 
 interface MKBoxRootProps {
   ownerState: {
     variant?: 'gradient' | 'contained';
-    bgColor?: BgColor;
-    color?: Color;
+    bgColor?: PaletteColorName | GreyColorName | 'transparent';
+    color?: PaletteColorName | GreyColorName;
     opacity?: number;
-    borderRadius?:
-      | 'xs'
-      | 'sm'
-      | 'md'
-      | 'lg'
-      | 'xl'
-      | 'xxl'
-      | 'section'
-      | 'none';
-    shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset' | 'none';
-    coloredShadow?: ColoredShadow;
+    borderRadius?: BorderRadius;
+    shadow?: ShadowSize;
+    shadowColor?: keyof BoxShadowColor;
   };
 }
 
-export default styled(Box)<MKBoxRootProps>(({ theme, ownerState }) => {
-  const { palette, functions, borders, boxShadows } = theme;
-  const {
-    variant,
-    bgColor,
-    color,
-    opacity,
-    borderRadius,
-    shadow,
-    coloredShadow,
-  } = ownerState;
+function getGreyColor(
+  palette: Palette & CustomPalette,
+  color: GreyColorName,
+): string {
+  return palette.grey[color.substr(5) as keyof Color];
+}
 
-  const { gradient, grey } = palette;
-  const { linearGradient } = functions;
-  const { borderRadius: radius } = borders;
-  const { colored } = boxShadows;
+function getColor(
+  palette: Palette & CustomPalette,
+  color: PaletteColorName | GreyColorName,
+): string {
+  return color !== 'grey-100' &&
+    color !== 'grey-200' &&
+    color !== 'grey-300' &&
+    color !== 'grey-400' &&
+    color !== 'grey-500' &&
+    color !== 'grey-600' &&
+    color !== 'grey-700' &&
+    color !== 'grey-800' &&
+    color !== 'grey-900'
+    ? palette[color].main
+    : getGreyColor(palette, color);
+}
 
-  const greyColors = grey
-    ? {
-        'grey-100': grey[100],
-        'grey-200': grey[200],
-        'grey-300': grey[300],
-        'grey-400': grey[400],
-        'grey-500': grey[500],
-        'grey-600': grey[600],
-        'grey-700': grey[700],
-        'grey-800': grey[800],
-        'grey-900': grey[900],
-      }
-    : undefined;
+export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
+  ({ theme, ownerState }) => {
+    const { palette, functions, borders, boxShadows } = theme;
+    const {
+      variant,
+      bgColor,
+      color,
+      opacity,
+      borderRadius,
+      shadow,
+      shadowColor,
+    } = ownerState;
 
-  // background value
-  let backgroundValue;
-  if (variant === 'gradient') {
-    backgroundValue = bgColor
-      ? linearGradient(gradient[bgColor].main, gradient[bgColor].dark)
-      : 'White';
-  } else {
-    backgroundValue =
-      bgColor && palette[bgColor]
-        ? palette[bgColor].main
-        : greyColors
-        ? bgColor &&
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          greyColors[bgColor]
-        : undefined;
-  }
+    // background value
+    let backgroundValue;
+    if (variant === 'gradient') {
+      backgroundValue = bgColor
+        ? functions.linearGradient(
+            palette.gradient[bgColor].main,
+            palette.gradient[bgColor].dark,
+          )
+        : 'White';
+    } else {
+      backgroundValue =
+        bgColor &&
+        (bgColor === 'transparent'
+          ? 'transparent'
+          : getColor(palette, bgColor));
+    }
 
-  // color value
-  const colorValue =
-    color && palette[color]
-      ? palette[color].main
-      : greyColors
-      ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        greyColors[color]
-      : undefined;
+    // color value
+    const colorValue = color && getColor(palette, color);
 
-  // borderRadius value
-  let borderRadiusValue = 'none';
-  if (borderRadius && borderRadius !== 'none') {
-    borderRadiusValue = radius[borderRadius];
-  }
+    // boxShadow value
+    const boxShadowValue = shadow
+      ? boxShadows[shadow]
+      : shadowColor
+      ? boxShadows.colored[shadowColor]
+      : 'none';
 
-  // boxShadow value
-  let boxShadowValue = 'none';
-  if (shadow && shadow !== 'none') {
-    boxShadowValue = boxShadows[shadow];
-  } else if (coloredShadow && coloredShadow !== 'none') {
-    boxShadowValue = colored[coloredShadow] ? colored[coloredShadow] : 'none';
-  }
-
-  return {
-    opacity,
-    background: backgroundValue,
-    color: colorValue,
-    borderRadius: borderRadiusValue,
-    boxShadow: boxShadowValue,
-  };
-});
+    return {
+      opacity,
+      background: backgroundValue,
+      color: colorValue,
+      borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
+      boxShadow: boxShadowValue,
+    };
+  },
+);

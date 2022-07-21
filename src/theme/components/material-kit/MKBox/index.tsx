@@ -16,13 +16,13 @@
 
 import React, { forwardRef } from 'react';
 
-import { AvatarProps } from '@mui/material';
+import { AvatarProps, BoxShadowColor } from '@mui/material';
 import { BoxProps } from '@mui/material/Box/Box';
 
 // Custom styles for MKBox
-import MKBoxRoot from './MKBoxRoot';
+import { MKBoxRoot } from './MKBoxRoot';
 
-import { BgColor, Color, ColoredShadow } from '../../../types';
+import { BorderRadius, PaletteColorName, ShadowSize } from '../../../types';
 
 const MKBox = forwardRef<
   JSX.Element,
@@ -36,7 +36,7 @@ const MKBox = forwardRef<
       opacity,
       borderRadius,
       shadow,
-      coloredShadow,
+      shadowColor,
       ...rest
     },
     ref,
@@ -51,37 +51,28 @@ const MKBox = forwardRef<
         opacity,
         borderRadius,
         shadow,
-        coloredShadow,
+        shadowColor,
       }}
     />
   ),
 );
 
 // Setting default values for the props of MKBox
-
 MKBox.defaultProps = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   variant: 'contained',
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  bgColor: 'transparent',
   color: 'dark',
   opacity: 1,
-  borderRadius: 'none',
-  shadow: 'none',
-  coloredShadow: 'none',
 };
 
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: BgColor;
-  color?: Color;
+  bgColor?: PaletteColorName;
+  color?: PaletteColorName;
   opacity?: number;
-  borderRadius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section' | 'none';
-  shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset' | 'none';
-  coloredShadow?: ColoredShadow;
+  borderRadius?: BorderRadius;
+  shadow?: ShadowSize;
+  shadowColor?: keyof BoxShadowColor;
   to?: string;
   method?: string;
   autocomplete?: string;

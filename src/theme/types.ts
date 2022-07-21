@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import logo from 'src/images/logo.svg';
+import { CustomPalette, Palette } from '@mui/material/styles';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -68,26 +68,16 @@ export type Landing = {
 
 export type FooterRoutes = {
   brand: Link & { image: string };
-  copyright: { name: string; href: string };
+  copyright: { name: string; url: string };
   socials: Omit<SocialLink, 'name'>[];
   menus: Menu[];
 };
 export type Menu = { name: string; items: Link[] };
 export type Link = { name: string; route: string };
 
-export type Color =
-  | 'transparent'
-  | 'white'
-  | 'black'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'info'
-  | 'warning'
-  | 'error'
-  | 'light'
-  | 'dark'
-  | 'text'
+export type ColorName = 'transparent' | 'none' | 'inherit';
+
+export type GreyColorName =
   | 'grey-100'
   | 'grey-200'
   | 'grey-300'
@@ -98,23 +88,23 @@ export type Color =
   | 'grey-800'
   | 'grey-900';
 
-export type BgColor =
-  | 'primary'
-  | 'secondary'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'dark'
-  | 'light';
+export type PaletteColorName = keyof Palette | keyof CustomPalette;
 
-export type ColoredShadow =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'info'
-  | 'warning'
-  | 'error'
-  | 'light'
-  | 'dark'
-  | 'none';
+export type ShadowSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset';
+
+export type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section';
+
+export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
+
+export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
+
+export type VerticalAlign =
+  | 'unset'
+  | 'baseline'
+  | 'sub'
+  | 'super'
+  | 'text-top'
+  | 'text-bottom'
+  | 'middle'
+  | 'top'
+  | 'bottom';
