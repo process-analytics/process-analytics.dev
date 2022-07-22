@@ -41,7 +41,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
 
   return (
     <MKBox component="footer" py={6}>
-      <Container>
+      <Container maxWidth="xl">
         <Grid
           container
           spacing={3}
