@@ -75,8 +75,6 @@ export type FooterRoutes = {
 export type Menu = { name: string; items: Link[] };
 export type Link = { name: string; route: string };
 
-export type ColorName = 'transparent' | 'none' | 'inherit';
-
 export type GreyColorName =
   | 'grey-100'
   | 'grey-200'

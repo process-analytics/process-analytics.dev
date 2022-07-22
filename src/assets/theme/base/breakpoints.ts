@@ -15,20 +15,17 @@
  */
 
 /**
- * The base breakpoints for the Material Kit 2 React.
- * You can add new breakpoints using this file.
- * You can customized the breakpoints for the entire Material Kit 2 React using this file.
+ * To customize the breakpoints: https://mui.com/material-ui/customization/breakpoints/
  */
-
-// TODO Convert old px breakpoints to rem
 export default {
   unit: 'rem',
+  step: 6,
   values: {
     xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 75,
-    xl: 1200,
-    xxl: 1400,
+    sm: 36, // default 600px = 37.5rem
+    md: 48, // default 900px = 56.25rem
+    lg: 62, // default 75rem
+    xl: 75, // default 96rem
+    xxl: 87.5,
   },
 };
