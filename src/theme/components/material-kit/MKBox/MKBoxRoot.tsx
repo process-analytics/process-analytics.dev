@@ -84,10 +84,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
     let backgroundValue;
     if (variant === 'gradient') {
       backgroundValue = bgColor
-        ? functions.linearGradient(
-            palette.gradient[bgColor].main,
-            palette.gradient[bgColor].dark,
-          )
+        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
         : 'White';
     } else {
       backgroundValue =

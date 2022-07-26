@@ -22,12 +22,11 @@ declare module '@mui/material/styles' {
   type BoxShadowColor = {
     primary: string;
     secondary: string;
+    tertiary: string;
     info: string;
     success: string;
     warning: string;
     error: string;
-    light: string;
-    dark: string;
     white: string;
   };
 
@@ -95,27 +94,13 @@ declare module '@mui/material/styles' {
   }
 
   interface CustomPalette {
-    light: PaletteColor;
-    dark: PaletteColor;
-    gradient: Palette;
-    socialMediaColors: {
-      twitter: PaletteColor;
-      pinterest: PaletteColor;
-      youtube: PaletteColor;
-      slack: PaletteColor;
-      github: PaletteColor;
-    };
-    badgeColors: Palette;
-    spicy: PaletteColor;
-    sweet: PaletteColor;
-    manufacture: PaletteColor;
-    education: PaletteColor;
-    telecom: PaletteColor;
-    financial: PaletteColor;
-    energy: PaletteColor;
-    health: PaletteColor;
-    government: PaletteColor;
-    distribution: PaletteColor;
+    tertiary: PaletteColor;
+
+    twitter: PaletteColor;
+    pinterest: PaletteColor;
+    youtube: PaletteColor;
+    slack: PaletteColor;
+    github: PaletteColor;
   }
 
   interface CustomTypography {
@@ -205,26 +190,12 @@ declare module '@mui/material/styles' {
   }
 
   interface CustomPaletteOptions {
-    light?: PaletteColorOptions;
-    dark?: PaletteColorOptions;
-    gradient?: PaletteOptions;
-    socialMediaColors?: {
-      twitter: PaletteColorOptions;
-      pinterest: PaletteColorOptions;
-      youtube: PaletteColorOptions;
-      slack: PaletteColorOptions;
-      github: PaletteColorOptions;
-    };
-    badgeColors?: PaletteOptions;
-    spicy?: PaletteColorOptions;
-    sweet?: PaletteColorOptions;
-    manufacture?: PaletteColorOptions;
-    education?: PaletteColorOptions;
-    telecom?: PaletteColorOptions;
-    financial?: PaletteColorOptions;
-    energy?: PaletteColorOptions;
-    health?: PaletteColorOptions;
-    government?: PaletteColorOptions;
-    distribution?: PaletteColorOptions;
+    tertiary: PaletteColorOptions;
+
+    twitter: PaletteColorOptions;
+    pinterest: PaletteColorOptions;
+    youtube: PaletteColorOptions;
+    slack: PaletteColorOptions;
+    github: PaletteColorOptions;
   }
 }

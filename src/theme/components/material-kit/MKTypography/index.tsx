@@ -65,7 +65,7 @@ const MKTypography = forwardRef<
 
 // Setting default values for the props of MKTypography
 MKTypography.defaultProps = {
-  color: 'dark',
+  color: 'inherit',
   textTransform: undefined,
   verticalAlign: 'unset',
   textGradient: false,
@@ -74,7 +74,7 @@ MKTypography.defaultProps = {
 
 // Typechecking props for the MKTypography
 interface MKTypographyProps {
-  color?: PaletteColorName;
+  color?: PaletteColorName | 'inherit' | 'text';
   fontWeight?: FontWeight;
   textTransform?: TextTransform;
   verticalAlign?: VerticalAlign;

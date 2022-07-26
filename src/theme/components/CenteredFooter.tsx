@@ -32,7 +32,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
-  const color = light ? 'light' : 'secondary';
+  const color = light ? 'tertiary' : 'secondary';
 
   const renderLinks =
     menus &&
@@ -43,7 +43,6 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
           component={GatsbyLink}
           to={item.route}
           variant="body2"
-          color={color}
           fontWeight="regular"
           textTransform="capitalize"
         >
@@ -60,7 +59,6 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         component={MaterialLink}
         href={social.url}
         variant="body2"
-        color={color}
         fontWeight="regular"
       >
         {social.icon}
@@ -68,7 +66,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
     ));
 
   const renderCopyright = (
-    <MKTypography variant="caption" color={color}>
+    <MKTypography variant="caption">
       Copyright &copy; {year}{' '}
       <MKTypography
         component={GatsbyLink}
@@ -76,7 +74,6 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         rel="noreferrer"
         variant="caption"
         fontWeight="regular"
-        color={color}
         style={{ textDecoration: `underline dotted ${color}` }}
       >
         {brand.name}
@@ -88,7 +85,6 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         target="_blank"
         rel="noreferrer"
         variant="caption"
-        color={color}
       >
         {copyright.name}
       </MKTypography>
@@ -96,7 +92,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   );
 
   return (
-    <MKBox component="footer" py={6}>
+    <MKBox component="footer" py={6} color={color}>
       <Grid container justifyContent="center">
         <Grid item xs={10} lg={8}>
           <Stack
