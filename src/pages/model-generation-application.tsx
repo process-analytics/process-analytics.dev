@@ -16,6 +16,7 @@
 
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HeadProps } from 'gatsby';
 import React from 'react';
 import { FlexProps, TextProps } from 'rebass';
 import {
@@ -26,6 +27,8 @@ import {
   Link,
   Text,
 } from 'rebass/styled-components';
+
+import { SEO } from '../components/seo';
 
 import { Features } from '../theme/components/modelGenerationApp/Features';
 import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
@@ -43,6 +46,7 @@ import { PostContainer } from '../theme/components/Post';
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
 import colors from '../theme/colors.json';
+import { DataProps } from '../hooks/use-site-metadata';
 
 export const Part = ({
   padding,
@@ -173,7 +177,7 @@ export const Paragraph = ({
 
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
-    <Layout title={PAGE.modelGenerationApplication}>
+    <Layout>
       <PageHeader displayDemoButton={false} />
       <Section.Container Background={Background}>
         <Heading
@@ -348,3 +352,12 @@ const Background = (): JSX.Element => (
 );
 
 export default ModelGenerationApplicationPage;
+
+/*
+ * You can only define the Head export inside a page, not in a component.
+ * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
+ * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
+  <SEO title={PAGE.modelGenerationApplication} pathname={location.pathname} />
+);

@@ -22,26 +22,24 @@ import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
 import { PostDescription } from '../types';
-import { PAGE, SECTION } from '../utils/constants';
+import { SECTION } from '../utils/constants';
 import { MailingListSubscription } from '../components/mailingListSubscription/MailingListSubscription';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 interface PageWithPostsProps {
-  layoutTitle: PAGE;
   containerTitle: SECTION;
   posts: PostDescription[];
   description: string;
 }
 
 export const PageWithPosts = ({
-  layoutTitle,
   containerTitle,
   posts,
   description,
 }: PageWithPostsProps): JSX.Element => (
-  <Layout title={layoutTitle}>
+  <Layout>
     <PageHeader />
     <Section.Container id={containerTitle} Background={Background}>
       <Heading

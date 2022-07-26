@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
+import { HeadProps } from 'gatsby';
 import React from 'react';
 import { Heading } from 'rebass/styled-components';
+import { SEO } from '../components/seo';
+import { DataProps } from '../hooks/use-site-metadata';
 
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
@@ -29,7 +32,7 @@ import styled from 'styled-components';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
-    <Layout title={PAGE.modelGenerationApplicationConditions}>
+    <Layout>
       <PageHeader displayDemoButton={false} />
       <Section.Container Background={Background}>
         <Heading
@@ -187,3 +190,15 @@ const Bold = styled.b`
 `;
 
 export default ModelGenerationApplicationConditionPage;
+
+/*
+ * You can only define the Head export inside a page, not in a component.
+ * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
+ * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
+  <SEO
+    title={PAGE.modelGenerationApplicationConditions}
+    pathname={location.pathname}
+  />
+);

@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { HeadProps } from 'gatsby';
 import * as React from 'react';
+import { SEO } from '../components/seo';
+import { DataProps } from '../hooks/use-site-metadata';
 import Layout from '../theme/components/Layout';
 import Header from '../theme/components/Header';
 import Landing from '../theme/sections/Landing';
@@ -26,7 +29,7 @@ import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
 const HomePage = (): JSX.Element => (
-  <Layout title={PAGE.home}>
+  <Layout>
     <Header />
     <Landing />
     <About />
@@ -39,3 +42,12 @@ const HomePage = (): JSX.Element => (
 );
 
 export default HomePage;
+
+/*
+ * You can only define the Head export inside a page, not in a component.
+ * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
+ * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
+  <SEO title={PAGE.home} pathname={location.pathname} />
+);
