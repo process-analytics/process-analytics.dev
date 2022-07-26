@@ -15,18 +15,20 @@
  */
 import * as React from 'react';
 import { Box, Image, Text } from 'rebass/styled-components';
+import { DataProps } from '../hooks/use-site-metadata';
 import Layout from '../theme/components/Layout';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import { Link } from 'gatsby';
+import { HeadProps, Link } from 'gatsby';
 import Img from '../images/404.png';
 import { PAGE } from '../theme/utils/constants';
 import PageHeader from '../theme/components/PageHeader';
 import Footer from '../theme/components/Footer';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
+import { SEO } from '../components/seo';
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout title={PAGE.notFound}>
+  <Layout>
     <PageHeader />
     <Section.Container Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
@@ -78,3 +80,12 @@ const Background = (): JSX.Element => (
 );
 
 export default NotFoundPage;
+
+/*
+ * You can only define the Head export inside a page, not in a component.
+ * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
+ * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
+  <SEO title={PAGE.notFound} pathname={location.pathname} />
+);

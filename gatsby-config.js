@@ -29,6 +29,7 @@ module.exports = {
   siteMetadata: {
     title: 'Process Analytics',
     siteUrl: 'https://process-analytics.dev',
+    twitterUsername: '@ProcessAnalyti1',
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -43,7 +44,6 @@ module.exports = {
         icon: 'src/images/logo.svg',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: { policy: [robotsPolicy] },

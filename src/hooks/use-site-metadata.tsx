@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2022 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { landing } from './LandingContent';
+import { graphql, useStaticQuery } from 'gatsby';
 
-export const helmet = {
-  description: landing.presentation, // This should not be too long (160 chars)  see https://www.gatsbyjs.com/tutorial/seo-and-social-sharing-cards-tutorial/#querying-with-graphql
-  image_path: '/image/og_card.webp',
-  twitter: {
-    username: '@ProcessAnalyti1',
-  },
+export type DataProps = {
+  title: string;
+  description: string;
+  twitterUsername: string;
+  siteUrl: string;
+};
+
+export const useSiteMetadata = (): DataProps => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          twitterUsername
+        }
+      }
+    }
+  `);
+
+  return data.site.siteMetadata;
 };
