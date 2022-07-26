@@ -19,15 +19,21 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@fontsource/open-sans": "^4.5.11",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.1",
     "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "@tippyjs/react": "^4.2.6",
+    "chroma-js": "^2.4.2",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.0.0",
     "react-cookie-consent": "^7.5.0",
@@ -37,6 +43,7 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
     "@types/mdx-js__react": "^1.5.5",
     "@types/react": "^18.0.17",
     "@types/react-headroom": "^2.2.2",
@@ -53,6 +60,7 @@
     "gatsby-plugin-google-gtag": "^4.21.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-mdx": "^3.20.0",
     "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sitemap": "^5.21.0",
