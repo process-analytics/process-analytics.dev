@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LinkTypeMap } from '@mui/material';
 import React, { forwardRef } from 'react';
 
 import { TypographyProps } from '@mui/material/Typography/Typography';
@@ -27,7 +26,8 @@ import {
 
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { GatsbyLinkProps } from 'gatsby';
+import { LinkTypeMap } from '@mui/material';
 
 const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
@@ -80,7 +80,9 @@ interface MKTypographyProps {
   verticalAlign?: VerticalAlign;
   textGradient?: boolean;
   opacity?: number;
-  component?: JSX.Element | OverridableComponent<LinkTypeMap>;
+  component?:
+    | React.ComponentType<GatsbyLinkProps<never>>
+    | React.ComponentType<LinkTypeMap>;
   href?: string;
   to?: string;
   target?: string;
