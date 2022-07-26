@@ -27,7 +27,7 @@ import {
 
 interface MKTypographyRootProps {
   ownerState: {
-    color?: PaletteColorName;
+    color?: PaletteColorName | 'inherit' | 'text';
     textTransform?: TextTransform;
     verticalAlign?: VerticalAlign;
     fontWeight?: FontWeight;
@@ -50,21 +50,27 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
 
     const { linearGradient } = functions;
 
-    const paletteColor = color && palette[color];
-    const gradientColor = color && palette.gradient[color];
+    const calculatedColor =
+      !color || !palette[color] || color === 'inherit'
+        ? 'inherit'
+        : color === 'text'
+        ? palette.text.primary
+        : palette[color].main;
+    const backgroundColor =
+      color &&
+      (color !== 'text' && color !== 'inherit'
+        ? linearGradient(palette[color].main, palette[color].dark)
+        : linearGradient(palette.background.default, palette.background.paper));
     return {
       opacity,
       textTransform: textTransform ?? 'none',
       verticalAlign,
       textDecoration: 'none',
-      color: !paletteColor ? 'inherit' : paletteColor.main,
+      color: calculatedColor,
       letterSpacing: '-0.125px',
       fontWeight: fontWeight,
       ...(textGradient && {
-        backgroundImage:
-          color !== 'text' && gradientColor
-            ? linearGradient(gradientColor.main, gradientColor.dark)
-            : linearGradient(gradientColor.dark.main, gradientColor.dark.dark),
+        backgroundImage: backgroundColor,
         display: 'inline-block',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',

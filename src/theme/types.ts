@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { CustomPalette, Palette } from '@mui/material/styles';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -86,7 +85,21 @@ export type GreyColorName =
   | 'grey-800'
   | 'grey-900';
 
-export type PaletteColorName = keyof Palette | keyof CustomPalette;
+export type PaletteColorName =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'success'
+  | 'tertiary';
+
+export type SocialColorName =
+  | 'twitter'
+  | 'pinterest'
+  | 'youtube'
+  | 'slack'
+  | 'github';
 
 export type ShadowSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset';
 

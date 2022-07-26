@@ -60,7 +60,7 @@ const MKBox = forwardRef<
 // Setting default values for the props of MKBox
 MKBox.defaultProps = {
   variant: 'contained',
-  color: 'dark',
+  color: 'primary',
   opacity: 1,
 };
 

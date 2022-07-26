@@ -21,11 +21,20 @@ import { PaletteOptions } from '@mui/material/styles/createPalette';
  * The base colors for the Material Kit 2 React.
  * You can add new color using this file.
  * You can customized the colors for the entire Material Kit 2 React using the file.
+ *
+ * @see https://material-ui.com/customization/color/
  */
 export const palette: PaletteOptions & CustomPaletteOptions = {
+  mode: 'light',
+
   background: {
     default: '#f0f2f5',
     paper: '#ffffff',
+  },
+
+  common: {
+    black: '#ffffff',
+    white: '#000000',
   },
 
   text: {
@@ -34,78 +43,44 @@ export const palette: PaletteOptions & CustomPaletteOptions = {
     disabled: '#7b809a',
   },
 
+  // light: will be calculated from palette.primary.main,
+  // dark: will be calculated from palette.primary.main,
+  // contrastText: will be calculated to contrast with palette.primary.main
+  // See https://mui.com/material-ui/customization/palette/#providing-the-colors-directly
   primary: {
-    main: '#002395',
-    light: '#DBEFFF',
-    contrastText: '#DBEFFF',
+    main: '#0b4361',
   },
 
   secondary: {
-    main: '#E20613',
-    dark: '#E20613',
-    light: '#F9DADC',
-    contrastText: '#F9DADC',
+    main: '#e31937',
   },
 
   info: {
     main: '#1A73E8',
-    contrastText: '#1662C4',
+    light: '#69a1ff',
+    dark: '#0049b5',
+    contrastText: '#ffffff',
   },
 
   success: {
     main: '#4CAF50',
-    contrastText: '#67bb6a',
+    light: '#80e27e',
+    dark: '#087f23',
+    contrastText: '#000000',
   },
 
   warning: {
     main: '#fb8c00',
-    contrastText: '#fc9d26',
+    light: '#ffbd45',
+    dark: '#c25e00',
+    contrastText: '#000000',
   },
 
   error: {
     main: '#F44335',
-    contrastText: '#f65f53',
-  },
-
-  light: {
-    main: '#EDEEF5',
-    contrastText: '#f0f2f5',
-  },
-
-  spicy: {
-    main: '#05D99E',
-  },
-  sweet: {
-    main: '#FFD560',
-  },
-  manufacture: {
-    main: '#E86A63',
-  },
-  education: {
-    main: '#FFD560',
-  },
-  telecom: {
-    main: '#F1ACC6',
-  },
-  financial: {
-    main: '#62BFEC',
-  },
-  energy: {
-    main: '#2A574A',
-  },
-  health: {
-    main: '#05D99E',
-  },
-  government: {
-    main: '#86BEC2',
-  },
-  distribution: {
-    main: '#7E4F95',
-  },
-
-  dark: {
-    main: '#344767',
-    contrastText: '#2c3c58',
+    light: '#ff7960',
+    dark: '#b9000b',
+    contrastText: '#000000',
   },
 
   grey: {
@@ -120,116 +95,37 @@ export const palette: PaletteOptions & CustomPaletteOptions = {
     '900': '#212529',
   },
 
-  gradient: {
-    primary: {
-      main: '#EC407A',
-      dark: '#D81B60',
-    },
-
-    secondary: {
-      main: '#E20613',
-      dark: '#E20613',
-      light: '#F9DADC',
-      contrastText: '#F9DADC',
-    },
-
-    info: {
-      main: '#49a3f1',
-      dark: '#1A73E8',
-    },
-
-    success: {
-      main: '#66BB6A',
-      dark: '#43A047',
-    },
-
-    warning: {
-      main: '#FFA726',
-      dark: '#FB8C00',
-    },
-
-    error: {
-      main: '#EF5350',
-      dark: '#E53935',
-    },
-
-    light: {
-      main: '#EBEFF4',
-      dark: '#CED4DA',
-    },
-
-    dark: {
-      main: '#42424a',
-      dark: '#191919',
-    },
+  // Provide every color token (light, main, dark, and contrastText) when using
+  // custom colors for props in Material UI's components.
+  tertiary: {
+    main: '#ccd6dd',
+    light: '#ffffff',
+    dark: '#9ba5ab',
+    contrastText: '#000000',
   },
 
-  socialMediaColors: {
-    twitter: {
-      main: '#55acee',
-      dark: '#3ea1ec',
-    },
-
-    pinterest: {
-      main: '#cc2127',
-      dark: '#b21d22',
-    },
-
-    youtube: {
-      main: '#e52d27',
-      dark: '#d41f1a',
-    },
-
-    slack: {
-      main: '#3aaf85',
-      dark: '#329874',
-    },
-
-    github: {
-      main: '#24292e',
-      dark: '#171a1d',
-    },
+  twitter: {
+    main: '#55acee',
+    dark: '#3ea1ec',
   },
 
-  badgeColors: {
-    primary: {
-      main: '#f8b3ca',
-      contrastText: '#cc084b',
-    },
+  pinterest: {
+    main: '#cc2127',
+    dark: '#b21d22',
+  },
 
-    secondary: {
-      main: '#d7d9e1',
-      contrastText: '#6c757d',
-    },
+  youtube: {
+    main: '#e52d27',
+    dark: '#d41f1a',
+  },
 
-    info: {
-      main: '#aecef7',
-      contrastText: '#095bc6',
-    },
+  slack: {
+    main: '#3aaf85',
+    dark: '#329874',
+  },
 
-    success: {
-      main: '#bce2be',
-      contrastText: '#339537',
-    },
-
-    warning: {
-      main: '#ffd59f',
-      contrastText: '#c87000',
-    },
-
-    error: {
-      main: '#fcd3d0',
-      contrastText: '#f61200',
-    },
-
-    light: {
-      main: '#ffffff',
-      contrastText: '#c7d3de',
-    },
-
-    dark: {
-      main: '#8097bf',
-      contrastText: '#1e2e4a',
-    },
+  github: {
+    main: '#24292e',
+    dark: '#171a1d',
   },
 };

@@ -63,6 +63,12 @@ export const boxShadows = {
       (palette.secondary as PaletteColor).main,
       0.4,
     )}`,
+    tertiary: `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, ${boxShadow(
+      [0, 7],
+      [10, -5],
+      (palette.tertiary as PaletteColor).main,
+      0.4,
+    )}`,
     info: `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, ${boxShadow(
       [0, 7],
       [10, -5],
@@ -85,18 +91,6 @@ export const boxShadows = {
       [0, 7],
       [10, -5],
       (palette.error as PaletteColor).main,
-      0.4,
-    )}`,
-    light: `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, ${boxShadow(
-      [0, 7],
-      [10, -5],
-      (palette.light as PaletteColor).main,
-      0.4,
-    )}`,
-    dark: `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, ${boxShadow(
-      [0, 7],
-      [10, -5],
-      (palette.dark as PaletteColor).main,
       0.4,
     )}`,
     white: `${boxShadow([0, 4], [20, 0], grey[50], 0.14)}, ${boxShadow(

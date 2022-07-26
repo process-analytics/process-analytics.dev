@@ -19,7 +19,7 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React Base Styles
 import { palette } from './colors';
 
-const { info, spicy } = palette;
+const { info, secondary } = palette;
 
 export default {
   html: {
@@ -33,7 +33,7 @@ export default {
     textDecoration: 'none !important',
   },
   'a.link, .link, a.link:link, .link:link, a.link:visited, .link:visited': {
-    color: `${(spicy as SimplePaletteColorOptions)?.main} !important`,
+    color: `${(secondary as SimplePaletteColorOptions)?.main} !important`,
     transition: 'color 150ms ease-in !important',
   },
   'a.link:hover, .link:hover, a.link:focus, .link:focus': {

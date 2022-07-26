@@ -71,7 +71,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
                     target="_blank"
                     rel="noreferrer"
                     variant="h5"
-                    color="dark"
+                    color="primary"
                     opacity={0.8}
                     mr={key === socials.length - 1 ? 0 : 2.5}
                   >
