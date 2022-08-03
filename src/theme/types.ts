@@ -46,7 +46,7 @@ export type AboutSubSection = {
 export type SocialLink = {
   url: string;
   name: string;
-  icon: IconName;
+  icon: IconName | JSX.Element;
 };
 
 export type PostDescription = {
@@ -64,3 +64,58 @@ export type Landing = {
   presentation: string;
   socialLinks: SocialLink[];
 };
+
+export type FooterRoutes = {
+  brand: Link & { image: string };
+  copyright: { name: string; url: string };
+  socials: Omit<SocialLink, 'name'>[];
+  menus: Menu[];
+};
+export type Menu = { name: string; items: Link[] };
+export type Link = { name: string; route: string };
+
+export type GreyColorName =
+  | 'grey-100'
+  | 'grey-200'
+  | 'grey-300'
+  | 'grey-400'
+  | 'grey-500'
+  | 'grey-600'
+  | 'grey-700'
+  | 'grey-800'
+  | 'grey-900';
+
+export type PaletteColorName =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'success'
+  | 'tertiary';
+
+export type SocialColorName =
+  | 'twitter'
+  | 'pinterest'
+  | 'youtube'
+  | 'slack'
+  | 'github';
+
+export type ShadowSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'inset';
+
+export type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section';
+
+export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
+
+export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
+
+export type VerticalAlign =
+  | 'unset'
+  | 'baseline'
+  | 'sub'
+  | 'super'
+  | 'text-top'
+  | 'text-bottom'
+  | 'middle'
+  | 'top'
+  | 'bottom';
