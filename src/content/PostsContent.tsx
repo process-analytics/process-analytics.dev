@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: '🇬🇧 Webinar: Dive into Process Analytics',
+    text: 'In early July 2022, we presented the Process Analytics project (in 🇬🇧) with an integration use case through a ticketing application.',
+    cover: 'https://miro.medium.com/max/700/0*5U_EyfKhkgPtSAIA',
+    url: 'https://medium.com/@process-analytics/14975257e9f0',
+    date: 'August 2022',
+    time: 1,
+  },
+  {
     title: 'Hacktoberfest 2021: Process Analytics makes its mark',
     text: 'Retrospective of the Process Analytics project’s participation in Hacktoberfest 2021.',
     cover: 'https://miro.medium.com/max/700/0*qB-6GcQRd7q0Kx3u',
