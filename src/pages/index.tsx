@@ -44,6 +44,8 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
+    {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class*/}
     <OldFooter />
     <ThemeProvider theme={theme}>
       {/*Use ScopedCssBaseline until we need to keep the old theme. After use CssBaseline*/}

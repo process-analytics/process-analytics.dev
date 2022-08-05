@@ -54,6 +54,7 @@ export const footerRoutes: FooterRoutes = {
       url: 'https://medium.com/@process-analytics',
     },
   ],
+  // TODO: To build from page path & constants of page title to avoid duplication and bad url path
   menus: [
     {
       name: 'product',
