@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 import * as React from 'react';
+
 import { Box, Image, Text } from 'rebass/styled-components';
+import { HeadProps, Link } from 'gatsby';
+
 import { DataProps } from '../hooks/use-site-metadata';
+
 import Layout from '../theme/components/Layout';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import { HeadProps, Link } from 'gatsby';
-import Img from '../images/404.png';
 import { PAGE } from '../theme/utils/constants';
 import PageHeader from '../theme/components/PageHeader';
-import OldFooter from '../theme/components/OldFooter';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
+
+import Img from '../images/404.png';
+
 import { SEO } from '../components/seo';
 
 const NotFoundPage = (): JSX.Element => (
@@ -49,7 +53,6 @@ const NotFoundPage = (): JSX.Element => (
         </Text>
       </Box>
     </Section.Container>
-    <OldFooter />
     <MailingListSubscription />
   </Layout>
 );

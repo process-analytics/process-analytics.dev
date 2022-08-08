@@ -29,7 +29,7 @@ import { MKTypographyRoot } from './MKTypographyRoot';
 import { GatsbyLinkProps } from 'gatsby';
 import { LinkTypeMap } from '@mui/material';
 
-const MKTypography = forwardRef<
+export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
   React.PropsWithChildren<MKTypographyProps & TypographyProps>
 >(
@@ -89,5 +89,3 @@ interface MKTypographyProps {
   rel?: string;
   size?: string;
 }
-
-export default MKTypography;

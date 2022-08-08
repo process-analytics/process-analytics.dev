@@ -24,8 +24,8 @@ import Grid from '@mui/material/Grid';
 import MaterialLink from '@mui/material/Link';
 
 // Material Kit 2 React components
-import MKBox from './material-kit/MKBox';
-import MKTypography from './material-kit/MKTypography';
+import { MKBox } from './material-kit/MKBox';
+import { MKTypography } from './material-kit/MKTypography';
 
 import {
   FooterRoutes,

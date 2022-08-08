@@ -17,6 +17,7 @@
 import { HeadProps } from 'gatsby';
 import React from 'react';
 import { Heading } from 'rebass/styled-components';
+
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
 
@@ -24,10 +25,10 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import OldFooter from '../theme/components/OldFooter';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
+
 import styled from 'styled-components';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
@@ -156,7 +157,6 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           </Paragraph>
         </Part>
       </Section.Container>
-      <OldFooter />
     </Layout>
   );
 };

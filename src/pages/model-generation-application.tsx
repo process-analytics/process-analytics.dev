@@ -37,7 +37,6 @@ import { postsContent } from '../content/PostsContent';
 import { PostDescription } from '../theme/types';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import OldFooter from '../theme/components/OldFooter';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
@@ -322,7 +321,6 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           />
         </Part>
       </Section.Container>
-      <OldFooter />
     </Layout>
   );
 };

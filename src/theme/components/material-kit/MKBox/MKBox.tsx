@@ -24,7 +24,7 @@ import { MKBoxRoot } from './MKBoxRoot';
 
 import { BorderRadius, PaletteColorName, ShadowSize } from '../../../types';
 
-const MKBox = forwardRef<
+export const MKBox = forwardRef<
   JSX.Element,
   React.PropsWithChildren<MKBoxProps & (BoxProps | AvatarProps)>
 >(
@@ -80,5 +80,3 @@ interface MKBoxProps {
   target?: string;
   rel?: string;
 }
-
-export default MKBox;
