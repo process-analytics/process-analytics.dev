@@ -22,19 +22,19 @@ import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
 
 import theme from '../assets/theme';
-import DefaultFooter from '../theme/components/DefaultFooter';
+
+import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import Header from '../theme/components/Header';
 import Landing from '../theme/sections/Landing';
 import About from '../theme/sections/About';
 import Libraries from '../theme/sections/Libraries';
 import { Blog } from '../theme/sections/Blog';
-import OldFooter from '../theme/components/OldFooter';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
+
 import { footerRoutes } from '../content/FooterRoutes';
-import CenteredFooter from '../theme/components/CenteredFooter';
 
 const HomePage = (): JSX.Element => (
   <Layout>
@@ -45,14 +45,8 @@ const HomePage = (): JSX.Element => (
     <News />
     <Blog />
     {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class*/}
-    <OldFooter />
-    <ThemeProvider theme={theme}>
-      {/*Use ScopedCssBaseline until we need to keep the old theme. After use CssBaseline*/}
-      <ScopedCssBaseline />
-      <DefaultFooter content={footerRoutes} />
-      <CenteredFooter content={footerRoutes} light={false} />
-    </ThemeProvider>
+    Layout class */}
+    <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );
