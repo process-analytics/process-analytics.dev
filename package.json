@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.45",
+    "@types/react": "^18.0.17",
     "@types/react-headroom": "^2.2.2",
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
@@ -50,7 +50,7 @@
     "eslint-plugin-notice": "^0.9.10",
     "eslint-plugin-prettier": "^4.2.1",
     "gatsby": "^4.20.0",
-    "gatsby-plugin-google-gtag": "^4.18.0",
+    "gatsby-plugin-google-gtag": "^4.20.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.20.0",
     "gatsby-plugin-mdx": "^3.20.0",
