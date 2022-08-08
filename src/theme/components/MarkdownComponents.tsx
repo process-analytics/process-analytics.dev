@@ -79,10 +79,9 @@ const MarkdownLink = (
 };
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const components: MDXComponents = {
+export const StyledMDXComponents: MDXComponents = {
   p: MarkdownParagraph,
   ol: MarkdownList,
   li: MarkdownListItem,
   a: MarkdownLink,
 };
-export default components;

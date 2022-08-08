@@ -16,7 +16,7 @@
 import { Box } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
-import mdxComponents from '../MarkdownComponents';
+import { StyledMDXComponents } from '../MarkdownComponents';
 import styled from 'styled-components';
 import React from 'react';
 import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
@@ -39,7 +39,7 @@ const MDXPanel = ({
     <Box {...boxProps} px={[1, 2, 4]} mt={2}>
       <Fade direction="down" triggerOnce>
         <CustomBox>
-          <MDXProvider components={mdxComponents}>{mdx}</MDXProvider>
+          <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
         </CustomBox>
       </Fade>
     </Box>
