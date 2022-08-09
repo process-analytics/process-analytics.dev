@@ -102,7 +102,7 @@ const config: GatsbyConfig = {
       },
     },
     'gatsby-plugin-resolve-src',
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     'gatsby-plugin-material-ui',
   ],
