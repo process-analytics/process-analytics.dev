@@ -44,30 +44,30 @@ import ViewDayIcon from '@mui/icons-material/ViewDay';
 import ArticleIcon from '@mui/icons-material/Article';
 
 // Pages
-import AboutUs from './layouts/pages/landing-pages/about-us';
-import ContactUs from './layouts/pages/landing-pages/contact-us';
-import Author from './layouts/pages/landing-pages/author';
-import SignIn from './layouts/pages/authentication/sign-in';
+import AboutUs from './pages/about-us';
+import ContactUs from './pages/contact-us';
+import Author from './pages/author';
+import SignIn from './pages/sign-in';
 
 // Sections
-import PageHeaders from './pages/sections/page-sections/page-headers';
-import Features from './pages/sections/page-sections/features';
-import Navbars from './pages/sections/navigation/navbars';
-import NavTabs from './pages/sections/navigation/nav-tabs';
-import Pagination from './pages/sections/navigation/pagination';
-import Inputs from './pages/sections/input-areas/inputs';
-import Forms from './pages/sections/input-areas/forms';
-import Alerts from './pages/sections/attention-catchers/alerts';
-import Modals from './pages/sections/attention-catchers/modals';
-import TooltipsPopovers from './pages/sections/attention-catchers/tooltips-popovers';
-import Avatars from './pages/sections/elements/avatars';
-import Badges from './pages/sections/elements/badges';
-import BreadcrumbsEl from './pages/sections/elements/breadcrumbs';
-import Buttons from './pages/sections/elements/buttons';
-import Dropdowns from './pages/sections/elements/dropdowns';
-import ProgressBars from './pages/sections/elements/progress-bars';
-import Toggles from './pages/sections/elements/toggles';
-import Typography from './pages/sections/elements/typography';
+import PageHeaders from './sections/page-sections/page-headers';
+import Features from './sections/page-sections/features';
+import Navbars from './sections/navigation/navbars';
+import NavTabs from './sections/navigation/nav-tabs';
+import Pagination from './sections/navigation/pagination';
+import Inputs from './sections/input-areas/inputs';
+import Forms from './sections/input-areas/forms';
+import Alerts from './sections/attention-catchers/alerts';
+import Modals from './sections/attention-catchers/modals';
+import TooltipsPopovers from './sections/attention-catchers/tooltips-popovers';
+import Avatars from './sections/elements/avatars';
+import Badges from './sections/elements/badges';
+import BreadcrumbsEl from './sections/elements/breadcrumbs';
+import Buttons from './sections/elements/buttons';
+import Dropdowns from './sections/elements/dropdowns';
+import ProgressBars from './sections/elements/progress-bars';
+import Toggles from './sections/elements/toggles';
+import Typography from './sections/elements/typography';
 
 import React from 'react';
 
