@@ -42,7 +42,7 @@ import SimpleFooter from '../../../examples/Footers/SimpleFooter';
 // Images
 import bgImage from '../../../assets/images/bg-sign-in-basic.jpeg';
 
-import theme from '../../../assets/theme';
+import { theme } from '../../../assets/theme';
 
 import routes from '../../../routes';
 

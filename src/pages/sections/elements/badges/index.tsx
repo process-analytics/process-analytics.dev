@@ -19,7 +19,7 @@ import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import theme from '../../../../assets/theme';
+import { theme } from '../../../../assets/theme';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';

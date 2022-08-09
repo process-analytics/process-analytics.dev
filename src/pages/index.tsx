@@ -61,7 +61,7 @@ import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 // Presentation page components
 
 // Material Kit 2 React themes
-import theme from '../assets/theme';
+import { theme } from '../assets/theme';
 
 // Routes
 import footerRoutes from '../PA-footer.routes';

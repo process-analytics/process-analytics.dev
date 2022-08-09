@@ -30,7 +30,7 @@ import {
   faGooglePlus,
 } from '@fortawesome/free-brands-svg-icons';
 
-import theme from '../../../assets/theme';
+import { theme } from '../../../assets/theme';
 import { CustomTypography } from '../../../assets/theme/base/typography';
 
 // Material Kit 2 React components

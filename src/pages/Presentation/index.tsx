@@ -55,7 +55,7 @@ import Download from '../../layouts/pages/presentation/sections/Download';
 import BuiltByDevelopers from '../../layouts/pages/presentation/components/BuiltByDevelopers';
 
 // Material Kit 2 React themes
-import theme from '../../assets/theme';
+import { theme } from '../../assets/theme';
 
 // Routes
 import footerRoutes from '../../footer.routes';

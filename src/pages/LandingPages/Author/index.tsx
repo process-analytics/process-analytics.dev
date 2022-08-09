@@ -19,7 +19,7 @@ import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import theme from '../../../assets/theme';
+import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
 import MKBox from '../../../components/MKBox';

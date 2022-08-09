@@ -49,7 +49,7 @@ import Newsletter from '../layouts/pages/landing-pages/about-us/sections/Newslet
 import footerRoutes from '../footer.routes';
 import routes from '../PA-routes';
 
-import theme from '../assets/theme';
+import { theme } from '../assets/theme';
 import { CustomTypography } from '../assets/theme/base/typography';
 
 // Images

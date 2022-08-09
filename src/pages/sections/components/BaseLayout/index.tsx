@@ -15,7 +15,7 @@
  */
 import React from 'react';
 
-import theme from '../../../../assets/theme';
+import { theme } from '../../../../assets/theme';
 
 // @mui material components
 import Container from '@mui/material/Container';
