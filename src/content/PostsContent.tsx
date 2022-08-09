@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Model Generation Application',
+    text: 'Built with Process Analytics components, our upcoming demonstration tool generates a process from event logs.',
+    cover: 'https://miro.medium.com/max/700/0*CwMkx8E5C8z0W223',
+    url: 'https://medium.com/@process-analytics/247afc3f95c3',
+    date: 'August 2022',
+    time: 1,
+  },
+  {
     title: '🇫🇷 Webinar: Dive into Process Analytics',
     text: 'At the end of June 2022, we presented the Process Analytics project (in 🇫🇷) with an integration use case through a ticketing application.',
     cover: 'https://miro.medium.com/max/700/0*p3rIaYZ5DPAvIoPf',
