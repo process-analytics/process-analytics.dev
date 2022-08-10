@@ -40,11 +40,11 @@ const linearProgress: {
     },
 
     colorPrimary: {
-      backgroundColor: gre,
+      backgroundColor: palette.grey?.['50'],
     },
 
     colorSecondary: {
-      backgroundColor: palette.background?.default,
+      backgroundColor: palette.grey?.['50'],
     },
 
     bar: {

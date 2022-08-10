@@ -15,7 +15,7 @@
  */
 
 const bgImage =
-  '`${linearGradient(rgba(gradient.dark.main, 0.5), rgba(gradient.dark.dark, 0.5))}, url(${bgImage})`';
+  '`${linearGradient(rgba(grey?.A700, 0.5), rgba(gradient.dark.dark, 0.5))}, url(${bgImage})`';
 
 const headerOneCode = `// @mui material components
 import Container from "@mui/material/Container";

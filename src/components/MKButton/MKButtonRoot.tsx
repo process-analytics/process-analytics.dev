@@ -33,8 +33,6 @@ Coded by www.creative-tim.com
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
 
 interface MKButtonRootProps {
   ownerState: {
@@ -57,11 +55,10 @@ interface MKButtonRootProps {
 }
 
 export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
-  const { palette, functions, borders, boxShadows } = theme as CustomTheme;
+  const { palette, functions, borders, boxShadows } = theme;
   const { color, variant, size, circular, iconOnly } = ownerState;
 
-  const { white, text, transparent, gradient, dark } =
-    palette as unknown as Colors;
+  const { text, gradient, grey } = palette;
   const { boxShadow, linearGradient, pxToRem, rgba } = functions;
   const { borderRadius } = borders;
   const { colored } = boxShadows;
@@ -72,12 +69,12 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const paletteColor = palette[color];
-    const backgroundValue = paletteColor ? paletteColor.main : white.main;
+    const backgroundValue = paletteColor ? paletteColor.main : 'white';
 
     // backgroundColor value when button is focused
     const focusedBackgroundValue = paletteColor
       ? paletteColor.contrastText
-      : white.contrastText;
+      : 'white';
 
     // boxShadow value
     const boxShadowValue = colored[color]
@@ -100,23 +97,23 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       : 'none';
 
     // color value
-    let colorValue = white.main;
+    let colorValue = 'white';
 
     if (color === 'default' || !paletteColor) {
       colorValue = (text as SimplePaletteColorOptions)?.main;
     } else if (color === 'white' || color === 'light') {
-      colorValue = dark.main;
+      colorValue = grey?.A700;
     }
 
     // color value when button is focused
-    let focusedColorValue = white.main;
+    let focusedColorValue = 'white';
 
     if (color === 'default') {
       focusedColorValue = (text as SimplePaletteColorOptions)?.main;
     } else if (color === 'white') {
-      focusedColorValue = dark.main;
+      focusedColorValue = grey?.A700;
     } else if (color === 'primary' || color === 'error' || color === 'dark') {
-      focusedColorValue = white.main;
+      focusedColorValue = 'white';
     }
 
     return {
@@ -133,7 +130,7 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
         backgroundColor: focusedBackgroundValue,
         boxShadow: paletteColor
           ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
-          : boxShadow([0, 0], [0, 3.2], white.main, 0.5),
+          : boxShadow([0, 0], [0, 3.2], 'white', 0.5),
       },
 
       '&:disabled': {
@@ -147,26 +144,26 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
   const outlinedStyles = (): any => {
     // background color value
     const backgroundValue =
-      color === 'white' ? rgba(white.main, 0.1) : transparent.main;
+      color === 'white' ? rgba('white', 0.1) : 'transparent';
 
     // color value
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const paletteColor = palette[color];
-    const colorValue = paletteColor ? paletteColor.main : white.main;
+    const colorValue = paletteColor ? paletteColor.main : 'white';
 
     // boxShadow value
     const boxShadowValue = paletteColor
       ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
-      : boxShadow([0, 0], [0, 3.2], white.main, 0.5);
+      : boxShadow([0, 0], [0, 3.2], 'white', 0.5);
 
     // border color value
     let borderColorValue = paletteColor
       ? paletteColor.main
-      : rgba(white.main, 0.75);
+      : rgba('white', 0.75);
 
     if (color === 'white') {
-      borderColorValue = rgba(white.main, 0.75);
+      borderColorValue = rgba('white', 0.75);
     }
 
     return {
@@ -175,18 +172,18 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       borderColor: borderColorValue,
 
       '&:hover': {
-        background: transparent.main,
+        background: 'transparent',
         borderColor: colorValue,
       },
 
       '&:focus:not(:hover)': {
-        background: transparent.main,
+        background: 'transparent',
         boxShadow: boxShadowValue,
       },
 
       '&:active:not(:hover)': {
         backgroundColor: colorValue,
-        color: white.main,
+        color: 'white',
         opacity: 0.85,
       },
 
@@ -205,7 +202,7 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
     const gradientColor = gradient[color];
     const backgroundValue =
       color === 'white' || !gradientColor
-        ? white.main
+        ? 'white'
         : linearGradient(gradientColor.main, gradientColor.dark);
 
     // boxShadow value
@@ -232,7 +229,7 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       : 'none';
 
     // color value
-    let colorValue: string | undefined = white.main;
+    let colorValue: string | undefined = 'white';
 
     if (color === 'white') {
       colorValue = (text as SimplePaletteColorOptions)?.main;
@@ -246,7 +243,7 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       boxShadow: boxShadowValue,
 
       '&:hover': {
-        backgroundColor: white.main,
+        backgroundColor: 'white',
         boxShadow: hoveredBoxShadowValue,
       },
 
@@ -267,12 +264,12 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const paletteColor = palette[color];
-    const colorValue = paletteColor ? paletteColor.main : white.main;
+    const colorValue = paletteColor ? paletteColor.main : 'white';
 
     // color value when button is focused
     const focusedColorValue = paletteColor
       ? paletteColor.contrastText
-      : white.contrastText;
+      : 'white';
 
     return {
       color: colorValue,

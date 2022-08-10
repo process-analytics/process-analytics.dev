@@ -204,7 +204,7 @@ function DefaultNavbar({
 
                             '&:hover': {
                               backgroundColor: grey[200],
-                              color: dark.main,
+                              color: grey?.A700,
                             },
                           })}
                         >
@@ -271,10 +271,10 @@ function DefaultNavbar({
 
                 '&:hover': {
                   backgroundColor: grey[200],
-                  color: dark.main,
+                  color: grey?.A700,
 
                   '& *': {
-                    color: dark.main,
+                    color: grey?.A700,
                   },
                 },
               })}
@@ -363,7 +363,7 @@ function DefaultNavbar({
           {...TransitionProps}
           /*      sx={{
             transformOrigin: "left top",
-            background: ({ palette: { white } }: any) => white.main,
+            background: ({ palette: { white } }: any) => 'white',
           }}*/
         >
           <MKBox borderRadius="lg">
@@ -430,10 +430,10 @@ function DefaultNavbar({
 
                       '&:hover': {
                         backgroundColor: grey[200],
-                        color: dark.main,
+                        color: grey?.A700,
 
                         '& *': {
-                          color: dark.main,
+                          color: grey?.A700,
                         },
                       },
                     })}
@@ -498,7 +498,7 @@ function DefaultNavbar({
           {...TransitionProps}
           /* sx={{
             transformOrigin: "left top",
-            background: ({ palette: { white } }: any) => white.main,
+            background: ({ palette: { white } }: any) => 'white',
           }}*/
         >
           <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
@@ -531,7 +531,7 @@ function DefaultNavbar({
         }: any) => ({
           backgroundColor: transparent
             ? transparentColor.main
-            : rgba(white.main, 0.8),
+            : rgba('white', 0.8),
           backdropFilter: transparent ? 'none' : `saturate(200%) blur(30px)`,
         })}
       >

@@ -100,7 +100,7 @@ export default styled(Box)<MKBoxRootProps>(({ theme, ownerState }) => {
     const gradientBgColor = gradient[bgColor];
     backgroundValue = validGradients.find(el => el === bgColor)
       ? linearGradient(gradientBgColor.main, gradientBgColor.dark)
-      : white.main;
+      : 'white';
   } else if (validColors.find(el => el === bgColor)) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

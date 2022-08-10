@@ -19,14 +19,13 @@ import { palette } from '../base/colors';
 import { boxShadows } from '../base/boxShadows';
 import { borders } from '../base/borders';
 
-const { transparent } = palette;
 const { lg } = boxShadows;
 const { borderRadius } = borders;
 
 export default {
   styleOverrides: {
     paper: {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
       boxShadow: lg,
       borderRadius: borderRadius.md,
     },

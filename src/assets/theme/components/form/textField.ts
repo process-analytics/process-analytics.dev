@@ -13,16 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-// Material Kit 2 React Base Styles
-import { palette } from '../../base/colors';
-
-const { transparent } = palette;
-
 export default {
   styleOverrides: {
     root: {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
   },
 };

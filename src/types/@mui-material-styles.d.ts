@@ -105,6 +105,16 @@ declare module '@mui/material/styles' {
 
   export interface CustomPalette {
     tertiary: PaletteColor;
+    spicy: PaletteColor;
+    sweet: PaletteColor;
+    manufacture: PaletteColor;
+    education: PaletteColor;
+    telecom: PaletteColor;
+    financial: PaletteColor;
+    energy: PaletteColor;
+    health: PaletteColor;
+    government: PaletteColor;
+    distribution: PaletteColor;
   }
 
   export interface SocialPalette {
@@ -153,14 +163,29 @@ declare module '@mui/material/styles' {
 
   interface CustomPaletteOptions {
     tertiary: PaletteColorOptions;
+    spicy: PaletteColorOptions;
+    sweet: PaletteColorOptions;
+    manufacture: PaletteColorOptions;
+    education: PaletteColorOptions;
+    telecom: PaletteColorOptions;
+    financial: PaletteColorOptions;
+    energy: PaletteColorOptions;
+    health: PaletteColorOptions;
+    government: PaletteColorOptions;
+    distribution: PaletteColorOptions;
   }
 
   export interface SocialPaletteOptions {
     twitter: PaletteColorOptions;
+    instagram: PaletteColorOptions;
+    linkedin: PaletteColorOptions;
     pinterest: PaletteColorOptions;
     youtube: PaletteColorOptions;
     slack: PaletteColorOptions;
+    dribbble: PaletteColorOptions;
     github: PaletteColorOptions;
+    reddit: PaletteColorOptions;
+    tumblr: PaletteColorOptions;
   }
 
   export type GreyColorName =

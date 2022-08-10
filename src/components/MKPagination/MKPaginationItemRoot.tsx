@@ -32,7 +32,7 @@ export default styled(MKButton)<MKPaginationItemRootProps>(
     const { borderColor } = borders;
     const { pxToRem } = functions;
     const { fontWeightRegular, size: fontSize } = typography;
-    const { light } = palette;
+    const { grey } = palette;
 
     // width, height, minWidth and minHeight values
     let sizeValue = pxToRem(36);
@@ -63,7 +63,7 @@ export default styled(MKButton)<MKPaginationItemRootProps>(
       },
 
       '&:hover': {
-        backgroundColor: light.main,
+        backgroundColor: grey?.['50'],
         borderColor,
       },
     };

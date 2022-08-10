@@ -21,18 +21,16 @@ import {
   PaletteColor,
   SimplePaletteColorOptions,
 } from '@mui/material/styles/createPalette';
-import { Colors } from '../../assets/theme/base/colors';
-import { CustomTheme } from '../../assets/theme';
 
 interface MKAlertRootProps {
   ownerState: any;
 }
 
 export default styled(Box)<MKAlertRootProps>(({ theme, ownerState }) => {
-  const { palette, typography, borders, functions } = theme as CustomTheme;
+  const { palette, typography, borders, functions } = theme;
   const { color } = ownerState;
 
-  const { white, gradient } = palette as unknown as Colors;
+  const { white, gradient } = palette;
   const { fontSize, fontWeightMedium } = typography;
   const { borderRadius } = borders;
   const { pxToRem, linearGradient } = functions;
@@ -52,7 +50,7 @@ export default styled(Box)<MKAlertRootProps>(({ theme, ownerState }) => {
     alignItems: 'center',
     minHeight: pxToRem(60),
     backgroundImage: backgroundImageValue,
-    color: white.main,
+    color: 'white',
     position: 'relative',
     padding: pxToRem(16),
     marginBottom: pxToRem(16),

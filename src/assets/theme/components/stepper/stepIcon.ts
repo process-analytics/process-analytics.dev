@@ -14,14 +14,9 @@
  * limitations under the License.
  */
 
-// Material Kit 2 React base styles
-import { palette } from '../../base/colors';
-
 // Material Kit 2 React helper functions
 import { pxToRem } from '../../functions/pxToRem';
-import boxShadow from '../../functions/boxShadow';
-
-const { white } = palette;
+import { boxShadow } from '../../functions/boxShadow';
 
 export default {
   styleOverrides: {
@@ -37,19 +32,19 @@ export default {
       transition: 'all 200ms linear',
 
       '&.Mui-active': {
-        background: white.main,
-        fill: white.main,
-        stroke: white.main,
-        borderColor: white.main,
-        boxShadow: boxShadow([0, 0], [0, 2], white.main, 1),
+        background: 'white',
+        fill: 'white',
+        stroke: 'white',
+        borderColor: 'white',
+        boxShadow: boxShadow([0, 0], [0, 2], 'white', 1),
       },
 
       '&.Mui-completed': {
-        background: white.main,
-        fill: white.main,
-        stroke: white.main,
-        borderColor: white.main,
-        boxShadow: boxShadow([0, 0], [0, 2], white.main, 1),
+        background: 'white',
+        fill: 'white',
+        stroke: 'white',
+        borderColor: 'white',
+        boxShadow: boxShadow([0, 0], [0, 2], 'white', 1),
       },
     },
   },

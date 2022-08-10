@@ -77,10 +77,10 @@ const SignInPage = (): JSX.Element => {
         sx={{
           backgroundImage: ({
             functions: { linearGradient, rgba },
-            palette: { gradient },
+            palette: { gradient, grey },
           }: any) =>
             `${linearGradient(
-              rgba(gradient.dark.main, 0.6),
+              rgba(grey?.A700, 0.6),
               rgba(gradient.dark.dark, 0.6),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',

@@ -36,7 +36,7 @@ export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
     children,
   } = ownerState;
 
-  const { white, dark, gradient, badgeColors } = palette;
+  const { grey, gradient, badgeColors } = palette;
   const { size: fontSize, fontWeightBold } = typography;
   const { borderRadius, borderWidth } = borders;
   const { pxToRem, linearGradient } = functions;
@@ -53,7 +53,7 @@ export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
   const fontSizeValue = size === 'xs' ? fontSize.xxs : fontSize.xs;
 
   // border value
-  const borderValue = border ? `${borderWidth[3]} solid ${white.main}` : 'none';
+  const borderValue = border ? `${borderWidth[3]} solid white` : 'none';
 
   // borderRadius value
   const borderRadiusValue = circular ? borderRadius.section : borderRadius.lg;
@@ -101,7 +101,7 @@ export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
     const backgroundValue = gradientColor
       ? linearGradient(gradientColor.main, gradientColor.dark)
       : linearGradient(gradientInfo?.main, gradientInfo?.dark);
-    const colorValue = colorProp === 'light' ? dark.main : white.main;
+    const colorValue = colorProp === 'light' ? grey?.A700 : 'white';
 
     return {
       background: backgroundValue,
@@ -119,10 +119,10 @@ export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
       : badgeColors.info.text;
 
     if (colorProp === 'light') {
-      colorValue = dark.main;
+      colorValue = grey?.A700;
     } else if (colorProp === 'white') {
-      backgroundValue = white.main;
-      colorValue = dark.main;
+      backgroundValue = 'white';
+      colorValue = grey?.A700;
     }
 
     return {

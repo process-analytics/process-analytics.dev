@@ -24,7 +24,7 @@ interface MKTypographyRootProps {
 
 export default styled(Typography)<MKTypographyRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, typography, functions } = theme;
+    const { palette, functions } = theme;
     const {
       color,
       textTransform,
@@ -34,22 +34,8 @@ export default styled(Typography)<MKTypographyRootProps>(
       textGradient,
     } = ownerState;
 
-    const { gradient, transparent } = palette;
-    /*    const {
-      fontWeightLight,
-      fontWeightRegular,
-      fontWeightMedium,
-      fontWeightBold,
-    } = typography;*/
+    const { gradient, grey } = palette;
     const { linearGradient } = functions;
-
-    // fontWeight styles
-    /*    const fontWeights = {
-      light: fontWeightLight,
-      regular: fontWeightRegular,
-      medium: fontWeightMedium,
-      bold: fontWeightBold,
-    };*/
 
     // styles for the typography with textGradient={true}
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -62,10 +48,10 @@ export default styled(Typography)<MKTypographyRootProps>(
         color !== 'white' &&
         gradientColor
           ? linearGradient(gradientColor.main, gradientColor.dark)
-          : linearGradient(gradient.dark.main, gradient.dark.dark),
+          : linearGradient(grey?.A700, gradient.dark.dark),
       display: 'inline-block',
       WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: transparent.main,
+      WebkitTextFillColor: 'transparent',
       position: 'relative',
       zIndex: 1,
     });

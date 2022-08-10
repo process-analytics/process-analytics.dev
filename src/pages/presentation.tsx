@@ -122,7 +122,7 @@ const Presentation = (): JSX.Element => {
           mt: -8,
           mb: 4,
           backgroundColor: ({ palette: { white }, functions: { rgba } }: any) =>
-            rgba(white.main, 0.8),
+            rgba('white', 0.8),
           backdropFilter: 'saturate(200%) blur(30px)',
           boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
         }}

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 import React from 'react';
 
 // @mui material components
@@ -64,11 +65,11 @@ function Contact(): JSX.Element {
                 px={0}
                 sx={{
                   backgroundImage: ({
-                    palette: { gradient },
+                    palette: { gradient, grey },
                     functions: { rgba, linearGradient },
-                  }: any) =>
+                  }: Theme) =>
                     `${linearGradient(
-                      rgba(gradient.dark.main, 0.8),
+                      rgba(grey?.A700, 0.8),
                       rgba(gradient.dark.dark, 0.8),
                     )}, url(${bgImage})`,
 

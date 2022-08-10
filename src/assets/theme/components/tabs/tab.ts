@@ -27,7 +27,7 @@ import { pxToRem } from '../../functions/pxToRem';
 
 const { size, fontWeightRegular } = typography;
 const { borderRadius } = borders;
-const { dark } = palette;
+const { grey } = palette;
 
 const tab: {
   defaultProps?: ComponentsProps['MuiTab'];
@@ -50,7 +50,7 @@ const tab: {
       lineHeight: 'inherit',
       padding: pxToRem(4),
       borderRadius: borderRadius.lg,
-      color: `${dark.main} !important`,
+      color: `${grey?.A700} !important`,
       opacity: '1 !important',
 
       '& .material-icons, .material-icons-round': {

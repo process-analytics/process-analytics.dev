@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 // @mui material components
 import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
@@ -62,10 +63,10 @@ const AuthorPage = (): JSX.Element => (
         sx={{
           backgroundImage: ({
             functions: { linearGradient, rgba },
-            palette: { gradient },
-          }: any) =>
+            palette: { gradient, grey },
+          }: Theme) =>
             `${linearGradient(
-              rgba(gradient.dark.main, 0.8),
+              rgba(grey?.A700, 0.8),
               rgba(gradient.dark.dark, 0.8),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',
@@ -81,7 +82,7 @@ const AuthorPage = (): JSX.Element => (
           mt: -8,
           mb: 4,
           backgroundColor: ({ palette: { white }, functions: { rgba } }: any) =>
-            rgba(white.main, 0.8),
+            rgba('white', 0.8),
           backdropFilter: 'saturate(200%) blur(30px)',
           boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
         }}

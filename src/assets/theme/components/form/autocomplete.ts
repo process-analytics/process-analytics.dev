@@ -28,7 +28,7 @@ import { pxToRem } from '../../functions/pxToRem';
 
 const { lg } = boxShadows;
 const { size } = typography;
-const { text, transparent, light, dark, gradient } = palette;
+const { text, grey, gradient } = palette;
 const { borderRadius } = borders;
 
 const autocomplete: {
@@ -43,13 +43,13 @@ const autocomplete: {
       fontSize: size.sm,
       color: text?.primary,
       textAlign: 'left',
-      backgroundColor: `${white.main} !important`,
+      backgroundColor: `white !important`,
       borderRadius: borderRadius.md,
     },
 
     paper: {
       boxShadow: 'none',
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
 
     option: {
@@ -61,13 +61,13 @@ const autocomplete: {
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light.main,
-          color: dark.main,
+          backgroundColor: grey?.['50'],
+          color: grey?.A700,
         },
 
       '&[aria-selected="true"]': {
-        backgroundColor: `${light.main} !important`,
-        color: `${dark.main} !important`,
+        backgroundColor: `${grey?.['50']} !important`,
+        color: `${grey?.A700} !important`,
       },
     },
 
@@ -77,7 +77,7 @@ const autocomplete: {
     },
 
     groupLabel: {
-      color: dark.main,
+      color: grey?.A700,
     },
 
     loading: {
@@ -91,7 +91,7 @@ const autocomplete: {
       height: 'auto',
       padding: pxToRem(4),
       backgroundColor: gradient.dark.contrastText,
-      color: white.main,
+      color: 'white',
 
       '& .MuiChip-label': {
         lineHeight: 1.2,
@@ -100,7 +100,7 @@ const autocomplete: {
 
       '& .MuiSvgIcon-root, & .MuiSvgIcon-root:hover, & .MuiSvgIcon-root:focus':
         {
-          color: white.main,
+          color: 'white',
           marginRight: 0,
         },
     },

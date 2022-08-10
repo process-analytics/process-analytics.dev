@@ -78,8 +78,8 @@ export default styled(TextField)<MKMKInputRootProps>(
       backgroundColor: disabled
         ? grey
           ? `${grey[200]} !important`
-          : transparent.main
-        : transparent.main,
+          : 'transparent'
+        : 'transparent',
       pointerEvents: disabled ? 'none' : 'auto',
       ...(error && errorStyles()),
       ...(success && successStyles()),

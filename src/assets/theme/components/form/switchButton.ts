@@ -36,26 +36,26 @@ export default {
 
   styleOverrides: {
     switchBase: {
-      color: gradient.dark.main,
+      color: grey?.A700,
 
       '&:hover': {
         backgroundColor: 'transparent',
       },
 
       '&.Mui-checked': {
-        color: gradient.dark.main,
+        color: grey?.A700,
 
         '&:hover': {
           backgroundColor: 'transparent',
         },
 
         '& .MuiSwitch-thumb': {
-          borderColor: `${gradient.dark.main} !important`,
+          borderColor: `${grey?.A700} !important`,
         },
 
         '& + .MuiSwitch-track': {
-          backgroundColor: `${gradient.dark.main} !important`,
-          borderColor: `${gradient.dark.main} !important`,
+          backgroundColor: `${grey?.A700} !important`,
+          borderColor: `${grey?.A700} !important`,
           opacity: 1,
         },
       },

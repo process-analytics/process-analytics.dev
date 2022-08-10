@@ -19,8 +19,6 @@ import Card from '@mui/material/Card';
 import MuiLink from '@mui/material/Link';
 import { ArrowForward } from '@mui/icons-material';
 
-import { CustomTypography } from '../../../../assets/theme/base/typography';
-
 // Material Kit 2 React components
 import MKBox from '../../../../components/MKBox';
 import MKTypography from '../../../../components/MKTypography';
@@ -72,7 +70,7 @@ function BackgroundBlogCard({
             mb={1}
             sx={({ breakpoints, typography }) => ({
               [breakpoints.down('md')]: {
-                fontSize: (typography as CustomTypography).size['3xl'],
+                fontSize: typography.size['3xl'],
               },
             })}
           >

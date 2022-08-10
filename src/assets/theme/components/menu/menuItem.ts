@@ -23,7 +23,7 @@ import typography from '../../base/typography';
 // Material Kit 2 React helper functions
 import { pxToRem } from '../../functions/pxToRem';
 
-const { text } = palette;
+const { text, grey } = palette;
 const { borderRadius } = borders;
 const { size } = typography;
 
@@ -40,8 +40,8 @@ export default {
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light.main,
-          color: dark.main,
+          backgroundColor: grey?.['50'],
+          color: grey?.A700,
         },
     },
   },

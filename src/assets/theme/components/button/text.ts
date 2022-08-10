@@ -23,7 +23,7 @@ import typography from '../../base/typography';
 // Material Kit 2 React Helper Functions
 import { pxToRem } from '../../functions/pxToRem';
 
-const { text, info, secondary, transparent } = palette;
+const { text, info, secondary } = palette;
 const { size } = typography;
 
 const textMain = (text as SimplePaletteColorOptions)?.main;
@@ -35,14 +35,14 @@ const secondaryContrastText = (secondary as SimplePaletteColorOptions)
 
 export default {
   base: {
-    backgroundColor: transparent.main,
+    backgroundColor: 'transparent',
     minHeight: pxToRem(40),
     color: textMain,
     boxShadow: 'none',
     padding: `${pxToRem(10)} ${pxToRem(24)}`,
 
     '&:hover': {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
       boxShadow: 'none',
     },
 

@@ -168,11 +168,11 @@ function HeaderOne(): JSX.Element {
         minHeight="100%"
         sx={{
           backgroundImage: ({
-            palette: { gradient },
+            palette: { gradient, grey },
             functions: { linearGradient, rgba },
           }: any) =>
             `${linearGradient(
-              rgba(gradient.dark.main, 0.5),
+              rgba(grey?.A700, 0.5),
               rgba(gradient.dark.dark, 0.5),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',

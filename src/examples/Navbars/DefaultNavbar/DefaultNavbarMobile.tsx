@@ -102,7 +102,7 @@ function DefaultNavbarMobile({
 
                           '&:hover': {
                             backgroundColor: grey[200],
-                            color: dark.main,
+                            color: grey?.A700,
                           },
                         })}
                       >
@@ -131,10 +131,10 @@ function DefaultNavbarMobile({
 
                       '&:hover': {
                         backgroundColor: grey[200],
-                        color: dark.main,
+                        color: grey?.A700,
 
                         '& *': {
-                          color: dark.main,
+                          color: grey?.A700,
                         },
                       },
                     })}

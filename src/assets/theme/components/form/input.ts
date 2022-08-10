@@ -20,7 +20,7 @@ import { palette } from '../../base/colors';
 import typography from '../../base/typography';
 import { borders } from '../../base/borders';
 
-const { info, inputBorderColor, dark } = palette;
+const { info, grey } = palette;
 const { size } = typography;
 const { borderWidth } = borders;
 
@@ -28,14 +28,14 @@ export default {
   styleOverrides: {
     root: {
       fontSize: size.sm,
-      color: dark.main,
+      color: grey?.A700,
 
       '&:hover:not(.Mui-disabled):before': {
-        borderBottom: `${borderWidth[1]} solid ${inputBorderColor}`,
+        borderBottom: `${borderWidth[1]} solid ${'#d2d6da'}`,
       },
 
       '&:before': {
-        borderColor: inputBorderColor,
+        borderColor: '#d2d6da',
       },
 
       '&:after': {

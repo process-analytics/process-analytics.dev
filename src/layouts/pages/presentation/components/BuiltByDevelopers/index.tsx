@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { ArrowForward } from '@mui/icons-material';
+import { Theme } from '@mui/material';
 import React from 'react';
 
 // @mui material components
@@ -38,10 +39,10 @@ function BuiltByDevelopers(): JSX.Element {
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient },
-        }: any) =>
+          palette: { gradient, grey },
+        }: Theme) =>
           `${linearGradient(
-            rgba(gradient.dark.main, 0.8),
+            rgba(grey?.A700, 0.8),
             rgba(gradient.dark.dark, 0.8),
           )}, url(${bgImage})`,
         backgroundSize: 'cover',

@@ -21,7 +21,7 @@ import typography from '../../base/typography';
 // Material Kit 2 React helper functions
 import { pxToRem } from '../../functions/pxToRem';
 
-const { dark } = palette;
+const { grey } = palette;
 const { size, fontWeightBold } = typography;
 
 export default {
@@ -36,13 +36,13 @@ export default {
       display: 'inline-block',
       fontSize: size.sm,
       fontWeight: fontWeightBold,
-      color: dark.main,
+      color: grey?.A700,
       lineHeight: 1,
       transform: `translateY(${pxToRem(1)})`,
       marginLeft: pxToRem(4),
 
       '&.Mui-disabled': {
-        color: dark.main,
+        color: grey?.A700,
       },
     },
   },

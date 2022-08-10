@@ -24,6 +24,7 @@ import {
   PriceChange,
   TouchApp,
 } from '@mui/icons-material';
+import { Theme } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
@@ -569,10 +570,10 @@ const documentationSection = (
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient },
-        }: any) =>
+          palette: { gradient, grey },
+        }: Theme) =>
           `${linearGradient(
-            rgba(gradient.dark.main, 0.8),
+            rgba(grey?.A700, 0.8),
             rgba(gradient.dark.dark, 0.8),
           )}, url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg')`,
         backgroundSize: 'cover',
@@ -739,7 +740,7 @@ const HomePage = (): JSX.Element => (
         mt: -8,
         mb: 4,
         backgroundColor: ({ palette: { white }, functions: { rgba } }: any) =>
-          rgba(white.main, 0.8),
+          rgba('white', 0.8),
         backdropFilter: 'saturate(200%) blur(30px)',
         boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
       }}

@@ -17,16 +17,15 @@
 import { ComponentsOverrides } from '@mui/material/styles/overrides';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
+
 // Material Kit 2 React base styles
 import typography from '../../base/typography';
-import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
 import { pxToRem } from '../../functions/pxToRem';
 import { rgba } from '../../functions/rgba';
 
 const { size, fontWeightRegular } = typography;
-const { white } = palette;
 
 const stepLabel: {
   defaultProps?: ComponentsProps['MuiStepLabel'];
@@ -43,12 +42,12 @@ const stepLabel: {
 
       '&.Mui-active': {
         fontWeight: `${fontWeightRegular} !important`,
-        color: `${rgba(white.main, 0.8)} !important`,
+        color: `${rgba('white', 0.8)} !important`,
       },
 
       '&.Mui-completed': {
         fontWeight: `${fontWeightRegular} !important`,
-        color: `${rgba(white.main, 0.8)} !important`,
+        color: `${rgba('white', 0.8)} !important`,
       },
     },
   },
