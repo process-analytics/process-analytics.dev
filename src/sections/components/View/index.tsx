@@ -41,7 +41,7 @@ import MKButton from '../../../components/MKButton';
 import MKTypography from '../../../components/MKTypography';
 
 // Material Kit 2 React base styles
-import colors from '../../../assets/theme/base/colors';
+import { palette } from '../../../assets/theme/base/colors';
 
 function View({
   children,
@@ -50,7 +50,7 @@ function View({
   height,
   ...rest
 }: React.PropsWithChildren<ViewProps>): JSX.Element {
-  const { grey } = colors;
+  const { grey } = palette;
 
   const [activeTab, setActiveTab] = useState(0);
   const [success, setSuccess] = useState(false);

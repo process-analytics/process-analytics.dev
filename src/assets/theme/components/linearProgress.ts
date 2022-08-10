@@ -18,14 +18,13 @@ import { ComponentsOverrides } from '@mui/material/styles/overrides';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
 // Material Kit 2 React base styles
-import borders from '../base/borders';
-import colors from '../base/colors';
+import { borders } from '../base/borders';
+import { palette } from '../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../functions/pxToRem';
+import { pxToRem } from '../functions/pxToRem';
 
 const { borderRadius } = borders;
-const { light } = colors;
 
 const linearProgress: {
   defaultProps?: ComponentsProps['MuiLinearProgress'];
@@ -41,11 +40,11 @@ const linearProgress: {
     },
 
     colorPrimary: {
-      backgroundColor: light.main,
+      backgroundColor: gre,
     },
 
     colorSecondary: {
-      backgroundColor: light.main,
+      backgroundColor: palette.background?.default,
     },
 
     bar: {

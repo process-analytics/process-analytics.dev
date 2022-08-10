@@ -18,7 +18,7 @@
 import typography from '../../base/typography';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { size } = typography;
 

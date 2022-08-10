@@ -19,12 +19,12 @@
  */
 
 // Material Kit 2 React helper functions
-import rgba from './rgba';
-import pxToRem from './pxToRem';
+import { rgba } from './rgba';
+import { pxToRem } from './pxToRem';
 
 import { Color } from 'chroma-js';
 
-function boxShadow(
+export function boxShadow(
   offset: number[] = [],
   radius: number[] = [],
   color: string | number | Color,
@@ -38,5 +38,3 @@ function boxShadow(
     spread,
   )} ${rgba(color, opacity)}`;
 }
-
-export default boxShadow;

@@ -15,10 +15,8 @@
  */
 
 // Material Kit 2 React base styles
-import borders from '../../base/borders';
-import colors from '../../base/colors';
+import { borders } from '../../base/borders';
 
-const { white } = colors;
 const { borderWidth } = borders;
 
 export default {
@@ -28,11 +26,11 @@ export default {
       transition: 'all 200ms linear',
 
       '&.Mui-active': {
-        color: white.main,
+        color: 'white',
       },
 
       '&.Mui-completed': {
-        color: white.main,
+        color: 'white',
       },
     },
 

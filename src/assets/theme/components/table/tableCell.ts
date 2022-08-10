@@ -15,14 +15,14 @@
  */
 
 // Material Kit 2 React base styles
-import borders from '../../base/borders';
-import colors from '../../base/colors';
+import { borders } from '../../base/borders';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { borderWidth } = borders;
-const { light } = colors;
+const { light } = palette;
 
 export default {
   styleOverrides: {

@@ -18,8 +18,6 @@
 import { styled } from '@mui/material/styles';
 import LinearProgress from '@mui/material/LinearProgress';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
 
 interface MKProgressRootProps {
   ownerState: any;
@@ -27,10 +25,10 @@ interface MKProgressRootProps {
 
 export default styled(LinearProgress)<MKProgressRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, functions } = theme as CustomTheme;
+    const { palette, functions } = theme;
     const { color, value, variant } = ownerState;
 
-    const { text, gradient } = palette as unknown as Colors;
+    const { text, gradient } = palette;
     const { linearGradient } = functions;
 
     // background value

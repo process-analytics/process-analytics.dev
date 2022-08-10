@@ -18,8 +18,6 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // @mui material components
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
 
 interface MKMKInputRootProps {
   ownerState: any;
@@ -27,7 +25,7 @@ interface MKMKInputRootProps {
 
 export default styled(TextField)<MKMKInputRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, functions } = theme as CustomTheme;
+    const { palette, functions } = theme;
     const { error, success, disabled } = ownerState;
 
     const {
@@ -35,7 +33,7 @@ export default styled(TextField)<MKMKInputRootProps>(
       transparent,
       error: colorError,
       success: colorSuccess,
-    } = palette as unknown as Colors;
+    } = palette;
     const { pxToRem } = functions;
 
     // styles for the input with error={true}

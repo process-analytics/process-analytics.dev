@@ -16,19 +16,15 @@
 
 // @mui material components
 import { styled } from '@mui/material/styles';
-import { CustomTypography } from '../../assets/theme/base/typography';
-import { Colors } from '../../assets/theme/base/colors';
-import { CustomTheme } from '../../assets/theme';
 
-export default styled('span')(({ theme }: { theme: CustomTheme }) => {
-  const { palette, typography, functions } = theme as CustomTheme;
+export default styled('span')(({ theme }) => {
+  const { typography, functions } = theme;
 
-  const { white } = palette as unknown as Colors;
-  const { size, fontWeightMedium } = typography as CustomTypography;
+  const { size, fontWeightMedium } = typography;
   const { pxToRem } = functions;
 
   return {
-    color: white.main,
+    color: 'white',
     fontSize: size.xl,
     padding: `${pxToRem(9)} ${pxToRem(6)} ${pxToRem(8)}`,
     marginLeft: pxToRem(40),

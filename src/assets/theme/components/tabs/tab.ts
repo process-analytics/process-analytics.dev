@@ -19,15 +19,15 @@ import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
 // Material Kit 2 React base styles
 import typography from '../../base/typography';
-import borders from '../../base/borders';
-import colors from '../../base/colors';
+import { borders } from '../../base/borders';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { size, fontWeightRegular } = typography;
 const { borderRadius } = borders;
-const { dark } = colors;
+const { dark } = palette;
 
 const tab: {
   defaultProps?: ComponentsProps['MuiTab'];

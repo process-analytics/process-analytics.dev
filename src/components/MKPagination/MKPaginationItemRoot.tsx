@@ -17,10 +17,6 @@
 // @mui material components
 import { styled } from '@mui/material/styles';
 
-import { Colors } from '../../assets/theme/base/colors';
-import { CustomTypography } from '../../assets/theme/base/typography';
-import { CustomTheme } from '../../assets/theme';
-
 // Material Kit 2 React components
 import MKButton from '../MKButton';
 
@@ -30,14 +26,13 @@ interface MKPaginationItemRootProps {
 
 export default styled(MKButton)<MKPaginationItemRootProps>(
   ({ theme, ownerState }) => {
-    const { borders, functions, typography, palette } = theme as CustomTheme;
+    const { borders, functions, typography, palette } = theme;
     const { variant, paginationSize, active } = ownerState;
 
     const { borderColor } = borders;
     const { pxToRem } = functions;
-    const { fontWeightRegular, size: fontSize } =
-      typography as CustomTypography;
-    const { light } = palette as unknown as Colors;
+    const { fontWeightRegular, size: fontSize } = typography;
+    const { light } = palette;
 
     // width, height, minWidth and minHeight values
     let sizeValue = pxToRem(36);

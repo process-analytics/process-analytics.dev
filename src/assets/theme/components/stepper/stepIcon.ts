@@ -15,13 +15,13 @@
  */
 
 // Material Kit 2 React base styles
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 import boxShadow from '../../functions/boxShadow';
 
-const { white } = colors;
+const { white } = palette;
 
 export default {
   styleOverrides: {

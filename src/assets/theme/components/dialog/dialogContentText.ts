@@ -17,10 +17,10 @@
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
 import typography from '../../base/typography';
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 
 const { size } = typography;
-const { text } = colors;
+const { text } = palette;
 
 export default {
   styleOverrides: {

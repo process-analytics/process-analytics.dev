@@ -15,10 +15,10 @@
  */
 
 // Material Kit 2 React Base Styles
-import borders from '../../base/borders';
+import { borders } from '../../base/borders';
 
 // Material Kit 2 React Helper Functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { borderRadius } = borders;
 

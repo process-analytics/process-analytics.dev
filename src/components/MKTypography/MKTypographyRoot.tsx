@@ -18,16 +18,13 @@
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
-import { Colors } from '../../assets/theme/base/colors';
-import { CustomTheme } from '../../assets/theme';
-
 interface MKTypographyRootProps {
   ownerState: any;
 }
 
 export default styled(Typography)<MKTypographyRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, typography, functions } = theme as CustomTheme;
+    const { palette, typography, functions } = theme;
     const {
       color,
       textTransform,
@@ -37,7 +34,7 @@ export default styled(Typography)<MKTypographyRootProps>(
       textGradient,
     } = ownerState;
 
-    const { gradient, transparent } = palette as unknown as Colors;
+    const { gradient, transparent } = palette;
     /*    const {
       fontWeightLight,
       fontWeightRegular,

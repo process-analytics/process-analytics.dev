@@ -24,8 +24,6 @@ import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { CustomTypography } from '../assets/theme/base/typography';
-
 import {
   faPinterest,
   faTwitter,
@@ -98,7 +96,7 @@ const Presentation = (): JSX.Element => {
               mb={1}
               sx={({ breakpoints, typography }) => ({
                 [breakpoints.down('md')]: {
-                  fontSize: (typography as CustomTypography).size['3xl'],
+                  fontSize: typography.size['3xl'],
                 },
               })}
             >

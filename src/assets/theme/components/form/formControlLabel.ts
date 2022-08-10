@@ -15,13 +15,13 @@
  */
 
 // Material Kit 2 React base styles
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 import typography from '../../base/typography';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
-const { dark } = colors;
+const { dark } = palette;
 const { size, fontWeightBold } = typography;
 
 export default {

@@ -50,7 +50,6 @@ import footerRoutes from '../footer.routes';
 import routes from '../PA-routes';
 
 import { theme } from '../assets/theme';
-import { CustomTypography } from '../assets/theme/base/typography';
 
 // Images
 import bgImage from '../assets/images/bg-about-us.jpg';
@@ -103,7 +102,7 @@ const AboutPage = (): JSX.Element => (
             color="white"
             sx={({ breakpoints, typography }) => ({
               [breakpoints.down('md')]: {
-                fontSize: (typography as CustomTypography).size['3xl'],
+                fontSize: typography.size['3xl'],
               },
             })}
           >

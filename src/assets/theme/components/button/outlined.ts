@@ -16,25 +16,25 @@
 
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React Base Styles
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 import typography from '../../base/typography';
 
 // Material Kit 2 React Helper Functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
-const { transparent, light, info, secondary } = colors;
+const { info, secondary, grey } = palette;
 const { size } = typography;
 
 export default {
   base: {
     minHeight: pxToRem(40),
-    color: light.main,
-    borderColor: light.main,
+    color: grey?.['50'],
+    borderColor: grey?.['50'],
     padding: `${pxToRem(10)} ${pxToRem(24)}`,
 
     '&:hover': {
       opacity: 0.75,
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
 
     '& .material-icon, .material-icons-round, svg': {
@@ -63,20 +63,20 @@ export default {
   },
 
   primary: {
-    backgroundColor: transparent.main,
+    backgroundColor: 'transparent',
     borderColor: (info as SimplePaletteColorOptions)?.main,
 
     '&:hover': {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
   },
 
   secondary: {
-    backgroundColor: transparent.main,
+    backgroundColor: 'transparent',
     borderColor: (secondary as SimplePaletteColorOptions)?.main,
 
     '&:hover': {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
   },
 };

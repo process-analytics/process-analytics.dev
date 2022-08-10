@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
-import colors from '../../base/colors';
-import borders from '../../base/borders';
-import boxShadows from '../../base/boxShadows';
+import { palette } from '../../base/colors';
+import { borders } from '../../base/borders';
+import { boxShadows } from '../../base/boxShadows';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
-import linearGradient from '../../functions/linearGradient';
+import { pxToRem } from '../../functions/pxToRem';
+import { linearGradient } from '../../functions/linearGradient';
 
-const { white, gradient, grey, transparent } = colors;
+const { grey, info } = palette;
 const { borderWidth } = borders;
 const { md } = boxShadows;
 
-const info = gradient.info as SimplePaletteColorOptions;
 const grey400 = grey ? grey[400] : undefined;
 
 export default {
@@ -41,14 +39,14 @@ export default {
       color: gradient.dark.main,
 
       '&:hover': {
-        backgroundColor: transparent.main,
+        backgroundColor: 'transparent',
       },
 
       '&.Mui-checked': {
         color: gradient.dark.main,
 
         '&:hover': {
-          backgroundColor: transparent.main,
+          backgroundColor: 'transparent',
         },
 
         '& .MuiSwitch-thumb': {
@@ -72,7 +70,7 @@ export default {
     },
 
     thumb: {
-      backgroundColor: white.main,
+      backgroundColor: 'white',
       boxShadow: md,
       border: `${borderWidth[1]} solid ${grey400}`,
     },

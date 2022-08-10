@@ -13,13 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
 import { TypographyStyle } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
-  export type BoxShadowColor = PaletteOptions & {
+  type BoxShadowColor = {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+    info: string;
+    success: string;
+    warning: string;
+    error: string;
     white: string;
+  };
+
+  type ShadowSize = {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    xxl: string;
+    inset: string;
+  };
+
+  type BoxShadows = ShadowSize & {
+    colored: BoxShadowColor;
+    sliderBoxShadow: {
+      thumb: string;
+    };
+    tabsBoxShadow: {
+      indicator: string;
+    };
   };
 
   type BorderRadius = {
@@ -44,26 +72,6 @@ declare module '@mui/material/styles' {
     borderRadius: BorderRadius;
   };
 
-  type ShadowSize = {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    xxl: string;
-    inset: string;
-  };
-
-  type BoxShadows = ShadowSize & {
-    colored: BoxShadowColor;
-    sliderBoxShadow: {
-      thumb: string;
-    };
-    tabsBoxShadow: {
-      indicator: string;
-    };
-  };
-
   type Functions = {
     boxShadow: (
       offset?: number[],
@@ -82,12 +90,12 @@ declare module '@mui/material/styles' {
     rgba: (color: string | number | Color, opacity: number) => string;
   };
 
-  export interface Theme {
+  interface Theme {
     /*    mixins: Mixins;
     shadows: Shadows;
     transitions: Transitions; */
 
-    palette: Palette & CustomPalette & SocialPalette;
+    palette: Palette & CustomPalette;
     typography: Typography & CustomTypography;
 
     boxShadows: BoxShadows;

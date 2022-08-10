@@ -37,8 +37,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import DefaultInfoCard from '../examples/Cards/InfoCards/DefaultInfoCard';
 import MKBadge from '../components/MKBadge';
 
-import { CustomTypography } from '../assets/theme/base/typography';
-
 import {
   faPinterest,
   faTwitter,
@@ -109,7 +107,7 @@ const header = (
           mb={1}
           sx={({ breakpoints, typography }) => ({
             [breakpoints.down('md')]: {
-              fontSize: (typography as CustomTypography).size['3xl'],
+              fontSize: typography.size['3xl'],
             },
           })}
         >

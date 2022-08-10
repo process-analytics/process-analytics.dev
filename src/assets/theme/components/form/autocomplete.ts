@@ -18,17 +18,17 @@ import { ComponentsOverrides } from '@mui/material/styles/overrides';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
 // Material Kit 2 React base styles
-import boxShadows from '../../base/boxShadows';
+import { boxShadows } from '../../base/boxShadows';
 import typography from '../../base/typography';
-import colors from '../../base/colors';
-import borders from '../../base/borders';
+import { palette } from '../../base/colors';
+import { borders } from '../../base/borders';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { lg } = boxShadows;
 const { size } = typography;
-const { text, white, transparent, light, dark, gradient } = colors;
+const { text, transparent, light, dark, gradient } = palette;
 const { borderRadius } = borders;
 
 const autocomplete: {

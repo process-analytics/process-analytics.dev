@@ -19,9 +19,9 @@
  */
 
 // Material Kit 2 React helper functions
-import rgba from './rgba';
+import { rgba } from './rgba';
 
-function gradientChartLine(chart: any, color: any, opacity = 0.2): any {
+export function gradientChartLine(chart: any, color: any, opacity = 0.2): any {
   const ctx = chart.getContext('2d');
   const gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
   const primaryColor = rgba(color, opacity).toString();
@@ -32,5 +32,3 @@ function gradientChartLine(chart: any, color: any, opacity = 0.2): any {
 
   return gradientStroke;
 }
-
-export default gradientChartLine;

@@ -19,14 +19,14 @@ import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
 // Material Kit 2 React base styles
 import typography from '../../base/typography';
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
-import rgba from '../../functions/rgba';
+import { pxToRem } from '../../functions/pxToRem';
+import { rgba } from '../../functions/rgba';
 
 const { size, fontWeightRegular } = typography;
-const { white } = colors;
+const { white } = palette;
 
 const stepLabel: {
   defaultProps?: ComponentsProps['MuiStepLabel'];

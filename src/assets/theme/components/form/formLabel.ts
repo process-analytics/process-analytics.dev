@@ -16,9 +16,9 @@
 
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 
-const { text } = colors;
+const { text } = palette;
 
 export default {
   styleOverrides: {

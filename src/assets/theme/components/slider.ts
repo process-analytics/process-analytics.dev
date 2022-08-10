@@ -19,15 +19,15 @@ import { ComponentsOverrides } from '@mui/material/styles/overrides';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
 // Material Kit 2 React base styles
-import colors from '../base/colors';
-import borders from '../base/borders';
-import boxShadows from '../base/boxShadows';
+import { palette } from '../base/colors';
+import { borders } from '../base/borders';
+import { boxShadows } from '../base/boxShadows';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../functions/pxToRem';
-import boxShadow from '../functions/boxShadow';
+import { pxToRem } from '../functions/pxToRem';
+import { boxShadow } from '../functions/boxShadow';
 
-const { grey, white, black, info } = colors;
+const { grey, info } = palette;
 const { borderRadius, borderWidth } = borders;
 const { sliderBoxShadow } = boxShadows;
 
@@ -47,7 +47,7 @@ const slider: {
       },
 
       '& .MuiSlider-valueLabel': {
-        color: black.main,
+        color: 'Black',
       },
     },
 
@@ -70,7 +70,7 @@ const slider: {
     thumb: {
       width: pxToRem(14),
       height: pxToRem(14),
-      backgroundColor: white.main,
+      backgroundColor: palette.background?.default,
       zIndex: 10,
       boxShadow: sliderBoxShadow.thumb,
       border: `${borderWidth[1]} solid ${infoMain}`,

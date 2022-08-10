@@ -15,7 +15,7 @@
  */
 
 // Material Kit 2 React Helper Functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 export default {
   styleOverrides: {

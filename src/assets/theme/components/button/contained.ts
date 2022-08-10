@@ -17,13 +17,13 @@
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 
 // Material Kit 2 React Base Styles
-import colors from '../../base/colors';
+import { palette } from '../../base/colors';
 import typography from '../../base/typography';
 
 // Material Kit 2 React Helper Functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
-const { white, text, info, secondary } = colors;
+const { white, text, info, secondary } = palette;
 const { size } = typography;
 
 const textMain = (text as SimplePaletteColorOptions)?.main;

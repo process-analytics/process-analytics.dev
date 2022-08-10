@@ -14,13 +14,8 @@
  * limitations under the License.
  */
 
-// Material Kit 2 React base styles
-import colors from '../../base/colors';
-
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
-
-const { transparent } = colors;
+import { pxToRem } from '../../functions/pxToRem';
 
 export default {
   styleOverrides: {
@@ -30,7 +25,7 @@ export default {
       padding: `0 ${pxToRem(12)} !important`,
 
       '& .Mui-selected': {
-        backgroundColor: transparent.main,
+        backgroundColor: 'transparent',
       },
     },
 

@@ -15,7 +15,7 @@
  */
 
 // Material Kit 2 React base styles
-import borders from '../base/borders';
+import { borders } from '../base/borders';
 
 const { borderRadius } = borders;
 

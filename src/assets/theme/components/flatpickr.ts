@@ -16,12 +16,12 @@
 
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
-import colors from '../base/colors';
+import { palette } from '../base/colors';
 
 // Material Kit 2 React helper functions
-import rgba from '../functions/rgba';
+import { rgba } from '../functions/rgba';
 
-const { info, white, gradient } = colors;
+const { info } = palette;
 
 const infoMain = (info as SimplePaletteColorOptions)?.main;
 const infoContrastText = (info as SimplePaletteColorOptions)?.contrastText;
@@ -35,7 +35,7 @@ export default {
 
   '.flatpickr-day.today': {
     background: infoMain,
-    color: white.main,
+    color: 'white',
     border: 'none',
 
     '&:hover, &:focus': {
@@ -48,7 +48,7 @@ export default {
       background: `${
         (gradient.info as SimplePaletteColorOptions)?.dark
       } !important`,
-      color: white.main,
+      color: 'white',
       border: 'none',
     },
 

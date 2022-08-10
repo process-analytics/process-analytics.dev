@@ -15,13 +15,13 @@
  */
 
 // Material Kit 2 React base styles
-import colors from '../base/colors';
+import { palette } from '../base/colors';
 
 // Material Kit 2 React helper functions
-import rgba from '../functions/rgba';
-import pxToRem from '../functions/pxToRem';
+import { rgba } from '../functions/rgba';
+import { pxToRem } from '../functions/pxToRem';
 
-const { dark, white } = colors;
+const { dark } = palette;
 
 export default {
   styleOverrides: {
@@ -42,10 +42,10 @@ export default {
     },
 
     light: {
-      background: rgba(white.main, 0.2),
+      background: rgba('white', 0.2),
 
       '&.MuiDivider-vertical': {
-        background: rgba(white.main, 0.2),
+        background: rgba('white', 0.2),
       },
     },
   },

@@ -16,14 +16,14 @@
 
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React Base Styles
-import colors from '../../base/colors';
-import borders from '../../base/borders';
+import { palette } from '../../base/colors';
+import { borders } from '../../base/borders';
 import typography from '../../base/typography';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
-const { inputBorderColor, info, grey, transparent } = colors;
+const { info, grey } = palette;
 const { borderRadius } = borders;
 const { size } = typography;
 
@@ -32,7 +32,7 @@ const grey700 = grey ? grey[700] : undefined;
 export default {
   styleOverrides: {
     root: {
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
       fontSize: size.sm,
       borderRadius: borderRadius.md,
 
@@ -54,7 +54,7 @@ export default {
     input: {
       color: grey700,
       padding: pxToRem(12),
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
 
     inputSizeSmall: {

@@ -15,11 +15,11 @@
  */
 
 // Material Kit 2 React base styles
-import colors from '../base/colors';
-import boxShadows from '../base/boxShadows';
-import borders from '../base/borders';
+import { palette } from '../base/colors';
+import { boxShadows } from '../base/boxShadows';
+import { borders } from '../base/borders';
 
-const { transparent } = colors;
+const { transparent } = palette;
 const { lg } = boxShadows;
 const { borderRadius } = borders;
 

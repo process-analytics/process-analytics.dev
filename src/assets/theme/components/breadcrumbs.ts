@@ -15,10 +15,10 @@
  */
 
 // Material Kit 2 React base styles
-import colors from '../base/colors';
+import { palette } from '../base/colors';
 import typography from '../base/typography';
 
-const { grey } = colors;
+const { grey } = palette;
 const { size } = typography;
 
 export default {

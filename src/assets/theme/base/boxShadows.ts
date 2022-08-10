@@ -23,7 +23,7 @@ import grey from '@mui/material/colors/grey';
 import { PaletteColor } from '@mui/material/styles';
 
 // Material Kit 2 React Helper Functions
-import boxShadow from '../functions/boxShadow';
+import { boxShadow } from '../functions/boxShadow';
 
 import { palette } from './colors';
 

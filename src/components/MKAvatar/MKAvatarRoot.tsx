@@ -17,21 +17,18 @@
 // @mui material components
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
-import { CustomTypography } from '../../assets/theme/base/typography';
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
 
 interface MKAvatarProps {
   ownerState: any;
 }
 
 export default styled(Avatar)<MKAvatarProps>(({ theme, ownerState }) => {
-  const { palette, functions, typography, boxShadows } = theme as CustomTheme;
+  const { palette, functions, typography, boxShadows } = theme;
   const { shadow, bgColor, size } = ownerState;
 
-  const { gradient, transparent, white } = palette as unknown as Colors;
+  const { gradient } = palette;
   const { pxToRem, linearGradient } = functions;
-  const { size: fontSize, fontWeightRegular } = typography as CustomTypography;
+  const { size: fontSize, fontWeightRegular } = typography;
 
   // backgroundImage value
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -39,7 +36,7 @@ export default styled(Avatar)<MKAvatarProps>(({ theme, ownerState }) => {
   const gradientColor = gradient[bgColor];
   const backgroundValue =
     bgColor === 'transparent'
-      ? transparent.main
+      ? 'transparent'
       : linearGradient(gradientColor.main, gradientColor.dark);
 
   // size value
@@ -92,7 +89,7 @@ export default styled(Avatar)<MKAvatarProps>(({ theme, ownerState }) => {
 
   return {
     background: backgroundValue,
-    color: white.main,
+    color: 'white',
     fontWeight: fontWeightRegular,
     boxShadow: boxShadows[shadow],
     ...sizeValue,

@@ -17,15 +17,13 @@
 // @mui material components
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import { Colors } from '../../assets/theme/base/colors';
-import { CustomTheme } from '../../assets/theme';
 
 interface MKBoxRootProps {
   ownerState: any;
 }
 
 export default styled(Box)<MKBoxRootProps>(({ theme, ownerState }) => {
-  const { palette, functions, borders, boxShadows } = theme as CustomTheme;
+  const { palette, functions, borders, boxShadows } = theme;
   const {
     variant,
     bgColor,
@@ -36,7 +34,7 @@ export default styled(Box)<MKBoxRootProps>(({ theme, ownerState }) => {
     coloredShadow,
   } = ownerState;
 
-  const { gradient, grey, white } = palette as unknown as Colors;
+  const { gradient, grey, white } = palette;
   const { linearGradient } = functions;
   const { borderRadius: radius } = borders;
   const { colored } = boxShadows;

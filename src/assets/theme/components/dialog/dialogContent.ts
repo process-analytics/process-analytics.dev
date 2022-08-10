@@ -17,14 +17,14 @@
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
 import typography from '../../base/typography';
-import borders from '../../base/borders';
-import colors from '../../base/colors';
+import { borders } from '../../base/borders';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
+import { pxToRem } from '../../functions/pxToRem';
 
 const { size } = typography;
-const { text } = colors;
+const { text } = palette;
 const { borderWidth, borderColor } = borders;
 
 export default {

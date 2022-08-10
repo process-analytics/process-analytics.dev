@@ -20,8 +20,6 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
-import { CustomTypography } from '../../../../../assets/theme/base/typography';
-
 // Material Kit 2 React components
 import MKBox from '../../../../../components/MKBox';
 import MKButton from '../../../../../components/MKButton';
@@ -197,7 +195,7 @@ function HeaderOne(): JSX.Element {
               mb={3}
               sx={({ breakpoints, typography }) => ({
                 [breakpoints.down('md')]: {
-                  fontSize: (typography as CustomTypography).size['3xl'],
+                  fontSize: typography.size['3xl'],
                 },
               })}
             >

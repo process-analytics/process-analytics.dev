@@ -16,15 +16,15 @@
 
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
-import borders from '../../base/borders';
-import colors from '../../base/colors';
+import { borders } from '../../base/borders';
+import { palette } from '../../base/colors';
 
 // Material Kit 2 React helper functions
-import pxToRem from '../../functions/pxToRem';
-import linearGradient from '../../functions/linearGradient';
+import { pxToRem } from '../../functions/pxToRem';
+import { linearGradient } from '../../functions/linearGradient';
 
 const { borderWidth, borderColor } = borders;
-const { transparent, info } = colors;
+const { info } = palette;
 
 const main = (info as SimplePaletteColorOptions)?.main;
 
@@ -37,13 +37,13 @@ export default {
         backgroundRepeat: 'no-repeat',
         width: pxToRem(20),
         height: pxToRem(20),
-        color: transparent.main,
+        color: 'transparent',
         border: `${borderWidth[1]} solid ${borderColor}`,
         borderRadius: pxToRem(5.6),
       },
 
       '&:hover': {
-        backgroundColor: transparent.main,
+        backgroundColor: 'transparent',
       },
 
       '&.Mui-focusVisible': {

@@ -18,16 +18,13 @@
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
-import { CustomTypography } from '../../assets/theme/base/typography';
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
 
 interface MKBadgeRootProps {
   ownerState: any;
 }
 
 export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
-  const { palette, typography, borders, functions } = theme as CustomTheme;
+  const { palette, typography, borders, functions } = theme;
   const {
     color,
     circular,
@@ -39,8 +36,8 @@ export default styled(Badge)<MKBadgeRootProps>(({ theme, ownerState }) => {
     children,
   } = ownerState;
 
-  const { white, dark, gradient, badgeColors } = palette as unknown as Colors;
-  const { size: fontSize, fontWeightBold } = typography as CustomTypography;
+  const { white, dark, gradient, badgeColors } = palette;
+  const { size: fontSize, fontWeightBold } = typography;
   const { borderRadius, borderWidth } = borders;
   const { pxToRem, linearGradient } = functions;
 

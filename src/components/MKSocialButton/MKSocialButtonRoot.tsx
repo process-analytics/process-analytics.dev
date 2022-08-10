@@ -18,19 +18,16 @@
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
-import { CustomTheme } from '../../assets/theme';
-import { Colors } from '../../assets/theme/base/colors';
-
 interface MKSocialButtonRootProps {
   ownerState: any;
 }
 
 export default styled(Button)<MKSocialButtonRootProps>(
   ({ theme, ownerState }) => {
-    const { palette, functions } = theme as CustomTheme;
+    const { palette, functions } = theme;
     const { color, size, iconOnly, circular } = ownerState;
 
-    const { white, socialMediaColors } = palette as unknown as Colors;
+    const { socialMediaColors } = palette;
     const { pxToRem } = functions;
 
     // backgroundColor value
@@ -78,7 +75,7 @@ export default styled(Button)<MKSocialButtonRootProps>(
 
     return {
       backgroundColor: backgroundColorValue,
-      color: white.main,
+      color: 'white',
       boxShadow: 'none',
 
       '&:hover': {
@@ -95,7 +92,7 @@ export default styled(Button)<MKSocialButtonRootProps>(
 
       '&:disabled': {
         backgroundColor: backgroundColorValue,
-        color: white.main,
+        color: 'white',
       },
 
       ...(circular && circularStyles()),
