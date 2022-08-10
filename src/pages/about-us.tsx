@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import React from 'react';
 
 // @mui material components
@@ -22,6 +21,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import Link from '@mui/material/Link';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -133,7 +134,7 @@ const AboutPage = (): JSX.Element => (
 
           <MKBox display="flex" justifyContent="center" alignItems="center">
             <MKTypography
-              component="a"
+              component={Link}
               variant="body1"
               color="white"
               href="#"
@@ -143,7 +144,7 @@ const AboutPage = (): JSX.Element => (
             </MKTypography>
 
             <MKTypography
-              component="a"
+              component={Link}
               variant="body1"
               color="white"
               href="#"
@@ -153,7 +154,7 @@ const AboutPage = (): JSX.Element => (
             </MKTypography>
 
             <MKTypography
-              component="a"
+              component={Link}
               variant="body1"
               color="white"
               href="#"
@@ -162,7 +163,12 @@ const AboutPage = (): JSX.Element => (
               <FontAwesomeIcon icon={faTwitter} />
             </MKTypography>
 
-            <MKTypography component="a" variant="body1" color="white" href="#">
+            <MKTypography
+              component={Link}
+              variant="body1"
+              color="white"
+              href="#"
+            >
               <FontAwesomeIcon icon={faGooglePlus} />
             </MKTypography>
           </MKBox>

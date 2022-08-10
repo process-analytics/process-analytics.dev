@@ -77,7 +77,13 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       : 'white';
 
     // boxShadow value
-    const boxShadowValue = colored[color]
+    const coloredColor =
+      color !== 'white' &&
+      color !== 'light' &&
+      color !== 'dark' &&
+      color !== 'default' &&
+      colored[color];
+    const boxShadowValue = coloredColor
       ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, ${boxShadow(
           [0, 3],
           [1, -2],
@@ -87,7 +93,7 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
       : 'none';
 
     // boxShadow value when button is hovered
-    const hoveredBoxShadowValue = colored[color]
+    const hoveredBoxShadowValue = coloredColor
       ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, ${boxShadow(
           [0, 4],
           [23, 0],
@@ -209,24 +215,39 @@ export default styled(Button)<MKButtonRootProps>(({ theme, ownerState }) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const paletteColor = palette[color];
-    const boxShadowValue = colored[color]
-      ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, ${boxShadow(
-          [0, 3],
-          [1, -2],
-          paletteColor.main,
-          0.2,
-        )}, ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
-      : 'none';
+    const boxShadowValue =
+      color !== 'white' &&
+      color !== 'light' &&
+      color !== 'dark' &&
+      color !== 'default' &&
+      colored[color]
+        ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, ${boxShadow(
+            [0, 3],
+            [1, -2],
+            paletteColor.main,
+            0.2,
+          )}, ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
+        : 'none';
 
     // boxShadow value when button is hovered
-    const hoveredBoxShadowValue = colored[color]
-      ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, ${boxShadow(
-          [0, 4],
-          [23, 0],
-          paletteColor.main,
-          0.15,
-        )}, ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
-      : 'none';
+    const hoveredBoxShadowValue =
+      color !== 'white' &&
+      color !== 'light' &&
+      color !== 'dark' &&
+      color !== 'default' &&
+      colored[color]
+        ? `${boxShadow(
+            [0, 14],
+            [26, -12],
+            paletteColor.main,
+            0.4,
+          )}, ${boxShadow(
+            [0, 4],
+            [23, 0],
+            paletteColor.main,
+            0.15,
+          )}, ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
+        : 'none';
 
     // color value
     let colorValue: string | undefined = 'white';

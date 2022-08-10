@@ -13,12 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { TypographyProps } from '@mui/material/Typography/Typography';
 import React, { forwardRef } from 'react';
 
+import { TypographyProps } from '@mui/material/Typography/Typography';
+
+import {
+  FontWeight,
+  PaletteColorName,
+  TextTransform,
+  VerticalAlign,
+} from '../../types';
+
 // Custom styles for MKTypography
-import MKTypographyRoot from './MKTypographyRoot';
+import { MKTypographyRoot } from './MKTypographyRoot';
+import { GatsbyLinkProps } from 'gatsby';
+import { LinkTypeMap } from '@mui/material';
 
 const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
@@ -56,11 +65,8 @@ const MKTypography = forwardRef<
 
 // Setting default values for the props of MKTypography
 MKTypography.defaultProps = {
-  color: 'dark',
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  fontWeight: false,
-  textTransform: 'none',
+  color: 'inherit',
+  textTransform: undefined,
   verticalAlign: 'unset',
   textGradient: false,
   opacity: 1,
@@ -68,48 +74,20 @@ MKTypography.defaultProps = {
 
 // Typechecking props for the MKTypography
 interface MKTypographyProps {
-  color?:
-    | 'white'
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'text'
-    | 'inherit'
-    | 'spicy'
-    | 'sweet'
-    | 'manufacture'
-    | 'education'
-    | 'telecom'
-    | 'financial'
-    | 'energy'
-    | 'health'
-    | 'government'
-    | 'distribution';
-  fontWeight?: false | 'light' | 'regular' | 'medium' | 'bold';
-  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
-  verticalAlign?:
-    | 'unset'
-    | 'baseline'
-    | 'sub'
-    | 'super'
-    | 'text-top'
-    | 'text-bottom'
-    | 'middle'
-    | 'top'
-    | 'bottom';
+  color?: PaletteColorName | 'inherit' | 'text';
+  fontWeight?: FontWeight;
+  textTransform?: TextTransform;
+  verticalAlign?: VerticalAlign;
   textGradient?: boolean;
   opacity?: number;
-  component?: any;
+  component?:
+    | React.ComponentType<GatsbyLinkProps<never>>
+    | React.ComponentType<LinkTypeMap>;
   href?: string;
   to?: string;
   target?: string;
   rel?: string;
-  size?: any;
+  size?: string;
 }
 
 export default MKTypography;

@@ -13,123 +13,75 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import React from 'react';
 
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LogoDevIcon from '@mui/icons-material/LogoDev';
 
-import { faMedium, faDev } from '@fortawesome/free-brands-svg-icons';
+import { faMedium } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Material Kit 2 React components
-import MKTypography from './components/MKTypography';
+import { FooterRoutes } from './types';
 
 // Images
-import logoCT from './assets/PA-images/logo.svg';
+import logo from './assets/PA-images/logo.svg';
 
-import React from 'react';
-
-const date = new Date().getFullYear();
-
-export default {
+export const footerRoutes: FooterRoutes = {
   brand: {
     name: 'Process Analytics',
-    image: logoCT,
+    image: logo,
     route: '/',
   },
+  copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: [
     {
       icon: <GitHubIcon />,
-      link: 'https://github.com/process-analytics',
+      url: 'https://github.com/process-analytics',
     },
     {
       icon: <TwitterIcon />,
-      link: 'https://twitter.com/ProcessAnalyti1',
+      url: 'https://twitter.com/ProcessAnalyti1',
+    },
+
+    {
+      icon: <LogoDevIcon />,
+      url: 'https://dev.to/process-analytics',
     },
     {
       icon: <FontAwesomeIcon icon={faMedium} />,
-      link: 'https://medium.com/@process-analytics',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faDev} />,
-      link: 'https://dev.to/process-analytics',
+      url: 'https://medium.com/@process-analytics',
     },
   ],
+  // TODO: To build from page path & constants of page title to avoid duplication and bad url path
   menus: [
     {
-      name: 'company',
+      name: 'product',
       items: [
-        { name: 'about us', href: 'https://www.creative-tim.com/presentation' },
         {
-          name: 'freebies',
-          href: 'https://www.creative-tim.com/templates/free',
+          name: 'model generation application',
+          route: '/model-generation-application',
         },
-        {
-          name: 'premium tools',
-          href: 'https://www.creative-tim.com/templates/premium',
-        },
-        { name: 'blog', href: 'https://www.creative-tim.com/blog' },
+        { name: 'libraries', route: '/libraries' },
       ],
     },
     {
-      name: 'resources',
+      name: 'learn',
       items: [
-        { name: 'illustrations', href: 'https://iradesign.io/' },
-        { name: 'bits & snippets', href: 'https://www.creative-tim.com/bits' },
-        {
-          name: 'affiliate program',
-          href: 'https://www.creative-tim.com/affiliates/new',
-        },
+        { name: 'news', route: '/news' },
+        { name: 'blog', route: '/blog' },
       ],
     },
     {
       name: 'help & support',
-      items: [
-        { name: 'contact us', href: 'https://www.creative-tim.com/contact-us' },
-        {
-          name: 'knowledge center',
-          href: 'https://www.creative-tim.com/knowledge-center',
-        },
-        {
-          name: 'custom development',
-          href: 'https://services.creative-tim.com/',
-        },
-        {
-          name: 'sponsorships',
-          href: 'https://www.creative-tim.com/sponsorships',
-        },
-      ],
+      items: [{ name: 'contact us', route: '/contact-us' }],
     },
     {
-      name: 'legal',
+      name: 'Project',
       items: [
-        {
-          name: 'terms & conditions',
-          href: '',
-        },
-        {
-          name: 'privacy policy',
-          href: '',
-        },
-        {
-          name: 'licenses (EULA)',
-          href: '',
-        },
+        { name: 'about us', route: '/about-us' },
+        { name: 'terms & policies', route: '/terms-and-policies' },
       ],
     },
   ],
-  copyright: (
-    <MKTypography variant="button" fontWeight="regular">
-      Copyright &copy; {date} Material Kit by
-      <MKTypography
-        component="a"
-        href="https://www.creative-tim.com"
-        target="_blank"
-        rel="noreferrer"
-        variant="button"
-        fontWeight="regular"
-      >
-        Creative Tim
-      </MKTypography>
-    </MKTypography>
-  ),
 };

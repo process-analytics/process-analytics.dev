@@ -18,11 +18,25 @@
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
+import {
+  FontWeight,
+  PaletteColorName,
+  TextTransform,
+  VerticalAlign,
+} from '../../types';
+
 interface MKTypographyRootProps {
-  ownerState: any;
+  ownerState: {
+    color?: PaletteColorName | 'inherit' | 'text';
+    textTransform?: TextTransform;
+    verticalAlign?: VerticalAlign;
+    fontWeight?: FontWeight;
+    opacity?: number;
+    textGradient?: boolean;
+  };
 }
 
-export default styled(Typography)<MKTypographyRootProps>(
+export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions } = theme;
     const {
@@ -34,44 +48,33 @@ export default styled(Typography)<MKTypographyRootProps>(
       textGradient,
     } = ownerState;
 
-    const { gradient, grey } = palette;
     const { linearGradient } = functions;
 
-    // styles for the typography with textGradient={true}
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const gradientColor = gradient[color];
-    const gradientStyles = (): any => ({
-      backgroundImage:
-        color !== 'inherit' &&
-        color !== 'text' &&
-        color !== 'white' &&
-        gradientColor
-          ? linearGradient(gradientColor.main, gradientColor.dark)
-          : linearGradient(grey?.A700, gradient.dark.dark),
-      display: 'inline-block',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      position: 'relative',
-      zIndex: 1,
-    });
-
-    // color value
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const paletteColor = palette[color];
-    const colorValue =
-      color === 'inherit' || !paletteColor ? 'inherit' : paletteColor.main;
-
+    const calculatedColor =
+      !color || !palette[color] || color === 'inherit'
+        ? 'inherit'
+        : color === 'text'
+        ? palette.text.primary
+        : palette[color].main;
     return {
       opacity,
-      textTransform,
+      textTransform: textTransform ?? 'none',
       verticalAlign,
       textDecoration: 'none',
-      color: colorValue,
+      color: calculatedColor,
       letterSpacing: '-0.125px',
       fontWeight: fontWeight,
-      ...(textGradient && gradientStyles()),
+      ...(textGradient && {
+        backgroundImage:
+          color && color !== 'text' && color !== 'inherit'
+            ? linearGradient(palette[color].main, palette[color].dark)
+            : linearGradient(palette.grey?.A500, palette.grey?.A700),
+        display: 'inline-block',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        position: 'relative',
+        zIndex: 1,
+      }),
     };
   },
 );

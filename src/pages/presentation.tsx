@@ -15,6 +15,7 @@
  */
 
 import { Apps, Flag, PrecisionManufacturing } from '@mui/icons-material';
+import Link from '@mui/material/Link';
 import React from 'react';
 
 // @mui material components
@@ -214,7 +215,7 @@ const Presentation = (): JSX.Element => {
                 sx={{ textAlign: { xs: 'center', lg: 'right' } }}
               >
                 <MKSocialButton
-                  component="a"
+                  component={Link}
                   href="https://twitter.com/intent/tweet?text=Check%20Material%20Design%20System%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23mui5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit-react"
                   target="_blank"
                   color="twitter"
@@ -224,7 +225,7 @@ const Presentation = (): JSX.Element => {
                   &nbsp;Tweet
                 </MKSocialButton>
                 <MKSocialButton
-                  component="a"
+                  component={Link}
                   href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit-react"
                   target="_blank"
                   color="facebook"
@@ -234,7 +235,7 @@ const Presentation = (): JSX.Element => {
                   &nbsp;Share
                 </MKSocialButton>
                 <MKSocialButton
-                  component="a"
+                  component={Link}
                   href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit-react"
                   target="_blank"
                   color="pinterest"

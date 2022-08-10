@@ -96,7 +96,7 @@ function FormSimple(): JSX.Element {
                   </MKTypography>
 
                   <MKTypography
-                    component="a"
+                    component={Link}
                     href="#"
                     variant="button"
                     fontWeight="regular"

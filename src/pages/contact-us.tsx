@@ -79,7 +79,7 @@ const ContactPage = (): JSX.Element => (
           <MKBox
             variant="gradient"
             bgColor="info"
-            coloredShadow="info"
+            shadowColor="info"
             borderRadius="lg"
             p={2}
             mx={2}

@@ -68,7 +68,7 @@ function FormSimple() {
                     &nbsp;&nbsp;I agree the&nbsp;
                   </MKTypography>
                   <MKTypography
-                    component="a"
+                    component={Link}
                     href="#"
                     variant="button"
                     fontWeight="regular"

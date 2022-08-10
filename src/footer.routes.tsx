@@ -18,6 +18,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import Link from '@mui/material/Link';
 
 // Material Kit 2 React components
 import MKTypography from './components/MKTypography';
@@ -119,7 +120,7 @@ export default {
     <MKTypography variant="button" fontWeight="regular">
       Copyright &copy; {date} Material Kit by{' '}
       <MKTypography
-        component="a"
+        component={Link}
         href="https://www.creative-tim.com"
         target="_blank"
         rel="noreferrer"

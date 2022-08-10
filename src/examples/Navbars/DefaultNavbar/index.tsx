@@ -583,7 +583,7 @@ function DefaultNavbar({
                 </MKButton>
               ) : (
                 <MKButton
-                  component="a"
+                  component={Link}
                   href={action.route}
                   target="_blank"
                   rel="noreferrer"

@@ -105,7 +105,7 @@ function Profile(): JSX.Element {
                 path that leaves you more equanimous.
                 <br />
                 <MKTypography
-                  component="a"
+                  component={Link}
                   href="#"
                   variant="body1"
                   fontWeight="light"

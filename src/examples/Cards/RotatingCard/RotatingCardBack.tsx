@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 import { Link } from 'gatsby';
 import React from 'react';
 
@@ -39,7 +40,7 @@ function RotatingCard({
       justifyContent="center"
       alignItems="center"
       borderRadius="lg"
-      coloredShadow={color}
+      shadowColor={color}
       position="absolute"
       width="100%"
       height="100%"
@@ -50,7 +51,7 @@ function RotatingCard({
         backgroundImage: ({
           palette: { gradient },
           functions: { linearGradient, rgba },
-        }: any) => {
+        }: Theme) => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           const gradientColor = gradient[color];
@@ -122,18 +123,10 @@ RotatingCard.defaultProps = {
 
 // Typechecking props for the RotatingCard
 interface RotatingCardProps {
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark';
+  color?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
   image: string;
-  title: any;
-  description: any;
+  title: string;
+  description: string;
   action: {
     type: 'external' | 'internal';
     route: string;

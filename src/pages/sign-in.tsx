@@ -110,7 +110,7 @@ const SignInPage = (): JSX.Element => {
                 variant="gradient"
                 bgColor="info"
                 borderRadius="lg"
-                coloredShadow="info"
+                shadowColor="info"
                 mx={2}
                 mt={-3}
                 p={2}

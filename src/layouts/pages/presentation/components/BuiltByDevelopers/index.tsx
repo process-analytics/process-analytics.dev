@@ -65,7 +65,7 @@ function BuiltByDevelopers(): JSX.Element {
             create unlimited combinations for our components.
           </MKTypography>
           <MKTypography
-            component="a"
+            component={Link}
             href="https://www.creative-tim.com/learning-lab/react/overview/material-kit/"
             target="_blank"
             rel="noreferrer"

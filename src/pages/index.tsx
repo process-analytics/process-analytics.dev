@@ -26,6 +26,7 @@ import {
 } from '@mui/icons-material';
 import { Theme } from '@mui/material';
 import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
@@ -485,7 +486,7 @@ const componentsSection = (
               <Grid item xs={4} lg={2}>
                 <Tooltip title="JavaScript">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-js"
                     target="_blank"
                   >
@@ -500,7 +501,7 @@ const componentsSection = (
               <Grid item xs={4} lg={2}>
                 <Tooltip title="TypeScript">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-js"
                     target="_blank"
                   >
@@ -515,7 +516,7 @@ const componentsSection = (
               <Grid item xs={4} lg={2}>
                 <Tooltip title="Java">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://github.com/process-analytics/bpmn-layout-generators"
                     target="_blank"
                   >
@@ -530,7 +531,7 @@ const componentsSection = (
               <Grid item xs={4} lg={2}>
                 <Tooltip title="R">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-R"
                     target="_blank"
                   >
@@ -597,7 +598,7 @@ const documentationSection = (
             combinations for our components.
           </MKTypography>
           <MKTypography
-            component="a"
+            component={Link}
             href="https://process-analytics.github.io/bpmn-visualization-js/"
             target="_blank"
             rel="noreferrer"
@@ -688,7 +689,7 @@ const conclusionSection = (
           sx={{ textAlign: { xs: 'center', lg: 'right' } }}
         >
           <MKSocialButton
-            component="a"
+            component={Link}
             href="https://twitter.com/intent/tweet?text=Discover%20Process%20Analytics%20components&amp;url=https%3A%2F%2Fprocess-analytics.dev"
             target="_blank"
             color="twitter"
@@ -698,7 +699,7 @@ const conclusionSection = (
             &nbsp;Tweet
           </MKSocialButton>
           <MKSocialButton
-            component="a"
+            component={Link}
             href="https://www.facebook.com/sharer/sharer.php?u=https://process-analytics.dev/"
             target="_blank"
             color="facebook"
@@ -708,7 +709,7 @@ const conclusionSection = (
             &nbsp;Share
           </MKSocialButton>
           <MKSocialButton
-            component="a"
+            component={Link}
             href="https://www.pinterest.com/pin/create/button/?url=https://process-analytics.dev/"
             target="_blank"
             color="pinterest"

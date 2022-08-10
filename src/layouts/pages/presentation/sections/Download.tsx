@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import Link from '@mui/material/Link';
 import React from 'react';
 
 // @mui material components
@@ -74,7 +75,7 @@ function Download(): JSX.Element {
               variant="gradient"
               color="info"
               size="large"
-              component="a"
+              component={Link}
               href="https://www.creative-tim.com/product/material-kit-react"
               sx={{ mb: 2 }}
             >
@@ -94,7 +95,7 @@ function Download(): JSX.Element {
               <Grid item xs={4} lg={2}>
                 <Tooltip title="Bootstrap 5 - Most popular front-end component library">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://www.creative-tim.com/product/material-kit"
                     target="_blank"
                   >
@@ -111,7 +112,7 @@ function Download(): JSX.Element {
                 <Tooltip title="Comming soon">
                   <MKBox
                     opacity={0.5}
-                    component="a"
+                    component={Link}
                     href="#"
                     target="_blank"
                     onClick={e => e.preventDefault()}
@@ -129,7 +130,7 @@ function Download(): JSX.Element {
                 <Tooltip title="Comming soon">
                   <MKBox
                     opacity={0.5}
-                    component="a"
+                    component={Link}
                     href="#"
                     target="_blank"
                     onClick={e => e.preventDefault()}
@@ -147,7 +148,7 @@ function Download(): JSX.Element {
                 <Tooltip title="Comming soon">
                   <MKBox
                     opacity={0.5}
-                    component="a"
+                    component={Link}
                     href="#"
                     target="_blank"
                     onClick={e => e.preventDefault()}
@@ -164,7 +165,7 @@ function Download(): JSX.Element {
               <Grid item xs={4} lg={2}>
                 <Tooltip title="Comming soon">
                   <MKBox
-                    component="a"
+                    component={Link}
                     href="https://www.creative-tim.com/product/material-kit-react"
                     target="_blank"
                   >
@@ -181,7 +182,7 @@ function Download(): JSX.Element {
                 <Tooltip title="Comming soon">
                   <MKBox
                     opacity={0.5}
-                    component="a"
+                    component={Link}
                     href="#"
                     target="_blank"
                     onClick={e => e.preventDefault()}

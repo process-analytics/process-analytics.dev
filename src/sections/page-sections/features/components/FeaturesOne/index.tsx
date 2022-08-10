@@ -47,7 +47,7 @@ function FeaturesOne(): JSX.Element {
               friends. It becomes harder for us to give others a hand.
             </MKTypography>
             <MKTypography
-              component="a"
+              component={Link}
               href="#"
               variant="body2"
               color="info"
@@ -88,7 +88,7 @@ function FeaturesOne(): JSX.Element {
                   variant="gradient"
                   bgColor="info"
                   color="white"
-                  coloredShadow="info"
+                  shadowColor="info"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
@@ -111,7 +111,7 @@ function FeaturesOne(): JSX.Element {
                   variant="gradient"
                   bgColor="info"
                   color="white"
-                  coloredShadow="info"
+                  shadowColor="info"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
@@ -134,7 +134,7 @@ function FeaturesOne(): JSX.Element {
                   variant="gradient"
                   bgColor="info"
                   color="white"
-                  coloredShadow="info"
+                  shadowColor="info"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"

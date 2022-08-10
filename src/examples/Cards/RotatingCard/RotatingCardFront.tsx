@@ -36,7 +36,7 @@ function RotatingCardFront({
       justifyContent="center"
       alignContent="center"
       borderRadius="lg"
-      coloredShadow={color}
+      shadowColor={color}
       width="100%"
       position="relative"
       zIndex={2}

@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-import { AvatarProps } from '@mui/material';
-import { BoxProps } from '@mui/material/Box/Box';
 import React, { forwardRef } from 'react';
 
+import { AvatarProps, BoxShadowColor } from '@mui/material';
+import { BoxProps } from '@mui/material/Box/Box';
+
 // Custom styles for MKBox
-import MKBoxRoot from './MKBoxRoot';
+import { MKBoxRoot } from './MKBoxRoot';
+
+import { BorderRadius, PaletteColorName, ShadowSize } from '../../types';
 
 const MKBox = forwardRef<
   JSX.Element,
@@ -33,7 +36,7 @@ const MKBox = forwardRef<
       opacity,
       borderRadius,
       shadow,
-      coloredShadow,
+      shadowColor,
       ...rest
     },
     ref,
@@ -48,7 +51,7 @@ const MKBox = forwardRef<
         opacity,
         borderRadius,
         shadow,
-        coloredShadow,
+        shadowColor,
       }}
     />
   ),
@@ -57,32 +60,23 @@ const MKBox = forwardRef<
 // Setting default values for the props of MKBox
 MKBox.defaultProps = {
   variant: 'contained',
-  bgColor: 'transparent',
-  color: 'dark',
+  color: 'primary',
   opacity: 1,
-  borderRadius: 'none',
-  shadow: 'none',
-  coloredShadow: 'none',
 };
 
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: string;
-  color?: string;
+  bgColor?: PaletteColorName | 'light' | 'dark' | 'transparent';
+  color?: PaletteColorName | 'white';
   opacity?: number;
-  borderRadius?: string;
-  shadow?: string;
-  coloredShadow?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'none';
+  borderRadius?: BorderRadius;
+  shadow?: ShadowSize;
+
+  /*    const validBorderRadius = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'section'];
+    const validBoxShadows = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'inset'];*/
+
+  shadowColor?: keyof BoxShadowColor;
   to?: string;
   method?: string;
   autocomplete?: string;
