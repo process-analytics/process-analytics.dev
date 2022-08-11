@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { AvatarProps } from '@mui/material';
+import {
+  AvatarProps,
+  BoxShadows,
+  PaletteColorKey,
+  ShadowSize,
+} from '@mui/material';
 import React from 'react';
 import { forwardRef } from 'react';
 
@@ -31,21 +36,12 @@ export const MKAvatar = forwardRef<HTMLDivElement, MKAvatarProps & AvatarProps>(
 MKAvatar.defaultProps = {
   bgColor: 'transparent',
   size: 'md',
-  shadow: 'none',
+  shadow: undefined,
 };
 
 // Typechecking props for the MKAvatar
 interface MKAvatarProps {
-  bgColor?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'transparent';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' | 'inset';
+  bgColor?: PaletteColorKey | 'transparent';
+  size?: keyof ShadowSize;
+  shadow?: keyof ShadowSize;
 }
