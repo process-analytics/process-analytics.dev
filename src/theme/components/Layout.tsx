@@ -21,17 +21,6 @@ import { theme } from '../theme';
 import 'tippy.js/dist/tippy.css';
 import CookieConsent, { Cookies } from 'react-cookie-consent';
 
-declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  export type DefaultTheme = Theme;
-}
-
-declare global {
-  // This function is made available by the plugin gatsby-plugin-google-gtag at runtime
-  function gaOptout(): void;
-}
-
 loadIcons();
 
 const GlobalStyle = createGlobalStyle`
@@ -94,9 +83,7 @@ const Layout = ({ children }: Props): JSX.Element => (
             Cookies.remove('_ga', { path: '/' });
             Cookies.remove(
               `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
-              {
-                path: '/',
-              },
+              { path: '/' },
             );
           }}
           overlay={true}
