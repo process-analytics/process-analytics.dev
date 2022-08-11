@@ -36,8 +36,8 @@ import Grid from '@mui/material/Grid';
 // Material Kit 2 React components
 import { MKBox } from '../../../../../components/MKBox';
 import { MKTypography } from '../../../../../components/MKTypography';
-import MKInput from '../../../../../components/MKInput';
-import MKButton from '../../../../../components/MKButton';
+import { MKInput } from '../../../../../components/MKInput';
+import { MKButton } from '../../../../../components/MKButton';
 
 // Images
 import macbook from '../../../../../assets/images/macbook.png';

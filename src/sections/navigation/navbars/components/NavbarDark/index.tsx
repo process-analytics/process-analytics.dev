@@ -37,7 +37,7 @@ import { MKBox } from '../../../../../components/MKBox';
 // Material Kit 2 React examples
 import DefaultNavbar from '../../../../../examples/Navbars/DefaultNavbar';
 
-import routes from '../../../../../routes';
+import { routes } from '../../../../../routes';
 
 function NavbarDark(): JSX.Element {
   return (

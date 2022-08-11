@@ -32,8 +32,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 // Material Kit 2 React components
 import { MKBox } from '../components/MKBox';
 import { MKTypography } from '../components/MKTypography';
-import MKInput from '../components/MKInput';
-import MKButton from '../components/MKButton';
+import { MKInput } from '../components/MKInput';
+import { MKButton } from '../components/MKButton';
 
 // Material Kit 2 React example components
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';

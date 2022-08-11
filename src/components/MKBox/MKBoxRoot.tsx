@@ -29,6 +29,7 @@ import {
   Palette,
   styled,
 } from '@mui/material/styles';
+import { isGreyColorName, isPaletteColorName } from '../../types';
 
 interface MKBoxRootProps {
   ownerState: {
@@ -53,38 +54,6 @@ const getGreyColor = (
   palette: Palette & CustomPalette,
   color: GreyColorName,
 ): string => palette.grey[color.substr(5) as keyof Color];
-
-const isPaletteColorName = (color: string): color is PaletteColorKey =>
-  [
-    'primary',
-    'secondary',
-    'error',
-    'warning',
-    'info',
-    'success',
-    'tertiary',
-    'spicy',
-    'sweet',
-    'manufacture',
-    'education',
-    'telecom',
-    'financial',
-    'energy',
-    'health',
-    'government',
-    'distribution',
-  ].includes(color);
-
-const isGreyColorName = (color: string): color is GreyColorName =>
-  color === 'grey-100' ||
-  color === 'grey-200' ||
-  color === 'grey-300' ||
-  color === 'grey-400' ||
-  color === 'grey-500' ||
-  color === 'grey-600' ||
-  color === 'grey-700' ||
-  color === 'grey-800' ||
-  color === 'grey-900';
 
 const getColor = (
   palette: Palette & CustomPalette,

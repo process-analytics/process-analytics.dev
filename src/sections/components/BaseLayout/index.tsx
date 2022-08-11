@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import React from 'react';
+import { footerRoutes } from '../../../footer.routes';
 
 import { theme } from '../../../assets/theme';
 
@@ -32,7 +33,7 @@ import DefaultNavbar from '../../../examples/Navbars/DefaultNavbar';
 import CenteredFooter from '../../../examples/Footers/CenteredFooter';
 import Breadcrumbs from '../../../examples/Breadcrumbs';
 
-import routes from '../../../routes';
+import { routes } from '../../../routes';
 
 function BaseLayout({
   breadcrumb,
@@ -84,7 +85,7 @@ function BaseLayout({
         </Container>
 
         <MKBox mt="auto">
-          <CenteredFooter />
+          <CenteredFooter content={footerRoutes} />
         </MKBox>
       </MKBox>
     </ThemeProvider>

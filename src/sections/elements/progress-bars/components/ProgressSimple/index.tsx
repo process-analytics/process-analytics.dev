@@ -22,7 +22,7 @@ import React from 'react';
 
 // Material Kit 2 React components
 import { MKBox } from '../../../../../components/MKBox';
-import MKProgress from '../../../../../components/MKProgress';
+import { MKProgress } from '../../../../../components/MKProgress';
 
 function ProgressSimple(): JSX.Element {
   return (

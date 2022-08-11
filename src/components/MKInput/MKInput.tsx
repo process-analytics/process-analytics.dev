@@ -23,9 +23,9 @@ import {
 } from '@mui/material/TextField/TextField';
 
 // Custom styles for MKInput
-import MKInputRoot from './MKInputRoot';
+import { MKInputRoot } from './MKInputRoot';
 
-const MKInput = forwardRef<
+export const MKInput = forwardRef<
   HTMLDivElement,
   | (MKInputProps & StandardTextFieldProps)
   | (MKInputProps & FilledTextFieldProps)
@@ -47,5 +47,3 @@ interface MKInputProps {
   success?: boolean;
   disabled?: boolean;
 }
-
-export default MKInput;

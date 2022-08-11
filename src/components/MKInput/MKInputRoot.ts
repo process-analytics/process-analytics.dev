@@ -19,11 +19,11 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 
-interface MKMKInputRootProps {
+interface MKInputRootProps {
   ownerState: any;
 }
 
-export default styled(TextField)<MKMKInputRootProps>(
+export const MKInputRoot = styled(TextField)<MKInputRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions } = theme;
     const { error, success, disabled } = ownerState;

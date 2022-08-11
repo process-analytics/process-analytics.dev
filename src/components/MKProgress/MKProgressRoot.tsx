@@ -23,7 +23,7 @@ interface MKProgressRootProps {
   ownerState: any;
 }
 
-export default styled(LinearProgress)<MKProgressRootProps>(
+export const MKProgressRoot = styled(LinearProgress)<MKProgressRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions } = theme;
     const { color, value, variant } = ownerState;

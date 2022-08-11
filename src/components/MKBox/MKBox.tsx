@@ -72,7 +72,14 @@ MKBox.defaultProps = {
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: GreyColorName | PaletteColorKey | 'transparent' | 'light' | 'dark';
+  bgColor?:
+    | GreyColorName
+    | PaletteColorKey
+    | 'transparent'
+    | 'light'
+    | 'dark'
+    | 'default'
+    | string;
   color?: GreyColorName | PaletteColorKey | 'white';
   opacity?: number;
   borderRadius?: keyof BorderRadius;

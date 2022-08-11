@@ -19,10 +19,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
 import bgImage from '../assets/images/illustrations/illustration-reset.jpg';
 import { theme } from '../assets/theme';
-import { MKBox } from '../components/MKBox';
-import MKButton from '../components/MKButton';
-import MKInput from '../components/MKInput';
-import { MKTypography } from '../components/MKTypography';
+import { MKBox, MKButton, MKInput, MKTypography } from '../components';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import { footerRoutes } from '../footer.routes';
@@ -66,7 +63,7 @@ const ContactPage = (): JSX.Element => (
         mr={{ xs: 'auto', lg: 6 }}
       >
         <MKBox
-          bgColor="white"
+          bgColor="default"
           borderRadius="xl"
           shadow="lg"
           display="flex"

@@ -24,7 +24,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 // Material Kit 2 React components
 import { MKBox }  from "../../../../../../components/MKBox";
-import MKButton from "../../../../../../components/MKButton";
+import { MKButton }  from "../../../../../../components/MKButton";
 
 function DropdownAndDropup() {
   const [dropdown, setDropdown] = useState(null);

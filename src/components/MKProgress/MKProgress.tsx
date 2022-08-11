@@ -20,9 +20,9 @@ import React, { forwardRef } from 'react';
 import { MKTypography } from '../MKTypography';
 
 // Custom styles for MKProgress
-import MKProgressRoot from './MKProgressRoot';
+import { MKProgressRoot } from './MKProgressRoot';
 
-const MKProgress = forwardRef<
+export const MKProgress = forwardRef<
   JSX.Element,
   React.PropsWithChildren<MKProgressProps>
 >(({ variant, color, value, label, ...rest }, ref) => (
@@ -66,5 +66,3 @@ interface MKProgressProps {
   value?: number;
   label?: boolean;
 }
-
-export default MKProgress;

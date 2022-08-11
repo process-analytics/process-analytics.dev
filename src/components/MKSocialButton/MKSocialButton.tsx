@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
+import { SocialPaletteOptions } from '@mui/material/styles';
 import React, { forwardRef } from 'react';
 
 // Custom styles for MKSocialButton
-import MKSocialButtonRoot from './MKSocialButtonRoot';
+import { MKSocialButtonRoot } from './MKSocialButtonRoot';
 
-const MKSocialButton = forwardRef<
+export const MKSocialButton = forwardRef<
   HTMLButtonElement,
   React.PropsWithChildren<MKSocialButtonProps>
 >(({ color, size, iconOnly, circular, children, ...rest }, ref) => (
@@ -46,25 +47,11 @@ MKSocialButton.defaultProps = {
 // Typechecking props for the MKSocialButton
 interface MKSocialButtonProps {
   size?: 'small' | 'medium' | 'large';
-  color:
-    | 'facebook'
-    | 'twitter'
-    | 'instagram'
-    | 'linkedin'
-    | 'pinterest'
-    | 'youtube'
-    | 'github'
-    | 'vimeo'
-    | 'slack'
-    | 'dribbble'
-    | 'reddit'
-    | 'tumblr';
+  color: keyof SocialPaletteOptions;
   iconOnly?: boolean;
   circular?: boolean;
-  component?: any;
+  component?: React.ElementType;
   href?: string;
   target?: string;
   sx?: any;
 }
-
-export default MKSocialButton;

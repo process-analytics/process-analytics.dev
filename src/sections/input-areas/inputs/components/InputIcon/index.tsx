@@ -39,7 +39,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 // Material Kit 2 React components
 import { MKBox } from '../../../../../components/MKBox';
-import MKInput from '../../../../../components/MKInput';
+import { MKInput } from '../../../../../components/MKInput';
 
 import React from 'react';
 

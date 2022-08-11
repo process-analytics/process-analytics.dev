@@ -20,8 +20,7 @@ import Grid from '@mui/material/Grid';
 import MuiAvatarGroup from '@mui/material/AvatarGroup';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import MKAvatar from '../../../../../components/MKAvatar';
+import { MKBox, MKAvatar } from '../../../../../components';
 
 // Images
 import team1 from '../../../../../assets/images/team-1.jpg';

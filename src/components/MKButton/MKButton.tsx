@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { PaletteColorKey } from '@mui/material';
 import React, { forwardRef } from 'react';
 
 import { ButtonProps } from '@mui/material/Button/Button';
 
 // Custom styles for MKButton
-import MKButtonRoot from './MKButtonRoot';
+import { MKButtonRoot } from './MKButtonRoot';
 
-const MKButton = forwardRef<
+export const MKButton = forwardRef<
   HTMLButtonElement,
   React.PropsWithChildren<MKButtonProps>
 >(({ color, variant, size, circular, iconOnly, children, ...rest }, ref) => (
@@ -53,23 +54,11 @@ MKButton.defaultProps = {
 export interface MKButtonProps extends ButtonProps {
   size?: 'small' | 'medium' | 'large';
   variant?: 'text' | 'contained' | 'outlined' | 'gradient';
-  color?:
-    | 'white'
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'default';
+  color?: PaletteColorKey | 'white' | 'default';
   circular?: boolean;
   iconOnly?: boolean;
-  component?: any;
+  component?: React.ElementType;
   to?: string;
   target?: string;
   rel?: string;
 }
-
-export default MKButton;

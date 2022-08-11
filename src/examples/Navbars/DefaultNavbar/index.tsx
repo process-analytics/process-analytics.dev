@@ -48,7 +48,7 @@ import MuiLink from '@mui/material/Link';
 // Material Kit 2 React components
 import { MKBox } from '../../../components/MKBox';
 import { MKTypography } from '../../../components/MKTypography';
-import MKButton from '../../../components/MKButton';
+import { MKButton } from '../../../components/MKButton';
 
 // Material Kit 2 React example components
 import DefaultNavbarDropdown from './DefaultNavbarDropdown';
@@ -526,7 +526,7 @@ function DefaultNavbar({
         left={0}
         zIndex={3}
         sx={({
-          palette: { transparent: transparentColor, white },
+          palette: { transparent: transparentColor },
           functions: { rgba },
         }: any) => ({
           backgroundColor: transparent

@@ -14,84 +14,88 @@
  * limitations under the License.
  */
 
+import { PaletteColorKey } from '@mui/material';
 // @mui material components
 import Avatar from '@mui/material/Avatar';
-import { styled } from '@mui/material/styles';
+import { BoxShadows, ShadowSize, styled } from '@mui/material/styles';
 
 interface MKAvatarProps {
-  ownerState: any;
+  ownerState: {
+    shadow: keyof BoxShadows;
+    bgColor: PaletteColorKey | 'transparent';
+    size: keyof ShadowSize;
+  };
 }
 
-export default styled(Avatar)<MKAvatarProps>(({ theme, ownerState }) => {
-  const { palette, functions, typography, boxShadows } = theme;
-  const { shadow, bgColor, size } = ownerState;
+export const MKAvatarRoot = styled(Avatar)<MKAvatarProps>(
+  ({ theme, ownerState }) => {
+    const { palette, functions, typography, boxShadows } = theme;
+    const { shadow, bgColor, size } = ownerState;
 
-  const { gradient } = palette;
-  const { pxToRem, linearGradient } = functions;
-  const { size: fontSize, fontWeightRegular } = typography;
+    const { gradient } = palette;
+    const { pxToRem, linearGradient } = functions;
+    const { size: fontSize, fontWeightRegular } = typography;
 
-  // backgroundImage value
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const gradientColor = gradient[bgColor];
-  const backgroundValue =
-    bgColor === 'transparent'
-      ? 'transparent'
-      : linearGradient(gradientColor.main, gradientColor.dark);
+    // backgroundImage value
+    const gradientColor = gradient[bgColor];
+    const backgroundValue =
+      bgColor === 'transparent'
+        ? 'transparent'
+        : linearGradient(gradientColor.main, gradientColor.dark);
 
-  // size value
-  let sizeValue;
-
-  switch (size) {
-    case 'xs':
-      sizeValue = {
-        width: pxToRem(24),
-        height: pxToRem(24),
-        fontSize: fontSize.xs,
-      };
-      break;
-    case 'sm':
-      sizeValue = {
-        width: pxToRem(36),
-        height: pxToRem(36),
-        fontSize: fontSize.sm,
-      };
-      break;
-    case 'lg':
-      sizeValue = {
-        width: pxToRem(58),
-        height: pxToRem(58),
-        fontSize: fontSize.sm,
-      };
-      break;
-    case 'xl':
-      sizeValue = {
-        width: pxToRem(74),
-        height: pxToRem(74),
-        fontSize: fontSize.md,
-      };
-      break;
-    case 'xxl':
-      sizeValue = {
-        width: pxToRem(110),
-        height: pxToRem(110),
-        fontSize: fontSize.md,
-      };
-      break;
-    default: {
-      sizeValue = {
-        width: pxToRem(48),
-        height: pxToRem(48),
-        fontSize: fontSize.md,
-      };
+    // size value
+    let sizeValue;
+    switch (size) {
+      case 'xs':
+        sizeValue = {
+          width: pxToRem(24),
+          height: pxToRem(24),
+          fontSize: fontSize.xs,
+        };
+        break;
+      case 'sm':
+        sizeValue = {
+          width: pxToRem(36),
+          height: pxToRem(36),
+          fontSize: fontSize.sm,
+        };
+        break;
+      case 'lg':
+        sizeValue = {
+          width: pxToRem(58),
+          height: pxToRem(58),
+          fontSize: fontSize.sm,
+        };
+        break;
+      case 'xl':
+        sizeValue = {
+          width: pxToRem(74),
+          height: pxToRem(74),
+          fontSize: fontSize.md,
+        };
+        break;
+      case 'xxl':
+        sizeValue = {
+          width: pxToRem(110),
+          height: pxToRem(110),
+          fontSize: fontSize.md,
+        };
+        break;
+      default: {
+        sizeValue = {
+          width: pxToRem(48),
+          height: pxToRem(48),
+          fontSize: fontSize.md,
+        };
+      }
     }
-  }
 
-  return {
-    background: backgroundValue,
-    color: 'white',
-    fontWeight: fontWeightRegular,
-    boxShadow: boxShadows[shadow],
-    ...sizeValue,
-  };
-});
+    return {
+      background: backgroundValue,
+      color: 'white',
+      fontWeight: fontWeightRegular,
+      boxShadow: boxShadows[shadow],
+      ...sizeValue,
+    };
+  },
+);

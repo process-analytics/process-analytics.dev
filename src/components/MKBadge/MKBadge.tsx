@@ -17,9 +17,9 @@
 import React, { forwardRef } from 'react';
 
 // Custom styles for the MKBadge
-import MKBadgeRoot from './MKBadgeRoot';
+import { MKBadgeRoot } from './MKBadgeRoot';
 
-const MKBadge = forwardRef<
+export const MKBadge = forwardRef<
   HTMLSpanElement,
   React.PropsWithChildren<MKBadgeProps>
 >(
@@ -90,5 +90,3 @@ interface MKBadgeProps {
   container?: boolean;
   sx?: object;
 }
-
-export default MKBadge;

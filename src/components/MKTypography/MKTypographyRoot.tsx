@@ -17,17 +17,18 @@
 // @mui material components
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-
 import {
   FontWeight,
-  PaletteColorName,
+  PaletteColorKey,
   TextTransform,
   VerticalAlign,
-} from '../../types';
+} from '@mui/material';
+
+import { isPaletteColorName } from '../../types';
 
 interface MKTypographyRootProps {
   ownerState: {
-    color?: PaletteColorName | 'inherit' | 'text';
+    color?: PaletteColorKey | 'inherit' | 'text' | string;
     textTransform?: TextTransform;
     verticalAlign?: VerticalAlign;
     fontWeight?: FontWeight;
@@ -51,11 +52,13 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
     const { linearGradient } = functions;
 
     const calculatedColor =
-      !color || !palette[color] || color === 'inherit'
+      !color || color === 'inherit'
         ? 'inherit'
         : color === 'text'
         ? palette.text.primary
-        : palette[color].main;
+        : isPaletteColorName(color)
+        ? palette[color].main
+        : color;
     return {
       opacity,
       textTransform: textTransform ?? 'none',
@@ -66,7 +69,7 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
       fontWeight: fontWeight,
       ...(textGradient && {
         backgroundImage:
-          color && color !== 'text' && color !== 'inherit'
+          color && isPaletteColorName(color)
             ? linearGradient(palette[color].main, palette[color].dark)
             : linearGradient(palette.grey?.A500, palette.grey?.A700),
         display: 'inline-block',

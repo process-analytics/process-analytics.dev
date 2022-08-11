@@ -215,8 +215,6 @@ declare module '@mui/material/styles' {
     | 'success'
     | keyof CustomPaletteOptions;
 
-  export type SocialColorKey = keyof SocialPaletteOptions;
-
   export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
 
   export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';

@@ -21,12 +21,12 @@ import { MKButtonProps } from '../MKButton';
 import { MKBox } from '../MKBox';
 
 // Custom styles for MKPagination
-import MKPaginationItemRoot from './MKPaginationItemRoot';
+import { MKPaginationItemRoot } from './MKPaginationItemRoot';
 
 // The Pagination main context
 const Context: React.Context<any> = createContext(null);
 
-const MKPagination = forwardRef<
+export const MKPagination = forwardRef<
   HTMLButtonElement,
   React.PropsWithChildren<MKPaginationProps & MKButtonProps>
 >(
@@ -101,5 +101,3 @@ interface MKPaginationProps {
   active?: boolean;
   placement?: 'left' | 'right' | 'center';
 }
-
-export default MKPagination;

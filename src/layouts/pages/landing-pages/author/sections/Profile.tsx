@@ -21,13 +21,13 @@ import Grid from '@mui/material/Grid';
 import { ArrowForward } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import MKAvatar from '../../../../../components/MKAvatar';
-import MKButton from '../../../../../components/MKButton';
+import { MKBox, MKAvatar } from '../../../../../components';
+import { MKButton } from '../../../../../components/MKButton';
 import { MKTypography } from '../../../../../components/MKTypography';
 
 // Images
 import profilePicture from '../../../../../assets/images/bruce-mars.jpg';
+import { Link } from '@mui/material';
 
 function Profile(): JSX.Element {
   return (

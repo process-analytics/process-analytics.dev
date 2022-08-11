@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { GreyColorName, PaletteColorKey } from '@mui/material';
 
 export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
 export type Image = {
@@ -69,3 +70,35 @@ export type FooterRoutes = {
 };
 export type Menu = { name: string; items: Link[] };
 export type Link = { name: string; route: string };
+
+export const isPaletteColorName = (color: string): color is PaletteColorKey =>
+  [
+    'primary',
+    'secondary',
+    'error',
+    'warning',
+    'info',
+    'success',
+    'tertiary',
+    'spicy',
+    'sweet',
+    'manufacture',
+    'education',
+    'telecom',
+    'financial',
+    'energy',
+    'health',
+    'government',
+    'distribution',
+  ].includes(color);
+
+export const isGreyColorName = (color: string): color is GreyColorName =>
+  color === 'grey-100' ||
+  color === 'grey-200' ||
+  color === 'grey-300' ||
+  color === 'grey-400' ||
+  color === 'grey-500' ||
+  color === 'grey-600' ||
+  color === 'grey-700' ||
+  color === 'grey-800' ||
+  color === 'grey-900';

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Theme } from '@mui/material';
 import React from 'react';
 
 // @mui material components
@@ -34,7 +35,7 @@ import {
 // Material Kit 2 React components
 import { MKBox } from '../components/MKBox';
 import { MKTypography } from '../components/MKTypography';
-import MKButton from '../components/MKButton';
+import { MKButton } from '../components/MKButton';
 
 // Material Kit 2 React examples
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
@@ -48,7 +49,7 @@ import Newsletter from '../layouts/pages/landing-pages/about-us/sections/Newslet
 
 // Routes
 import { footerRoutes } from '../footer.routes';
-import { routes } from '../PA-routes';
+import { routes } from '../routes';
 
 import { theme } from '../assets/theme';
 
@@ -75,8 +76,8 @@ const AboutPage = (): JSX.Element => (
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient },
-        }: any) =>
+          palette: { gradient, grey },
+        }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.6),
             rgba(gradient.dark.dark, 0.6),
@@ -123,7 +124,7 @@ const AboutPage = (): JSX.Element => (
 
           <MKButton
             color="default"
-            sx={{ color: ({ palette: { grey } }) => grey?.A700 }}
+            sx={{ color: ({ palette: { grey } }: Theme) => grey?.A700 }}
           >
             create account
           </MKButton>

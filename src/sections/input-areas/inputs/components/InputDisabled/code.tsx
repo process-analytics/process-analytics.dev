@@ -19,7 +19,7 @@ import Grid from "@mui/material/Grid";
 
 // Material Kit 2 React components
 import { MKBox }  from "../../../../../../components/MKBox";
-import MKInput from "../../../../../../components/MKInput";
+import { MKInput } from "../../../../../../components/MKInput";
 
 function InputDisabled() {
   return (

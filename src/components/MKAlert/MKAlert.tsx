@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { BoxProps } from '@mui/material';
+import { BoxProps, PaletteColorKey } from '@mui/material';
 import React, { useState } from 'react';
 
 // @mui material components
@@ -24,15 +24,15 @@ import Fade from '@mui/material/Fade';
 import { MKBox } from '../MKBox';
 
 // Custom styles for the MKAlert
-import MKAlertRoot from './MKAlertRoot';
-import MKAlertCloseIcon from './MKAlertCloseIcon';
+import { MKAlertRoot } from './MKAlertRoot';
+import { MKAlertCloseIcon } from './MKAlertCloseIcon';
 
-function MKAlert({
+export const MKAlert = ({
   color,
   dismissible,
   children,
   ...rest
-}: React.PropsWithChildren<MKAlertProps & BoxProps>): JSX.Element | null {
+}: React.PropsWithChildren<MKAlertProps & BoxProps>): JSX.Element => {
   const [alertStatus, setAlertStatus] = useState('mount');
 
   const handleAlertStatus = (): void => setAlertStatus('fadeOut');
@@ -61,19 +61,16 @@ function MKAlert({
     </Fade>
   );
 
-  switch (true) {
-    case alertStatus === 'mount':
+  switch (alertStatus) {
+    case 'mount':
       return alertTemplate();
-    case alertStatus === 'fadeOut':
+    case 'fadeOut':
       setTimeout(() => setAlertStatus('unmount'), 400);
       return alertTemplate(false);
     default:
-      alertTemplate();
-      break;
+      return alertTemplate();
   }
-
-  return null;
-}
+};
 
 // Setting default values for the props of MKAlert
 MKAlert.defaultProps = {
@@ -83,16 +80,6 @@ MKAlert.defaultProps = {
 
 // Typechecking props of the MKAlert
 interface MKAlertProps {
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark';
+  color?: PaletteColorKey;
   dismissible?: boolean;
 }
-
-export default MKAlert;

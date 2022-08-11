@@ -18,13 +18,13 @@
 import { styled } from '@mui/material/styles';
 
 // Material Kit 2 React components
-import MKButton from '../MKButton';
+import { MKButton } from '../MKButton';
 
 interface MKPaginationItemRootProps {
   ownerState: any;
 }
 
-export default styled(MKButton)<MKPaginationItemRootProps>(
+export const MKPaginationItemRoot = styled(MKButton)<MKPaginationItemRootProps>(
   ({ theme, ownerState }) => {
     const { borders, functions, typography, palette } = theme;
     const { variant, paginationSize, active } = ownerState;

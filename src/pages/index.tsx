@@ -37,7 +37,7 @@ import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import DefaultInfoCard from '../examples/Cards/InfoCards/DefaultInfoCard';
-import MKBadge from '../components/MKBadge';
+import { MKBadge } from '../components/MKBadge';
 
 import {
   faPinterest,
@@ -49,7 +49,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Material Kit 2 React components
 import { MKBox } from '../components/MKBox';
 import { MKTypography } from '../components/MKTypography';
-import MKSocialButton from '../components/MKSocialButton';
+import { MKSocialButton } from '../components/MKSocialButton';
 
 // Material Kit 2 React examples
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';

@@ -19,9 +19,9 @@ import React from 'react';
 import { forwardRef } from 'react';
 
 // Custom styles for MKAvatar
-import MKAvatarRoot from './MKAvatarRoot';
+import { MKAvatarRoot } from './MKAvatarRoot';
 
-const MKAvatar = forwardRef<HTMLDivElement, MKAvatarProps & AvatarProps>(
+export const MKAvatar = forwardRef<HTMLDivElement, MKAvatarProps & AvatarProps>(
   ({ bgColor, size, shadow, ...rest }, ref) => (
     <MKAvatarRoot ref={ref} ownerState={{ shadow, bgColor, size }} {...rest} />
   ),
@@ -49,5 +49,3 @@ interface MKAvatarProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   shadow?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' | 'inset';
 }
-
-export default MKAvatar;

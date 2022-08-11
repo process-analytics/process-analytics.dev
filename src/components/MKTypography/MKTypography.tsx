@@ -19,10 +19,10 @@ import { TypographyProps } from '@mui/material/Typography/Typography';
 
 import {
   FontWeight,
-  PaletteColorName,
+  PaletteColorKey,
   TextTransform,
   VerticalAlign,
-} from '../../types';
+} from '@mui/material';
 
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
@@ -74,13 +74,13 @@ MKTypography.defaultProps = {
 
 // Typechecking props for the MKTypography
 interface MKTypographyProps {
-  color?: PaletteColorName | 'inherit' | 'text';
+  color?: PaletteColorKey | 'inherit' | 'text' | string;
   fontWeight?: FontWeight;
   textTransform?: TextTransform;
   verticalAlign?: VerticalAlign;
   textGradient?: boolean;
   opacity?: number;
-  component?: typeof GatsbyLink | typeof MaterialLink;
+  component?: React.ElementType;
   href?: string;
   to?: string;
   target?: string;

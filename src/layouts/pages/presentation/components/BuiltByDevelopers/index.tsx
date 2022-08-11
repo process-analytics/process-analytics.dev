@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { ArrowForward } from '@mui/icons-material';
-import { Theme } from '@mui/material';
+import { Link, Theme } from '@mui/material';
 import React from 'react';
 
 // @mui material components

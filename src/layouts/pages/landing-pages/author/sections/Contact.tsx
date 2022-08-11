@@ -36,8 +36,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
 import { MKBox } from '../../../../../components/MKBox';
-import MKInput from '../../../../../components/MKInput';
-import MKButton from '../../../../../components/MKButton';
+import { MKInput } from '../../../../../components/MKInput';
+import { MKButton } from '../../../../../components/MKButton';
 import { MKTypography } from '../../../../../components/MKTypography';
 
 // Images

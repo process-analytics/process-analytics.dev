@@ -13,23 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-// @mui material components
-import { styled } from '@mui/material/styles';
-
-export const MKAlertCloseIcon = styled('span')(({ theme }) => {
-  const { typography, functions } = theme;
-
-  const { size, fontWeightMedium } = typography;
-  const { pxToRem } = functions;
-
-  return {
-    color: 'white',
-    fontSize: size.xl,
-    padding: `${pxToRem(9)} ${pxToRem(6)} ${pxToRem(8)}`,
-    marginLeft: pxToRem(40),
-    fontWeight: fontWeightMedium,
-    cursor: 'pointer',
-    lineHeight: 0,
-  };
-});
+export { MKAlert } from './MKAlert';
+export { MKAvatar } from './MKAvatar';
+export { MKBadge } from './MKBadge';
+export { MKBox } from './MKBox';
+export { MKButton } from './MKButton';
+export { MKDatePicker } from './MKDatePicker';
+export { MKInput } from './MKInput';
+export { MKPagination } from './MKPagination';
+export { MKProgress } from './MKProgress';
+export { MKSocialButton } from './MKSocialButton';
+export { MKTypography } from './MKTypography';

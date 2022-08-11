@@ -20,7 +20,7 @@ import Stack from "@mui/material/Stack";
 
 // Material Kit 2 React components
 import { MKBox }  from "../../../../../../components/MKBox";
-import MKAvatar from "../../../../../../components/MKAvatar";
+import { MKAvatar }  from "../../../../../../components/MKAvatar";
 
 // Images
 import team4 from "../../../../../../assets/images/team-4.jpg";

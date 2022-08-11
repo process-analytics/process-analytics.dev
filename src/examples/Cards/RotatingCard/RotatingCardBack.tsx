@@ -25,7 +25,7 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 // Material Kit 2 React components
 import { MKBox } from '../../../components/MKBox';
 import { MKTypography } from '../../../components/MKTypography';
-import MKButton from '../../../components/MKButton';
+import { MKButton } from '../../../components/MKButton';
 
 function RotatingCard({
   color,
