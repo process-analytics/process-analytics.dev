@@ -41,8 +41,9 @@ interface MKBoxRootProps {
       | 'light'
       | 'dark'
       | 'default'
+      | 'inherit'
       | string;
-    color?: PaletteColorKey | GreyColorName | 'white';
+    color?: PaletteColorKey | GreyColorName | 'white' | 'inherit' | string;
     opacity?: number;
     borderRadius?: keyof BorderRadius;
     shadow?: keyof ShadowSize;
@@ -84,6 +85,8 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
         : 'White';
     } else if (!bgColor || bgColor === 'transparent') {
       backgroundValue = 'transparent';
+    } else if (bgColor === 'inherit') {
+      backgroundValue = 'inherit';
     } else if (bgColor === 'default') {
       backgroundValue = palette.background.default;
     } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
@@ -94,8 +97,12 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
 
     // color value
     let colorValue;
-    if (color && color !== 'white') {
+    if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
       colorValue = getColor(palette, color);
+    } else if (bgColor === 'inherit') {
+      colorValue = 'inherit';
+    } else {
+      colorValue = color;
     }
 
     // boxShadow value

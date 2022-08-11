@@ -79,8 +79,9 @@ interface MKBoxProps {
     | 'light'
     | 'dark'
     | 'default'
+    | 'inherit'
     | string;
-  color?: GreyColorName | PaletteColorKey | 'white';
+  color?: GreyColorName | PaletteColorKey | 'white' | 'inherit' | string;
   opacity?: number;
   borderRadius?: keyof BorderRadius;
   shadow?: keyof ShadowSize;
