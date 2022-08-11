@@ -20,8 +20,8 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import MKBox from '../../components/MKBox';
-import MKTypography from '../../components/MKTypography';
+import { MKBox } from '../../components/MKBox';
+import { MKTypography } from '../../components/MKTypography';
 
 import React from 'react';
 

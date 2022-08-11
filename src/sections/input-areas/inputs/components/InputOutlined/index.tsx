@@ -35,7 +35,7 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 // Material Kit 2 React components
-import MKBox from '../../../../../components/MKBox';
+import { MKBox } from '../../../../../components/MKBox';
 import MKInput from '../../../../../components/MKInput';
 
 function InputOutlined(): JSX.Element {

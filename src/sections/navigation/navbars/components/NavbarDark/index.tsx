@@ -32,7 +32,7 @@ Coded by www.creative-tim.com
 // Material Kit 2 React components
 import React from 'react';
 
-import MKBox from '../../../../../components/MKBox';
+import { MKBox } from '../../../../../components/MKBox';
 
 // Material Kit 2 React examples
 import DefaultNavbar from '../../../../../examples/Navbars/DefaultNavbar';

@@ -21,9 +21,9 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
 // Material Kit 2 React components
-import MKBox from '../../../../../components/MKBox';
+import { MKBox } from '../../../../../components/MKBox';
 import MKButton from '../../../../../components/MKButton';
-import MKTypography from '../../../../../components/MKTypography';
+import { MKTypography } from '../../../../../components/MKTypography';
 
 // Images
 import bgImage from '../../../../../assets/images/bg-coworking.jpeg';

@@ -18,7 +18,7 @@ import React, { forwardRef, createContext, useContext } from 'react';
 import { MKButtonProps } from '../MKButton';
 
 // Material Kit 2 React components
-import MKBox from '../MKBox';
+import { MKBox } from '../MKBox';
 
 // Custom styles for MKPagination
 import MKPaginationItemRoot from './MKPaginationItemRoot';

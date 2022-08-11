@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 import Fade from '@mui/material/Fade';
 
 // Material Kit 2 React components
-import MKBox from '../MKBox';
+import { MKBox } from '../MKBox';
 
 // Custom styles for the MKAlert
 import MKAlertRoot from './MKAlertRoot';

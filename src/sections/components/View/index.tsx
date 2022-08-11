@@ -35,10 +35,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import MKBox from '../../../components/MKBox';
+import { MKBox } from '../../../components/MKBox';
 import MKAlert from '../../../components/MKAlert';
 import MKButton from '../../../components/MKButton';
-import MKTypography from '../../../components/MKTypography';
+import { MKTypography } from '../../../components/MKTypography';
 
 // Material Kit 2 React base styles
 import { palette } from '../../../assets/theme/base/colors';

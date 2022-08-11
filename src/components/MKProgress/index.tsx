@@ -17,7 +17,7 @@
 import React, { forwardRef } from 'react';
 
 // Material Kit 2 React components
-import MKTypography from '../MKTypography';
+import { MKTypography } from '../MKTypography';
 
 // Custom styles for MKProgress
 import MKProgressRoot from './MKProgressRoot';

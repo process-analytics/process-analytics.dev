@@ -22,7 +22,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import MKBox from '../../../components/MKBox';
+import { MKBox } from '../../../components/MKBox';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';

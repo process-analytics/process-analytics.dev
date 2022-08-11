@@ -26,7 +26,7 @@ import {
 } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import MKBox from '../../../../components/MKBox';
+import { MKBox } from '../../../../components/MKBox';
 
 // Material Kit 2 React examples
 import RotatingCard from '../../../../examples/Cards/RotatingCard';

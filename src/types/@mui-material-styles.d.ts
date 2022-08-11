@@ -19,7 +19,7 @@ import { TypographyStyle } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
-  type BoxShadowColor = {
+  export type BoxShadowColor = {
     primary: string;
     secondary: string;
     tertiary: string;
@@ -90,12 +90,12 @@ declare module '@mui/material/styles' {
     rgba: (color: string | number | Color, opacity: number) => string;
   };
 
-  interface Theme {
+  export interface Theme {
     /*    mixins: Mixins;
     shadows: Shadows;
     transitions: Transitions; */
 
-    palette: Palette & CustomPalette;
+    palette: Palette & CustomPalette & SocialPalette;
     typography: Typography & CustomTypography;
 
     boxShadows: BoxShadows;
@@ -118,11 +118,17 @@ declare module '@mui/material/styles' {
   }
 
   export interface SocialPalette {
+    facebook: PaletteColor;
     twitter: PaletteColor;
+    instagram: PaletteColor;
+    linkedin: PaletteColor;
     pinterest: PaletteColor;
     youtube: PaletteColor;
     slack: PaletteColor;
+    dribbble: PaletteColor;
     github: PaletteColor;
+    reddit: PaletteColor;
+    tumblr: PaletteColor;
   }
 
   export interface CustomTypography {
@@ -176,6 +182,7 @@ declare module '@mui/material/styles' {
   }
 
   export interface SocialPaletteOptions {
+    facebook: PaletteColorOptions;
     twitter: PaletteColorOptions;
     instagram: PaletteColorOptions;
     linkedin: PaletteColorOptions;
@@ -207,6 +214,8 @@ declare module '@mui/material/styles' {
     | 'info'
     | 'success'
     | keyof CustomPaletteOptions;
+
+  export type SocialColorKey = keyof SocialPaletteOptions;
 
   export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
 

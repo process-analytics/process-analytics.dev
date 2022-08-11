@@ -22,7 +22,7 @@ import Grid from '@mui/material/Grid';
 import { Apps, ChatBubble, Payments, Public } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import MKBox from '../../../../../components/MKBox';
+import { MKBox } from '../../../../../components/MKBox';
 
 // Material Kit 2 React examples
 import DefaultInfoCard from '../../../../../examples/Cards/InfoCards/DefaultInfoCard';

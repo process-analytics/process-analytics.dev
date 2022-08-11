@@ -20,8 +20,8 @@ import Icon from "@mui/material/Icon";
 import Stack from "@mui/material/Stack";
 
 // Material Kit 2 React components
-import MKBox from "../../../../../../components/MKBox";
-import MKTypography from "../../../../../../components/MKTypography";
+import { MKBox }  from "../../../../../../components/MKBox";
+import { MKTypography }  from "../../../../../../components/MKTypography";
 
 function FeaturesOne() : JSX.Element{
   return (

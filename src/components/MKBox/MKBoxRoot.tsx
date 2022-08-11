@@ -15,7 +15,13 @@
  */
 
 // @mui material components
-import { Color } from '@mui/material';
+import {
+  BorderRadius,
+  Color,
+  GreyColorName,
+  PaletteColorKey,
+  ShadowSize,
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import {
   BoxShadowColor,
@@ -24,53 +30,69 @@ import {
   styled,
 } from '@mui/material/styles';
 
-import {
-  BorderRadius,
-  GreyColorName,
-  PaletteColorName,
-  ShadowSize,
-} from '../../types';
-
 interface MKBoxRootProps {
   ownerState: {
     variant?: 'gradient' | 'contained';
     bgColor?:
-      | PaletteColorName
+      | PaletteColorKey
       | GreyColorName
       | 'transparent'
       | 'light'
-      | 'dark';
-    color?: PaletteColorName | GreyColorName | 'white';
+      | 'dark'
+      | 'default'
+      | string;
+    color?: PaletteColorKey | GreyColorName | 'white';
     opacity?: number;
-    borderRadius?: BorderRadius;
-    shadow?: ShadowSize;
+    borderRadius?: keyof BorderRadius;
+    shadow?: keyof ShadowSize;
     shadowColor?: keyof BoxShadowColor;
   };
 }
 
-function getGreyColor(
+const getGreyColor = (
   palette: Palette & CustomPalette,
   color: GreyColorName,
-): string {
-  return palette.grey[color.substr(5) as keyof Color];
-}
+): string => palette.grey[color.substr(5) as keyof Color];
 
-function getColor(
+const isPaletteColorName = (color: string): color is PaletteColorKey =>
+  [
+    'primary',
+    'secondary',
+    'error',
+    'warning',
+    'info',
+    'success',
+    'tertiary',
+    'spicy',
+    'sweet',
+    'manufacture',
+    'education',
+    'telecom',
+    'financial',
+    'energy',
+    'health',
+    'government',
+    'distribution',
+  ].includes(color);
+
+const isGreyColorName = (color: string): color is GreyColorName =>
+  color === 'grey-100' ||
+  color === 'grey-200' ||
+  color === 'grey-300' ||
+  color === 'grey-400' ||
+  color === 'grey-500' ||
+  color === 'grey-600' ||
+  color === 'grey-700' ||
+  color === 'grey-800' ||
+  color === 'grey-900';
+
+const getColor = (
   palette: Palette & CustomPalette,
-  color: PaletteColorName | GreyColorName,
-): string {
-  return color !== 'grey-100' &&
-    color !== 'grey-200' &&
-    color !== 'grey-300' &&
-    color !== 'grey-400' &&
-    color !== 'grey-500' &&
-    color !== 'grey-600' &&
-    color !== 'grey-700' &&
-    color !== 'grey-800' &&
-    color !== 'grey-900'
+  color: PaletteColorKey | GreyColorName,
+): string =>
+  isPaletteColorName(color)
     ? palette[color].main
     : getGreyColor(palette, color);
-}
 
 export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
   ({ theme, ownerState }) => {
@@ -91,16 +113,21 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
       backgroundValue = bgColor
         ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
         : 'White';
+    } else if (!bgColor || bgColor === 'transparent') {
+      backgroundValue = 'transparent';
+    } else if (bgColor === 'default') {
+      backgroundValue = palette.background.default;
+    } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
+      backgroundValue = getColor(palette, bgColor);
     } else {
-      backgroundValue =
-        bgColor &&
-        (bgColor === 'transparent'
-          ? 'transparent'
-          : getColor(palette, bgColor));
+      backgroundValue = bgColor;
     }
 
     // color value
-    const colorValue = color && getColor(palette, color);
+    let colorValue;
+    if (color && color !== 'white') {
+      colorValue = getColor(palette, color);
+    }
 
     // boxShadow value
     const boxShadowValue = shadow

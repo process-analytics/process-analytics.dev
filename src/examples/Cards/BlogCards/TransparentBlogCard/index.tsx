@@ -20,8 +20,8 @@ import MuiLink from '@mui/material/Link';
 import { ArrowForward } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import MKBox from '../../../../components/MKBox';
-import MKTypography from '../../../../components/MKTypography';
+import { MKBox } from '../../../../components/MKBox';
+import { MKTypography } from '../../../../components/MKTypography';
 import React from 'react';
 import { Link } from 'gatsby';
 

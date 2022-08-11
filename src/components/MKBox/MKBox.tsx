@@ -16,20 +16,20 @@
 
 import React, { forwardRef } from 'react';
 
-import { AvatarProps, BoxShadowColor } from '@mui/material';
-import { BoxProps } from '@mui/material/Box/Box';
+import {
+  AvatarProps,
+  BorderRadius,
+  BoxProps,
+  BoxShadowColor,
+  GreyColorName,
+  PaletteColorKey,
+  ShadowSize,
+} from '@mui/material';
 
 // Custom styles for MKBox
 import { MKBoxRoot } from './MKBoxRoot';
 
-import {
-  BorderRadius,
-  GreyColorName,
-  PaletteColorName,
-  ShadowSize,
-} from '../../types';
-
-const MKBox = forwardRef<
+export const MKBox = forwardRef<
   JSX.Element,
   React.PropsWithChildren<MKBoxProps & (BoxProps | AvatarProps)>
 >(
@@ -72,15 +72,11 @@ MKBox.defaultProps = {
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: GreyColorName | PaletteColorName | 'transparent' | 'light' | 'dark';
-  color?: GreyColorName | PaletteColorName | 'white';
+  bgColor?: GreyColorName | PaletteColorKey | 'transparent' | 'light' | 'dark';
+  color?: GreyColorName | PaletteColorKey | 'white';
   opacity?: number;
-  borderRadius?: BorderRadius;
-  shadow?: ShadowSize;
-
-  /*    const validBorderRadius = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'section'];
-    const validBoxShadows = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'inset'];*/
-
+  borderRadius?: keyof BorderRadius;
+  shadow?: keyof ShadowSize;
   shadowColor?: keyof BoxShadowColor;
   to?: string;
   method?: string;
@@ -89,5 +85,3 @@ interface MKBoxProps {
   target?: string;
   rel?: string;
 }
-
-export default MKBox;

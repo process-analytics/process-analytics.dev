@@ -20,8 +20,8 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 // Material Kit 2 React components
-import MKBox from '../../../../../components/MKBox';
-import MKTypography from '../../../../../components/MKTypography';
+import { MKBox } from '../../../../../components/MKBox';
+import { MKTypography } from '../../../../../components/MKTypography';
 
 function Typography(): JSX.Element {
   return (

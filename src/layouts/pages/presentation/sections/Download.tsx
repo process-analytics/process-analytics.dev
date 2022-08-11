@@ -22,9 +22,9 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 
 // Material Kit 2 React components
-import MKBox from '../../../../components/MKBox';
+import { MKBox } from '../../../../components/MKBox';
 import MKButton from '../../../../components/MKButton';
-import MKTypography from '../../../../components/MKTypography';
+import { MKTypography } from '../../../../components/MKTypography';
 
 // Images
 import bgImage from '../../../../assets/images/shapes/waves-white.svg';

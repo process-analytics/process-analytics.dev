@@ -23,7 +23,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../assets/theme';
 
 // Material Kit 2 React components
-import MKBox from '../components/MKBox';
+import { MKBox } from '../components/MKBox';
 
 // Material Kit 2 React examples
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';

@@ -20,7 +20,7 @@ import Stack from "@mui/material/Stack";
 import Icon from "@mui/material/Icon";
 
 // Material Kit 2 React components
-import MKBox from "../../../../../../components/MKBox";
+import { MKBox }  from "../../../../../../components/MKBox";
 import MKButton from "../../../../../../components/MKButton";
 
 function ButtonsIconRight() {
