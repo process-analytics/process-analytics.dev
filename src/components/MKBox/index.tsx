@@ -22,7 +22,12 @@ import { BoxProps } from '@mui/material/Box/Box';
 // Custom styles for MKBox
 import { MKBoxRoot } from './MKBoxRoot';
 
-import { BorderRadius, PaletteColorName, ShadowSize } from '../../types';
+import {
+  BorderRadius,
+  GreyColorName,
+  PaletteColorName,
+  ShadowSize,
+} from '../../types';
 
 const MKBox = forwardRef<
   JSX.Element,
@@ -67,8 +72,8 @@ MKBox.defaultProps = {
 // Typechecking props for the MKBox
 interface MKBoxProps {
   variant?: 'gradient' | 'contained';
-  bgColor?: PaletteColorName | 'light' | 'dark' | 'transparent';
-  color?: PaletteColorName | 'white';
+  bgColor?: GreyColorName | PaletteColorName | 'transparent' | 'light' | 'dark';
+  color?: GreyColorName | PaletteColorName | 'white';
   opacity?: number;
   borderRadius?: BorderRadius;
   shadow?: ShadowSize;

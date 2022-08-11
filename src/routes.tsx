@@ -71,7 +71,7 @@ import Typography from './sections/elements/typography';
 
 import React from 'react';
 
-const routes = [
+export const routes = [
   {
     name: 'pages',
     icon: <DashboardIcon />,
@@ -273,5 +273,3 @@ const routes = [
     href: 'https://www.github.com/creativetimofficial/material-kit-react',
   },
 ];
-
-export default routes;

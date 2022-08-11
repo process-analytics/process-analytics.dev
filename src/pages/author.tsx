@@ -37,7 +37,7 @@ import Footer from '../layouts/pages/landing-pages/author/sections/Footer';
 // Images
 import bgImage from '../assets/images/city-profile.jpg';
 
-import routes from '../routes';
+import { routes } from '../routes';
 
 import React from 'react';
 

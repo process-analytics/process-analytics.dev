@@ -27,7 +27,7 @@ import { FooterRoutes } from './types';
 // Images
 import logo from './assets/PA-images/logo.svg';
 
-export const footerRoutes: FooterRoutes = {
+export const paRooterRoutes: FooterRoutes = {
   brand: {
     name: 'Process Analytics',
     image: logo,

@@ -47,8 +47,8 @@ import Featuring from '../layouts/pages/landing-pages/about-us/sections/Featurin
 import Newsletter from '../layouts/pages/landing-pages/about-us/sections/Newsletter';
 
 // Routes
-import footerRoutes from '../footer.routes';
-import routes from '../PA-routes';
+import { footerRoutes } from '../footer.routes';
+import { routes } from '../PA-routes';
 
 import { theme } from '../assets/theme';
 

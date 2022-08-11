@@ -25,8 +25,8 @@ import MKInput from '../components/MKInput';
 import MKTypography from '../components/MKTypography';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
 import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
-import footerRoutes from '../footer.routes';
-import routes from '../routes';
+import { footerRoutes } from '../footer.routes';
+import { routes } from '../routes';
 
 const ContactPage = (): JSX.Element => (
   <ThemeProvider theme={theme}>

@@ -64,8 +64,8 @@ import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 import { theme } from '../assets/theme';
 
 // Routes
-import footerRoutes from '../PA-footer.routes';
-import routes from '../PA-routes';
+import { paRooterRoutes } from '../PA-footer.routes';
+import { paRoutes } from '../PA-routes';
 
 // Images
 import BgImg from '../assets/PA-images/bg-presentation.png';
@@ -76,7 +76,7 @@ import DayActivitiesImg from '../assets/PA-images/woman_daily_routine.jpg';
 const navbar = (
   <DefaultNavbar
     brand="Process Analytics"
-    routes={routes}
+    routes={paRoutes}
     action={{
       type: 'external',
       route:
@@ -725,7 +725,7 @@ const conclusionSection = (
 
 const footer = (
   <MKBox pt={6} px={1} mt={6}>
-    <DefaultFooter content={footerRoutes} />
+    <DefaultFooter content={paRooterRoutes} />
   </MKBox>
 );
 

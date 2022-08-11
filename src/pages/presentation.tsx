@@ -57,8 +57,8 @@ import BuiltByDevelopers from '../layouts/pages/presentation/components/BuiltByD
 import { theme } from '../assets/theme';
 
 // Routes
-import footerRoutes from '../footer.routes';
-import routes from '../routes';
+import { footerRoutes } from '../footer.routes';
+import { routes } from '../routes';
 
 // Images
 import bgImage from '../assets/images/bg-presentation.jpg';

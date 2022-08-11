@@ -34,8 +34,13 @@ import {
 interface MKBoxRootProps {
   ownerState: {
     variant?: 'gradient' | 'contained';
-    bgColor?: PaletteColorName | GreyColorName | 'transparent';
-    color?: PaletteColorName | GreyColorName;
+    bgColor?:
+      | PaletteColorName
+      | GreyColorName
+      | 'transparent'
+      | 'light'
+      | 'dark';
+    color?: PaletteColorName | GreyColorName | 'white';
     opacity?: number;
     borderRadius?: BorderRadius;
     shadow?: ShadowSize;

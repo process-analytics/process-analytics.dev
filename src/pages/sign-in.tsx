@@ -44,7 +44,7 @@ import bgImage from '../assets/images/bg-sign-in-basic.jpeg';
 
 import { theme } from '../assets/theme';
 
-import routes from '../routes';
+import { routes } from '../routes';
 
 import { Link } from 'gatsby';
 

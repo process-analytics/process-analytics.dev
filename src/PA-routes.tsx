@@ -42,7 +42,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 import React from 'react';
 
-const routes = [
+export const paRoutes = [
   {
     name: 'about',
     route: '/about',
@@ -248,5 +248,3 @@ const routes = [
     href: 'https://www.github.com/creativetimofficial/material-kit-react',
   },*/
 ];
-
-export default routes;

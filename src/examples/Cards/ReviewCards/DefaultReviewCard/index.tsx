@@ -162,11 +162,8 @@ function DefaultReviewCard({
         color={color === 'transparent' || color === 'light' ? 'text' : 'white'}
         sx={{
           display: 'flex',
-
           alignItems: 'center',
-
           ml: 0.375,
-
           '& .material-icons-round': {
             ml: -0.375,
           },
