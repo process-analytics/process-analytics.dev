@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { PaletteColor } from '@mui/material/styles/createPalette';
 import { ComponentsOverrides } from '@mui/material/styles/overrides';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { ComponentsVariants } from '@mui/material/styles/variants';
@@ -28,7 +29,7 @@ import { pxToRem } from '../../functions/pxToRem';
 
 const { lg } = boxShadows;
 const { size } = typography;
-const { text, grey, gradient } = palette;
+const { text, grey } = palette;
 const { borderRadius } = borders;
 
 const autocomplete: {
@@ -90,7 +91,7 @@ const autocomplete: {
       alignItems: 'center',
       height: 'auto',
       padding: pxToRem(4),
-      backgroundColor: gradient.dark.contrastText,
+      backgroundColor: (palette.dark as PaletteColor).contrastText,
       color: 'white',
 
       '& .MuiChip-label': {

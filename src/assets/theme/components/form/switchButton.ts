@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { PaletteColor } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
 import { palette } from '../../base/colors';
 import { borders } from '../../base/borders';
@@ -65,7 +66,10 @@ export default {
       },
 
       '&.Mui-focusVisible .MuiSwitch-thumb': {
-        backgroundImage: linearGradient(info?.main, info?.dark),
+        backgroundImage: linearGradient(
+          (info as PaletteColor).main,
+          (info as PaletteColor).dark,
+        ),
       },
     },
 

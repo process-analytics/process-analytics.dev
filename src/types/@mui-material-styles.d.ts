@@ -19,14 +19,7 @@ import { TypographyStyle } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
-  export type BoxShadowColor = {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-    info: string;
-    success: string;
-    warning: string;
-    error: string;
+  export type BoxShadowColor = PaletteOptions & {
     white: string;
   };
 
@@ -115,6 +108,10 @@ declare module '@mui/material/styles' {
     health: PaletteColor;
     government: PaletteColor;
     distribution: PaletteColor;
+
+    // TODO: To delete. Calculate the color of the font from the color of its parent container
+    light: PaletteColor;
+    dark: PaletteColor;
   }
 
   export interface SocialPalette {
@@ -179,6 +176,10 @@ declare module '@mui/material/styles' {
     health: PaletteColorOptions;
     government: PaletteColorOptions;
     distribution: PaletteColorOptions;
+
+    // TODO: To delete. Calculate the color of the font from the color of its parent container
+    light: PaletteColorOptions;
+    dark: PaletteColorOptions;
   }
 
   export interface SocialPaletteOptions {

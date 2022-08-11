@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
+import {
+  PaletteColor,
+  SimplePaletteColorOptions,
+} from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
 import { palette } from '../base/colors';
 
@@ -23,8 +26,8 @@ import { rgba } from '../functions/rgba';
 
 const { info } = palette;
 
-const infoMain = (info as SimplePaletteColorOptions)?.main;
-const infoContrastText = (info as SimplePaletteColorOptions)?.contrastText;
+const infoMain = (info as PaletteColor).main;
+const infoContrastText = (info as PaletteColor).contrastText;
 
 export default {
   '.flatpickr-day:hover, .flatpickr-day:focus, .flatpickr-day.nextMonthDay:hover, .flatpickr-day.nextMonthDay:focus':
@@ -45,9 +48,7 @@ export default {
 
   '.flatpickr-day.selected, .flatpickr-day.selected:hover, .flatpickr-day.nextMonthDay.selected, .flatpickr-day.nextMonthDay.selected:hover, .flatpickr-day.nextMonthDay.selected:focus':
     {
-      background: `${
-        (gradient.info as SimplePaletteColorOptions)?.dark
-      } !important`,
+      background: `${(info as PaletteColor).dark} !important`,
       color: 'white',
       border: 'none',
     },

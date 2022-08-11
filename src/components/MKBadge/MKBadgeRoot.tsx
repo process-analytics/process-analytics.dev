@@ -14,13 +14,23 @@
  * limitations under the License.
  */
 
+import { PaletteColorKey } from '@mui/material';
 // @mui material components
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 
 interface MKBadgeRootProps {
   ownerState: any;
+  /*   ownerState:{
+    color;
+    circular;
+    border;
+    size;
+    indicator;
+    variant;
+    container;
+    children;
+  };*/
 }
 
 export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
@@ -85,33 +95,18 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with variant="gradient"
-    const gradientStyles = (
-      colorProp:
-        | 'white'
-        | 'primary'
-        | 'secondary'
-        | 'info'
-        | 'success'
-        | 'warning'
-        | 'error'
-        | 'light'
-        | 'dark',
-    ): any => {
-      const gradientColor = gradient[colorProp] as SimplePaletteColorOptions;
-      const gradientInfo = gradient.info as SimplePaletteColorOptions;
-      const backgroundValue = gradientColor
-        ? linearGradient(gradientColor.main, gradientColor.dark)
-        : linearGradient(gradientInfo?.main, gradientInfo?.dark);
-      const colorValue = colorProp === 'light' ? grey?.A700 : 'white';
-
+    const gradientStyles = (colorProp: 'white' | PaletteColorKey): any => {
       return {
-        background: backgroundValue,
-        color: colorValue,
+        background: linearGradient(
+          palette[colorProp].main,
+          palette[colorProp].dark,
+        ),
+        color: colorProp === 'light' ? grey?.A700 : 'white',
       };
     };
 
     // styles for the badge with variant="contained"
-    const containedStyles = (colorProp: any): any => {
+    const containedStyles = (colorProp: 'white' | PaletteColorKey): any => {
       let backgroundValue = badgeColors[colorProp]
         ? badgeColors[colorProp].background
         : badgeColors.info.background;

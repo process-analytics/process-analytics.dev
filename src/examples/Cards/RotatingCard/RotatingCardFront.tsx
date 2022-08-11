@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { BoxShadowColor, PaletteColorKey } from '@mui/material';
 import React from 'react';
 
 // @mui material components
@@ -94,15 +95,7 @@ RotatingCardFront.defaultProps = {
 
 // Typechecking props for the RotatingCardFront
 interface RotatingCardFrontProps {
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark';
+  color?: keyof BoxShadowColor;
   image: string;
   icon?: JSX.Element;
   title: JSX.Element | string;

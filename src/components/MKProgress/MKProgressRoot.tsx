@@ -28,25 +28,18 @@ export const MKProgressRoot = styled(LinearProgress)<MKProgressRootProps>(
     const { palette, functions } = theme;
     const { color, value, variant } = ownerState;
 
-    const { text, gradient } = palette;
+    const { text, info } = palette;
     const { linearGradient } = functions;
 
     // background value
     let backgroundValue;
 
     if (variant === 'gradient') {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const gradient = gradient[color];
-      const gradientInfo = gradient.info as SimplePaletteColorOptions;
-      backgroundValue = gradient
-        ? linearGradient(gradient.main, gradient.dark)
-        : linearGradient(gradientInfo?.main, gradientInfo?.dark);
+      backgroundValue = color
+        ? linearGradient(palette[color].main, palette[color].dark)
+        : linearGradient(info?.main, info?.dark);
     } else {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const paletteColor = palette[color];
-      backgroundValue = paletteColor ? paletteColor.main : palette.info?.main;
+      backgroundValue = palette[color]?.main ?? info?.main;
     }
 
     return {

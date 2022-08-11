@@ -26,7 +26,7 @@ const { grey } = palette;
 export default {
   styleOverrides: {
     root: {
-      background: rgba(grey?.A700, 0.2),
+      background: rgba(grey!.A700!, 0.2),
       height: pxToRem(1),
       margin: `${pxToRem(16)} 0`,
       borderBottom: 'none',
@@ -34,7 +34,7 @@ export default {
     },
 
     vertical: {
-      background: rgba(grey?.A700, 0.2),
+      background: rgba(grey!.A700!, 0.2),
       width: pxToRem(1),
       height: '100%',
       margin: `0 ${pxToRem(16)}`,
