@@ -31,19 +31,15 @@ export const MKAlertRoot = styled(Box)<MKAlertRootProps>(
     const { palette, typography, borders, functions } = theme;
     const { color } = ownerState;
 
-    const { white, gradient } = palette;
     const { fontSize, fontWeightMedium } = typography;
     const { borderRadius } = borders;
     const { pxToRem, linearGradient } = functions;
 
     // backgroundImage value
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const gradientColor = gradient[color];
-    const info: PaletteColor = gradientColor.info as PaletteColor;
-    const backgroundImageValue = gradientColor
-      ? linearGradient(gradientColor.main, gradientColor.dark)
-      : linearGradient((info as SimplePaletteColorOptions)?.main, info.dark);
+    const info: PaletteColor = palette[color].info as PaletteColor;
+    const backgroundImageValue = palette[color]
+      ? linearGradient(palette[color].main, palette[color].dark)
+      : linearGradient(info.main, info.dark);
 
     return {
       display: 'flex',

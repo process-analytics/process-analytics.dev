@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 // @mui material components
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -168,12 +169,12 @@ function HeaderOne(): JSX.Element {
         minHeight="100%"
         sx={{
           backgroundImage: ({
-            palette: { gradient, grey },
+            palette: { dark, grey },
             functions: { linearGradient, rgba },
-          }: any) =>
+          }: Theme) =>
             `${linearGradient(
               rgba(grey?.A700, 0.5),
-              rgba(gradient.dark.dark, 0.5),
+              rgba(dark.dark, 0.5),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

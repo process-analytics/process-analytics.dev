@@ -58,7 +58,7 @@ function BaseLayout({
               label: 'free download',
               color: 'info',
             }}
-            transparent
+            isTransparent
             relative
           />
         </MKBox>

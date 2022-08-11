@@ -39,11 +39,11 @@ function BuiltByDevelopers(): JSX.Element {
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient, grey },
+          palette: { dark, grey },
         }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.8),
-            rgba(gradient.dark.dark, 0.8),
+            rgba(dark.dark, 0.8),
           )}, url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

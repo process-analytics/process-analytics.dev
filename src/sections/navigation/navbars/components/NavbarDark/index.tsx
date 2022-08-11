@@ -50,7 +50,7 @@ function NavbarDark(): JSX.Element {
           label: 'free download',
           color: 'info',
         }}
-        transparent
+        isTransparent
         relative
         light
         center

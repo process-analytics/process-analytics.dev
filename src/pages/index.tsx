@@ -571,11 +571,11 @@ const documentationSection = (
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient, grey },
+          palette: { dark, grey },
         }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.8),
-            rgba(gradient.dark.dark, 0.8),
+            rgba(dark.dark, 0.8),
           )}, url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

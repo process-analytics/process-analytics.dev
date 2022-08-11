@@ -209,13 +209,10 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     // styles for the button with variant="gradient"
     const gradientStyles = (): any => {
       // background value
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const gradientColor = gradient[color];
       const backgroundValue =
-        color === 'white' || !gradientColor
+        color === 'white' || !palette[color]
           ? 'white'
-          : linearGradient(gradientColor.main, gradientColor.dark);
+          : linearGradient(palette[color].main, palette[color].dark);
 
       // boxShadow value
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -261,7 +258,7 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
       if (color === 'white') {
         colorValue = (text as SimplePaletteColorOptions)?.main;
       } else if (color === 'light') {
-        colorValue = gradient.dark.dark;
+        colorValue = palette.dark.dark;
       }
 
       return {

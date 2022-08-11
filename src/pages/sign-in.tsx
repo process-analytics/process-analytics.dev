@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 import React, { useState } from 'react';
 
 // @mui material components
@@ -63,7 +64,7 @@ const SignInPage = (): JSX.Element => {
           label: 'free download',
           color: 'info',
         }}
-        transparent
+        isTransparent
         light
       />
 
@@ -77,11 +78,11 @@ const SignInPage = (): JSX.Element => {
         sx={{
           backgroundImage: ({
             functions: { linearGradient, rgba },
-            palette: { gradient, grey },
-          }: any) =>
+            palette: { dark, grey },
+          }: Theme) =>
             `${linearGradient(
               rgba(grey?.A700, 0.6),
-              rgba(gradient.dark.dark, 0.6),
+              rgba(dark.dark, 0.6),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

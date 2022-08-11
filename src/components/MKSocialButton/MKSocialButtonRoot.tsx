@@ -27,17 +27,16 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
     const { palette, functions } = theme;
     const { color, size, iconOnly, circular } = ownerState;
 
-    const { socialMediaColors } = palette;
     const { pxToRem } = functions;
 
     // backgroundColor value
-    const backgroundColorValue = socialMediaColors[color]
-      ? socialMediaColors[color].main
-      : socialMediaColors.facebook.main;
+    const backgroundColorValue = palette[color]
+      ? palette[color].main
+      : palette.facebook.main;
 
-    const focusedBackgroundColorValue = socialMediaColors[color]
-      ? socialMediaColors[color].dark
-      : socialMediaColors.facebook.dark;
+    const focusedBackgroundColorValue = palette[color]
+      ? palette[color].dark
+      : palette.facebook.dark;
 
     // styles for the button with circular={true}
     const circularStyles = (): any => ({
@@ -84,9 +83,9 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
       },
 
       '&:focus:not(:hover)': {
-        backgroundColor: socialMediaColors[color]
-          ? socialMediaColors[color].dark
-          : socialMediaColors.facebook.dark,
+        backgroundColor: palette[color]
+          ? palette[color].dark
+          : palette.facebook.dark,
         boxShadow: 'none',
       },
 

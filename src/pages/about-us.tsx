@@ -67,7 +67,7 @@ const AboutPage = (): JSX.Element => (
         label: 'free download',
         color: 'default',
       }}
-      transparent
+      isTransparent
       light
     />
     <MKBox
@@ -76,11 +76,11 @@ const AboutPage = (): JSX.Element => (
       sx={{
         backgroundImage: ({
           functions: { linearGradient, rgba },
-          palette: { gradient, grey },
+          palette: { dark, grey },
         }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.6),
-            rgba(gradient.dark.dark, 0.6),
+            rgba(dark.dark, 0.6),
           )}, url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

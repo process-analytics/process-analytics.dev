@@ -56,12 +56,12 @@ import DefaultNavbarMobile from './DefaultNavbarMobile';
 
 // Material Kit 2 React base styles
 import breakpoints from '../../../assets/theme/base/breakpoints';
-import { Box } from '@mui/material';
+import { Box, Theme } from '@mui/material';
 
 function DefaultNavbar({
   brand,
   routes,
-  transparent,
+  isTransparent,
   light,
   action,
   sticky,
@@ -106,7 +106,7 @@ function DefaultNavbar({
   }, []);
 
   const renderNavbarItems = routes.map(
-    ({ name, icon, href, route, collapse }: any) => (
+    ({ name, icon, href, route, collapse }) => (
       <DefaultNavbarDropdown
         key={name}
         name={name}
@@ -129,7 +129,7 @@ function DefaultNavbar({
 
   // Render the routes on the dropdown menu
   const renderRoutes = routes.map(
-    ({ name, collapse, columns, rowsPerColumn }: any) => {
+    ({ name, collapse, columns, rowsPerColumn }) => {
       let template;
 
       // Render the dropdown menu that should be display as columns
@@ -383,7 +383,7 @@ function DefaultNavbar({
   );
 
   // Render routes that are nested inside the dropdown menu routes
-  const renderNestedRoutes = routes.map(({ collapse, columns }: any) =>
+  const renderNestedRoutes = routes.map(({ collapse, columns }) =>
     collapse && !columns
       ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -515,25 +515,20 @@ function DefaultNavbar({
     <Container sx={sticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}>
       <MKBox
         py={1}
-        px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
+        px={{ xs: 4, sm: isTransparent ? 2 : 3, lg: isTransparent ? 0 : 2 }}
         my={relative ? 0 : 2}
         mx={relative ? 0 : 3}
         width={relative ? '100%' : 'calc(100% - 48px)'}
         borderRadius="xl"
-        shadow={transparent ? 'none' : 'md'}
+        shadow={isTransparent ? undefined : 'md'}
         color={light ? 'white' : 'dark'}
         position={relative ? 'relative' : 'absolute'}
         left={0}
         zIndex={3}
-        sx={({
-          palette: { transparent: transparentColor },
-          functions: { rgba },
-        }: any) => ({
-          backgroundColor: transparent
-            ? transparentColor.main
-            : rgba('white', 0.8),
-          backdropFilter: transparent ? 'none' : `saturate(200%) blur(30px)`,
-        })}
+        sx={{
+          backgroundColor: 'transparent',
+          backdropFilter: isTransparent ? 'none' : `saturate(200%) blur(30px)`,
+        }}
       >
         <MKBox
           display="flex"
@@ -544,8 +539,8 @@ function DefaultNavbar({
             component={Link}
             to="/"
             lineHeight={1}
-            py={transparent ? 1.5 : 0.75}
-            pl={relative || transparent ? 0 : { xs: 0, lg: 1 }}
+            py={isTransparent ? 1.5 : 0.75}
+            pl={relative || isTransparent ? 0 : { xs: 0, lg: 1 }}
           >
             <MKTypography
               variant="button"
@@ -605,7 +600,7 @@ function DefaultNavbar({
             lineHeight={0}
             py={1.5}
             pl={1.5}
-            color={transparent ? 'white' : 'inherit'}
+            color={isTransparent ? 'white' : 'inherit'}
             sx={{ cursor: 'pointer' }}
             onClick={openMobileNavbar}
           >
@@ -618,10 +613,10 @@ function DefaultNavbar({
         </MKBox>
 
         <MKBox
-          bgColor={transparent ? 'white' : 'transparent'}
-          shadow={transparent ? 'lg' : 'none'}
+          bgColor={isTransparent ? 'white' : 'transparent'}
+          shadow={isTransparent ? 'lg' : undefined}
           borderRadius="xl"
-          px={transparent ? 2 : 0}
+          px={isTransparent ? 2 : 0}
         >
           {mobileView && (
             <DefaultNavbarMobile routes={routes} open={mobileNavbar} />
@@ -649,7 +644,7 @@ DefaultNavbar.defaultProps = {
 interface DefaultNavbarProps {
   brand?: string;
   routes: any[];
-  transparent?: boolean;
+  isTransparent?: boolean;
   light?: boolean;
   action: {
     type: 'external' | 'internal';

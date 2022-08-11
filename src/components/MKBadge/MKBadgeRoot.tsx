@@ -47,7 +47,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
       children,
     } = ownerState;
 
-    const { grey, gradient, badgeColors } = palette;
+    const { grey } = palette;
     const { size: fontSize, fontWeightBold } = typography;
     const { borderRadius, borderWidth } = borders;
     const { pxToRem, linearGradient } = functions;
@@ -107,12 +107,12 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
 
     // styles for the badge with variant="contained"
     const containedStyles = (colorProp: 'white' | PaletteColorKey): any => {
-      let backgroundValue = badgeColors[colorProp]
-        ? badgeColors[colorProp].background
-        : badgeColors.info.background;
-      let colorValue = badgeColors[colorProp]
-        ? badgeColors[colorProp].text
-        : badgeColors.info.text;
+      let backgroundValue = palette[colorProp]
+        ? palette[colorProp].background
+        : palette.info.main;
+      let colorValue = palette[colorProp]
+        ? palette[colorProp].text
+        : palette.info.text;
 
       if (colorProp === 'light') {
         colorValue = grey?.A700;

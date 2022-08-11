@@ -108,7 +108,7 @@ function DefaultReviewCard({
       variant={color === 'transparent' ? 'contained' : 'gradient'}
       bgColor={color}
       borderRadius="xl"
-      shadow={color === 'transparent' ? 'none' : 'md'}
+      shadow={color === 'transparent' ? undefined : 'md'}
       p={3}
     >
       {image && (

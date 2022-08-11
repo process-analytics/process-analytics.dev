@@ -43,23 +43,20 @@ function RotatingCardFront({
       zIndex={2}
       sx={{
         backgroundImage: ({
-          palette: { gradient },
+          palette,
           functions: { linearGradient, rgba },
-        }: any) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          const gradientColor = gradient[color];
+        }: Theme) => {
           return `${linearGradient(
             rgba(
-              gradientColor
-                ? gradientColor.main
-                : (gradientColor.info as SimplePaletteColorOptions)?.main,
+              color && palette[color]
+                ? palette[color].main
+                : (palette.info as SimplePaletteColorOptions)?.main,
               0.85,
             ),
             rgba(
-              gradientColor
-                ? gradientColor.main
-                : (gradientColor.info as SimplePaletteColorOptions)?.main,
+              color && palette[color]
+                ? palette[color].main
+                : (palette.info as SimplePaletteColorOptions)?.main,
               0.85,
             ),
           )}, url(${image})`;
