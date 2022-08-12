@@ -34,6 +34,12 @@ This site is created with Gatsby.
 
 2. **Start developing.**
 
+   Install dependencies. The extra options is required to fix some react 18 incompatibilities.
+   ```shell
+   npm install --legacy-peer-deps
+   ```
+
+   Start the development server
     ```shell
     npm start
     ```
