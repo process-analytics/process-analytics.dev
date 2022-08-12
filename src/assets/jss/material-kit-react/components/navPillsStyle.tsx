@@ -22,7 +22,9 @@ import {
   dangerColor,
 } from '../../material-kit-react';
 
-const navPillsStyle = (theme): any => ({
+const navPillsStyle = (theme: {
+  breakpoints: { down: (arg0: string) => any };
+}): any => ({
   root: {
     marginTop: '20px',
     paddingLeft: '0',

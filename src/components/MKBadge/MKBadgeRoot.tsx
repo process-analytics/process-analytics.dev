@@ -20,17 +20,16 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 
 interface MKBadgeRootProps {
-  ownerState: any;
-  /*   ownerState:{
-    color;
-    circular;
-    border;
-    size;
-    indicator;
-    variant;
-    container;
-    children;
-  };*/
+  ownerState: {
+    color: PaletteColorKey | 'white';
+    circular: string;
+    border: string;
+    size: string;
+    indicator: string;
+    variant: string;
+    container: string;
+    children: string;
+  };
 }
 
 export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
@@ -70,14 +69,14 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     const borderRadiusValue = circular ? borderRadius.section : borderRadius.lg;
 
     // styles for the badge with indicator={true}
-    const indicatorStyles = (sizeProp): any => {
+    const indicatorStyles = () => {
       let widthValue = pxToRem(20);
       let heightValue = pxToRem(20);
 
-      if (sizeProp === 'medium') {
+      if (size === 'medium') {
         widthValue = pxToRem(24);
         heightValue = pxToRem(24);
-      } else if (sizeProp === 'large') {
+      } else if (size === 'large') {
         widthValue = pxToRem(32);
         heightValue = pxToRem(32);
       }
@@ -95,7 +94,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with variant="gradient"
-    const gradientStyles = (colorProp: 'white' | PaletteColorKey): any => {
+    const gradientStyles = (colorProp: 'white' | PaletteColorKey) => {
       return {
         background: linearGradient(
           palette[colorProp].main,
@@ -106,7 +105,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with variant="contained"
-    const containedStyles = (colorProp: 'white' | PaletteColorKey): any => {
+    const containedStyles = (colorProp: 'white' | PaletteColorKey) => {
       let backgroundValue = palette[colorProp]
         ? palette[colorProp].background
         : palette.info.main;
@@ -156,7 +155,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
         verticalAlign: 'baseline',
         border: borderValue,
         borderRadius: borderRadiusValue,
-        ...(indicator && indicatorStyles(size)),
+        ...(indicator && indicatorStyles()),
         ...(variant === 'gradient' && gradientStyles(color)),
         ...(variant === 'contained' && containedStyles(color)),
         ...(!children && !container && standAloneStyles()),

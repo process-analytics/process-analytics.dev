@@ -31,7 +31,6 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions } = theme;
     const { color, size, iconOnly, circular } = ownerState;
-
     const { pxToRem } = functions;
 
     // backgroundColor value

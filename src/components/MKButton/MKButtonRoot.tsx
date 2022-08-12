@@ -59,13 +59,13 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     const { palette, functions, borders, boxShadows } = theme;
     const { color, variant, size, circular, iconOnly } = ownerState;
 
-    const { text, gradient, grey } = palette;
+    const { text, grey } = palette;
     const { boxShadow, linearGradient, pxToRem, rgba } = functions;
     const { borderRadius } = borders;
     const { colored } = boxShadows;
 
     // styles for the button with variant="contained"
-    const containedStyles = (): any => {
+    const containedStyles = () => {
       // background color value
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -153,14 +153,12 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with variant="outlined"
-    const outlinedStyles = (): any => {
+    const outlinedStyles = () => {
       // background color value
       const backgroundValue =
         color === 'white' ? rgba('white', 0.1) : 'transparent';
 
       // color value
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       const paletteColor = palette[color];
       const colorValue = paletteColor ? paletteColor.main : 'white';
 
@@ -207,7 +205,7 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with variant="gradient"
-    const gradientStyles = (): any => {
+    const gradientStyles = () => {
       // background value
       const backgroundValue =
         color === 'white' || !palette[color]
@@ -215,8 +213,6 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
           : linearGradient(palette[color].main, palette[color].dark);
 
       // boxShadow value
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       const paletteColor = palette[color];
       const boxShadowValue =
         color !== 'white' &&
@@ -308,12 +304,12 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with circular={true}
-    const circularStyles = (): any => ({
+    const circularStyles = () => ({
       borderRadius: borderRadius.section,
     });
 
     // styles for the button with iconOnly={true}
-    const iconOnlyStyles = (): any => {
+    const iconOnlyStyles = () => {
       // width, height, minWidth and minHeight values
       let sizeValue = pxToRem(38);
 

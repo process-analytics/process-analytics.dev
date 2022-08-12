@@ -112,7 +112,7 @@ class CustomTabs extends React.Component {
 
 interface TabProps {
   tabName: string;
-  tabIcon: (props) => JSX.Element;
+  tabIcon: (props: any) => JSX.Element;
   tabContent: JSX.Element;
 }
 
