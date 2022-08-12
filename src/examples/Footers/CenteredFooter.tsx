@@ -26,7 +26,7 @@ import Stack from '@mui/material/Stack';
 import { MKBox } from '../../components/MKBox';
 import { MKTypography } from '../../components/MKTypography';
 
-import { FooterRoutes, Link, Menu, SocialLink } from '../../types';
+import { FooterRoutes, Link, FooterMenu, SocialLink } from '../../types';
 
 function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   const { brand, socials, menus, copyright } = content;
@@ -36,7 +36,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
 
   const renderLinks =
     menus &&
-    menus.map((menu: Menu) =>
+    menus.map((menu: FooterMenu) =>
       menu.items.map((item: Link) => (
         <MKTypography
           key={item.name}

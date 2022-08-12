@@ -30,15 +30,18 @@ import { MKButton } from '../../../../../components/MKButton';
 import React from 'react';
 
 function DropdownAndDropup(): JSX.Element {
-  const [dropdown, setDropdown] = useState(null);
-  const [dropup, setDropup] = useState(null);
+  const [dropdown, setDropdown] = useState<HTMLElement>();
+  const [dropup, setDropup] = useState<HTMLElement>();
 
-  const openDropdown = ({ currentTarget }: any): void =>
-    setDropdown(currentTarget);
-  const closeDropdown = (): void => setDropdown(null);
+  const openDropdown: React.MouseEventHandler<HTMLButtonElement> = ({
+    currentTarget,
+  }): void => setDropdown(currentTarget);
+  const closeDropdown = (): void => setDropdown(undefined);
 
-  const openDropup = ({ currentTarget }: any): void => setDropup(currentTarget);
-  const closeDropup = (): void => setDropup(null);
+  const openDropup: React.MouseEventHandler<HTMLButtonElement> = ({
+    currentTarget,
+  }): void => setDropup(currentTarget);
+  const closeDropup = (): void => setDropup(undefined);
 
   // Styles
   const iconStyles = {

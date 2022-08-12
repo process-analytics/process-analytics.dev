@@ -54,7 +54,7 @@ function BackgroundBlogCard({
         backgroundImage: ({
           palette: { black },
           functions: { linearGradient, rgba },
-        }: any) =>
+        }) =>
           `${linearGradient(
             rgba(black.main, 0.5),
             rgba(black.main, 0.5),

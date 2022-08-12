@@ -13,23 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import React from 'react';
 
 // @mui material components
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
+
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox } from '../../components/MKBox';
-import { MKTypography } from '../../components/MKTypography';
+import { MKBox, MKTypography } from '../components';
 
-import React from 'react';
+export interface BreadcrumbRoute {
+  label: string;
+  route?: string;
+}
 
-function Breadcrumbs({ routes, ...rest }: BreadcrumbsProps): JSX.Element {
+// Typechecking props for the Breadcrumbs
+interface BreadcrumbsProps {
+  routes: BreadcrumbRoute[];
+}
+
+export const Breadcrumbs = ({
+  routes,
+  ...rest
+}: BreadcrumbsProps): JSX.Element => {
   return (
     <MKBox bgColor="light" borderRadius="md" py={1} px={2} width="100%">
       <MuiBreadcrumbs {...rest}>
-        {routes.map(({ label, route }: any) =>
+        {routes.map(({ label, route }) =>
           route ? (
             <MKTypography
               key={label}
@@ -41,7 +53,7 @@ function Breadcrumbs({ routes, ...rest }: BreadcrumbsProps): JSX.Element {
               opacity={0.8}
               sx={{
                 '&:hover, &:focus': {
-                  color: ({ palette: { info } }: any) =>
+                  color: ({ palette: { info } }) =>
                     (info as SimplePaletteColorOptions)?.main,
                 },
               }}
@@ -57,11 +69,4 @@ function Breadcrumbs({ routes, ...rest }: BreadcrumbsProps): JSX.Element {
       </MuiBreadcrumbs>
     </MKBox>
   );
-}
-
-// Typechecking props for the Breadcrumbs
-interface BreadcrumbsProps {
-  routes: any[];
-}
-
-export default Breadcrumbs;
+};

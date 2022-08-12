@@ -86,7 +86,7 @@ MKPagination.defaultProps = {
 // Typechecking props for the MKPagination
 interface MKPaginationProps {
   item?: boolean;
-  variant?: 'gradient' | 'contained';
+  variant?: 'gradient' | 'contained' | string;
   color?:
     | 'white'
     | 'primary'

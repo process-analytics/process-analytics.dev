@@ -41,8 +41,7 @@ function Popovers(): JSX.Element {
     },
   });
 
-  const togglePopover = ({ currentTarget }: any): void =>
-    setPopover(currentTarget);
+  const togglePopover = ({ currentTarget }): void => setPopover(currentTarget);
   const closePopover = (): void => setPopover(null);
 
   const popoverTemplate = (
@@ -71,7 +70,7 @@ function Popovers(): JSX.Element {
             <MKButton
               variant="gradient"
               color="info"
-              onClick={(event: any) => {
+              onClick={event => {
                 togglePopover(event);
                 setPopoverOrigin({
                   anchorOrigin: {
@@ -91,7 +90,7 @@ function Popovers(): JSX.Element {
             <MKButton
               variant="gradient"
               color="info"
-              onClick={(event: any) => {
+              onClick={event => {
                 togglePopover(event);
                 setPopoverOrigin({
                   anchorOrigin: {
@@ -111,7 +110,7 @@ function Popovers(): JSX.Element {
             <MKButton
               variant="gradient"
               color="info"
-              onClick={(event: any) => {
+              onClick={event => {
                 togglePopover(event);
                 setPopoverOrigin({
                   anchorOrigin: {
@@ -131,7 +130,7 @@ function Popovers(): JSX.Element {
             <MKButton
               variant="gradient"
               color="info"
-              onClick={(event: any) => {
+              onClick={event => {
                 togglePopover(event);
                 setPopoverOrigin({
                   anchorOrigin: {

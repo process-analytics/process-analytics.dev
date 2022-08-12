@@ -17,7 +17,7 @@
 import { PaletteColorKey } from '@mui/material';
 // @mui material components
 import Avatar from '@mui/material/Avatar';
-import { BoxShadows, ShadowSize, styled } from '@mui/material/styles';
+import { ShadowSize, styled } from '@mui/material/styles';
 
 interface MKAvatarProps {
   ownerState: {

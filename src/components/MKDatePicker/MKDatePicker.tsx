@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import React from 'react';
+
 // react-flatpickr components
 import DatePicker from 'react-flatpickr';
 
@@ -21,16 +23,12 @@ import DatePicker from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 
 // Material Kit 2 React components
-import { MKInput } from '../MKInput';
-
-import React from 'react';
+import { MKInput, MKInputProps } from '../MKInput';
 
 export const MKDatePicker = ({
   input,
   ...rest
-}: {
-  input: MKDatePickerProps;
-}): JSX.Element => (
+}: MKDatePickerProps): JSX.Element => (
   <DatePicker
     render={(props, ref) => (
       <MKInput {...input} defaultValue={props} inputRef={ref} />
@@ -46,5 +44,5 @@ MKDatePicker.defaultProps = {
 
 // Typechecking props for the MKDatePicker
 interface MKDatePickerProps {
-  input: any;
+  input: MKInputProps;
 }

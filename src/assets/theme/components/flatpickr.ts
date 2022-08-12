@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  PaletteColor,
-  SimplePaletteColorOptions,
-} from '@mui/material/styles/createPalette';
+import { PaletteColor } from '@mui/material/styles/createPalette';
 // Material Kit 2 React base styles
 import { palette } from '../base/colors';
 

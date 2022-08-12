@@ -34,7 +34,7 @@ import data from './data/designBlocksData';
 import React from 'react';
 
 function DesignBlocks(): JSX.Element {
-  const renderData = data.map(({ title, description, items }: any) => (
+  const renderData = data.map(({ title, description, items }) => (
     <Grid container spacing={3} sx={{ mb: 10 }} key={title}>
       <Grid item xs={12} lg={3}>
         <MKBox position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
@@ -56,7 +56,7 @@ function DesignBlocks(): JSX.Element {
 
       <Grid item xs={12} lg={9}>
         <Grid container spacing={3}>
-          {items.map(({ image, name, count, route, pro }: any) => (
+          {items.map(({ image, name, count, route, pro }) => (
             <Grid item xs={12} md={4} sx={{ mb: 2 }} key={name}>
               <Link to={pro ? '/' : route}>
                 <ExampleCard

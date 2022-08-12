@@ -19,7 +19,12 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
 interface MKSocialButtonRootProps {
-  ownerState: any;
+  ownerState: {
+    color: string;
+    size: string;
+    iconOnly: boolean;
+    circular: boolean;
+  };
 }
 
 export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
@@ -38,16 +43,10 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
       ? palette[color].dark
       : palette.facebook.dark;
 
-    // styles for the button with circular={true}
-    const circularStyles = (): any => ({
-      borderRadius: '50%',
-    });
-
     // styles for the button with iconOnly={true}
-    const iconOnlyStyles = (): any => {
+    const iconOnlyStyles = () => {
       // width, height, minWidth and minHeight values
       let sizeValue = pxToRem(38);
-
       if (size === 'small') {
         sizeValue = pxToRem(25.4);
       } else if (size === 'large') {
@@ -56,7 +55,6 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
 
       // padding value
       let paddingValue = `${pxToRem(11)} ${pxToRem(11)} ${pxToRem(10)}`;
-
       if (size === 'small') {
         paddingValue = pxToRem(4.5);
       } else if (size === 'large') {
@@ -94,7 +92,9 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
         color: 'white',
       },
 
-      ...(circular && circularStyles()),
+      ...(circular && {
+        borderRadius: '50%',
+      }),
       ...(iconOnly && iconOnlyStyles()),
     };
   },

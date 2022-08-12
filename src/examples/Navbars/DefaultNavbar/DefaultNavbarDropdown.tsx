@@ -123,7 +123,7 @@ interface DefaultNavbarDropdownProps {
   route?: string;
   collapse: boolean;
   onClick?: () => void;
-  onMouseEnter?: ({ currentTarget }: any) => void;
+  onMouseEnter?: ({ currentTarget }) => void;
   onMouseLeave?: () => void;
 }
 

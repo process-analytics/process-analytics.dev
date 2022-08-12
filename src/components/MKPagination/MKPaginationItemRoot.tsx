@@ -21,7 +21,11 @@ import { styled } from '@mui/material/styles';
 import { MKButton } from '../MKButton';
 
 interface MKPaginationItemRootProps {
-  ownerState: any;
+  ownerState: {
+    variant: 'gradient' | 'contained' | string;
+    paginationSize: 'small' | 'medium' | 'large';
+    active: boolean;
+  };
 }
 
 export const MKPaginationItemRoot = styled(MKButton)<MKPaginationItemRootProps>(
@@ -57,8 +61,9 @@ export const MKPaginationItemRoot = styled(MKButton)<MKPaginationItemRootProps>(
       '&:hover, &:focus, &:active': {
         transform: 'none',
         boxShadow:
-          (variant !== 'gradient' || variant !== 'contained') &&
-          'none !important',
+          variant !== 'gradient' && variant !== 'contained'
+            ? 'none !important'
+            : undefined,
         opacity: '1 !important',
       },
 

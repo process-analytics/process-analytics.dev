@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BoxShadowColor, PaletteColorKey } from '@mui/material';
 import React from 'react';
 
 // @mui material components
 import Icon from '@mui/material/Icon';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
+import { BoxShadowColor, Theme } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox } from '../../../components/MKBox';

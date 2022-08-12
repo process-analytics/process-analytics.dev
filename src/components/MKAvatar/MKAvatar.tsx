@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  AvatarProps,
-  BoxShadows,
-  PaletteColorKey,
-  ShadowSize,
-} from '@mui/material';
+import { AvatarProps, PaletteColorKey, ShadowSize } from '@mui/material';
 import React from 'react';
 import { forwardRef } from 'react';
 

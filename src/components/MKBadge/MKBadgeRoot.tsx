@@ -70,7 +70,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     const borderRadiusValue = circular ? borderRadius.section : borderRadius.lg;
 
     // styles for the badge with indicator={true}
-    const indicatorStyles = (sizeProp: any): any => {
+    const indicatorStyles = (sizeProp): any => {
       let widthValue = pxToRem(20);
       let heightValue = pxToRem(20);
 

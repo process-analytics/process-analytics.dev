@@ -35,7 +35,7 @@ function DefaultNavbarMobile({
 }: DefaultNavbarMobileProps): JSX.Element {
   const [collapse, setCollapse] = useState('');
 
-  const handleSetCollapse = (name: any): void =>
+  const handleSetCollapse = (name: string): void =>
     collapse === name ? setCollapse('') : setCollapse(name);
 
   const renderNavbarItems = routes.map(
@@ -46,7 +46,7 @@ function DefaultNavbarMobile({
       href,
       route,
       collapse: navCollapse,
-    }: any) => (
+    }) => (
       <DefaultNavbarDropdown
         key={name}
         name={name}
@@ -61,9 +61,9 @@ function DefaultNavbarMobile({
           sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}
         >
           {routeCollapses &&
-            routeCollapses.map((item: any) => (
+            routeCollapses.map(item => (
               <MKBox key={item.name} px={2}>
-                {item.collapse ? (
+                {item.menu ? (
                   <>
                     <MKTypography
                       display="block"
@@ -76,7 +76,7 @@ function DefaultNavbarMobile({
                       {item.name}
                     </MKTypography>
 
-                    {item.collapse.map((el: any) => (
+                    {item.menu.map(el => (
                       <MKTypography
                         key={el.name}
                         component={el.route ? Link : MuiLink}
@@ -93,9 +93,9 @@ function DefaultNavbarMobile({
                         py={0.625}
                         px={2}
                         sx={({
-                          palette: { grey, dark },
+                          palette: { grey },
                           borders: { borderRadius },
-                        }: any) => ({
+                        }) => ({
                           borderRadius: borderRadius.md,
                           cursor: 'pointer',
                           transition: 'all 300ms linear',
@@ -119,10 +119,7 @@ function DefaultNavbarMobile({
                     href={item.href ? item.href : ''}
                     target={item.href ? '_blank' : ''}
                     rel={item.href ? 'noreferrer' : 'noreferrer'}
-                    sx={({
-                      palette: { grey, dark },
-                      borders: { borderRadius },
-                    }: any) => ({
+                    sx={({ palette: { grey }, borders: { borderRadius } }) => ({
                       borderRadius: borderRadius.md,
                       cursor: 'pointer',
                       transition: 'all 300ms linear',

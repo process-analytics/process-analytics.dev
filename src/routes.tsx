@@ -71,16 +71,18 @@ import Typography from './sections/elements/typography';
 
 import React from 'react';
 
-export const routes = [
+import { HeaderRoute } from './types';
+
+export const routes: HeaderRoute[] = [
   {
     name: 'pages',
     icon: <DashboardIcon />,
     columns: 1,
     rowsPerColumn: 2,
-    collapse: [
+    menu: [
       {
         name: 'landing pages',
-        collapse: [
+        subItems: [
           {
             name: 'about us',
             route: '/LandingPages/AboutUs',
@@ -100,7 +102,7 @@ export const routes = [
       },
       {
         name: 'account',
-        collapse: [
+        subItems: [
           {
             name: 'sign in',
             route: '/LandingPages/SignIn',
@@ -113,12 +115,12 @@ export const routes = [
   {
     name: 'sections',
     icon: <ViewDayIcon />,
-    collapse: [
+    menu: [
       {
         name: 'page sections',
         description: 'See all sections',
         dropdown: true,
-        collapse: [
+        subItems: [
           {
             name: 'page headers',
             route: '/sections/page-sections/page-headers',
@@ -135,7 +137,7 @@ export const routes = [
         name: 'navigation',
         description: 'See all navigations',
         dropdown: true,
-        collapse: [
+        subItems: [
           {
             name: 'navbars',
             route: '/sections/navigation/navbars',
@@ -157,7 +159,7 @@ export const routes = [
         name: 'input areas',
         description: 'See all input areas',
         dropdown: true,
-        collapse: [
+        subItems: [
           {
             name: 'inputs',
             route: '/sections/input-areas/inputs',
@@ -174,7 +176,7 @@ export const routes = [
         name: 'attention catchers',
         description: 'See all examples',
         dropdown: true,
-        collapse: [
+        subItems: [
           {
             name: 'alerts',
             route: '/sections/attention-catchers/alerts',
@@ -196,7 +198,7 @@ export const routes = [
         name: 'elements',
         description: 'See all 32 examples',
         dropdown: true,
-        collapse: [
+        subItems: [
           {
             name: 'avatars',
             route: '/sections/elements/avatars',
@@ -244,7 +246,7 @@ export const routes = [
   {
     name: 'docs',
     icon: <ArticleIcon />,
-    collapse: [
+    menu: [
       {
         name: 'getting started',
         description: 'All about overview, quick start, license and contents',

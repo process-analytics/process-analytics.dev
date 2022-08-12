@@ -42,7 +42,7 @@ MKInput.defaultProps = {
 };
 
 // Typechecking props for the MKInput
-interface MKInputProps {
+export interface MKInputProps {
   error?: boolean;
   success?: boolean;
   disabled?: boolean;

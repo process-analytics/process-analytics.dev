@@ -33,7 +33,7 @@ import data from './data/pagesData';
 import React from 'react';
 
 function Pages(): JSX.Element {
-  const renderData = data.map(({ image, name, route }: any) => (
+  const renderData = data.map(({ image, name, route }) => (
     <Grid item xs={12} md={6} sx={{ mb: { xs: 3, lg: 0 } }} key={name}>
       <Link to={route}>
         <ExampleCard

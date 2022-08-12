@@ -182,7 +182,7 @@ const AboutPage = (): JSX.Element => (
         mx: { xs: 2, lg: 3 },
         mt: -8,
         mb: 4,
-        boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
+        boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
       }}
     >
       <Information />

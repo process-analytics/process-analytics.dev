@@ -66,10 +66,34 @@ export type FooterRoutes = {
   brand: Link & { image: string };
   copyright: { name: string; url: string };
   socials: Omit<SocialLink, 'name'>[];
-  menus: Menu[];
+  menus: FooterMenu[];
 };
-export type Menu = { name: string; items: Link[] };
-export type Link = { name: string; route: string };
+export type FooterMenu = {
+  name: string;
+  items: Required<Omit<Link, 'description' | 'href'>>[];
+};
+
+export type HeaderRoute = Omit<Link, 'description'> & {
+  icon: JSX.Element;
+  columns?: number;
+  rowsPerColumn?: number;
+  menu?: HeaderMenu[];
+};
+export type HeaderMenu = Link & {
+  dropdown?: boolean;
+  subItems?: HeaderSubItem[];
+};
+export type HeaderSubItem = Link & {
+  component: JSX.Element;
+  collapse?: boolean;
+};
+
+export type Link = {
+  name: string;
+  description?: string;
+  route?: string;
+  href?: string;
+};
 
 export const isPaletteColorName = (color: string): color is PaletteColorKey =>
   [

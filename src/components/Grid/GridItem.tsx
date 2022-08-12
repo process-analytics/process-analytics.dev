@@ -29,12 +29,7 @@ const style = {
   },
 };
 
-const GridItem = ({
-  classes,
-  children,
-  className,
-  ...rest
-}: any): JSX.Element => (
+const GridItem = ({ classes, children, className, ...rest }): JSX.Element => (
   <Grid item {...rest} className={classes.grid + ' ' + className}>
     {children}
   </Grid>

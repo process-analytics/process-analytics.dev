@@ -25,13 +25,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
-import { MKTypography } from '../../../components/MKTypography';
+import { MKBox, MKTypography } from '../../../components';
 
 // Material Kit 2 React examples
 import DefaultNavbar from '../../../examples/Navbars/DefaultNavbar';
 import CenteredFooter from '../../../examples/Footers/CenteredFooter';
-import Breadcrumbs from '../../../examples/Breadcrumbs';
+import { BreadcrumbRoute, Breadcrumbs } from '../../../examples';
 
 import { routes } from '../../../routes';
 
@@ -94,7 +93,7 @@ function BaseLayout({
 
 // Typechecking props for the BaseLayout
 interface BaseLayoutProps {
-  breadcrumb: any[];
+  breadcrumb: BreadcrumbRoute[];
   title: string;
 }
 

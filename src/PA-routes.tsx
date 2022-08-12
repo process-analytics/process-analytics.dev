@@ -36,13 +36,14 @@
           you can set the columns amount based on this key.
   10. The `rowsPerColumn` key is used to define that how many rows should be in a column.
 */
+import React from 'react';
 
 // @mui icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
-import React from 'react';
+import { HeaderRoute } from './types';
 
-export const paRoutes = [
+export const paRoutes: HeaderRoute[] = [
   {
     name: 'about',
     route: '/about',

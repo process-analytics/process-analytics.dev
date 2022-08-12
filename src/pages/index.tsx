@@ -22,7 +22,6 @@ import {
   Flag,
   FlipToFront,
   PriceChange,
-  TouchApp,
 } from '@mui/icons-material';
 import { Theme } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -740,10 +739,9 @@ const HomePage = (): JSX.Element => (
         mx: { xs: 2, lg: 3 },
         mt: -8,
         mb: 4,
-        backgroundColor: ({ palette: { white }, functions: { rgba } }: any) =>
-          rgba('white', 0.8),
+        backgroundColor: ({ functions: { rgba } }: Theme) => rgba('white', 0.8),
         backdropFilter: 'saturate(200%) blur(30px)',
-        boxShadow: ({ boxShadows: { xxl } }: any) => xxl,
+        boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
       }}
     >
       {processSection}

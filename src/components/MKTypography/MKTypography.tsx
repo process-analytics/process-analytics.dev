@@ -26,8 +26,6 @@ import {
 
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
-import { Link as GatsbyLink } from 'gatsby';
-import { Link as MaterialLink } from '@mui/material';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,

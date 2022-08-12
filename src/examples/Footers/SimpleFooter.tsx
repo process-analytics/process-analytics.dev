@@ -17,7 +17,7 @@
 import { Favorite } from '@mui/icons-material';
 // @mui material components
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import MuiLink from '@mui/material/Link';
 
 // Material Kit 2 React components
 import { MKBox } from '../../components/MKBox';
@@ -27,6 +27,7 @@ import { MKTypography } from '../../components/MKTypography';
 import typography from '../../assets/theme/base/typography';
 
 import React from 'react';
+import { Link } from '../../types';
 
 function SimpleFooter({
   company,
@@ -38,7 +39,7 @@ function SimpleFooter({
 
   const renderLinks = (): undefined | JSX.Element[] =>
     links &&
-    links.map((link: any, key: any) => (
+    links.map((link, key) => (
       <MKBox
         key={link.name}
         component="li"
@@ -46,7 +47,7 @@ function SimpleFooter({
         pr={key === links.length - 1 ? 0 : 2}
         lineHeight={1}
       >
-        <Link href={link.href} target="_blank">
+        <MuiLink href={link.href} target="_blank">
           <MKTypography
             variant="button"
             fontWeight="regular"
@@ -54,7 +55,7 @@ function SimpleFooter({
           >
             {link.name}
           </MKTypography>
-        </Link>
+        </MuiLink>
       </MKBox>
     ));
 
@@ -85,7 +86,7 @@ function SimpleFooter({
             <Favorite color="inherit" fontSize="inherit" />
           </MKBox>
           by
-          <Link href={href} target="_blank">
+          <MuiLink href={href} target="_blank">
             <MKTypography
               variant="button"
               fontWeight="medium"
@@ -93,7 +94,7 @@ function SimpleFooter({
             >
               &nbsp;{name}&nbsp;
             </MKTypography>
-          </Link>
+          </MuiLink>
           for a better web.
         </MKBox>
         <MKBox
@@ -135,7 +136,7 @@ SimpleFooter.defaultProps = {
 // Typechecking props for the SimpleFooter
 interface SimpleFooterProps {
   company?: { href: string; name: string };
-  links?: any[];
+  links?: Omit<Link, 'description' | 'route'>[];
   light?: boolean;
 }
 

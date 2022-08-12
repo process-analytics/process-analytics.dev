@@ -22,7 +22,7 @@ import {
   dangerColor,
 } from '../../material-kit-react';
 
-const navPillsStyle = (theme: any): any => ({
+const navPillsStyle = (theme): any => ({
   root: {
     marginTop: '20px',
     paddingLeft: '0',

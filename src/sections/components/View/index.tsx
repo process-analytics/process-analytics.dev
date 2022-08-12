@@ -55,7 +55,7 @@ function View({
   const [activeTab, setActiveTab] = useState(0);
   const [success, setSuccess] = useState(false);
 
-  const handleTabType = (event: any, newValue: any): void =>
+  const handleTabType = (event: Event, newValue: number): void =>
     setActiveTab(newValue);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function View({
         <MKBox
           px={3}
           sx={{
-            borderBottom: ({ borders: { borderWidth, borderColor } }: any) =>
+            borderBottom: ({ borders: { borderWidth, borderColor } }) =>
               `${borderWidth[1]} solid ${borderColor}`,
           }}
         >
@@ -98,7 +98,7 @@ function View({
                         color="dark"
                         mr={1.25}
                         sx={{
-                          fontSize: ({ typography: { size } }: any) => size.sm,
+                          fontSize: ({ typography: { size } }) => size.sm,
                         }}
                         className="fas fa-desktop"
                       />
@@ -113,7 +113,7 @@ function View({
                         color="dark"
                         mr={1.25}
                         sx={{
-                          fontSize: ({ typography: { size } }: any) => size.sm,
+                          fontSize: ({ typography: { size } }) => size.sm,
                         }}
                         className="fas fa-code"
                       />

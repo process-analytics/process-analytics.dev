@@ -20,7 +20,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 
 interface MKProgressRootProps {
-  ownerState: any;
+  ownerState: { color: string; value: string; variant: string };
 }
 
 export const MKProgressRoot = styled(LinearProgress)<MKProgressRootProps>(

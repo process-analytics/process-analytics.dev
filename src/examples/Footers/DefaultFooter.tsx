@@ -30,7 +30,7 @@ import { MKTypography } from '../../components/MKTypography';
 import {
   FooterRoutes,
   Link as FooterLink,
-  Menu,
+  FooterMenu,
   SocialLink,
 } from '../../types';
 
@@ -92,7 +92,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
             justifyContent={['space-between', 'space-evenly']}
             alignItems={['space-between', undefined]}
           >
-            {menus.map(({ name, items }: Menu) => (
+            {menus.map(({ name, items }: FooterMenu) => (
               <Grid key={name} item xs={false} md={2} sx={{ mb: [3, 0] }}>
                 <MKTypography
                   display="block"

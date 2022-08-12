@@ -13,20 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-// Material Kit 2 React base styles
-import { boxShadows } from '../base/boxShadows';
-import { borders } from '../base/borders';
-
-const { lg } = boxShadows;
-const { borderRadius } = borders;
-
-export default {
-  styleOverrides: {
-    paper: {
-      backgroundColor: 'transparent',
-      boxShadow: lg,
-      borderRadius: borderRadius.md,
-    },
-  },
-};
+export * from './Breadcrumbs';

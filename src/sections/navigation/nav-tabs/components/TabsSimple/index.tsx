@@ -42,8 +42,7 @@ import React from 'react';
 
 function TabsSimple(): JSX.Element {
   const [activeTab, setActiveTab] = useState(0);
-  const handleTabType = (event: any, newValue: any): void =>
-    setActiveTab(newValue);
+  const handleTabType = (event, newValue): void => setActiveTab(newValue);
 
   return (
     <Container>
