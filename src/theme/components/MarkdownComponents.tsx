@@ -16,7 +16,7 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
 import { Text } from 'rebass';
 import styled from 'styled-components';
-import { MDXProviderComponentsProp } from '@mdx-js/react';
+import { MDXComponents } from 'mdx/types';
 
 const StyledLink = styled.a`
   display: inline-block;
@@ -78,10 +78,9 @@ const MarkdownLink = (
 };
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const components: MDXProviderComponentsProp = {
+export const StyledMDXComponents: MDXComponents = {
   p: MarkdownParagraph,
   ol: MarkdownList,
   li: MarkdownListItem,
   a: MarkdownLink,
 };
-export default components;
