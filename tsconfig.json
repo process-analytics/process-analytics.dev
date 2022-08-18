@@ -13,7 +13,8 @@
       "dom"
     ],
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types/mdx"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "public", ".cache"]
