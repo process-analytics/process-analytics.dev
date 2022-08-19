@@ -28,24 +28,24 @@ import {
   Text,
 } from 'rebass/styled-components';
 
-import { SEO } from '../components/seo';
+import { SEO } from '../../components/seo';
 
-import { Features } from '../theme/components/modelGenerationApp/Features';
-import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
+import { Features } from '../../theme/components/modelGenerationApp/Features';
+import { Jotform } from '../../theme/components/modelGenerationApp/Jotform';
 
-import { postsContent } from '../content/PostsContent';
-import { PostDescription } from '../theme/types';
-import Section from '../theme/components/Section';
-import Triangle from '../theme/components/Triangle';
-import PageHeader from '../theme/components/PageHeader';
-import Layout from '../theme/components/Layout';
-import { PAGE } from '../theme/utils/constants';
-import { PostContainer } from '../theme/components/Post';
+import { postsContent } from '../../content/PostsContent';
+import { PostDescription } from '../../theme/types';
+import Section from '../../theme/components/Section';
+import Triangle from '../../theme/components/Triangle';
+import PageHeader from '../../theme/components/PageHeader';
+import Layout from '../../theme/components/Layout';
+import { PAGE } from '../../theme/utils/constants';
+import { PostContainer } from '../../theme/components/Post';
 
-import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
-import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
-import colors from '../theme/colors.json';
-import { DataProps } from '../hooks/use-site-metadata';
+import AppPreview from '../../images/model-generation-app/model_generation_app_preview.gif';
+import HowItWorksImg from '../../images/model-generation-app/how_it_works.png';
+import colors from '../../theme/colors.json';
+import { DataProps } from '../../hooks/use-site-metadata';
 
 export const Part = ({
   padding,

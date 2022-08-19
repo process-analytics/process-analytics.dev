@@ -57,31 +57,28 @@ export const footerRoutes: FooterRoutes = {
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path
   menus: [
     {
-      name: 'product',
+      name: 'components',
       items: [
         {
           name: 'model generation application',
-          route: '/model-generation-application',
+          route: 'components/model-generation-application',
         },
-        { name: 'libraries', route: '/libraries' },
       ],
     },
     {
       name: 'learn',
       items: [
-        { name: 'news', route: '/news' },
-        { name: 'blog', route: '/blog' },
+        { name: 'news', route: 'learn/news' },
+        { name: 'blog', route: 'learn/blog' },
       ],
     },
     {
-      name: 'help & support',
-      items: [{ name: 'contact us', route: '/contact-us' }],
-    },
-    {
-      name: 'Project',
+      name: 'help & legacy',
       items: [
-        { name: 'about us', route: '/about-us' },
-        { name: 'terms & policies', route: '/terms-and-policies' },
+        {
+          name: 'Usage conditions of Model Generation Application',
+          route: 'help-and-legacy/model-generation-application-conditions',
+        },
       ],
     },
   ],

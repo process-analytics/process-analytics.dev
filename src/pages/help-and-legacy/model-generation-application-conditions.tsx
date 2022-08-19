@@ -18,16 +18,20 @@ import { HeadProps } from 'gatsby';
 import React from 'react';
 import { Heading } from 'rebass/styled-components';
 
-import { SEO } from '../components/seo';
-import { DataProps } from '../hooks/use-site-metadata';
+import { SEO } from '../../components/seo';
+import { DataProps } from '../../hooks/use-site-metadata';
 
-import { Part, Paragraph, PartTitle } from './model-generation-application';
+import {
+  Part,
+  Paragraph,
+  PartTitle,
+} from '../components/model-generation-application';
 
-import Section from '../theme/components/Section';
-import Triangle from '../theme/components/Triangle';
-import PageHeader from '../theme/components/PageHeader';
-import Layout from '../theme/components/Layout';
-import { PAGE } from '../theme/utils/constants';
+import Section from '../../theme/components/Section';
+import Triangle from '../../theme/components/Triangle';
+import PageHeader from '../../theme/components/PageHeader';
+import Layout from '../../theme/components/Layout';
+import { PAGE } from '../../theme/utils/constants';
 
 import styled from 'styled-components';
 
