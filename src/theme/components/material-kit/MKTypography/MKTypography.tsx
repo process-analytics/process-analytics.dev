@@ -16,6 +16,9 @@
 import React, { forwardRef } from 'react';
 
 import { TypographyProps } from '@mui/material/Typography/Typography';
+import MaterialLink from '@mui/material/Link';
+
+import { Link as GatsbyLink } from 'gatsby';
 
 import {
   FontWeight,
@@ -26,8 +29,6 @@ import {
 
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
-import { GatsbyLinkProps } from 'gatsby';
-import { LinkTypeMap } from '@mui/material';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
@@ -80,9 +81,7 @@ interface MKTypographyProps {
   verticalAlign?: VerticalAlign;
   textGradient?: boolean;
   opacity?: number;
-  component?:
-    | React.ComponentType<GatsbyLinkProps<never>>
-    | React.ComponentType<LinkTypeMap>;
+  component?: typeof GatsbyLink | typeof MaterialLink;
   href?: string;
   to?: string;
   target?: string;
