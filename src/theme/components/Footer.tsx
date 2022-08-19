@@ -49,12 +49,13 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
     <ThemeProvider theme={theme}>
       <ScopedCssBaseline>
         <MKBox component="footer" py={6}>
-          <Container maxWidth="xl">
+          <Container maxWidth="xxl">
             <Grid
               container
               spacing={3}
               flexDirection={['column', 'row']}
               alignItems={['center', undefined]}
+              justifyContent={[undefined, 'space-between']}
             >
               <Grid item xs={4} md={3} sx={{ mb: 3 }}>
                 <MKBox>
@@ -94,14 +95,20 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
                 container
                 item
                 xs={8}
-                md={8}
+                md={9}
                 sx={{ mb: 3 }}
                 flexDirection="row"
                 justifyContent={['space-between', 'space-evenly']}
                 alignItems={['space-between', undefined]}
               >
                 {menus.map(({ name, items }: Menu) => (
-                  <Grid key={name} item xs={false} md={2} sx={{ mb: [3, 0] }}>
+                  <Grid
+                    key={name}
+                    item
+                    xs={false}
+                    md={8 / menus.length}
+                    sx={{ mb: [3, 0] }}
+                  >
                     <MKTypography
                       display="block"
                       variant="button"
@@ -142,60 +149,59 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
                   </Grid>
                 ))}
               </Grid>
-
-              <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
-                <MKTypography variant="caption" fontWeight="regular">
-                  Copyright &copy; {year}{' '}
-                  <MKTypography
-                    component={GatsbyLink}
-                    to={brand.route}
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    {brand.name}
-                  </MKTypography>{' '}
-                  by{' '}
-                  <MKTypography
-                    component={MaterialLink}
-                    href={copyright.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    {copyright.name}
-                  </MKTypography>
+            </Grid>
+            <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
+              <MKTypography variant="caption" fontWeight="regular">
+                Copyright &copy; {year}{' '}
+                <MKTypography
+                  component={GatsbyLink}
+                  to={brand.route}
+                  rel="noreferrer"
+                  variant="caption"
+                  fontWeight="regular"
+                >
+                  {brand.name}
+                </MKTypography>{' '}
+                by{' '}
+                <MKTypography
+                  component={MaterialLink}
+                  href={copyright.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="caption"
+                  fontWeight="regular"
+                >
+                  {copyright.name}
                 </MKTypography>
-                <MKTypography variant="caption" fontWeight="regular">
-                  Powered by{' '}
-                  <MKTypography
-                    component={MaterialLink}
-                    to={GATSBY_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    Gatsby
-                  </MKTypography>{' '}
-                  and inspired from the{' '}
-                  <MKTypography
-                    component={MaterialLink}
-                    href="https://github.com/EmaSuriano/gatsby-theme-mate"
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    Gatsby Theme Mate
-                  </MKTypography>
-                  &nbsp;
-                  <span role="img" aria-label="heart">
-                    ❤️
-                  </span>
+              </MKTypography>
+              <MKTypography variant="caption" fontWeight="regular">
+                Powered by{' '}
+                <MKTypography
+                  component={MaterialLink}
+                  to={GATSBY_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="caption"
+                  fontWeight="regular"
+                >
+                  Gatsby
+                </MKTypography>{' '}
+                and inspired from the{' '}
+                <MKTypography
+                  component={MaterialLink}
+                  href="https://github.com/EmaSuriano/gatsby-theme-mate"
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="caption"
+                  fontWeight="regular"
+                >
+                  Gatsby Theme Mate
                 </MKTypography>
-              </Grid>
+                &nbsp;
+                <span role="img" aria-label="heart">
+                  ❤️
+                </span>
+              </MKTypography>
             </Grid>
           </Container>
         </MKBox>
