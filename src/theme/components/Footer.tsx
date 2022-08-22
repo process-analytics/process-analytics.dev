@@ -53,8 +53,9 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               flexDirection={['column', 'row']}
               alignItems={['center', undefined]}
               justifyContent={[undefined, 'space-between']}
+              textAlign={['center', 'left']}
             >
-              <Grid item xs={4} md={3} sx={{ mb: 3 }}>
+              <Grid item xs={12} md={3} sx={{ mb: 3 }}>
                 <MKBox>
                   <GatsbyLink to={brand.route}>
                     <MKBox
@@ -65,7 +66,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       mb={2}
                     />
                   </GatsbyLink>
-                  <MKTypography variant="h6">{brand.name}</MKTypography>
+                  <MKTypography variant="h5">{brand.name}</MKTypography>
                 </MKBox>
                 <MKBox display="flex" alignItems="center" mt={3}>
                   {socials.map(
@@ -91,12 +92,12 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               <Grid
                 container
                 item
-                xs={8}
+                xs={12}
                 md={9}
-                sx={{ mb: 3 }}
-                flexDirection="row"
+                sx={{ mb: [2, 3] }}
+                flexDirection={['column', 'row']}
+                alignItems={['center', undefined]}
                 justifyContent={['space-between', 'space-evenly']}
-                alignItems={['space-between', undefined]}
               >
                 {menus.map(({ name, items }: FooterMenu) => (
                   <Grid
@@ -146,7 +147,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </Grid>
                 ))}
               </Grid>
-              <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
+              <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
                 <MKTypography variant="caption" fontWeight="regular">
                   Copyright &copy; {year}{' '}
                   <MKTypography
