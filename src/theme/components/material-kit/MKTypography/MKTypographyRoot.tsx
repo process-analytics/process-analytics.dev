@@ -16,18 +16,17 @@
 
 // @mui material components
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-
 import {
-  FontWeight,
-  PaletteColorName,
+  PaletteColorKey,
+  styled,
   TextTransform,
   VerticalAlign,
-} from '../../../types';
+  FontWeight,
+} from '@mui/material/styles';
 
 interface MKTypographyRootProps {
   ownerState: {
-    color?: PaletteColorName | 'inherit' | 'text';
+    color?: PaletteColorKey | 'inherit' | 'text';
     textTransform?: TextTransform;
     verticalAlign?: VerticalAlign;
     fontWeight?: FontWeight;

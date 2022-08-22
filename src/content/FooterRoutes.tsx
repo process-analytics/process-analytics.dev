@@ -23,15 +23,26 @@ import LogoDevIcon from '@mui/icons-material/LogoDev';
 import { faMedium } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { FooterRoutes } from '../theme/types';
+import { Link, SocialLink } from '../theme/types';
 
 // Images
-import logo from '../images/logo.svg';
+import logo from '../images/logo_white.svg';
+
+export type FooterRoutes = {
+  brand: Required<Omit<Link, 'description' | 'href'>> & { logo: string };
+  copyright: { name: string; url: string };
+  socials: Omit<SocialLink, 'name'>[];
+  menus: FooterMenu[];
+};
+export type FooterMenu = {
+  name: string;
+  items: Required<Omit<Link, 'description' | 'href'>>[];
+};
 
 export const footerRoutes: FooterRoutes = {
   brand: {
     name: 'Process Analytics',
-    image: logo,
+    logo: logo,
     route: '/',
   },
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },

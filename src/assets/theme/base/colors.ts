@@ -14,17 +14,24 @@
  * limitations under the License.
  */
 
-import { CustomPaletteOptions } from '@mui/material/styles';
-import { PaletteOptions } from '@mui/material/styles/createPalette';
+import {
+  GreyColorName,
+  PaletteColorKey,
+  CustomPaletteOptions,
+  SocialPaletteOptions,
+  PaletteOptions,
+} from '@mui/material';
 
 /**
  * The base colors for the Material Kit 2 React.
  * You can add new color using this file.
- * You can customized the colors for the entire Material Kit 2 React using the file.
+ * You can customize the colors for the entire Material Kit 2 React using the file.
  *
  * @see https://material-ui.com/customization/color/
  */
-export const palette: PaletteOptions & CustomPaletteOptions = {
+export const palette: PaletteOptions &
+  CustomPaletteOptions &
+  SocialPaletteOptions = {
   mode: 'light',
 
   background: {
@@ -129,3 +136,35 @@ export const palette: PaletteOptions & CustomPaletteOptions = {
     dark: '#171a1d',
   },
 };
+
+export const isPaletteColorName = (color: string): color is PaletteColorKey =>
+  [
+    'primary',
+    'secondary',
+    'error',
+    'warning',
+    'info',
+    'success',
+    'tertiary',
+    'spicy',
+    'sweet',
+    'manufacture',
+    'education',
+    'telecom',
+    'financial',
+    'energy',
+    'health',
+    'government',
+    'distribution',
+  ].includes(color);
+
+export const isGreyColorName = (color: string): color is GreyColorName =>
+  color === 'grey-100' ||
+  color === 'grey-200' ||
+  color === 'grey-300' ||
+  color === 'grey-400' ||
+  color === 'grey-500' ||
+  color === 'grey-600' ||
+  color === 'grey-700' ||
+  color === 'grey-800' ||
+  color === 'grey-900';

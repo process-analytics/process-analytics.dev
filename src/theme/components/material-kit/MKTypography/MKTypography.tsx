@@ -20,19 +20,18 @@ import MaterialLink from '@mui/material/Link';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import {
-  FontWeight,
-  PaletteColorName,
-  TextTransform,
-  VerticalAlign,
-} from '../../../types';
-
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
+import {
+  FontWeight,
+  PaletteColorKey,
+  TextTransform,
+  VerticalAlign,
+} from '@mui/material';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
-  React.PropsWithChildren<MKTypographyProps & TypographyProps>
+  Partial<React.PropsWithChildren<MKTypographyProps & TypographyProps>>
 >(
   (
     {
@@ -75,7 +74,7 @@ MKTypography.defaultProps = {
 
 // Typechecking props for the MKTypography
 interface MKTypographyProps {
-  color?: PaletteColorName | 'inherit' | 'text';
+  color?: PaletteColorKey | 'inherit' | 'text';
   fontWeight?: FontWeight;
   textTransform?: TextTransform;
   verticalAlign?: VerticalAlign;

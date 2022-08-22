@@ -21,6 +21,7 @@ import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MaterialLink from '@mui/material/Link';
+import logo from 'src/images/logo.svg';
 
 // Material Kit 2 React components
 import { MKBox } from './material-kit/MKBox';
@@ -30,15 +31,11 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import theme from '../../assets/theme';
 
-import {
-  FooterRoutes,
-  Link as FooterLink,
-  Menu,
-  SocialLink,
-} from '../../theme/types';
+import { Link as FooterLink, SocialLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
+import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
 
-export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
+export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
@@ -48,7 +45,7 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <ScopedCssBaseline>
-        <MKBox component="footer" py={6}>
+        <MKBox component="footer" py={6} bgColor="primary">
           <Container maxWidth="xxl">
             <Grid
               container
@@ -62,7 +59,7 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
                   <GatsbyLink to={brand.route}>
                     <MKBox
                       component="img"
-                      src={brand.image}
+                      src={brand.logo}
                       alt={brand.name}
                       maxWidth="3rem"
                       mb={2}
@@ -80,7 +77,7 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
                         target="_blank"
                         rel="noreferrer"
                         variant="h5"
-                        color="primary"
+                        // color="primary"
                         opacity={0.8}
                         mr={key === socials.length - 1 ? 0 : 2.5}
                       >
@@ -101,7 +98,7 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
                 justifyContent={['space-between', 'space-evenly']}
                 alignItems={['space-between', undefined]}
               >
-                {menus.map(({ name, items }: Menu) => (
+                {menus.map(({ name, items }: FooterMenu) => (
                   <Grid
                     key={name}
                     item
@@ -211,6 +208,6 @@ export const Footer = ({ content }: DefaultFooterProps): JSX.Element => {
 };
 
 // Typechecking props for the DefaultFooter
-interface DefaultFooterProps {
+interface FooterProps {
   content: FooterRoutes;
 }
