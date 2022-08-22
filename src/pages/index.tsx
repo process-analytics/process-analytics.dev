@@ -15,13 +15,10 @@
  */
 
 import * as React from 'react';
-import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import { HeadProps } from 'gatsby';
 
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
-
-import theme from '../assets/theme';
 
 import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';

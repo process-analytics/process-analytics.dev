@@ -21,7 +21,6 @@ import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MaterialLink from '@mui/material/Link';
-import logo from 'src/images/logo.svg';
 
 // Material Kit 2 React components
 import { MKBox } from './material-kit/MKBox';

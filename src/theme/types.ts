@@ -16,7 +16,6 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
-import { GreyColorName, PaletteColorKey } from '@mui/material';
 
 export type Theme = DefaultTheme & RebassTheme;
 
