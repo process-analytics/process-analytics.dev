@@ -146,59 +146,60 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </Grid>
                 ))}
               </Grid>
-            </Grid>
-            <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
-              <MKTypography variant="caption" fontWeight="regular">
-                Copyright &copy; {year}{' '}
-                <MKTypography
-                  component={GatsbyLink}
-                  to={brand.route}
-                  rel="noreferrer"
-                  variant="caption"
-                  fontWeight="regular"
-                >
-                  {brand.name}
-                </MKTypography>{' '}
-                by{' '}
-                <MKTypography
-                  component={MaterialLink}
-                  href={copyright.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="caption"
-                  fontWeight="regular"
-                >
-                  {copyright.name}
+              <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
+                <MKTypography variant="caption" fontWeight="regular">
+                  Copyright &copy; {year}{' '}
+                  <MKTypography
+                    component={GatsbyLink}
+                    to={brand.route}
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    {brand.name}
+                  </MKTypography>{' '}
+                  by{' '}
+                  <MKTypography
+                    component={MaterialLink}
+                    href={copyright.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    {copyright.name}
+                  </MKTypography>
                 </MKTypography>
-              </MKTypography>
-              <MKTypography variant="caption" fontWeight="regular">
-                Powered by{' '}
-                <MKTypography
-                  component={MaterialLink}
-                  to={GATSBY_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="caption"
-                  fontWeight="regular"
-                >
-                  Gatsby
-                </MKTypography>{' '}
-                and inspired from the{' '}
-                <MKTypography
-                  component={MaterialLink}
-                  href="https://github.com/EmaSuriano/gatsby-theme-mate"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="caption"
-                  fontWeight="regular"
-                >
-                  Gatsby Theme Mate
+                <br />
+                <MKTypography variant="caption" fontWeight="regular">
+                  Powered by{' '}
+                  <MKTypography
+                    component={MaterialLink}
+                    to={GATSBY_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    Gatsby
+                  </MKTypography>{' '}
+                  and inspired from the{' '}
+                  <MKTypography
+                    component={MaterialLink}
+                    href="https://github.com/EmaSuriano/gatsby-theme-mate"
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    Gatsby Theme Mate
+                  </MKTypography>
+                  &nbsp;
+                  <span role="img" aria-label="heart">
+                    ❤️
+                  </span>
                 </MKTypography>
-                &nbsp;
-                <span role="img" aria-label="heart">
-                  ❤️
-                </span>
-              </MKTypography>
+              </Grid>
             </Grid>
           </Container>
         </MKBox>
