@@ -20,7 +20,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 
-import { faMedium } from '@fortawesome/free-brands-svg-icons';
+import {
+  faDev,
+  faGithub,
+  faMedium,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Link, SocialLink } from '../theme/types';
@@ -48,16 +53,16 @@ export const footerRoutes: FooterRoutes = {
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: [
     {
-      icon: <GitHubIcon />,
+      icon: <FontAwesomeIcon icon={faGithub} />,
       url: 'https://github.com/process-analytics',
     },
     {
-      icon: <TwitterIcon />,
+      icon: <FontAwesomeIcon icon={faTwitter} />,
       url: 'https://twitter.com/ProcessAnalyti1',
     },
 
     {
-      icon: <LogoDevIcon />,
+      icon: <FontAwesomeIcon icon={faDev} />,
       url: 'https://dev.to/process-analytics',
     },
     {
