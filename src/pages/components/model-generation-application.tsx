@@ -34,6 +34,8 @@ import { Features } from '../../theme/components/modelGenerationApp/Features';
 import { Jotform } from '../../theme/components/modelGenerationApp/Jotform';
 
 import { postsContent } from '../../content/PostsContent';
+import { footerRoutes } from '../../content/FooterRoutes';
+import { Footer } from '../../theme/components/Footer';
 import { PostDescription } from '../../theme/types';
 import Section from '../../theme/components/Section';
 import Triangle from '../../theme/components/Triangle';
@@ -321,6 +323,9 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           />
         </Part>
       </Section.Container>
+      {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+      <Footer content={footerRoutes} />
     </Layout>
   );
 };

@@ -20,6 +20,8 @@ import { HeadProps, Link } from 'gatsby';
 
 import { DataProps } from '../hooks/use-site-metadata';
 
+import { footerRoutes } from '../content/FooterRoutes';
+import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
@@ -53,6 +55,9 @@ const NotFoundPage = (): JSX.Element => (
         </Text>
       </Box>
     </Section.Container>
+    {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+    <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );

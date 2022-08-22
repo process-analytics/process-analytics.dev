@@ -27,6 +27,8 @@ import {
   PartTitle,
 } from '../components/model-generation-application';
 
+import { footerRoutes } from '../../content/FooterRoutes';
+import { Footer } from '../../theme/components/Footer';
 import Section from '../../theme/components/Section';
 import Triangle from '../../theme/components/Triangle';
 import PageHeader from '../../theme/components/PageHeader';
@@ -161,6 +163,9 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           </Paragraph>
         </Part>
       </Section.Container>
+      {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+      <Footer content={footerRoutes} />
     </Layout>
   );
 };

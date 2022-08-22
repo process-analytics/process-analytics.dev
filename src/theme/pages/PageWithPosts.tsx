@@ -15,6 +15,9 @@
  */
 import * as React from 'react';
 
+import { footerRoutes } from '../../content/FooterRoutes';
+
+import { Footer } from '../components/Footer';
 import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
 import Section from '../components/Section';
@@ -68,6 +71,9 @@ export const PageWithPosts = ({
       <PostContainer posts={posts} />
     </Section.Container>
     <MailingListSubscription />
+    {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+    <Footer content={footerRoutes} />
   </Layout>
 );
 
