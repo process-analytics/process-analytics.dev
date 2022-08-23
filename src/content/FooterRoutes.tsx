@@ -73,15 +73,15 @@ export const footerRoutes: FooterRoutes = {
       items: [
         {
           name: 'model generation application',
-          route: 'model-generation-application',
+          route: '/model-generation-application',
         },
       ],
     },
     {
       name: 'learn',
       items: [
-        { name: 'news', route: 'news' },
-        { name: 'blog', route: 'blog' },
+        { name: 'news', route: '/news' },
+        { name: 'blog', route: '/blog' },
       ],
     },
     {
@@ -89,7 +89,7 @@ export const footerRoutes: FooterRoutes = {
       items: [
         {
           name: 'Usage conditions of Model Generation Application',
-          route: 'model-generation-application-conditions',
+          route: '/model-generation-application-conditions',
         },
       ],
     },
