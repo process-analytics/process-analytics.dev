@@ -95,7 +95,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 md={9}
                 sx={{ mb: [2, 3] }}
                 flexDirection={['column', 'row']}
-                alignItems={['center', undefined]}
+                alignItems={['center', 'start']}
                 justifyContent={['space-between', 'space-evenly']}
               >
                 {menus.map(({ name, items }: FooterMenu) => (
