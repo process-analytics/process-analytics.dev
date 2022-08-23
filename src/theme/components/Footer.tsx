@@ -175,7 +175,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   Powered by{' '}
                   <MKTypography
                     component={MaterialLink}
-                    to={GATSBY_URL}
+                    href={GATSBY_URL}
                     target="_blank"
                     rel="noreferrer"
                     variant="caption"
