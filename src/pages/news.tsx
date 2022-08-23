@@ -15,11 +15,11 @@
  */
 import { HeadProps } from 'gatsby';
 import * as React from 'react';
-import { DataProps } from '../../hooks/use-site-metadata';
-import { SEO } from '../../components/seo';
-import { PAGE, SECTION } from '../../theme/utils/constants';
-import { newsContent } from '../../content/NewsContent';
-import { PageWithPosts } from '../../theme/pages/PageWithPosts';
+import { DataProps } from '../hooks/use-site-metadata';
+import { SEO } from '../components/seo';
+import { PAGE, SECTION } from '../theme/utils/constants';
+import { newsContent } from '../content/NewsContent';
+import { PageWithPosts } from '../theme/pages/PageWithPosts';
 
 const NewsPage = (): JSX.Element => (
   <PageWithPosts
