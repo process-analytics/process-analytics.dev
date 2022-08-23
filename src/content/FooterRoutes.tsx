@@ -85,11 +85,11 @@ export const footerRoutes: FooterRoutes = {
       ],
     },
     {
-      name: 'help & legacy',
+      name: 'help & legal',
       items: [
         {
           name: 'Usage conditions of Model Generation Application',
-          route: 'help-and-legacy/model-generation-application-conditions',
+          route: 'help-and-legal/model-generation-application-conditions',
         },
       ],
     },
