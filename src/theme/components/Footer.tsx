@@ -108,7 +108,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   >
                     <MKTypography
                       display="block"
-                      variant="button"
+                      variant="body2"
                       fontWeight="bold"
                       textTransform="capitalize"
                       mb={1}
