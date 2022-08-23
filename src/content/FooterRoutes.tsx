@@ -88,7 +88,7 @@ export const footerRoutes: FooterRoutes = {
       name: 'help & legal',
       items: [
         {
-          name: 'Usage conditions of Model Generation Application',
+          name: 'Terms & Policies',
           route: '/model-generation-application-conditions',
         },
       ],
