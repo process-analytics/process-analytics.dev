@@ -34,7 +34,8 @@ import theme from '../../assets/theme';
 import { Link as FooterLink, SocialLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
-import { LinkWithMaterial, RouteWithMaterial } from './Link';
+import { LinkWithMaterial } from './Link';
+import { RouteWithMaterial } from './Route';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;

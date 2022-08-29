@@ -29,7 +29,8 @@ import { Link as GatsbyLink } from 'gatsby';
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
 
-import { LinkWithMaterial, RouteWithMaterial } from '../../Link';
+import { LinkWithMaterial } from '../../Link';
+import { RouteWithMaterial } from '../../Route';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
