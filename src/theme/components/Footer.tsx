@@ -29,14 +29,12 @@ import Grid from '@mui/material/Grid';
 import { MKBox } from './material-kit/MKBox';
 import { MKTypography } from './material-kit/MKTypography';
 
-import { Link as GatsbyLink } from 'gatsby';
-
 import theme from '../../assets/theme';
 
 import { Link as FooterLink, SocialLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
-import { LinkWithMaterial } from './Link';
+import { LinkWithMaterial, RouteWithMaterial } from './Link';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;
@@ -60,7 +58,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
             >
               <Grid item xs={12} md={3} sx={{ mb: 3 }}>
                 <MKBox>
-                  <GatsbyLink to={brand.route}>
+                  <RouteWithMaterial to={brand.route}>
                     <MKBox
                       component="img"
                       src={brand.logo}
@@ -68,7 +66,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       maxWidth="3rem"
                       mb={2}
                     />
-                  </GatsbyLink>
+                  </RouteWithMaterial>
                   <MKTypography variant="h5">{brand.name}</MKTypography>
                 </MKBox>
                 <MKBox display="flex" alignItems="center" mt={3}>
@@ -134,7 +132,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                           lineHeight={1.25}
                         >
                           <MKTypography
-                            component={GatsbyLink}
+                            component={RouteWithMaterial}
                             to={route}
                             rel="noreferrer"
                             variant="button"
@@ -153,7 +151,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 <MKTypography variant="caption" fontWeight="regular">
                   Copyright &copy; {year}{' '}
                   <MKTypography
-                    component={GatsbyLink}
+                    component={RouteWithMaterial}
                     to={brand.route}
                     rel="noreferrer"
                     variant="caption"
