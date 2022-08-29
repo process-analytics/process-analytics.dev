@@ -29,6 +29,8 @@ import Grid from '@mui/material/Grid';
 import { MKBox } from './material-kit/MKBox';
 import { MKTypography } from './material-kit/MKTypography';
 
+import { Link as GatsbyLink } from 'gatsby';
+
 import theme from '../../assets/theme';
 
 import { Link as FooterLink, SocialLink } from '../../theme/types';
@@ -59,7 +61,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
             >
               <Grid item xs={12} md={3} sx={{ mb: 3 }}>
                 <MKBox>
-                  <RouteWithMaterial to={brand.route}>
+                  <GatsbyLink to={brand.route}>
                     <MKBox
                       component="img"
                       src={brand.logo}
@@ -67,7 +69,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       maxWidth="3rem"
                       mb={2}
                     />
-                  </RouteWithMaterial>
+                  </GatsbyLink>
                   <MKTypography variant="h5">{brand.name}</MKTypography>
                 </MKBox>
                 <MKBox display="flex" alignItems="center" mt={3}>
