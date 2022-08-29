@@ -60,35 +60,44 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               textAlign={['center', 'left']}
             >
               <Grid item xs={12} md={3} sx={{ mb: 3 }}>
-                <MKBox>
+                <MKBox
+                  width="fit-content"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                >
                   <GatsbyLink to={brand.route}>
                     <MKBox
                       component="img"
                       src={brand.logo}
                       alt={brand.name}
                       maxWidth="3rem"
+                      height="3rem"
                       mb={2}
                     />
                   </GatsbyLink>
                   <MKTypography variant="h5">{brand.name}</MKTypography>
-                </MKBox>
-                <MKBox display="flex" alignItems="center" mt={3}>
-                  {socials.map(
-                    ({ icon, url }: Omit<SocialLink, 'name'>, key: number) => (
-                      <MKTypography
-                        key={url}
-                        component={MaterialLink}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="h5"
-                        opacity={0.8}
-                        mr={key === socials.length - 1 ? 0 : 2.5}
-                      >
-                        {icon}
-                      </MKTypography>
-                    ),
-                  )}
+                  <MKBox display="flex" alignItems="center" mt={3}>
+                    {socials.map(
+                      (
+                        { icon, url }: Omit<SocialLink, 'name'>,
+                        key: number,
+                      ) => (
+                        <MKTypography
+                          key={url}
+                          component={MaterialLink}
+                          href={url}
+                          target="_blank"
+                          rel="noreferrer"
+                          variant="h5"
+                          opacity={0.8}
+                          mr={key === socials.length - 1 ? 0 : 2.5}
+                        >
+                          {icon}
+                        </MKTypography>
+                      ),
+                    )}
+                  </MKBox>
                 </MKBox>
               </Grid>
 
