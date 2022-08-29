@@ -19,6 +19,7 @@ import { TypographyProps } from '@mui/material/Typography/Typography';
 import MaterialLink from '@mui/material/Link';
 
 import { Link as GatsbyLink } from 'gatsby';
+import { LinkWithMaterial } from 'src/theme/components/Link';
 
 // Custom styles for MKTypography
 import { MKTypographyRoot } from './MKTypographyRoot';
@@ -28,6 +29,7 @@ import {
   TextTransform,
   VerticalAlign,
 } from '@mui/material';
+import { StyledComponent } from '@emotion/styled';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
@@ -80,7 +82,7 @@ interface MKTypographyProps {
   verticalAlign?: VerticalAlign;
   textGradient?: boolean;
   opacity?: number;
-  component?: typeof GatsbyLink | typeof MaterialLink;
+  component?: typeof GatsbyLink | typeof MaterialLink | typeof LinkWithMaterial;
   href?: string;
   to?: string;
   target?: string;

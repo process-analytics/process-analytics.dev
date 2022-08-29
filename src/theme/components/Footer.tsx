@@ -17,10 +17,13 @@
 import React from 'react';
 
 // @mui material components
-import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
+import {
+  ScopedCssBaseline,
+  ThemeProvider,
+  Link as MaterialLink,
+} from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import MaterialLink from '@mui/material/Link';
 
 // Material Kit 2 React components
 import { MKBox } from './material-kit/MKBox';
@@ -33,6 +36,7 @@ import theme from '../../assets/theme';
 import { Link as FooterLink, SocialLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
+import { LinkWithMaterial } from './Link';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;
@@ -77,7 +81,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                         target="_blank"
                         rel="noreferrer"
                         variant="h5"
-                        // color="primary"
                         opacity={0.8}
                         mr={key === socials.length - 1 ? 0 : 2.5}
                       >
@@ -160,7 +163,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </MKTypography>{' '}
                   by{' '}
                   <MKTypography
-                    component={MaterialLink}
+                    component={LinkWithMaterial}
                     href={copyright.url}
                     target="_blank"
                     rel="noreferrer"
@@ -174,7 +177,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 <MKTypography variant="caption" fontWeight="regular">
                   Powered by{' '}
                   <MKTypography
-                    component={MaterialLink}
+                    component={LinkWithMaterial}
                     href={GATSBY_URL}
                     target="_blank"
                     rel="noreferrer"
@@ -185,7 +188,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </MKTypography>{' '}
                   and inspired from the{' '}
                   <MKTypography
-                    component={MaterialLink}
+                    component={LinkWithMaterial}
                     href="https://github.com/EmaSuriano/gatsby-theme-mate"
                     target="_blank"
                     rel="noreferrer"
