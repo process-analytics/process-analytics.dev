@@ -59,7 +59,14 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               justifyContent={[undefined, 'space-between']}
               textAlign={['center', 'left']}
             >
-              <Grid item xs={12} md={3} sx={{ mb: 3 }}>
+              <Grid
+                item
+                xs={12}
+                md={3}
+                sx={{ mb: 3 }}
+                display="flex"
+                justifyContent={'center'}
+              >
                 <MKBox
                   width="fit-content"
                   display="flex"
