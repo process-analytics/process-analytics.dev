@@ -170,18 +170,20 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                     fontWeight="regular"
                   >
                     {brand.name}
-                  </MKTypography>{' '}
-                  by{' '}
-                  <MKTypography
-                    component={LinkWithMaterial}
-                    href={copyright.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    {copyright.name}
                   </MKTypography>
+                  {/*TODO decide later if we display the company name*/}
+                  {/*{' '}*/}
+                  {/*by{' '}*/}
+                  {/*<MKTypography*/}
+                  {/*  component={LinkWithMaterial}*/}
+                  {/*  href={copyright.url}*/}
+                  {/*  target="_blank"*/}
+                  {/*  rel="noreferrer"*/}
+                  {/*  variant="caption"*/}
+                  {/*  fontWeight="regular"*/}
+                  {/*>*/}
+                  {/*  {copyright.name}*/}
+                  {/*</MKTypography>*/}
                 </MKTypography>
                 <br />
                 <MKTypography variant="caption" fontWeight="regular">
