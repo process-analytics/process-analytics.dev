@@ -88,7 +88,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   } = ownerState;
 
   // background value
-  let backgroundValue;
+  let background;
   if (variant === 'gradient') {
     backgroundValue =
       bgcolor && isPaletteColorName(bgcolor)
@@ -116,7 +116,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
 
   return {
     opacity,
-    background: backgroundValue,
+    background,
     color: colorValue,
     borderRadius: borderRadius ? borders.radius[borderRadius] : 'none',
     boxShadow: shadow?.size
