@@ -13,20 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { HeadProps } from 'gatsby';
+
 import * as React from 'react';
+import { HeadProps } from 'gatsby';
+
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
+
+import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import Header from '../theme/components/Header';
 import Landing from '../theme/sections/Landing';
 import About from '../theme/sections/About';
 import Libraries from '../theme/sections/Libraries';
 import { Blog } from '../theme/sections/Blog';
-import Footer from '../theme/components/Footer';
 import { News } from '../theme/sections/News';
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
+
+import { footerRoutes } from '../content/FooterRoutes';
 
 const HomePage = (): JSX.Element => (
   <Layout>
@@ -36,7 +41,9 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
-    <Footer />
+    {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+    <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );

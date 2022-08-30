@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 import * as React from 'react';
+
+import { footerRoutes } from '../../content/FooterRoutes';
+
+import { Footer } from '../components/Footer';
 import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
-import Footer from '../components/Footer';
 import Section from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
-import { PostDescription } from '../types';
-import { SECTION } from '../utils/constants';
 import { MailingListSubscription } from '../components/mailingListSubscription/MailingListSubscription';
+
+import { PostDescription } from '../types';
+
+import { SECTION } from '../utils/constants';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -65,8 +70,10 @@ export const PageWithPosts = ({
       </Text>
       <PostContainer posts={posts} />
     </Section.Container>
-    <Footer />
     <MailingListSubscription />
+    {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+    <Footer content={footerRoutes} />
   </Layout>
 );
 

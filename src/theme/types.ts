@@ -46,7 +46,7 @@ export type AboutSubSection = {
 export type SocialLink = {
   url: string;
   name: string;
-  icon: IconName;
+  icon: IconName | JSX.Element;
 };
 
 export type PostDescription = {
@@ -63,4 +63,11 @@ export type Landing = {
   title: string;
   presentation: string;
   socialLinks: SocialLink[];
+};
+
+export type Link = {
+  name: string;
+  description?: string;
+  route?: string;
+  href?: string;
 };

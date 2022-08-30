@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2022 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,94 +13,224 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import React from 'react';
-import styled from 'styled-components';
-import { Box, Flex, Image, Text } from 'rebass/styled-components';
-import { Fade } from 'react-awesome-reveal';
-import SocialLink from './SocialLink';
-import { Link } from './Link';
-import { GATSBY_URL, MEDIA_QUERY_SMALL } from '../utils/constants';
-import { landing } from '../../content/LandingContent';
-import { header } from '../../content/HeaderContent';
 
-const Footer = (): JSX.Element => {
-  const { title, socialLinks } = landing;
-  const { logo } = header;
+// @mui material components
+import {
+  ScopedCssBaseline,
+  ThemeProvider,
+  Link as MaterialLink,
+} from '@mui/material';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
+// Material Kit 2 React components
+import { MKBox } from './material-kit/MKBox';
+import { MKTypography } from './material-kit/MKTypography';
+
+import { Link as GatsbyLink } from 'gatsby';
+
+import theme from '../../assets/theme';
+
+import { Link as FooterLink, SocialLink } from '../../theme/types';
+import { GATSBY_URL } from '../utils/constants';
+import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
+import { LinkWithMaterial } from './Link';
+import { RouteWithMaterial } from './Route';
+
+export const Footer = ({ content }: FooterProps): JSX.Element => {
+  const { brand, socials, menus } = content;
+
+  const year = new Date().getFullYear();
+
+  /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
+      After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
   return (
-    <Box p={[2, 3]} backgroundColor="primary" id="footer" as="footer">
-      <FooterContainer>
-        <Flex>
-          <Fade direction="left" triggerOnce>
-            <Box>
-              <Image
-                src={logo.src}
-                height={['15px', '40px']}
-                width={['15px', '40px']}
-                alt="Process Analytics Logo"
-              />
-            </Box>
-          </Fade>
-          <Box color="background" mx={[1, 2]}>
-            <Fade direction="left" triggerOnce>
-              <Text fontSize={[2, 3]} color="background">
-                {title}
-              </Text>
-              <AttributionContainer>
-                <Text>
-                  <span>Powered by </span>
-                  <Link href={GATSBY_URL}>Gatsby</Link>
-                  <span> and inspired from the </span>
-                  <Link href="https://github.com/EmaSuriano/gatsby-theme-mate">
+    <ThemeProvider theme={theme}>
+      <ScopedCssBaseline>
+        <MKBox component="footer" py={6} bgColor="primary">
+          <Container maxWidth="xxl">
+            <Grid
+              container
+              spacing={3}
+              flexDirection={['column', 'row']}
+              alignItems={['center', undefined]}
+              justifyContent={[undefined, 'space-between']}
+              textAlign={['center', 'left']}
+            >
+              <Grid
+                item
+                xs={12}
+                md={3}
+                sx={{ mb: 3 }}
+                display="flex"
+                justifyContent={'center'}
+              >
+                <MKBox
+                  width="fit-content"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                >
+                  <GatsbyLink to={brand.route}>
+                    <MKBox
+                      component="img"
+                      src={brand.logo}
+                      alt={brand.name}
+                      maxWidth="3rem"
+                      height="3rem"
+                      mb={2}
+                    />
+                  </GatsbyLink>
+                  <MKTypography variant="h5">{brand.name}</MKTypography>
+                  <MKBox display="flex" alignItems="center" mt={3}>
+                    {socials.map(
+                      (
+                        { icon, url }: Omit<SocialLink, 'name'>,
+                        key: number,
+                      ) => (
+                        <MKTypography
+                          key={url}
+                          component={MaterialLink}
+                          href={url}
+                          target="_blank"
+                          rel="noreferrer"
+                          variant="h5"
+                          opacity={0.8}
+                          mr={key === socials.length - 1 ? 0 : 2.5}
+                        >
+                          {icon}
+                        </MKTypography>
+                      ),
+                    )}
+                  </MKBox>
+                </MKBox>
+              </Grid>
+
+              <Grid
+                container
+                item
+                xs={12}
+                md={9}
+                sx={{ mb: [2, 3] }}
+                flexDirection={['column', 'row']}
+                alignItems={['center', 'start']}
+                justifyContent={['space-between', 'space-evenly']}
+              >
+                {menus.map(({ name, items }: FooterMenu) => (
+                  <Grid
+                    key={name}
+                    item
+                    xs={false}
+                    md={8 / menus.length}
+                    sx={{ mb: [3, 0] }}
+                  >
+                    <MKTypography
+                      display="block"
+                      variant="body2"
+                      fontWeight="bold"
+                      textTransform="capitalize"
+                      mb={1}
+                    >
+                      {name}
+                    </MKTypography>
+
+                    <MKBox
+                      component="ul"
+                      p={0}
+                      m={0}
+                      sx={{ listStyle: 'none' }}
+                    >
+                      {items.map(({ name, route }: FooterLink) => (
+                        <MKBox
+                          key={name}
+                          component="li"
+                          p={0}
+                          m={0}
+                          lineHeight={1.25}
+                        >
+                          <MKTypography
+                            component={RouteWithMaterial}
+                            to={route}
+                            rel="noreferrer"
+                            variant="button"
+                            fontWeight="regular"
+                            textTransform="capitalize"
+                          >
+                            {name}
+                          </MKTypography>
+                        </MKBox>
+                      ))}
+                    </MKBox>
+                  </Grid>
+                ))}
+              </Grid>
+              <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
+                <MKTypography variant="caption" fontWeight="regular">
+                  Copyright &copy; {year}{' '}
+                  <MKTypography
+                    component={RouteWithMaterial}
+                    to={brand.route}
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    {brand.name}
+                  </MKTypography>
+                  {/*TODO decide later if we display the company name*/}
+                  {/*{' '}*/}
+                  {/*by{' '}*/}
+                  {/*<MKTypography*/}
+                  {/*  component={LinkWithMaterial}*/}
+                  {/*  href={copyright.url}*/}
+                  {/*  target="_blank"*/}
+                  {/*  rel="noreferrer"*/}
+                  {/*  variant="caption"*/}
+                  {/*  fontWeight="regular"*/}
+                  {/*>*/}
+                  {/*  {copyright.name}*/}
+                  {/*</MKTypography>*/}
+                </MKTypography>
+                <br />
+                <MKTypography variant="caption" fontWeight="regular">
+                  Powered by{' '}
+                  <MKTypography
+                    component={LinkWithMaterial}
+                    href={GATSBY_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
+                    Gatsby
+                  </MKTypography>{' '}
+                  and inspired from the{' '}
+                  <MKTypography
+                    component={LinkWithMaterial}
+                    href="https://github.com/EmaSuriano/gatsby-theme-mate"
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="caption"
+                    fontWeight="regular"
+                  >
                     Gatsby Theme Mate
-                  </Link>
+                  </MKTypography>
                   &nbsp;
                   <span role="img" aria-label="heart">
                     ❤️
                   </span>
-                </Text>
-              </AttributionContainer>
-            </Fade>
-          </Box>
-        </Flex>
-        <Flex>
-          <Fade direction="right" triggerOnce cascade damping={0.5}>
-            {socialLinks.map(sl => (
-              <Box mx={[2, 3]} fontSize={[4, 5]} key={sl.name}>
-                <SocialLink {...sl} invert />
-              </Box>
-            ))}
-          </Fade>
-        </Flex>
-      </FooterContainer>
-    </Box>
+                </MKTypography>
+              </Grid>
+            </Grid>
+          </Container>
+        </MKBox>
+      </ScopedCssBaseline>
+    </ThemeProvider>
   );
 };
 
-const FooterContainer = styled.div`
-  max-width: 1366px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-
-  ${MEDIA_QUERY_SMALL} {
-    flex-direction: column-reverse;
-
-    & > * {
-      margin-bottom: 10px;
-    }
-  }
-`;
-
-const AttributionContainer = styled.div`
-  font-size: 14px;
-  font-style: italic;
-
-  ${MEDIA_QUERY_SMALL} {
-    font-size: 7px;
-  }
-`;
-
-export default Footer;
+// Typechecking props for the DefaultFooter
+interface FooterProps {
+  content: FooterRoutes;
+}

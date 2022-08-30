@@ -17,17 +17,20 @@
 import { HeadProps } from 'gatsby';
 import React from 'react';
 import { Heading } from 'rebass/styled-components';
+
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
 
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
+import { footerRoutes } from '../content/FooterRoutes';
+import { Footer } from '../theme/components/Footer';
 import Section from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
-import Footer from '../theme/components/Footer';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
+
 import styled from 'styled-components';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
@@ -156,7 +159,9 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           </Paragraph>
         </Part>
       </Section.Container>
-      <Footer />
+      {/* TODO: When there will only one theme provider, move the Footer in the
+    Layout class */}
+      <Footer content={footerRoutes} />
     </Layout>
   );
 };
