@@ -40,7 +40,7 @@ import { LinkWithMaterial } from './Link';
 import { RouteWithMaterial } from './Route';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
-  const { brand, socials, menus, copyright } = content;
+  const { brand, socials, menus } = content;
 
   const year = new Date().getFullYear();
 
