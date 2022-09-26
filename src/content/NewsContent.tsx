@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'Hacktoberfest 2022 with Process Analytics',
+    text: 'The Process Analytics team is participating in Hacktoberfest 2022, as we did for Hacktoberfest 2021.',
+    cover: 'https://miro.medium.com/max/1100/0*MgKN97gBYHCHxoBr',
+    url: 'https://medium.com/@process-analytics/hacktoberfest-2022-with-process-analytics-add185b50721',
+    date: 'September 2022',
+    time: 3,
+  },
+  {
     title: 'August 2022 News',
     text: 'Discover the improvements made in August 2022 to the website,  to the bpmn-visualization Typescript library  and to the R package.',
     cover: 'https://miro.medium.com/max/400/0*87KYnBVEVKCpmr3i',
