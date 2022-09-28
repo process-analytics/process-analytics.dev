@@ -59,7 +59,7 @@
     "gatsby": "^4.23.0",
     "gatsby-plugin-google-gtag": "^4.21.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
-    "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-manifest": "^4.24.0",
     "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-mdx": "^3.20.0",
     "gatsby-plugin-robots-txt": "^1.7.1",
