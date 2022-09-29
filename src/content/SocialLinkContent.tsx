@@ -36,4 +36,9 @@ export const socialLinks: SocialLink[] = [
     name: 'Dev.to',
     icon: 'dev',
   },
+  {
+    url: 'https://discord.gg/HafnBYsRXd',
+    name: 'Discord',
+    icon: 'discord',
+  },
 ];
