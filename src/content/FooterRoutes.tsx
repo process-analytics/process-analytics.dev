@@ -18,6 +18,7 @@ import React from 'react';
 
 import {
   faDev,
+  faDiscord,
   faGithub,
   faMedium,
   faTwitter,
@@ -47,6 +48,7 @@ export const footerRoutes: FooterRoutes = {
     route: '/',
   },
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
+  // TODO: Use the content of SocialLinkContent. Need to have a component SocialLink made with Material, like Link
   socials: [
     {
       icon: <FontAwesomeIcon icon={faGithub} />,
@@ -64,6 +66,10 @@ export const footerRoutes: FooterRoutes = {
     {
       icon: <FontAwesomeIcon icon={faMedium} />,
       url: 'https://medium.com/@process-analytics',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faDiscord} />,
+      url: 'https://discord.gg/HafnBYsRXd',
     },
   ],
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path

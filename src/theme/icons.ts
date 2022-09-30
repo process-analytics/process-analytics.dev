@@ -19,6 +19,7 @@ import {
   faTwitter,
   faGithub,
   faDev,
+  faDiscord,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faGlobe,
@@ -36,6 +37,7 @@ export const ICONS: IconDefinition[] = [
   faGithub,
   faMedium,
   faTwitter,
+  faDiscord,
   // solid
   faArrowRight,
   faBoltLightning,
