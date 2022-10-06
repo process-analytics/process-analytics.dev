@@ -16,16 +16,9 @@
 
 import React from 'react';
 
-import {
-  faDev,
-  faDiscord,
-  faGithub,
-  faMedium,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Link, SocialLink } from '../theme/types';
+
+import { socialLinks } from './SocialLinkContent';
 
 // Images
 import logo from '../images/logo_white.svg';
@@ -33,7 +26,7 @@ import logo from '../images/logo_white.svg';
 export type FooterRoutes = {
   brand: Required<Omit<Link, 'description' | 'href'>> & { logo: string };
   copyright: { name: string; url: string };
-  socials: Omit<SocialLink, 'name'>[];
+  socials: SocialLink[];
   menus: FooterMenu[];
 };
 export type FooterMenu = {
@@ -48,30 +41,7 @@ export const footerRoutes: FooterRoutes = {
     route: '/',
   },
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
-  // TODO: Use the content of SocialLinkContent. Need to have a component SocialLink made with Material, like Link
-  socials: [
-    {
-      icon: <FontAwesomeIcon icon={faGithub} />,
-      url: 'https://github.com/process-analytics',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faTwitter} />,
-      url: 'https://twitter.com/ProcessAnalyti1',
-    },
-
-    {
-      icon: <FontAwesomeIcon icon={faDev} />,
-      url: 'https://dev.to/process-analytics',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faMedium} />,
-      url: 'https://medium.com/@process-analytics',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faDiscord} />,
-      url: 'https://discord.gg/HafnBYsRXd',
-    },
-  ],
+  socials: socialLinks,
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path
   menus: [
     {
