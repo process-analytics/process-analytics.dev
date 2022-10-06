@@ -37,7 +37,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import theme from '../../assets/theme';
 
-import { Link as FooterLink, SocialLink } from '../../theme/types';
+import { Link as FooterLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
 import { LinkWithMaterial } from './Link';
@@ -101,6 +101,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                         mr={key === socials.length - 1 ? 0 : 2.5}
                       >
                         <FontAwesomeIcon
+                          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                           icon={getIconDefinition(icon as IconName)!}
                         />
                       </MKTypography>
