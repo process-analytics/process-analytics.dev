@@ -14,20 +14,14 @@
  * limitations under the License.
  */
 
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 // @mui material components
-import {
-  ScopedCssBaseline,
-  ThemeProvider,
-  Link as MaterialLink,
-} from '@mui/material';
+import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { getIconDefinition } from '../utils/icons';
+import { SocialLinkWithMaterial } from './SocialLink';
 
 // Material Kit 2 React components
 import { MKBox } from './material-kit/MKBox';
@@ -89,22 +83,16 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </GatsbyLink>
                   <MKTypography variant="h5">{brand.name}</MKTypography>
                   <MKBox display="flex" alignItems="center" mt={3}>
-                    {socials.map(({ icon, url }, key) => (
-                      <MKTypography
+                    {socials.map(({ icon, url, name }, key) => (
+                      <SocialLinkWithMaterial
                         key={url}
-                        component={MaterialLink}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
+                        icon={icon}
+                        url={url}
+                        name={name}
                         variant="h5"
                         opacity={0.8}
                         mr={key === socials.length - 1 ? 0 : 2.5}
-                      >
-                        <FontAwesomeIcon
-                          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                          icon={getIconDefinition(icon as IconName)!}
-                        />
-                      </MKTypography>
+                      />
                     ))}
                   </MKBox>
                 </MKBox>
