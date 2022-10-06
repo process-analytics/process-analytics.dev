@@ -22,6 +22,7 @@ import {
   VerticalAlign,
   Link as MaterialLink,
   TypographyProps,
+  LinkProps,
 } from '@mui/material';
 
 import { Link as GatsbyLink } from 'gatsby';
@@ -31,10 +32,11 @@ import { MKTypographyRoot } from './MKTypographyRoot';
 
 import { LinkWithMaterial } from '../../Link';
 import { RouteWithMaterial } from '../../Route';
+import { StyledComponent } from '@emotion/styled';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
-  Partial<React.PropsWithChildren<MKTypographyProps & TypographyProps>>
+  Partial<React.PropsWithChildren<MKTypographyProps>>
 >(
   (
     {
@@ -76,7 +78,7 @@ MKTypography.defaultProps = {
 };
 
 // Typechecking props for the MKTypography
-interface MKTypographyProps {
+export type MKTypographyProps = TypographyProps & {
   color?: PaletteColorKey | 'inherit' | 'text';
   fontWeight?: FontWeight;
   textTransform?: TextTransform;
@@ -87,10 +89,11 @@ interface MKTypographyProps {
     | typeof GatsbyLink
     | typeof MaterialLink
     | typeof LinkWithMaterial
-    | typeof RouteWithMaterial;
+    | typeof RouteWithMaterial
+    | StyledComponent<LinkProps>;
   href?: string;
   to?: string;
   target?: string;
   rel?: string;
   size?: string;
-}
+};
