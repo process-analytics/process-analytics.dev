@@ -23,17 +23,21 @@ module.exports = {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
-  rules: {
-    'notice/notice': [
-      'error',
-      {
-        templateFile: 'config/license-header.js',
-        onNonMatchingHeader: 'replace',
-      },
-    ],
-    'no-console': ['error', { allow: ['warn', 'error'] }],
-  },
   overrides: [
+    // javascript & typescript
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
+        'notice/notice': [
+          'error',
+          {
+            templateFile: 'config/license-header.js',
+            onNonMatchingHeader: 'replace',
+          },
+        ],
+        'no-console': ['error', { allow: ['warn', 'error'] }],
+      },
+    },
     // typescript
     {
       files: ['*.ts', '*.tsx'],
@@ -50,6 +54,18 @@ module.exports = {
             allowTypedFunctionExpressions: true,
           },
         ],
+      },
+    },
+    // markdown
+    {
+      files: ['*.mdx'],
+      extends: 'plugin:mdx/recommended',
+      // optional, if you want to lint code blocks at the same time
+      settings: {
+        'mdx/code-blocks': true,
+        // optional, if you want to disable language mapper, set it to `false`
+        // if you want to override the default language mapper inside, you can provide your own
+        'mdx/language-mapper': false,
       },
     },
   ],

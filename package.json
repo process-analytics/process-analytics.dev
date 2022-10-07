@@ -14,8 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "check-types": "tsc -p . --noEmit",
-    "lint": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0 --fix",
-    "lint-check": "eslint \"*/**/*.{js,ts,tsx}\" NOTICE --max-warnings 0",
+    "lint": "eslint \"*/**/*.{js,ts,tsx,mdx}\" NOTICE --max-warnings 0 --fix",
+    "lint-check": "eslint \"*/**/*.{js,ts,tsx,mdx}\" NOTICE --max-warnings 0",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -53,6 +53,7 @@
     "babel-plugin-styled-components": "^2.0.6",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-mdx": "^1.17.1",
     "eslint-plugin-notice": "^0.9.10",
     "eslint-plugin-prettier": "^4.2.1",
     "gatsby": "^4.24.4",
