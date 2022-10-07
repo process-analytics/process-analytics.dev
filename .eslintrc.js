@@ -15,7 +15,6 @@
  */
 module.exports = {
   plugins: ['notice'],
-  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   extends: [
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
@@ -41,6 +40,7 @@ module.exports = {
     // typescript
     {
       files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser', // Specifies the ESLint parser
       extends: [
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
         'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
@@ -59,13 +59,14 @@ module.exports = {
     // markdown
     {
       files: ['*.mdx'],
+      parser: 'eslint-mdx',
       extends: 'plugin:mdx/recommended',
       // optional, if you want to lint code blocks at the same time
       settings: {
         'mdx/code-blocks': true,
         // optional, if you want to disable language mapper, set it to `false`
         // if you want to override the default language mapper inside, you can provide your own
-        'mdx/language-mapper': false,
+        //'mdx/language-mapper': {},
       },
     },
   ],
