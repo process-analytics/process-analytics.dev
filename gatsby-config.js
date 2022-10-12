@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 const colors = require('./src/theme/colors.json');
 
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
