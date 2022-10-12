@@ -13,20 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+
 import React from 'react';
+
 import { Link } from 'rebass/styled-components';
-import Tippy from '@tippyjs/react';
+import {
+  Link as MaterialLink,
+  LinkProps,
+  styled as MaterialStyled,
+} from '@mui/material';
 import styled from 'styled-components';
+import Tippy from '@tippyjs/react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+
 import { SocialLink as SocialLinkType } from '../types';
 import { getIconDefinition } from '../utils/icons';
+import { MKTypography, MKTypographyProps } from './material-kit/MKTypography';
 
-type Props = SocialLinkType & {
+type SocialLinkProps = SocialLinkType & {
   invert?: boolean;
 };
 
-const SocialLink = ({ icon, name, url, invert }: Props): JSX.Element | null => {
+export const SocialLink = ({
+  icon,
+  name,
+  url,
+  invert,
+}: SocialLinkProps): JSX.Element | null => {
   const iconDefinition = getIconDefinition(icon as IconName);
   if (!iconDefinition) {
     return null;
@@ -63,4 +78,45 @@ const IconLink = styled(Link)<{ invert?: boolean }>`
   }
 `;
 
-export default SocialLink;
+type SocialLinkWithMaterialProps = SocialLinkType & MKTypographyProps;
+
+export const SocialLinkWithMaterial = ({
+  icon,
+  name,
+  url,
+  ...rest
+}: SocialLinkWithMaterialProps): JSX.Element | null => {
+  const iconDefinition = getIconDefinition(icon as IconName);
+  if (!iconDefinition) {
+    return null;
+  }
+
+  return (
+    <Tippy
+      content={name}
+      placement="bottom"
+      trigger="mouseenter focus"
+      arrow={false}
+    >
+      <MKTypography
+        component={IconLinkWithMaterial}
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={name}
+        {...rest}
+      >
+        <FontAwesomeIcon icon={iconDefinition} />
+      </MKTypography>
+    </Tippy>
+  );
+};
+
+const IconLinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>`
+  transition: opacity 0.4s;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import React from 'react';
-import SocialLink from '../components/SocialLink';
+import { SocialLink } from '../components/SocialLink';
 import CardFooter from './CardFooter';
 import { Box, Flex, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
