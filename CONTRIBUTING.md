@@ -30,7 +30,7 @@ For all contributions, please respect the following guidelines:
 
 9. Be willing to accept criticism and work on improving your code. 
 
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on  GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)    
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on  GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github)    
 
 ### Fork & create a branch
 
@@ -43,7 +43,7 @@ git checkout -b 4-customize_404_page
 ```
 
 ### IDE configuration
-To know how to configure your development environment, see [IDE configuration](https://github.com/process-analytics/bpmn-visualization-js/blob/master/docs/development/ide-configuration.md)
+To know how to configure your development environment, see [IDE configuration](https://github.com/process-analytics/bpmn-visualization-js/blob/master/docs/contributors/ide-configuration.md)
 
 ### Commit in the Pull Request
 There is no convention for the commit message in the Pull Request.
