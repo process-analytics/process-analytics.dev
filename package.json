@@ -48,7 +48,7 @@
     "@types/react-headroom": "^2.2.2",
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "babel-plugin-styled-components": "^2.0.6",
     "eslint": "^8.25.0",
