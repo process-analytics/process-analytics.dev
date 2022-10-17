@@ -19,7 +19,8 @@ const posts: PostDescription[] = [
   {
     title: 'Getting started with bpmn-visualization',
     text: 'A getting started tutorial to bpmn-visualization using an online monitoring scenario.',
-    cover: 'https://res.cloudinary.com/practicaldev/image/fetch/s--LnfUKsmY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_370/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hip8ppuji1az7v6symep.gif',
+    cover:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--LnfUKsmY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_370/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hip8ppuji1az7v6symep.gif',
     url: 'https://dev.to/process-analytics/getting-started-with-bpmn-visualization-3dno',
     date: 'October 2022',
     time: 12,
