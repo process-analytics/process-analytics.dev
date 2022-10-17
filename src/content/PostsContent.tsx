@@ -67,7 +67,7 @@ const posts: PostDescription[] = [
   {
     title:
       'Visualizing processes in BPMN standard using the BPMN layout generator', // original title which would have been truncated: 'Visualizing processes in BPMN standard: using the BPMN layout generator to show activities, transitions, and gateways'
-    text: 'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.', // abstract in Bonitasoft Community: 'In this article, we will see how you can visualize event logs with the BPMN layout generator. We will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process we will add BPMN objects such as gateways.'
+    text: 'In this article, we will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process, we will add BPMN objects such as gateways.', // abstract in Bonitasoft Community: 'In this article, we will see how you can visualize event logs with the BPMN layout generator. We will use the BPMN layout generator to automatically generate a BPMN diagram from events logs. To further help visualize the process we will add BPMN objects such as gateways.',
     cover:
       'https://community.bonitasoft.com/sites/community.bonitasoft.com/files/blog/bonita-community/the_same_process_with_some_noise_filtered_out.png',
     url: 'https://community.bonitasoft.com/blog/visualizing-processes-bpmn-standard-using-bpmn-layout-generator-show-activities-transitions-and',
