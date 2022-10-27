@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/chroma-js": "^2.1.4",
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^18.0.21",
+    "@types/react": "^18.0.23",
     "@types/react-headroom": "^2.2.2",
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
