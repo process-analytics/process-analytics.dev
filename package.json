@@ -19,7 +19,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
+    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.0",
     "@fontsource/open-sans": "^4.5.13",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
