@@ -26,7 +26,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@mui/material": "^5.10.12",
     "@rebass/forms": "^4.0.6",
@@ -43,7 +42,6 @@
   },
   "devDependencies": {
     "@types/chroma-js": "^2.1.4",
-    "@types/mdx-js__react": "^1.5.5",
     "@types/react": "^18.0.25",
     "@types/react-headroom": "^2.2.2",
     "@types/rebass": "^4.0.10",
