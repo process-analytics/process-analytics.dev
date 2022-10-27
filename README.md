@@ -24,19 +24,19 @@
 
 This site is created with Gatsby. 
 
-1. **Prerequires**
+1. **Prerequisites**
 
-   Mininal node version: See the [`.nvmrc` file](.nvmrc). 
+   Minimal node version: See the [`.nvmrc` file](.nvmrc). 
 
    If you use `nvm`, you can change the node version used locally with `nvm use`. \
    It loads the version specified in the `.nvmrc` file.
 
 
-2. **Start developing.**
+2. **Start developing**
 
    Install dependencies. The extra options is required to fix some react 18 incompatibilities.
    ```shell
-   npm install --legacy-peer-deps
+   npm install
    ```
 
    Start the development server
@@ -61,4 +61,3 @@ This site is created with Gatsby.
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    
