@@ -12,6 +12,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'gatsby-*.js'
+      - '.nvmrc'
 
 permissions:
   # surge-preview: PR comments

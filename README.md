@@ -34,7 +34,7 @@ This site is created with Gatsby.
 
 2. **Start developing**
 
-   Install dependencies. The extra options is required to fix some react 18 incompatibilities.
+   Install dependencies.
    ```shell
    npm install
    ```
