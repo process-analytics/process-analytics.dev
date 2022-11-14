@@ -10,6 +10,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
+      - '.nvmrc'
 
 jobs:
   build:
