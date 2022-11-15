@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://process-analytics.dev/sitemap/sitemap-index.xml
+Sitemap: https://process-analytics.dev/sitemap-index.xml
 Host: https://process-analytics.dev
