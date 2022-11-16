@@ -17,6 +17,15 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title:
+      'Hacktoberfest 2022: Now, it’s an official Process Analytics tradition!',
+    text: 'The Process Analytics team is participating in Hacktoberfest 2022, as we did the 2 last years.',
+    cover: 'https://miro.medium.com/max/700/0*JP2I14IS1lPDx8oK',
+    url: 'https://medium.com/@process-analytics/hacktoberfest-2022-now-its-an-official-process-analytics-tradition-8493b064d0b4',
+    date: 'November 2022',
+    time: 3,
+  },
+  {
     title: 'Getting started with bpmn-visualization',
     text: 'A getting started tutorial to bpmn-visualization using an online monitoring scenario.',
     cover:
