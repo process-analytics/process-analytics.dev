@@ -41,4 +41,9 @@ export const socialLinks: SocialLink[] = [
     name: 'Discord',
     icon: 'discord',
   },
+  {
+    url: 'https://www.youtube.com/channel/UCzmcChXi_YmQGmPizzKX8pA',
+    name: 'Youtube',
+    icon: 'youtube',
+  },
 ];
