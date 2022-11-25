@@ -27,7 +27,7 @@ import Grid from '@mui/material/Grid';
 import { MKBox } from '../../../components/MKBox';
 
 // Material Kit 2 React examples
-import Breadcrumbs from '../../../examples/Breadcrumbs';
+import { Breadcrumbs } from '../../../examples/Breadcrumbs';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';
