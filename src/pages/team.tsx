@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
+import { theme } from '../assets/theme';
 
 import Team from '../layouts/pages/landing-pages/about-us/sections/Team';
 
 const TeamPage = (): JSX.Element => (
-  <>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
     <Team />
-  </>
+  </ThemeProvider>
 );
 
 export default TeamPage;

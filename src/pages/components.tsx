@@ -15,6 +15,15 @@
  */
 import * as React from 'react';
 
-const ComponentsPage = (): JSX.Element => <></>;
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/styles';
+
+import { theme } from '../assets/theme';
+
+const ComponentsPage = (): JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+  </ThemeProvider>
+);
 
 export default ComponentsPage;

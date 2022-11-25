@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { Theme } from '@mui/material';
 import React, { useState } from 'react';
 
 // @mui material components
+import { Theme } from '@mui/material';
 import Card from '@mui/material/Card';
 import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Grid';
@@ -49,10 +49,10 @@ import { routes } from '../routes';
 
 import { Link } from 'gatsby';
 
-const SignInPage = (): JSX.Element => {
-  const [rememberMe, setRememberMe] = useState(false);
-  const handleSetRememberMe = (): void => setRememberMe(!rememberMe);
+const [rememberMe, setRememberMe] = useState(false);
+const handleSetRememberMe = (): void => setRememberMe(!rememberMe);
 
+const SignInPage = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
