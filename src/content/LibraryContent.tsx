@@ -13,11 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<< HEAD:src/content/LibraryContent.tsx
+
 import { LibraryContent } from '../components';
-=======
-import { Library } from 'old/src/theme/types';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/LibraryContent.tsx
 
 export const libraryContent: LibraryContent[] = [
   {

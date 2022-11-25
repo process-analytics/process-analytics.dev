@@ -13,16 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { BreakpointOverrides } from '@mui/system/createTheme/createBreakpoints';
+import { OverridableStringUnion } from '@mui/types';
 
-import { Components, Theme } from '@mui/material';
-
-import { fontSize } from '../..';
-
-export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
-  styleOverrides: {
-    root: {
-      fontSize: `${fontSize.sm} !important`,
-    },
-    inputAdornedEnd: { backgroundColor: 'transparent !important' },
-  },
-};
+declare module '@mui/system/createTheme' {
+  export type Breakpoint = OverridableStringUnion<
+    'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
+    BreakpointOverrides
+  >;
+}

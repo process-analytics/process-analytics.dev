@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import * as React from 'react';
-<<<<<<< HEAD:src/pages/blog.tsx
 
 import { HeadProps } from 'gatsby';
 
@@ -22,13 +21,6 @@ import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
 import { footerContent, headerContent, postsContent } from '../content';
 import { PAGE, SECTION } from '../helper';
-=======
-import { DataProps } from '../../src/hooks/use-site-metadata';
-import { SEO } from '../../src/components/seo';
-import { PAGE, SECTION } from 'old/src/theme/utils/constants';
-import { postsContent } from 'old/src/content/PostsContent';
-import { PageWithPosts } from 'old/src/theme/pages/PageWithPosts';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/pages/blog.tsx
 
 const BlogPage = (): JSX.Element => (
   <PageWithPosts

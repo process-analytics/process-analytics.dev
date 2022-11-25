@@ -13,54 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type {} from '@mui/material/styles';
-import {
-  FontStyle,
-  TypographyStyle,
-  TypographyUtils,
-  Variant,
-} from '@mui/material/styles/createTypography';
+import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
+import { TypographyStyle } from '@mui/material/styles/createTypography';
+import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
-  interface BreakpointOverrides {
-    xxl: true;
-  }
-
-  interface Typography
-    extends Record<Variant, TypographyStyle>,
-      FontStyle,
-      TypographyUtils {
-    [key: string]: TypographyStyle; // add index signature to allow any string keys
-  }
-
-  type BoxShadowColor = {
+  export type BoxShadowColor = PaletteOptions & {
     white: string;
-
-    /* [key: PaletteColorKey]: string;*/
-
-    primary: string;
-    secondary: string;
-    error: string;
-    warning: string;
-    info: string;
-    success: string;
-    tertiary: string;
-    quaternary: string;
-    primaryLight: string;
-    secondaryLight: string;
-    spicy: string;
-    sweet: string;
-    manufacture: string;
-    education: string;
-    telecom: string;
-    financial: string;
-    energy: string;
-    health: string;
-    government: string;
-    distribution: string;
   };
 
-  type BorderSize = {
+  type BorderRadius = {
     xs: string;
     sm: string;
     md: string;
@@ -68,6 +30,18 @@ declare module '@mui/material/styles' {
     xl: string;
     xxl: string;
     section: string;
+  };
+  export type Borders = {
+    borderColor?: string;
+    borderWidth: {
+      0: string;
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+      5: string;
+    };
+    borderRadius: BorderRadius;
   };
 
   type ShadowSize = {
@@ -80,64 +54,108 @@ declare module '@mui/material/styles' {
     inset: string;
   };
 
-  interface Theme {
-    palette: Palette & SocialPalette;
+  type BoxShadows = ShadowSize & {
+    colored: BoxShadowColor;
+    sliderBoxShadow: {
+      thumb: string;
+    };
+    tabsBoxShadow: {
+      indicator: string;
+    };
+  };
+
+  type Functions = {
+    boxShadow: (
+      offset?: number[],
+      radius?: number[],
+      color: string | number | Color,
+      opacity: number,
+      inset?: string,
+    ) => string;
+    hexToRgb: (color: string | number | Color) => string;
+    linearGradient: (
+      color: string | number | Color,
+      colorState: string | number | Color,
+      angle?: number,
+    ) => string;
+    pxToRem: (number: number, baseNumber?: number) => string;
+    rgba: (color: string | number | Color, opacity: number) => string;
+  };
+
+  export interface Theme {
+    /*    mixins: Mixins;
+    shadows: Shadows;
+    transitions: Transitions; */
+
+    palette: Palette & CustomPalette & SocialPalette;
+    typography: Typography & CustomTypography;
+
+    boxShadows: BoxShadows;
+    borders: Borders;
+    functions: Functions;
   }
 
-  interface Palette {
-    tertiary: Palette['primary'];
-    quaternary: Palette['primary'];
-    primaryLight: Palette['primary'];
-    secondaryLight: Palette['primary'];
-    spicy: Palette['primary'];
-    sweet: Palette['primary'];
-    manufacture: Palette['primary'];
-    education: Palette['primary'];
-    telecom: Palette['primary'];
-    financial: Palette['primary'];
-    energy: Palette['primary'];
-    health: Palette['primary'];
-    government: Palette['primary'];
-    distribution: Palette['primary'];
+  export interface CustomPalette {
+    tertiary: PaletteColor;
   }
-  interface SocialPalette {
-    twitter: Palette['primary'];
-    pinterest: Palette['primary'];
-    youtube: Palette['primary'];
-    slack: Palette['primary'];
-    github: Palette['primary'];
+
+  export interface SocialPalette {
+    twitter: PaletteColor;
+    pinterest: PaletteColor;
+    youtube: PaletteColor;
+    slack: PaletteColor;
+    github: PaletteColor;
+  }
+
+  export interface CustomTypography {
+    fontWeightLighter: number;
+    d1: TypographyStyle;
+    d2: TypographyStyle;
+    d3: TypographyStyle;
+    d4: TypographyStyle;
+    d5: TypographyStyle;
+    d6: TypographyStyle;
+    size: {
+      xxs: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+      '3xl': string;
+    };
+
+    lineHeight: {
+      sm: number;
+      md: number;
+      lg: number;
+    };
   }
 
   // allow configuration using `createTheme`
-  interface ThemeOptions {
-    palette?: PaletteOptions & SocialPaletteOptions;
+  export interface ThemeOptions {
+    palette: PaletteOptions & CustomPaletteOptions & SocialPaletteOptions;
+    typography: TypographyOptions & CustomTypography;
+
+    boxShadows?: BoxShadows;
+    borders?: Borders;
+    functions?: Functions;
   }
 
-  interface PaletteOptions {
-    tertiary: PaletteOptions['primary'];
-    quaternary: PaletteOptions['primary'];
-    primaryLight: PaletteOptions['primary'];
-    secondaryLight: PaletteOptions['primary'];
-    spicy: PaletteOptions['primary'];
-    sweet: PaletteOptions['primary'];
-    manufacture: PaletteOptions['primary'];
-    education: PaletteOptions['primary'];
-    telecom: PaletteOptions['primary'];
-    financial: PaletteOptions['primary'];
-    energy: PaletteOptions['primary'];
-    health: PaletteOptions['primary'];
-    government: PaletteOptions['primary'];
-    distribution: PaletteOptions['primary'];
-  }
-  interface SocialPaletteOptions {
-    twitter: PaletteOptions['primary'];
-    pinterest: PaletteOptions['primary'];
-    youtube: PaletteOptions['primary'];
-    slack: PaletteOptions['primary'];
-    github: PaletteOptions['primary'];
+  interface CustomPaletteOptions {
+    tertiary: PaletteColorOptions;
   }
 
-  type GreyColorName =
+  export interface SocialPaletteOptions {
+    twitter: PaletteColorOptions;
+    pinterest: PaletteColorOptions;
+    youtube: PaletteColorOptions;
+    slack: PaletteColorOptions;
+    github: PaletteColorOptions;
+  }
+
+  export type GreyColorName =
     | 'grey-100'
     | 'grey-200'
     | 'grey-300'
@@ -148,33 +166,20 @@ declare module '@mui/material/styles' {
     | 'grey-800'
     | 'grey-900';
 
-  type PaletteColorKey =
+  export type PaletteColorKey =
     | 'primary'
     | 'secondary'
     | 'error'
     | 'warning'
     | 'info'
     | 'success'
-    | 'tertiary'
-    | 'quaternary'
-    | 'primaryLight'
-    | 'secondaryLight'
-    | 'spicy'
-    | 'sweet'
-    | 'manufacture'
-    | 'education'
-    | 'telecom'
-    | 'financial'
-    | 'energy'
-    | 'health'
-    | 'government'
-    | 'distribution';
+    | keyof CustomPaletteOptions;
 
-  type FontWeight = 'light' | 'regular' | 'medium' | 'bold' | string;
+  export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
 
-  type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
+  export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
 
-  type VerticalAlign =
+  export type VerticalAlign =
     | 'unset'
     | 'baseline'
     | 'sub'

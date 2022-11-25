@@ -13,11 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<< HEAD:src/content/SocialLinkContent.tsx
+
 import { SocialLinkContent } from '../components';
-=======
-import { SocialLink } from 'old/src/theme/types';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/SocialLinkContent.tsx
 
 export const socialLinkContent: SocialLinkContent[] = [
   {
