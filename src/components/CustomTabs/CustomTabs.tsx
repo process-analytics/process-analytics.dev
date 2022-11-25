@@ -112,11 +112,13 @@ class CustomTabs extends React.Component {
 
 interface TabProps {
   tabName: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tabIcon: (props: any) => JSX.Element;
   tabContent: JSX.Element;
 }
 
 interface CustomTabsProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   classes: { [key: string]: any };
   headerColor: 'warning' | 'success' | 'danger' | 'info' | 'primary' | 'rose';
   title: JSX.Element;

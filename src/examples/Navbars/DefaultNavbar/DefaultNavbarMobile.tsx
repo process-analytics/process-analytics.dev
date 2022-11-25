@@ -174,7 +174,9 @@ function DefaultNavbarMobile({
 
 // Typechecking props for the DefaultNavbarMobile
 interface DefaultNavbarMobileProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   routes: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   open: boolean | any;
 }
 

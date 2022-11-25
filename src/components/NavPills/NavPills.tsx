@@ -53,6 +53,7 @@ const NavPills = ({
         indicator: classes.displayNone,
       }}
       value={active}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onChange={(event: any, active: number): void => setActive(active)}
       centered={alignCenter}
     >
@@ -138,7 +139,9 @@ interface NavPillsProps {
   color: 'primary' | 'warning' | 'danger' | 'success' | 'info' | 'rose';
   direction: string;
   horizontal: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     tabsGrid: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contentGrid: any;
   };
   alignCenter: boolean;

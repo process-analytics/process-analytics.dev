@@ -24,6 +24,7 @@ import { MKBox } from '../MKBox';
 import { MKPaginationItemRoot } from './MKPaginationItemRoot';
 
 // The Pagination main context
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Context: React.Context<any> = createContext(null);
 
 export const MKPagination = forwardRef<

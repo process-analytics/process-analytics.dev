@@ -53,5 +53,6 @@ interface MKSocialButtonProps {
   component?: React.ElementType;
   href?: string;
   target?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sx?: any;
 }

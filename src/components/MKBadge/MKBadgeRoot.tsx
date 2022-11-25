@@ -69,7 +69,8 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     const borderRadiusValue = circular ? borderRadius.section : borderRadius.lg;
 
     // styles for the badge with indicator={true}
-    const indicatorStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const indicatorStyles = (): any => {
       let widthValue = pxToRem(20);
       let heightValue = pxToRem(20);
 
@@ -94,7 +95,8 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with variant="gradient"
-    const gradientStyles = (colorProp: 'white' | PaletteColorKey) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const gradientStyles = (colorProp: 'white' | PaletteColorKey): any => {
       return {
         background: linearGradient(
           palette[colorProp].main,
@@ -105,7 +107,8 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with variant="contained"
-    const containedStyles = (colorProp: 'white' | PaletteColorKey) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const containedStyles = (colorProp: 'white' | PaletteColorKey): any => {
       let backgroundValue = palette[colorProp]
         ? palette[colorProp].background
         : palette.info.main;
@@ -127,6 +130,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     };
 
     // styles for the badge with no children and container={false}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const standAloneStyles = (): any => ({
       position: 'static',
       marginLeft: pxToRem(8),
@@ -135,6 +139,7 @@ export const MKBadgeRoot = styled(Badge)<MKBadgeRootProps>(
     });
 
     // styles for the badge with container={true}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const containerStyles = (): any => ({
       position: 'relative',
       transform: 'none',

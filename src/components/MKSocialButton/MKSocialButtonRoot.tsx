@@ -43,7 +43,8 @@ export const MKSocialButtonRoot = styled(Button)<MKSocialButtonRootProps>(
       : palette.facebook.dark;
 
     // styles for the button with iconOnly={true}
-    const iconOnlyStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const iconOnlyStyles = (): any => {
       // width, height, minWidth and minHeight values
       let sizeValue = pxToRem(38);
       if (size === 'small') {

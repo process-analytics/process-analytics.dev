@@ -17,12 +17,10 @@
 // @mui material components
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import {
-  PaletteColor,
-  SimplePaletteColorOptions,
-} from '@mui/material/styles/createPalette';
+import { PaletteColor } from '@mui/material/styles/createPalette';
 
 interface MKAlertRootProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ownerState: any;
 }
 

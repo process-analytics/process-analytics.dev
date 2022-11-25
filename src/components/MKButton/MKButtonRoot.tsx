@@ -65,7 +65,8 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     const { colored } = boxShadows;
 
     // styles for the button with variant="contained"
-    const containedStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const containedStyles = (): any => {
       // background color value
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -153,7 +154,8 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with variant="outlined"
-    const outlinedStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const outlinedStyles = (): any => {
       // background color value
       const backgroundValue =
         color === 'white' ? rgba('white', 0.1) : 'transparent';
@@ -205,7 +207,8 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with variant="gradient"
-    const gradientStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const gradientStyles = (): any => {
       // background value
       const backgroundValue =
         color === 'white' || !palette[color]
@@ -279,6 +282,7 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with variant="text"
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const textStyles = (): any => {
       // color value
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -304,12 +308,14 @@ export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
     };
 
     // styles for the button with circular={true}
-    const circularStyles = () => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const circularStyles = (): any => ({
       borderRadius: borderRadius.section,
     });
 
     // styles for the button with iconOnly={true}
-    const iconOnlyStyles = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const iconOnlyStyles = (): any => {
       // width, height, minWidth and minHeight values
       let sizeValue = pxToRem(38);
 

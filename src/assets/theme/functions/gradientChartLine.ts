@@ -22,6 +22,7 @@
 import { rgba } from './rgba';
 
 export function gradientChartLine(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   chart: any,
   color: string,
   opacity = 0.2,

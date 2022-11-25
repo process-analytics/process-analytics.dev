@@ -23,7 +23,9 @@ import {
 } from '../../material-kit-react';
 
 const navPillsStyle = (theme: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   breakpoints: { down: (arg0: string) => any };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }): any => ({
   root: {
     marginTop: '20px',

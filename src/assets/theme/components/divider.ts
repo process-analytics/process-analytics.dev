@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 // Material Kit 2 React base styles
 import { palette } from '../base/colors';
 
@@ -26,6 +25,7 @@ const { grey } = palette;
 export default {
   styleOverrides: {
     root: {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       background: rgba(grey!.A700!, 0.2),
       height: pxToRem(1),
       margin: `${pxToRem(16)} 0`,
@@ -34,6 +34,7 @@ export default {
     },
 
     vertical: {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       background: rgba(grey!.A700!, 0.2),
       width: pxToRem(1),
       height: '100%',

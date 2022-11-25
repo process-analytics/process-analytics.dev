@@ -46,6 +46,7 @@ const Card = ({
 };
 
 interface CardProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   classes: { [key: string]: any };
   className?: {
     [key: string]: string;
