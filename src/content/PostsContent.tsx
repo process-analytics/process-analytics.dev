@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Interview with Prof. Wil van der Aalst at ICPM 2022',
+    text: 'Interview with Prof. Wil van der Aalst about the scope of Process Mining, research advances, industry adoption, and what the future holds.',
+    cover: 'https://miro.medium.com/max/1400/0*AGf3gCHlnLo-Kezi',
+    url: 'https://medium.com/@process-analytics/interview-with-professor-wil-van-der-aalst-at-icpm-2022-81dc4d23df4c',
+    date: 'November 2022',
+    time: 6,
+  },
+  {
     title:
       'Hacktoberfest 2022: Now, it’s an official Process Analytics tradition!',
     text: 'The Process Analytics team is participating in Hacktoberfest 2022, as we did the 2 last years.',
