@@ -19,7 +19,7 @@ const news: PostDescription[] = [
   {
     title: 'November 2022 News',
     text: "Check out our interview article with Prof. Wil van der Aalst, the documentation of the R package and more in this November's news.",
-    cover: 'https://miro.medium.com/max/1000/0*z93yiiu8llcEuEOM',
+    cover: 'https://miro.medium.com/max/700/0*z93yiiu8llcEuEOM',
     url: 'https://medium.com/@process-analytics/process-analytics-november-2022-news-5142432841a4',
     date: 'December 2022',
     time: 3,
