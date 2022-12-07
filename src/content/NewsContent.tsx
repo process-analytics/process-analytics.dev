@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'November 2022 News',
+    text: "Check out our interview article with Prof. Wil van der Aalst, the documentation of the R package and more in this November's news.",
+    cover: 'https://miro.medium.com/max/700/0*z93yiiu8llcEuEOM',
+    url: 'https://medium.com/@process-analytics/process-analytics-november-2022-news-5142432841a4',
+    date: 'December 2022',
+    time: 3,
+  },
+  {
     title: 'October 2022 News',
     text: 'Learn about our advocacy activities this month and the improvements made on the integration of bpmn-visualization in projects.',
     cover: 'https://miro.medium.com/max/1100/0*5kV_72CQf3JMxrzM',
