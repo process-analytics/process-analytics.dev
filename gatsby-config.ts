@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-const colors = require('./src/theme/colors.json');
+import type { GatsbyConfig } from 'gatsby';
+import dotenv from 'dotenv';
+
+import colors from './src/theme/colors.json';
 
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
-const robotsPolicy = { userAgent: '*' };
+type RobotsPolicy = { userAgent: string; allow?: string; disallow?: string[] };
+const robotsPolicy: RobotsPolicy = { userAgent: '*' };
 process.env.GATSBY_ROBOTS_ENABLED === 'true'
   ? (robotsPolicy.allow = '/')
   : (robotsPolicy.disallow = ['/']);
 
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Process Analytics',
     siteUrl: 'https://process-analytics.dev',
@@ -100,3 +102,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
