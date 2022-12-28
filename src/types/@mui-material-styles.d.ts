@@ -18,6 +18,10 @@ import { TypographyStyle } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xxl: true;
+  }
+
   export type BoxShadowColor = PaletteOptions & {
     white: string;
   };
