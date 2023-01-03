@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'December 2022 News',
+    text: 'We now support the complex gateway of BPMN. Plus, get a sneak peek at our 2023 roadmap in our December news report.',
+    cover: 'https://miro.medium.com/max/700/0*33G72eb-CebLeNJz',
+    url: 'https://medium.com/@process-analytics/process-analytics-december-2022-news-5e0b1cbab1',
+    date: 'January 2023',
+    time: 3,
+  },
+  {
     title: 'November 2022 News',
     text: "Check out our interview article with Prof. Wil van der Aalst, the documentation of the R package and more in this November's news.",
     cover: 'https://miro.medium.com/max/700/0*z93yiiu8llcEuEOM',
