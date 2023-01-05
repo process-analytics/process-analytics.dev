@@ -17,7 +17,7 @@ import { Library } from '../theme/types';
 
 export const libraries: Library[] = [
   {
-    name: 'BPMN Visualization',
+    name: 'bpmn-visualization',
     description:
       'A TypeScript library for visualizing process execution data on BPMN diagrams.',
     repository: 'https://github.com/process-analytics/bpmn-visualization-js',
@@ -27,7 +27,7 @@ export const libraries: Library[] = [
     type: 'TypeScript',
   },
   {
-    name: 'BPMN Visualization - R package',
+    name: 'bpmnVisualizationR package',
     description:
       'A R library for visualizing process execution data on BPMN diagrams.',
     repository: 'https://github.com/process-analytics/bpmn-visualization-R',
