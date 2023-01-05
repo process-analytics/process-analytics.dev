@@ -15,7 +15,7 @@
  */
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import Section from '../components/Section';
+import { Section, SectionHeader } from '../components/Section';
 import { CardContainer } from '../components/Card';
 import Triangle from '../components/Triangle';
 import Library from '../components/Library';
@@ -26,8 +26,8 @@ const cardMinWidth = '300px';
 
 const Libraries = (): JSX.Element => {
   return (
-    <Section.Container id={SECTION.libraries} Background={Background}>
-      <Section.Header name={SECTION.libraries} />
+    <Section id={SECTION.libraries} Background={Background}>
+      <SectionHeader name={SECTION.libraries} />
 
       <CardContainer minWidth={cardMinWidth}>
         <Fade direction="down" cascade damping={0.5} triggerOnce>
@@ -36,7 +36,7 @@ const Libraries = (): JSX.Element => {
           ))}
         </Fade>
       </CardContainer>
-    </Section.Container>
+    </Section>
   );
 };
 

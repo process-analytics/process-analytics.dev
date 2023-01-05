@@ -21,52 +21,28 @@ import { Link } from './Link';
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 
-type ContainerProps = {
+type SectionProps = {
   id?: SECTION;
   children: ReactNode;
   Background?: () => JSX.Element;
   justifyContent?: string;
 };
 
-const Container = ({
+export const Section = ({
   id,
   children,
-  Background = DefaultBackground,
   justifyContent = 'center',
-}: ContainerProps): JSX.Element => (
+}: SectionProps): JSX.Element => (
   <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
-    <Background />
     <SectionContainer justifyContent={justifyContent}>
       {children}
     </SectionContainer>
   </section>
 );
 
-type HeaderProps = {
-  name: string;
-  icon?: string;
-  label?: string;
-};
-
-const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
-  <Slide direction="left" triggerOnce>
-    <Heading color="text" mb={4}>
-      <Link selected>
-        {name}
-        {icon && (
-          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-            {icon}
-          </span>
-        )}
-      </Link>
-    </Heading>
-  </Slide>
-);
-
 type SectionContainerProps = {
   justifyContent?: string;
 };
-
 const SectionContainer = styled.div<SectionContainerProps>`
   min-height: 100vh;
   min-width: 320px;
@@ -84,9 +60,26 @@ const SectionContainer = styled.div<SectionContainerProps>`
   }
 `;
 
-const DefaultBackground = (): JSX.Element => <div />;
-
-export default {
-  Container,
-  Header,
+type HeaderProps = {
+  name: string;
+  icon?: string;
+  label?: string;
 };
+export const SectionHeader = ({
+  name,
+  icon,
+  label,
+}: HeaderProps): JSX.Element => (
+  <Slide direction="left" triggerOnce>
+    <Heading color="text" mb={4}>
+      <Link selected>
+        {name}
+        {icon && (
+          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+            {icon}
+          </span>
+        )}
+      </Link>
+    </Heading>
+  </Slide>
+);

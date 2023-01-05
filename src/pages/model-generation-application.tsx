@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+import React from 'react';
+
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HeadProps } from 'gatsby';
-import React from 'react';
+
 import { FlexProps, TextProps } from 'rebass';
 import {
   Box,
@@ -37,7 +39,7 @@ import { postsContent } from '../content/PostsContent';
 import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import { PostDescription } from '../theme/types';
-import Section from '../theme/components/Section';
+import { Section } from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
@@ -180,7 +182,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout>
       <PageHeader displayDemoButton={false} />
-      <Section.Container Background={Background}>
+      <Section Background={Background}>
         <Heading
           textAlign="center"
           as="h1"
@@ -322,7 +324,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             pageId="blog"
           />
         </Part>
-      </Section.Container>
+      </Section>
       {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
       <Footer content={footerRoutes} />
