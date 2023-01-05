@@ -101,6 +101,18 @@ declare module '@mui/material/styles' {
 
   export interface CustomPalette {
     tertiary: PaletteColor;
+    primary_light: PaletteColor;
+    secondary_light: PaletteColor;
+    spicy: PaletteColor;
+    sweet: PaletteColor;
+    manufacture: PaletteColor;
+    education: PaletteColor;
+    telecom: PaletteColor;
+    financial: PaletteColor;
+    energy: PaletteColor;
+    health: PaletteColor;
+    government: PaletteColor;
+    distribution: PaletteColor;
   }
 
   export interface SocialPalette {
@@ -149,6 +161,18 @@ declare module '@mui/material/styles' {
 
   interface CustomPaletteOptions {
     tertiary: PaletteColorOptions;
+    primary_light: PaletteColorOptions;
+    secondary_light: PaletteColorOptions;
+    spicy: PaletteColorOptions;
+    sweet: PaletteColorOptions;
+    manufacture: PaletteColorOptions;
+    education: PaletteColorOptions;
+    telecom: PaletteColorOptions;
+    financial: PaletteColorOptions;
+    energy: PaletteColorOptions;
+    health: PaletteColorOptions;
+    government: PaletteColorOptions;
+    distribution: PaletteColorOptions;
   }
 
   export interface SocialPaletteOptions {

@@ -55,11 +55,11 @@ export const palette: PaletteOptions &
   // contrastText: will be calculated to contrast with palette.primary.main
   // See https://mui.com/material-ui/customization/palette/#providing-the-colors-directly
   primary: {
-    main: '#0b4361',
+    main: '#002395',
   },
 
   secondary: {
-    main: '#e31937',
+    main: '#E20613',
   },
 
   info: {
@@ -105,11 +105,21 @@ export const palette: PaletteOptions &
   // Provide every color token (light, main, dark, and contrastText) when using
   // custom colors for props in Material UI's components.
   tertiary: {
-    main: '#ccd6dd',
-    light: '#ffffff',
-    dark: '#9ba5ab',
-    contrastText: '#000000',
+    main: '#EDEEF5',
   },
+
+  primary_light: { main: '#DBEFFF' },
+  secondary_light: { main: '#F9DADC' },
+  spicy: { main: '#05D99E' },
+  sweet: { main: '#FFD560' },
+  manufacture: { main: '#E86A63' },
+  education: { main: '#FFD560' },
+  telecom: { main: '#F1ACC6' },
+  financial: { main: '#62BFEC' },
+  energy: { main: '#2A574A' },
+  health: { main: '#05D99E' },
+  government: { main: '#86BEC2' },
+  distribution: { main: '#7E4F95' },
 
   twitter: {
     main: '#55acee',
