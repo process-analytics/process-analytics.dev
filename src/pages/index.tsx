@@ -16,6 +16,7 @@
 
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
+import styled from 'styled-components';
 
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
@@ -36,17 +37,55 @@ import { footerRoutes } from '../content/FooterRoutes';
 const HomePage = (): JSX.Element => (
   <Layout>
     <Header />
-    <Landing />
-    <About />
-    <Libraries />
-    <News />
-    <Blog />
+    <Sections>
+      <Landing />
+      <About />
+      <Libraries />
+      <News />
+      <Blog />
+    </Sections>
     {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
     <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );
+
+const Sections = styled.div`
+  & > :nth-child(2n) {
+    position: relative;
+    background-color: #dbeffe;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+  }
+
+  & > :nth-child(2n)::before {
+    background-color: white;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  & > :nth-child(2n + 1) {
+    position: relative;
+    background-color: white;
+    border-bottom-right-radius: 300px;
+    border-top-right-radius: 300px;
+  }
+
+  & > :nth-child(2n + 1)::before {
+    background-color: #dbeffe;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+`;
 
 export default HomePage;
 

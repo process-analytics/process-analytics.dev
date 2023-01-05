@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   *,
   *::after,
   *::before { 
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
 
   html { 
@@ -42,6 +42,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => (props.theme as Theme).fonts.body};
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
+  }
+
+  section.text {
+    padding: 45px 0;
   }
 `;
 
