@@ -108,7 +108,7 @@ export const palette: PaletteOptions &
     main: '#EDEEF5',
   },
 
-  primary_light: { main: '#DBEFFF' },
+  primary_light: { main: '#DBEFFE' },
   secondary_light: { main: '#F9DADC' },
   spicy: { main: '#05D99E' },
   sweet: { main: '#FFD560' },
