@@ -24,7 +24,6 @@ import { getSectionHref } from '../utils/helpers';
 type SectionProps = {
   id?: SECTION;
   children: ReactNode;
-  Background?: () => JSX.Element;
   justifyContent?: string;
 };
 

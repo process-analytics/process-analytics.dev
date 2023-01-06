@@ -40,7 +40,6 @@ import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import { PostDescription } from '../theme/types';
 import { Section } from '../theme/components/Section';
-import Triangle from '../theme/components/Triangle';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
@@ -182,7 +181,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout>
       <PageHeader displayDemoButton={false} />
-      <Section Background={Background}>
+      <Section>
         <Heading
           textAlign="center"
           as="h1"
@@ -331,30 +330,6 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
     </Layout>
   );
 };
-
-// TODO duplicated from PageWithPosts.tsx
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="muted"
-      height={['15vh', '35vh']}
-      width={['95vw', '55vw']}
-    />
-
-    <Triangle
-      color="secondary"
-      height={['18vh', '35vh']}
-      width={['50vw', '35vw']}
-    />
-
-    <Triangle
-      color="primary"
-      height={['9vh', '15vh']}
-      width={['75vw', '60vw']}
-      position="top-right"
-    />
-  </>
-);
 
 export default ModelGenerationApplicationPage;
 

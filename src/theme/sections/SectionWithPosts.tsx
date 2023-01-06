@@ -21,18 +21,16 @@ import { PostDescription } from '../types';
 
 interface SectionWithPostsProps {
   containerTitle: SECTION;
-  Background?: () => JSX.Element;
   posts: PostDescription[];
   pageId: string;
 }
 
 export const SectionWithPosts = ({
   containerTitle,
-  Background,
   posts,
   pageId,
 }: SectionWithPostsProps): JSX.Element => (
-  <Section id={containerTitle} Background={Background}>
+  <Section id={containerTitle}>
     <SectionHeader name={containerTitle} />
     <PostContainer posts={posts} pageId={pageId} />
   </Section>

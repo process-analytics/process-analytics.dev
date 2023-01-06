@@ -22,7 +22,6 @@ import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
 import { Section } from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
-import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
 import { MailingListSubscription } from '../components/mailingListSubscription/MailingListSubscription';
 
@@ -46,7 +45,7 @@ export const PageWithPosts = ({
 }: PageWithPostsProps): JSX.Element => (
   <Layout>
     <PageHeader />
-    <Section id={containerTitle} Background={Background}>
+    <Section id={containerTitle}>
       <Heading
         textAlign="center"
         as="h1"
@@ -75,27 +74,4 @@ export const PageWithPosts = ({
     Layout class */}
     <Footer content={footerRoutes} />
   </Layout>
-);
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="muted"
-      height={['15vh', '35vh']}
-      width={['95vw', '55vw']}
-    />
-
-    <Triangle
-      color="secondary"
-      height={['18vh', '35vh']}
-      width={['50vw', '35vw']}
-    />
-
-    <Triangle
-      color="primary"
-      height={['9vh', '15vh']}
-      width={['75vw', '60vw']}
-      position="top-right"
-    />
-  </>
 );

@@ -19,7 +19,6 @@ import { Heading, Flex, Box, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Section } from '../components/Section';
 import { SocialLink } from '../components/SocialLink';
-import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { landing } from '../../content/LandingContent';
 import { Fade } from 'react-awesome-reveal';
@@ -33,11 +32,7 @@ const LandingPage = (): JSX.Element => {
   };
 
   return (
-    <Section
-      id={SECTION.home}
-      Background={Background}
-      justifyContent="space-around"
-    >
+    <Section id={SECTION.home} justifyContent="space-around">
       <Flex
         flexDirection="column"
         alignItems="center"
@@ -128,29 +123,6 @@ const LandingPage = (): JSX.Element => {
     </Section>
   );
 };
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="muted"
-      height={['35vh', '40vh']}
-      width={['95vw', '55vw']}
-    />
-
-    <Triangle
-      color="secondary"
-      height={['38vh', '55vh']}
-      width={['50vw', '35vw']}
-    />
-
-    <Triangle
-      color="primary"
-      height={['25vh', '30vh']}
-      width={['75vw', '60vw']}
-      position="top-right"
-    />
-  </>
-);
 
 const LandingCard = styled(Box).attrs({
   boxShadow: 0,
