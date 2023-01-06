@@ -66,7 +66,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'June 2022 News',
-    text: 'Learn about the events we attended and the enhancements to the BPMN Visualization TS library that took place in June 2022.',
+    text: 'Learn about the events we attended and the enhancements to the bpmn-visualization TypeScript library that took place in June 2022.',
     cover: 'https://miro.medium.com/max/400/0*YYyqzRs6s00XJKpN',
     url: 'https://medium.com/@process-analytics/29a5001d6009',
     date: 'July 2022',
@@ -74,7 +74,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'May 2022 News',
-    text: 'Learn about the new “Model Generation Application”, available on the website, and the enhancements to the BPMN Visualization TS library.',
+    text: 'Learn about the new “Model Generation Application”, available on the website, and the enhancements to the bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/400/0*pHjzedOzbdU412Z7',
     url: 'https://medium.com/@process-analytics/process-analytics-may-2022-news-74b9a879d80e',
     date: 'June 2022',
@@ -82,7 +82,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'March 2022 News',
-    text: 'Learn about the enhancements to the BPMN Visualization Typescript library and R package that took place in March 2022.',
+    text: 'Learn about the enhancements to the bpmn-visualization TypeScript library and R package that took place in March 2022.',
     cover: 'https://miro.medium.com/max/400/0*F50-cCz9_AT_2sS1',
     url: 'https://medium.com/@process-analytics/process-analytics-march-2022-news-795624accfe7',
     date: 'April 2022',
@@ -90,7 +90,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'February 2022 News',
-    text: 'Learn about the enhancements to the BPMN Visualization Typescript library that took place in February 2022.',
+    text: 'Learn about the enhancements to the bpmn-visualization TypeScript library that took place in February 2022.',
     cover: 'https://miro.medium.com/max/500/0*V4EdFTztYnuJ68I9',
     url: 'https://medium.com/@process-analytics/process-analytics-february-2022-news-fbf9beb68dbc',
     date: 'March 2022',
@@ -98,7 +98,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'January 2022 News',
-    text: 'Learn about the improvements in the BPMN Visualization Typescript library.',
+    text: 'Learn about the improvements in the bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/450/0*7cUdC0LctZzkimNx',
     url: 'https://medium.com/@process-analytics/process-analytics-january-2022-news-42238545c551',
     date: 'February 2022',
@@ -106,7 +106,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'December 2021 Newsletter',
-    text: 'Learn about the website changes and improvements in the BPMN Visualization Typescript library.',
+    text: 'Learn about the website changes and improvements in the bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/800/0*uVMqQZHCS3Fg0-T8',
     url: 'https://medium.com/@process-analytics/process-analytics-december-2021-newsletter-89459219f151',
     date: 'January 2022',
@@ -114,7 +114,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'November 2021 Newsletter',
-    text: 'Learn about the website changes and improvements in the BPMN Visualization Typescript library.',
+    text: 'Learn about the website changes and improvements in the bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/450/0*pTAacquotB7OIAgV',
     url: 'https://medium.com/@process-analytics/process-analytics-november-2021-newsletter-b1afb6715a9d',
     date: 'December 2021',
@@ -138,15 +138,15 @@ const news: PostDescription[] = [
   },
   {
     title: 'August 2021 Newsletter',
-    text: 'Learn about the new Process Analytics website and logo, the new R library and improvements in the BPMN Visualization Typescript library.',
+    text: 'Learn about the new Process Analytics website and logo, the new R library and improvements in the bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/310/0*Yymlf2vjfAIINqc2',
     url: 'https://medium.com/@process-analytics/process-analytics-august-2021-newsletter-b793a647e35d',
     date: 'September 2021',
     time: 4,
   },
   {
-    title: 'The BPMN Visualization project celebrates its 1st anniversary', // original title: 'The bpmn-visualization project celebrates its 1st anniversary'
-    text: "To celebrate the first year of our work on the BPMN Visualization library, here's a look back about what has been achieved.",
+    title: 'bpmn-visualization celebrates its 1st anniversary', // original title: 'The bpmn-visualization project celebrates its 1st anniversary'
+    text: "To celebrate the first year of our work on the bpmn-visualization TypeScript library, here's a look back about what has been achieved.",
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--Qh5L0TzO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rf1gct67udbt0vmgqpyo.png', // from the dev.to article
     url: 'https://www.linkedin.com/pulse/bpmn-visualization-project-celebrates-its-1st-thomas-bouffard/', // https://dev.to/tbouffard/the-bpmn-visualization-project-celebrates-its-1st-anniversary-4ae2

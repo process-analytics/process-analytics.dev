@@ -103,7 +103,7 @@ const posts: PostDescription[] = [
   },
   {
     title: 'Improving Frontend User Experience with Profiling and Performance', // original title which would have been truncated: 'Improving Frontend User Experience with Profiling and Performance'
-    text: 'This article recalls basic foundations of good web application performance, and offers insights from a case study based on Process Analytics BPMN Visualization library.',
+    text: 'This article recalls basic foundations of good web application performance, and offers insights from a case study based on Process Analytics bpmn-visualization TypeScript library.',
     cover: 'https://miro.medium.com/max/350/0*Le0gSGCuvlKyHln3.png', // image within the article, no cover available
     url: 'https://bonitasoft.medium.com/improving-frontend-user-experience-with-profiling-and-performance-70921d030dd1',
     date: 'June 2021',
@@ -146,8 +146,8 @@ const posts: PostDescription[] = [
     isInModelGenerationAppPage: true,
   },
   {
-    title: 'Creating a Bonita Custom Widget using BPMN Visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for BPMN Visualization'
-    text: 'A step-by-step tutorial to integrate the BPMN Visualization library in a Bonita UID custom widget.',
+    title: 'Creating a Bonita Custom Widget using bpmn-visualization', // original title which would have been truncated: '[Bonita UI Designer] creating Custom widget for bpmn-visualization'
+    text: 'A step-by-step tutorial to integrate the bpmn-visualization TypeScript library in a Bonita UID custom widget.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--8NRwpUAl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tufyv45n77jatwf7ygz5.png', // from the dev.to article
     url: 'https://community.bonitasoft.com/blog/bonita-ui-designer-custom-widget-bpmn-visualization', // https://dev.to/aibcmars/bonita-ui-designer-creating-custom-widget-for-bpmn-visualization-44lk
@@ -156,7 +156,7 @@ const posts: PostDescription[] = [
   },
   {
     title:
-      'Simplifying life: Using GitHub Actions for Continuous Integration in BPMN Visualization', // original title: 'Simplifying life: Using GitHub Actions for Continuous Integration in a BPMN Visualization open source project'
+      'Simplifying life: Using GitHub Actions for Continuous Integration in bpmn-visualization', // original title: 'Simplifying life: Using GitHub Actions for Continuous Integration in a bpmn-visualization open source project'
     text: 'A step-by-step tutorial that explains how to setup GitHub Actions to continuously build and test a TypeScript project.',
     cover:
       'https://res.cloudinary.com/practicaldev/image/fetch/s--vBB9KCW4--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/twfkvzk83m0cpjwz26js.png', // from https://dev.to/parthpandyappp/implemented-github-actions-to-a-django-python-repository-2128
