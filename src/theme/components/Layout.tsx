@@ -38,6 +38,15 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  header {
+    display: block;
+    font-family: "Altone",Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-height: 0px;
+  }
+
   body {
     box-sizing: border-box; 
     margin: 0;
@@ -52,6 +61,10 @@ const GlobalStyle = createGlobalStyle`
 
   a[href]{
     cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   h2 {

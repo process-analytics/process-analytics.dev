@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 import React from 'react';
-import Headroom from 'react-headroom';
 import { Box, Flex, Image } from 'rebass/styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
-import styled from 'styled-components';
+import { StyledContainer, StyledHeader, StyledNavbar } from './Header';
 
 import { header } from '../../content/HeaderContent';
 import { ButtonWithExternalLink } from './Link';
@@ -34,57 +33,41 @@ const PageHeader = ({
   const { logo } = header;
 
   return (
-    <StyledHeadroom>
-      <Flex
-        flexWrap="wrap"
-        justifyContent="space-between"
-        alignItems="center"
-        px={3}
-      >
-        <GatsbyLink to="/">
-          <Flex justifyContent="center">
-            <Image
-              src={logo.src}
-              height={['60px', '80px']}
-              width={['60px', '80px']}
-              alt="Process Analytics Logo"
-              p={2}
-              css={{ borderRadius: '20px', cursor: 'pointer' }}
-            />
-          </Flex>
-        </GatsbyLink>
-        {displayDemoButton && (
-          <Flex mr={[0, 3, 5]}>
-            <Box ml={[2, 3]} fontSize={[2, 3]}>
-              <ButtonWithExternalLink
-                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                target="_blank"
-                style={{
-                  color: colors.background,
-                  background: colors.secondary,
-                }}
-              >
-                Demo
-              </ButtonWithExternalLink>
-            </Box>
-          </Flex>
-        )}
-      </Flex>
-    </StyledHeadroom>
+    <StyledHeader>
+      <StyledNavbar>
+        <StyledContainer>
+          <GatsbyLink to="/">
+            <Flex justifyContent="center">
+              <Image
+                src={logo.src}
+                height={['60px', '80px']}
+                width={['60px', '80px']}
+                alt="Process Analytics Logo"
+                p={2}
+                css={{ borderRadius: '20px', cursor: 'pointer' }}
+              />
+            </Flex>
+          </GatsbyLink>
+          {displayDemoButton && (
+            <Flex mr={[0, 3, 5]}>
+              <Box ml={[2, 3]} fontSize={[2, 3]}>
+                <ButtonWithExternalLink
+                  href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                  target="_blank"
+                  style={{
+                    color: colors.background,
+                    background: colors.secondary,
+                  }}
+                >
+                  Demo
+                </ButtonWithExternalLink>
+              </Box>
+            </Flex>
+          )}
+        </StyledContainer>
+      </StyledNavbar>
+    </StyledHeader>
   );
 };
-
-const StyledHeadroom = styled(Headroom)`
-  * {
-    transition: background-color 0.1s ease;
-  }
-
-  .headroom--pinned {
-    background-color: ${({ theme }) => theme.colors.primary};
-  }
-
-  position: absolute;
-  width: 100%;
-`;
 
 export default PageHeader;
