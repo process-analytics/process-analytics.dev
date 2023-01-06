@@ -28,6 +28,8 @@ import About from '../theme/sections/About';
 import Libraries from '../theme/sections/Libraries';
 import { Blog } from '../theme/sections/Blog';
 import { News } from '../theme/sections/News';
+import { ModelGenerationAppSection } from '../theme/sections/model-generation-app';
+
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
@@ -37,6 +39,7 @@ const HomePage = (): JSX.Element => (
   <Layout>
     <Header />
     <Landing />
+    <ModelGenerationAppSection />
     <About />
     <Libraries />
     <News />

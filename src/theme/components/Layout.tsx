@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
   html { 
     scroll-behavior: smooth;
   }
+  
+  html * {
+    -moz-osx-font-smoothing: grayscale;
+  }
 
   body {
     box-sizing: border-box; 
@@ -40,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     overflow-x: hidden;
     font-family: ${props => (props.theme as Theme).fonts.body};
+    font-size: 14px;
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
     line-height: 1.5;
@@ -47,6 +52,17 @@ const GlobalStyle = createGlobalStyle`
 
   a[href]{
     cursor: pointer;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin: 24px 0 24px 0;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  p {
+    margin: 0 0 10px;
   }
 `;
 

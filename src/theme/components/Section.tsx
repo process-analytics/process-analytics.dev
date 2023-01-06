@@ -41,6 +41,7 @@ export const Section = ({
 
 const StyledSection = styled.section`
   position: relative;
+  display: block;
 
   text {
     padding: 45px 0;
@@ -85,8 +86,8 @@ type SectionContainerProps = {
   justifyContent?: string;
 };
 const SectionContainer = styled.div<SectionContainerProps>`
-  min-width: 320px;
-  max-width: 1366px;
+  min-width: 20rem;
+  max-width: 87.5rem;
   display: flex;
   margin: auto;
   flex: 0 1 auto;

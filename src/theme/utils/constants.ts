@@ -23,6 +23,8 @@ export enum SECTION {
   libraries = 'Libraries',
   news = 'News',
   blog = 'Blog Posts',
+
+  modelGenerationApp = 'Model Generation Application',
 }
 
 /**
