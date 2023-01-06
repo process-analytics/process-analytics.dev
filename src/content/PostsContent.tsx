@@ -95,7 +95,7 @@ const posts: PostDescription[] = [
   },
   {
     title: 'Using BPMN Visualization in R',
-    text: 'The new bpmnVisualizationR package is being developed to offer another way to visualize process execution data in R.',
+    text: 'The new BPMN Visualization - R Package package is being developed to offer another way to visualize process execution data in R.',
     cover: 'https://miro.medium.com/max/310/0*A9K-8oeH_XT0MwUu',
     url: 'https://medium.com/@process-analytics/using-bpmn-visualization-in-r-91ab92bd5a8d',
     date: 'October 2021',

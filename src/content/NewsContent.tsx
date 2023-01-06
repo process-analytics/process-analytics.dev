@@ -82,7 +82,7 @@ const news: PostDescription[] = [
   },
   {
     title: 'March 2022 News',
-    text: 'Learn about the enhancements to the bpmn-visualization TypeScript library and bpmnVisualizationR package that took place in March 2022.',
+    text: 'Learn about the enhancements to the bpmn-visualization TypeScript library and R package that took place in March 2022.',
     cover: 'https://miro.medium.com/max/400/0*F50-cCz9_AT_2sS1',
     url: 'https://medium.com/@process-analytics/process-analytics-march-2022-news-795624accfe7',
     date: 'April 2022',
