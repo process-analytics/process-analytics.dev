@@ -45,7 +45,7 @@ export const palette: PaletteOptions &
   },
 
   text: {
-    primary: '#000000',
+    primary: '#002395',
     secondary: '#DBEFFF',
     disabled: '#7b809a',
   },
