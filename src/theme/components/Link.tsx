@@ -13,9 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
+import { GatsbyLinkProps } from 'gatsby-link';
+import React, { AnchorHTMLAttributes } from 'react';
+
+import styled, { CSSProperties } from 'styled-components';
 
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
+import { Link as GatsbyLink } from 'gatsby';
 
 type LinkProps = {
   selected?: boolean;
@@ -23,7 +27,7 @@ type LinkProps = {
   onClick?: () => void;
 };
 
-const Link = styled.a<LinkProps>`
+export const Link = styled.a<LinkProps>`
   text-decoration: none;
   position: relative;
   margin-bottom: 0;
@@ -56,7 +60,7 @@ const Link = styled.a<LinkProps>`
   }
 `;
 
-const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
+export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
   ({ theme, selected, href, onClick }) => `
   text-decoration: none;
   position: relative;
@@ -90,12 +94,68 @@ const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
 `,
 );
 
-const LinkInButton = styled.a`
+type LinkInButtonProps = Pick<
+  CSSProperties,
+  'backgroundColor' | 'color' | 'borderWidth' | 'padding'
+>;
+const ExternalLinkInButton = styled.a<LinkInButtonProps>`
+  padding: 12px 32px;
+  text-align: center;
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 4px 2px;
+  border-radius: 20px;
   text-decoration: none;
-  display: block;
-  padding: '8px 16px';
-  font-weight: 600;
-  color: inherit;
+  position: relative;
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.color};
+  border: ${props => `2px solid ${props.backgroundColor}`};
+  display: inline-block;
 `;
 
-export { Link, LinkInButton, LinkWithMaterial };
+export const ButtonWithExternalLink = ({
+  children,
+  ...rest
+}: React.PropsWithChildren<AnchorHTMLAttributes<any>> &
+  LinkInButtonProps): JSX.Element => (
+  <StyledButton>
+    <ExternalLinkInButton {...rest}>{children}</ExternalLinkInButton>
+  </StyledButton>
+);
+
+const StyledButton = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
+const InternalLinkInButton = styled(GatsbyLink)<LinkInButtonProps>`
+  padding: 12px 32px;
+  text-align: center;
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 4px 2px;
+  border-radius: 20px;
+  text-decoration: none;
+  position: relative;
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.color};
+  border: ${props => `2px solid ${props.backgroundColor}`};
+  display: inline-block;
+
+  &:hover {
+    background-color: ${props => props.color};
+    color: ${props => props.backgroundColor};
+  }
+`;
+
+export const ButtonWithInternalLink = ({
+  children,
+  ...rest
+}: React.PropsWithChildren<{ to: string }> &
+  LinkInButtonProps): JSX.Element => (
+  <StyledButton>
+    <InternalLinkInButton {...rest}>{children}</InternalLinkInButton>
+  </StyledButton>
+);

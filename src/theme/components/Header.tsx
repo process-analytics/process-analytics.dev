@@ -15,15 +15,9 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import {
-  Box,
-  Link as RebassLink,
-  Flex,
-  Image,
-  Button,
-} from 'rebass/styled-components';
+import { Box, Link as RebassLink, Flex, Image } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { Link, LinkInButton } from './Link';
+import { Link, ButtonWithExternalLink } from './Link';
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
@@ -71,17 +65,14 @@ const Header = (): JSX.Element => {
               </Box>
             ))}
           <Box ml={[2, 3]} fontSize={[2, 3]}>
-            <Button
-              as={LinkInButton}
+            <ButtonWithExternalLink
               href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
               target="_blank"
-              style={{
-                color: colors.background,
-                background: colors.secondary,
-              }}
+              color={colors.background}
+              backgroundColor={colors.secondary}
             >
               Demo
-            </Button>
+            </ButtonWithExternalLink>
           </Box>
         </Flex>
       </Flex>

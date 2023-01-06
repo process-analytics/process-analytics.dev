@@ -42,10 +42,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => (props.theme as Theme).fonts.body};
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
+    line-height: 1.5;
   }
 
-  section.text {
-    padding: 45px 0;
+  a[href]{
+    cursor: pointer;
   }
 `;
 

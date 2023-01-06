@@ -20,7 +20,7 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { LinkInButton } from './Link';
+import { ButtonWithExternalLink, ButtonWithInternalLink } from './Link';
 import colors from '../colors.json';
 
 const cardMinWidth = '350px';
@@ -96,17 +96,13 @@ export const PostContainer = ({
       {pageId && posts.length > 6 && (
         <DownFade>
           <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
-            <Card
-              as={LinkInButton}
-              href={`/${pageId}`}
-              style={{
-                borderWidth: '2px',
-                padding: '8px 70px',
-                background: colors.background,
-              }}
+            <ButtonWithInternalLink
+              to={`/${pageId}`}
+              color={colors.background}
+              backgroundColor={colors.secondary}
             >
               See all
-            </Card>
+            </ButtonWithInternalLink>
           </Flex>
         </DownFade>
       )}
