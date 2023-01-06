@@ -191,7 +191,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         >
           Model Generation Application
         </Heading>
-
+      </Section>
+      <Section>
         <Box
           style={{
             boxShadow:
@@ -205,7 +206,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             alt={'Model Generation Application Demo'}
           />
         </Box>
-
+      </Section>
+      <Section>
         <PartWithSingleColumn>
           <PartTitle>
             Need a tool to generate process diagrams from events logs?
@@ -213,7 +215,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <HighlightMessage>We have a solution for you!</HighlightMessage>
           <Features />
         </PartWithSingleColumn>
-
+      </Section>
+      <Section>
         <PartWithSingleColumn backgroundColor="muted">
           <PartTitle marginBottom="52px">How it works?</PartTitle>
           <Part
@@ -247,7 +250,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             </Paragraph>
           </Part>
         </PartWithSingleColumn>
-
+      </Section>
+      <Section>
         <Part
           justifyContent="space-between"
           alignItems="center"
@@ -290,7 +294,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             ready.
           </Paragraph>
         </Part>
-
+      </Section>
+      <Section>
         <Part
           id={'form'}
           marginBottom="124px"
@@ -306,7 +311,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         >
           <Jotform />
         </Part>
-
+      </Section>
+      <Section>
         <Part
           marginBottom="52px"
           maxWidth="1320px"

@@ -43,7 +43,6 @@ type SectionContainerProps = {
   justifyContent?: string;
 };
 const SectionContainer = styled.div<SectionContainerProps>`
-  min-height: 100vh;
   min-width: 320px;
   max-width: 1366px;
   display: flex;
