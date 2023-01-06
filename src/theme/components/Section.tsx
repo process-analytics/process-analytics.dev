@@ -32,12 +32,54 @@ export const Section = ({
   children,
   justifyContent = 'center',
 }: SectionProps): JSX.Element => (
-  <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
+  <StyledSection id={id && getSectionHref(id)}>
     <SectionContainer justifyContent={justifyContent}>
       {children}
     </SectionContainer>
-  </section>
+  </StyledSection>
 );
+
+const StyledSection = styled.section`
+  position: relative;
+
+  text {
+    padding: 45px 0;
+  }
+
+  &:nth-of-type(2n) {
+    position: relative;
+    background-color: #dbeffe;
+    border-top-left-radius: 18.75rem;
+    border-bottom-left-radius: 18.75rem;
+  }
+
+  &:nth-of-type(2n) > ::before {
+    background-color: white;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &:nth-of-type(2n + 1) {
+    position: relative;
+    background-color: white;
+    border-bottom-right-radius: 18.75rem;
+    border-top-right-radius: 18.75rem;
+  }
+
+  &:nth-of-type(2n + 1) > ::before {
+    background-color: #dbeffe;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+`;
 
 type SectionContainerProps = {
   justifyContent?: string;
