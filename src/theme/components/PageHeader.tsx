@@ -15,16 +15,13 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import {
-  Box,
-  Link as RebassLink,
-  Flex,
-  Image,
-  Button,
-} from 'rebass/styled-components';
+import { Box, Flex, Image } from 'rebass/styled-components';
+import { Link as GatsbyLink } from 'gatsby';
+
 import styled from 'styled-components';
+
 import { header } from '../../content/HeaderContent';
-import { LinkInButton } from './Link';
+import { ButtonWithExternalLink } from './Link';
 import colors from '../colors.json';
 
 type PageHeaderProps = {
@@ -44,7 +41,7 @@ const PageHeader = ({
         alignItems="center"
         px={3}
       >
-        <RebassLink href="/" variant="empty">
+        <GatsbyLink to="/">
           <Flex justifyContent="center">
             <Image
               src={logo.src}
@@ -55,12 +52,11 @@ const PageHeader = ({
               css={{ borderRadius: '20px', cursor: 'pointer' }}
             />
           </Flex>
-        </RebassLink>
+        </GatsbyLink>
         {displayDemoButton && (
           <Flex mr={[0, 3, 5]}>
             <Box ml={[2, 3]} fontSize={[2, 3]}>
-              <Button
-                as={LinkInButton}
+              <ButtonWithExternalLink
                 href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
                 target="_blank"
                 style={{
@@ -69,7 +65,7 @@ const PageHeader = ({
                 }}
               >
                 Demo
-              </Button>
+              </ButtonWithExternalLink>
             </Box>
           </Flex>
         )}

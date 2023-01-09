@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { GatsbyLinkProps } from 'gatsby-link';
 import React, { AnchorHTMLAttributes } from 'react';
 
 import styled, { CSSProperties } from 'styled-components';
@@ -111,12 +110,18 @@ const ExternalLinkInButton = styled.a<LinkInButtonProps>`
   color: ${props => props.color};
   border: ${props => `2px solid ${props.backgroundColor}`};
   display: inline-block;
+
+  &:hover {
+    background-color: ${props => props.color};
+    color: ${props => props.backgroundColor};
+  }
 `;
 
 export const ButtonWithExternalLink = ({
   children,
   ...rest
-}: React.PropsWithChildren<AnchorHTMLAttributes<any>> &
+}: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+React.PropsWithChildren<AnchorHTMLAttributes<any>> &
   LinkInButtonProps): JSX.Element => (
   <StyledButton>
     <ExternalLinkInButton {...rest}>{children}</ExternalLinkInButton>

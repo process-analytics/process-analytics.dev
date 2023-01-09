@@ -19,7 +19,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styled from 'styled-components';
-import { Flex, Text } from 'rebass/styled-components';
+import { Flex } from 'rebass/styled-components';
 
 import { Section } from '../components/Section';
 import { ButtonWithInternalLink } from '../components/Link';

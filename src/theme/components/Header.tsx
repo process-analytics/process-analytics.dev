@@ -15,7 +15,7 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import { Box, Link as RebassLink, Flex, Image } from 'rebass/styled-components';
+import { Box, Flex, Image } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Link, ButtonWithExternalLink } from './Link';
 import { capitalize } from '../utils/string';
