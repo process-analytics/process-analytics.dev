@@ -31,10 +31,13 @@ const Header = (): JSX.Element => {
   const { logo } = header;
 
   return (
-    <StyledHeader>
+    <header>
       <StyledNavbar>
         <StyledContainer>
-          <GatsbyLink to={`#${getSectionHref(SECTION.home)}`}>
+          <GatsbyLink
+            to={`#${getSectionHref(SECTION.home)}`}
+            style={{ marginRight: '50px' }}
+          >
             <Flex justifyContent="center">
               <Image
                 src={logo.src}
@@ -46,55 +49,51 @@ const Header = (): JSX.Element => {
               />
             </Flex>
           </GatsbyLink>
-          <Flex mr={[0, 3, 5]}>
+          <Flex
+            width="100%"
+            justifyContent="space-evenly"
+            textAlign="center"
+            mr="50px"
+            overflow="visible"
+            height="auto"
+          >
             {Object.keys(SECTION)
               .filter(id => id !== 'home')
               .map(id => (
-                <Box
-                  key={id}
-                  ml={[2, 3]}
-                  mt="auto"
-                  mb="auto"
-                  color="background"
-                  fontSize={[2, 3]}
-                >
-                  <Link href={`#${id}`} tabIndex={0}>
+                <Box key={id} my="auto" mx="auto" fontSize={[2, 3]}>
+                  <Link
+                    href={`#${id}`}
+                    tabIndex={0}
+                    style={{
+                      padding: '0 15px',
+                      fontWeight: 'normal',
+                      fontSize: '18px',
+                    }}
+                  >
                     {capitalize(id)}
                   </Link>
                 </Box>
               ))}
-            <Box ml={[2, 3]} fontSize={[2, 3]}>
-              <ButtonWithExternalLink
-                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                target="_blank"
-                color={colors.background}
-                backgroundColor={colors.secondary}
-              >
-                Demo
-              </ButtonWithExternalLink>
-            </Box>
           </Flex>
+          <Box fontSize={[2, 3]}>
+            <ButtonWithExternalLink
+              href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+              target="_blank"
+              color={colors.background}
+              backgroundColor={colors.secondary}
+            >
+              Demo
+            </ButtonWithExternalLink>
+          </Box>
         </StyledContainer>
       </StyledNavbar>
-    </StyledHeader>
+    </header>
   );
 };
 
-export const StyledHeader = styled.header`
-  position: relative;
-  background-color: #f8f8f8;
-  border-radius: 4px;
-
-  &::before,
-  &::after {
-    display: table;
-    content: ' ';
-  }
-`;
-
 export const StyledNavbar = styled.nav`
   display: block;
-  min-height: 50px;
+  min-height: 3.125rem;
   left: 0;
   right: 0;
   top: 0;
@@ -121,18 +120,17 @@ export const StyledNavbar = styled.nav`
 `;
 
 export const StyledContainer = styled(Flex)`
-  height: 100px;
+  height: 6.25rem;
 
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
-  max-width: 1920px;
+  max-width: 120rem;
 
   padding-left: 0;
   padding-right: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 50px;
+  margin-left: 50px;
 
   &::before,
   &::after {

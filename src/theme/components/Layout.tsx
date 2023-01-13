@@ -45,6 +45,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     min-height: 0px;
+
+    position: relative;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+
+    &::before,
+    &::after {
+      display: table;
+      content: ' ';
+    }
   }
 
   body {
@@ -65,6 +75,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    background-color: transparent;
   }
 
   h2 {

@@ -17,7 +17,7 @@ import React from 'react';
 import { Box, Flex, Image } from 'rebass/styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
-import { StyledContainer, StyledHeader, StyledNavbar } from './Header';
+import { StyledContainer, StyledNavbar } from './Header';
 
 import { header } from '../../content/HeaderContent';
 import { ButtonWithExternalLink } from './Link';
@@ -33,7 +33,7 @@ const PageHeader = ({
   const { logo } = header;
 
   return (
-    <StyledHeader>
+    <header>
       <StyledNavbar>
         <StyledContainer>
           <GatsbyLink to="/">
@@ -66,7 +66,7 @@ const PageHeader = ({
           )}
         </StyledContainer>
       </StyledNavbar>
-    </StyledHeader>
+    </header>
   );
 };
 
