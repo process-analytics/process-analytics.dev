@@ -28,7 +28,7 @@ import colors from '../colors.json';
 
 const Container = styled(Flex)`
   box-shadow: 5px 5px 15px #ebdcdc;
-  border-radius: 1.25rem;
+  border-radius: 20px;
   background-color: #fff;
   padding: 30px;
   margin: auto;

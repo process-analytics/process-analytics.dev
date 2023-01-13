@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 32px;
     margin: 24px 0 24px 0;
     font-weight: bold;
     line-height: 1.1;
