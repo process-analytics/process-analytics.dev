@@ -79,6 +79,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
+    font-family: inherit;
     font-size: 32px;
     margin: 24px 0 24px 0;
     font-weight: bold;
