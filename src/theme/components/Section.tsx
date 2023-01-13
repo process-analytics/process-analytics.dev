@@ -47,14 +47,17 @@ const StyledSection = styled.section`
     padding: 45px 0;
   }
 
-  &:nth-of-type(2n) {
+  &:nth-of-type(even) {
     position: relative;
     background-color: #dbeffe;
+  }
+
+  &:nth-of-type(even):not(:last-of-type) {
     border-top-left-radius: 18.75rem;
     border-bottom-left-radius: 18.75rem;
   }
 
-  &:nth-of-type(2n) > ::before {
+  &:nth-of-type(even) > ::before {
     background-color: white;
     content: '';
     position: absolute;
@@ -64,14 +67,17 @@ const StyledSection = styled.section`
     z-index: -1;
   }
 
-  &:nth-of-type(2n + 1) {
+  &:nth-of-type(odd) {
     position: relative;
     background-color: white;
+  }
+
+  &:nth-of-type(odd):not(:first-of-type) {
     border-bottom-right-radius: 18.75rem;
     border-top-right-radius: 18.75rem;
   }
 
-  &:nth-of-type(2n + 1) > ::before {
+  &:nth-of-type(odd) > ::before {
     background-color: #dbeffe;
     content: '';
     position: absolute;
