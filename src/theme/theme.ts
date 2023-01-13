@@ -34,7 +34,7 @@ export const theme: Theme = {
     },
   },
   fonts: {
-    body: 'Cabin, Open Sans, sans-serif',
+    body: 'Open Sans, sans-serif',
     heading: 'inherit',
     monospace: 'monospace',
   },
