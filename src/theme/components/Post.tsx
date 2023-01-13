@@ -70,9 +70,9 @@ const CoverImage = styled.img`
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-inline-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  display: inline-block;
+  line-clamp: 2;
+  box-orient: vertical;
 `;
 
 type PostContainerProps = {
