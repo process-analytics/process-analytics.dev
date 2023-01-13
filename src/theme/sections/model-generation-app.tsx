@@ -27,13 +27,6 @@ import { SECTION } from '../utils/constants';
 import colors from '../colors.json';
 
 const Container = styled(Flex)`
-  //border: none;
-  //position: relative;
-  //transition: all 0.25s;
-  //top: 0;
-  //height: 20vh;
-  //align-self: center;
-
   box-shadow: 5px 5px 15px #ebdcdc;
   border-radius: 1.25rem;
   background-color: #fff;
