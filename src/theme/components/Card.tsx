@@ -18,6 +18,7 @@ import { Card as CardRebass } from 'rebass/styled-components';
 
 type CardContainerProps = {
   minWidth: string;
+  mb?: string;
 };
 
 export const CardContainer = styled.div<CardContainerProps>`
@@ -29,6 +30,8 @@ export const CardContainer = styled.div<CardContainerProps>`
     minmax(${({ minWidth }) => minWidth}, 1fr)
   );
   justify-items: center;
+
+  margin-bottom: ${({ mb }) => mb};
 
   @media only screen and (max-width: 400px) {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

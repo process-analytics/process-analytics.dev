@@ -31,7 +31,7 @@ const Container = styled(Flex)`
   border-radius: 20px;
   background-color: #fff;
   padding: 30px;
-  margin: auto;
+  margin: 30px auto;
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -57,7 +57,7 @@ const Description = styled.div`
 export const ModelGenerationAppSection = (): JSX.Element => {
   return (
     <Section id={SECTION.modelGenerationApp} justifyContent="space-around">
-      <Container minHeight={['13rem']} width={['100%', '100%', '80%']}>
+      <Container minHeight={['13rem']} width={['100%', '100%', '85%']}>
         <Flex
           flexDirection="column"
           justifyContent="center"

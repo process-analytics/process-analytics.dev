@@ -30,7 +30,7 @@ const Libraries = (): JSX.Element => {
     <Section id={SECTION.libraries}>
       <SectionHeader name={SECTION.libraries} />
 
-      <CardContainer minWidth={cardMinWidth}>
+      <CardContainer minWidth={cardMinWidth} mb="30px">
         <Fade direction="down" cascade damping={0.5} triggerOnce>
           {libraries.map((p, i) => (
             <Library {...p} key={i} />

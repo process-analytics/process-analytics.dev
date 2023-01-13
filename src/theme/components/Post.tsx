@@ -95,7 +95,7 @@ export const PostContainer = ({
       </CardContainer>
       {pageId && posts.length > 6 && (
         <DownFade>
-          <Flex justifyContent="center" mt="4" mb="2" fontSize={[2, 3]}>
+          <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
             <ButtonWithInternalLink
               to={`/${pageId}`}
               color={colors.background}

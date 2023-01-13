@@ -120,7 +120,7 @@ export const SectionHeader = ({
     color="text"
     fontWeight="700"
     fontSize="30px"
-    margin="27px 65px"
+    margin="30px 65px"
     textAlign="center"
   >
     <Link

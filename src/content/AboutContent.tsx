@@ -31,6 +31,7 @@ export const about: About = [
       alt: 'Email Voting Diagram',
       positionFromMdx: 'top',
     },
+    withSeparator: true,
   },
   {
     mdx: <Content2 />,
@@ -39,10 +40,10 @@ export const about: About = [
       alt: 'Total Number Of Executions Diagram',
       positionFromMdx: 'bottom',
     },
-    withSeparator: false,
   },
   {
     mdx: <Content3 />,
+    withSeparator: true,
   },
   {
     mdx: <Content4 />,
@@ -50,6 +51,5 @@ export const about: About = [
       src: Logo,
       alt: 'Process Analytics Logo',
     },
-    withSeparator: false,
   },
 ];
