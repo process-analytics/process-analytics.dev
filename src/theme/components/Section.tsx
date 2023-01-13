@@ -17,9 +17,9 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
 import { Slide } from 'react-awesome-reveal';
-import { Link } from './Link';
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
+import { Link } from 'gatsby';
 
 type SectionProps = {
   id?: SECTION;
@@ -118,8 +118,17 @@ export const SectionHeader = ({
   label,
 }: HeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
-    <Heading color="text" mb={4}>
-      <Link selected>
+    <Heading
+      color="text"
+      fontWeight="700"
+      fontSize="1.875rem"
+      margin="1.688rem 4.063rem"
+      textAlign="center"
+    >
+      <Link
+        to={`/#${name.toLowerCase()}`}
+        style={{ color: 'inherit', cursor: 'default' }}
+      >
         {name}
         {icon && (
           <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
