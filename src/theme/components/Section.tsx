@@ -16,7 +16,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
-import { Slide } from 'react-awesome-reveal';
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { Link } from 'gatsby';
@@ -53,8 +52,8 @@ const StyledSection = styled.section`
   }
 
   &:nth-of-type(even):not(:last-of-type) {
-    border-top-left-radius: 18.75rem;
-    border-bottom-left-radius: 18.75rem;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
   }
 
   &:nth-of-type(even) > ::before {
@@ -73,8 +72,8 @@ const StyledSection = styled.section`
   }
 
   &:nth-of-type(odd):not(:first-of-type) {
-    border-bottom-right-radius: 18.75rem;
-    border-top-right-radius: 18.75rem;
+    border-bottom-right-radius: 300px;
+    border-top-right-radius: 300px;
   }
 
   &:nth-of-type(odd) > ::before {
@@ -93,13 +92,13 @@ type SectionContainerProps = {
 };
 const SectionContainer = styled.div<SectionContainerProps>`
   min-width: 20rem;
-  max-width: 87.5rem;
+  max-width: 87.5vw;
   display: flex;
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
   justify-content: ${({ justifyContent }) => justifyContent};
-  padding: 5em 1em;
+  padding: 48px 16px;
   scroll-behavior: smooth;
 
   ${MEDIA_QUERY_SMALL} {
@@ -117,25 +116,23 @@ export const SectionHeader = ({
   icon,
   label,
 }: HeaderProps): JSX.Element => (
-  <Slide direction="left" triggerOnce>
-    <Heading
-      color="text"
-      fontWeight="700"
-      fontSize="1.875rem"
-      margin="1.688rem 4.063rem"
-      textAlign="center"
+  <Heading
+    color="text"
+    fontWeight="700"
+    fontSize="30px"
+    margin="27px 65px"
+    textAlign="center"
+  >
+    <Link
+      to={`/#${name.toLowerCase()}`}
+      style={{ color: 'inherit', cursor: 'default' }}
     >
-      <Link
-        to={`/#${name.toLowerCase()}`}
-        style={{ color: 'inherit', cursor: 'default' }}
-      >
-        {name}
-        {icon && (
-          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-            {icon}
-          </span>
-        )}
-      </Link>
-    </Heading>
-  </Slide>
+      {name}
+      {icon && (
+        <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+          {icon}
+        </span>
+      )}
+    </Link>
+  </Heading>
 );
