@@ -65,7 +65,7 @@
     "gatsby-plugin-sitemap": "^6.3.1",
     "gatsby-plugin-styled-components": "^6.3.0",
     "gatsby-plugin-typescript": "^5.3.1",
-    "gatsby-remark-responsive-iframe": "^6.3.0",
+    "gatsby-remark-responsive-iframe": "^6.4.0",
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-transformer-remark": "^6.3.2",
     "husky": "^8.0.3",
