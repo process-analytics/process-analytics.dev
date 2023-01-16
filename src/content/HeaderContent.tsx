@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import SvgLogoWhite from '../images/logo_white.svg';
+import SvgLogo from '../images/logo.svg';
 
 export const header = {
-  logo: { src: SvgLogoWhite },
+  logo: { src: SvgLogo },
 };
