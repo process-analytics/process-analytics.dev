@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Link as GatsbyLink } from 'gatsby-link';
 import React, { AnchorHTMLAttributes } from 'react';
-import { Flex } from 'rebass/styled-components';
+
+import { Link as GatsbyLink } from 'gatsby-link';
 import styled, { CSSProperties } from 'styled-components';
 
 const StyledButton = styled.div`

@@ -18,7 +18,6 @@ import React from 'react';
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
-import { faMedium } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 

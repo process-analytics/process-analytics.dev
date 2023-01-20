@@ -13,12 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { AnchorHTMLAttributes } from 'react';
-
-import styled, { CSSProperties } from 'styled-components';
 
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
-import { Link as GatsbyLink } from 'gatsby';
 
 type LinkProps = {
   selected?: boolean;
