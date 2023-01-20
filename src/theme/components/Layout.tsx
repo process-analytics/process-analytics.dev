@@ -79,6 +79,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
   }
 
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: inherit;
+    margin: 24px 0 24px 0;
+    line-height: 1.1;
+    color: inherit;
+  }
+  
   h2 {
     font-family: inherit;
     font-size: 32px;
@@ -89,6 +98,12 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 10px;
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
   }
 `;
 

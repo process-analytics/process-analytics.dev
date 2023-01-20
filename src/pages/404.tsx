@@ -15,8 +15,9 @@
  */
 import * as React from 'react';
 
-import { Box, Image, Text } from 'rebass/styled-components';
+import { Image, Text } from 'rebass/styled-components';
 import { HeadProps, Link } from 'gatsby';
+import styled from 'styled-components';
 
 import { DataProps } from '../hooks/use-site-metadata';
 
@@ -32,27 +33,39 @@ import Img from '../images/404.png';
 
 import { SEO } from '../components/seo';
 
+const StyledParagraph = styled.p`
+  text-align: center;
+
+  margin: 0 0 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 const NotFoundPage = (): JSX.Element => (
   <Layout>
     <PageHeader />
     <Section>
-      <Box width={[320, 400, 600]} m="auto">
+      <h1 style={{ textAlign: 'center' }}>
         <Image
           src={Img}
-          marginLeft={['25%', 0]}
-          width={['50%', '100%']}
+          margin="auto"
+          width={['50%', '31.25rem']}
           alt="404 not found"
         />
-        <Text
-          fontSize={['1rem', '1.5rem', '2rem']}
-          fontWeight="bold"
-          color="secondary"
-        >
-          Oops, looks like the page cannot be found...
-          <br />
-          <Link to="/">Go back to home</Link>
+      </h1>
+      <h2 style={{ textAlign: 'center' }}>
+        <Text fontSize="24px" color="secondary">
+          OOPS, LOOKS LIKE THE PAGE CANNOT BE FOUND...
         </Text>
-      </Box>
+      </h2>
+      <StyledParagraph>
+        GO BACK TO THE{' '}
+        <strong>
+          <Link to="/">HOME PAGE</Link>
+        </strong>
+      </StyledParagraph>
     </Section>
     {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
