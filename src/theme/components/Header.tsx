@@ -19,7 +19,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import styled from 'styled-components';
 
-import { Link, ButtonWithExternalLink } from './Link';
+import { ButtonWithExternalLink } from './Link';
 
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
@@ -38,16 +38,14 @@ const Header = (): JSX.Element => {
             to={`#${getSectionHref(SECTION.home)}`}
             style={{ marginRight: '50px' }}
           >
-            <Flex justifyContent="center">
-              <Image
-                src={logo.src}
-                height={['60px', '80px']}
-                width={['60px', '80px']}
-                alt="Process Analytics Logo"
-                p={2}
-                css={{ borderRadius: '20px', cursor: 'pointer' }}
-              />
-            </Flex>
+            <Image
+              src={logo.src}
+              height={['60px', '100px']}
+              width={['60px', '100px']}
+              margin="auto"
+              alt="Process Analytics Logo"
+              css={{ cursor: 'pointer' }}
+            />
           </GatsbyLink>
           <Flex
             width="100%"
@@ -58,29 +56,22 @@ const Header = (): JSX.Element => {
             height="auto"
           >
             {Object.keys(SECTION)
-              .filter(id => id !== 'home')
-              .map(id => (
-                <Box key={id} my="auto" mx="auto" fontSize={[2, 3]}>
-                  <Link
-                    href={`#${id}`}
-                    tabIndex={0}
-                    style={{
-                      padding: '0 15px',
-                      fontWeight: 'normal',
-                      fontSize: '18px',
-                    }}
-                  >
-                    {capitalize(id)}
-                  </Link>
-                </Box>
+              .filter(key => key !== 'home')
+              .map(key => (
+                <NavMenu name={key} />
               ))}
           </Flex>
-          <Box fontSize={[2, 3]}>
+          <Box>
             <ButtonWithExternalLink
               href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
               target="_blank"
               color={colors.background}
               backgroundColor={colors.secondary}
+              style={{
+                fontSize: '14px',
+                fontWeight: '700',
+                lineHeight: '3rem',
+              }}
             >
               Demo
             </ButtonWithExternalLink>
@@ -94,6 +85,7 @@ const Header = (): JSX.Element => {
 export const StyledNavbar = styled.nav`
   display: block;
   min-height: 3.125rem;
+  width: 100%;
   left: 0;
   right: 0;
   top: 0;
@@ -138,5 +130,31 @@ export const StyledContainer = styled(Flex)`
     content: ' ';
   }
 `;
+
+export const StyledNavMenu = styled(Box)`
+  font-weight: normal;
+  font-size: 18px;
+  margin: auto;
+
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
+const NavMenu = ({ name }: { name: string }): JSX.Element => (
+  <StyledNavMenu key={name}>
+    <GatsbyLink
+      to={`#${name}`}
+      tabIndex={0}
+      style={{
+        padding: '0 15px',
+        color: 'inherit',
+        textDecoration: 'none',
+      }}
+    >
+      {capitalize(name)}
+    </GatsbyLink>
+  </StyledNavMenu>
+);
 
 export default Header;

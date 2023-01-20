@@ -36,33 +36,27 @@ const PageHeader = ({
     <header>
       <StyledNavbar>
         <StyledContainer>
-          <GatsbyLink to="/">
-            <Flex justifyContent="center">
-              <Image
-                src={logo.src}
-                height={['60px', '80px']}
-                width={['60px', '80px']}
-                alt="Process Analytics Logo"
-                p={2}
-                css={{ borderRadius: '20px', cursor: 'pointer' }}
-              />
-            </Flex>
+          <GatsbyLink to="/" style={{ marginRight: '50px' }}>
+            <Image
+              src={logo.src}
+              height={['60px', '100px']}
+              width={['60px', '100px']}
+              margin="auto"
+              alt="Process Analytics Logo"
+              css={{ cursor: 'pointer' }}
+            />
           </GatsbyLink>
           {displayDemoButton && (
-            <Flex mr={[0, 3, 5]}>
-              <Box ml={[2, 3]} fontSize={[2, 3]}>
-                <ButtonWithExternalLink
-                  href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                  target="_blank"
-                  style={{
-                    color: colors.background,
-                    background: colors.secondary,
-                  }}
-                >
-                  Demo
-                </ButtonWithExternalLink>
-              </Box>
-            </Flex>
+            <Box fontSize={[2, 3]}>
+              <ButtonWithExternalLink
+                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+                target="_blank"
+                color={colors.background}
+                backgroundColor={colors.secondary}
+              >
+                Demo
+              </ButtonWithExternalLink>
+            </Box>
           )}
         </StyledContainer>
       </StyledNavbar>

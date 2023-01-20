@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   header {
+    width: 100%;
     display: block;
     font-family: "Altone",Arial,Helvetica,sans-serif;
     margin: 0;
