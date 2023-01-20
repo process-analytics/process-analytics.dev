@@ -15,6 +15,7 @@
  */
 import { Link as GatsbyLink } from 'gatsby-link';
 import React, { AnchorHTMLAttributes } from 'react';
+import { Flex } from 'rebass/styled-components';
 import styled, { CSSProperties } from 'styled-components';
 
 const StyledButton = styled.div`
@@ -30,18 +31,28 @@ type LinkInButtonProps = Pick<
 >;
 
 const ExternalLinkInButton = styled.a<LinkInButtonProps>`
-  padding: 12px 32px;
   text-align: center;
-  font-size: 16.5px;
+  font-size: 14px;
   font-weight: 700;
-  margin: 4px 2px;
-  border-radius: 20px;
+  line-height: 2.875rem;
+  height: 2.875rem;
+  border-radius: 30px;
   text-decoration: none;
   position: relative;
   background-color: ${props => props.backgroundColor};
   color: ${props => props.color};
-  border: ${props => `2px solid ${props.backgroundColor}`};
+  border: ${props => `2px solid ${props.color}`};
   display: inline-block;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  & > * {
+    margin: 4px 2px 4px 0px;
+    border-radius: inherit;
+  }
 
   &:hover {
     background-color: ${props => props.color};
@@ -69,7 +80,6 @@ const InternalLinkInButton = styled(GatsbyLink)<LinkInButtonProps>`
   }
 `;
 
-//padding: 0px 15px;
 export const ButtonWithExternalLink = ({
   children,
   ...rest

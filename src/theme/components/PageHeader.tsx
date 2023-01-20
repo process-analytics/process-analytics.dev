@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Box, Flex, Image } from 'rebass/styled-components';
+import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { StyledContainer, StyledNavbar } from './Header';
@@ -36,25 +38,53 @@ const PageHeader = ({
     <header>
       <StyledNavbar>
         <StyledContainer>
-          <GatsbyLink to="/" style={{ marginRight: '50px' }}>
+          <GatsbyLink
+            to="/"
+            style={{
+              marginTop: 'auto',
+              marginBottom: 'auto',
+              marginRight: '50px',
+              height: 'calc(100% - 15px)',
+            }}
+          >
             <Image
               src={logo.src}
-              height={['60px', '100px']}
-              width={['60px', '100px']}
+              height="100%"
+              width="100%"
               margin="auto"
               alt="Process Analytics Logo"
               css={{ cursor: 'pointer' }}
             />
           </GatsbyLink>
+          <Flex
+            width="70vw"
+            justifyContent="space-evenly"
+            textAlign="center"
+            mr="50px"
+            overflow="visible"
+            height="auto"
+          ></Flex>
           {displayDemoButton && (
-            <Box fontSize={[2, 3]}>
+            <Box>
               <ButtonWithExternalLink
                 href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
                 target="_blank"
-                color={colors.background}
-                backgroundColor={colors.secondary}
+                color={colors.secondary}
+                backgroundColor={colors.background}
               >
-                Demo
+                <Box
+                  marginRight="15px"
+                  backgroundColor={colors.secondary}
+                  width="2.875rem"
+                  height="2.875rem"
+                >
+                  <FontAwesomeIcon
+                    icon={faLaptopCode}
+                    color={colors.background}
+                    size="xl"
+                  />
+                </Box>
+                <Text padding="0px 15px">Demo</Text>
               </ButtonWithExternalLink>
             </Box>
           )}

@@ -46,6 +46,10 @@ const StyledSection = styled.section`
     padding: 45px 0;
   }
 
+  &:first-of-type {
+    margin-top: 101px;
+  }
+
   &:nth-of-type(even) {
     position: relative;
     background-color: #dbeffe;
