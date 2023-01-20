@@ -19,7 +19,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import styled from 'styled-components';
 
-import { ButtonWithExternalLink } from './Link';
+import { ButtonWithExternalLink } from './Button';
 
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';

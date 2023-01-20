@@ -20,7 +20,7 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { ButtonWithInternalLink } from './Link';
+import { ButtonWithInternalLink } from './Button';
 import colors from '../colors.json';
 
 const cardMinWidth = '350px';

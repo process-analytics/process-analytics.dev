@@ -22,7 +22,7 @@ import styled from 'styled-components';
 import { Flex } from 'rebass/styled-components';
 
 import { Section } from '../components/Section';
-import { ButtonWithInternalLink } from '../components/Link';
+import { ButtonWithInternalLink } from '../components/Button';
 import { SECTION } from '../utils/constants';
 import colors from '../colors.json';
 

@@ -20,7 +20,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { StyledContainer, StyledNavbar } from './Header';
 
 import { header } from '../../content/HeaderContent';
-import { ButtonWithExternalLink } from './Link';
+import { ButtonWithExternalLink } from './Button';
 import colors from '../colors.json';
 
 type PageHeaderProps = {
