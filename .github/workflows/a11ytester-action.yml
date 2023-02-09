@@ -24,4 +24,4 @@ jobs:
       - name: a11ytester
         uses: mikaelvesavuori/a11ytester-action@v1.0.0
         with:
-          urls: [${{ env.WEBSITE_TO_AUDIT }}]
+          urls: ${{ env.WEBSITE_TO_AUDIT }}
