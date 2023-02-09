@@ -1,0 +1,28 @@
+name: ♿️ A11Y CI with a11ytester-action
+on:
+  pull_request:
+    paths:
+      - '**/.github/workflows/axe-core.yml'
+      - '.github/workflows/generate-site-preview.yml'
+      - 'src/**/*'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'gatsby-*.js'
+      - '.nvmrc'
+
+env:
+  WEBSITE_TO_AUDIT: `https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/`
+
+
+jobs:
+  Lighthouse-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Using the a11ytester-action GitHub Action
+      # @see https://github.com/marketplace/actions/a11ytester-action
+      - name: a11ytester
+        uses: mikaelvesavuori/a11ytester-action@v1.0.0
+        with:
+          urls: `[$WEBSITE_TO_AUDIT]`
