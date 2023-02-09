@@ -43,7 +43,7 @@ const Container = ({
 );
 
 type HeaderProps = {
-  name: string;
+  name: SECTION;
   icon?: string;
   label?: string;
 };
@@ -51,7 +51,7 @@ type HeaderProps = {
 const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
     <Heading color="text" mb={4}>
-      <Link selected>
+      <Link selected href={`#${getSectionHref(name)}`}>
         {name}
         {icon && (
           <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
