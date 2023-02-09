@@ -14,7 +14,7 @@ env:
   WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
 
 jobs:
-  Lighthouse-CLI:
+  a11ywatch-CLI:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,7 +23,7 @@ jobs:
       # @see https://github.com/marketplace/actions/web-accessibility-evaluation
       - uses: a11ywatch/github-action@v1.13.0
         with:
-          WEBSITE_URL: $WEBSITE_TO_AUDIT
+          WEBSITE_URL: ${{ env.WEBSITE_TO_AUDIT }}
           SUBDOMAINS: true
           TLD: false
           SITEMAP: true
