@@ -12,7 +12,7 @@ on:
       - '.nvmrc'
 
 env:
-  WEBSITE_TO_AUDIT: `https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/`
+  WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
 
 jobs:
   Pa11y-CLI:
