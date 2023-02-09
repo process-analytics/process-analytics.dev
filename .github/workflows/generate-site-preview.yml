@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/generate-site-preview.yml'
+      - '.github/workflows/*'
       - 'src/**/*'
       - 'static/**/*'
       - 'package.json'
