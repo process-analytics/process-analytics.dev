@@ -31,3 +31,4 @@ jobs:
           LIST: true
           FIX: false
           UPGRADE: false
+          TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
