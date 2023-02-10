@@ -13,17 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Link } from 'gatsby';
 import React from 'react';
+
+import { Link } from 'gatsby';
+
 import { Heading, Flex, Box, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { Section } from '../components/Section';
-import { SocialLink } from '../components/SocialLink';
-import Triangle from '../components/Triangle';
-import { SECTION } from '../utils/constants';
-import { landing } from '../../content/LandingContent';
+
 import { Fade } from 'react-awesome-reveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { Section } from '../components/Section';
+import { SocialLink } from '../components/SocialLink';
+import { SECTION } from '../utils/constants';
+import { landing } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -33,11 +36,7 @@ const Landing = (): JSX.Element => {
   };
 
   return (
-    <Section
-      id={SECTION.home}
-      Background={Background}
-      justifyContent="space-around"
-    >
+    <Section id={SECTION.home} justifyContent="space-around">
       <Flex
         flexDirection="column"
         alignItems="center"
@@ -88,7 +87,7 @@ const Landing = (): JSX.Element => {
           backgroundColor="secondary"
           width="100%"
           height="100%"
-          style={{ position: 'absolute', borderRadius: '0.5rem', zIndex: -1 }}
+          style={{ position: 'absolute', borderRadius: '0.5rem' }}
           opacity="0.15"
         />
         <Flex
@@ -98,6 +97,7 @@ const Landing = (): JSX.Element => {
           paddingX={[2, 3, 5]}
           width="100%"
           height="100%"
+          style={{ position: 'absolute', zIndex: 0 }}
         >
           <Text as="h2" fontSize={[2, 3, 4]} mb={[2, 3]}>
             Need a tool to generate process diagrams from events logs?
@@ -128,29 +128,6 @@ const Landing = (): JSX.Element => {
     </Section>
   );
 };
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="muted"
-      height={['35vh', '40vh']}
-      width={['95vw', '55vw']}
-    />
-
-    <Triangle
-      color="secondary"
-      height={['38vh', '55vh']}
-      width={['50vw', '35vw']}
-    />
-
-    <Triangle
-      color="primary"
-      height={['25vh', '30vh']}
-      width={['75vw', '60vw']}
-      position="top-right"
-    />
-  </>
-);
 
 const LandingCard = styled(Box).attrs({
   boxShadow: 0,
