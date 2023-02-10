@@ -26,6 +26,7 @@ type ContainerProps = {
   children: ReactNode;
   Background?: () => JSX.Element;
   justifyContent?: string;
+  minHeight?: string;
 };
 
 const Container = ({
@@ -33,10 +34,11 @@ const Container = ({
   children,
   Background = DefaultBackground,
   justifyContent = 'center',
+  minHeight,
 }: ContainerProps): JSX.Element => (
   <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer justifyContent={justifyContent}>
+    <SectionContainer justifyContent={justifyContent} minHeight={minHeight}>
       {children}
     </SectionContainer>
   </section>
@@ -65,10 +67,11 @@ const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
 
 type SectionContainerProps = {
   justifyContent?: string;
+  minHeight?: string;
 };
 
 const SectionContainer = styled.div<SectionContainerProps>`
-  min-height: 100vh;
+  min-height: ${({ minHeight }) => minHeight ?? '100vh'};
   min-width: 320px;
   max-width: 1366px;
   display: flex;
