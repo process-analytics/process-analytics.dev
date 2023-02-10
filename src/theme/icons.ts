@@ -30,6 +30,7 @@ import {
   faTools,
   faLightbulb,
   faInfo,
+  faDatabase,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const ICONS: IconDefinition[] = [
@@ -48,4 +49,5 @@ export const ICONS: IconDefinition[] = [
   faLightbulb,
   faTools,
   faInfo,
+  faDatabase,
 ];
