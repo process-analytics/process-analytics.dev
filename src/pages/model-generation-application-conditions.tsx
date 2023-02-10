@@ -25,7 +25,7 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
-import Section from '../theme/components/Section';
+import { Section } from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
@@ -37,7 +37,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
     <Layout>
       <PageHeader displayDemoButton={false} />
-      <Section.Container Background={Background}>
+      <Section Background={Background}>
         <Heading
           textAlign="center"
           as="h1"
@@ -158,7 +158,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
             INCLUDING NEGLIGENCE.
           </Paragraph>
         </Part>
-      </Section.Container>
+      </Section>
       {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
       <Footer content={footerRoutes} />

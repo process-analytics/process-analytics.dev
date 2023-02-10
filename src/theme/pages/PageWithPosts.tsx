@@ -20,7 +20,7 @@ import { footerRoutes } from '../../content/FooterRoutes';
 import { Footer } from '../components/Footer';
 import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
-import Section from '../components/Section';
+import { Section } from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
 import { PostContainer } from '../components/Post';
@@ -46,7 +46,7 @@ export const PageWithPosts = ({
 }: PageWithPostsProps): JSX.Element => (
   <Layout>
     <PageHeader />
-    <Section.Container id={containerTitle} Background={Background}>
+    <Section id={containerTitle} Background={Background}>
       <Heading
         textAlign="center"
         as="h1"
@@ -69,7 +69,7 @@ export const PageWithPosts = ({
         {description}
       </Text>
       <PostContainer posts={posts} />
-    </Section.Container>
+    </Section>
     <MailingListSubscription />
     {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}

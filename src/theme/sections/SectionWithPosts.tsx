@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 import React from 'react';
-import Section from '../components/Section';
+import { SectionWithTitle } from '../components/Section';
 import { SECTION } from '../utils/constants';
 import { PostContainer } from '../components/Post';
 import { PostDescription } from '../types';
 
 interface SectionWithPostsProps {
-  containerTitle: SECTION;
+  title: SECTION;
   Background?: () => JSX.Element;
   posts: PostDescription[];
   pageId: string;
 }
 
 export const SectionWithPosts = ({
-  containerTitle,
+  title,
   Background,
   posts,
   pageId,
 }: SectionWithPostsProps): JSX.Element => (
-  <Section.Container id={containerTitle} Background={Background}>
-    <Section.Header name={containerTitle} />
+  <SectionWithTitle id={title} Background={Background}>
     <PostContainer posts={posts} pageId={pageId} />
-  </Section.Container>
+  </SectionWithTitle>
 );

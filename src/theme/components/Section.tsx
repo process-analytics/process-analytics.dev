@@ -22,7 +22,7 @@ import { Link } from 'gatsby';
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 
-type ContainerProps = {
+type SectionProps = {
   id?: SECTION;
   children: ReactNode;
   Background?: () => JSX.Element;
@@ -30,28 +30,47 @@ type ContainerProps = {
   minHeight?: string;
 };
 
-const Container = ({
+export const Section = ({
   id,
   children,
   Background = DefaultBackground,
   justifyContent = 'center',
   minHeight,
-}: ContainerProps): JSX.Element => (
-  <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
+}: SectionProps): JSX.Element => (
+  <StyledSection id={id && getSectionHref(id)}>
     <Background />
     <SectionContainer justifyContent={justifyContent} minHeight={minHeight}>
       {children}
     </SectionContainer>
-  </section>
+  </StyledSection>
 );
 
-type HeaderProps = {
+export const SectionWithTitle = ({
+  id,
+  children,
+  ...rest
+}: SectionProps & Required<Pick<SectionProps, 'id'>>): JSX.Element => (
+  <Section id={id} {...rest}>
+    <SectionHeader name={id} />
+    {children}
+  </Section>
+);
+
+const StyledSection = styled.section`
+  position: relative;
+`;
+
+type SectionHeaderProps = {
   name: SECTION;
   icon?: string;
   label?: string;
 };
 
-const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
+const SectionHeader = ({
+  name,
+  icon,
+  label,
+}: SectionHeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
     <Heading color="text" mb={4}>
       <Link
@@ -92,8 +111,3 @@ const SectionContainer = styled.div<SectionContainerProps>`
 `;
 
 const DefaultBackground = (): JSX.Element => <div />;
-
-export default {
-  Container,
-  Header,
-};

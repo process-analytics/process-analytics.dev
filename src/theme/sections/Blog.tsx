@@ -21,7 +21,7 @@ import { SectionWithPosts } from './SectionWithPosts';
 
 const Blog = (): JSX.Element => (
   <SectionWithPosts
-    containerTitle={SECTION.blog}
+    title={SECTION.blog}
     Background={Background}
     posts={postsContent.posts}
     pageId="blog"
