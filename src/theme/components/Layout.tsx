@@ -26,12 +26,34 @@ loadIcons();
 const GlobalStyle = createGlobalStyle`
   *,
   *::after,
-  *::before { 
-    box-sizing: inherit;
+  *::before {
+    box-sizing: border-box;
   }
 
   html { 
     scroll-behavior: smooth;
+  }
+
+  html * {
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  header {
+    width: 100%;
+    display: block;
+    font-family: "Altone",Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-height: 0px;
+    position: relative;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    &::before,
+    &::after {
+      display: table;
+      content: ' ';
+    }
   }
 
   body {
