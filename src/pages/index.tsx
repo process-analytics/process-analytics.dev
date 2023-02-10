@@ -23,11 +23,14 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import { Header } from '../theme/components/Header';
-import Landing from '../theme/sections/Landing';
-import About from '../theme/sections/About';
-import Libraries from '../theme/sections/Libraries';
-import { Blog } from '../theme/sections/Blog';
-import { News } from '../theme/sections/News';
+import {
+  Landing,
+  ModelGenerationApp,
+  Blog,
+  News,
+  About,
+  Libraries,
+} from '../theme/sections';
 import { PAGE } from '../theme/utils/constants';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
@@ -37,6 +40,7 @@ const HomePage = (): JSX.Element => (
   <Layout>
     <Header />
     <Landing />
+    <ModelGenerationApp />
     <About />
     <Libraries />
     <News />
