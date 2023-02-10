@@ -15,15 +15,11 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import {
-  Box,
-  Link as RebassLink,
-  Flex,
-  Image,
-  Button,
-} from 'rebass/styled-components';
+import { Box, Flex, Image, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { Link, LinkInButton } from './Link';
+import { Link as GatsbyLink } from 'gatsby';
+
+import { LinkInButton } from './Link';
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
@@ -41,18 +37,24 @@ const Header = (): JSX.Element => {
         alignItems="center"
         px={3}
       >
-        <RebassLink href={`#${getSectionHref(SECTION.home)}`} variant="empty">
-          <Flex justifyContent="center">
-            <Image
-              src={logo.src}
-              height={['60px', '80px']}
-              width={['60px', '80px']}
-              alt="Process Analytics Logo"
-              p={2}
-              css={{ borderRadius: '20px', cursor: 'pointer' }}
-            />
-          </Flex>
-        </RebassLink>
+        <GatsbyLink
+          to={`#${getSectionHref(SECTION.home)}`}
+          style={{
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            marginRight: '50px',
+            borderRadius: '20px',
+            cursor: 'pointer',
+          }}
+        >
+          <Image
+            src={logo.src}
+            height={['60px', '80px']}
+            width={['60px', '80px']}
+            margin="auto"
+            alt="Process Analytics Logo"
+          />
+        </GatsbyLink>
         <Flex mr={[0, 3, 5]}>
           {Object.keys(SECTION)
             .filter(id => id !== 'home')
@@ -65,9 +67,17 @@ const Header = (): JSX.Element => {
                 color="background"
                 fontSize={[2, 3]}
               >
-                <Link href={`#${id}`} tabIndex={0}>
+                <GatsbyLink
+                  to={`#${id}`}
+                  tabIndex={0}
+                  style={{
+                    padding: '0 15px',
+                    color: 'inherit',
+                    textDecoration: 'none',
+                  }}
+                >
                   {capitalize(id)}
-                </Link>
+                </GatsbyLink>
               </Box>
             ))}
           <Box ml={[2, 3]} fontSize={[2, 3]}>
