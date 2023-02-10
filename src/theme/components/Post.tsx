@@ -20,7 +20,6 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { LinkInButton } from './Link';
 import colors from '../colors.json';
 import { ButtonWithInternalLink } from './Button';
 
