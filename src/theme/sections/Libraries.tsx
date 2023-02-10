@@ -25,7 +25,7 @@ import { libraries } from '../../content/LibraryContent';
 
 const cardMinWidth = '300px';
 
-const Libraries = (): JSX.Element => {
+export const Libraries = (): JSX.Element => {
   return (
     <SectionWithTitle id={SECTION.libraries}>
       <CardContainer minWidth={cardMinWidth}>
@@ -38,5 +38,3 @@ const Libraries = (): JSX.Element => {
     </SectionWithTitle>
   );
 };
-
-export default Libraries;
