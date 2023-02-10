@@ -43,6 +43,14 @@ const GlobalStyle = createGlobalStyle`
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
   }
+
+  a[href]{
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
 `;
 
 type Props = {
