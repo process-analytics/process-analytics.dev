@@ -63,7 +63,7 @@
     "gatsby-plugin-mdx": "^5.5.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.6.0",
-    "gatsby-plugin-styled-components": "^6.5.0",
+    "gatsby-plugin-styled-components": "^6.6.0",
     "gatsby-plugin-typescript": "^5.4.0",
     "gatsby-remark-responsive-iframe": "^6.5.0",
     "gatsby-source-filesystem": "^5.6.0",
