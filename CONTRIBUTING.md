@@ -10,7 +10,7 @@ There are many ways to contribute:
 
 - updating the theme & the styling of the site
 - improving the content of the site
-- submitting bug reports in the [Github Issues](https://github.com/process-analytics/process-analytics.dev/issues/new)
+- submitting bug reports in the [GitHub Issues](https://github.com/process-analytics/process-analytics.dev/issues/new)
 - improving the README
 
 ## Code and documentation changes guidelines
@@ -23,12 +23,12 @@ For all contributions, please respect the following guidelines:
 
 3. Do not commit changes to files that are irrelevant to your feature or bugfix (eg: `.gitignore`).
 
-7. Open a [GitHub Pull Request](CONTRIBUTING.md#open-a-pull-request) with your patches. (**1** pull request = **1** feature or bug)
+4. Open a [GitHub Pull Request](CONTRIBUTING.md#open-a-pull-request) with your patches. (**1** pull request = **1** feature or bug)
    We will review your contribution and respond as quickly as possible. Keep in mind that this is an open source project, and it may take us some time to get back to you. Your patience is very much appreciated.
 
-8. If this is your 1st Pull Request, sign the [Contributor License Agreement](CONTRIBUTING.md#sign-the-contributor-license-agreement)
+5. If this is your 1st Pull Request, sign the [Contributor License Agreement](CONTRIBUTING.md#sign-the-contributor-license-agreement)
 
-9. Be willing to accept criticism and work on improving your code. 
+6. Be willing to accept criticism and work on improving your code. 
 
 **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on  GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github)    
 
@@ -75,7 +75,7 @@ Finally, go to GitHub and [make a Pull Request](https://help.github.com/articles
 For the title, follow the directives of the Pull Request template.
 Add a screenshot of the rendering of your examples/bpmn-file. 
 
-:warning: ​We care about quality. So your PR won't be merged until all tests pass.
+**⚠️** We care about quality. So your PR won't be merged until all tests pass.
 
 ### Sign the Contributor License Agreement
 
@@ -113,4 +113,4 @@ A PR can only be merged into master by a maintainer, if all of these conditions 
 * It is passing CI.
 * It has been approved by at least two maintainers. If it was a maintainer who opened the PR, only one extra approval is needed.
 * It has no requested changes.
-* It is up to date with current master.
+* It is up-to-date with current master.
