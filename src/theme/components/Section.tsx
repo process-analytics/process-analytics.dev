@@ -13,33 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
+
 import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
-import { Slide } from 'react-awesome-reveal';
+
 import { Link } from 'gatsby';
 
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
+import { theme } from '../theme';
 
-type SectionProps = {
-  id?: SECTION;
-  children: ReactNode;
-  Background?: () => JSX.Element;
-  justifyContent?: string;
-  minHeight?: string;
-};
+type SectionProps = StyledSectionProps &
+  SectionContainerProps & {
+    id?: SECTION;
+  };
 
 export const Section = ({
-  id,
   children,
-  Background = DefaultBackground,
+  id,
+  backgroundColor = theme.colors.muted,
   justifyContent = 'center',
-  minHeight,
-}: SectionProps): JSX.Element => (
-  <StyledSection id={id && getSectionHref(id)}>
-    <Background />
-    <SectionContainer justifyContent={justifyContent} minHeight={minHeight}>
+}: PropsWithChildren<SectionProps>): JSX.Element => (
+  <StyledSection
+    id={id && getSectionHref(id)}
+    backgroundColor={backgroundColor}
+  >
+    <SectionContainer justifyContent={justifyContent}>
       {children}
     </SectionContainer>
   </StyledSection>
@@ -49,60 +49,74 @@ export const SectionWithTitle = ({
   id,
   children,
   ...rest
-}: SectionProps & Required<Pick<SectionProps, 'id'>>): JSX.Element => (
+}: PropsWithChildren<SectionProps> &
+  Required<Pick<SectionProps, 'id'>>): JSX.Element => (
   <Section id={id} {...rest}>
     <SectionHeader name={id} />
     {children}
   </Section>
 );
 
-const StyledSection = styled.section`
-  position: relative;
-`;
-
-type SectionHeaderProps = {
-  name: SECTION;
-  icon?: string;
-  label?: string;
+type StyledSectionProps = {
+  backgroundColor?: string;
 };
-
-const SectionHeader = ({
-  name,
-  icon,
-  label,
-}: SectionHeaderProps): JSX.Element => (
-  <Slide direction="left" triggerOnce>
-    <Heading color="text" mb={4}>
-      <Link
-        to={`#${getSectionHref(name)}`}
-        style={{ color: 'inherit', cursor: 'default' }}
-      >
-        {name}
-        {icon && (
-          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-            {icon}
-          </span>
-        )}
-      </Link>
-    </Heading>
-  </Slide>
-);
+const StyledSection = styled.section<StyledSectionProps>`
+  position: relative;
+  display: block;
+  text {
+    padding: 45px 0;
+  }
+  &:first-of-type {
+    margin-top: 101px;
+  }
+  &:nth-of-type(even) {
+    position: relative;
+    background-color: ${({ backgroundColor }) => backgroundColor};
+  }
+  &:nth-of-type(even):not(:last-of-type) {
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+  }
+  &:nth-of-type(even) > ::before {
+    background-color: white;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  &:nth-of-type(odd) {
+    position: relative;
+    background-color: white;
+  }
+  &:nth-of-type(odd):not(:first-of-type) {
+    border-bottom-right-radius: 300px;
+    border-top-right-radius: 300px;
+  }
+  &:nth-of-type(odd) > ::before {
+    background-color: ${({ backgroundColor }) => backgroundColor};
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+`;
 
 type SectionContainerProps = {
   justifyContent?: string;
-  minHeight?: string;
 };
-
 const SectionContainer = styled.div<SectionContainerProps>`
-  min-height: ${({ minHeight }) => minHeight ?? '100vh'};
-  min-width: 320px;
-  max-width: 1366px;
+  min-width: 20rem;
+  max-width: 87.5vw;
   display: flex;
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
   justify-content: ${({ justifyContent }) => justifyContent};
-  padding: 5em 1em;
+  padding: 48px 16px;
   scroll-behavior: smooth;
 
   ${MEDIA_QUERY_SMALL} {
@@ -110,4 +124,33 @@ const SectionContainer = styled.div<SectionContainerProps>`
   }
 `;
 
-const DefaultBackground = (): JSX.Element => <div />;
+type SectionHeaderProps = {
+  name: SECTION;
+  icon?: string;
+  label?: string;
+};
+const SectionHeader = ({
+  name,
+  icon,
+  label,
+}: SectionHeaderProps): JSX.Element => (
+  <Heading
+    color="text"
+    fontWeight="700"
+    fontSize="30px"
+    margin="30px 65px"
+    textAlign="center"
+  >
+    <Link
+      to={`#${getSectionHref(name)}`}
+      style={{ color: 'inherit', cursor: 'default' }}
+    >
+      {name}
+      {icon && (
+        <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+          {icon}
+        </span>
+      )}
+    </Link>
+  </Heading>
+);

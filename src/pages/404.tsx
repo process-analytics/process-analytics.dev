@@ -25,7 +25,6 @@ import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import { Section } from '../theme/components/Section';
-import Triangle from '../theme/components/Triangle';
 import { PAGE } from '../theme/utils/constants';
 import { PageHeader } from '../theme/components/PageHeader';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
@@ -45,7 +44,7 @@ const StyledParagraph = styled.p`
 const NotFoundPage = (): JSX.Element => (
   <Layout>
     <PageHeader />
-    <Section Background={Background}>
+    <Section>
       <h1 style={{ textAlign: 'center' }}>
         <Image
           src={Img}
@@ -73,31 +72,6 @@ const NotFoundPage = (): JSX.Element => (
   </Layout>
 );
 export default NotFoundPage;
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="secondary"
-      // color="muted"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
-    />
-
-    <Triangle
-      color="primary"
-      height={['25vh', '35vh']}
-      width={['75vw', '60vw']}
-      position="bottom-right"
-    />
-
-    <Triangle
-      color="muted"
-      height={['10vh', '20vh']}
-      width={['50vw', '50vw']}
-      position="top-right"
-    />
-  </>
-);
 
 /*
  * You can only define the Head export inside a page, not in a component.

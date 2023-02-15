@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import React from 'react';
-import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
 import { newsContent } from '../../content/NewsContent';
 import { SectionWithPosts } from './SectionWithPosts';
@@ -22,41 +21,9 @@ import { SectionWithPosts } from './SectionWithPosts';
 const News = (): JSX.Element => (
   <SectionWithPosts
     title={SECTION.news}
-    Background={Background}
     posts={newsContent.news}
     pageId="news"
   />
-);
-
-const Background = (): JSX.Element => (
-  <>
-    <Triangle
-      color="muted"
-      height={['15vh', '6vh']}
-      width={['100vw', '100vw']}
-      position="top-left"
-    />
-
-    <Triangle
-      color="primary"
-      height={['85vh', '75vh']}
-      width={['35vw', '25vw']}
-      position="bottom-left"
-    />
-
-    <Triangle
-      color="secondary"
-      height={['35vh', '30vh']}
-      width={['80vw', '65vw']}
-      position="bottom-left"
-    />
-    <Triangle
-      color="muted"
-      height={['15vh', '10vh']}
-      width={['100vw', '100vw']}
-      position="bottom-left"
-    />
-  </>
 );
 
 export { News };
