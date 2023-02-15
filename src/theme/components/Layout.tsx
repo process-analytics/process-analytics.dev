@@ -77,6 +77,14 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: middle;
     border: 0;
   }
+
+  a[href]{
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
 `;
 
 type Props = {
