@@ -31,6 +31,7 @@ export const about: About = [
       alt: 'Email Voting Diagram',
       positionFromMdx: 'top',
     },
+    withSeparator: true,
   },
   {
     mdx: <Content2 />,
@@ -43,6 +44,7 @@ export const about: About = [
   },
   {
     mdx: <Content3 />,
+    withSeparator: true,
   },
   {
     mdx: <Content4 />,
