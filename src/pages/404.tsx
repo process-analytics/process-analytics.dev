@@ -24,7 +24,7 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
-import Section from '../theme/components/Section';
+import { Section } from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import { PAGE } from '../theme/utils/constants';
 import PageHeader from '../theme/components/PageHeader';
@@ -45,7 +45,7 @@ const StyledParagraph = styled.p`
 const NotFoundPage = (): JSX.Element => (
   <Layout>
     <PageHeader />
-    <Section.Container Background={Background}>
+    <Section Background={Background}>
       <h1 style={{ textAlign: 'center' }}>
         <Image
           src={Img}
@@ -65,7 +65,7 @@ const NotFoundPage = (): JSX.Element => (
           <Link to="/">HOME PAGE</Link>
         </strong>
       </StyledParagraph>
-    </Section.Container>
+    </Section>
     {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
     <Footer content={footerRoutes} />

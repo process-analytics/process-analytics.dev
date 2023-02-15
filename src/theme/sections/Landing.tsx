@@ -17,7 +17,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { Heading, Flex, Box, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
-import Section from '../components/Section';
+import { Section } from '../components/Section';
 import { SocialLink } from '../components/SocialLink';
 import Triangle from '../components/Triangle';
 import { SECTION } from '../utils/constants';
@@ -27,13 +27,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
-const LandingPage = (): JSX.Element => {
+const Landing = (): JSX.Element => {
   const { title, presentation, socialLinks } = {
     ...landing,
   };
 
   return (
-    <Section.Container
+    <Section
       id={SECTION.home}
       Background={Background}
       justifyContent="space-around"
@@ -125,7 +125,7 @@ const LandingPage = (): JSX.Element => {
           </Button>
         </Flex>
       </LandingCard>
-    </Section.Container>
+    </Section>
   );
 };
 
@@ -164,4 +164,4 @@ const LandingCard = styled(Box).attrs({
   align-self: center;
 `;
 
-export default LandingPage;
+export default Landing;

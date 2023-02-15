@@ -37,7 +37,7 @@ import { postsContent } from '../content/PostsContent';
 import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import { PostDescription } from '../theme/types';
-import Section from '../theme/components/Section';
+import { Section } from '../theme/components/Section';
 import Triangle from '../theme/components/Triangle';
 import PageHeader from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
@@ -180,7 +180,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout>
       <PageHeader displayDemoButton={false} />
-      <Section.Container Background={Background}>
+      <Section Background={Background}>
         <Heading
           textAlign="center"
           as="h1"
@@ -190,8 +190,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         >
           Model Generation Application
         </Heading>
-      </Section.Container>
-      <Section.Container minHeight="auto">
+      </Section>
+      <Section minHeight="auto">
         <Box
           style={{
             boxShadow:
@@ -205,8 +205,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             alt={'Model Generation Application Demo'}
           />
         </Box>
-      </Section.Container>
-      <Section.Container>
+      </Section>
+      <Section>
         <PartWithSingleColumn>
           <PartTitle>
             Need a tool to generate process diagrams from events logs?
@@ -214,8 +214,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           <HighlightMessage>We have a solution for you!</HighlightMessage>
           <Features />
         </PartWithSingleColumn>
-      </Section.Container>
-      <Section.Container>
+      </Section>
+      <Section>
         <PartWithSingleColumn backgroundColor="muted">
           <PartTitle marginBottom="52px">How it works?</PartTitle>
           <Part
@@ -249,8 +249,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             </Paragraph>
           </Part>
         </PartWithSingleColumn>
-      </Section.Container>
-      <Section.Container>
+      </Section>
+      <Section>
         <Part
           justifyContent="space-between"
           alignItems="center"
@@ -293,8 +293,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             ready.
           </Paragraph>
         </Part>
-      </Section.Container>
-      <Section.Container>
+      </Section>
+      <Section>
         <Part
           id={'form'}
           marginBottom="124px"
@@ -310,8 +310,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
         >
           <Jotform />
         </Part>
-      </Section.Container>
-      <Section.Container>
+      </Section>
+      <Section>
         <Part
           marginBottom="52px"
           maxWidth="1320px"
@@ -328,7 +328,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
             pageId="blog"
           />
         </Part>
-      </Section.Container>
+      </Section>
       {/* TODO: When there will only one theme provider, move the Footer in the
     Layout class */}
       <Footer content={footerRoutes} />
