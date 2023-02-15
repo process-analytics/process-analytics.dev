@@ -95,20 +95,20 @@ const Layout = ({ children }: Props): JSX.Element => (
           enableDeclineButton={true}
           flipButtons={true}
           style={{
-            opacity: '90%',
+            background: '#000000',
           }}
           contentStyle={{
-            color: theme.colors.background,
+            color: '#FFFFFF',
           }}
           cookieValue={false}
           buttonStyle={{
             background: '#90EE90',
-            color: theme.colors.primary,
+            color: '#000000',
           }}
           declineCookieValue={true}
           declineButtonStyle={{
-            background: theme.colors.secondary,
-            color: theme.colors.background,
+            background: '#fe6262',
+            color: '#000000',
           }}
           onDecline={() => {
             gaOptout();
