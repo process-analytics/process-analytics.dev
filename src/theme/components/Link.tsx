@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
 
 type LinkProps = {
@@ -23,40 +21,7 @@ type LinkProps = {
   onClick?: () => void;
 };
 
-const Link = styled.a<LinkProps>`
-  text-decoration: none;
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 5px;
-  color: inherit;
-  font-weight: 600;
-  ${({ selected, theme }) =>
-    selected && `border-bottom:  5px solid ${theme.colors.primary}`};
-  transition: 0.4s;
-  cursor: ${({ onClick, href }) => (onClick || href ? 'pointer' : 'default')};
-
-  &:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 0;
-    bottom: -5px;
-    background: ${({ theme }) => theme.colors.secondary};
-    height: 5px;
-    transition-property: width;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
-  }
-
-  &:focus:after,
-  &:hover:after {
-    left: 0;
-    right: auto;
-    width: 100%;
-  }
-`;
-
-const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
+export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
   ({ theme, selected, href, onClick }) => `
   text-decoration: none;
   position: relative;
@@ -89,13 +54,3 @@ const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
   }
 `,
 );
-
-const LinkInButton = styled.a`
-  text-decoration: none;
-  display: block;
-  padding: '8px 16px';
-  font-weight: 600;
-  color: inherit;
-`;
-
-export { Link, LinkInButton, LinkWithMaterial };

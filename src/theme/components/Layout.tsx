@@ -40,8 +40,42 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     overflow-x: hidden;
     font-family: ${props => (props.theme as Theme).fonts.body};
+    font-size: 14px;
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
+    line-height: 1.5;
+  }
+
+  a[href]{
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: inherit;
+    margin: 24px 0 24px 0;
+    line-height: 1.1;
+    color: inherit;
+  }
+
+  h2 {
+    font-family: inherit;
+    font-size: 32px;
+    margin: 24px 0 24px 0;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+  p {
+    margin: 0 0 10px;
+  }
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
   }
 `;
 
@@ -61,20 +95,20 @@ const Layout = ({ children }: Props): JSX.Element => (
           enableDeclineButton={true}
           flipButtons={true}
           style={{
-            opacity: '90%',
+            background: '#000000',
           }}
           contentStyle={{
-            color: theme.colors.background,
+            color: '#FFFFFF',
           }}
           cookieValue={false}
           buttonStyle={{
             background: '#90EE90',
-            color: theme.colors.primary,
+            color: '#000000',
           }}
           declineCookieValue={true}
           declineButtonStyle={{
-            background: theme.colors.secondary,
-            color: theme.colors.background,
+            background: '#fe6262',
+            color: '#000000',
           }}
           onDecline={() => {
             gaOptout();
