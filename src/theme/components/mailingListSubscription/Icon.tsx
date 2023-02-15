@@ -31,6 +31,11 @@ export const Icon = (props: IconProps): JSX.Element => {
   return (
     <Button
       as={props.withWiggleAnimation ? StyledOpenIcon : StyledIcon}
+      title={
+        props.withWiggleAnimation
+          ? 'Button to access the newsletter registration form'
+          : 'Button to close the newsletter registration form'
+      }
       onClick={() => props.onClick()}
       css={{
         cursor: 'pointer',
