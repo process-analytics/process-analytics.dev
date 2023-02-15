@@ -17,7 +17,8 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
 import { Slide } from 'react-awesome-reveal';
-import { Link } from './Link';
+import { Link } from 'gatsby';
+
 import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 
@@ -26,6 +27,7 @@ type ContainerProps = {
   children: ReactNode;
   Background?: () => JSX.Element;
   justifyContent?: string;
+  minHeight?: string;
 };
 
 const Container = ({
@@ -33,10 +35,11 @@ const Container = ({
   children,
   Background = DefaultBackground,
   justifyContent = 'center',
+  minHeight,
 }: ContainerProps): JSX.Element => (
   <section id={id && getSectionHref(id)} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer justifyContent={justifyContent}>
+    <SectionContainer justifyContent={justifyContent} minHeight={minHeight}>
       {children}
     </SectionContainer>
   </section>
@@ -51,7 +54,10 @@ type HeaderProps = {
 const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
     <Heading color="text" mb={4}>
-      <Link selected href={`#${getSectionHref(name)}`}>
+      <Link
+        to={`#${getSectionHref(name)}`}
+        style={{ color: 'inherit', cursor: 'default' }}
+      >
         {name}
         {icon && (
           <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
@@ -65,10 +71,11 @@ const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
 
 type SectionContainerProps = {
   justifyContent?: string;
+  minHeight?: string;
 };
 
 const SectionContainer = styled.div<SectionContainerProps>`
-  min-height: 100vh;
+  min-height: ${({ minHeight }) => minHeight ?? '100vh'};
   min-width: 320px;
   max-width: 1366px;
   display: flex;

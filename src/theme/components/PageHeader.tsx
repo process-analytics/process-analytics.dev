@@ -15,13 +15,15 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import { Box, Flex, Image, Button } from 'rebass/styled-components';
+import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { header } from '../../content/HeaderContent';
-import { LinkInButton } from './Link';
 import colors from '../colors.json';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { ButtonWithExternalLink } from './Button';
 
 type PageHeaderProps = {
   displayDemoButton?: boolean;
@@ -59,21 +61,28 @@ const PageHeader = ({
           />
         </GatsbyLink>
         {displayDemoButton && (
-          <Flex mr={[0, 3, 5]}>
-            <Box ml={[2, 3]} fontSize={[2, 3]}>
-              <Button
-                as={LinkInButton}
-                href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-                target="_blank"
-                style={{
-                  color: colors.background,
-                  background: colors.secondary,
-                }}
+          <Box>
+            <ButtonWithExternalLink
+              href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+              target="_blank"
+              color={colors.secondary}
+              backgroundColor={colors.background}
+            >
+              <Box
+                marginRight="15px"
+                backgroundColor={colors.secondary}
+                width="2.875rem"
+                height="2.875rem"
               >
-                Demo
-              </Button>
-            </Box>
-          </Flex>
+                <FontAwesomeIcon
+                  icon={faLaptopCode}
+                  color={colors.background}
+                  size="xl"
+                />
+              </Box>
+              <Text padding="0px 15px">Demo</Text>
+            </ButtonWithExternalLink>
+          </Box>
         )}
       </Flex>
     </StyledHeadroom>
