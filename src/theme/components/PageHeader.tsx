@@ -15,14 +15,10 @@
  */
 import React from 'react';
 import Headroom from 'react-headroom';
-import {
-  Box,
-  Link as RebassLink,
-  Flex,
-  Image,
-  Text,
-} from 'rebass/styled-components';
+import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
+import { Link as GatsbyLink } from 'gatsby';
+
 import { header } from '../../content/HeaderContent';
 import colors from '../colors.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -46,18 +42,24 @@ const PageHeader = ({
         alignItems="center"
         px={3}
       >
-        <RebassLink href="/" variant="empty">
-          <Flex justifyContent="center">
-            <Image
-              src={logo.src}
-              height={['60px', '80px']}
-              width={['60px', '80px']}
-              alt="Process Analytics Logo"
-              p={2}
-              css={{ borderRadius: '20px', cursor: 'pointer' }}
-            />
-          </Flex>
-        </RebassLink>
+        <GatsbyLink
+          to="/"
+          style={{
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            marginRight: '50px',
+            borderRadius: '20px',
+            cursor: 'pointer',
+          }}
+        >
+          <Image
+            src={logo.src}
+            height={['60px', '80px']}
+            width={['60px', '80px']}
+            margin="auto"
+            alt="Process Analytics Logo"
+          />
+        </GatsbyLink>
         {displayDemoButton && (
           <Box>
             <ButtonWithExternalLink

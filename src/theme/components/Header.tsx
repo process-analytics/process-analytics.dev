@@ -16,13 +16,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Headroom from 'react-headroom';
-import {
-  Box,
-  Link as RebassLink,
-  Flex,
-  Image,
-  Text,
-} from 'rebass/styled-components';
+import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
@@ -45,18 +39,24 @@ const Header = (): JSX.Element => {
         alignItems="center"
         px={3}
       >
-        <RebassLink href={`#${getSectionHref(SECTION.home)}`} variant="empty">
-          <Flex justifyContent="center">
-            <Image
-              src={logo.src}
-              height={['60px', '80px']}
-              width={['60px', '80px']}
-              alt="Process Analytics Logo"
-              p={2}
-              css={{ borderRadius: '20px', cursor: 'pointer' }}
-            />
-          </Flex>
-        </RebassLink>
+        <GatsbyLink
+          to={`#${getSectionHref(SECTION.home)}`}
+          style={{
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            marginRight: '50px',
+            borderRadius: '20px',
+            cursor: 'pointer',
+          }}
+        >
+          <Image
+            src={logo.src}
+            height={['60px', '80px']}
+            width={['60px', '80px']}
+            margin="auto"
+            alt="Process Analytics Logo"
+          />
+        </GatsbyLink>
         <Flex mr={[0, 3, 5]}>
           {Object.keys(SECTION)
             .filter(id => id !== 'home')
