@@ -44,7 +44,7 @@ const Container = ({
 );
 
 type HeaderProps = {
-  name: string;
+  name: SECTION;
   icon?: string;
   label?: string;
 };
@@ -53,7 +53,7 @@ const Header = ({ name, icon, label }: HeaderProps): JSX.Element => (
   <Slide direction="left" triggerOnce>
     <Heading color="text" mb={4}>
       <Link
-        to={`/#${name.toLowerCase()}`}
+        to={`#${getSectionHref(name)}`}
         style={{ color: 'inherit', cursor: 'default' }}
       >
         {name}

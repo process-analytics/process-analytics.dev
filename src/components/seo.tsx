@@ -59,6 +59,7 @@ export const SEO = ({
 
   return (
     <ThemeProvider theme={theme}>
+      <html lang="en" />
       <title>{seo.title}</title>
       <meta charSet="utf-8" />
       <meta name="description" content={seo.description} />

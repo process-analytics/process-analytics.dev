@@ -13,8 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Flex } from 'rebass/styled-components';
 import React from 'react';
+
+import { Flex } from 'rebass/styled-components';
+import styled from 'styled-components';
+
+import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../../utils/constants';
 import { Image as ImageType, ImagePosition } from '../../types';
 import Divider from './../Divider';
 import ImagePanel from './ImagePanel';
@@ -31,7 +35,7 @@ const DescriptionPanel = ({
   index,
   mdx,
   image,
-  withSeparator = true,
+  withSeparator = false,
 }: PanelProps): JSX.Element => {
   if (image && !image.positionFromMdx) {
     image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
@@ -45,10 +49,10 @@ const DescriptionPanel = ({
 
   return (
     <>
-      <Flex
+      <SubSection
         key={index}
-        mt={['10px', '10px', '30px']}
-        mb={['10px', '10px', '30px']}
+        withSeparator={withSeparator}
+        marginTop={['10px', '10px', '30px']}
         pt={['1em', '1em', '1.5em']}
         flexDirection={
           isFullPage
@@ -59,18 +63,40 @@ const DescriptionPanel = ({
             ? 'row'
             : 'row-reverse'
         }
-        alignItems="center"
-        flexWrap="wrap"
       >
         <>
           {image && <ImagePanel image={image} isFullPage={isFullPage} />}
           <MDXPanel mdx={mdx} isFullPage={isFullPage} />
         </>
-      </Flex>
+      </SubSection>
       {withSeparator && <Divider />}
     </>
   );
 };
+
+type SubSectionProps = {
+  withSeparator: boolean;
+};
+const SubSection = styled(Flex)<SubSectionProps>`
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: ${({ withSeparator }) => (withSeparator ? '30px' : '0px')};
+
+  ${MEDIA_QUERY_MEDIUM} {
+    margin-bottom: ${({ withSeparator }) => (withSeparator ? '10px' : '0px')};
+  }
+  ${MEDIA_QUERY_SMALL} {
+    margin-bottom: ${({ withSeparator }) => (withSeparator ? '10px' : '0px')};
+  }
+
+  &:first-of-type {
+    margin-top: 0px;
+  }
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+`;
 
 function isVerticalSubSection(imagePosition: ImagePosition): boolean {
   return imagePosition === 'top' || imagePosition === 'bottom';
