@@ -19,7 +19,7 @@ import { footerRoutes } from '../../content/FooterRoutes';
 
 import { Footer } from '../components/Footer';
 import Layout from '../components/Layout';
-import PageHeader from '../components/PageHeader';
+import { PageHeader } from '../components/PageHeader';
 import { Section } from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
 import Triangle from '../components/Triangle';
