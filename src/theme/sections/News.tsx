@@ -20,7 +20,7 @@ import { SectionWithPosts } from './SectionWithPosts';
 
 const News = (): JSX.Element => (
   <SectionWithPosts
-    containerTitle={SECTION.news}
+    title={SECTION.news}
     posts={newsContent.news}
     pageId="news"
   />

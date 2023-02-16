@@ -26,7 +26,7 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import { Section } from '../theme/components/Section';
-import PageHeader from '../theme/components/PageHeader';
+import { PageHeader } from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
 

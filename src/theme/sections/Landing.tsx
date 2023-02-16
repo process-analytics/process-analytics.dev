@@ -16,6 +16,7 @@
 import React from 'react';
 
 import { Heading, Flex, Box, Text } from 'rebass/styled-components';
+
 import { Fade } from 'react-awesome-reveal';
 
 import { Section } from '../components/Section';
@@ -25,7 +26,7 @@ import { landing } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
-const LandingSection = (): JSX.Element => {
+export const Landing = (): JSX.Element => {
   const { title, presentation, socialLinks } = {
     ...landing,
   };
@@ -76,5 +77,3 @@ const LandingSection = (): JSX.Element => {
     </Section>
   );
 };
-
-export default LandingSection;

@@ -203,7 +203,7 @@ declare module '@mui/material/styles' {
     | 'success'
     | keyof CustomPaletteOptions;
 
-  export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
+  export type FontWeight = 'light' | 'regular' | 'medium' | 'bold' | string;
 
   export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
 

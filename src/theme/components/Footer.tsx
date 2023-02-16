@@ -81,7 +81,14 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       mb={2}
                     />
                   </GatsbyLink>
-                  <MKTypography variant="h5">{brand.name}</MKTypography>
+                  <MKTypography
+                    variant="h3"
+                    fontSize="1.25rem"
+                    lineHeight="1.375"
+                    fontWeight="700"
+                  >
+                    {brand.name}
+                  </MKTypography>
                   <MKBox display="flex" alignItems="center" mt={3}>
                     {socials.map(({ icon, url, name }, key) => (
                       <SocialLinkWithMaterial

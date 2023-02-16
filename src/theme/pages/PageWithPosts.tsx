@@ -19,7 +19,7 @@ import { footerRoutes } from '../../content/FooterRoutes';
 
 import { Footer } from '../components/Footer';
 import Layout from '../components/Layout';
-import PageHeader from '../components/PageHeader';
+import { PageHeader } from '../components/PageHeader';
 import { Section } from '../components/Section';
 import { Heading, Text } from 'rebass/styled-components';
 import { PostContainer } from '../components/Post';
@@ -28,6 +28,7 @@ import { MailingListSubscription } from '../components/mailingListSubscription/M
 import { PostDescription } from '../types';
 
 import { SECTION } from '../utils/constants';
+import { theme } from '../theme';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -45,7 +46,7 @@ export const PageWithPosts = ({
 }: PageWithPostsProps): JSX.Element => (
   <Layout>
     <PageHeader />
-    <Section id={containerTitle}>
+    <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
         textAlign="center"
         as="h1"

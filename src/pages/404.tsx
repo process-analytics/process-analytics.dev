@@ -26,7 +26,7 @@ import { Footer } from '../theme/components/Footer';
 import Layout from '../theme/components/Layout';
 import { Section } from '../theme/components/Section';
 import { PAGE } from '../theme/utils/constants';
-import PageHeader from '../theme/components/PageHeader';
+import { PageHeader } from '../theme/components/PageHeader';
 import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
 import Img from '../images/404.png';
@@ -73,7 +73,6 @@ const NotFoundPage = (): JSX.Element => (
     <MailingListSubscription />
   </Layout>
 );
-
 export default NotFoundPage;
 
 /*

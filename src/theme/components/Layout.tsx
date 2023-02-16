@@ -26,18 +26,18 @@ loadIcons();
 const GlobalStyle = createGlobalStyle`
   *,
   *::after,
-  *::before { 
+  *::before {
     box-sizing: border-box;
   }
 
   html { 
     scroll-behavior: smooth;
   }
-  
+
   html * {
     -moz-osx-font-smoothing: grayscale;
   }
-
+  
   header {
     width: 100%;
     display: block;
@@ -46,11 +46,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     min-height: 0px;
-
     position: relative;
     background-color: #f8f8f8;
     border-radius: 4px;
-
     &::before,
     &::after {
       display: table;
@@ -70,15 +68,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
 
-  a[href]{
-    cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-    background-color: transparent;
-  }
-
   h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -87,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
     color: inherit;
   }
-  
+
   h2 {
     font-family: inherit;
     font-size: 32px;
@@ -104,6 +93,14 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     vertical-align: middle;
     border: 0;
+  }
+
+  a[href]{
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    background-color: transparent;
   }
 `;
 
@@ -123,20 +120,20 @@ const Layout = ({ children }: Props): JSX.Element => (
           enableDeclineButton={true}
           flipButtons={true}
           style={{
-            opacity: '90%',
+            background: '#000000',
           }}
           contentStyle={{
-            color: theme.colors.background,
+            color: '#FFFFFF',
           }}
           cookieValue={false}
           buttonStyle={{
             background: '#90EE90',
-            color: theme.colors.primary,
+            color: '#000000',
           }}
           declineCookieValue={true}
           declineButtonStyle={{
-            background: theme.colors.secondary,
-            color: theme.colors.background,
+            background: '#fe6262',
+            color: '#000000',
           }}
           onDecline={() => {
             gaOptout();

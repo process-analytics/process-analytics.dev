@@ -18,6 +18,7 @@ import React from 'react';
 
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { HeadProps } from 'gatsby';
 
 import { FlexProps, TextProps } from 'rebass';
@@ -40,7 +41,7 @@ import { footerRoutes } from '../content/FooterRoutes';
 import { Footer } from '../theme/components/Footer';
 import { PostDescription } from '../theme/types';
 import { Section } from '../theme/components/Section';
-import PageHeader from '../theme/components/PageHeader';
+import { PageHeader } from '../theme/components/PageHeader';
 import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
 import { PostContainer } from '../theme/components/Post';

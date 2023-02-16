@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
+import styled from 'styled-components';
+
 import { Link as GatsbyLink } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 import { ButtonWithExternalLink } from './Button';
 
@@ -29,7 +31,7 @@ import { getSectionHref } from '../utils/helpers';
 import { header } from '../../content/HeaderContent';
 import colors from '../colors.json';
 
-const Header = (): JSX.Element => {
+export const Header = (): JSX.Element => {
   const { logo } = header;
 
   return (
@@ -106,11 +108,8 @@ export const StyledNavbar = styled.nav`
   z-index: 20;
   position: fixed;
   box-shadow: rgba(0, 0, 5, 0.3) 0 0 5px;
-
   background-color: #ffffff;
-
   margin-bottom: 0;
-
   border: 1px solid transparent;
   border-radius: 0;
   border-width: 0 0 1px;
@@ -127,12 +126,10 @@ export const StyledNavbar = styled.nav`
 
 export const StyledContainer = styled(Flex)`
   height: 6.25rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 120rem;
-
   padding-left: 0;
   padding-right: 0;
   margin-right: 50px;
@@ -170,5 +167,3 @@ const NavMenu = ({ name }: { name: string }): JSX.Element => (
     </GatsbyLink>
   </StyledNavMenu>
 );
-
-export default Header;

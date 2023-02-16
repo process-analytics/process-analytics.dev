@@ -20,8 +20,8 @@ import { PostDescription } from '../types';
 import { Card, CardContainer } from './Card';
 import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
-import { ButtonWithInternalLink } from './Button';
 import colors from '../colors.json';
+import { ButtonWithInternalLink } from './Button';
 
 const cardMinWidth = '350px';
 
@@ -88,12 +88,12 @@ export const PostContainer = ({
     <>
       <CardContainer minWidth={cardMinWidth}>
         <DownFade>
-          {(pageId ? posts.slice(0, 6) : posts).map(p => (
+          {(pageId ? posts.slice(0, 8) : posts).map(p => (
             <Post {...p} key={p.url} />
           ))}
         </DownFade>
       </CardContainer>
-      {pageId && posts.length > 6 && (
+      {pageId && posts.length > 8 && (
         <DownFade>
           <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
             <ButtonWithInternalLink

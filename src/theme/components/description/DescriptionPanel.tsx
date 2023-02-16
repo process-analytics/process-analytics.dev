@@ -63,8 +63,6 @@ const DescriptionPanel = ({
             ? 'row'
             : 'row-reverse'
         }
-        alignItems="center"
-        flexWrap="wrap"
       >
         <>
           {image && <ImagePanel image={image} isFullPage={isFullPage} />}
@@ -80,6 +78,9 @@ type SubSectionProps = {
   withSeparator: boolean;
 };
 const SubSection = styled(Flex)<SubSectionProps>`
+  align-items: center;
+  flex-wrap: wrap;
+
   margin-bottom: ${({ withSeparator }) => (withSeparator ? '30px' : '0px')};
 
   ${MEDIA_QUERY_MEDIUM} {

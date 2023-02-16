@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
+
 import { Link as GatsbyLink } from 'gatsby';
 
-import { StyledContainer, StyledNavbar } from './Header';
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { StyledContainer, StyledNavbar } from './Header';
 import { header } from '../../content/HeaderContent';
 import { ButtonWithExternalLink } from './Button';
 import colors from '../colors.json';
@@ -29,7 +31,7 @@ type PageHeaderProps = {
   displayDemoButton?: boolean;
 };
 
-const PageHeader = ({
+export const PageHeader = ({
   displayDemoButton = true,
 }: PageHeaderProps): JSX.Element => {
   const { logo } = header;
@@ -93,5 +95,3 @@ const PageHeader = ({
     </header>
   );
 };
-
-export default PageHeader;

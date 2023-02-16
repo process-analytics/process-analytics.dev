@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 import React from 'react';
-import { Section, SectionHeader } from '../components/Section';
+
+import { SectionWithTitle } from '../components/Section';
 import { SECTION } from '../utils/constants';
 import { about } from '../../content/AboutContent';
 import DescriptionPanel from '../components/description/DescriptionPanel';
 
-const About = (): JSX.Element => {
+export const About = (): JSX.Element => {
   return (
-    <Section id={SECTION.about}>
-      <SectionHeader name={SECTION.about} />
-
+    <SectionWithTitle id={SECTION.about}>
       {about.map((subsection, index) => (
         <DescriptionPanel key={index} index={index} {...subsection} />
       ))}
-    </Section>
+    </SectionWithTitle>
   );
 };
-export default About;

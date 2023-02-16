@@ -13,53 +13,71 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
+
 import styled from 'styled-components';
 import { Heading } from 'rebass/styled-components';
-import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
-import { getSectionHref } from '../utils/helpers';
+
 import { Link } from 'gatsby';
 
-type SectionProps = {
-  id?: SECTION;
-  children: ReactNode;
-  justifyContent?: string;
-};
+import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
+import { getSectionHref } from '../utils/helpers';
+import { theme } from '../theme';
+
+type SectionProps = StyledSectionProps &
+  SectionContainerProps & {
+    id?: SECTION;
+  };
 
 export const Section = ({
-  id,
   children,
+  id,
+  backgroundColor = theme.colors.muted,
   justifyContent = 'center',
-}: SectionProps): JSX.Element => (
-  <StyledSection id={id && getSectionHref(id)}>
+}: PropsWithChildren<SectionProps>): JSX.Element => (
+  <StyledSection
+    id={id && getSectionHref(id)}
+    backgroundColor={backgroundColor}
+  >
     <SectionContainer justifyContent={justifyContent}>
       {children}
     </SectionContainer>
   </StyledSection>
 );
 
-const StyledSection = styled.section`
+export const SectionWithTitle = ({
+  id,
+  children,
+  ...rest
+}: PropsWithChildren<SectionProps> &
+  Required<Pick<SectionProps, 'id'>>): JSX.Element => (
+  <Section id={id} {...rest}>
+    <SectionHeader name={id} />
+    {children}
+  </Section>
+);
+
+type StyledSectionProps = {
+  backgroundColor?: string;
+};
+const StyledSection = styled.section<StyledSectionProps>`
   position: relative;
   display: block;
-
   text {
     padding: 45px 0;
   }
-
   &:first-of-type {
     margin-top: 101px;
   }
 
   &:nth-of-type(even) {
     position: relative;
-    background-color: #dbeffe;
+    background-color: ${({ backgroundColor }) => backgroundColor};
   }
-
   &:nth-of-type(even):not(:last-of-type) {
     border-top-left-radius: 300px;
     border-bottom-left-radius: 300px;
   }
-
   &:nth-of-type(even) > ::before {
     background-color: white;
     content: '';
@@ -74,14 +92,12 @@ const StyledSection = styled.section`
     position: relative;
     background-color: white;
   }
-
   &:nth-of-type(odd):not(:first-of-type) {
     border-bottom-right-radius: 300px;
     border-top-right-radius: 300px;
   }
-
   &:nth-of-type(odd) > ::before {
-    background-color: #dbeffe;
+    background-color: ${({ backgroundColor }) => backgroundColor};
     content: '';
     position: absolute;
     top: 0;
@@ -110,16 +126,16 @@ const SectionContainer = styled.div<SectionContainerProps>`
   }
 `;
 
-type HeaderProps = {
-  name: string;
+type SectionHeaderProps = {
+  name: SECTION;
   icon?: string;
   label?: string;
 };
-export const SectionHeader = ({
+const SectionHeader = ({
   name,
   icon,
   label,
-}: HeaderProps): JSX.Element => (
+}: SectionHeaderProps): JSX.Element => (
   <Heading
     color="text"
     fontWeight="700"
@@ -128,7 +144,7 @@ export const SectionHeader = ({
     textAlign="center"
   >
     <Link
-      to={`/#${name.toLowerCase()}`}
+      to={`#${getSectionHref(name)}`}
       style={{ color: 'inherit', cursor: 'default' }}
     >
       {name}
