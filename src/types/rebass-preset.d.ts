@@ -37,6 +37,20 @@ declare module '@rebass/preset' {
     primary: string;
     secondary: string;
     muted: string;
+    primary: string;
+    primaryLight: string;
+    secondary: string;
+    secondaryLight: string;
+    spicy: string;
+    sweet: string;
+    manufacture: string;
+    education: string;
+    telecom: string;
+    financial: string;
+    energy: string;
+    health: string;
+    government: string;
+    distribution: string;
     gray?: string;
     highlight?: string;
   }

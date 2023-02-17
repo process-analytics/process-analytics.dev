@@ -40,7 +40,7 @@ const Container = styled(Flex)`
 
 const Title = styled.h2`
   position: relative;
-  color: #002395;
+  color: ${props => props.theme.colors.primary};
   font-weight: bold;
   font-size: 30px;
 `;
@@ -48,7 +48,7 @@ const Title = styled.h2`
 const Description = styled.div`
   width: 90%;
   line-height: 24px;
-  color: #002395;
+  color: ${props => props.theme.colors.primary};
   position: relative;
   font-weight: 500;
   font-size: 16.5px;
@@ -96,7 +96,7 @@ export const ModelGenerationApp = (): JSX.Element => {
             icon="database"
             style={{
               margin: 'auto',
-              color: colors.secondary,
+              color: colors.spicy,
               width: '40%',
               height: 'auto',
             }}
