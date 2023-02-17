@@ -8,7 +8,19 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs37">
-    <mask id="mask-powermask-path-effect871" maskUnits="userSpaceOnUse">
+    <linearGradient id="linearGradient8829">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop8825" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop8827" />
+    </linearGradient>
+    <mask
+       id="mask-powermask-path-effect871"
+       maskUnits="userSpaceOnUse">
       <path
          id="mask-powermask-path-effect871_box"
          style="fill:#ffffff;fill-opacity:1"

@@ -101,8 +101,8 @@ declare module '@mui/material/styles' {
 
   export interface CustomPalette {
     tertiary: PaletteColor;
-    primary_light: PaletteColor;
-    secondary_light: PaletteColor;
+    primaryLight: PaletteColor;
+    secondaryLight: PaletteColor;
     spicy: PaletteColor;
     sweet: PaletteColor;
     manufacture: PaletteColor;
@@ -161,8 +161,8 @@ declare module '@mui/material/styles' {
 
   interface CustomPaletteOptions {
     tertiary: PaletteColorOptions;
-    primary_light: PaletteColorOptions;
-    secondary_light: PaletteColorOptions;
+    primaryLight: PaletteColorOptions;
+    secondaryLight: PaletteColorOptions;
     spicy: PaletteColorOptions;
     sweet: PaletteColorOptions;
     manufacture: PaletteColorOptions;

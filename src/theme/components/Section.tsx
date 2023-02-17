@@ -32,7 +32,7 @@ type SectionProps = StyledSectionProps &
 export const Section = ({
   children,
   id,
-  backgroundColor = theme.colors.muted,
+  backgroundColor = theme.colors.primaryLight,
   justifyContent = 'center',
 }: PropsWithChildren<SectionProps>): JSX.Element => (
   <StyledSection
