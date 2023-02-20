@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 export const capitalize = (s: string): string =>
-  s[0].toUpperCase() + s.slice(1);
+  (s[0].toUpperCase() + s.slice(1)).split(/(?=[A-Z])/).join(' ');
