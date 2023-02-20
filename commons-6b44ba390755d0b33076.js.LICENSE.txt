@@ -1,7 +1,7 @@
 /*! For license information please see index.js.LICENSE.txt */
 
 /**
- * @mui/styled-engine v5.11.8
+ * @mui/styled-engine v5.11.9
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
