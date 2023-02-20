@@ -19,11 +19,11 @@ export const GATSBY_URL = 'https://www.gatsbyjs.org/';
 // values are used as section title
 export enum SECTION {
   home = 'Home',
+  modelGenerationApp = 'Model Generation Application',
   about = 'About',
   libraries = 'Libraries',
   news = 'News',
   blog = 'Blog Posts',
-  modelGenerationApp = 'Model Generation Application',
 }
 
 /**
