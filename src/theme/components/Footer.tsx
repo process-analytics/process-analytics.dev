@@ -211,9 +211,9 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                     variant="caption"
                     fontWeight="regular"
                   >
-                    {copyright.name} theme
+                    {copyright.name}
                   </MKTypography>
-                  &nbsp;
+                  &nbsp; theme &nbsp;
                   <span role="img" aria-label="heart">
                     ❤️
                   </span>
