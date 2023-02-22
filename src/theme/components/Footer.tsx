@@ -38,7 +38,7 @@ import { LinkWithMaterial } from './Link';
 import { RouteWithMaterial } from './Route';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
-  const { brand, socials, menus } = content;
+  const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
 
@@ -205,13 +205,13 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   and inspired from the{' '}
                   <MKTypography
                     component={LinkWithMaterial}
-                    href="https://github.com/EmaSuriano/gatsby-theme-mate"
+                    href={copyright.url}
                     target="_blank"
                     rel="noreferrer"
                     variant="caption"
                     fontWeight="regular"
                   >
-                    Gatsby Theme Mate
+                    {copyright.name} theme
                   </MKTypography>
                   &nbsp;
                   <span role="img" aria-label="heart">
