@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ComponentsOverrides } from '@mui/material/styles/overrides';
-import { ComponentsProps } from '@mui/material/styles/props';
-import { ComponentsVariants } from '@mui/material/styles/variants';
+
+import { Components, Theme } from '@mui/material';
 
 /**
 =========================================================
@@ -32,15 +31,9 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-const link: {
-  defaultProps?: ComponentsProps['MuiLink'];
-  styleOverrides?: ComponentsOverrides['MuiLink'];
-  variants?: ComponentsVariants['MuiLink'];
-} = {
+export const MuiLink: Components<Theme>['MuiLink'] = {
   defaultProps: {
     underline: 'none',
     color: 'inherit',
   },
 };
-
-export default link;

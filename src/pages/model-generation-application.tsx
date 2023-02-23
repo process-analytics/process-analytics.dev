@@ -33,22 +33,25 @@ import {
 
 import { SEO } from '../components/seo';
 
-import { Features } from '../theme/components/modelGenerationApp/Features';
-import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
+import {
+  Features,
+  Jotform,
+  Footer,
+  Section,
+  Header,
+  Layout,
+  PostContainer,
+} from '../theme/components';
 
 import { postsContent } from '../content/PostsContent';
 import { footerRoutes } from '../content/FooterRoutes';
-import { Footer } from '../theme/components/Footer';
+
 import { PostDescription } from '../theme/types';
-import { Section } from '../theme/components/Section';
-import { PageHeader } from '../theme/components/PageHeader';
-import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
-import { PostContainer } from '../theme/components/Post';
+import colors from '../theme/colors.json';
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
-import colors from '../theme/colors.json';
 import { DataProps } from '../hooks/use-site-metadata';
 
 export const Part = ({
@@ -181,7 +184,7 @@ export const Paragraph = ({
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout>
-      <PageHeader displayDemoButton={false} />
+      <Header />
       <Section>
         <Heading
           textAlign="center"
@@ -219,18 +222,20 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
       </Section>
       <Section>
         <PartWithSingleColumn backgroundColor="muted">
-          <PartTitle marginBottom="52px">How it works?</PartTitle>
+          <PartTitle marginBottom="3.25rem">How it works?</PartTitle>
           <Part
             marginTop="24px"
             justifyContent={'space-around'}
             alignItems={'center'}
+            flexDirection={['column', 'row']}
           >
             <Image
               src={HowItWorksImg}
               alt={'Generation Model Application Demo'}
-              width="45%"
+              width={['100%', '45%']}
+              marginBottom={['3.25rem', 0]}
             />
-            <Paragraph width="40%" fontSize={[1, 1, 2, 3]}>
+            <Paragraph width={['100%', '40%']} fontSize={[1, 1, 2, 3]}>
               The Model Generation Application is a{' '}
               <Link href="https://shiny.rstudio.com/">shiny R application</Link>{' '}
               that takes an event log file in{' '}
@@ -254,16 +259,18 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
       </Section>
       <Section>
         <Part
+          flexDirection={['column', 'row']}
           justifyContent="space-between"
           alignItems="center"
           padding="114px 24px"
-          width="80%"
+          width={['100%', '80%']}
           marginX="auto"
         >
           <Flex
             width={['5rem', '5.5rem', '6.875rem']}
             height={['5rem', '5.5rem', '6.875rem']}
             alignItems="center"
+            marginBottom={['3.25rem', 0]}
             style={{
               borderRadius: '0.75rem',
               borderColor: colors.primary,

@@ -9,6 +9,7 @@ on:
       - '.github/workflows/deploy.yml'
       - '.github/pages/**/*'
       - 'src/**/*'
+      - 'static/**/*'
       - 'package.json'
       - 'package-lock.json'
       - 'gatsby-*.js'

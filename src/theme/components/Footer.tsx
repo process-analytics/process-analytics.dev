@@ -29,16 +29,16 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import theme from '../../assets/theme';
+import { theme } from '../../assets/theme';
 
 import { Link as FooterLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
-import { LinkWithMaterial } from './Link';
+import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
-  const { brand, socials, menus } = content;
+  const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
 
@@ -71,7 +71,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   flexDirection="column"
                   alignItems="center"
                 >
-                  <GatsbyLink to={brand.route}>
+                  <GatsbyLink to={brand.url}>
                     <MKBox
                       component="img"
                       src={brand.logo}
@@ -139,7 +139,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       m={0}
                       sx={{ listStyle: 'none' }}
                     >
-                      {items.map(({ name, route }: FooterLink) => (
+                      {items.map(({ name, url }: FooterLink) => (
                         <MKBox
                           key={name}
                           component="li"
@@ -149,7 +149,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                         >
                           <MKTypography
                             component={RouteWithMaterial}
-                            to={route}
+                            to={url}
                             rel="noreferrer"
                             variant="button"
                             fontWeight="regular"
@@ -168,32 +168,19 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   Copyright &copy; {year}{' '}
                   <MKTypography
                     component={RouteWithMaterial}
-                    to={brand.route}
+                    to={brand.url}
                     rel="noreferrer"
                     variant="caption"
                     fontWeight="regular"
                   >
                     {brand.name}
                   </MKTypography>
-                  {/*TODO decide later if we display the company name*/}
-                  {/*{' '}*/}
-                  {/*by{' '}*/}
-                  {/*<MKTypography*/}
-                  {/*  component={LinkWithMaterial}*/}
-                  {/*  href={copyright.url}*/}
-                  {/*  target="_blank"*/}
-                  {/*  rel="noreferrer"*/}
-                  {/*  variant="caption"*/}
-                  {/*  fontWeight="regular"*/}
-                  {/*>*/}
-                  {/*  {copyright.name}*/}
-                  {/*</MKTypography>*/}
                 </MKTypography>
                 <br />
                 <MKTypography variant="caption" fontWeight="regular">
                   Powered by{' '}
                   <MKTypography
-                    component={LinkWithMaterial}
+                    component={Link}
                     href={GATSBY_URL}
                     target="_blank"
                     rel="noreferrer"
@@ -204,16 +191,16 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   </MKTypography>{' '}
                   and inspired from the{' '}
                   <MKTypography
-                    component={LinkWithMaterial}
-                    href="https://github.com/EmaSuriano/gatsby-theme-mate"
+                    component={Link}
+                    href={copyright.url}
                     target="_blank"
                     rel="noreferrer"
                     variant="caption"
                     fontWeight="regular"
                   >
-                    Gatsby Theme Mate
+                    {copyright.name}
                   </MKTypography>
-                  &nbsp;
+                  &nbsp; theme &nbsp;
                   <span role="img" aria-label="heart">
                     ❤️
                   </span>

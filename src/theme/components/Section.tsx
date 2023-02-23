@@ -63,42 +63,54 @@ type StyledSectionProps = {
 const StyledSection = styled.section<StyledSectionProps>`
   position: relative;
   display: block;
+
+  border-radius: 0px;
+
+  @media only screen and (min-width: 61.188rem) {
+    &:first-of-type {
+      margin-top: 6.25rem;
+    }
+
+    &:nth-of-type(even):not(:last-of-type) {
+      border-top-left-radius: 18.75rem;
+      border-bottom-left-radius: 18.75rem;
+    }
+
+    &:nth-of-type(odd):not(:first-of-type) {
+      border-bottom-right-radius: 18.75rem;
+      border-top-right-radius: 18.75rem;
+    }
+  }
+
   text {
-    padding: 45px 0;
+    padding: 2.813rem 0;
   }
-  &:first-of-type {
-    margin-top: 101px;
-  }
+
   &:nth-of-type(even) {
     position: relative;
     background-color: ${({ backgroundColor }) => backgroundColor};
   }
-  &:nth-of-type(even):not(:last-of-type) {
-    border-top-left-radius: 300px;
-    border-bottom-left-radius: 300px;
-  }
-  &:nth-of-type(even) > ::before {
+  &:nth-of-type(even)::before {
     background-color: white;
     content: '';
     position: absolute;
     top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
   }
+
   &:nth-of-type(odd) {
     position: relative;
     background-color: white;
   }
-  &:nth-of-type(odd):not(:first-of-type) {
-    border-bottom-right-radius: 300px;
-    border-top-right-radius: 300px;
-  }
-  &:nth-of-type(odd) > ::before {
+  &:nth-of-type(odd)::before {
     background-color: ${({ backgroundColor }) => backgroundColor};
     content: '';
     position: absolute;
     top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -137,7 +149,7 @@ const SectionHeader = ({
   <Heading
     color="text"
     fontWeight="700"
-    fontSize="30px"
+    fontSize="1.875rem"
     margin="30px 65px"
     textAlign="center"
   >

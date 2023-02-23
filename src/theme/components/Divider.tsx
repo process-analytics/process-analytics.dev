@@ -16,7 +16,7 @@
 import styled from 'styled-components';
 import { Theme } from '../types';
 
-const Divider = styled.div`
+export const Divider = styled.div`
   position: relative;
   &:before {
     content: '';
@@ -32,5 +32,3 @@ const Divider = styled.div`
     );
   }
 `;
-
-export default Divider;

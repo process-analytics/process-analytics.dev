@@ -15,26 +15,17 @@
  */
 import React from 'react';
 
-import { Fade } from 'react-awesome-reveal';
+import { about } from '../../content/AboutContent';
 
-import { SectionWithTitle } from '../components/Section';
-import { CardContainer } from '../components/Card';
-import Library from '../components/Library';
-import { SECTION } from '../utils/constants';
-import { libraries } from '../../content/LibraryContent';
+import { SectionWithTitle, DescriptionPanel } from '../../theme/components';
+import { SECTION } from '../../theme/utils/constants';
 
-const cardMinWidth = '300px';
-
-export const Libraries = (): JSX.Element => {
+export const About = (): JSX.Element => {
   return (
-    <SectionWithTitle id={SECTION.libraries}>
-      <CardContainer minWidth={cardMinWidth}>
-        <Fade direction="down" cascade damping={0.5} triggerOnce>
-          {libraries.map((p, i) => (
-            <Library {...p} key={i} />
-          ))}
-        </Fade>
-      </CardContainer>
+    <SectionWithTitle id={SECTION.about}>
+      {about.map((subsection, index) => (
+        <DescriptionPanel key={index} index={index} {...subsection} />
+      ))}
     </SectionWithTitle>
   );
 };

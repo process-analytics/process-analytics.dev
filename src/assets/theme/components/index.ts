@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-
-import { SectionWithTitle } from '../components/Section';
-import { SECTION } from '../utils/constants';
-import { about } from '../../content/AboutContent';
-import DescriptionPanel from '../components/description/DescriptionPanel';
-
-export const About = (): JSX.Element => {
-  return (
-    <SectionWithTitle id={SECTION.about}>
-      {about.map((subsection, index) => (
-        <DescriptionPanel key={index} index={index} {...subsection} />
-      ))}
-    </SectionWithTitle>
-  );
-};
+export { MuiIconButton } from './muiIconButton';
+export { MuiTooltip } from './muiTooltip';
+export { MuiAppBar } from './muiAppBar';
+export { MuiContainer } from './muiContainer';
+export { MuiIcon } from './muiIcon';
+export { MuiSvgIcon } from './muiSvgIcon';
+export { MuiLink } from './muiLink';

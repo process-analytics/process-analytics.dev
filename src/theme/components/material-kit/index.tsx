@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-import { SECTION } from '../utils/constants';
-import { postsContent } from '../../content/PostsContent';
-import { SectionWithPosts } from './SectionWithPosts';
-
-const Blog = (): JSX.Element => (
-  <SectionWithPosts
-    title={SECTION.blog}
-    posts={postsContent.posts}
-    pageId="blog"
-  />
-);
-
-export { Blog };
+export * from './MKBox';
+export * from './MKTypography';
+export * from './Navbar';

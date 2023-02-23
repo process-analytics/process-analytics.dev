@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 import React from 'react';
-import { SECTION } from '../utils/constants';
+
 import { newsContent } from '../../content/NewsContent';
-import { SectionWithPosts } from './SectionWithPosts';
+import { SectionWithPosts } from '../SectionWithPosts';
+
+import { SECTION } from '../../theme/utils/constants';
 
 const News = (): JSX.Element => (
   <SectionWithPosts

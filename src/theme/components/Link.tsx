@@ -14,6 +14,32 @@
  * limitations under the License.
  */
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
+import { Link as GatsbyLink } from 'gatsby-link';
+
+import { Link as LinkType } from '../types';
+
+export function getLinkAttributes(
+  item: Required<Pick<LinkType, 'url' | 'type'>>,
+):
+  | { component: typeof GatsbyLink; to: string }
+  | {
+      component: typeof MaterialLink;
+      rel: string;
+      href: string;
+      target: string;
+    } {
+  return item.type === 'internal'
+    ? {
+        component: GatsbyLink,
+        to: item.url,
+      }
+    : {
+        component: MaterialLink,
+        href: item.url,
+        target: '_blank',
+        rel: 'noreferrer',
+      };
+}
 
 type LinkProps = {
   selected?: boolean;
@@ -21,7 +47,7 @@ type LinkProps = {
   onClick?: () => void;
 };
 
-export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
+export const Link = MaterialStyled(MaterialLink)<LinkProps>(
   ({ theme, selected, href, onClick }) => `
   text-decoration: none;
   position: relative;
@@ -32,7 +58,6 @@ export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
   ${selected && `border-bottom: 3px solid ${theme.palette.primary.main}`};
   transition: 0.4s;
   cursor: ${onClick || href ? 'pointer' : 'default'};
-
   &:after {
     content: '';
     position: absolute;
@@ -45,7 +70,6 @@ export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
   }
-
   &:focus:after,
   &:hover:after {
     left: 0;

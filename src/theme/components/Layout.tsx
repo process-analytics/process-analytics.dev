@@ -68,13 +68,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
 
-  a[href]{
-    cursor: pointer;
-  }
-  a {
-    text-decoration: none;
-    background-color: transparent;
-  }
   h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -113,7 +106,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props): JSX.Element => (
+export const Layout = ({ children }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -158,5 +151,3 @@ const Layout = ({ children }: Props): JSX.Element => (
     </ThemeProvider>
   </main>
 );
-
-export default Layout;

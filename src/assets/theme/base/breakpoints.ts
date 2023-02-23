@@ -14,10 +14,14 @@
  * limitations under the License.
  */
 
+import { BreakpointsOptions } from '@mui/material';
+
 /**
  * To customize the breakpoints: https://mui.com/material-ui/customization/breakpoints/
  */
-export default {
+export const breakpoints: Required<
+  Omit<BreakpointsOptions, 'keys' | 'up' | 'down' | 'between' | 'only' | 'not'>
+> = {
   unit: 'rem',
   step: 6,
   values: {

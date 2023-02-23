@@ -20,7 +20,8 @@ import styled from 'styled-components';
 
 import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../../utils/constants';
 import { Image as ImageType, ImagePosition } from '../../types';
-import Divider from './../Divider';
+
+import { Divider } from '..';
 import ImagePanel from './ImagePanel';
 import MDXPanel from './MDXPanel';
 
@@ -31,7 +32,7 @@ type PanelProps = {
   withSeparator?: boolean;
 };
 
-const DescriptionPanel = ({
+export const DescriptionPanel = ({
   index,
   mdx,
   image,
@@ -105,5 +106,3 @@ function isVerticalSubSection(imagePosition: ImagePosition): boolean {
 function isImageOnLeftOrOnRight(imagePosition: ImagePosition): boolean {
   return imagePosition === 'left' || imagePosition === 'top';
 }
-
-export default DescriptionPanel;

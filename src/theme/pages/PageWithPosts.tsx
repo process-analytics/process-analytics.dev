@@ -15,15 +15,18 @@
  */
 import * as React from 'react';
 
+import { Heading, Text } from 'rebass/styled-components';
+
 import { footerRoutes } from '../../content/FooterRoutes';
 
-import { Footer } from '../components/Footer';
-import Layout from '../components/Layout';
-import { PageHeader } from '../components/PageHeader';
-import { Section } from '../components/Section';
-import { Heading, Text } from 'rebass/styled-components';
-import { PostContainer } from '../components/Post';
-import { MailingListSubscription } from '../components/mailingListSubscription/MailingListSubscription';
+import {
+  Footer,
+  Layout,
+  Header,
+  Section,
+  PostContainer,
+  MailingListSubscription,
+} from '../components';
 
 import { PostDescription } from '../types';
 
@@ -45,7 +48,7 @@ export const PageWithPosts = ({
   description,
 }: PageWithPostsProps): JSX.Element => (
   <Layout>
-    <PageHeader />
+    <Header />
     <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
         textAlign="center"
@@ -71,8 +74,7 @@ export const PageWithPosts = ({
       <PostContainer posts={posts} />
     </Section>
     <MailingListSubscription />
-    {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class */}
+    {/* TODO: When there will only one theme provider, move the Footer in the Layout class */}
     <Footer content={footerRoutes} />
   </Layout>
 );
