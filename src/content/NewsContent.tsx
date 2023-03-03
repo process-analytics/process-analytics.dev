@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'February 2023 News',
+    text: 'Check out our February edition for our official release on CRAN, bpmn navigation, upcoming events, and more.',
+    cover: 'https://miro.medium.com/v2/resize:fit:700/0*-eFaEBNjtLnISIi5',
+    url: 'https://medium.com/@process-analytics/process-analytics-february-2023-news-5f0546b55b26',
+    date: 'March 2023',
+    time: 4,
+  },
+  {
     title: 'January 2023 News',
     text: 'Discover an exciting demo of integrating bpmn-visualization with pm4py. Check this and more in our January news update.',
     cover: 'https://miro.medium.com/max/700/0*TimiW2u0A23v_kOR',
