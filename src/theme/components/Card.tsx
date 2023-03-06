@@ -18,10 +18,13 @@ import { Card as CardRebass } from 'rebass/styled-components';
 
 type CardContainerProps = {
   minWidth: string;
+  mb?: string;
 };
 
 export const CardContainer = styled.div<CardContainerProps>`
   display: grid;
+  margin-bottom: ${({ mb }) => mb};
+
   grid-gap: 30px;
 
   grid-template-columns: repeat(
