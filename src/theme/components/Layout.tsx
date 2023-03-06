@@ -68,13 +68,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
 
-  a[href]{
-    cursor: pointer;
-  }
-  a {
-    text-decoration: none;
-    background-color: transparent;
-  }
   h1 {
     font-size: 3rem;
     font-weight: bold;
