@@ -28,7 +28,7 @@ const cardMinWidth = '300px';
 export const Libraries = (): JSX.Element => {
   return (
     <SectionWithTitle id={SECTION.libraries}>
-      <CardContainer minWidth={cardMinWidth}>
+      <CardContainer minWidth={cardMinWidth} mb="30px">
         <Fade direction="down" cascade damping={0.5} triggerOnce>
           {libraries.map((p, i) => (
             <Library {...p} key={i} />
