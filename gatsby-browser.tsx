@@ -15,3 +15,6 @@
  */
 
 import './src/theme/styles/global.css';
+import './src/theme/styles/cookieconsent.css';
+import 'tippy.js/dist/tippy.css';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';

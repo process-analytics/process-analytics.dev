@@ -29,9 +29,6 @@ import {
 
 import 'vanilla-cookieconsent';
 
-import 'tippy.js/dist/tippy.css';
-import 'vanilla-cookieconsent/dist/cookieconsent.css';
-
 // import Logo from '../images/logo.svg';
 
 import { theme } from '../theme';
@@ -143,6 +140,8 @@ export const Layout = ({ children }: Props): JSX.Element => {
       process.env.GATSBY_GA_MEASUREMENT_ID &&
       !document.getElementById('cc--main')
     ) {
+      document.body.classList.add('theme_funky');
+
       const cookieConsent = initCookieConsent();
       cookieConsent.run({
         autorun: true,
@@ -300,7 +299,7 @@ export const Layout = ({ children }: Props): JSX.Element => {
   }, []);
 
   return (
-    <main className="theme_funky">
+    <main>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MuiThemeProvider theme={{ [THEME_ID]: muiTheme }}>
