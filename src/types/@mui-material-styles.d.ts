@@ -34,6 +34,14 @@ declare module '@mui/material/styles' {
     [key: string]: TypographyStyle; // add index signature to allow any string keys
   }
 
+  export type ButtonPropsColorOverrides =
+    | PaletteColorKey
+    | 'light'
+    | 'white'
+    | 'default';
+
+  export type ButtonPropsVariantOverrides = 'gradient';
+
   type BoxShadowColor = {
     white: string;
 

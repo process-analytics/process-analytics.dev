@@ -15,6 +15,8 @@
  */
 import React from 'react';
 
+import { Navbar, MKBox } from './material-kit';
+
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
 
@@ -30,7 +32,28 @@ import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { header } from '../../content/HeaderContent';
 import colors from '../colors.json';
+import { routes } from '../../content/HeaderRoutes';
 
+export const Header2 = (): JSX.Element => {
+  const { logo } = header;
+  return (
+    <MKBox bgColor="white" shadow="sm" py={0.25}>
+      <Navbar
+        routes={routes}
+        action={{
+          type: 'external',
+          route:
+            'https://github.com/process-analytics/process-analytics.dev/pulls',
+          label: 'pr',
+          color: 'info',
+        }}
+        transparent
+        relative
+        center
+      />
+    </MKBox>
+  );
+};
 export const Header = (): JSX.Element => {
   const { logo } = header;
 
