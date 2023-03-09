@@ -18,12 +18,14 @@ import React, { PropsWithChildren } from 'react';
 import { Theme } from '@rebass/preset';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import CookieConsent, { Cookies } from 'react-cookie-consent';
 import {
   CssBaseline,
   THEME_ID,
   ThemeProvider as MuiThemeProvider,
 } from '@mui/material';
+
+import CookieConsent, { Cookies } from 'react-cookie-consent';
+import { CookieConsent as MyCookieConsent } from '../../components/CookieConsent';
 
 import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
