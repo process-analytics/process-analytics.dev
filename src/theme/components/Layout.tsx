@@ -141,6 +141,8 @@ export const Layout = ({ children }: Props): JSX.Element => {
       !document.getElementById('cc--main')
     ) {
       document.body.classList.add('theme_funky');
+      // document.body.classList.add('theme_turquoise');
+      //document.body.classList.add('theme_blue');
 
       const cookieConsent = initCookieConsent();
       cookieConsent.run({

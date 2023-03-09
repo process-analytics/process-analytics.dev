@@ -1,3 +1,4 @@
+/* ------------------------------------------- FUNKY THEME ----------------------------------------- */
 .theme_funky {
     --cc-bg: #f9faff;
     --cc-text: #112954;
@@ -37,4 +38,93 @@
 
 .theme_funky .cc_div .c-bn{
     border-radius: .7em;
+}
+
+/* ------------------------------------------- TURQUOISE THEME ----------------------------------------- */
+.theme_turquoise {
+    --cc-bg: #161a1c;
+    --cc-text: #d8e5ea;
+    --cc-btn-primary-bg: #60fed2;
+    --cc-btn-primary-text: #000;
+    --cc-btn-primary-hover-bg: #4dd4ae;
+    --cc-btn-secondary-bg: #242c31;
+    --cc-btn-secondary-text: var(--cc-text);
+    --cc-btn-secondary-hover-bg: #2b353c;
+    --cc-toggle-bg-off: #667481;
+    --cc-toggle-bg-on: var(--cc-btn-primary-bg);
+    --cc-toggle-bg-readonly: #343e45;
+    --cc-toggle-knob-bg: var(--cc-cookie-category-block-bg);
+    --cc-toggle-knob-icon-color: var(--cc-bg);
+    --cc-cookie-category-block-bg: #1e2428;
+    --cc-cookie-category-block-bg-hover: #242c31;
+    --cc-section-border: #222a30;
+    --cc-block-text: #bac9cf;
+    --cc-cookie-table-border: #2b3035;
+    --cc-overlay-bg: rgba(4, 6, 8, .85);
+    --cc-webkit-scrollbar-bg: #2c343a;
+    --cc-webkit-scrollbar-bg-hover: #384148;
+}
+
+.theme_turquoise .cc_div a{
+    color: var(--cc-btn-primary-bg);
+}
+
+.theme_turquoise #cc_div #s-hdr{
+    border-bottom: none;
+}
+
+.theme_turquoise .cc_div #c-txt{
+    color: #b0b8c6!important;
+}
+
+/* ------------------------------------------- BLUE THEME ----------------------------------------- */
+.theme_blue {
+    --cc-bg: #000000;
+    --cc-text: #b8bfcc;
+    --cc-btn-primary-bg: #8892ec;
+    --cc-btn-primary-text: var(--cc-bg);
+    --cc-btn-primary-hover-bg: #555faf;
+    --cc-btn-secondary-bg: #1d2029;
+    --cc-btn-secondary-text: #bdc2d6;
+    --cc-btn-secondary-hover-bg: #16161f;
+    --cc-toggle-bg-off: #000000;
+    --cc-toggle-bg-on: #3a3da9;
+    --cc-toggle-bg-readonly: #1b2029;
+    --cc-toggle-knob-bg: #b3c6fd;
+    --cc-toggle-knob-icon-color: #8892ec;
+    --cc-block-text: var(--cc-text);
+    --cc-cookie-category-block-bg: #111317;
+    --cc-cookie-category-block-bg-hover: #15181d;
+    --cc-section-border: #000000;
+    --cc-cookie-table-border: #1d2029;
+    --cc-overlay-bg: rgba(15, 16, 21, .9);
+    --cc-webkit-scrollbar-bg: #2b2c3c;
+    --cc-webkit-scrollbar-bg-hover: #8892ec;
+}
+
+.theme_blue #c-ttl,
+.theme_blue #s-bl td:before,
+.theme_blue #s-ttl,
+.theme_blue .cc_div .b-tl,
+.theme_blue .cc_div .c-bn,
+.theme_blue .cc_div a{
+    color: #b8c2e6;
+}
+
+.theme_blue #s-bl .c-bl{
+    border-color: #111317;
+}
+
+.theme_blue .cc_div .b-tg,
+.theme_blue .cc_div .b-tg .c-tg,
+.theme_blue .cc_div .c-tgl,
+.theme_blue .cc_div span.t-lb,
+.theme_blue .cc_div .c-bn,
+.theme_blue #cm,
+.theme_blue #s-bl .act .b-acc,
+.theme_blue #s-inr,
+.theme_blue .cc_div .b-tl,
+.theme_blue .cc_div .c-bl,
+.theme_blue .cc_div .b-tg .c-tg:after{
+    border-radius: 0;
 }
