@@ -21,10 +21,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { Flex } from 'rebass/styled-components';
 
-import { Section } from '../components/Section';
-import { ButtonWithInternalLink } from '../components/Button';
-import { SECTION } from '../utils/constants';
-import colors from '../colors.json';
+import { Section } from '../../theme/components/Section';
+import { ButtonWithInternalLink } from '../../theme/components/Button';
+import { SECTION } from '../../theme/utils/constants';
+import colors from '../../theme/colors.json';
 
 const Container = styled(Flex)`
   box-shadow: 5px 5px 15px #ebdcdc;

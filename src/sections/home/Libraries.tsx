@@ -17,10 +17,11 @@ import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { SectionWithTitle } from '../components/Section';
-import { CardContainer } from '../components/Card';
-import Library from '../components/Library';
-import { SECTION } from '../utils/constants';
+import { SectionWithTitle } from '../../theme/components/Section';
+import { CardContainer } from '../../theme/components/Card';
+import Library from '../../theme/components/Library';
+import { SECTION } from '../../theme/utils/constants';
+
 import { libraries } from '../../content/LibraryContent';
 
 const cardMinWidth = '300px';

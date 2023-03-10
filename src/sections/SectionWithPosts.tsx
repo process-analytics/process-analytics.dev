@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 import React from 'react';
-import { SectionWithTitle } from '../components/Section';
-import { SECTION } from '../utils/constants';
-import { PostContainer } from '../components/Post';
-import { PostDescription } from '../types';
+
+import { SectionWithTitle } from '../theme/components/Section';
+import { PostContainer } from '../theme/components/Post';
+
+import { SECTION } from '../theme/utils/constants';
+import { PostDescription } from '../theme/types';
 
 interface SectionWithPostsProps {
   title: SECTION;
