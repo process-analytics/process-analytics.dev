@@ -33,7 +33,7 @@ import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
-    <Layout>
+    <Layout footerRoutes={footerRoutes}>
       <Header />
       <Section>
         <Heading
@@ -157,9 +157,6 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => {
           </Paragraph>
         </Part>
       </Section>
-      {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class */}
-      <Footer content={footerRoutes} />
     </Layout>
   );
 };

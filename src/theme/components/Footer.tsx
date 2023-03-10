@@ -56,8 +56,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
   /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
       After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
   return (
-    <ThemeProvider theme={theme}>
-      <ScopedCssBaseline>
         <MKBox component="footer" py={6} bgColor="primary">
           <Container maxWidth="xxl">
             <Grid
@@ -220,8 +218,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
             </Grid>
           </Container>
         </MKBox>
-      </ScopedCssBaseline>
-    </ThemeProvider>
   );
 };
 

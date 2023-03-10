@@ -13,13 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
+
 import { Theme } from '@rebass/preset';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { loadIcons } from '../utils/icons';
-import { theme } from '../theme';
-import 'tippy.js/dist/tippy.css';
+
 import CookieConsent, { Cookies } from 'react-cookie-consent';
+import { ScopedCssBaseline, THEME_ID } from '@mui/material';
+
+import { theme } from '../theme';
+import { theme as muiTheme } from '../../assets/theme';
+import { loadIcons } from '../utils/icons';
+
+import { Footer } from './Footer';
+import { FooterRoutes } from '../../content/FooterRoutes';
+
+import 'tippy.js/dist/tippy.css';
 
 loadIcons();
 
@@ -103,51 +112,59 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 type Props = {
-  children: ReactNode;
+  footerRoutes: FooterRoutes;
 };
 
-export const Layout = ({ children }: Props): JSX.Element => (
+export const Layout = ({
+  footerRoutes,
+  children,
+}: PropsWithChildren<Props>): JSX.Element => (
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {children}
-      {process.env.GATSBY_GA_MEASUREMENT_ID && (
-        <CookieConsent
-          location="bottom"
-          cookieName={`ga-disable-${process.env.GATSBY_GA_MEASUREMENT_ID}`}
-          enableDeclineButton={true}
-          flipButtons={true}
-          style={{
-            background: '#000000',
-          }}
-          contentStyle={{
-            color: '#FFFFFF',
-          }}
-          cookieValue={false}
-          buttonStyle={{
-            background: '#90EE90',
-            color: '#000000',
-          }}
-          declineCookieValue={true}
-          declineButtonStyle={{
-            background: '#fe6262',
-            color: '#000000',
-          }}
-          onDecline={() => {
-            gaOptout();
+      <ThemeProvider theme={{ [THEME_ID]: muiTheme }}>
+        <ScopedCssBaseline>
+          {children}
+          <Footer content={footerRoutes} />
+          {process.env.GATSBY_GA_MEASUREMENT_ID && (
+            <CookieConsent
+              location="bottom"
+              cookieName={`ga-disable-${process.env.GATSBY_GA_MEASUREMENT_ID}`}
+              enableDeclineButton={true}
+              flipButtons={true}
+              style={{
+                background: '#000000',
+              }}
+              contentStyle={{
+                color: '#FFFFFF',
+              }}
+              cookieValue={false}
+              buttonStyle={{
+                background: '#90EE90',
+                color: '#000000',
+              }}
+              declineCookieValue={true}
+              declineButtonStyle={{
+                background: '#fe6262',
+                color: '#000000',
+              }}
+              onDecline={() => {
+                gaOptout();
 
-            // Clean the unnecessary cookies
-            Cookies.remove('_ga', { path: '/' });
-            Cookies.remove(
-              `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
-              { path: '/' },
-            );
-          }}
-          overlay={true}
-        >
-          This website uses cookies to monitor the audience.
-        </CookieConsent>
-      )}
+                // Clean the unnecessary cookies
+                Cookies.remove('_ga', { path: '/' });
+                Cookies.remove(
+                  `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
+                  { path: '/' },
+                );
+              }}
+              overlay={true}
+            >
+              This website uses cookies to monitor the audience.
+            </CookieConsent>
+          )}
+        </ScopedCssBaseline>
+      </ThemeProvider>
     </ThemeProvider>
   </main>
 );

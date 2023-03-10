@@ -47,7 +47,7 @@ export const PageWithPosts = ({
   posts,
   description,
 }: PageWithPostsProps): JSX.Element => (
-  <Layout>
+  <Layout footerRoutes={footerRoutes}>
     <Header />
     <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
@@ -74,7 +74,5 @@ export const PageWithPosts = ({
       <PostContainer posts={posts} />
     </Section>
     <MailingListSubscription />
-    {/* TODO: When there will only one theme provider, move the Footer in the Layout class */}
-    <Footer content={footerRoutes} />
   </Layout>
 );

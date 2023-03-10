@@ -45,7 +45,7 @@ const StyledParagraph = styled.p`
 `;
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout>
+  <Layout footerRoutes={footerRoutes}>
     <Header />
     <Section>
       <h1 style={{ textAlign: 'center' }}>
@@ -68,9 +68,6 @@ const NotFoundPage = (): JSX.Element => (
         </strong>
       </StyledParagraph>
     </Section>
-    {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class */}
-    <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );

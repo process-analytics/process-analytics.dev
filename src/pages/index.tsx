@@ -30,7 +30,6 @@ import {
 } from '../sections';
 
 import {
-  Footer,
   Layout,
   Header,
   MailingListSubscription,
@@ -40,7 +39,7 @@ import { PAGE } from '../theme/utils/constants';
 import { footerRoutes } from '../content/FooterRoutes';
 
 const HomePage = (): JSX.Element => (
-  <Layout>
+  <Layout footerRoutes={footerRoutes}>
     <Header />
     <Landing />
     <ModelGenerationApp />
@@ -48,9 +47,6 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
-    {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class */}
-    <Footer content={footerRoutes} />
     <MailingListSubscription />
   </Layout>
 );

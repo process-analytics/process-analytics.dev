@@ -183,7 +183,7 @@ export const Paragraph = ({
 
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
-    <Layout>
+    <Layout footerRoutes={footerRoutes}>
       <Header />
       <Section>
         <Heading
@@ -338,9 +338,6 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
           />
         </Part>
       </Section>
-      {/* TODO: When there will only one theme provider, move the Footer in the
-    Layout class */}
-      <Footer content={footerRoutes} />
     </Layout>
   );
 };
