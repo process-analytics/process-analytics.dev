@@ -33,24 +33,34 @@ import React, { forwardRef } from 'react';
 
 import { ButtonProps } from '@mui/material';
 
-import { Link } from 'gatsby';
-
 // Custom styles for MKButton
 import { MKButtonRoot } from './MKButtonRoot';
 
 export const MKButton = forwardRef<
   HTMLButtonElement,
   React.PropsWithChildren<MKButtonProps>
->(({ color, variant, size, circular, iconOnly, children, ...rest }, ref) =>
+>(
+  (
+    {
+      color = 'white',
+      variant = 'contained',
+      size = 'medium',
+      circular = false,
+      iconOnly = false,
+      children,
+      ...rest
+    },
+    ref,
+  ) => (
     <MKButtonRoot
       {...rest}
       ref={ref}
       color="primary"
-      variant={variant === 'gradient' ? 'contained' : variant ?? 'contained'}
+      variant={variant === 'gradient' ? 'contained' : variant}
       size={size}
       ownerState={{
-        color: color ?? 'white',
-        variant: variant ?? 'contained',
+        color,
+        variant,
         size,
         circular,
         iconOnly,
@@ -60,15 +70,6 @@ export const MKButton = forwardRef<
     </MKButtonRoot>
   ),
 );
-
-// Setting default values for the props of MKButton
-MKButton.defaultProps = {
-  size: 'medium',
-  variant: 'contained',
-  color: 'white',
-  circular: false,
-  iconOnly: false,
-};
 
 export interface MKButtonProps extends ButtonProps {
   circular?: boolean;
