@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /**
  =========================================================
  * Material Kit 2 React - v2.0.0
@@ -35,6 +33,9 @@ import { Link } from 'gatsby';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
+
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function NavbarDropdown({
   name,

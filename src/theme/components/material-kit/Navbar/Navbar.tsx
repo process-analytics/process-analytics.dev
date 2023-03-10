@@ -617,7 +617,7 @@ export const Navbar = ({
 };
 
 interface NavbarProps {
-  brand: string;
+  brand?: string;
   routes: HeaderRoute[];
   isTransparent?: boolean;
   light?: boolean;

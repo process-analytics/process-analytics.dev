@@ -34,7 +34,7 @@ import { header } from '../../content/HeaderContent';
 import colors from '../colors.json';
 import { routes } from '../../content/HeaderRoutes';
 
-export const Header2 = (): JSX.Element => {
+export const Header = (): JSX.Element => {
   const { logo } = header;
   return (
     <MKBox bgColor="white" shadow="sm" py={0.25}>
@@ -47,14 +47,14 @@ export const Header2 = (): JSX.Element => {
           label: 'pr',
           color: 'info',
         }}
-        transparent
+        isTransparent
         relative
         center
       />
     </MKBox>
   );
 };
-export const Header = (): JSX.Element => {
+export const Header2 = (): JSX.Element => {
   const { logo } = header;
 
   return (

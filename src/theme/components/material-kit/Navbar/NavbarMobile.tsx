@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /**
  =========================================================
  * Material Kit 2 React - v2.0.0
@@ -40,6 +38,8 @@ import { MKBox, MKTypography } from '..';
 import { NavbarDropdown } from './NavbarDropdown';
 
 import { HeaderRoute } from '../../../../content/HeaderRoutes';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function NavbarMobile({ routes, open }: NavbarMobileProps): JSX.Element {
   const [collapse, setCollapseElement] = useState('');
