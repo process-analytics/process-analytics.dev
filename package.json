@@ -46,7 +46,7 @@
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.1",
     "babel-plugin-styled-components": "^2.0.6",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
