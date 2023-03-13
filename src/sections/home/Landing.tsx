@@ -19,9 +19,10 @@ import { Heading, Flex, Box, Text } from 'rebass/styled-components';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { Section } from '../components/Section';
-import { SocialLink } from '../components/SocialLink';
-import { SECTION } from '../utils/constants';
+import { Section } from '../../theme/components/Section';
+import { SocialLink } from '../../theme/components/SocialLink';
+import { SECTION } from '../../theme/utils/constants';
+
 import { landing } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
