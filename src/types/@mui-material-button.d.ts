@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import type {} from '@mui/material/Button';
+
+//declare module '@material-ui/core/Button' {
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     primary: true;
@@ -23,6 +26,7 @@ declare module '@mui/material/Button' {
     info: true;
     success: true;
     tertiary: true;
+    quaternary: true;
     primaryLight: true;
     secondaryLight: true;
     spicy: true;
@@ -35,10 +39,6 @@ declare module '@mui/material/Button' {
     health: true;
     government: true;
     distribution: true;
-
-    light: true;
-    white: true;
-    default: true;
   }
 
   interface ButtonPropsVariantOverrides {
