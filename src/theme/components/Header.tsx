@@ -15,7 +15,7 @@
  */
 import React from 'react';
 
-import { Navbar, MKBox } from './material-kit';
+import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 
 import { Box, Flex, Image, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
@@ -26,34 +26,52 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 import { ButtonWithExternalLink } from './Button';
+import { Navbar, MKBox } from './material-kit';
 
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
 import { getSectionHref } from '../utils/helpers';
 import { header } from '../../content/HeaderContent';
-import colors from '../colors.json';
 import { routes } from '../../content/HeaderRoutes';
 
+import colors from '../colors.json';
+import theme from '../../assets/theme';
+
+/* TODO: Use ScopedCssBaseline until we need to keep the old theme.
+    After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
 export const Header = (): JSX.Element => {
   const { logo } = header;
   return (
-    <MKBox bgColor="white" shadow="sm" py={0.25}>
-      <Navbar
-        routes={routes}
-        action={{
-          type: 'external',
-          route:
-            'https://github.com/process-analytics/process-analytics.dev/pulls',
-          label: 'pr',
-          color: 'info',
-        }}
-        isTransparent
-        relative
-        center
-      />
-    </MKBox>
+    <ThemeProvider theme={theme}>
+      <ScopedCssBaseline sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
+        <MKBox
+          position="sticky"
+          top="0"
+          zIndex="1"
+          bgColor="quaternary"
+          width="100%"
+          shadow={{ size: 'sm' }}
+          py={0.25}
+        >
+          <Navbar
+            routes={routes}
+            brand="Process Analytics"
+            action={{
+              type: 'external',
+              route:
+                'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+              label: 'Demo',
+              color: 'secondary',
+            }}
+            isTransparent
+            relative
+          />
+        </MKBox>
+      </ScopedCssBaseline>
+    </ThemeProvider>
   );
 };
+
 export const Header2 = (): JSX.Element => {
   const { logo } = header;
 
