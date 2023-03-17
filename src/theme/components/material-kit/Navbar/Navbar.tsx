@@ -42,6 +42,7 @@ import {
   Divider,
   Link as MuiLink,
   PaletteColorKey,
+  ButtonProps,
 } from '@mui/material';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -270,7 +271,7 @@ export const Navbar = ({
             variant="button"
             textTransform="capitalize"
             minWidth={item.description ? '14rem' : '12rem'}
-            color={item.description ? 'dark' : 'text'}
+            color={'primary'}
             fontWeight={item.description ? 'bold' : 'regular'}
             py={item.description ? 1 : 0.625}
             px={2}
@@ -373,7 +374,7 @@ export const Navbar = ({
                     }}*/
         >
           <MKBox borderRadius="lg">
-            <MKTypography variant="h1" color="white">
+            <MKTypography variant="h1" color="quaternary">
               <Box ref={setArrowRef}>
                 {/* <ArrowDropUpIcon sx={{ mt: -3 }} />*/}
                 <FontAwesomeIcon icon={faChevronUp} />
@@ -381,7 +382,7 @@ export const Navbar = ({
               </Box>
             </MKTypography>
 
-            <MKBox shadow="lg" borderRadius="lg" p={2} mt={2}>
+            <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
               {renderRoutes}
             </MKBox>
           </MKBox>
@@ -405,7 +406,7 @@ export const Navbar = ({
                 variant="button"
                 textTransform="capitalize"
                 minWidth={item.description ? '14rem' : '12rem'}
-                color={item.description ? 'dark' : 'text'}
+                color={'primary'}
                 fontWeight={item.description ? 'bold' : 'regular'}
                 py={item.description ? 1 : 0.625}
                 px={2}
@@ -489,7 +490,13 @@ export const Navbar = ({
                     }}*/
         >
           <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
-            <MKBox shadow="lg" borderRadius="lg" py={1.5} px={1} mt={2}>
+            <MKBox
+              shadow={{ size: 'lg' }}
+              borderRadius="lg"
+              py={1.5}
+              px={1}
+              mt={2}
+            >
               {renderNestedRoutes}
             </MKBox>
           </MKBox>
@@ -499,7 +506,10 @@ export const Navbar = ({
   );
 
   return (
-    <Container sx={sticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}>
+    <Container
+      sx={sticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
+      maxWidth="xl"
+    >
       <MKBox
         py={1}
         px={{ xs: 4, sm: isTransparent ? 2 : 3, lg: isTransparent ? 0 : 2 }}
@@ -507,8 +517,8 @@ export const Navbar = ({
         mx={relative ? 0 : 3}
         width={relative ? '100%' : 'calc(100% - 48px)'}
         borderRadius="xl"
-        shadow={isTransparent ? undefined : 'md'}
-        color={light ? 'white' : 'dark'}
+        shadow={{ size: isTransparent ? undefined : 'md' }}
+        color={light ? 'quaternary' : 'primary'}
         position={relative ? 'relative' : 'absolute'}
         left={0}
         zIndex={3}
@@ -532,7 +542,7 @@ export const Navbar = ({
             <MKTypography
               variant="button"
               fontWeight="bold"
-              color={light ? 'white' : 'dark'}
+              color={light ? 'quaternary' : 'primary'}
             >
               {brand}
             </MKTypography>
@@ -554,7 +564,7 @@ export const Navbar = ({
                   component={GatsbyLink}
                   to={action.route}
                   variant={
-                    action.color === 'white' || action.color === 'default'
+                    action.color === 'quaternary' || action.color === 'primary'
                       ? 'contained'
                       : 'gradient'
                   }
@@ -570,11 +580,11 @@ export const Navbar = ({
                   target="_blank"
                   rel="noreferrer"
                   variant={
-                    action.color === 'white' || action.color === 'default'
+                    action.color === 'quaternary' || action.color === 'primary'
                       ? 'contained'
                       : 'gradient'
                   }
-                  color={action.color ? action.color : 'info'}
+                  color={action.color ?? 'info'}
                   size="small"
                 >
                   {action.label}
@@ -587,7 +597,7 @@ export const Navbar = ({
             lineHeight={0}
             py={1.5}
             pl={1.5}
-            color={isTransparent ? 'white' : 'inherit'}
+            color={isTransparent ? 'quaternary' : 'inherit'}
             sx={{ cursor: 'pointer' }}
             onClick={openMobileNavbar}
           >
@@ -602,8 +612,8 @@ export const Navbar = ({
         </MKBox>
 
         <MKBox
-          bgColor={isTransparent ? 'white' : 'transparent'}
-          shadow={isTransparent ? 'lg' : undefined}
+          bgColor={isTransparent ? 'quaternary' : 'transparent'}
+          shadow={{ size: isTransparent ? 'lg' : undefined }}
           borderRadius="xl"
           px={isTransparent ? 2 : 0}
         >
@@ -624,7 +634,7 @@ interface NavbarProps {
   action: {
     type: 'external' | 'internal';
     route: string;
-    color?: PaletteColorKey | 'default';
+    color?: ButtonProps['color'];
     label: string;
   };
   sticky?: boolean;

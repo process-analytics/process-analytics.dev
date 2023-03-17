@@ -67,7 +67,7 @@ export function NavbarDropdown({
         p={1}
         display="flex"
         alignItems="baseline"
-        color={light ? 'white' : 'dark'}
+        color={light ? 'quaternary' : 'primary'}
         opacity={light ? 1 : 0.6}
         sx={{ cursor: 'pointer', userSelect: 'none' }}
         {...(route && routeComponent)}
@@ -85,7 +85,7 @@ export function NavbarDropdown({
           variant="button"
           fontWeight="regular"
           textTransform="capitalize"
-          color={light ? 'white' : 'dark'}
+          color={light ? 'quaternary' : 'primary'}
           sx={{ fontWeight: '100%', ml: 1, mr: 0.25 }}
         >
           {name}
@@ -93,7 +93,7 @@ export function NavbarDropdown({
 
         <MKTypography
           variant="body2"
-          color={light ? 'white' : 'dark'}
+          color={light ? 'quaternary' : 'primary'}
           ml="auto"
         >
           {collapse && (
