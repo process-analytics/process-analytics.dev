@@ -32,11 +32,9 @@
 // @mui material components
 import {
   Palette,
-  PaletteColor,
   Button,
+  ButtonProps as MuiButtonProps,
   styled,
-  ButtonProps,
-  Color,
   BoxShadows,
   Functions,
   Borders,
@@ -44,125 +42,75 @@ import {
 
 import { isPaletteColorName } from '../../../../assets/theme/base/colors';
 
-interface MKButtonRootProps {
-  ownerState: ButtonProps & {
-    circular?: boolean;
-    iconOnly?: boolean;
-  };
-}
+export type ButtonProps = MuiButtonProps & {
+  circular?: boolean;
+  iconOnly?: boolean;
+};
 
-function containedStyles(
+type MKButtonRootProps = {
+  ownerState: ButtonProps;
+};
+
+const containedStyles = (
   palette: Palette,
+  { boxShadow }: Functions,
+  { colored }: BoxShadows,
   color: ButtonProps['color'],
-  colored: BoxShadows['colored'],
-  boxShadow: Functions['boxShadow'],
-  text: PaletteColor,
-  grey: Color,
-) {
+) => {
   // background color value
   const paletteColor = color && isPaletteColorName(color) && palette[color];
-  const backgroundValue = paletteColor ? paletteColor.main : 'white';
-
-  // backgroundColor value when button is focused
-  const focusedBackgroundValue = paletteColor
-    ? paletteColor.contrastText
-    : 'white';
-
-  // boxShadow value
-  // const coloredColor = color && isPaletteColorName(color) && colored[color];
-  const boxShadowValue = paletteColor
-    ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, ${boxShadow(
-        [0, 3],
-        [1, -2],
-        paletteColor.main,
-        0.2,
-      )}, ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
-    : 'none';
-
-  // boxShadow value when button is hovered
-  const hoveredBoxShadowValue = paletteColor
-    ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, ${boxShadow(
-        [0, 4],
-        [23, 0],
-        paletteColor.main,
-        0.15,
-      )}, ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
-    : 'none';
-
-  // color value
-  let colorValue = 'white';
-
-  if (color === 'default' || !paletteColor) {
-    colorValue = (text as PaletteColor)?.main;
-  } else if (color === 'white' || color === 'light') {
-    colorValue = grey?.A700;
-  }
-
-  // color value when button is focused
-  let focusedColorValue = 'white';
-
-  if (color === 'default') {
-    focusedColorValue = (text as PaletteColor)?.main;
-  } else if (color === 'white') {
-    focusedColorValue = grey?.A700;
-  } else if (color === 'primary' || color === 'error' || color === 'dark') {
-    focusedColorValue = 'white';
-  }
 
   return {
-    background: backgroundValue,
-    color: colorValue,
-    boxShadow: boxShadowValue,
+    background: paletteColor ? paletteColor.main : 'white',
+    color: !paletteColor ? palette.text.primary : 'white',
+    //color && isPaletteColorName(color) && colored[color]
+    boxShadow: paletteColor
+      ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, 
+    ${boxShadow([0, 3], [1, -2], paletteColor.main, 0.2)}, 
+    ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
+      : 'none',
 
     '&:hover': {
-      backgroundColor: backgroundValue,
-      boxShadow: hoveredBoxShadowValue,
+      // backgroundColor: backgroundValue,
+      boxShadow: paletteColor
+        ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, 
+          ${boxShadow([0, 4], [23, 0], paletteColor.main, 0.15)}, 
+          ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
+        : 'none',
     },
 
     '&:focus:not(:hover)': {
-      backgroundColor: focusedBackgroundValue,
+      backgroundColor: paletteColor ? paletteColor.contrastText : 'white',
       boxShadow: paletteColor
         ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
         : boxShadow([0, 0], [0, 3.2], 'white', 0.5),
     },
 
     '&:disabled': {
-      backgroundColor: backgroundValue,
-      color: focusedColorValue,
+      // backgroundColor: backgroundValue,
+      color: 'white',
     },
   };
-}
+};
 
-function outlinedStyles(
-  color: ButtonProps['color'],
-  rgba: Functions['rgba'],
+const outlinedStyles = (
   palette: Palette,
-  boxShadow: Functions['boxShadow'],
-) {
-  // background color value
-  const backgroundValue =
-    color === 'white' ? rgba('white', 0.1) : 'transparent';
-
+  { rgba, boxShadow }: Functions,
+  color: ButtonProps['color'],
+) => {
   // color value
-  const paletteColor = palette[color];
+  const paletteColor = color && isPaletteColorName(color) && palette[color];
   const colorValue = paletteColor ? paletteColor.main : 'white';
 
-  // boxShadow value
-  const boxShadowValue = paletteColor
-    ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
-    : boxShadow([0, 0], [0, 3.2], 'white', 0.5);
-
-  // border color value
-  let borderColorValue = paletteColor ? paletteColor.main : rgba('white', 0.75);
-
-  if (color === 'white') {
-    borderColorValue = rgba('white', 0.75);
-  }
-
   return {
-    background: backgroundValue,
+    background: color === 'quaternary' ? rgba('white', 0.1) : 'transparent',
     color: colorValue,
-    borderColor: borderColorValue,
+    borderColor:
+      color === 'quaternary'
+        ? rgba('white', 0.75)
+        : paletteColor
+        ? paletteColor.main
+        : rgba('white', 0.75),
 
     '&:hover': {
       background: 'transparent',
@@ -171,7 +119,9 @@ function outlinedStyles(
 
     '&:focus:not(:hover)': {
       background: 'transparent',
-      boxShadow: boxShadowValue,
+      boxShadow: paletteColor
+        ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
+        : boxShadow([0, 0], [0, 3.2], 'white', 0.5),
     },
 
     '&:active:not(:hover)': {
@@ -185,66 +135,41 @@ function outlinedStyles(
       borderColor: colorValue,
     },
   };
-}
+};
 
-function gradientStyles(
-  color: ButtonProps['color'],
+const gradientStyles = (
   palette: Palette,
-  linearGradient: Functions['linearGradient'],
-  colored: BoxShadows['colored'],
-  boxShadow: Functions['boxShadow'],
-  text: PaletteColor,
-) {
-  // background value
-  const backgroundValue =
-    color === 'white' || !palette[color]
-      ? 'white'
-      : linearGradient(palette[color].main, palette[color].dark);
+  { linearGradient, boxShadow }: Functions,
+  { colored }: BoxShadows,
+  color: ButtonProps['color'],
+) => {
+  const paletteColor = color && isPaletteColorName(color) && palette[color];
 
   // boxShadow value
-  const paletteColor = palette[color];
   const boxShadowValue =
-    color !== 'white' &&
-    color !== 'light' &&
-    color !== 'dark' &&
-    color !== 'default' &&
-    colored[color]
-      ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, ${boxShadow(
-          [0, 3],
-          [1, -2],
-          paletteColor.main,
-          0.2,
-        )}, ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
+    color !== 'quaternary' && paletteColor
+      ? `${boxShadow([0, 3], [3, 0], paletteColor.main, 0.15)}, 
+      ${boxShadow([0, 3], [1, -2], paletteColor.main, 0.2)}, 
+      ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
       : 'none';
 
-  // boxShadow value when button is hovered
-  const hoveredBoxShadowValue =
-    color !== 'default' && colored[color]
-      ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, ${boxShadow(
-          [0, 4],
-          [23, 0],
-          paletteColor.main,
-          0.15,
-        )}, ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
-      : 'none';
-
-  // color value
-  let colorValue: string | undefined = 'white';
-
-  if (color === 'white') {
-    colorValue = (text as PaletteColor)?.main;
-  } else if (color === 'light') {
-    colorValue = palette.dark.dark;
-  }
+  const colorValue = color === 'quaternary' ? palette.text.primary : 'white';
 
   return {
-    background: backgroundValue,
+    background:
+      color === 'quaternary' || !paletteColor
+        ? 'white'
+        : linearGradient(palette[color].main, palette[color].dark),
     color: colorValue,
     boxShadow: boxShadowValue,
 
     '&:hover': {
       backgroundColor: 'white',
-      boxShadow: hoveredBoxShadowValue,
+      boxShadow: paletteColor
+        ? `${boxShadow([0, 14], [26, -12], paletteColor.main, 0.4)}, 
+      ${boxShadow([0, 4], [23, 0], paletteColor.main, 0.15)}, 
+      ${boxShadow([0, 8], [10, -5], paletteColor.main, 0.2)}`
+        : 'none',
     },
 
     '&:focus:not(:hover)': {
@@ -252,37 +177,50 @@ function gradientStyles(
     },
 
     '&:disabled': {
-      background: backgroundValue,
+      /* background:
+        color === 'quaternary' || !paletteColor
+          ? 'white'
+          : linearGradient(palette[color].main, palette[color].dark),*/
       color: colorValue,
     },
   };
-}
+};
 
-function textStyles(palette: Palette, color: ButtonProps['color']) {
-  // color value
-  const paletteColor = palette[color];
-  const colorValue = paletteColor ? paletteColor.main : 'white';
+const textStyles = (palette: Palette, color: ButtonProps['color']) => {
+  const paletteColor = color && isPaletteColorName(color) && palette[color];
 
-  // color value when button is focused
-  const focusedColorValue = paletteColor ? paletteColor.contrastText : 'white';
+  /*  return {
+    color: paletteColor ? paletteColor.main : 'white',
 
-  return {
-    color: colorValue,
-    '&:hover': {
-      color: focusedColorValue,
+    '&:hover, &:focus:not(:hover)': {
+      color: paletteColor ? paletteColor.contrastText : 'white',
+    },
+
+    /!*  '&:hover': {
+      color: paletteColor ? paletteColor.contrastText : 'white',
     },
 
     '&:focus:not(:hover)': {
-      color: focusedColorValue,
-    },
-  };
-}
+      color: paletteColor ? paletteColor.contrastText : 'white',
+    },*!/
+  };*/
 
-const circularStyles = (borderRadius: Borders['borderRadius']) => ({
+  return paletteColor
+    ? {
+        color: paletteColor.main,
+
+        '&:hover, &:focus:not(:hover)': {
+          color: paletteColor.contrastText,
+        },
+      }
+    : { color: 'white' };
+};
+
+const circularStyles = ({ borderRadius }: Borders) => ({
   borderRadius: borderRadius.section,
 });
 
-function iconOnlyStyles(pxToRem, size) {
+const iconOnlyStyles = ({ pxToRem }: Functions, size: ButtonProps['size']) => {
   // width, height, minWidth and minHeight values
   let sizeValue = pxToRem(38);
   if (size === 'small') {
@@ -314,35 +252,22 @@ function iconOnlyStyles(pxToRem, size) {
       transform: 'none',
     },
   };
-}
+};
 
 export const MKButtonRoot = styled(Button)<MKButtonRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions, borders, boxShadows } = theme;
     const { color, variant, size, circular, iconOnly } = ownerState;
 
-    const { text, grey } = palette;
-    const { boxShadow, linearGradient, pxToRem, rgba } = functions;
-    const { borderRadius } = borders;
-    const { colored } = boxShadows;
-
     return {
       ...(variant === 'contained' &&
-        containedStyles(palette, color, colored, boxShadow, text, grey)),
-      ...(variant === 'outlined' &&
-        outlinedStyles(color, rgba, palette, boxShadow)),
+        containedStyles(palette, functions, boxShadows, color)),
+      ...(variant === 'outlined' && outlinedStyles(palette, functions, color)),
       ...(variant === 'gradient' &&
-        gradientStyles(
-          color,
-          palette,
-          linearGradient,
-          colored,
-          boxShadow,
-          text,
-        )),
+        gradientStyles(palette, functions, boxShadows, color)),
       ...(variant === 'text' && textStyles(palette, color)),
-      ...(circular && circularStyles(borderRadius)),
-      ...(iconOnly && iconOnlyStyles(pxToRem, size)),
+      ...(circular && circularStyles(borders)),
+      ...(iconOnly && iconOnlyStyles(functions, size)),
     };
   },
 );

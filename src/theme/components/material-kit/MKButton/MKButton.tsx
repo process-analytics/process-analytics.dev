@@ -31,10 +31,8 @@ Coded by www.creative-tim.com
 
 import React, { forwardRef } from 'react';
 
-import { ButtonProps } from '@mui/material';
-
 // Custom styles for MKButton
-import { MKButtonRoot } from './MKButtonRoot';
+import { MKButtonRoot, ButtonProps } from './MKButtonRoot';
 
 export const MKButton = forwardRef<
   HTMLButtonElement,
@@ -42,7 +40,7 @@ export const MKButton = forwardRef<
 >(
   (
     {
-      color = 'white',
+      color = 'quaternary',
       variant = 'contained',
       size = 'medium',
       circular = false,
@@ -71,11 +69,9 @@ export const MKButton = forwardRef<
   ),
 );
 
-export interface MKButtonProps extends ButtonProps {
-  circular?: boolean;
-  iconOnly?: boolean;
+export type MKButtonProps = ButtonProps & {
   component?: React.ElementType;
   to?: string;
   target?: string;
   rel?: string;
-}
+};
