@@ -50,78 +50,6 @@ export const NestedDropdownMenu = ({
       | undefined,
   ) => void;
 }): JSX.Element => {
-  const renderNestedRoutes = routes.map(({ menus, columns }) =>
-    !columns
-      ? menus?.map(({ name: parentName, subItems: nestedCollapse }) => {
-          if (parentName === nestedDropdownName) {
-            return nestedCollapse?.map(item => (
-              <MKTypography
-                key={item.name}
-                {...getLinkAttributes(item)}
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                variant="button"
-                textTransform="capitalize"
-                minWidth={item.description ? '14rem' : '12rem'}
-                color={'primary'}
-                fontWeight={item.description ? 'bold' : 'regular'}
-                py={item.description ? 1 : 0.625}
-                px={2}
-                sx={({
-                  palette: { grey },
-                  borders: { borderRadius },
-                }: Theme) => ({
-                  borderRadius: borderRadius.md,
-                  cursor: 'pointer',
-                  transition: 'all 300ms linear',
-
-                  '&:hover': {
-                    backgroundColor: grey[200],
-                    color: grey?.A700,
-
-                    '& *': {
-                      color: grey?.A700,
-                    },
-                  },
-                })}
-              >
-                {item.description ? (
-                  <MKBox>
-                    {item.name}
-                    <MKTypography
-                      display="block"
-                      variant="button"
-                      color="text"
-                      fontWeight="regular"
-                      sx={{ transition: 'all 300ms linear' }}
-                    >
-                      {item.description}
-                    </MKTypography>
-                  </MKBox>
-                ) : (
-                  item.name
-                )}
-                {item.collapse && (
-                  /*               <KeyboardArrowDownIcon
-                                        fontSize="small"
-                                        sx={{
-                                          fontWeight: 'normal',
-                                          verticalAlign: 'middle',
-                                          mr: -0.5,
-                                        }}
-                                      />*/
-
-                  /*   <FontAwesomeIcon icon={faChevronDown} />*/
-                  <FontAwesomeIcon icon={faAngleDown} />
-                )}
-              </MKTypography>
-            ));
-          }
-        })
-      : null,
-  );
-
   return (
     <Popper
       anchorEl={nestedDropdownElement}
@@ -141,10 +69,11 @@ export const NestedDropdownMenu = ({
       {({ TransitionProps }) => (
         <Grow
           {...TransitionProps}
-          /* sx={{
-                                      transformOrigin: "left top",
-                                      background: ({ palette: { white } }) => 'white',
-                                    }}*/
+          /*          style={{
+            transformOrigin: 'left top',
+            background: ({ palette: { background } }: Theme) =>
+              background.default,
+          }}*/
         >
           <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
             <MKBox
@@ -154,7 +83,77 @@ export const NestedDropdownMenu = ({
               px={1}
               mt={2}
             >
-              {renderNestedRoutes}
+              {routes
+                .filter(({ withColumns }) => !withColumns)
+                .map(({ menus }) =>
+                  menus
+                    ?.filter(({ name }) => name === nestedDropdownName)
+                    .map(({ subItems, isCollapsed }) =>
+                      subItems?.map(subItem => (
+                        <MKTypography
+                          key={subItem.name}
+                          {...getLinkAttributes(subItem)}
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
+                          variant="button"
+                          textTransform="capitalize"
+                          minWidth={subItem.description ? '14rem' : '12rem'}
+                          color={'primary'}
+                          fontWeight={subItem.description ? 'bold' : 'regular'}
+                          py={subItem.description ? 1 : 0.625}
+                          px={2}
+                          sx={({
+                            palette: { grey },
+                            borders: { borderRadius },
+                          }: Theme) => ({
+                            borderRadius: borderRadius.md,
+                            cursor: 'pointer',
+                            transition: 'all 300ms linear',
+
+                            '&:hover': {
+                              backgroundColor: grey[200],
+                              color: grey?.A700,
+
+                              '& *': {
+                                color: grey?.A700,
+                              },
+                            },
+                          })}
+                        >
+                          {subItem.description ? (
+                            <MKBox>
+                              {subItem.name}
+                              <MKTypography
+                                display="block"
+                                variant="button"
+                                color="text"
+                                fontWeight="regular"
+                                sx={{ transition: 'all 300ms linear' }}
+                              >
+                                {subItem.description}
+                              </MKTypography>
+                            </MKBox>
+                          ) : (
+                            subItem.name
+                          )}
+                          {isCollapsed && (
+                            /*               <KeyboardArrowDownIcon
+                                                  fontSize="small"
+                                                  sx={{
+                                                    fontWeight: 'normal',
+                                                    verticalAlign: 'middle',
+                                                    mr: -0.5,
+                                                  }}
+                                                />*/
+
+                            /*   <FontAwesomeIcon icon={faChevronDown} />*/
+                            <FontAwesomeIcon icon={faAngleDown} />
+                          )}
+                        </MKTypography>
+                      )),
+                    ),
+                )}
             </MKBox>
           </MKBox>
         </Grow>
