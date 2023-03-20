@@ -44,29 +44,27 @@ export const Header = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <ScopedCssBaseline sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
-        <MKBox
-          position="sticky"
+        <Navbar
+          routes={routes}
+          brand="Process Analytics"
+          action={{
+            type: 'external',
+            route:
+              'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+            label: 'Demo',
+            color: 'secondary',
+          }}
+          isTransparent
+          isSticky
           top="0"
           zIndex="1"
-          bgColor="quaternary"
+          bgColor="sweet"
+          // bgColor="quaternary"
+          // color="inherit"
           width="100%"
           shadow={{ size: 'sm' }}
           py={0.25}
-        >
-          <Navbar
-            routes={routes}
-            brand="Process Analytics"
-            action={{
-              type: 'external',
-              route:
-                'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
-              label: 'Demo',
-              color: 'secondary',
-            }}
-            isTransparent
-            isRelative
-          />
-        </MKBox>
+        />
       </ScopedCssBaseline>
     </ThemeProvider>
   );

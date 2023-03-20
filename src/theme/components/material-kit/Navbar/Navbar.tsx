@@ -32,7 +32,7 @@
 import React, { useEffect, useState } from 'react';
 
 // @mui material components
-import { ButtonProps, Container, Link as MuiLink } from '@mui/material';
+import { ButtonProps, Container, Link as MuiLink, Theme } from '@mui/material';
 
 import { Link as GatsbyLink } from 'gatsby';
 
@@ -40,7 +40,7 @@ import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
-import { MKBox, MKButton, MKTypography } from '..';
+import { MKBox, MKBoxProps, MKButton, MKTypography } from '..';
 
 // Material Kit 2 React base styles
 import breakpoints from '../../../../assets/theme/base/breakpoints';
@@ -52,6 +52,7 @@ import { NavbarDropdown } from './NavbarDropdown';
 import { NavbarMobile } from './NavbarMobile';
 import { NestedDropdownMenu } from './NestedDropdownMenu';
 import { DropdownMenu } from './DropdownMenu';
+import pxToRem from '../../../../assets/theme/functions/pxToRem';
 
 export function getLinkAttributes(item: Pick<Link, 'route' | 'href'>):
   | { component: typeof GatsbyLink; to: string }
@@ -121,21 +122,17 @@ const MobileNavbarButton = ({
   mobileNavbar,
   setMobileNavbar,
 }: {
-  isTransparent: undefined | boolean;
   mobileNavbar: boolean;
   setMobileNavbar: any;
 }): JSX.Element => {
-  const openMobileNavbar = (): void => setMobileNavbar(!mobileNavbar);
-
   return (
     <MKBox
       display={{ xs: 'inline-block', lg: 'none' }}
       lineHeight={0}
       py={1.5}
       pl={1.5}
-      color={'inherit'}
       sx={{ cursor: 'pointer' }}
-      onClick={openMobileNavbar}
+      onClick={(): void => setMobileNavbar(!mobileNavbar)}
     >
       {mobileNavbar ? (
         /* <CloseIcon fontSize="medium" />*/
@@ -165,7 +162,7 @@ const BrandLink = ({
       py={isTransparent ? 1.5 : 0.75}
       pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
-      <MKTypography variant="button" fontWeight="bold" color={'inherit'}>
+      <MKTypography variant="button" fontWeight="bold">
         {brand}
       </MKTypography>
     </MKBox>
@@ -225,7 +222,35 @@ export const Navbar = ({
   routes,
   action,
   isTransparent,
-  isLight,
+  isSticky,
+  isRelative,
+  isCenter,
+  bgColor,
+  color,
+  ...rest
+}: NavbarProps & Omit<MKBoxProps, 'ref'>): JSX.Element => (
+  <MKBox
+    {...rest}
+    position={isTransparent && isSticky ? 'sticky' : 'relative'}
+    bgColor={isTransparent ? bgColor : 'transparent'}
+    color={color}
+  >
+    <InnerContainer
+      brand={brand}
+      routes={routes}
+      action={action}
+      isTransparent={isTransparent}
+      isSticky={isTransparent ? false : isSticky}
+      isRelative={isTransparent ? true : isRelative}
+      isCenter={isCenter}
+    />
+  </MKBox>
+);
+const InnerContainer = ({
+  brand,
+  routes,
+  action,
+  isTransparent,
   isSticky,
   isRelative,
   isCenter,
@@ -239,16 +264,20 @@ export const Navbar = ({
   >();
   const [nestedDropdownName, setNestedDropdownName] = useState<string>();
   const [mobileNavbar, setMobileNavbar] = useState(false);
-  const [mobileView, setMobileView] = useState(false);
+  const [mobileMenuView, setMobileMenuView] = useState(false);
 
   useEffect(() => {
     // A function that sets the display state for NavbarMobile.
     function displayMobileNavbar(): void {
-      if (window.innerWidth < breakpoints.values.lg) {
-        setMobileView(true);
+      // TODO Clean
+      if (
+        Number(pxToRem(window.innerWidth).replace('rem', '')) <
+        breakpoints.values.lg
+      ) {
+        setMobileMenuView(true);
         setMobileNavbar(false);
       } else {
-        setMobileView(false);
+        setMobileMenuView(false);
         setMobileNavbar(false);
       }
     }
@@ -268,8 +297,11 @@ export const Navbar = ({
 
   return (
     <Container
-      sx={isSticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
-      color={isLight ? 'quaternary' : 'primary'}
+      sx={
+        isTransparent && isSticky
+          ? { position: 'sticky', top: 0, zIndex: 10 }
+          : null
+      }
     >
       <MKBox
         py={1}
@@ -307,21 +339,25 @@ export const Navbar = ({
 
           <ActionButton action={action} />
 
-          <MobileNavbarButton
-            isTransparent={isTransparent}
-            mobileNavbar={mobileNavbar}
-            setMobileNavbar={setMobileNavbar}
-          />
+          {mobileMenuView && (
+            <MobileNavbarButton
+              mobileNavbar={mobileNavbar}
+              setMobileNavbar={setMobileNavbar}
+            />
+          )}
         </MKBox>
 
-        <MKBox
-          bgColor={isTransparent ? 'quaternary' : 'transparent'}
-          shadow={{ size: isTransparent ? 'lg' : undefined }}
-          borderRadius="xl"
-          px={isTransparent ? 2 : 0}
-        >
-          {mobileView && <NavbarMobile routes={routes} open={mobileNavbar} />}
-        </MKBox>
+        {mobileMenuView && (
+          <MKBox
+            // TODO switch bgcolor & color
+            bgColor={isTransparent ? 'transparent' : 'inherit'}
+            shadow={{ size: isTransparent ? 'lg' : undefined }}
+            borderRadius="xl"
+            px={isTransparent ? 2 : 0}
+          >
+            <NavbarMobile routes={routes} open={mobileNavbar} />
+          </MKBox>
+        )}
       </MKBox>
       <DropdownMenu
         routes={routes}
@@ -354,7 +390,6 @@ interface NavbarProps {
     label: string;
   };
   isTransparent?: boolean;
-  isLight?: boolean;
   isSticky?: boolean;
   isRelative?: boolean;
   isCenter?: boolean;
