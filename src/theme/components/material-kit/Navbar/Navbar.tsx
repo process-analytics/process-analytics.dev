@@ -29,46 +29,31 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // @mui material components
-import {
-  Box,
-  Theme,
-  Container,
-  Popper,
-  Grow,
-  Grid,
-  Divider,
-  Link as MuiLink,
-  PaletteColorKey,
-  ButtonProps,
-} from '@mui/material';
+import { ButtonProps, Container, Link as MuiLink } from '@mui/material';
 
+import { Link as GatsbyLink } from 'gatsby';
+
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleDown,
-  faAngleUp,
-  faBars,
-  faChevronUp,
-  faClose,
-} from '@fortawesome/free-solid-svg-icons';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography, MKButton } from '..';
+import { MKBox, MKButton, MKTypography } from '..';
+
+// Material Kit 2 React base styles
+import breakpoints from '../../../../assets/theme/base/breakpoints';
+import { HeaderRoute } from '../../../../content/HeaderRoutes';
+import { Link } from '../../../types';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
 import { NavbarMobile } from './NavbarMobile';
+import { NestedDropdownMenu } from './NestedDropdownMenu';
+import { DropdownMenu } from './DropdownMenu';
 
-// Material Kit 2 React base styles
-import breakpoints from '../../../../assets/theme/base/breakpoints';
-
-import { Link as GatsbyLink } from 'gatsby';
-import { Link } from '../../../types';
-import { HeaderMenu, HeaderRoute } from '../../../../content/HeaderRoutes';
-
-function getRouteOrLinkComponent(item: Link):
+export function getRouteOrLinkComponent(item: Link):
   | { component: typeof GatsbyLink; to: string }
   | {
       component: typeof MuiLink;
@@ -89,411 +74,6 @@ function getRouteOrLinkComponent(item: Link):
       };
 }
 
-const DropdownMenu = ({
-  routes,
-  collapseElement,
-  collapseName,
-  arrowRef,
-  setCollapseElement,
-  nestedDropdownName,
-  setCollapseName,
-  setArrowRef,
-  setNestedDropdownElement,
-  setNestedDropdownName,
-}: {
-  routes: HeaderRoute[];
-  collapseElement: (EventTarget & HTMLSpanElement) | null | undefined;
-  collapseName: string | undefined;
-  arrowRef: any;
-  setCollapseElement: (
-    value:
-      | ((
-          prevState: (EventTarget & HTMLSpanElement) | null | undefined,
-        ) => (EventTarget & HTMLSpanElement) | null | undefined)
-      | (EventTarget & HTMLSpanElement)
-      | null
-      | undefined,
-  ) => void;
-  nestedDropdownName: string | undefined;
-  setCollapseName: (
-    value:
-      | ((prevState: string | undefined) => string | undefined)
-      | string
-      | undefined,
-  ) => void;
-  setArrowRef: (
-    value: ((prevState: undefined) => undefined) | undefined,
-  ) => void;
-  setNestedDropdownElement: any;
-  setNestedDropdownName: any;
-}): JSX.Element => {
-  const renderRoutes = routes.map(({ name, menus, columns, rowsPerColumn }) => {
-    let template;
-
-    // Render the dropdown menu that should be display as columns
-    if (menus && columns && name === collapseName) {
-      const calculateColumns = menus.reduce(
-        (resultArray: HeaderMenu[][], item, index) => {
-          const chunkIndex = Math.floor(index / (rowsPerColumn ?? 3));
-          if (!resultArray[chunkIndex]) {
-            resultArray[chunkIndex] = [];
-          }
-
-          resultArray[chunkIndex].push(item);
-          return resultArray;
-        },
-        [],
-      );
-
-      template = (
-        <Grid key={name} container spacing={3} py={1} px={1.5}>
-          {calculateColumns.map((cols, key) => {
-            const gridKey = `grid-${key}`;
-            const dividerKey = `divider-${key}`;
-
-            return (
-              <Grid
-                key={gridKey}
-                item
-                xs={12 / columns}
-                sx={{ position: 'relative' }}
-              >
-                {cols.map((col, index) => (
-                  <Fragment key={col.name}>
-                    <MKTypography
-                      display="block"
-                      variant="button"
-                      fontWeight="bold"
-                      textTransform="capitalize"
-                      py={1}
-                      px={0.5}
-                      mt={index !== 0 ? 2 : 0}
-                    >
-                      {col.name}
-                    </MKTypography>
-
-                    {col.subItems?.map(item => (
-                      <MKTypography
-                        key={item.name}
-                        {...getRouteOrLinkComponent(item)}
-                        minWidth="11.25rem"
-                        display="block"
-                        variant="button"
-                        color="text"
-                        textTransform="capitalize"
-                        fontWeight="regular"
-                        py={0.625}
-                        px={2}
-                        sx={({
-                          palette: { grey },
-                          borders: { borderRadius },
-                        }: Theme) => ({
-                          borderRadius: borderRadius.md,
-                          cursor: 'pointer',
-                          transition: 'all 300ms linear',
-
-                          '&:hover': {
-                            backgroundColor: grey[200],
-                            color: grey?.A700,
-                          },
-                        })}
-                      >
-                        {item.name}
-                      </MKTypography>
-                    ))}
-                  </Fragment>
-                ))}
-                {key !== 0 && (
-                  <Divider
-                    key={dividerKey}
-                    orientation="vertical"
-                    sx={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '-4px',
-                      transform: 'translateY(-45%)',
-                      height: '90%',
-                    }}
-                  />
-                )}
-              </Grid>
-            );
-          })}
-        </Grid>
-      );
-
-      // Render the dropdown menu that should be display as list items
-    } else if (name === collapseName) {
-      template = menus?.map(item => {
-        return (
-          <MKTypography
-            key={item.name}
-            {...getRouteOrLinkComponent(item)}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            variant="button"
-            textTransform="capitalize"
-            minWidth={item.description ? '14rem' : '12rem'}
-            color={'primary'}
-            fontWeight={item.description ? 'bold' : 'regular'}
-            py={item.description ? 1 : 0.625}
-            px={2}
-            sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
-              borderRadius: borderRadius.md,
-              cursor: 'pointer',
-              transition: 'all 300ms linear',
-
-              '&:hover': {
-                backgroundColor: grey[200],
-                color: grey?.A700,
-
-                '& *': {
-                  color: grey?.A700,
-                },
-              },
-            })}
-            onMouseEnter={({ currentTarget }) => {
-              if (item.collapse) {
-                setNestedDropdownElement(currentTarget);
-                setNestedDropdownName(item.name);
-              }
-            }}
-            onMouseLeave={() => {
-              if (item.collapse) {
-                setNestedDropdownElement(undefined);
-                setNestedDropdownName(undefined);
-              }
-            }}
-          >
-            {item.description ? (
-              <MKBox>
-                {item.name}
-
-                <MKTypography
-                  display="block"
-                  variant="button"
-                  color="text"
-                  fontWeight="regular"
-                  sx={{ transition: 'all 300ms linear' }}
-                >
-                  {item.description}
-                </MKTypography>
-              </MKBox>
-            ) : (
-              item.name
-            )}
-            {item.subItems && (
-              /*              <KeyboardArrowDownIcon
-                              fontSize="small"
-                              sx={{
-                                fontWeight: 'normal',
-                                verticalAlign: 'middle',
-                                mr: -0.5,
-                              }}
-                            />*/
-              <FontAwesomeIcon icon={faAngleDown} fontSize="small" />
-            )}
-          </MKTypography>
-        );
-      });
-    }
-
-    return template;
-  });
-
-  return (
-    <Popper
-      anchorEl={collapseElement}
-      popperRef={null}
-      open={!!collapseName}
-      placement="top-start"
-      transition
-      style={{ zIndex: 10 }}
-      modifiers={[
-        {
-          name: 'arrow',
-          enabled: true,
-          options: {
-            element: arrowRef,
-          },
-        },
-      ]}
-      onMouseEnter={() => {
-        setCollapseElement(collapseElement);
-      }}
-      onMouseLeave={() => {
-        if (!nestedDropdownName) {
-          setCollapseName(undefined);
-        }
-      }}
-    >
-      {({ TransitionProps }) => (
-        <Grow
-          {...TransitionProps}
-          /*      sx={{
-                            transformOrigin: "left top",
-                            background: ({ palette: { white } }) => 'white',
-                          }}*/
-        >
-          <MKBox borderRadius="lg">
-            <MKTypography variant="h1" color="quaternary">
-              <Box ref={setArrowRef}>
-                {/* <ArrowDropUpIcon sx={{ mt: -3 }} />*/}
-                <FontAwesomeIcon icon={faChevronUp} />
-                <FontAwesomeIcon icon={faAngleUp} />
-              </Box>
-            </MKTypography>
-
-            <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
-              {renderRoutes}
-            </MKBox>
-          </MKBox>
-        </Grow>
-      )}
-    </Popper>
-  );
-};
-
-const NestedDropdownMenu = ({
-  routes,
-  nestedDropdownElement,
-  nestedDropdownName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
-}: {
-  routes: HeaderRoute[];
-  nestedDropdownElement: (EventTarget & HTMLSpanElement) | null | undefined;
-  nestedDropdownName: string | undefined;
-  setNestedDropdownElement: (
-    value:
-      | ((
-          prevState: (EventTarget & HTMLSpanElement) | null | undefined,
-        ) => (EventTarget & HTMLSpanElement) | null | undefined)
-      | (EventTarget & HTMLSpanElement)
-      | null
-      | undefined,
-  ) => void;
-  setNestedDropdownName: (
-    value:
-      | ((prevState: string | undefined) => string | undefined)
-      | string
-      | undefined,
-  ) => void;
-}): JSX.Element => {
-  const renderNestedRoutes = routes.map(({ menus, columns }) =>
-    !columns
-      ? menus?.map(({ name: parentName, subItems: nestedCollapse }) => {
-          if (parentName === nestedDropdownName) {
-            return nestedCollapse?.map(item => (
-              <MKTypography
-                key={item.name}
-                {...getRouteOrLinkComponent(item)}
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                variant="button"
-                textTransform="capitalize"
-                minWidth={item.description ? '14rem' : '12rem'}
-                color={'primary'}
-                fontWeight={item.description ? 'bold' : 'regular'}
-                py={item.description ? 1 : 0.625}
-                px={2}
-                sx={({
-                  palette: { grey },
-                  borders: { borderRadius },
-                }: Theme) => ({
-                  borderRadius: borderRadius.md,
-                  cursor: 'pointer',
-                  transition: 'all 300ms linear',
-
-                  '&:hover': {
-                    backgroundColor: grey[200],
-                    color: grey?.A700,
-
-                    '& *': {
-                      color: grey?.A700,
-                    },
-                  },
-                })}
-              >
-                {item.description ? (
-                  <MKBox>
-                    {item.name}
-                    <MKTypography
-                      display="block"
-                      variant="button"
-                      color="text"
-                      fontWeight="regular"
-                      sx={{ transition: 'all 300ms linear' }}
-                    >
-                      {item.description}
-                    </MKTypography>
-                  </MKBox>
-                ) : (
-                  item.name
-                )}
-                {item.collapse && (
-                  /*               <KeyboardArrowDownIcon
-                          fontSize="small"
-                          sx={{
-                            fontWeight: 'normal',
-                            verticalAlign: 'middle',
-                            mr: -0.5,
-                          }}
-                        />*/
-
-                  /*   <FontAwesomeIcon icon={faChevronDown} />*/
-                  <FontAwesomeIcon icon={faAngleDown} />
-                )}
-              </MKTypography>
-            ));
-          }
-        })
-      : null,
-  );
-
-  return (
-    <Popper
-      anchorEl={nestedDropdownElement}
-      popperRef={null}
-      open={!!nestedDropdownName}
-      placement="right-start"
-      transition
-      style={{ zIndex: 10 }}
-      onMouseEnter={() => {
-        setNestedDropdownElement(nestedDropdownElement);
-      }}
-      onMouseLeave={() => {
-        setNestedDropdownElement(undefined);
-        setNestedDropdownName(undefined);
-      }}
-    >
-      {({ TransitionProps }) => (
-        <Grow
-          {...TransitionProps}
-          /* sx={{
-                            transformOrigin: "left top",
-                            background: ({ palette: { white } }) => 'white',
-                          }}*/
-        >
-          <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
-            <MKBox
-              shadow={{ size: 'lg' }}
-              borderRadius="lg"
-              py={1.5}
-              px={1}
-              mt={2}
-            >
-              {renderNestedRoutes}
-            </MKBox>
-          </MKBox>
-        </Grow>
-      )}
-    </Popper>
-  );
-};
-
 const NavbarItems = ({
   routes,
   center,
@@ -507,30 +87,6 @@ const NavbarItems = ({
   setCollapseName: any;
   light?: boolean;
 }): JSX.Element => {
-  const renderNavbarItems = routes.map(({ name, icon, href, route, menus }) => (
-    <NavbarDropdown
-      key={name}
-      name={name}
-      icon={<FontAwesomeIcon icon={icon} />}
-      href={href}
-      route={route}
-      collapse={!!menus}
-      onMouseEnter={({ currentTarget }) => {
-        if (menus) {
-          setCollapseElement(currentTarget);
-          setCollapseName(name);
-        }
-      }}
-      onMouseLeave={() => {
-        if (menus) {
-          setCollapseElement(undefined);
-          setCollapseName(undefined);
-        }
-      }}
-      light={light}
-    />
-  ));
-
   return (
     <MKBox
       color="inherit"
@@ -538,13 +94,34 @@ const NavbarItems = ({
       ml="auto"
       mr={center ? 'auto' : 0}
     >
-      {renderNavbarItems}
+      {routes.map(({ name, icon, href, route, menus }) => (
+        <NavbarDropdown
+          key={name}
+          name={name}
+          icon={<FontAwesomeIcon icon={icon} />}
+          href={href}
+          route={route}
+          collapse={!!menus}
+          onMouseEnter={({ currentTarget }) => {
+            if (menus) {
+              setCollapseElement(currentTarget);
+              setCollapseName(name);
+            }
+          }}
+          onMouseLeave={() => {
+            if (menus) {
+              setCollapseElement(undefined);
+              setCollapseName(undefined);
+            }
+          }}
+          light={light}
+        />
+      ))}
     </MKBox>
   );
 };
 
 const MobileNavbarButton = ({
-  isTransparent,
   mobileNavbar,
   setMobileNavbar,
 }: {
@@ -560,7 +137,7 @@ const MobileNavbarButton = ({
       lineHeight={0}
       py={1.5}
       pl={1.5}
-      color={isTransparent ? 'quaternary' : 'inherit'}
+      color={'inherit'}
       sx={{ cursor: 'pointer' }}
       onClick={openMobileNavbar}
     >
@@ -578,7 +155,6 @@ const MobileNavbarButton = ({
 const BrandLink = ({
   isTransparent,
   relative,
-  light,
   brand,
 }: {
   isTransparent: undefined | boolean;
@@ -594,11 +170,7 @@ const BrandLink = ({
       py={isTransparent ? 1.5 : 0.75}
       pl={relative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
-      <MKTypography
-        variant="button"
-        fontWeight="bold"
-        color={light ? 'quaternary' : 'primary'}
-      >
+      <MKTypography variant="button" fontWeight="bold" color={'inherit'}>
         {brand}
       </MKTypography>
     </MKBox>
@@ -671,7 +243,6 @@ export const Navbar = ({
     (EventTarget & HTMLSpanElement) | null
   >();
   const [nestedDropdownName, setNestedDropdownName] = useState<string>();
-  const [arrowRef, setArrowRef] = useState();
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
 
@@ -704,6 +275,7 @@ export const Navbar = ({
     <Container
       sx={sticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
       maxWidth="xl"
+      color={light ? 'quaternary' : 'primary'}
     >
       <MKBox
         py={1}
@@ -713,7 +285,6 @@ export const Navbar = ({
         width={relative ? '100%' : 'calc(100% - 48px)'}
         borderRadius="xl"
         shadow={{ size: isTransparent ? undefined : 'md' }}
-        color={light ? 'quaternary' : 'primary'}
         position={relative ? 'relative' : 'absolute'}
         left={0}
         zIndex={3}
@@ -764,11 +335,9 @@ export const Navbar = ({
         routes={routes}
         collapseElement={collapseElement}
         collapseName={collapseName}
-        arrowRef={arrowRef}
         setCollapseElement={setCollapseElement}
         nestedDropdownName={nestedDropdownName}
         setCollapseName={setCollapseName}
-        setArrowRef={setArrowRef}
         setNestedDropdownElement={setNestedDropdownElement}
         setNestedDropdownName={setNestedDropdownName}
       />
