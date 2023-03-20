@@ -37,14 +37,153 @@ import { MKBox, MKTypography } from '..';
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
 
-import { HeaderRoute } from '../../../../content/HeaderRoutes';
+import {
+  HeaderMenu,
+  HeaderRoute,
+  HeaderSubItem,
+} from '../../../../content/HeaderRoutes';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export function NavbarMobile({ routes, open }: NavbarMobileProps): JSX.Element {
-  const [collapse, setCollapseElement] = useState('');
+const MenuWithSubItems = ({
+  name,
+  subItems,
+}: {
+  name: string;
+  subItems: HeaderSubItem[];
+}): JSX.Element => {
+  return (
+    <>
+      <MKTypography
+        display="block"
+        variant="button"
+        fontWeight="bold"
+        textTransform="capitalize"
+        py={1}
+        px={0.5}
+      >
+        {name}
+      </MKTypography>
 
-  const renderNavbarItems = routes.map(({ name, icon, menus, href, route }) => (
+      {subItems.map(subItem => (
+        <MKTypography
+          key={subItem.name}
+          component={subItem.route ? Link : MuiLink}
+          to={subItem.route ? subItem.route : ''}
+          href={subItem.href ? subItem.href : ''}
+          rel={subItem.href ? 'noreferrer' : 'noreferrer'}
+          minWidth="11.25rem"
+          display="block"
+          variant="button"
+          color="text"
+          textTransform="capitalize"
+          fontWeight="regular"
+          py={0.625}
+          px={2}
+          sx={({ palette: { grey }, borders: { borderRadius } }) => ({
+            borderRadius: borderRadius.md,
+            cursor: 'pointer',
+            transition: 'all 300ms linear',
+
+            '&:hover': {
+              backgroundColor: grey[200],
+              color: grey?.A700,
+            },
+          })}
+        >
+          {subItem.name}
+        </MKTypography>
+      ))}
+    </>
+  );
+};
+
+const MenuWithoutSubItems = ({
+  menu,
+  id,
+}: {
+  menu: HeaderMenu;
+  id: number;
+}): JSX.Element => {
+  return (
+    <MKBox
+      key={`${menu.name}_${id}`}
+      display="block"
+      component={menu.route ? Link : MuiLink}
+      to={menu.route ? menu.route : ''}
+      href={menu.href ? menu.href : ''}
+      target={menu.href ? '_blank' : ''}
+      rel={menu.href ? 'noreferrer' : 'noreferrer'}
+      sx={({ palette: { grey }, borders: { borderRadius } }) => ({
+        borderRadius: borderRadius.md,
+        cursor: 'pointer',
+        transition: 'all 300ms linear',
+        py: 1,
+        px: 1.625,
+
+        '&:hover': {
+          backgroundColor: grey[200],
+          color: grey?.A700,
+
+          '& *': {
+            color: grey?.A700,
+          },
+        },
+      })}
+    >
+      <MKTypography
+        display="block"
+        variant="button"
+        fontWeight="bold"
+        textTransform="capitalize"
+      >
+        {menu.name}
+      </MKTypography>
+
+      <MKTypography
+        display="block"
+        variant="button"
+        color="text"
+        fontWeight="regular"
+        sx={{ transition: 'all 300ms linear' }}
+      >
+        {menu.description}
+      </MKTypography>
+    </MKBox>
+  );
+};
+
+const Menu = ({ menu, id }: { menu: HeaderMenu; id: number }): JSX.Element => {
+  return (
+    <MKBox key={menu.name} px={2}>
+      {menu.subItems ? (
+        <MenuWithSubItems name={menu.name} subItems={menu.subItems} />
+      ) : (
+        <MenuWithoutSubItems menu={menu} id={id} />
+      )}
+    </MKBox>
+  );
+};
+
+const Route = ({
+  name,
+  icon,
+  setCollapseElement,
+  collapse,
+  href,
+  route,
+  menus,
+}: {
+  name: string;
+  icon: IconDefinition;
+  setCollapseElement: (value: ((prevState: string) => string) | string) => void;
+  collapse: string;
+  href: string | undefined;
+  route: string | undefined;
+  menus: HeaderMenu[] | undefined;
+}): JSX.Element => {
+  return (
     <NavbarDropdown
       key={name}
       name={name}
@@ -55,115 +194,36 @@ export function NavbarMobile({ routes, open }: NavbarMobileProps): JSX.Element {
       collapse={name === collapse}
     >
       <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-        {menus &&
-          menus.map((menu, id) => (
-            <MKBox key={menu.name} px={2}>
-              {menu.subItems ? (
-                <>
-                  <MKTypography
-                    display="block"
-                    variant="button"
-                    fontWeight="bold"
-                    textTransform="capitalize"
-                    py={1}
-                    px={0.5}
-                  >
-                    {menu.name}
-                  </MKTypography>
-
-                  {menu.subItems.map(subItem => (
-                    <MKTypography
-                      key={subItem.name}
-                      component={subItem.route ? Link : MuiLink}
-                      to={subItem.route ? subItem.route : ''}
-                      href={subItem.href ? subItem.href : ''}
-                      rel={subItem.href ? 'noreferrer' : 'noreferrer'}
-                      minWidth="11.25rem"
-                      display="block"
-                      variant="button"
-                      color="text"
-                      textTransform="capitalize"
-                      fontWeight="regular"
-                      py={0.625}
-                      px={2}
-                      sx={({
-                        palette: { grey },
-                        borders: { borderRadius },
-                      }) => ({
-                        borderRadius: borderRadius.md,
-                        cursor: 'pointer',
-                        transition: 'all 300ms linear',
-
-                        '&:hover': {
-                          backgroundColor: grey[200],
-                          color: grey?.A700,
-                        },
-                      })}
-                    >
-                      {subItem.name}
-                    </MKTypography>
-                  ))}
-                </>
-              ) : (
-                <MKBox
-                  key={`${menu.name}_${id}`}
-                  display="block"
-                  component={menu.route ? Link : MuiLink}
-                  to={menu.route ? menu.route : ''}
-                  href={menu.href ? menu.href : ''}
-                  target={menu.href ? '_blank' : ''}
-                  rel={menu.href ? 'noreferrer' : 'noreferrer'}
-                  sx={({ palette: { grey }, borders: { borderRadius } }) => ({
-                    borderRadius: borderRadius.md,
-                    cursor: 'pointer',
-                    transition: 'all 300ms linear',
-                    py: 1,
-                    px: 1.625,
-
-                    '&:hover': {
-                      backgroundColor: grey[200],
-                      color: grey?.A700,
-
-                      '& *': {
-                        color: grey?.A700,
-                      },
-                    },
-                  })}
-                >
-                  <MKTypography
-                    display="block"
-                    variant="button"
-                    fontWeight="bold"
-                    textTransform="capitalize"
-                  >
-                    {menu.name}
-                  </MKTypography>
-
-                  <MKTypography
-                    display="block"
-                    variant="button"
-                    color="text"
-                    fontWeight="regular"
-                    sx={{ transition: 'all 300ms linear' }}
-                  >
-                    {menu.description}
-                  </MKTypography>
-                </MKBox>
-              )}
-            </MKBox>
-          ))}
+        {menus && menus.map((menu, id) => <Menu menu={menu} id={id} />)}
       </MKBox>
     </NavbarDropdown>
-  ));
+  );
+};
+
+export const NavbarMobile = ({
+  routes,
+  open,
+}: NavbarMobileProps): JSX.Element => {
+  const [collapse, setCollapseElement] = useState('');
 
   return (
     <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2}>
-        {renderNavbarItems}
+        {routes.map(({ name, icon, menus, href, route }) => (
+          <Route
+            name={name}
+            icon={icon}
+            setCollapseElement={setCollapseElement}
+            collapse={collapse}
+            href={href}
+            route={route}
+            menus={menus}
+          />
+        ))}
       </MKBox>
     </Collapse>
   );
-}
+};
 
 interface NavbarMobileProps {
   routes: HeaderRoute[];

@@ -89,80 +89,44 @@ function getRouteOrLinkComponent(item: Link):
       };
 }
 
-export const Navbar = ({
-  brand,
+const DropdownMenu = ({
   routes,
-  isTransparent,
-  light,
-  action,
-  sticky,
-  relative,
-  center,
-}: NavbarProps): JSX.Element => {
-  const [collapseElement, setCollapseElement] = useState<
-    (EventTarget & HTMLSpanElement) | null
-  >();
-  const [collapseName, setCollapseName] = useState<string>();
-  const [nestedDropdownElement, setNestedDropdownElement] = useState<
-    (EventTarget & HTMLSpanElement) | null
-  >();
-  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
-  const [arrowRef, setArrowRef] = useState();
-  const [mobileNavbar, setMobileNavbar] = useState(false);
-  const [mobileView, setMobileView] = useState(false);
-
-  const openMobileNavbar = (): void => setMobileNavbar(!mobileNavbar);
-
-  useEffect(() => {
-    // A function that sets the display state for NavbarMobile.
-    function displayMobileNavbar(): void {
-      if (window.innerWidth < breakpoints.values.lg) {
-        setMobileView(true);
-        setMobileNavbar(false);
-      } else {
-        setMobileView(false);
-        setMobileNavbar(false);
-      }
-    }
-
-    /**
-         The event listener that's calling the displayMobileNavbar function when
-         resizing the window.
-     */
-    window.addEventListener('resize', displayMobileNavbar);
-
-    // Call the displayMobileNavbar function to set the state with the initial value.
-    displayMobileNavbar();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener('resize', displayMobileNavbar);
-  }, []);
-
-  const renderNavbarItems = routes.map(({ name, icon, href, route, menus }) => (
-    <NavbarDropdown
-      key={name}
-      name={name}
-      icon={<FontAwesomeIcon icon={icon} />}
-      href={href}
-      route={route}
-      collapse={!!menus}
-      onMouseEnter={({ currentTarget }) => {
-        if (menus) {
-          setCollapseElement(currentTarget);
-          setCollapseName(name);
-        }
-      }}
-      onMouseLeave={() => {
-        if (menus) {
-          setCollapseElement(undefined);
-          setCollapseName(undefined);
-        }
-      }}
-      light={light}
-    />
-  ));
-
-  // Render the routes on the dropdown menu
+  collapseElement,
+  collapseName,
+  arrowRef,
+  setCollapseElement,
+  nestedDropdownName,
+  setCollapseName,
+  setArrowRef,
+  setNestedDropdownElement,
+  setNestedDropdownName,
+}: {
+  routes: HeaderRoute[];
+  collapseElement: (EventTarget & HTMLSpanElement) | null | undefined;
+  collapseName: string | undefined;
+  arrowRef: any;
+  setCollapseElement: (
+    value:
+      | ((
+          prevState: (EventTarget & HTMLSpanElement) | null | undefined,
+        ) => (EventTarget & HTMLSpanElement) | null | undefined)
+      | (EventTarget & HTMLSpanElement)
+      | null
+      | undefined,
+  ) => void;
+  nestedDropdownName: string | undefined;
+  setCollapseName: (
+    value:
+      | ((prevState: string | undefined) => string | undefined)
+      | string
+      | undefined,
+  ) => void;
+  setArrowRef: (
+    value: ((prevState: undefined) => undefined) | undefined,
+  ) => void;
+  setNestedDropdownElement: any;
+  setNestedDropdownName: any;
+}): JSX.Element => {
   const renderRoutes = routes.map(({ name, menus, columns, rowsPerColumn }) => {
     let template;
 
@@ -321,13 +285,13 @@ export const Navbar = ({
             )}
             {item.subItems && (
               /*              <KeyboardArrowDownIcon
-                fontSize="small"
-                sx={{
-                  fontWeight: 'normal',
-                  verticalAlign: 'middle',
-                  mr: -0.5,
-                }}
-              />*/
+                              fontSize="small"
+                              sx={{
+                                fontWeight: 'normal',
+                                verticalAlign: 'middle',
+                                mr: -0.5,
+                              }}
+                            />*/
               <FontAwesomeIcon icon={faAngleDown} fontSize="small" />
             )}
           </MKTypography>
@@ -338,8 +302,7 @@ export const Navbar = ({
     return template;
   });
 
-  // Routes dropdown menu
-  const dropdownMenu = (
+  return (
     <Popper
       anchorEl={collapseElement}
       popperRef={null}
@@ -369,9 +332,9 @@ export const Navbar = ({
         <Grow
           {...TransitionProps}
           /*      sx={{
-                      transformOrigin: "left top",
-                      background: ({ palette: { white } }) => 'white',
-                    }}*/
+                            transformOrigin: "left top",
+                            background: ({ palette: { white } }) => 'white',
+                          }}*/
         >
           <MKBox borderRadius="lg">
             <MKTypography variant="h1" color="quaternary">
@@ -390,8 +353,34 @@ export const Navbar = ({
       )}
     </Popper>
   );
+};
 
-  // Render routes that are nested inside the dropdown menu routes
+const NestedDropdownMenu = ({
+  routes,
+  nestedDropdownElement,
+  nestedDropdownName,
+  setNestedDropdownElement,
+  setNestedDropdownName,
+}: {
+  routes: HeaderRoute[];
+  nestedDropdownElement: (EventTarget & HTMLSpanElement) | null | undefined;
+  nestedDropdownName: string | undefined;
+  setNestedDropdownElement: (
+    value:
+      | ((
+          prevState: (EventTarget & HTMLSpanElement) | null | undefined,
+        ) => (EventTarget & HTMLSpanElement) | null | undefined)
+      | (EventTarget & HTMLSpanElement)
+      | null
+      | undefined,
+  ) => void;
+  setNestedDropdownName: (
+    value:
+      | ((prevState: string | undefined) => string | undefined)
+      | string
+      | undefined,
+  ) => void;
+}): JSX.Element => {
   const renderNestedRoutes = routes.map(({ menus, columns }) =>
     !columns
       ? menus?.map(({ name: parentName, subItems: nestedCollapse }) => {
@@ -446,13 +435,13 @@ export const Navbar = ({
                 )}
                 {item.collapse && (
                   /*               <KeyboardArrowDownIcon
-                    fontSize="small"
-                    sx={{
-                      fontWeight: 'normal',
-                      verticalAlign: 'middle',
-                      mr: -0.5,
-                    }}
-                  />*/
+                          fontSize="small"
+                          sx={{
+                            fontWeight: 'normal',
+                            verticalAlign: 'middle',
+                            mr: -0.5,
+                          }}
+                        />*/
 
                   /*   <FontAwesomeIcon icon={faChevronDown} />*/
                   <FontAwesomeIcon icon={faAngleDown} />
@@ -464,8 +453,7 @@ export const Navbar = ({
       : null,
   );
 
-  // Dropdown menu for the nested dropdowns
-  const nestedDropdownMenu = (
+  return (
     <Popper
       anchorEl={nestedDropdownElement}
       popperRef={null}
@@ -485,9 +473,9 @@ export const Navbar = ({
         <Grow
           {...TransitionProps}
           /* sx={{
-                      transformOrigin: "left top",
-                      background: ({ palette: { white } }) => 'white',
-                    }}*/
+                            transformOrigin: "left top",
+                            background: ({ palette: { white } }) => 'white',
+                          }}*/
         >
           <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
             <MKBox
@@ -504,6 +492,213 @@ export const Navbar = ({
       )}
     </Popper>
   );
+};
+
+const NavbarItems = ({
+  routes,
+  center,
+  setCollapseElement,
+  setCollapseName,
+  light,
+}: {
+  routes: HeaderRoute[];
+  center: undefined | boolean;
+  setCollapseElement: any;
+  setCollapseName: any;
+  light?: boolean;
+}): JSX.Element => {
+  const renderNavbarItems = routes.map(({ name, icon, href, route, menus }) => (
+    <NavbarDropdown
+      key={name}
+      name={name}
+      icon={<FontAwesomeIcon icon={icon} />}
+      href={href}
+      route={route}
+      collapse={!!menus}
+      onMouseEnter={({ currentTarget }) => {
+        if (menus) {
+          setCollapseElement(currentTarget);
+          setCollapseName(name);
+        }
+      }}
+      onMouseLeave={() => {
+        if (menus) {
+          setCollapseElement(undefined);
+          setCollapseName(undefined);
+        }
+      }}
+      light={light}
+    />
+  ));
+
+  return (
+    <MKBox
+      color="inherit"
+      display={{ xs: 'none', lg: 'flex' }}
+      ml="auto"
+      mr={center ? 'auto' : 0}
+    >
+      {renderNavbarItems}
+    </MKBox>
+  );
+};
+
+const MobileNavbarButton = ({
+  isTransparent,
+  mobileNavbar,
+  setMobileNavbar,
+}: {
+  isTransparent: undefined | boolean;
+  mobileNavbar: boolean;
+  setMobileNavbar: any;
+}): JSX.Element => {
+  const openMobileNavbar = (): void => setMobileNavbar(!mobileNavbar);
+
+  return (
+    <MKBox
+      display={{ xs: 'inline-block', lg: 'none' }}
+      lineHeight={0}
+      py={1.5}
+      pl={1.5}
+      color={isTransparent ? 'quaternary' : 'inherit'}
+      sx={{ cursor: 'pointer' }}
+      onClick={openMobileNavbar}
+    >
+      {mobileNavbar ? (
+        /* <CloseIcon fontSize="medium" />*/
+        <FontAwesomeIcon icon={faClose} fontSize="medium" />
+      ) : (
+        /*  <MenuIcon fontSize="medium" />*/
+        <FontAwesomeIcon icon={faBars} fontSize="medium" />
+      )}
+    </MKBox>
+  );
+};
+
+const BrandLink = ({
+  isTransparent,
+  relative,
+  light,
+  brand,
+}: {
+  isTransparent: undefined | boolean;
+  relative: undefined | boolean;
+  light: undefined | boolean;
+  brand: string | undefined;
+}): JSX.Element => {
+  return (
+    <MKBox
+      component={GatsbyLink}
+      to="/"
+      lineHeight={1}
+      py={isTransparent ? 1.5 : 0.75}
+      pl={relative || isTransparent ? 0 : { xs: 0, lg: 1 }}
+    >
+      <MKTypography
+        variant="button"
+        fontWeight="bold"
+        color={light ? 'quaternary' : 'primary'}
+      >
+        {brand}
+      </MKTypography>
+    </MKBox>
+  );
+};
+
+const ActionButton = ({
+  action,
+}: {
+  action: {
+    type: 'external' | 'internal';
+    route: string;
+    color?: ButtonProps['color'];
+    label: string;
+  };
+}): JSX.Element => {
+  return (
+    <MKBox ml={{ xs: 'auto', lg: 0 }}>
+      {action &&
+        (action.type === 'internal' ? (
+          <MKButton
+            component={GatsbyLink}
+            to={action.route}
+            variant={
+              action.color === 'quaternary' || action.color === 'primary'
+                ? 'contained'
+                : 'gradient'
+            }
+            color={action.color ? action.color : 'info'}
+            size="small"
+          >
+            {action.label}
+          </MKButton>
+        ) : (
+          <MKButton
+            component={MuiLink}
+            href={action.route}
+            target="_blank"
+            rel="noreferrer"
+            variant={
+              action.color === 'quaternary' || action.color === 'primary'
+                ? 'contained'
+                : 'gradient'
+            }
+            color={action.color ?? 'info'}
+            size="small"
+          >
+            {action.label}
+          </MKButton>
+        ))}
+    </MKBox>
+  );
+};
+
+export const Navbar = ({
+  brand,
+  routes,
+  isTransparent,
+  light,
+  action,
+  sticky,
+  relative,
+  center,
+}: NavbarProps): JSX.Element => {
+  const [collapseElement, setCollapseElement] = useState<
+    (EventTarget & HTMLSpanElement) | null
+  >();
+  const [collapseName, setCollapseName] = useState<string>();
+  const [nestedDropdownElement, setNestedDropdownElement] = useState<
+    (EventTarget & HTMLSpanElement) | null
+  >();
+  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
+  const [arrowRef, setArrowRef] = useState();
+  const [mobileNavbar, setMobileNavbar] = useState(false);
+  const [mobileView, setMobileView] = useState(false);
+
+  useEffect(() => {
+    // A function that sets the display state for NavbarMobile.
+    function displayMobileNavbar(): void {
+      if (window.innerWidth < breakpoints.values.lg) {
+        setMobileView(true);
+        setMobileNavbar(false);
+      } else {
+        setMobileView(false);
+        setMobileNavbar(false);
+      }
+    }
+
+    /**
+         The event listener that's calling the displayMobileNavbar function when
+         resizing the window.
+     */
+    window.addEventListener('resize', displayMobileNavbar);
+
+    // Call the displayMobileNavbar function to set the state with the initial value.
+    displayMobileNavbar();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', displayMobileNavbar);
+  }, []);
 
   return (
     <Container
@@ -532,83 +727,28 @@ export const Navbar = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <MKBox
-            component={GatsbyLink}
-            to="/"
-            lineHeight={1}
-            py={isTransparent ? 1.5 : 0.75}
-            pl={relative || isTransparent ? 0 : { xs: 0, lg: 1 }}
-          >
-            <MKTypography
-              variant="button"
-              fontWeight="bold"
-              color={light ? 'quaternary' : 'primary'}
-            >
-              {brand}
-            </MKTypography>
-          </MKBox>
+          <BrandLink
+            isTransparent={isTransparent}
+            relative={relative}
+            light={light}
+            brand={brand}
+          />
 
-          <MKBox
-            color="inherit"
-            display={{ xs: 'none', lg: 'flex' }}
-            ml="auto"
-            mr={center ? 'auto' : 0}
-          >
-            {renderNavbarItems}
-          </MKBox>
+          <NavbarItems
+            routes={routes}
+            center={center}
+            setCollapseElement={setCollapseElement}
+            setCollapseName={setCollapseName}
+            light={light}
+          />
 
-          <MKBox ml={{ xs: 'auto', lg: 0 }}>
-            {action &&
-              (action.type === 'internal' ? (
-                <MKButton
-                  component={GatsbyLink}
-                  to={action.route}
-                  variant={
-                    action.color === 'quaternary' || action.color === 'primary'
-                      ? 'contained'
-                      : 'gradient'
-                  }
-                  color={action.color ? action.color : 'info'}
-                  size="small"
-                >
-                  {action.label}
-                </MKButton>
-              ) : (
-                <MKButton
-                  component={MuiLink}
-                  href={action.route}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant={
-                    action.color === 'quaternary' || action.color === 'primary'
-                      ? 'contained'
-                      : 'gradient'
-                  }
-                  color={action.color ?? 'info'}
-                  size="small"
-                >
-                  {action.label}
-                </MKButton>
-              ))}
-          </MKBox>
+          <ActionButton action={action} />
 
-          <MKBox
-            display={{ xs: 'inline-block', lg: 'none' }}
-            lineHeight={0}
-            py={1.5}
-            pl={1.5}
-            color={isTransparent ? 'quaternary' : 'inherit'}
-            sx={{ cursor: 'pointer' }}
-            onClick={openMobileNavbar}
-          >
-            {mobileNavbar ? (
-              /* <CloseIcon fontSize="medium" />*/
-              <FontAwesomeIcon icon={faClose} fontSize="medium" />
-            ) : (
-              /*  <MenuIcon fontSize="medium" />*/
-              <FontAwesomeIcon icon={faBars} fontSize="medium" />
-            )}
-          </MKBox>
+          <MobileNavbarButton
+            isTransparent={isTransparent}
+            mobileNavbar={mobileNavbar}
+            setMobileNavbar={setMobileNavbar}
+          />
         </MKBox>
 
         <MKBox
@@ -620,8 +760,25 @@ export const Navbar = ({
           {mobileView && <NavbarMobile routes={routes} open={mobileNavbar} />}
         </MKBox>
       </MKBox>
-      {dropdownMenu}
-      {nestedDropdownMenu}
+      <DropdownMenu
+        routes={routes}
+        collapseElement={collapseElement}
+        collapseName={collapseName}
+        arrowRef={arrowRef}
+        setCollapseElement={setCollapseElement}
+        nestedDropdownName={nestedDropdownName}
+        setCollapseName={setCollapseName}
+        setArrowRef={setArrowRef}
+        setNestedDropdownElement={setNestedDropdownElement}
+        setNestedDropdownName={setNestedDropdownName}
+      />
+      <NestedDropdownMenu
+        routes={routes}
+        nestedDropdownElement={nestedDropdownElement}
+        nestedDropdownName={nestedDropdownName}
+        setNestedDropdownElement={setNestedDropdownElement}
+        setNestedDropdownName={setNestedDropdownName}
+      />
     </Container>
   );
 };
