@@ -190,7 +190,7 @@ const Route = ({
       icon={<FontAwesomeIcon icon={icon} />}
       onClick={() => setCollapseElement(collapse === name ? '' : name)}
       href={href}
-      route={route}
+      to={route}
       collapse={name === collapse}
     >
       <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>

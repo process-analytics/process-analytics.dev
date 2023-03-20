@@ -79,13 +79,13 @@ const NavbarItems = ({
   center,
   setCollapseElement,
   setCollapseName,
-  light,
+  isLight,
 }: {
   routes: HeaderRoute[];
   center: undefined | boolean;
   setCollapseElement: any;
   setCollapseName: any;
-  light?: boolean;
+  isLight?: boolean;
 }): JSX.Element => {
   return (
     <MKBox
@@ -100,7 +100,7 @@ const NavbarItems = ({
           name={name}
           icon={<FontAwesomeIcon icon={icon} />}
           href={href}
-          route={route}
+          to={route}
           collapse={!!menus}
           onMouseEnter={({ currentTarget }) => {
             if (menus) {
@@ -114,7 +114,7 @@ const NavbarItems = ({
               setCollapseName(undefined);
             }
           }}
-          light={light}
+          isLight={isLight}
         />
       ))}
     </MKBox>
@@ -154,11 +154,11 @@ const MobileNavbarButton = ({
 
 const BrandLink = ({
   isTransparent,
-  relative,
+  isRelative,
   brand,
 }: {
   isTransparent: undefined | boolean;
-  relative: undefined | boolean;
+  isRelative: undefined | boolean;
   light: undefined | boolean;
   brand: string | undefined;
 }): JSX.Element => {
@@ -168,7 +168,7 @@ const BrandLink = ({
       to="/"
       lineHeight={1}
       py={isTransparent ? 1.5 : 0.75}
-      pl={relative || isTransparent ? 0 : { xs: 0, lg: 1 }}
+      pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
       <MKTypography variant="button" fontWeight="bold" color={'inherit'}>
         {brand}
@@ -228,12 +228,12 @@ const ActionButton = ({
 export const Navbar = ({
   brand,
   routes,
-  isTransparent,
-  light,
   action,
-  sticky,
-  relative,
-  center,
+  isTransparent,
+  isLight,
+  isSticky,
+  isRelative,
+  isCenter,
 }: NavbarProps): JSX.Element => {
   const [collapseElement, setCollapseElement] = useState<
     (EventTarget & HTMLSpanElement) | null
@@ -273,19 +273,19 @@ export const Navbar = ({
 
   return (
     <Container
-      sx={sticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
+      sx={isSticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
       maxWidth="xl"
-      color={light ? 'quaternary' : 'primary'}
+      color={isLight ? 'quaternary' : 'primary'}
     >
       <MKBox
         py={1}
         px={{ xs: 4, sm: isTransparent ? 2 : 3, lg: isTransparent ? 0 : 2 }}
-        my={relative ? 0 : 2}
-        mx={relative ? 0 : 3}
-        width={relative ? '100%' : 'calc(100% - 48px)'}
+        my={isRelative ? 0 : 2}
+        mx={isRelative ? 0 : 3}
+        width={isRelative ? '100%' : 'calc(100% - 48px)'}
         borderRadius="xl"
         shadow={{ size: isTransparent ? undefined : 'md' }}
-        position={relative ? 'relative' : 'absolute'}
+        position={isRelative ? 'relative' : 'absolute'}
         left={0}
         zIndex={3}
         sx={{
@@ -300,17 +300,17 @@ export const Navbar = ({
         >
           <BrandLink
             isTransparent={isTransparent}
-            relative={relative}
-            light={light}
+            isRelative={isRelative}
+            light={isLight}
             brand={brand}
           />
 
           <NavbarItems
             routes={routes}
-            center={center}
+            center={isCenter}
             setCollapseElement={setCollapseElement}
             setCollapseName={setCollapseName}
-            light={light}
+            isLight={isLight}
           />
 
           <ActionButton action={action} />
@@ -355,15 +355,15 @@ export const Navbar = ({
 interface NavbarProps {
   brand?: string;
   routes: HeaderRoute[];
-  isTransparent?: boolean;
-  light?: boolean;
   action: {
     type: 'external' | 'internal';
     route: string;
     color?: ButtonProps['color'];
     label: string;
   };
-  sticky?: boolean;
-  relative?: boolean;
-  center?: boolean;
+  isTransparent?: boolean;
+  isLight?: boolean;
+  isSticky?: boolean;
+  isRelative?: boolean;
+  isCenter?: boolean;
 }

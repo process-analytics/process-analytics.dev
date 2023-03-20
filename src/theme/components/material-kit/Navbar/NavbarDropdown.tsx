@@ -41,9 +41,9 @@ export function NavbarDropdown({
   name,
   icon,
   children,
-  light,
+  isLight,
   href,
-  route,
+  to,
   collapse,
   ...rest
 }: NavbarDropdownProps): JSX.Element {
@@ -56,7 +56,7 @@ export function NavbarDropdown({
 
   const routeComponent = {
     component: Link,
-    to: route,
+    to,
   };
 
   return (
@@ -67,10 +67,10 @@ export function NavbarDropdown({
         p={1}
         display="flex"
         alignItems="baseline"
-        color={light ? 'quaternary' : 'primary'}
-        opacity={light ? 1 : 0.6}
+        color={isLight ? 'quaternary' : 'primary'}
+        opacity={isLight ? 1 : 0.6}
         sx={{ cursor: 'pointer', userSelect: 'none' }}
-        {...(route && routeComponent)}
+        {...(to && routeComponent)}
         {...(href && linkComponent)}
       >
         <MKTypography
@@ -85,7 +85,7 @@ export function NavbarDropdown({
           variant="button"
           fontWeight="regular"
           textTransform="capitalize"
-          color={light ? 'quaternary' : 'primary'}
+          color={isLight ? 'quaternary' : 'primary'}
           sx={{ fontWeight: '100%', ml: 1, mr: 0.25 }}
         >
           {name}
@@ -93,7 +93,7 @@ export function NavbarDropdown({
 
         <MKTypography
           variant="body2"
-          color={light ? 'quaternary' : 'primary'}
+          color={isLight ? 'quaternary' : 'primary'}
           ml="auto"
         >
           {collapse && (
@@ -118,9 +118,9 @@ interface NavbarDropdownProps {
   name: string;
   icon: React.ReactElement<SvgIconProps>;
   children?: JSX.Element;
-  light?: boolean;
+  isLight?: boolean;
   href?: string;
-  route?: string;
+  to?: string;
   collapse: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLSpanElement>) => void;

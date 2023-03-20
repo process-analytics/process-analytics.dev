@@ -64,7 +64,7 @@ export const Header = (): JSX.Element => {
               color: 'secondary',
             }}
             isTransparent
-            relative
+            isRelative
           />
         </MKBox>
       </ScopedCssBaseline>
