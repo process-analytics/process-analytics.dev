@@ -108,11 +108,11 @@ export const DropdownMenu = ({
             </MKTypography>
 
             <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
-              {routes.map(({ name, menus, columns, rowsPerColumn }) => {
+              {routes.map(({ name, menus, withColumns, rowsPerColumn }) => {
                 let template;
 
                 // Render the dropdown menu that should be display as columns
-                if (menus && columns && name === collapseName) {
+                if (menus && withColumns && name === collapseName) {
                   const calculateColumns = menus.reduce(
                     (resultArray: HeaderMenu[][], item, index) => {
                       const chunkIndex = Math.floor(
@@ -138,7 +138,7 @@ export const DropdownMenu = ({
                           <Grid
                             key={gridKey}
                             item
-                            xs={12 / columns}
+                            xs={12 / (rowsPerColumn ?? 5)}
                             sx={{ position: 'relative' }}
                           >
                             {cols.map((col, index) => (
@@ -240,13 +240,13 @@ export const DropdownMenu = ({
                           },
                         })}
                         onMouseEnter={({ currentTarget }) => {
-                          if (item.collapse) {
+                          if (item.isCollapsed) {
                             setNestedDropdownElement(currentTarget);
                             setNestedDropdownName(item.name);
                           }
                         }}
                         onMouseLeave={() => {
-                          if (item.collapse) {
+                          if (item.isCollapsed) {
                             setNestedDropdownElement(undefined);
                             setNestedDropdownName(undefined);
                           }
