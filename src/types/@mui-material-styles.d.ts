@@ -21,10 +21,9 @@ import {
   Variant,
 } from '@mui/material/styles/createTypography';
 import { Color } from 'chroma-js';
-import type {} from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
-  export interface BreakpointOverrides {
+  interface BreakpointOverrides {
     xxl: true;
   }
 
