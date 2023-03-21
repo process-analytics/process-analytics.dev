@@ -22,7 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HeaderRoute } from '../../../../content/HeaderRoutes';
 import { MKTypography } from '../MKTypography';
 import { MKBox } from '../MKBox';
-import { getRouteOrLinkComponent } from './Navbar';
+import { getLinkAttributes } from './Navbar';
 
 export const NestedDropdownMenu = ({
   routes,
@@ -57,7 +57,7 @@ export const NestedDropdownMenu = ({
             return nestedCollapse?.map(item => (
               <MKTypography
                 key={item.name}
-                {...getRouteOrLinkComponent(item)}
+                {...getLinkAttributes(item)}
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"

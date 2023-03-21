@@ -27,7 +27,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeaderMenu, HeaderRoute } from '../../../../content/HeaderRoutes';
 import { MKTypography } from '../MKTypography';
-import { getRouteOrLinkComponent } from './Navbar';
+import { getLinkAttributes } from './Navbar';
 import { MKBox } from '../MKBox';
 
 export const DropdownMenu = ({
@@ -158,7 +158,7 @@ export const DropdownMenu = ({
                                 {col.subItems?.map(item => (
                                   <MKTypography
                                     key={item.name}
-                                    {...getRouteOrLinkComponent(item)}
+                                    {...getLinkAttributes(item)}
                                     minWidth="11.25rem"
                                     display="block"
                                     variant="button"
@@ -211,7 +211,7 @@ export const DropdownMenu = ({
                     return (
                       <MKTypography
                         key={item.name}
-                        {...getRouteOrLinkComponent(item)}
+                        {...getLinkAttributes(item)}
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"

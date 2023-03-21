@@ -53,7 +53,7 @@ import { NavbarMobile } from './NavbarMobile';
 import { NestedDropdownMenu } from './NestedDropdownMenu';
 import { DropdownMenu } from './DropdownMenu';
 
-export function getRouteOrLinkComponent(item: Link):
+export function getLinkAttributes(item: Pick<Link, 'route' | 'href'>):
   | { component: typeof GatsbyLink; to: string }
   | {
       component: typeof MuiLink;
@@ -79,13 +79,11 @@ const NavbarItems = ({
   center,
   setCollapseElement,
   setCollapseName,
-  isLight,
 }: {
   routes: HeaderRoute[];
   center: undefined | boolean;
   setCollapseElement: any;
   setCollapseName: any;
-  isLight?: boolean;
 }): JSX.Element => {
   return (
     <MKBox
@@ -97,10 +95,9 @@ const NavbarItems = ({
       {routes.map(({ name, icon, href, route, menus }) => (
         <NavbarDropdown
           key={name}
+          {...getLinkAttributes({ href, route })}
           name={name}
           icon={<FontAwesomeIcon icon={icon} />}
-          href={href}
-          to={route}
           collapse={!!menus}
           onMouseEnter={({ currentTarget }) => {
             if (menus) {
@@ -114,7 +111,6 @@ const NavbarItems = ({
               setCollapseName(undefined);
             }
           }}
-          isLight={isLight}
         />
       ))}
     </MKBox>
@@ -159,7 +155,6 @@ const BrandLink = ({
 }: {
   isTransparent: undefined | boolean;
   isRelative: undefined | boolean;
-  light: undefined | boolean;
   brand: string | undefined;
 }): JSX.Element => {
   return (
@@ -274,7 +269,6 @@ export const Navbar = ({
   return (
     <Container
       sx={isSticky ? { position: 'sticky', top: 0, zIndex: 10 } : null}
-      maxWidth="xl"
       color={isLight ? 'quaternary' : 'primary'}
     >
       <MKBox
@@ -301,7 +295,6 @@ export const Navbar = ({
           <BrandLink
             isTransparent={isTransparent}
             isRelative={isRelative}
-            light={isLight}
             brand={brand}
           />
 
@@ -310,7 +303,6 @@ export const Navbar = ({
             center={isCenter}
             setCollapseElement={setCollapseElement}
             setCollapseName={setCollapseName}
-            isLight={isLight}
           />
 
           <ActionButton action={action} />

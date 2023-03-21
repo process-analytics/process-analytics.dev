@@ -27,15 +27,14 @@
 import React, { useState } from 'react';
 
 // @mui material components
-import { Collapse, Link as MuiLink } from '@mui/material';
-
-import { Link } from 'gatsby';
+import { Collapse, Theme } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
+import { getLinkAttributes } from './Navbar';
 
 import {
   HeaderMenu,
@@ -69,10 +68,7 @@ const MenuWithSubItems = ({
       {subItems.map(subItem => (
         <MKTypography
           key={subItem.name}
-          component={subItem.route ? Link : MuiLink}
-          to={subItem.route ? subItem.route : ''}
-          href={subItem.href ? subItem.href : ''}
-          rel={subItem.href ? 'noreferrer' : 'noreferrer'}
+          {...getLinkAttributes(subItem)}
           minWidth="11.25rem"
           display="block"
           variant="button"
@@ -110,12 +106,8 @@ const MenuWithoutSubItems = ({
     <MKBox
       key={`${menu.name}_${id}`}
       display="block"
-      component={menu.route ? Link : MuiLink}
-      to={menu.route ? menu.route : ''}
-      href={menu.href ? menu.href : ''}
-      target={menu.href ? '_blank' : ''}
-      rel={menu.href ? 'noreferrer' : 'noreferrer'}
-      sx={({ palette: { grey }, borders: { borderRadius } }) => ({
+      {...getLinkAttributes(menu)}
+      sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
         borderRadius: borderRadius.md,
         cursor: 'pointer',
         transition: 'all 300ms linear',
@@ -189,8 +181,7 @@ const Route = ({
       name={name}
       icon={<FontAwesomeIcon icon={icon} />}
       onClick={() => setCollapseElement(collapse === name ? '' : name)}
-      href={href}
-      to={route}
+      {...getLinkAttributes({ href, route })}
       collapse={name === collapse}
     >
       <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
