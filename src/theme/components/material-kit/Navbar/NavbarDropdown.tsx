@@ -28,12 +28,13 @@ import React, { PropsWithChildren } from 'react';
 
 // @mui material components
 import { Collapse, SvgIconProps } from '@mui/material';
+import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
 
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+/*import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';*/
 
 export const NavbarDropdown = ({
   name,
@@ -73,10 +74,10 @@ export const NavbarDropdown = ({
 
       <MKTypography variant="body2" color="inherit" ml="auto">
         {collapse && (
-          /*            <KeyboardArrowDown
-              sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
-            />*/
-          <FontAwesomeIcon icon={faAngleDown} />
+          <KeyboardArrowDown
+            sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
+          />
+          /* <FontAwesomeIcon icon={faAngleDown} />*/
         )}
       </MKTypography>
     </MKBox>

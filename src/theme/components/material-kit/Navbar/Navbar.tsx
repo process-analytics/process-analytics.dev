@@ -32,11 +32,12 @@
 import React, { useEffect, useState } from 'react';
 
 // @mui material components
-import { ButtonProps, Container, Link as MuiLink, Theme } from '@mui/material';
+import { ButtonProps, Container, Link as MuiLink } from '@mui/material';
+import { Close, Menu } from '@mui/icons-material';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
+/*import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';*/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
@@ -45,7 +46,7 @@ import { MKBox, MKBoxProps, MKButton, MKTypography } from '..';
 // Material Kit 2 React base styles
 import breakpoints from '../../../../assets/theme/base/breakpoints';
 import { HeaderRoute } from '../../../../content/HeaderRoutes';
-import { Link } from '../../../types';
+import { getLinkAttributes } from '../../Link';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
@@ -53,27 +54,6 @@ import { NavbarMobile } from './NavbarMobile';
 import { NestedDropdownMenu } from './NestedDropdownMenu';
 import { DropdownMenu } from './DropdownMenu';
 import pxToRem from '../../../../assets/theme/functions/pxToRem';
-
-export function getLinkAttributes(item: Pick<Link, 'route' | 'href'>):
-  | { component: typeof GatsbyLink; to: string }
-  | {
-      component: typeof MuiLink;
-      rel: string;
-      href: string | undefined;
-      target: string;
-    } {
-  return item.route
-    ? {
-        component: GatsbyLink,
-        to: item.route,
-      }
-    : {
-        component: MuiLink,
-        href: item.href,
-        target: '_blank',
-        rel: 'noreferrer',
-      };
-}
 
 const NavbarItems = ({
   routes,
@@ -135,11 +115,11 @@ const MobileNavbarButton = ({
       onClick={(): void => setMobileNavbar(!mobileNavbar)}
     >
       {mobileNavbar ? (
-        /* <CloseIcon fontSize="medium" />*/
-        <FontAwesomeIcon icon={faClose} fontSize="medium" />
+        <Close fontSize="medium" />
       ) : (
-        /*  <MenuIcon fontSize="medium" />*/
-        <FontAwesomeIcon icon={faBars} fontSize="medium" />
+        /*  <FontAwesomeIcon icon={faClose} fontSize="medium" />*/
+        <Menu fontSize="medium" />
+        /* <FontAwesomeIcon icon={faBars} fontSize="medium" />*/
       )}
     </MKBox>
   );

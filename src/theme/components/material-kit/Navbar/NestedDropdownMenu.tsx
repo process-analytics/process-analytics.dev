@@ -16,13 +16,15 @@
 import React from 'react';
 
 import { Grow, Popper, Theme } from '@mui/material';
+import { KeyboardArrowDown } from '@mui/icons-material';
 
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+//import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { HeaderRoute } from '../../../../content/HeaderRoutes';
 import { MKTypography } from '../MKTypography';
 import { MKBox } from '../MKBox';
-import { getLinkAttributes } from './Navbar';
+import { getLinkAttributes } from '../../Link';
 
 export const NestedDropdownMenu = ({
   routes,
@@ -138,17 +140,17 @@ export const NestedDropdownMenu = ({
                             subItem.name
                           )}
                           {isCollapsed && (
-                            /*               <KeyboardArrowDownIcon
-                                                  fontSize="small"
-                                                  sx={{
-                                                    fontWeight: 'normal',
-                                                    verticalAlign: 'middle',
-                                                    mr: -0.5,
-                                                  }}
-                                                />*/
+                            <KeyboardArrowDown
+                              fontSize="small"
+                              sx={{
+                                fontWeight: 'normal',
+                                verticalAlign: 'middle',
+                                mr: -0.5,
+                              }}
+                            />
 
                             /*   <FontAwesomeIcon icon={faChevronDown} />*/
-                            <FontAwesomeIcon icon={faAngleDown} />
+                            /* <FontAwesomeIcon icon={faAngleDown} />*/
                           )}
                         </MKTypography>
                       )),

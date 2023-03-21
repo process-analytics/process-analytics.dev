@@ -17,18 +17,19 @@
 import React, { Fragment, useState } from 'react';
 
 import { Box, Divider, Grid, Grow, Popper, Theme } from '@mui/material';
+import { ArrowDropUp, KeyboardArrowDown } from '@mui/icons-material';
 
-import {
+/*import {
   faAngleDown,
   faAngleUp,
   faChevronUp,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';*/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeaderMenu, HeaderRoute } from '../../../../content/HeaderRoutes';
 import { MKTypography } from '../MKTypography';
-import { getLinkAttributes } from './Navbar';
 import { MKBox } from '../MKBox';
+import { getLinkAttributes } from '../../Link';
 
 export const DropdownMenu = ({
   routes,
@@ -101,9 +102,9 @@ export const DropdownMenu = ({
           <MKBox borderRadius="lg">
             <MKTypography variant="h1" color="quaternary">
               <Box ref={setArrowRef}>
-                {/* <ArrowDropUpIcon sx={{ mt: -3 }} />*/}
-                <FontAwesomeIcon icon={faChevronUp} />
-                <FontAwesomeIcon icon={faAngleUp} />
+                <ArrowDropUp sx={{ mt: -3 }} />
+                {/* <FontAwesomeIcon icon={faChevronUp} />
+                <FontAwesomeIcon icon={faAngleUp} />*/}
               </Box>
             </MKTypography>
 
@@ -270,18 +271,18 @@ export const DropdownMenu = ({
                           item.name
                         )}
                         {item.subItems && (
-                          /*              <KeyboardArrowDownIcon
-                                                                        fontSize="small"
-                                                                        sx={{
-                                                                          fontWeight: 'normal',
-                                                                          verticalAlign: 'middle',
-                                                                          mr: -0.5,
-                                                                        }}
-                                                                      />*/
-                          <FontAwesomeIcon
+                          <KeyboardArrowDown
+                            fontSize="small"
+                            sx={{
+                              fontWeight: 'normal',
+                              verticalAlign: 'middle',
+                              mr: -0.5,
+                            }}
+                          />
+                          /*            <FontAwesomeIcon
                             icon={faAngleDown}
                             fontSize="small"
-                          />
+                          />*/
                         )}
                       </MKTypography>
                     );

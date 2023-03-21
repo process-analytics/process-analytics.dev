@@ -34,7 +34,6 @@ import { MKBox, MKTypography } from '..';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
-import { getLinkAttributes } from './Navbar';
 
 import {
   HeaderMenu,
@@ -44,6 +43,8 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+import { getLinkAttributes } from '../../Link';
 
 const MenuWithSubItems = ({
   name,
