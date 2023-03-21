@@ -29,22 +29,22 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 // @mui material components
 import { Collapse, Theme } from '@mui/material';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 // Material Kit 2 React components
-import { MKBox, MKBoxProps, MKTypography } from '..';
+import { MKBox, MKBoxProps, MKTypography } from '../..';
 
 // Material Kit 2 React example components
-import { NavbarDropdown } from './NavbarDropdown';
+import { NavbarDropdown } from '../NavbarDropdown';
 
 import {
   HeaderMenu,
   HeaderRoute,
   HeaderSubItem,
-} from '../../../../content/HeaderRoutes';
+} from '../../../../../content/HeaderRoutes';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-import { getLinkAttributes } from '../../Link';
+import { getLinkAttributes } from '../../../Link';
 
 const MenuWithSubItems = ({
   name,

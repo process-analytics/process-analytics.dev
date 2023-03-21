@@ -50,9 +50,8 @@ import { getLinkAttributes } from '../../Link';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
-import { NavbarMobile } from './NavbarMobile';
-import { NestedDropdownMenu } from './NestedDropdownMenu';
-import { DropdownMenu } from './DropdownMenu';
+import { NavbarMobile } from './mobile/NavbarMobile';
+import { NestedDropdownMenu, DropdownMenu } from './desktop';
 import pxToRem from '../../../../assets/theme/functions/pxToRem';
 
 const NavbarItems = ({
@@ -316,25 +315,29 @@ const InnerContainer = ({
           </MKBox>
         )}
       </MKBox>
-      <DropdownMenu
-        routes={routes}
-        collapseElement={collapseElement}
-        collapseName={collapseName}
-        setCollapseElement={setCollapseElement}
-        nestedDropdownName={nestedDropdownName}
-        setCollapseName={setCollapseName}
-        setNestedDropdownElement={setNestedDropdownElement}
-        setNestedDropdownName={setNestedDropdownName}
-        dropdownStyle={dropdownStyle}
-      />
-      <NestedDropdownMenu
-        routes={routes}
-        nestedDropdownElement={nestedDropdownElement}
-        nestedDropdownName={nestedDropdownName}
-        setNestedDropdownElement={setNestedDropdownElement}
-        setNestedDropdownName={setNestedDropdownName}
-        dropdownStyle={dropdownStyle}
-      />
+      {!mobileMenuView && (
+        <>
+          <DropdownMenu
+            routes={routes}
+            collapseElement={collapseElement}
+            collapseName={collapseName}
+            setCollapseElement={setCollapseElement}
+            nestedDropdownName={nestedDropdownName}
+            setCollapseName={setCollapseName}
+            setNestedDropdownElement={setNestedDropdownElement}
+            setNestedDropdownName={setNestedDropdownName}
+            dropdownStyle={dropdownStyle}
+          />
+          <NestedDropdownMenu
+            routes={routes}
+            nestedDropdownElement={nestedDropdownElement}
+            nestedDropdownName={nestedDropdownName}
+            setNestedDropdownElement={setNestedDropdownElement}
+            setNestedDropdownName={setNestedDropdownName}
+            dropdownStyle={dropdownStyle}
+          />
+        </>
+      )}
     </Container>
   );
 };

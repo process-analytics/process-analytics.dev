@@ -27,7 +27,7 @@
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { BoxProps, Collapse, SvgIconProps } from '@mui/material';
+import { Collapse, SvgIconProps } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
