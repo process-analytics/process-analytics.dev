@@ -28,15 +28,17 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-
 import React, { forwardRef } from 'react';
+
+import { ButtonTypeMap } from '@mui/material/Button/Button';
+import { ButtonProps as MuiButtonProps } from '@mui/material';
 
 // Custom styles for MKButton
 import { MKButtonRoot, ButtonProps } from './MKButtonRoot';
 
 export const MKButton = forwardRef<
   HTMLButtonElement,
-  React.PropsWithChildren<MKButtonProps>
+  MKButtonProps<React.ElementType>
 >(
   (
     {
@@ -69,9 +71,6 @@ export const MKButton = forwardRef<
   ),
 );
 
-export type MKButtonProps = ButtonProps & {
-  component?: React.ElementType;
-  to?: string;
-  target?: string;
-  rel?: string;
-};
+export type MKButtonProps<
+  D extends React.ElementType = ButtonTypeMap['defaultComponent'],
+> = React.PropsWithChildren<ButtonProps> & MuiButtonProps<D>;
