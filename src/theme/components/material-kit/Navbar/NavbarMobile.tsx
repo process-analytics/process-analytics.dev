@@ -183,7 +183,8 @@ const Route = ({
       icon={<FontAwesomeIcon icon={icon} />}
       onClick={() => setCollapseElement(collapse === name ? '' : name)}
       {...getLinkAttributes({ href, route })}
-      collapse={name === collapse}
+      isCollapsible={Boolean(menus)}
+      isCollapsed={name === collapse}
     >
       <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
         {menus && menus.map((menu, id) => <Menu menu={menu} id={id} />)}

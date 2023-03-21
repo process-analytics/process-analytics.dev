@@ -60,11 +60,13 @@ const NavbarItems = ({
   center,
   setCollapseElement,
   setCollapseName,
+  collapseName,
 }: {
   routes: HeaderRoute[];
   center: undefined | boolean;
   setCollapseElement: any;
   setCollapseName: any;
+  collapseName: string;
 }): JSX.Element => {
   return (
     <MKBox
@@ -79,7 +81,8 @@ const NavbarItems = ({
           {...getLinkAttributes({ href, route })}
           name={name}
           icon={<FontAwesomeIcon icon={icon} />}
-          collapse={!!menus}
+          isCollapsible={!!menus}
+          isCollapsed={name === collapseName}
           onMouseEnter={({ currentTarget }) => {
             if (menus) {
               setCollapseElement(currentTarget);

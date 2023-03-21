@@ -40,7 +40,8 @@ export const NavbarDropdown = ({
   name,
   icon,
   children,
-  collapse,
+  isCollapsible,
+  isCollapsed,
   ...rest
 }: PropsWithChildren<NavbarDropdownProps>): JSX.Element => (
   <>
@@ -73,17 +74,16 @@ export const NavbarDropdown = ({
       </MKTypography>
 
       <MKTypography variant="body2" color="inherit" ml="auto">
-        {collapse && (
+        {isCollapsible && (
           <KeyboardArrowDown
             sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
           />
-          /* <FontAwesomeIcon icon={faAngleDown} />*/
         )}
       </MKTypography>
     </MKBox>
 
     {children && (
-      <Collapse in={collapse} timeout={400} unmountOnExit>
+      <Collapse in={isCollapsed} timeout={400} unmountOnExit>
         {children}
       </Collapse>
     )}
@@ -92,7 +92,8 @@ export const NavbarDropdown = ({
 type NavbarDropdownProps = {
   name: string;
   icon: React.ReactElement<SvgIconProps>;
-  collapse: boolean;
+  isCollapsible: boolean;
+  isCollapsed: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLSpanElement>) => void;
