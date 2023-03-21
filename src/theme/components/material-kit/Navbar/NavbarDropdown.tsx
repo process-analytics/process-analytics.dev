@@ -27,14 +27,11 @@
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIconProps } from '@mui/material';
+import { BoxProps, Collapse, SvgIconProps } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
-
-/*import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';*/
 
 export const NavbarDropdown = ({
   name,
@@ -51,8 +48,7 @@ export const NavbarDropdown = ({
       p={1}
       display="flex"
       alignItems="baseline"
-      color="inherit"
-      //opacity={isLight ? 1 : 0.6}
+      //opacity={isMobileView && open ? 1 : 0.6}
       sx={{ cursor: 'pointer', userSelect: 'none' }}
     >
       <MKTypography
@@ -89,12 +85,13 @@ export const NavbarDropdown = ({
     )}
   </>
 );
-type NavbarDropdownProps = {
+
+type NavbarDropdownProps = React.PropsWithoutRef<{
   name: string;
   icon: React.ReactElement<SvgIconProps>;
   isCollapsible: boolean;
   isCollapsed: boolean;
-  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  onMouseEnter?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-};
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}>;
