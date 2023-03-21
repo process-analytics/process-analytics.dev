@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 // @mui material components
 import { ButtonProps, Container, Link as MuiLink } from '@mui/material';
@@ -64,9 +64,11 @@ const NavbarItems = ({
 }: {
   routes: HeaderRoute[];
   center: undefined | boolean;
-  setCollapseElement: any;
-  setCollapseName: any;
-  collapseName: string;
+  setCollapseElement: Dispatch<
+    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
+  >;
+  setCollapseName: Dispatch<SetStateAction<string | undefined>>;
+  collapseName?: string;
 }): JSX.Element => {
   return (
     <MKBox
@@ -200,35 +202,6 @@ const ActionButton = ({
   );
 };
 
-export const Navbar = ({
-  brand,
-  routes,
-  action,
-  isTransparent,
-  isSticky,
-  isRelative,
-  isCenter,
-  bgColor,
-  color,
-  ...rest
-}: NavbarProps & Omit<MKBoxProps, 'ref'>): JSX.Element => (
-  <MKBox
-    {...rest}
-    position={isTransparent && isSticky ? 'sticky' : 'relative'}
-    bgColor={isTransparent ? bgColor : 'transparent'}
-    color={color}
-  >
-    <InnerContainer
-      brand={brand}
-      routes={routes}
-      action={action}
-      isTransparent={isTransparent}
-      isSticky={isTransparent ? false : isSticky}
-      isRelative={isTransparent ? true : isRelative}
-      isCenter={isCenter}
-    />
-  </MKBox>
-);
 const InnerContainer = ({
   brand,
   routes,
@@ -237,13 +210,14 @@ const InnerContainer = ({
   isSticky,
   isRelative,
   isCenter,
+  dropdownStyle,
 }: NavbarProps): JSX.Element => {
   const [collapseElement, setCollapseElement] = useState<
-    (EventTarget & HTMLSpanElement) | null
+    EventTarget & HTMLSpanElement
   >();
   const [collapseName, setCollapseName] = useState<string>();
   const [nestedDropdownElement, setNestedDropdownElement] = useState<
-    (EventTarget & HTMLSpanElement) | null
+    EventTarget & HTMLSpanElement
   >();
   const [nestedDropdownName, setNestedDropdownName] = useState<string>();
   const [mobileNavbar, setMobileNavbar] = useState(false);
@@ -318,6 +292,7 @@ const InnerContainer = ({
             center={isCenter}
             setCollapseElement={setCollapseElement}
             setCollapseName={setCollapseName}
+            collapseName={collapseName}
           />
 
           <ActionButton action={action} />
@@ -332,11 +307,10 @@ const InnerContainer = ({
 
         {mobileMenuView && (
           <MKBox
-            // TODO switch bgcolor & color
-            bgColor={isTransparent ? 'transparent' : 'inherit'}
             shadow={{ size: isTransparent ? 'lg' : undefined }}
             borderRadius="xl"
             px={isTransparent ? 2 : 0}
+            {...dropdownStyle}
           >
             <NavbarMobile routes={routes} open={mobileNavbar} />
           </MKBox>
@@ -351,6 +325,7 @@ const InnerContainer = ({
         setCollapseName={setCollapseName}
         setNestedDropdownElement={setNestedDropdownElement}
         setNestedDropdownName={setNestedDropdownName}
+        dropdownStyle={dropdownStyle}
       />
       <NestedDropdownMenu
         routes={routes}
@@ -358,12 +333,45 @@ const InnerContainer = ({
         nestedDropdownName={nestedDropdownName}
         setNestedDropdownElement={setNestedDropdownElement}
         setNestedDropdownName={setNestedDropdownName}
+        dropdownStyle={dropdownStyle}
       />
     </Container>
   );
 };
 
-interface NavbarProps {
+export const Navbar = ({
+  brand,
+  routes,
+  action,
+  isTransparent,
+  isSticky,
+  isRelative,
+  isCenter,
+  bgColor,
+  color,
+  dropdownStyle,
+  ...rest
+}: NavbarProps): JSX.Element => (
+  <MKBox
+    {...rest}
+    position={isTransparent && isSticky ? 'sticky' : 'relative'}
+    bgColor={isTransparent ? bgColor : 'transparent'}
+    color={color}
+  >
+    <InnerContainer
+      brand={brand}
+      routes={routes}
+      action={action}
+      isTransparent={isTransparent}
+      isSticky={isTransparent ? false : isSticky}
+      isRelative={isTransparent ? true : isRelative}
+      isCenter={isCenter}
+      dropdownStyle={dropdownStyle}
+    />
+  </MKBox>
+);
+
+type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
   brand?: string;
   routes: HeaderRoute[];
   action: {
@@ -376,4 +384,5 @@ interface NavbarProps {
   isSticky?: boolean;
   isRelative?: boolean;
   isCenter?: boolean;
-}
+  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+};

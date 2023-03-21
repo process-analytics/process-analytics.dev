@@ -13,17 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 import { Grow, Popper, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
-//import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { HeaderRoute } from '../../../../content/HeaderRoutes';
 import { MKTypography } from '../MKTypography';
-import { MKBox } from '../MKBox';
+import { MKBox, MKBoxProps } from '../MKBox';
 import { getLinkAttributes } from '../../Link';
 
 export const NestedDropdownMenu = ({
@@ -32,25 +29,16 @@ export const NestedDropdownMenu = ({
   nestedDropdownName,
   setNestedDropdownElement,
   setNestedDropdownName,
+  dropdownStyle,
 }: {
   routes: HeaderRoute[];
-  nestedDropdownElement: (EventTarget & HTMLSpanElement) | null | undefined;
-  nestedDropdownName: string | undefined;
-  setNestedDropdownElement: (
-    value:
-      | ((
-          prevState: (EventTarget & HTMLSpanElement) | null | undefined,
-        ) => (EventTarget & HTMLSpanElement) | null | undefined)
-      | (EventTarget & HTMLSpanElement)
-      | null
-      | undefined,
-  ) => void;
-  setNestedDropdownName: (
-    value:
-      | ((prevState: string | undefined) => string | undefined)
-      | string
-      | undefined,
-  ) => void;
+  nestedDropdownElement?: EventTarget & HTMLSpanElement;
+  nestedDropdownName?: string;
+  setNestedDropdownElement: Dispatch<
+    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
+  >;
+  setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
 }): JSX.Element => {
   return (
     <Popper
@@ -69,15 +57,19 @@ export const NestedDropdownMenu = ({
       }}
     >
       {({ TransitionProps }) => (
-        <Grow
-          {...TransitionProps}
-          /*          style={{
-            transformOrigin: 'left top',
-            background: ({ palette: { background } }: Theme) =>
-              background.default,
-          }}*/
-        >
-          <MKBox ml={2.5} mt={-2.5} borderRadius="lg">
+        <Grow {...TransitionProps} style={{ transformOrigin: 'left top' }}>
+          <MKBox
+            ml={2.5}
+            mt={-2.5}
+            borderRadius="lg"
+            {...dropdownStyle}
+            sx={
+              {
+                /*       background: ({ palette: { background } }: Theme) =>
+                background.default,*/
+              }
+            }
+          >
             <MKBox
               shadow={{ size: 'lg' }}
               borderRadius="lg"

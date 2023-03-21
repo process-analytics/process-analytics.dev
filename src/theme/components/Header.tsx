@@ -26,7 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 import { ButtonWithExternalLink } from './Button';
-import { Navbar, MKBox } from './material-kit';
+import { Navbar } from './material-kit';
 
 import { capitalize } from '../utils/string';
 import { SECTION } from '../utils/constants';
@@ -58,12 +58,15 @@ export const Header = (): JSX.Element => {
           isSticky
           top="0"
           zIndex="1"
-          bgColor="sweet"
-          // bgColor="quaternary"
+          bgColor="quaternary"
           // color="inherit"
           width="100%"
           shadow={{ size: 'sm' }}
           py={0.25}
+          dropdownStyle={{
+            bgColor: 'sweet',
+            color: 'quaternary',
+          }}
         />
       </ScopedCssBaseline>
     </ThemeProvider>

@@ -24,13 +24,13 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 // @mui material components
 import { Collapse, Theme } from '@mui/material';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '..';
+import { MKBox, MKBoxProps, MKTypography } from '..';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
@@ -73,7 +73,6 @@ const MenuWithSubItems = ({
           minWidth="11.25rem"
           display="block"
           variant="button"
-          color="text"
           textTransform="capitalize"
           fontWeight="regular"
           py={0.625}
@@ -83,6 +82,7 @@ const MenuWithSubItems = ({
             cursor: 'pointer',
             transition: 'all 300ms linear',
 
+            // TODO Make configurable color
             '&:hover': {
               backgroundColor: grey[200],
               color: grey?.A700,
@@ -115,6 +115,7 @@ const MenuWithoutSubItems = ({
         py: 1,
         px: 1.625,
 
+        // TODO Make configurable color
         '&:hover': {
           backgroundColor: grey[200],
           color: grey?.A700,
@@ -137,7 +138,6 @@ const MenuWithoutSubItems = ({
       <MKTypography
         display="block"
         variant="button"
-        color="text"
         fontWeight="regular"
         sx={{ transition: 'all 300ms linear' }}
       >
@@ -170,40 +170,40 @@ const Route = ({
 }: {
   name: string;
   icon: IconDefinition;
-  setCollapseElement: (value: ((prevState: string) => string) | string) => void;
-  collapse: string;
-  href: string | undefined;
-  route: string | undefined;
-  menus: HeaderMenu[] | undefined;
-}): JSX.Element => {
-  return (
-    <NavbarDropdown
-      key={name}
-      name={name}
-      icon={<FontAwesomeIcon icon={icon} />}
-      onClick={() => setCollapseElement(collapse === name ? '' : name)}
-      {...getLinkAttributes({ href, route })}
-      isCollapsible={Boolean(menus)}
-      isCollapsed={name === collapse}
-    >
-      <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-        {menus && menus.map((menu, id) => <Menu menu={menu} id={id} />)}
-      </MKBox>
-    </NavbarDropdown>
-  );
-};
+  setCollapseElement: Dispatch<SetStateAction<string | undefined>>;
+  collapse?: string;
+  href?: string;
+  route?: string;
+  menus?: HeaderMenu[];
+}): JSX.Element => (
+  <NavbarDropdown
+    key={name}
+    name={name}
+    icon={<FontAwesomeIcon icon={icon} />}
+    onClick={() => setCollapseElement(collapse === name ? undefined : name)}
+    {...getLinkAttributes({ href, route })}
+    isCollapsible={Boolean(menus)}
+    isCollapsed={name === collapse}
+  >
+    <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
+      {menus && menus.map((menu, id) => <Menu menu={menu} id={id} />)}
+    </MKBox>
+  </NavbarDropdown>
+);
 
 export const NavbarMobile = ({
   routes,
   open,
+  dropdownStyle,
 }: NavbarMobileProps): JSX.Element => {
-  const [collapse, setCollapseElement] = useState('');
+  const [collapse, setCollapseElement] = useState<string>();
 
   return (
     <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
-      <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2}>
+      <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2} {...dropdownStyle}>
         {routes.map(({ name, icon, menus, href, route }) => (
           <Route
+            key={name}
             name={name}
             icon={icon}
             setCollapseElement={setCollapseElement}
@@ -221,4 +221,5 @@ export const NavbarMobile = ({
 interface NavbarMobileProps {
   routes: HeaderRoute[];
   open: boolean;
+  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
 }
