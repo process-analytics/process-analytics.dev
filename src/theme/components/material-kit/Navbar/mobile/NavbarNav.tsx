@@ -188,7 +188,7 @@ const NavItemWithMenus = (
   <NavbarDropdown
     key={route.name}
     name={route.name}
-    icon={<FontAwesomeIcon icon={route.icon} />}
+    icon={route.icon}
     onClick={() =>
       route.setCollapseElement(
         route.collapse === route.name ? undefined : route.name,

@@ -32,208 +32,30 @@ Coded by www.creative-tim.com
  Once you add a new route on this file it will be visible automatically on
  the Navbar.
  */
-
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBell, faBomb, faComment } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-import { HeaderRoute, Link } from '../theme/types';
-
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { HeaderRoute } from '../theme/types';
 
 // TODO: Mutualize with FooterRoutes
 export const routes: HeaderRoute[] = [
   {
-    name: 'pages',
-    icon: faComment,
-    withColumns: true,
-    rowsPerColumn: 2,
-    menus: [
-      {
-        name: 'landing pages',
-        items: [
-          { type: 'internal', name: 'about us', url: '/LandingPages/AboutUs' },
-          {
-            type: 'internal',
-            name: 'contact us',
-            url: '/LandingPages/ContactUs',
-          },
-          { type: 'internal', name: 'author', url: '/LandingPages/Author' },
-        ],
-      },
-      {
-        name: 'account',
-        items: [
-          { type: 'internal', name: 'sign in', url: '/LandingPages/SignIn' },
-        ],
-      },
-    ],
+    type: 'internal',
+    name: 'model generation application',
+    url: '/model-generation-application',
   },
   {
-    name: 'sections',
-    icon: faBomb,
-    menus: [
-      {
-        name: 'page sections',
-        description: 'See all sections',
-        isCollapsed: true,
-        items: [
-          {
-            type: 'internal',
-            name: 'page headers',
-            url: '/sections/page-sections/page-headers',
-          },
-          {
-            type: 'internal',
-            name: 'features',
-            url: '/sections/page-sections/features',
-          },
-        ],
-      },
-      {
-        name: 'navigation',
-        description: 'See all navigations',
-        isCollapsed: true,
-        items: [
-          {
-            type: 'internal',
-            name: 'navbars',
-            url: '/sections/navigation/navbars',
-          },
-          {
-            type: 'internal',
-            name: 'nav tabs',
-            url: '/sections/navigation/nav-tabs',
-          },
-          {
-            type: 'internal',
-            name: 'pagination',
-            url: '/sections/navigation/pagination',
-          },
-        ],
-      },
-      {
-        name: 'input areas',
-        description: 'See all input areas',
-        isCollapsed: true,
-        items: [
-          {
-            type: 'internal',
-            name: 'inputs',
-            url: '/sections/input-areas/inputs',
-          },
-          {
-            type: 'internal',
-            name: 'forms',
-            url: '/sections/input-areas/forms',
-          },
-        ],
-      },
-      {
-        name: 'attention catchers',
-        description: 'See all examples',
-        isCollapsed: true,
-        items: [
-          {
-            type: 'internal',
-            name: 'alerts',
-            url: '/sections/attention-catchers/alerts',
-          },
-          {
-            type: 'internal',
-            name: 'modals',
-            url: '/sections/attention-catchers/modals',
-          },
-          {
-            type: 'internal',
-            name: 'tooltips & popovers',
-            url: '/sections/attention-catchers/tooltips-popovers',
-          },
-        ],
-      },
-      {
-        name: 'elements',
-        description: 'See all 32 examples',
-        isCollapsed: true,
-        items: [
-          {
-            type: 'internal',
-            name: 'avatars',
-            url: '/sections/elements/avatars',
-          },
-          {
-            type: 'internal',
-            name: 'badges',
-            url: '/sections/elements/badges',
-          },
-          {
-            type: 'internal',
-            name: 'breadcrumbs',
-            url: '/sections/elements/breadcrumbs',
-          },
-          {
-            type: 'internal',
-            name: 'buttons',
-            url: '/sections/elements/buttons',
-          },
-          {
-            type: 'internal',
-            name: 'dropdowns',
-            url: '/sections/elements/dropdowns',
-          },
-          {
-            type: 'internal',
-            name: 'progress bars',
-            url: '/sections/elements/progress-bars',
-          },
-          {
-            type: 'internal',
-            name: 'toggles',
-            url: '/sections/elements/toggles',
-          },
-          {
-            type: 'internal',
-            name: 'typography',
-            url: '/sections/elements/typography',
-          },
-        ],
-      },
-    ],
+    type: 'internal',
+    name: 'news',
+    url: '/news',
   },
   {
-    name: 'docs',
-    icon: faBell,
-    menus: [
-      {
-        type: 'external',
-        name: 'getting started',
-        description: 'All about overview, quick start, license and contents',
-        url: 'https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/',
-      },
-      {
-        type: 'external',
-        name: 'foundation',
-        description: 'See our colors, icons and typography',
-        url: 'https://www.creative-tim.com/learning-lab/react/colors/material-kit/',
-      },
-      {
-        type: 'external',
-        name: 'components',
-        description: 'Explore our collection of fully designed components',
-        url: 'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
-      },
-      {
-        type: 'external',
-        name: 'plugins',
-        description: 'Check how you can integrate our plugins',
-        url: 'https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/',
-      },
-    ],
+    type: 'internal',
+    name: 'blog',
+    url: '/blog',
   },
   {
-    type: 'external',
-    name: 'github',
-    icon: faGithub,
-    url: 'https://github.com/process-analytics',
+    type: 'internal',
+    name: 'Terms & Policies',
+    url: '/model-generation-application-conditions',
   },
 ];

@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { IconDefinition, IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
+
+import { SvgIcon } from '@mui/material';
 
 export type Theme = DefaultTheme & RebassTheme;
 
@@ -76,7 +78,7 @@ export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
   /**
    * The icon of the route on the Navbar
    */
-  icon: IconDefinition;
+  icon: typeof SvgIcon;
   /**
    * For making a collapsible item on the Navbar that contains other routes inside (nested routes)
    */

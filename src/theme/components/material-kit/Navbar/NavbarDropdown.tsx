@@ -27,7 +27,7 @@
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIconProps } from '@mui/material';
+import { Collapse, SvgIcon, SvgIconProps } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
@@ -96,7 +96,7 @@ export const NavbarDropdown = ({
 
 type NavbarDropdownProps = React.PropsWithoutRef<{
   name: string;
-  icon?: React.ReactElement<SvgIconProps>;
+  icon?: typeof SvgIcon;
   isCollapsible?: boolean;
   isCollapsed?: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
