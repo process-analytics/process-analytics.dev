@@ -29,8 +29,6 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 // @mui material components
 import { Collapse, Theme } from '@mui/material';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 // Material Kit 2 React components
 import { MKBox, MKBoxProps, MKTypography } from '../..';
 
@@ -49,7 +47,7 @@ import {
 } from '../../../../types';
 import { getLinkAttributes } from '../../../Link';
 
-const DropdownMenuWithItems = ({
+const DropdownDropdown = ({
   name,
   items,
 }: HeaderMenuWithItems): JSX.Element => {
@@ -96,7 +94,7 @@ const DropdownMenuWithItems = ({
   );
 };
 
-const DropdownMenuWithoutItems = ({
+const DropdownLink = ({
   name,
   description,
   type,
@@ -149,37 +147,15 @@ const DropdownMenuWithoutItems = ({
   );
 };
 
-const DropdownMenu = ({
-  menu,
-  id,
-}: {
-  menu: HeaderMenu;
-  id: number;
-}): JSX.Element => {
-  return (
-    <MKBox key={menu.name} px={2}>
-      {isHeaderMenuWithItems(menu) ? (
-        <DropdownMenuWithItems {...menu} />
-      ) : (
-        <DropdownMenuWithoutItems id={id} {...menu} />
-      )}
-    </MKBox>
-  );
-};
-
-const NavItemLink = (route: HeaderRouteAsLink): JSX.Element => (
+const NavLink = (route: HeaderRouteAsLink): JSX.Element => (
   <NavbarDropdown
     key={route.name}
     name={route.name}
     {...getLinkAttributes(route)}
-  >
-    {/*    <MKBox
-      sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}
-    ></MKBox>*/}
-  </NavbarDropdown>
+  />
 );
 
-const NavItemWithMenus = (
+const NavDropdown = (
   route: HeaderRouteWithMenus & {
     setCollapseElement: Dispatch<SetStateAction<string | undefined>>;
     collapse?: string;
@@ -198,8 +174,15 @@ const NavItemWithMenus = (
     isCollapsed={route.name === route.collapse}
   >
     <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-      {route.menus &&
-        route.menus.map((menu, id) => <DropdownMenu menu={menu} id={id} />)}
+      {route.menus.map((menu, id) => (
+        <MKBox key={menu.name} px={2}>
+          {isHeaderMenuWithItems(menu) ? (
+            <DropdownDropdown {...menu} />
+          ) : (
+            <DropdownLink id={id} {...menu} />
+          )}
+        </MKBox>
+      ))}
     </MKBox>
   </NavbarDropdown>
 );
@@ -216,14 +199,14 @@ export const NavbarNav = ({
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2} {...dropdownStyle}>
         {routes.map(route =>
           isHeaderRouteWithMenus(route) ? (
-            <NavItemWithMenus
+            <NavDropdown
               key={route.name}
               setCollapseElement={setCollapseElement}
               collapse={collapse}
               {...route}
             />
           ) : (
-            <NavItemLink key={route.name} {...route} />
+            <NavLink key={route.name} {...route} />
           ),
         )}
       </MKBox>

@@ -79,7 +79,7 @@ const NavbarItems = ({
           <NavbarDropdown
             key={route.name}
             name={route.name}
-            icon={<FontAwesomeIcon icon={route.icon} />}
+            icon={route.icon}
             isCollapsible={!!route.menus}
             isCollapsed={route.name === collapseName}
             onMouseEnter={({ currentTarget }) => {
