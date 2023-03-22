@@ -43,7 +43,6 @@ import {
   HeaderRoute,
   HeaderRouteAsLink,
   HeaderRouteWithMenus,
-  HeaderSubItem,
   isHeaderMenuWithSubMenus,
   isHeaderRouteWithMenus,
   Link,
@@ -78,7 +77,7 @@ const DropdownMenuWithItems = ({
           fontWeight="regular"
           py={0.625}
           px={2}
-          sx={({ palette: { grey }, borders: { borderRadius } }) => ({
+          sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
             borderRadius: borderRadius.md,
             cursor: 'pointer',
             transition: 'all 300ms linear',

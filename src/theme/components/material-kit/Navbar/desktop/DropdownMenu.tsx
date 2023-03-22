@@ -166,9 +166,11 @@ const ListDropdownMenus = (
           },
         },
       })}
-      onMouseEnter={({ currentTarget }) => {
+      onMouseEnter={({
+        currentTarget,
+      }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
         if (isHeaderMenuWithSubMenus(menu) && menu.isCollapsed) {
-          setNestedDropdownElement(currentTarget);
+          setNestedDropdownElement(currentTarget ?? undefined);
           setNestedDropdownName(menu.name);
         }
       }}
