@@ -89,17 +89,18 @@ export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
    * To define that how many rows should be in a column
    */
   rowsPerColumn?: number;
-};
+}; //dropdown
 
 /**
  * @field url To store the route location which is used for the React router or to store the external link location
  */
-export type HeaderRouteAsLink = Omit<Link, 'description'>;
+export type HeaderRouteAsLink = Omit<Link, 'description'>; // nav-link
 
 /**
  * @field name The name of the route on the Navbar
  */
-export type HeaderRoute = HeaderRouteAsLink | HeaderRouteWithMenus;
+export type HeaderRoute = HeaderRouteAsLink | HeaderRouteWithMenus; // nav-item
+// HeaderRoutes = navbar nav
 
 export const isHeaderRouteWithMenus = (
   route: HeaderRoute,
@@ -110,19 +111,19 @@ export const isHeaderRouteWithMenus = (
 /**
  * @field description To define the description of a route under its name
  */
-export type HeaderMenuWithSubMenus = Pick<Link, 'name' | 'description'> & {
+export type HeaderMenuWithItems = Pick<Link, 'name' | 'description'> & {
   /**
    * To define that the item should open a dropdown for its collapse items
    */
-  isCollapsed?: boolean;
-  subItems: HeaderSubItem[];
+  isCollapsed?: boolean; // TODO Modify the code to remove this property
+  items: Link[];
 };
-export type HeaderMenu = Link | HeaderMenuWithSubMenus;
+export type HeaderMenu =
+  | Link // dropdown-item
+  | HeaderMenuWithItems; //dropdown-menu
 
-export const isHeaderMenuWithSubMenus = (
+export const isHeaderMenuWithItems = (
   menu: HeaderMenu,
-): menu is HeaderMenuWithSubMenus => {
-  return 'subItems' in menu;
+): menu is HeaderMenuWithItems => {
+  return 'items' in menu;
 };
-
-export type HeaderSubItem = Link;

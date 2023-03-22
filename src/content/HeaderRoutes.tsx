@@ -51,7 +51,7 @@ export const routes: HeaderRoute[] = [
     menus: [
       {
         name: 'landing pages',
-        subItems: [
+        items: [
           { type: 'internal', name: 'about us', url: '/LandingPages/AboutUs' },
           {
             type: 'internal',
@@ -63,7 +63,7 @@ export const routes: HeaderRoute[] = [
       },
       {
         name: 'account',
-        subItems: [
+        items: [
           { type: 'internal', name: 'sign in', url: '/LandingPages/SignIn' },
         ],
       },
@@ -77,7 +77,7 @@ export const routes: HeaderRoute[] = [
         name: 'page sections',
         description: 'See all sections',
         isCollapsed: true,
-        subItems: [
+        items: [
           {
             type: 'internal',
             name: 'page headers',
@@ -94,7 +94,7 @@ export const routes: HeaderRoute[] = [
         name: 'navigation',
         description: 'See all navigations',
         isCollapsed: true,
-        subItems: [
+        items: [
           {
             type: 'internal',
             name: 'navbars',
@@ -116,7 +116,7 @@ export const routes: HeaderRoute[] = [
         name: 'input areas',
         description: 'See all input areas',
         isCollapsed: true,
-        subItems: [
+        items: [
           {
             type: 'internal',
             name: 'inputs',
@@ -133,7 +133,7 @@ export const routes: HeaderRoute[] = [
         name: 'attention catchers',
         description: 'See all examples',
         isCollapsed: true,
-        subItems: [
+        items: [
           {
             type: 'internal',
             name: 'alerts',
@@ -155,7 +155,7 @@ export const routes: HeaderRoute[] = [
         name: 'elements',
         description: 'See all 32 examples',
         isCollapsed: true,
-        subItems: [
+        items: [
           {
             type: 'internal',
             name: 'avatars',

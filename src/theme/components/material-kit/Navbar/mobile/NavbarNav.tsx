@@ -39,11 +39,11 @@ import { NavbarDropdown } from '../NavbarDropdown';
 
 import {
   HeaderMenu,
-  HeaderMenuWithSubMenus,
+  HeaderMenuWithItems,
   HeaderRoute,
   HeaderRouteAsLink,
   HeaderRouteWithMenus,
-  isHeaderMenuWithSubMenus,
+  isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
   Link,
 } from '../../../../types';
@@ -51,8 +51,8 @@ import { getLinkAttributes } from '../../../Link';
 
 const DropdownMenuWithItems = ({
   name,
-  subItems,
-}: HeaderMenuWithSubMenus): JSX.Element => {
+  items,
+}: HeaderMenuWithItems): JSX.Element => {
   return (
     <>
       <MKTypography
@@ -66,7 +66,7 @@ const DropdownMenuWithItems = ({
         {name}
       </MKTypography>
 
-      {subItems.map(subItem => (
+      {items.map(subItem => (
         <MKTypography
           key={subItem.name}
           {...getLinkAttributes(subItem)}
@@ -158,7 +158,7 @@ const DropdownMenu = ({
 }): JSX.Element => {
   return (
     <MKBox key={menu.name} px={2}>
-      {isHeaderMenuWithSubMenus(menu) ? (
+      {isHeaderMenuWithItems(menu) ? (
         <DropdownMenuWithItems {...menu} />
       ) : (
         <DropdownMenuWithoutItems id={id} {...menu} />

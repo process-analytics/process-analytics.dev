@@ -23,7 +23,7 @@ import {
   HeaderMenu,
   HeaderRoute,
   HeaderRouteWithMenus,
-  isHeaderMenuWithSubMenus,
+  isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
 } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
@@ -75,8 +75,8 @@ const ColumnDropdownMenus = (
                   {menu.name}
                 </MKTypography>
 
-                {isHeaderMenuWithSubMenus(menu) &&
-                  menu.subItems.map(item => (
+                {isHeaderMenuWithItems(menu) &&
+                  menu.items.map(item => (
                     <MKTypography
                       key={item.name}
                       {...getLinkAttributes(item)}
@@ -137,7 +137,7 @@ const ListDropdownMenus = (
   menus.map(menu => (
     <MKTypography
       key={menu.name}
-      {...(!isHeaderMenuWithSubMenus(menu) && getLinkAttributes(menu))}
+      {...(!isHeaderMenuWithItems(menu) && getLinkAttributes(menu))}
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -169,13 +169,13 @@ const ListDropdownMenus = (
       onMouseEnter={({
         currentTarget,
       }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-        if (isHeaderMenuWithSubMenus(menu) && menu.isCollapsed) {
+        if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
           setNestedDropdownElement(currentTarget ?? undefined);
           setNestedDropdownName(menu.name);
         }
       }}
       onMouseLeave={() => {
-        if (isHeaderMenuWithSubMenus(menu) && menu.isCollapsed) {
+        if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
           setNestedDropdownElement(undefined);
           setNestedDropdownName(undefined);
         }
@@ -198,7 +198,7 @@ const ListDropdownMenus = (
         menu.name
       )}
 
-      {isHeaderMenuWithSubMenus(menu) && (
+      {isHeaderMenuWithItems(menu) && (
         <KeyboardArrowDown
           fontSize="small"
           sx={{

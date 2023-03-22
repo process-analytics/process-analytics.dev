@@ -19,11 +19,11 @@ import { Grow, Popper, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import {
-  HeaderMenuWithSubMenus,
+  HeaderMenuWithItems,
   HeaderRoute,
   HeaderRouteWithMenus,
   HeaderSubItem,
-  isHeaderMenuWithSubMenus,
+  isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
 } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
@@ -149,10 +149,10 @@ export const NestedDropdownMenu = ({
                   menus.filter(
                     menu =>
                       menu.name === nestedDropdownName &&
-                      isHeaderMenuWithSubMenus(menu),
-                  ) as HeaderMenuWithSubMenus[]
-                ).map(({ subItems, isCollapsed }) =>
-                  subItems.map(subItem => (
+                      isHeaderMenuWithItems(menu),
+                  ) as HeaderMenuWithItems[]
+                ).map(({ items, isCollapsed }) =>
+                  items.map(subItem => (
                     <DropdownSubMenu isCollapsed={isCollapsed} {...subItem} />
                   )),
                 ),
