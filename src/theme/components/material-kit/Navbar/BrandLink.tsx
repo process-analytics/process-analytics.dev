@@ -44,14 +44,23 @@ export const BrandLink = ({
   isRelative: undefined | boolean;
   brand: string | undefined;
 }): JSX.Element => {
+  //const { logo } = header;
   return (
     <MKBox
       component={GatsbyLink}
+      //to={`#${getSectionHref(SECTION.home)}`}
       to="/"
       lineHeight={1}
       py={isTransparent ? 1.5 : 0.75}
       pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
+      {/*      <img
+        src={logo.src}
+        height="100%"
+        width="100%"
+        alt="Process Analytics Logo"
+        style={{ cursor: 'pointer', margin: 'auto' }}
+      />*/}
       <MKTypography variant="button" fontWeight="bold">
         {brand}
       </MKTypography>

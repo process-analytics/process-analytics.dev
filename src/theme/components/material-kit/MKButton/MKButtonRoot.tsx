@@ -69,7 +69,7 @@ const containedStyles = (
     ${boxShadow([0, 3], [1, -2], paletteColor.main, 0.2)}, 
     ${boxShadow([0, 1], [5, 0], paletteColor.main, 0.15)}`
       : 'none',
-
+    /*
     '&:hover': {
       // backgroundColor: backgroundValue,
       boxShadow: paletteColor
@@ -89,28 +89,26 @@ const containedStyles = (
     '&:disabled': {
       // backgroundColor: backgroundValue,
       color: 'white',
-    },
+    },*/
   };
 };
 
 const outlinedStyles = (
   palette: Palette,
   { rgba, boxShadow }: Functions,
-  color: ButtonProps['color'],
+  color: ButtonProps['color'] = 'inherit',
 ) => {
   // color value
-  const paletteColor = color && isPaletteColorName(color) && palette[color];
+  const paletteColor = color !== 'inherit' ? palette[color] : undefined;
   const colorValue = paletteColor ? paletteColor.main : 'white';
 
   return {
     background: color === 'quaternary' ? rgba('white', 0.1) : 'transparent',
     color: colorValue,
     borderColor:
-      color === 'quaternary'
+      color === 'quaternary' || !paletteColor
         ? rgba('white', 0.75)
-        : paletteColor
-        ? paletteColor.main
-        : rgba('white', 0.75),
+        : paletteColor.main,
 
     '&:hover': {
       background: 'transparent',
@@ -119,9 +117,7 @@ const outlinedStyles = (
 
     '&:focus:not(:hover)': {
       background: 'transparent',
-      boxShadow: paletteColor
-        ? boxShadow([0, 0], [0, 3.2], paletteColor.main, 0.5)
-        : boxShadow([0, 0], [0, 3.2], 'white', 0.5),
+      boxShadow: boxShadow([0, 0], [0, 3.2], colorValue, 0.5),
     },
 
     '&:active:not(:hover)': {
@@ -156,10 +152,9 @@ const gradientStyles = (
   const colorValue = color === 'quaternary' ? palette.text.primary : 'white';
 
   return {
-    background:
-      color === 'quaternary' || !paletteColor
-        ? 'white'
-        : linearGradient(palette[color].main, palette[color].dark),
+    background: !paletteColor
+      ? 'white'
+      : linearGradient(palette[color].main, palette[color].dark),
     color: colorValue,
     boxShadow: boxShadowValue,
 

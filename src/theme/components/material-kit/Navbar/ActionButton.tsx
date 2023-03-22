@@ -31,33 +31,32 @@
 
 import React from 'react';
 
-import { ButtonProps } from '@mui/material';
-
-import { MKBox, MKButton } from '..';
+import { MKBox, MKButton, MKButtonProps } from '..';
 import { getLinkAttributes } from '../../Link';
 import { Link } from '../../../types';
 
-export type Action = Required<Pick<Link, 'url' | 'type'>> & {
-  color?: ButtonProps['color'];
-  label: string;
-};
-export const ActionButton = ({ action }: { action: Action }): JSX.Element => {
+export type Action = Required<Pick<Link, 'url' | 'type'>> &
+  Pick<MKButtonProps, 'color' | 'variant'> & {
+    label: string;
+  };
+export const ActionButton = ({
+  type,
+  url,
+  variant,
+  color,
+  label,
+}: Action): JSX.Element => {
   return (
     <MKBox ml={{ xs: 'auto', lg: 0 }}>
-      {action && (
-        <MKButton
-          {...getLinkAttributes({ type: action.type, url: action.url })}
-          variant={
-            action.color === 'quaternary' || action.color === 'primary'
-              ? 'contained'
-              : 'gradient'
-          }
-          color={action.color ?? 'info'}
-          size="small"
-        >
-          {action.label}
-        </MKButton>
-      )}
+      <MKButton
+        {...getLinkAttributes({ type, url })}
+        variant={variant ?? 'gradient'}
+        color={color ?? 'info'}
+        size="large"
+        circular
+      >
+        {label}
+      </MKButton>
     </MKBox>
   );
 };

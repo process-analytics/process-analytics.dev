@@ -200,7 +200,7 @@ const InnerContainer = ({
             collapseName={collapseName}
           />
 
-          <ActionButton action={action} />
+          <ActionButton {...action} />
 
           {mobileMenuView && (
             <NavbarButton

@@ -40,37 +40,62 @@ import theme from '../../assets/theme';
 /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
     After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
 export const Header = (): JSX.Element => {
-  const { logo } = header;
   return (
     <ThemeProvider theme={theme}>
       <ScopedCssBaseline sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
-        <Navbar
-          routes={routes}
-          brand="Process Analytics"
-          action={{
-            type: 'external',
-            url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
-            label: 'Demo',
-            color: 'secondary',
-          }}
-          isTransparent
-          isSticky
-          top="0"
-          zIndex="1"
-          bgColor="quaternary"
-          // color="inherit"
-          width="100%"
-          shadow={{ size: 'sm' }}
-          py={0.25}
-          dropdownStyle={{
-            bgColor: 'sweet',
-            color: 'quaternary',
-          }}
-        />
+        <header>
+          <Navbar
+            routes={routes}
+            brand="Process Analytics"
+            action={{
+              type: 'external',
+              url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+              label: 'Demo',
+              color: 'secondary',
+              variant: 'outlined',
+            }}
+            isTransparent
+            isSticky
+            top="0"
+            zIndex="1"
+            bgColor="quaternary"
+            // color="inherit"
+            width="100%"
+            shadow={{ size: 'sm' }}
+            py={0.25}
+            dropdownStyle={{
+              bgColor: 'sweet',
+              color: 'quaternary',
+            }}
+          />
+        </header>
       </ScopedCssBaseline>
     </ThemeProvider>
   );
 };
+
+{
+  /*            <ButtonWithExternalLink
+  href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
+  target="_blank"
+  color={colors.secondary}
+  backgroundColor={colors.background}
+  >
+  <Box
+  marginRight="15px"
+  backgroundColor={colors.secondary}
+  width="2.875rem"
+  height="2.875rem"
+  >
+  <FontAwesomeIcon
+  icon={faLaptopCode}
+  color={colors.background}
+  size="xl"
+  />
+</Box>
+<Text padding="0px 15px">Demo</Text>
+</ButtonWithExternalLink>*/
+}
 
 export const Header2 = (): JSX.Element => {
   const { logo } = header;
