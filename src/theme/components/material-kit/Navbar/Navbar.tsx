@@ -31,28 +31,26 @@
 
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-// @mui material components
-import { ButtonProps, Container, Link as MuiLink } from '@mui/material';
-import { Close, Menu } from '@mui/icons-material';
-
-import { Link as GatsbyLink } from 'gatsby';
-
-/*import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';*/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// @mui material components
+import { Container } from '@mui/material';
+
 // Material Kit 2 React components
-import { MKBox, MKBoxProps, MKButton, MKTypography } from '..';
+import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React base styles
 import breakpoints from '../../../../assets/theme/base/breakpoints';
-import { HeaderRoute } from '../../../../content/HeaderRoutes';
+import pxToRem from '../../../../assets/theme/functions/pxToRem';
+import { HeaderRoute, isHeaderRouteWithMenus } from '../../../types';
 import { getLinkAttributes } from '../../Link';
+import { BrandLink } from './BrandLink';
+import { DropdownMenu, NestedDropdownMenu } from './desktop';
+import { NavbarButton, NavbarNav } from './mobile';
 
 // Material Kit 2 React example components
 import { NavbarDropdown } from './NavbarDropdown';
-import { NavbarMobile } from './mobile/NavbarMobile';
-import { NestedDropdownMenu, DropdownMenu } from './desktop';
-import pxToRem from '../../../../assets/theme/functions/pxToRem';
+import { Action, ActionButton } from './ActionButton';
 
 const NavbarItems = ({
   routes,
@@ -76,127 +74,35 @@ const NavbarItems = ({
       ml="auto"
       mr={center ? 'auto' : 0}
     >
-      {routes.map(({ name, icon, href, route, menus }) => (
-        <NavbarDropdown
-          key={name}
-          {...getLinkAttributes({ href, route })}
-          name={name}
-          icon={<FontAwesomeIcon icon={icon} />}
-          isCollapsible={!!menus}
-          isCollapsed={name === collapseName}
-          onMouseEnter={({ currentTarget }) => {
-            if (menus) {
-              setCollapseElement(currentTarget);
-              setCollapseName(name);
-            }
-          }}
-          onMouseLeave={() => {
-            if (menus) {
-              setCollapseElement(undefined);
-              setCollapseName(undefined);
-            }
-          }}
-        />
-      ))}
-    </MKBox>
-  );
-};
-
-const MobileNavbarButton = ({
-  mobileNavbar,
-  setMobileNavbar,
-}: {
-  mobileNavbar: boolean;
-  setMobileNavbar: any;
-}): JSX.Element => {
-  return (
-    <MKBox
-      display={{ xs: 'inline-block', lg: 'none' }}
-      lineHeight={0}
-      py={1.5}
-      pl={1.5}
-      sx={{ cursor: 'pointer' }}
-      onClick={(): void => setMobileNavbar(!mobileNavbar)}
-    >
-      {mobileNavbar ? (
-        <Close fontSize="medium" />
-      ) : (
-        /*  <FontAwesomeIcon icon={faClose} fontSize="medium" />*/
-        <Menu fontSize="medium" />
-        /* <FontAwesomeIcon icon={faBars} fontSize="medium" />*/
-      )}
-    </MKBox>
-  );
-};
-
-const BrandLink = ({
-  isTransparent,
-  isRelative,
-  brand,
-}: {
-  isTransparent: undefined | boolean;
-  isRelative: undefined | boolean;
-  brand: string | undefined;
-}): JSX.Element => {
-  return (
-    <MKBox
-      component={GatsbyLink}
-      to="/"
-      lineHeight={1}
-      py={isTransparent ? 1.5 : 0.75}
-      pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
-    >
-      <MKTypography variant="button" fontWeight="bold">
-        {brand}
-      </MKTypography>
-    </MKBox>
-  );
-};
-
-const ActionButton = ({
-  action,
-}: {
-  action: {
-    type: 'external' | 'internal';
-    route: string;
-    color?: ButtonProps['color'];
-    label: string;
-  };
-}): JSX.Element => {
-  return (
-    <MKBox ml={{ xs: 'auto', lg: 0 }}>
-      {action &&
-        (action.type === 'internal' ? (
-          <MKButton
-            component={GatsbyLink}
-            to={action.route}
-            variant={
-              action.color === 'quaternary' || action.color === 'primary'
-                ? 'contained'
-                : 'gradient'
-            }
-            color={action.color ? action.color : 'info'}
-            size="small"
-          >
-            {action.label}
-          </MKButton>
+      {routes.map(route =>
+        isHeaderRouteWithMenus(route) ? (
+          <NavbarDropdown
+            key={route.name}
+            name={route.name}
+            icon={<FontAwesomeIcon icon={route.icon} />}
+            isCollapsible={!!route.menus}
+            isCollapsed={route.name === collapseName}
+            onMouseEnter={({ currentTarget }) => {
+              if (route.menus) {
+                setCollapseElement(currentTarget);
+                setCollapseName(route.name);
+              }
+            }}
+            onMouseLeave={() => {
+              if (route.menus) {
+                setCollapseElement(undefined);
+                setCollapseName(undefined);
+              }
+            }}
+          />
         ) : (
-          <MKButton
-            component={MuiLink}
-            href={action.route}
-            target="_blank"
-            rel="noreferrer"
-            variant={
-              action.color === 'quaternary' || action.color === 'primary'
-                ? 'contained'
-                : 'gradient'
-            }
-            color={action.color ?? 'info'}
-            size="small"
-          >
-            {action.label}
-          </MKButton>
-        ))}
+          <NavbarDropdown
+            key={route.name}
+            name={route.name}
+            {...getLinkAttributes(route)}
+          />
+        ),
+      )}
     </MKBox>
   );
 };
@@ -297,7 +203,7 @@ const InnerContainer = ({
           <ActionButton action={action} />
 
           {mobileMenuView && (
-            <MobileNavbarButton
+            <NavbarButton
               mobileNavbar={mobileNavbar}
               setMobileNavbar={setMobileNavbar}
             />
@@ -311,7 +217,7 @@ const InnerContainer = ({
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
-            <NavbarMobile routes={routes} open={mobileNavbar} />
+            <NavbarNav routes={routes} open={mobileNavbar} />
           </MKBox>
         )}
       </MKBox>
@@ -377,12 +283,7 @@ export const Navbar = ({
 type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
   brand?: string;
   routes: HeaderRoute[];
-  action: {
-    type: 'external' | 'internal';
-    route: string;
-    color?: ButtonProps['color'];
-    label: string;
-  };
+  action: Action;
   isTransparent?: boolean;
   isSticky?: boolean;
   isRelative?: boolean;

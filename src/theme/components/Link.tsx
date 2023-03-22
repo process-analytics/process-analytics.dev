@@ -18,22 +18,22 @@ import { Link as GatsbyLink } from 'gatsby-link';
 
 import { Link } from '../types';
 
-export function getLinkAttributes(item: Pick<Link, 'route' | 'href'>):
+export function getLinkAttributes(item: Required<Pick<Link, 'url' | 'type'>>):
   | { component: typeof GatsbyLink; to: string }
   | {
       component: typeof MaterialLink;
       rel: string;
-      href: string | undefined;
+      href: string;
       target: string;
     } {
-  return item.route
+  return item.type === 'internal'
     ? {
         component: GatsbyLink,
-        to: item.route,
+        to: item.url,
       }
     : {
         component: MaterialLink,
-        href: item.href,
+        href: item.url,
         target: '_blank',
         rel: 'noreferrer',
       };

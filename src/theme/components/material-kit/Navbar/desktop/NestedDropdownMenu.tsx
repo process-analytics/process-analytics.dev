@@ -18,10 +18,84 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { Grow, Popper, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
-import { HeaderRoute } from '../../../../../content/HeaderRoutes';
+import {
+  HeaderMenuWithSubMenus,
+  HeaderRoute,
+  HeaderRouteWithMenus,
+  HeaderSubItem,
+  isHeaderMenuWithSubMenus,
+  isHeaderRouteWithMenus,
+} from '../../../../types';
 import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
+
+const DropdownSubMenu = ({
+  description,
+  name,
+  url,
+  type,
+  isCollapsed = false,
+}: {
+  isCollapsed?: boolean;
+} & HeaderSubItem) => (
+  <MKTypography
+    key={name}
+    {...getLinkAttributes({ url, type })}
+    display="flex"
+    justifyContent="space-between"
+    alignItems="center"
+    variant="button"
+    textTransform="capitalize"
+    minWidth={description ? '14rem' : '12rem'}
+    color={'primary'}
+    fontWeight={description ? 'bold' : 'regular'}
+    py={description ? 1 : 0.625}
+    px={2}
+    sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+      borderRadius: borderRadius.md,
+      cursor: 'pointer',
+      transition: 'all 300ms linear',
+
+      '&:hover': {
+        backgroundColor: grey[200],
+        color: grey?.A700,
+
+        '& *': {
+          color: grey?.A700,
+        },
+      },
+    })}
+  >
+    {description ? (
+      <MKBox>
+        {name}
+        <MKTypography
+          display="block"
+          variant="button"
+          color="text"
+          fontWeight="regular"
+          sx={{ transition: 'all 300ms linear' }}
+        >
+          {description}
+        </MKTypography>
+      </MKBox>
+    ) : (
+      name
+    )}
+
+    {isCollapsed && (
+      <KeyboardArrowDown
+        fontSize="small"
+        sx={{
+          fontWeight: 'normal',
+          verticalAlign: 'middle',
+          mr: -0.5,
+        }}
+      />
+    )}
+  </MKTypography>
+);
 
 export const NestedDropdownMenu = ({
   routes,
@@ -58,18 +132,7 @@ export const NestedDropdownMenu = ({
     >
       {({ TransitionProps }) => (
         <Grow {...TransitionProps} style={{ transformOrigin: 'left top' }}>
-          <MKBox
-            ml={2.5}
-            mt={-2.5}
-            borderRadius="lg"
-            {...dropdownStyle}
-            sx={
-              {
-                /*       background: ({ palette: { background } }: Theme) =>
-                background.default,*/
-              }
-            }
-          >
+          <MKBox ml={2.5} mt={-2.5} borderRadius="lg" {...dropdownStyle}>
             <MKBox
               shadow={{ size: 'lg' }}
               borderRadius="lg"
@@ -77,77 +140,23 @@ export const NestedDropdownMenu = ({
               px={1}
               mt={2}
             >
-              {routes
-                .filter(({ withColumns }) => !withColumns)
-                .map(({ menus }) =>
-                  menus
-                    ?.filter(({ name }) => name === nestedDropdownName)
-                    .map(({ subItems, isCollapsed }) =>
-                      subItems?.map(subItem => (
-                        <MKTypography
-                          key={subItem.name}
-                          {...getLinkAttributes(subItem)}
-                          display="flex"
-                          justifyContent="space-between"
-                          alignItems="center"
-                          variant="button"
-                          textTransform="capitalize"
-                          minWidth={subItem.description ? '14rem' : '12rem'}
-                          color={'primary'}
-                          fontWeight={subItem.description ? 'bold' : 'regular'}
-                          py={subItem.description ? 1 : 0.625}
-                          px={2}
-                          sx={({
-                            palette: { grey },
-                            borders: { borderRadius },
-                          }: Theme) => ({
-                            borderRadius: borderRadius.md,
-                            cursor: 'pointer',
-                            transition: 'all 300ms linear',
-
-                            '&:hover': {
-                              backgroundColor: grey[200],
-                              color: grey?.A700,
-
-                              '& *': {
-                                color: grey?.A700,
-                              },
-                            },
-                          })}
-                        >
-                          {subItem.description ? (
-                            <MKBox>
-                              {subItem.name}
-                              <MKTypography
-                                display="block"
-                                variant="button"
-                                color="text"
-                                fontWeight="regular"
-                                sx={{ transition: 'all 300ms linear' }}
-                              >
-                                {subItem.description}
-                              </MKTypography>
-                            </MKBox>
-                          ) : (
-                            subItem.name
-                          )}
-                          {isCollapsed && (
-                            <KeyboardArrowDown
-                              fontSize="small"
-                              sx={{
-                                fontWeight: 'normal',
-                                verticalAlign: 'middle',
-                                mr: -0.5,
-                              }}
-                            />
-
-                            /*   <FontAwesomeIcon icon={faChevronDown} />*/
-                            /* <FontAwesomeIcon icon={faAngleDown} />*/
-                          )}
-                        </MKTypography>
-                      )),
-                    ),
-                )}
+              {(
+                routes.filter(
+                  route => isHeaderRouteWithMenus(route) && !route.withColumns,
+                ) as HeaderRouteWithMenus[]
+              ).map(({ menus }) =>
+                (
+                  menus.filter(
+                    menu =>
+                      menu.name === nestedDropdownName &&
+                      isHeaderMenuWithSubMenus(menu),
+                  ) as HeaderMenuWithSubMenus[]
+                ).map(({ subItems, isCollapsed }) =>
+                  subItems.map(subItem => (
+                    <DropdownSubMenu isCollapsed={isCollapsed} {...subItem} />
+                  )),
+                ),
+              )}
             </MKBox>
           </MKBox>
         </Grow>

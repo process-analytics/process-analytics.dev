@@ -49,8 +49,7 @@ export const Header = (): JSX.Element => {
           brand="Process Analytics"
           action={{
             type: 'external',
-            route:
-              'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+            url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
             label: 'Demo',
             color: 'secondary',
           }}

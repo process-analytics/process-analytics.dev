@@ -88,9 +88,9 @@ export const NavbarDropdown = ({
 
 type NavbarDropdownProps = React.PropsWithoutRef<{
   name: string;
-  icon: React.ReactElement<SvgIconProps>;
-  isCollapsible: boolean;
-  isCollapsed: boolean;
+  icon?: React.ReactElement<SvgIconProps>;
+  isCollapsible?: boolean;
+  isCollapsed?: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;

@@ -52,21 +52,9 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBell, faBomb, faComment } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-import { Link } from '../theme/types';
+import { HeaderRoute, Link } from '../theme/types';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-export type HeaderRoute = Omit<Link, 'description'> & {
-  icon: IconDefinition;
-  withColumns?: boolean;
-  rowsPerColumn?: number;
-  menus?: HeaderMenu[];
-};
-export type HeaderMenu = Link & {
-  isCollapsed?: boolean;
-  subItems?: HeaderSubItem[];
-};
-export type HeaderSubItem = Link;
 
 export const routes: HeaderRoute[] = [
   {
@@ -78,27 +66,19 @@ export const routes: HeaderRoute[] = [
       {
         name: 'landing pages',
         subItems: [
+          { type: 'internal', name: 'about us', url: '/LandingPages/AboutUs' },
           {
-            name: 'about us',
-            route: '/LandingPages/AboutUs',
-          },
-          {
+            type: 'internal',
             name: 'contact us',
-            route: '/LandingPages/ContactUs',
+            url: '/LandingPages/ContactUs',
           },
-          {
-            name: 'author',
-            route: '/LandingPages/Author',
-          },
+          { type: 'internal', name: 'author', url: '/LandingPages/Author' },
         ],
       },
       {
         name: 'account',
         subItems: [
-          {
-            name: 'sign in',
-            route: '/LandingPages/SignIn',
-          },
+          { type: 'internal', name: 'sign in', url: '/LandingPages/SignIn' },
         ],
       },
     ],
@@ -113,12 +93,14 @@ export const routes: HeaderRoute[] = [
         isCollapsed: true,
         subItems: [
           {
+            type: 'internal',
             name: 'page headers',
-            route: '/sections/page-sections/page-headers',
+            url: '/sections/page-sections/page-headers',
           },
           {
+            type: 'internal',
             name: 'features',
-            route: '/sections/page-sections/features',
+            url: '/sections/page-sections/features',
           },
         ],
       },
@@ -128,16 +110,19 @@ export const routes: HeaderRoute[] = [
         isCollapsed: true,
         subItems: [
           {
+            type: 'internal',
             name: 'navbars',
-            route: '/sections/navigation/navbars',
+            url: '/sections/navigation/navbars',
           },
           {
+            type: 'internal',
             name: 'nav tabs',
-            route: '/sections/navigation/nav-tabs',
+            url: '/sections/navigation/nav-tabs',
           },
           {
+            type: 'internal',
             name: 'pagination',
-            route: '/sections/navigation/pagination',
+            url: '/sections/navigation/pagination',
           },
         ],
       },
@@ -147,12 +132,14 @@ export const routes: HeaderRoute[] = [
         isCollapsed: true,
         subItems: [
           {
+            type: 'internal',
             name: 'inputs',
-            route: '/sections/input-areas/inputs',
+            url: '/sections/input-areas/inputs',
           },
           {
+            type: 'internal',
             name: 'forms',
-            route: '/sections/input-areas/forms',
+            url: '/sections/input-areas/forms',
           },
         ],
       },
@@ -162,16 +149,19 @@ export const routes: HeaderRoute[] = [
         isCollapsed: true,
         subItems: [
           {
+            type: 'internal',
             name: 'alerts',
-            route: '/sections/attention-catchers/alerts',
+            url: '/sections/attention-catchers/alerts',
           },
           {
+            type: 'internal',
             name: 'modals',
-            route: '/sections/attention-catchers/modals',
+            url: '/sections/attention-catchers/modals',
           },
           {
+            type: 'internal',
             name: 'tooltips & popovers',
-            route: '/sections/attention-catchers/tooltips-popovers',
+            url: '/sections/attention-catchers/tooltips-popovers',
           },
         ],
       },
@@ -181,36 +171,44 @@ export const routes: HeaderRoute[] = [
         isCollapsed: true,
         subItems: [
           {
+            type: 'internal',
             name: 'avatars',
-            route: '/sections/elements/avatars',
+            url: '/sections/elements/avatars',
           },
           {
+            type: 'internal',
             name: 'badges',
-            route: '/sections/elements/badges',
+            url: '/sections/elements/badges',
           },
           {
+            type: 'internal',
             name: 'breadcrumbs',
-            route: '/sections/elements/breadcrumbs',
+            url: '/sections/elements/breadcrumbs',
           },
           {
+            type: 'internal',
             name: 'buttons',
-            route: '/sections/elements/buttons',
+            url: '/sections/elements/buttons',
           },
           {
+            type: 'internal',
             name: 'dropdowns',
-            route: '/sections/elements/dropdowns',
+            url: '/sections/elements/dropdowns',
           },
           {
+            type: 'internal',
             name: 'progress bars',
-            route: '/sections/elements/progress-bars',
+            url: '/sections/elements/progress-bars',
           },
           {
+            type: 'internal',
             name: 'toggles',
-            route: '/sections/elements/toggles',
+            url: '/sections/elements/toggles',
           },
           {
+            type: 'internal',
             name: 'typography',
-            route: '/sections/elements/typography',
+            url: '/sections/elements/typography',
           },
         ],
       },
@@ -221,30 +219,35 @@ export const routes: HeaderRoute[] = [
     icon: faBell,
     menus: [
       {
+        type: 'external',
         name: 'getting started',
         description: 'All about overview, quick start, license and contents',
-        href: 'https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/',
       },
       {
+        type: 'external',
         name: 'foundation',
         description: 'See our colors, icons and typography',
-        href: 'https://www.creative-tim.com/learning-lab/react/colors/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/colors/material-kit/',
       },
       {
+        type: 'external',
         name: 'components',
         description: 'Explore our collection of fully designed components',
-        href: 'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
       },
       {
+        type: 'external',
         name: 'plugins',
         description: 'Check how you can integrate our plugins',
-        href: 'https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/',
       },
     ],
   },
   {
+    type: 'external',
     name: 'github',
     icon: faGithub,
-    href: 'https://github.com/process-analytics',
+    url: 'https://github.com/process-analytics',
   },
 ];

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, IconName } from '@fortawesome/fontawesome-svg-core';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -71,3 +71,32 @@ export type Link = {
   description?: string;
   url: string;
 };
+
+export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
+  icon: IconDefinition;
+  menus: HeaderMenu[];
+  withColumns?: boolean;
+  rowsPerColumn?: number;
+};
+export type HeaderRouteAsLink = Omit<Link, 'description'>;
+export type HeaderRoute = HeaderRouteAsLink | HeaderRouteWithMenus;
+
+export const isHeaderRouteWithMenus = (
+  route: HeaderRoute,
+): route is HeaderRouteWithMenus => {
+  return 'icon' in route && 'menus' in route;
+};
+
+export type HeaderMenuWithSubMenus = Pick<Link, 'name' | 'description'> & {
+  isCollapsed?: boolean;
+  subItems: HeaderSubItem[];
+};
+export type HeaderMenu = Link | HeaderMenuWithSubMenus;
+
+export const isHeaderMenuWithSubMenus = (
+  menu: HeaderMenu,
+): menu is HeaderMenuWithSubMenus => {
+  return 'subItems' in menu;
+};
+
+export type HeaderSubItem = Link;
