@@ -173,8 +173,9 @@ const NavItemLink = (route: HeaderRouteAsLink): JSX.Element => (
     name={route.name}
     {...getLinkAttributes(route)}
   >
-    {/*    <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-    </MKBox>*/}
+    {/*    <MKBox
+      sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}
+    ></MKBox>*/}
   </NavbarDropdown>
 );
 

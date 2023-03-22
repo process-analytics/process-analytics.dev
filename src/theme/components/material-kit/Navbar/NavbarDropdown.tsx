@@ -51,31 +51,39 @@ export const NavbarDropdown = ({
       //opacity={isMobileView && open ? 1 : 0.6}
       sx={{ cursor: 'pointer', userSelect: 'none' }}
     >
-      <MKTypography
-        variant="body2"
-        lineHeight={1}
-        color="inherit"
-        sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
-      >
-        {icon}
-      </MKTypography>
+      {icon && (
+        <MKTypography
+          variant="body2"
+          lineHeight={1}
+          color="inherit"
+          sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
+        >
+          {icon}
+        </MKTypography>
+      )}
+
       <MKTypography
         variant="button"
         fontWeight="regular"
         textTransform="capitalize"
         color="inherit"
-        sx={{ fontWeight: '100%', ml: 1, mr: 0.25 }}
+        sx={{
+          fontWeight: '100%',
+          ml: 1,
+          mr: 0.25,
+          alignSelf: 'center',
+        }}
       >
         {name}
       </MKTypography>
 
-      <MKTypography variant="body2" color="inherit" ml="auto">
-        {isCollapsible && (
+      {isCollapsible && (
+        <MKTypography variant="body2" color="inherit" ml="auto">
           <KeyboardArrowDown
             sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
           />
-        )}
-      </MKTypography>
+        </MKTypography>
+      )}
     </MKBox>
 
     {children && (
