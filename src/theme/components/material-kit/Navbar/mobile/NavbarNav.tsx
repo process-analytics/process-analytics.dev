@@ -150,6 +150,7 @@ const NavLink = (route: HeaderRouteAsLink): JSX.Element => (
   <NavbarItem
     key={route.name}
     name={route.name}
+    isMobileMenuView={true}
     {...getLinkAttributes(route)}
   />
 );
@@ -171,6 +172,7 @@ const NavDropdown = (
     }
     isCollapsible={Boolean(route.menus)}
     isCollapsed={route.name === route.collapse}
+    isMobileMenuView={true}
   >
     <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
       {route.menus.map((menu, id) => (

@@ -27,7 +27,7 @@
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIcon } from '@mui/material';
+import { Collapse, SvgIcon, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
@@ -39,6 +39,7 @@ export const NavbarItem = ({
   children,
   isCollapsible,
   isCollapsed,
+  isMobileMenuView,
   ...rest
 }: PropsWithChildren<NavbarItemProps>): JSX.Element => (
   <>
@@ -49,14 +50,26 @@ export const NavbarItem = ({
       display="flex"
       alignItems="baseline"
       //opacity={isMobileView && open ? 1 : 0.6}
-      sx={{
+      sx={({
+        // TODO Make configurable color
+        palette: { grey },
+      }: Theme) => ({
         cursor: 'pointer',
         userSelect: 'none',
+        transition: 'all 300ms linear',
 
-        '*:hover': {
-          fontWeight: 'bold',
-        },
-      }}
+        ...(isMobileMenuView && {
+          // TODO Make configurable color
+          '&:hover': {
+            backgroundColor: !isCollapsible && grey[200],
+            color: !isCollapsible && grey?.A700,
+
+            '& *': {
+              color: !isCollapsible && grey?.A700,
+            },
+          },
+        }),
+      })}
     >
       {icon && (
         <MKTypography
@@ -70,14 +83,11 @@ export const NavbarItem = ({
       )}
 
       <MKTypography
-        variant="button"
-        //  variant="body2"
+        variant="body2"
         fontWeight="regular"
         textTransform="capitalize"
         color="inherit"
         sx={{
-          //   fontSize: '18px',
-          // fontWeight: '100%',
           fontWeight: 'bold',
           ml: 1,
           mr: 0.25,
@@ -109,6 +119,7 @@ type NavbarItemProps = React.PropsWithoutRef<{
   icon?: typeof SvgIcon;
   isCollapsible?: boolean;
   isCollapsed?: boolean;
+  isMobileMenuView: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
