@@ -53,7 +53,7 @@ export const ActionButton = ({
         {...getLinkAttributes({ type, url })}
         variant={variant ?? 'gradient'}
         color={color ?? 'info'}
-        size="large"
+        size="medium"
         sx={{
           borderRadius: ({ borders }: Theme) => borders.borderRadius.section,
         }}

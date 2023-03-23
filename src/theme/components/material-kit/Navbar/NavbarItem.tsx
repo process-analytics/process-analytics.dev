@@ -83,12 +83,13 @@ export const NavbarItem = ({
       )}
 
       <MKTypography
-        variant="body2"
+        variant="button"
+        // variant="body2"
         fontWeight="regular"
         textTransform="capitalize"
         color="inherit"
         sx={{
-          fontWeight: 'bold',
+          // fontWeight: 'bold',
           ml: 1,
           mr: 0.25,
           alignSelf: 'center',
