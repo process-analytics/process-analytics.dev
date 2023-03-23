@@ -52,14 +52,14 @@ export const Header = (): JSX.Element => {
               url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
               label: 'Demo',
               color: 'secondary',
-              variant: 'outlined',
+              variant: 'contained',
             }}
             isTransparent
             isSticky
+            // isCenter
             top="0"
             zIndex="1"
             bgColor="quaternary"
-            // color="inherit"
             width="100%"
             shadow={{ size: 'sm' }}
             py={0.25}
