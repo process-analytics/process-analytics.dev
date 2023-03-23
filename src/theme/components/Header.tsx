@@ -35,7 +35,7 @@ import { header } from '../../content/HeaderContent';
 import { routes } from '../../content/HeaderRoutes';
 
 import colors from '../colors.json';
-import theme from '../../assets/theme';
+import { theme } from '../../assets/theme';
 
 /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
     After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
@@ -64,8 +64,8 @@ export const Header = (): JSX.Element => {
             shadow={{ size: 'sm' }}
             py={0.25}
             dropdownStyle={{
-              bgColor: 'sweet',
-              color: 'quaternary',
+              bgColor: 'secondaryLight',
+              color: 'secondary',
             }}
           />
         </header>
@@ -73,29 +73,6 @@ export const Header = (): JSX.Element => {
     </ThemeProvider>
   );
 };
-
-{
-  /*            <ButtonWithExternalLink
-  href="https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html"
-  target="_blank"
-  color={colors.secondary}
-  backgroundColor={colors.background}
-  >
-  <Box
-  marginRight="15px"
-  backgroundColor={colors.secondary}
-  width="2.875rem"
-  height="2.875rem"
-  >
-  <FontAwesomeIcon
-  icon={faLaptopCode}
-  color={colors.background}
-  size="xl"
-  />
-</Box>
-<Text padding="0px 15px">Demo</Text>
-</ButtonWithExternalLink>*/
-}
 
 export const Header2 = (): JSX.Element => {
   const { logo } = header;
