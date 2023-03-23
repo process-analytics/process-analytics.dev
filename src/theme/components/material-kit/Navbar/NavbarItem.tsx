@@ -52,11 +52,18 @@ export const NavbarItem = ({
       //opacity={isMobileView && open ? 1 : 0.6}
       sx={({
         // TODO Make configurable color
-        palette: { grey },
+        palette: { grey, spicy },
       }: Theme) => ({
         cursor: 'pointer',
         userSelect: 'none',
         transition: 'all 300ms linear',
+
+        ...(!isMobileMenuView && {
+          '*:hover': {
+            //fontWeight: 'bold',
+            color: spicy.main,
+          },
+        }),
 
         ...(isMobileMenuView && {
           // TODO Make configurable color
