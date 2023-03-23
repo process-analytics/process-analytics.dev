@@ -33,10 +33,9 @@ import { Collapse, Theme } from '@mui/material';
 import { MKBox, MKBoxProps, MKTypography } from '../..';
 
 // Material Kit 2 React example components
-import { NavbarDropdown } from '../NavbarDropdown';
+import { NavbarItem } from '../NavbarItem';
 
 import {
-  HeaderMenu,
   HeaderMenuWithItems,
   HeaderRoute,
   HeaderRouteAsLink,
@@ -148,7 +147,7 @@ const DropdownLink = ({
 };
 
 const NavLink = (route: HeaderRouteAsLink): JSX.Element => (
-  <NavbarDropdown
+  <NavbarItem
     key={route.name}
     name={route.name}
     {...getLinkAttributes(route)}
@@ -161,7 +160,7 @@ const NavDropdown = (
     collapse?: string;
   },
 ): JSX.Element => (
-  <NavbarDropdown
+  <NavbarItem
     key={route.name}
     name={route.name}
     icon={route.icon}
@@ -184,7 +183,7 @@ const NavDropdown = (
         </MKBox>
       ))}
     </MKBox>
-  </NavbarDropdown>
+  </NavbarItem>
 );
 
 export const NavbarNav = ({

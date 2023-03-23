@@ -22,9 +22,9 @@ import {
   HeaderMenuWithItems,
   HeaderRoute,
   HeaderRouteWithMenus,
-  HeaderSubItem,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
+  Link,
 } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
@@ -38,7 +38,7 @@ const DropdownSubMenu = ({
   isCollapsed = false,
 }: {
   isCollapsed?: boolean;
-} & HeaderSubItem) => (
+} & Link) => (
   <MKTypography
     key={name}
     {...getLinkAttributes({ url, type })}

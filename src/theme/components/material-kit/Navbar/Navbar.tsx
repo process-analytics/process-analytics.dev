@@ -49,8 +49,8 @@ import { DropdownMenu, NestedDropdownMenu } from './desktop';
 import { NavbarButton, NavbarNav } from './mobile';
 
 // Material Kit 2 React example components
-import { NavbarDropdown } from './NavbarDropdown';
 import { Action, ActionButton } from './ActionButton';
+import { NavbarItem } from './NavbarItem';
 
 const NavbarItems = ({
   routes,
@@ -72,11 +72,11 @@ const NavbarItems = ({
       color="inherit"
       display={{ xs: 'none', lg: 'flex' }}
       ml="auto"
-      mr={center ? 'auto' : 0}
+      mr={center ? 'auto' : 2}
     >
       {routes.map(route =>
         isHeaderRouteWithMenus(route) ? (
-          <NavbarDropdown
+          <NavbarItem
             key={route.name}
             name={route.name}
             icon={route.icon}
@@ -96,7 +96,7 @@ const NavbarItems = ({
             }}
           />
         ) : (
-          <NavbarDropdown
+          <NavbarItem
             key={route.name}
             name={route.name}
             {...getLinkAttributes(route)}

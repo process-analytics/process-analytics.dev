@@ -27,20 +27,20 @@
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIcon, SvgIconProps } from '@mui/material';
+import { Collapse, SvgIcon } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
 
-export const NavbarDropdown = ({
+export const NavbarItem = ({
   name,
   icon,
   children,
   isCollapsible,
   isCollapsed,
   ...rest
-}: PropsWithChildren<NavbarDropdownProps>): JSX.Element => (
+}: PropsWithChildren<NavbarItemProps>): JSX.Element => (
   <>
     <MKBox
       {...rest}
@@ -49,7 +49,14 @@ export const NavbarDropdown = ({
       display="flex"
       alignItems="baseline"
       //opacity={isMobileView && open ? 1 : 0.6}
-      sx={{ cursor: 'pointer', userSelect: 'none' }}
+      sx={{
+        cursor: 'pointer',
+        userSelect: 'none',
+
+        '*:hover': {
+          fontWeight: 'bold',
+        },
+      }}
     >
       {icon && (
         <MKTypography
@@ -64,11 +71,14 @@ export const NavbarDropdown = ({
 
       <MKTypography
         variant="button"
+        //  variant="body2"
         fontWeight="regular"
         textTransform="capitalize"
         color="inherit"
         sx={{
-          fontWeight: '100%',
+          //   fontSize: '18px',
+          // fontWeight: '100%',
+          fontWeight: 'bold',
           ml: 1,
           mr: 0.25,
           alignSelf: 'center',
@@ -94,7 +104,7 @@ export const NavbarDropdown = ({
   </>
 );
 
-type NavbarDropdownProps = React.PropsWithoutRef<{
+type NavbarItemProps = React.PropsWithoutRef<{
   name: string;
   icon?: typeof SvgIcon;
   isCollapsible?: boolean;
