@@ -16,4 +16,3 @@
 export * from './MKBox';
 export * from './MKTypography';
 export * from './Navbar';
-export * from './MKButton';

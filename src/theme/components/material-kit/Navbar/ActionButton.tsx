@@ -29,14 +29,15 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+import { Button, ButtonProps, Theme } from '@mui/material';
 import React from 'react';
 
-import { MKBox, MKButton, MKButtonProps } from '..';
+import { MKBox } from '..';
 import { getLinkAttributes } from '../../Link';
 import { Link } from '../../../types';
 
 export type Action = Required<Pick<Link, 'url' | 'type'>> &
-  Pick<MKButtonProps, 'color' | 'variant'> & {
+  Pick<ButtonProps, 'color' | 'variant'> & {
     label: string;
   };
 export const ActionButton = ({
@@ -48,15 +49,17 @@ export const ActionButton = ({
 }: Action): JSX.Element => {
   return (
     <MKBox ml={{ xs: 'auto', lg: 0 }}>
-      <MKButton
+      <Button
         {...getLinkAttributes({ type, url })}
         variant={variant ?? 'gradient'}
         color={color ?? 'info'}
         size="large"
-        circular
+        sx={{
+          borderRadius: ({ borders }: Theme) => borders.borderRadius.section,
+        }}
       >
         {label}
-      </MKButton>
+      </Button>
     </MKBox>
   );
 };
