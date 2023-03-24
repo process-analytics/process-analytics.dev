@@ -33,9 +33,10 @@ export type FooterMenu = {
 
 export const footerRoutes: FooterRoutes = {
   brand: {
+    type: 'internal',
     name: 'Process Analytics',
     logo: logo,
-    route: '/',
+    url: '/',
   },
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,
@@ -45,24 +46,26 @@ export const footerRoutes: FooterRoutes = {
       name: 'components',
       items: [
         {
+          type: 'internal',
           name: 'model generation application',
-          route: '/model-generation-application',
+          url: '/model-generation-application',
         },
       ],
     },
     {
       name: 'learn',
       items: [
-        { name: 'news', route: '/news' },
-        { name: 'blog', route: '/blog' },
+        { type: 'internal', name: 'news', url: '/news' },
+        { type: 'internal', name: 'blog', url: '/blog' },
       ],
     },
     {
       name: 'help & legal',
       items: [
         {
+          type: 'internal',
           name: 'Terms & Policies',
-          route: '/model-generation-application-conditions',
+          url: '/model-generation-application-conditions',
         },
       ],
     },

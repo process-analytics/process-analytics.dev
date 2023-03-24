@@ -21,7 +21,7 @@ type LinkProps = {
   onClick?: () => void;
 };
 
-export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
+export const Link = MaterialStyled(MaterialLink)<LinkProps>(
   ({ theme, selected, href, onClick }) => `
   text-decoration: none;
   position: relative;
@@ -32,7 +32,6 @@ export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
   ${selected && `border-bottom: 3px solid ${theme.palette.primary.main}`};
   transition: 0.4s;
   cursor: ${onClick || href ? 'pointer' : 'default'};
-
   &:after {
     content: '';
     position: absolute;
@@ -45,7 +44,6 @@ export const LinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>(
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
   }
-
   &:focus:after,
   &:hover:after {
     left: 0;
