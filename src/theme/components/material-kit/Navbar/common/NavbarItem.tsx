@@ -151,7 +151,7 @@ export const NavbarItem = ({
   </>
 );
 
-type NavbarItemProps = React.PropsWithoutRef<
+export type NavbarItemProps = React.PropsWithoutRef<
   TitleProps & {
     isCollapsed?: boolean;
   }
