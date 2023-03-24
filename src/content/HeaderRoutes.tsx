@@ -34,6 +34,12 @@ Coded by www.creative-tim.com
  */
 import { HeaderRoute } from '../theme/types';
 
+/*import SvgLogo from '../images/logo.svg';
+
+export const header = {
+  logo: { src: SvgLogo },
+};*/
+
 // TODO: Mutualize with FooterRoutes
 export const routes: HeaderRoute[] = [
   {
