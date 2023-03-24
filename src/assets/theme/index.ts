@@ -16,52 +16,64 @@
 
 // @mui material components
 import { createTheme, Theme } from '@mui/material';
+import responsiveFontSizes from '@mui/material/styles/responsiveFontSizes';
 
 // Material Kit 2 React base styles
-import { palette } from './base/colors';
-import breakpoints from './base/breakpoints';
-import typography from './base/typography';
-import { boxShadows } from './base/boxShadows';
-import { borders } from './base/borders';
-import globals from './base/globals';
+import {
+  palette,
+  breakpoints,
+  typography,
+  boxShadows,
+  borders,
+  globals,
+} from './base';
 
 // Material Kit 2 React helper functions
-import boxShadow from './functions/boxShadow';
-import hexToRgb from './functions/hexToRgb';
-import linearGradient from './functions/linearGradient';
-import pxToRem from './functions/pxToRem';
-import rgba from './functions/rgba';
+import {
+  boxShadow,
+  hexToRgb,
+  linearGradient,
+  pxToRem,
+  rgba,
+} from './functions';
 
 // Material Kit 2 React components base styles for @mui material components
-import iconButton from './components/iconButton';
-import tooltip from './components/tooltip';
-import appBar from './components/appBar';
-import container from './components/container';
-import icon from './components/icon';
-import svgIcon from './components/svgIcon';
-import link from './components/link';
+import {
+  MuiIconButton,
+  MuiTooltip,
+  MuiAppBar,
+  MuiContainer,
+  MuiIcon,
+  MuiSvgIcon,
+  MuiLink,
+} from './components';
 
-const theme: Theme = {
-  ...createTheme({
-    breakpoints,
-    palette,
-    typography,
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          globals,
-          container,
-        },
+const generatedTheme = createTheme({
+  breakpoints,
+  palette,
+  typography,
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        globals,
       },
-      MuiIconButton: iconButton,
-      MuiTooltip: tooltip,
-      MuiAppBar: appBar,
-      MuiIcon: icon,
-      MuiSvgIcon: svgIcon,
-      MuiLink: link,
     },
+    MuiIconButton,
+    MuiTooltip,
+    MuiAppBar,
+    MuiIcon,
+    MuiSvgIcon,
+    MuiLink,
+    MuiContainer,
+  },
+});
+
+export const theme: Theme = {
+  //Generate responsive typography settings based on the options received.
+  ...responsiveFontSizes(generatedTheme, {
+    breakpoints: generatedTheme.breakpoints.keys,
   }),
-  borders: borders,
+  borders,
   boxShadows,
   functions: {
     boxShadow,
@@ -71,4 +83,3 @@ const theme: Theme = {
     rgba,
   },
 };
-export default theme;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,23 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { BreakpointsOptions } from '@mui/material';
-
-/**
- * To customize the breakpoints: https://mui.com/material-ui/customization/breakpoints/
- */
-export const breakpoints: Required<
-  Omit<BreakpointsOptions, 'keys' | 'up' | 'down' | 'between' | 'only' | 'not'>
-> = {
-  unit: 'rem',
-  step: 6,
-  values: {
-    xs: 0,
-    sm: 36, // default 600px = 37.5rem
-    md: 48, // default 900px = 56.25rem
-    lg: 62, // default 75rem
-    xl: 75, // default 96rem
-    xxl: 87.5,
-  },
-};
+export { boxShadow } from './boxShadow';
+export { hexToRgb } from './hexToRgb';
+export { linearGradient } from './linearGradient';
+export { pxToRem } from './pxToRem';
+export { rgba } from './rgba';

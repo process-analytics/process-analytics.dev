@@ -20,189 +20,99 @@
  * You can customize the typography styles for the entire Material Kit 2 React using this file.
  */
 
-import { CustomTypography } from '@mui/material/styles';
-import { Typography } from '@mui/material/styles/createTypography';
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-// Material Kit 2 React Helper Functions
-import pxToRem from '../functions/pxToRem';
+const baseHeadingProperties = {
+  color: 'inherit',
+  fontWeight: 700,
+  fontFamily: 'inherit',
+  margin: '1.5rem 0 1.5rem 0',
+};
 
-const baseProperties = {
-  fontFamily: '"Open Sans", "Helvetica", "Arial", sans-serif',
-  fontFamily2: '"Open Sans", sans-serif',
-  fontWeightLighter: 100,
+export const typography: TypographyOptions = {
+  fontFamily: ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
-  fontSizeXXS: pxToRem(10.4),
-  fontSizeXS: pxToRem(12),
-  fontSizeSM: pxToRem(14),
-  fontSizeMD: pxToRem(16),
-  fontSizeLG: pxToRem(18),
-  fontSizeXL: pxToRem(20),
-  fontSize2XL: pxToRem(24),
-  fontSize3XL: pxToRem(30),
-};
 
-const baseHeadingProperties = {
-  color: 'Black',
-  fontWeight: baseProperties.fontWeightBold,
-};
-
-const baseDisplayProperties = {
-  fontFamily: baseProperties.fontFamily,
-  color: 'Black',
-  fontWeight: baseProperties.fontWeightLight,
-  lineHeight: 1.2,
-};
-
-const typography: Typography & CustomTypography = {
-  fontFamily: baseProperties.fontFamily,
-  fontWeightLighter: baseProperties.fontWeightLighter,
-  fontWeightLight: baseProperties.fontWeightLight,
-  fontWeightRegular: baseProperties.fontWeightRegular,
-  fontWeightMedium: baseProperties.fontWeightMedium,
-  fontWeightBold: baseProperties.fontWeightBold,
-
-  fontSize: 14,
-  htmlFontSize: 14,
-  pxToRem,
+  fontSize: 10,
+  htmlFontSize: 10,
 
   h1: {
-    fontFamily: baseProperties.fontFamily2,
-    fontSize: pxToRem(48),
+    fontSize: '3rem',
     lineHeight: 1.25,
     ...baseHeadingProperties,
   },
 
   h2: {
-    fontFamily: baseProperties.fontFamily2,
-    fontSize: pxToRem(36),
+    fontSize: '2.25rem',
     lineHeight: 1.3,
     ...baseHeadingProperties,
   },
 
   h3: {
-    fontFamily: baseProperties.fontFamily2,
-    fontSize: pxToRem(30),
+    fontSize: '1.875rem',
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h4: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: pxToRem(24),
+    fontSize: '1.5rem',
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h5: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: pxToRem(20),
+    fontSize: '1.25rem',
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h6: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: pxToRem(16),
+    fontSize: '1rem',
     lineHeight: 1.625,
     ...baseHeadingProperties,
   },
 
   subtitle1: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeXL,
-    fontWeight: baseProperties.fontWeightLight,
+    fontSize: '1.25rem',
+    fontWeight: 300,
     lineHeight: 1.625,
   },
 
   subtitle2: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeMD,
-    fontWeight: baseProperties.fontWeightLight,
+    fontSize: '1rem',
+    fontWeight: 300,
     lineHeight: 1.6,
   },
 
   body1: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeXL,
-    fontWeight: baseProperties.fontWeightRegular,
+    fontSize: '1.25rem',
+    fontWeight: 400,
     lineHeight: 1.625,
   },
 
   body2: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeMD,
-    fontWeight: baseProperties.fontWeightLight,
+    fontSize: '1rem',
+    fontWeight: 300,
     lineHeight: 1.6,
   },
 
   button: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeSM,
-    fontWeight: baseProperties.fontWeightLight,
+    fontSize: '0.875rem',
+    fontWeight: 300,
     lineHeight: 1.5,
     textTransform: 'uppercase',
   },
 
   caption: {
-    fontFamily: baseProperties.fontFamily,
-    fontSize: baseProperties.fontSizeXS,
-    fontWeight: baseProperties.fontWeightLight,
+    fontSize: '0.75rem',
+    fontWeight: 300,
     lineHeight: 1.25,
   },
 
   overline: {
-    fontFamily: baseProperties.fontFamily,
-  },
-
-  d1: {
-    fontSize: pxToRem(80),
-    ...baseDisplayProperties,
-  },
-
-  d2: {
-    fontSize: pxToRem(72),
-    ...baseDisplayProperties,
-  },
-
-  d3: {
-    fontSize: pxToRem(64),
-    ...baseDisplayProperties,
-  },
-
-  d4: {
-    fontSize: pxToRem(56),
-    ...baseDisplayProperties,
-  },
-
-  d5: {
-    fontSize: pxToRem(48),
-    ...baseDisplayProperties,
-  },
-
-  d6: {
-    fontSize: pxToRem(40),
-    ...baseDisplayProperties,
-  },
-
-  size: {
-    xxs: baseProperties.fontSizeXXS,
-    xs: baseProperties.fontSizeXS,
-    sm: baseProperties.fontSizeSM,
-    md: baseProperties.fontSizeMD,
-    lg: baseProperties.fontSizeLG,
-    xl: baseProperties.fontSizeXL,
-    '2xl': baseProperties.fontSize2XL,
-    '3xl': baseProperties.fontSize3XL,
-  },
-
-  lineHeight: {
-    sm: 1.25,
-    md: 1.5,
-    lg: 2,
+    // Keep default theme
   },
 };
-
-export default typography;

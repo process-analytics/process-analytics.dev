@@ -13,39 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 import React, { forwardRef } from 'react';
 
 import {
-  FontWeight,
-  PaletteColorKey,
-  TextTransform,
-  VerticalAlign,
-  Link as MaterialLink,
-  TypographyProps,
-  LinkProps,
+  TypographyProps as MuiTypographyProps,
+  TypographyTypeMap,
 } from '@mui/material';
 
-import { Link as GatsbyLink } from 'gatsby';
-
 // Custom styles for MKTypography
-import { MKTypographyRoot } from './MKTypographyRoot';
-
-import { LinkWithMaterial } from '../../Link';
-import { RouteWithMaterial } from '../../Route';
-import { StyledComponent } from '@emotion/styled';
+import { MKTypographyRoot, TypographyProps } from './MKTypographyRoot';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,
-  Partial<React.PropsWithChildren<MKTypographyProps>>
+  Partial<React.PropsWithChildren<MKTypographyProps<React.ElementType>>>
 >(
   (
     {
-      color,
+      color = 'inherit',
       fontWeight,
       textTransform,
-      verticalAlign,
-      textGradient,
-      opacity,
+      verticalAlign = 'unset',
+      textGradient = false,
+      opacity = 1,
       children,
       ...rest
     },
@@ -68,32 +68,9 @@ export const MKTypography = forwardRef<
   ),
 );
 
-// Setting default values for the props of MKTypography
-MKTypography.defaultProps = {
-  color: 'inherit',
-  textTransform: undefined,
-  verticalAlign: 'unset',
-  textGradient: false,
-  opacity: 1,
-};
-
-// Typechecking props for the MKTypography
-export type MKTypographyProps = TypographyProps & {
-  color?: PaletteColorKey | 'inherit' | 'text';
-  fontWeight?: FontWeight;
-  textTransform?: TextTransform;
-  verticalAlign?: VerticalAlign;
-  textGradient?: boolean;
-  opacity?: number;
-  component?:
-    | typeof GatsbyLink
-    | typeof MaterialLink
-    | typeof LinkWithMaterial
-    | typeof RouteWithMaterial
-    | StyledComponent<LinkProps>;
-  href?: string;
-  to?: string;
-  target?: string;
-  rel?: string;
-  size?: string;
-};
+export type MKTypographyProps<
+  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+> = MuiTypographyProps<D> &
+  TypographyProps & {
+    size?: string;
+  };

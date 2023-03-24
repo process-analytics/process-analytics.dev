@@ -29,7 +29,7 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import theme from '../../assets/theme';
+import { theme } from '../../assets/theme';
 
 import { Link as FooterLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';

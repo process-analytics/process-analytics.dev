@@ -15,6 +15,21 @@
  */
 
 /**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+ Coded by www.creative-tim.com
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
+/**
   The rgba() function helps you to create a rgba color code, it uses the hexToRgb() function
   to convert the hex code into rgb for using it inside the rgba color format.
  */
@@ -22,10 +37,7 @@
 import { Color } from 'chroma-js';
 
 // Material Kit 2 React helper functions
-import hexToRgb from './hexToRgb';
+import { hexToRgb } from './hexToRgb';
 
-function rgba(color: string | number | Color, opacity: number): string {
-  return `rgba(${hexToRgb(color)}, ${opacity})`;
-}
-
-export default rgba;
+export const rgba = (color: string | number | Color, opacity: number): string =>
+  `rgba(${hexToRgb(color)}, ${opacity})`;

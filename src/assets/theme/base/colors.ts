@@ -17,10 +17,32 @@
 import {
   GreyColorName,
   PaletteColorKey,
-  CustomPaletteOptions,
   SocialPaletteOptions,
   PaletteOptions,
 } from '@mui/material';
+
+export const paletteKeys = [
+  'primary',
+  'secondary',
+  'error',
+  'warning',
+  'info',
+  'success',
+  'tertiary',
+  'quaternary',
+  'primaryLight',
+  'secondaryLight',
+  'spicy',
+  'sweet',
+  'manufacture',
+  'education',
+  'telecom',
+  'financial',
+  'energy',
+  'health',
+  'government',
+  'distribution',
+];
 
 /**
  * The base colors for the Material Kit 2 React.
@@ -29,9 +51,7 @@ import {
  *
  * @see https://material-ui.com/customization/color/
  */
-export const palette: PaletteOptions &
-  CustomPaletteOptions &
-  SocialPaletteOptions = {
+export const palette: PaletteOptions & SocialPaletteOptions = {
   mode: 'light',
 
   background: {
@@ -108,6 +128,10 @@ export const palette: PaletteOptions &
     main: '#EDEEF5',
   },
 
+  quaternary: {
+    main: '#FFFFFF',
+  },
+
   primaryLight: { main: '#DBEFFE' },
   secondaryLight: { main: '#F9DADC' },
   spicy: { main: '#05D99E' },
@@ -156,6 +180,9 @@ export const isPaletteColorName = (color: string): color is PaletteColorKey =>
     'info',
     'success',
     'tertiary',
+    'quaternary',
+    'primaryLight',
+    'secondaryLight',
     'spicy',
     'sweet',
     'manufacture',
