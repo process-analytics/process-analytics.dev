@@ -66,8 +66,8 @@ export type Landing = {
 };
 
 export type Link = {
+  type: 'internal' | 'external';
   name: string;
   description?: string;
-  route?: string;
-  href?: string;
+  url: string;
 };
