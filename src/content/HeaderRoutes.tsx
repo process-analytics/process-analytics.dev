@@ -32,8 +32,6 @@ Coded by www.creative-tim.com
  Once you add a new route on this file it will be visible automatically on
  the Navbar.
  */
-import React from 'react';
-
 import { HeaderRoute } from '../theme/types';
 
 // TODO: Mutualize with FooterRoutes

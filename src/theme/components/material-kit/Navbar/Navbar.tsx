@@ -31,8 +31,6 @@
 
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 // @mui material components
 import { Container } from '@mui/material';
 
@@ -40,8 +38,8 @@ import { Container } from '@mui/material';
 import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React base styles
-import breakpoints from '../../../../assets/theme/base/breakpoints';
-import pxToRem from '../../../../assets/theme/functions/pxToRem';
+import { breakpoints } from '../../../../assets/theme/base';
+import { pxToRem } from '../../../../assets/theme/functions';
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../types';
 import { getLinkAttributes } from '../../Link';
 import { BrandLink } from './BrandLink';

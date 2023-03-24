@@ -38,7 +38,7 @@ const DropdownSubMenu = ({
   isCollapsed = false,
 }: {
   isCollapsed?: boolean;
-} & Link) => (
+} & Link): JSX.Element => (
   <MKTypography
     key={name}
     {...getLinkAttributes({ url, type })}
