@@ -29,29 +29,26 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 
 import { Close, Menu } from '@mui/icons-material';
 
-import { MKBox } from '../..';
+import { MKBox, MKBoxProps } from '../..';
 
 export const NavbarButton = ({
-  mobileNavbar,
-  setMobileNavbar,
-}: {
-  mobileNavbar: boolean;
-  setMobileNavbar: Dispatch<SetStateAction<boolean>>;
-}): JSX.Element => {
-  return (
-    <MKBox
-      display={{ xs: 'inline-block', lg: 'none' }}
-      lineHeight={0}
-      py={1.5}
-      pl={1.5}
-      sx={{ cursor: 'pointer' }}
-      onClick={(): void => setMobileNavbar(!mobileNavbar)}
-    >
-      {mobileNavbar ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
-    </MKBox>
-  );
-};
+  onClick,
+  isOpen,
+}: Pick<MKBoxProps, 'onClick'> & {
+  isOpen: boolean;
+}): JSX.Element => (
+  <MKBox
+    display={{ xs: 'inline-block', lg: 'none' }}
+    lineHeight={0}
+    py={1.5}
+    pl={1.5}
+    sx={{ cursor: 'pointer' }}
+    onClick={onClick}
+  >
+    {isOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
+  </MKBox>
+);

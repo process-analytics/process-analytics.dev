@@ -129,20 +129,22 @@ const InnerContainer = ({
             brand={brand}
           />
 
-          <NavbarItems
-            routes={routes}
-            isCenter={isCenter}
-            setCollapseElement={setCollapseElement}
-            setCollapseName={setCollapseName}
-            collapseName={collapseName}
-          />
+          {!mobileMenuView && (
+            <NavbarItems
+              routes={routes}
+              isCenter={isCenter}
+              setCollapseElement={setCollapseElement}
+              setCollapseName={setCollapseName}
+              collapseName={collapseName}
+            />
+          )}
 
           <ActionButton {...action} />
 
           {mobileMenuView && (
             <NavbarButton
-              mobileNavbar={mobileNavbar}
-              setMobileNavbar={setMobileNavbar}
+              onClick={(): void => setMobileNavbar(!mobileNavbar)}
+              isOpen={mobileNavbar}
             />
           )}
         </MKBox>
