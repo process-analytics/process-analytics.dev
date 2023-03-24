@@ -33,7 +33,7 @@ import { Collapse, Theme } from '@mui/material';
 import { MKBox, MKBoxProps, MKTypography } from '../..';
 
 // Material Kit 2 React example components
-import { NavbarItem } from '../NavbarItem';
+import { NavbarItem } from '../common';
 
 import {
   HeaderMenuWithItems,

@@ -33,7 +33,7 @@ import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { MKBox, MKTypography } from '..';
+import { MKBox, MKTypography } from '../..';
 
 export const BrandLink = ({
   isTransparent,

@@ -31,7 +31,7 @@ import { Collapse, SvgIcon, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '..';
+import { MKBox, MKTypography } from '../..';
 
 export const NavbarItem = ({
   name,
