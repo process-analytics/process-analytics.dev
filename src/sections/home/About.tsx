@@ -17,9 +17,8 @@ import React from 'react';
 
 import { about } from '../../content/AboutContent';
 
-import { SectionWithTitle } from '../../theme/components/Section';
+import { SectionWithTitle, DescriptionPanel } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
-import DescriptionPanel from '../../theme/components/description/DescriptionPanel';
 
 export const About = (): JSX.Element => {
   return (

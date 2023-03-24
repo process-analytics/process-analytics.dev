@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-import { Theme } from '../types';
-
-export const Divider = styled.div`
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 35%;
-    right: 35%;
-    height: 2px;
-    background-image: linear-gradient(
-      to right,
-      transparent,
-      ${props => (props.theme as Theme).colors.primary},
-      transparent
-    );
-  }
-`;
+export { Features } from './Features';
+export { Jotform } from './Jotform';

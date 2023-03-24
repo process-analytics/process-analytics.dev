@@ -33,22 +33,25 @@ import {
 
 import { SEO } from '../components/seo';
 
-import { Features } from '../theme/components/modelGenerationApp/Features';
-import { Jotform } from '../theme/components/modelGenerationApp/Jotform';
+import {
+  Features,
+  Jotform,
+  Footer,
+  Section,
+  PageHeader,
+  Layout,
+  PostContainer,
+} from '../theme/components';
 
 import { postsContent } from '../content/PostsContent';
 import { footerRoutes } from '../content/FooterRoutes';
-import { Footer } from '../theme/components/Footer';
+
 import { PostDescription } from '../theme/types';
-import { Section } from '../theme/components/Section';
-import { PageHeader } from '../theme/components/PageHeader';
-import Layout from '../theme/components/Layout';
 import { PAGE } from '../theme/utils/constants';
-import { PostContainer } from '../theme/components/Post';
+import colors from '../theme/colors.json';
 
 import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
-import colors from '../theme/colors.json';
 import { DataProps } from '../hooks/use-site-metadata';
 
 export const Part = ({

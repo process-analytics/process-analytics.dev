@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import { HeadProps } from 'gatsby';
 import React from 'react';
+
+import { HeadProps } from 'gatsby';
+
 import { Heading } from 'rebass/styled-components';
+import styled from 'styled-components';
 
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
@@ -24,13 +27,9 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import { footerRoutes } from '../content/FooterRoutes';
-import { Footer } from '../theme/components/Footer';
-import { Section } from '../theme/components/Section';
-import { PageHeader } from '../theme/components/PageHeader';
-import Layout from '../theme/components/Layout';
-import { PAGE } from '../theme/utils/constants';
 
-import styled from 'styled-components';
+import { Footer, Section, PageHeader, Layout } from '../theme/components';
+import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (

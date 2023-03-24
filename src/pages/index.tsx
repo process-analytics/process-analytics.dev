@@ -29,11 +29,13 @@ import {
   Libraries,
 } from '../sections';
 
-import { Footer } from '../theme/components/Footer';
-import Layout from '../theme/components/Layout';
-import { Header } from '../theme/components/Header';
+import {
+  Footer,
+  Layout,
+  Header,
+  MailingListSubscription,
+} from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
-import { MailingListSubscription } from '../theme/components/mailingListSubscription/MailingListSubscription';
 
 import { footerRoutes } from '../content/FooterRoutes';
 

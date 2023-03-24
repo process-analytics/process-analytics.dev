@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 import React, { ReactNode } from 'react';
+
 import { Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
-import { PostDescription } from '../types';
-import { Card, CardContainer } from './Card';
-import CardFooter from './CardFooter';
 import { Fade } from 'react-awesome-reveal';
+
+import { PostDescription } from '../types';
+
+import { Card, CardContainer, CardFooter, ButtonWithInternalLink } from '.';
+
 import colors from '../colors.json';
-import { ButtonWithInternalLink } from './Button';
 
 const cardMinWidth = '350px';
 

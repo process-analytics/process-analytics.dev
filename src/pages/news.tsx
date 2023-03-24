@@ -13,12 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { HeadProps } from 'gatsby';
 import * as React from 'react';
+
+import { HeadProps } from 'gatsby';
+
 import { DataProps } from '../hooks/use-site-metadata';
 import { SEO } from '../components/seo';
-import { PAGE, SECTION } from '../theme/utils/constants';
+
 import { newsContent } from '../content/NewsContent';
+
+import { PAGE, SECTION } from '../theme/utils/constants';
 import { PageWithPosts } from '../theme/pages/PageWithPosts';
 
 const NewsPage = (): JSX.Element => (
