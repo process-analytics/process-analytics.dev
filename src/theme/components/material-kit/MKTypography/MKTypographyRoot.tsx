@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 // @mui material components
 import Typography from '@mui/material/Typography';
 import {
@@ -24,16 +34,17 @@ import {
   FontWeight,
 } from '@mui/material/styles';
 
-interface MKTypographyRootProps {
-  ownerState: {
-    color?: PaletteColorKey | 'inherit' | 'text';
-    textTransform?: TextTransform;
-    verticalAlign?: VerticalAlign;
-    fontWeight?: FontWeight;
-    opacity?: number;
-    textGradient?: boolean;
-  };
-}
+export type TypographyProps = {
+  color?: PaletteColorKey | 'inherit' | 'text';
+  textTransform?: TextTransform;
+  verticalAlign?: VerticalAlign;
+  fontWeight?: FontWeight;
+  opacity?: number;
+  textGradient?: boolean;
+};
+type MKTypographyRootProps = {
+  ownerState: TypographyProps;
+};
 
 export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
   ({ theme, ownerState }) => {
@@ -50,7 +61,7 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
     const { linearGradient } = functions;
 
     const calculatedColor =
-      !color || !palette[color] || color === 'inherit'
+      !color || color === 'inherit' || !palette[color]
         ? 'inherit'
         : color === 'text'
         ? palette.text.primary
@@ -62,12 +73,12 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
         : linearGradient(palette.background.default, palette.background.paper));
     return {
       opacity,
-      textTransform: textTransform ?? 'none',
       verticalAlign,
       textDecoration: 'none',
+      textTransform,
       color: calculatedColor,
       letterSpacing: '-0.125px',
-      fontWeight: fontWeight,
+      fontWeight,
       ...(textGradient && {
         backgroundImage: backgroundColor,
         display: 'inline-block',

@@ -14,17 +14,27 @@
  * limitations under the License.
  */
 
-import { ComponentsOverrides } from '@mui/material/styles/overrides';
-import { ComponentsProps } from '@mui/material/styles/props';
-import { ComponentsVariants } from '@mui/material/styles/variants';
-// Material Kit 2 React helper functions
-import pxToRem from '../functions/pxToRem';
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
 
-const icon: {
-  defaultProps?: ComponentsProps['MuiIcon'];
-  styleOverrides?: ComponentsOverrides['MuiIcon'];
-  variants?: ComponentsVariants['MuiIcon'];
-} = {
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+ Coded by www.creative-tim.com
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
+import { Components, Theme } from '@mui/material';
+
+// Material Kit 2 React helper functions
+import { pxToRem } from '../functions/pxToRem';
+
+export const MuiIcon: Components<Theme>['MuiIcon'] = {
   defaultProps: {
     baseClassName: 'material-icons-round',
     fontSize: 'inherit',
@@ -44,4 +54,3 @@ const icon: {
     },
   },
 };
-export default icon;

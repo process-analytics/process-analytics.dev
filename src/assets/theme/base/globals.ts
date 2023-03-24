@@ -14,23 +14,80 @@
  * limitations under the License.
  */
 
+import { Theme } from '@mui/material';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
+import { ComponentsOverrides } from '@mui/material/styles/overrides';
 
 // Material Kit 2 React Base Styles
 import { palette } from './colors';
+import { typography } from './typography';
 
-const { info, secondary } = palette;
+const { info, secondary, background, text } = palette;
 
-export default {
+export const globals: ComponentsOverrides<Theme>['MuiCssBaseline'] = {
   html: {
     scrollBehavior: 'smooth',
+    fontSize: '62.5%',
+    fontFamily: '"Open Sans",Helvetica,Arial,sans-serif',
   },
+  'html *': {
+    mozOsxFontSmoothing: 'grayscale',
+  },
+
   '*, *::before, *::after': {
     margin: 0,
     padding: 0,
+    boxSizing: 'border-box',
   },
-  'a, a:link, a:visited': {
-    textDecoration: 'none !important',
+
+  header: {
+    width: '100%',
+    display: 'block',
+    fontFamily: '"Open Sans",Helvetica,Arial,sans-serif',
+    fontSize: 'inherit',
+    margin: '0',
+    padding: '0',
+    border: '0',
+    minHeight: '0',
+    position: 'relative',
+    backgroundColor: '#f8f8f8',
+    borderRadius: '4px',
+
+    '&::before, &::after': {
+      display: 'table',
+      content: '" "',
+    },
+  },
+
+  body: {
+    fontSize: 'inherit',
+    boxSizing: 'border-box',
+    margin: 0,
+    padding: 0,
+    width: '100vw',
+    overflowX: 'hidden',
+    fontFamily: typography.fontFamily,
+    background: background?.default,
+    color: text?.primary,
+    lineHeight: 1.5,
+  },
+
+  p: {
+    margin: '0 0 10px',
+  },
+
+  img: {
+    maxWidth: '100%',
+    verticalAlign: 'middle',
+    border: 0,
+  },
+
+  'a[href]': {
+    cursor: 'pointer',
+  },
+  a: {
+    textDecoration: 'none',
+    backgroundColor: 'transparent',
   },
   'a.link, .link, a.link:link, .link:link, a.link:visited, .link:visited': {
     color: `${(secondary as SimplePaletteColorOptions)?.main} !important`,

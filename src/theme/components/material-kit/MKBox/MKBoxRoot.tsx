@@ -14,51 +14,56 @@
  * limitations under the License.
  */
 
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
 // @mui material components
-import { Color } from '@mui/material';
-import Box from '@mui/material/Box';
 import {
   BorderRadius,
   BoxShadowColor,
-  CustomPalette,
   GreyColorName,
   Palette,
   PaletteColorKey,
   ShadowSize,
   styled,
-} from '@mui/material/styles';
+  Box,
+  Color,
+} from '@mui/material';
+
 import {
   isGreyColorName,
   isPaletteColorName,
 } from '../../../../assets/theme/base/colors';
 
-interface MKBoxRootProps {
-  ownerState: {
-    variant?: 'gradient' | 'contained';
-    bgColor?:
-      | PaletteColorKey
-      | GreyColorName
-      | 'transparent'
-      | 'light'
-      | 'dark'
-      | 'default'
-      | 'inherit'
-      | string;
-    color?: PaletteColorKey | GreyColorName | 'white' | 'inherit' | string;
-    opacity?: number;
-    borderRadius?: keyof BorderRadius;
-    shadow?: keyof ShadowSize;
-    shadowColor?: keyof BoxShadowColor;
+export type BoxProps = {
+  variant?: 'gradient' | 'contained';
+  bgColor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
+  color?: PaletteColorKey | GreyColorName | 'inherit';
+  opacity?: number;
+  borderRadius?: keyof BorderRadius;
+  shadow?: {
+    size?: keyof ShadowSize;
+    color?: keyof BoxShadowColor;
   };
-}
+};
 
-const getGreyColor = (
-  palette: Palette & CustomPalette,
-  color: GreyColorName,
-): string => palette.grey[color.substr(5) as keyof Color];
+type MKBoxRootProps = {
+  ownerState: BoxProps;
+};
+
+const getGreyColor = (palette: Palette, color: GreyColorName): string =>
+  palette.grey[color.substr(5) as keyof Color];
 
 const getColor = (
-  palette: Palette & CustomPalette,
+  palette: Palette,
   color: PaletteColorKey | GreyColorName,
 ): string =>
   isPaletteColorName(color)
@@ -68,28 +73,23 @@ const getColor = (
 export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
   ({ theme, ownerState }) => {
     const { palette, functions, borders, boxShadows } = theme;
-    const {
-      variant,
-      bgColor,
-      color,
-      opacity,
-      borderRadius,
-      shadow,
-      shadowColor,
-    } = ownerState;
+    const { variant, bgColor, color, opacity, borderRadius, shadow } =
+      ownerState;
 
     // background value
     let backgroundValue;
     if (variant === 'gradient') {
-      backgroundValue = bgColor
-        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
-        : 'White';
+      backgroundValue =
+        bgColor && isPaletteColorName(bgColor)
+          ? functions.linearGradient(
+              palette[bgColor].main,
+              palette[bgColor].dark,
+            )
+          : 'White';
     } else if (!bgColor || bgColor === 'transparent') {
       backgroundValue = 'transparent';
     } else if (bgColor === 'inherit') {
       backgroundValue = 'inherit';
-    } else if (bgColor === 'default') {
-      backgroundValue = palette.background.default;
     } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
       backgroundValue = getColor(palette, bgColor);
     } else {
@@ -107,22 +107,19 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
     } else if (isPaletteColorName(bgColor)) {
       colorValue = palette[bgColor].contrastText;
     } else {
-      colorValue = palette.text;
+      colorValue = palette.text.primary;
     }
-
-    // boxShadow value
-    const boxShadowValue = shadow
-      ? boxShadows[shadow]
-      : shadowColor
-      ? boxShadows.colored[shadowColor]
-      : 'none';
 
     return {
       opacity,
       background: backgroundValue,
       color: colorValue,
       borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
-      boxShadow: boxShadowValue,
+      boxShadow: shadow?.size
+        ? boxShadows[shadow.size]
+        : shadow?.color
+        ? boxShadows.colored[shadow.color]
+        : 'none',
     };
   },
 );

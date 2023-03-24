@@ -29,13 +29,40 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-/**
-  The hexToRgb() function helps you to change the hex color code to rgb
-  using chroma-js library.
- */
+import { Breakpoint, Components, Theme } from '@mui/material';
+import { OverridesStyleRules } from '@mui/material/styles/overrides';
 
-// chroma-js is a library for all kinds of color conversions and color scales.
-import chroma, { Color } from 'chroma-js';
+// Material Kit 2 React base styles
+import { breakpoints } from '../base/breakpoints';
 
-export const hexToRgb = (color: string | number | Color): string =>
-  chroma(color).rgb(false).join(', ');
+const {
+  values: { md, lg, xl, xxl },
+} = breakpoints;
+
+const buildMaxWidthByBreakpoint = (
+  theme: Theme,
+  breakpoint: Breakpoint,
+  maxWidth: number,
+): OverridesStyleRules => ({
+  [theme.breakpoints.up(breakpoint)]: {
+    maxWidth: `${maxWidth}rem !important`,
+  },
+});
+
+export const MuiContainer: Components<Theme>['MuiContainer'] = {
+  styleOverrides: {
+    root: ({ theme }: { theme: Theme }) => ({
+      paddingRight: `2rem !important`,
+      paddingLeft: `2rem !important`,
+      marginRight: 'auto !important',
+      marginLeft: 'auto !important',
+      width: '100% !important',
+
+      ...buildMaxWidthByBreakpoint(theme, 'sm', md),
+      ...buildMaxWidthByBreakpoint(theme, 'md', lg),
+      ...buildMaxWidthByBreakpoint(theme, 'lg', xl),
+      ...buildMaxWidthByBreakpoint(theme, 'xl', xxl),
+      ...buildMaxWidthByBreakpoint(theme, 'xxl', 96),
+    }),
+  },
+};

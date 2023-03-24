@@ -14,34 +14,33 @@
  * limitations under the License.
  */
 
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 import React, { forwardRef } from 'react';
 
-import {
-  AvatarProps,
-  BorderRadius,
-  BoxShadowColor,
-  GreyColorName,
-  PaletteColorKey,
-  ShadowSize,
-} from '@mui/material';
-import { BoxProps } from '@mui/material/Box/Box';
+import { BoxTypeMap } from '@mui/system';
+import { BoxProps as MuiBoxProps } from '@mui/material';
 
 // Custom styles for MKBox
-import { MKBoxRoot } from './MKBoxRoot';
+import { MKBoxRoot, BoxProps } from './MKBoxRoot';
 
-export const MKBox = forwardRef<
-  JSX.Element,
-  Partial<React.PropsWithChildren<MKBoxProps & (BoxProps | AvatarProps)>>
->(
+export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
   (
     {
-      variant,
-      bgColor,
+      variant = 'contained',
+      bgColor = 'inherit',
       color,
-      opacity,
+      opacity = 1,
       borderRadius,
       shadow,
-      shadowColor,
       ...rest
     },
     ref,
@@ -56,40 +55,11 @@ export const MKBox = forwardRef<
         opacity,
         borderRadius,
         shadow,
-        shadowColor,
       }}
     />
   ),
 );
 
-// Setting default values for the props of MKBox
-MKBox.defaultProps = {
-  variant: 'contained',
-  bgColor: 'inherit',
-  opacity: 1,
-};
-
-// Typechecking props for the MKBox
-interface MKBoxProps {
-  variant?: 'gradient' | 'contained';
-  bgColor?:
-    | PaletteColorKey
-    | GreyColorName
-    | 'transparent'
-    | 'light'
-    | 'dark'
-    | 'default'
-    | 'inherit'
-    | string;
-  color?: PaletteColorKey | GreyColorName | 'white' | 'inherit' | string;
-  opacity?: number;
-  borderRadius?: keyof BorderRadius;
-  shadow?: keyof ShadowSize;
-  shadowColor?: keyof BoxShadowColor;
-  to?: string;
-  method?: string;
-  autocomplete?: string;
-  href?: string;
-  target?: string;
-  rel?: string;
-}
+export type MKBoxProps<
+  D extends React.ElementType = BoxTypeMap['defaultComponent'],
+> = React.PropsWithChildren<BoxProps> & MuiBoxProps<D>;
