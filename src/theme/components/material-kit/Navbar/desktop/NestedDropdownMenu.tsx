@@ -97,14 +97,7 @@ const DropdownSubMenu = ({
   </MKTypography>
 );
 
-export const NestedDropdownMenu = ({
-  routes,
-  nestedDropdownElement,
-  nestedDropdownName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
-  dropdownStyle,
-}: {
+export type NestedDropdownMenuProps = {
   routes: HeaderRoute[];
   nestedDropdownElement?: EventTarget & HTMLSpanElement;
   nestedDropdownName?: string;
@@ -113,7 +106,16 @@ export const NestedDropdownMenu = ({
   >;
   setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
-}): JSX.Element => {
+};
+
+export const NestedDropdownMenu = ({
+  routes,
+  nestedDropdownElement,
+  nestedDropdownName,
+  setNestedDropdownElement,
+  setNestedDropdownName,
+  dropdownStyle,
+}: NestedDropdownMenuProps): JSX.Element => {
   return (
     <Popper
       anchorEl={nestedDropdownElement}

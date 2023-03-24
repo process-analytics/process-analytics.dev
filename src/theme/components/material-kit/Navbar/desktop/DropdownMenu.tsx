@@ -210,17 +210,8 @@ const ListDropdownMenus = (
       )}
     </MKTypography>
   ));
-export const DropdownMenu = ({
-  routes,
-  collapseElement,
-  collapseName,
-  setCollapseElement,
-  nestedDropdownName,
-  setCollapseName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
-  dropdownStyle,
-}: {
+
+export type DropdownMenuProps = {
   routes: HeaderRoute[];
   collapseElement?: EventTarget & HTMLSpanElement;
   collapseName?: string;
@@ -234,7 +225,18 @@ export const DropdownMenu = ({
   >;
   setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
-}): JSX.Element => {
+};
+export const DropdownMenu = ({
+  routes,
+  collapseElement,
+  collapseName,
+  setCollapseElement,
+  nestedDropdownName,
+  setCollapseName,
+  setNestedDropdownElement,
+  setNestedDropdownName,
+  dropdownStyle,
+}: DropdownMenuProps): JSX.Element => {
   const [arrowRef, setArrowRef] = useState();
 
   return (
