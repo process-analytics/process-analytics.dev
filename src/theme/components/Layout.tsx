@@ -106,7 +106,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props): JSX.Element => (
+export const Layout = ({ children }: Props): JSX.Element => (
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -151,5 +151,3 @@ const Layout = ({ children }: Props): JSX.Element => (
     </ThemeProvider>
   </main>
 );
-
-export default Layout;

@@ -21,7 +21,7 @@ type Props = {
   round?: boolean;
 };
 
-const CardFooter = styled(Box)<Props>`
+export const CardFooter = styled(Box)<Props>`
   position: absolute;
   display: inline;
   padding: 10px;
@@ -59,5 +59,3 @@ const BORDER_RADIUS_MAP = {
   'bottom-right': `0 0 ${BORDER_RADIUS} 0`,
   'bottom-left': `0 0 0 ${BORDER_RADIUS}`,
 };
-
-export default CardFooter;

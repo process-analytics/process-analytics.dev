@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 import React from 'react';
-import { SocialLink } from '../components/SocialLink';
-import CardFooter from './CardFooter';
+
 import { Box, Flex, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
+
+import { CardFooter, SocialLink, Card } from './';
 import { Library as LibraryType } from '../types';
-import { Card } from './Card';
 import { MEDIA_QUERY_SMALL } from '../utils/constants';
 
 type Props = LibraryType;
 
-const Library = ({
+export const Library = ({
   name,
   description,
   repository,

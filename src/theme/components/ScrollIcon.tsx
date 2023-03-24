@@ -20,7 +20,7 @@ type Props = {
   href: string;
 };
 
-const ScrollIcon = ({ href }: Props): JSX.Element => (
+export const ScrollIcon = ({ href }: Props): JSX.Element => (
   <ScrollLink href={href} aria-label="Scroll to content">
     <MouseContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130">
       <g fill="none">
@@ -86,5 +86,3 @@ const Scroll = styled.circle`
   will-change: transform;
   fill: ${({ theme }) => theme.colors.primary};
 `;
-
-export default ScrollIcon;
