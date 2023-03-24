@@ -14,6 +14,32 @@
  * limitations under the License.
  */
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
+import { Link as GatsbyLink } from 'gatsby-link';
+
+import { Link as LinkType } from '../types';
+
+export function getLinkAttributes(
+  item: Required<Pick<LinkType, 'url' | 'type'>>,
+):
+  | { component: typeof GatsbyLink; to: string }
+  | {
+      component: typeof MaterialLink;
+      rel: string;
+      href: string;
+      target: string;
+    } {
+  return item.type === 'internal'
+    ? {
+        component: GatsbyLink,
+        to: item.url,
+      }
+    : {
+        component: MaterialLink,
+        href: item.url,
+        target: '_blank',
+        rel: 'noreferrer',
+      };
+}
 
 type LinkProps = {
   selected?: boolean;

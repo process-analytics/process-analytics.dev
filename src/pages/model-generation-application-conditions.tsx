@@ -28,13 +28,13 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import { footerRoutes } from '../content/FooterRoutes';
 
-import { Footer, Section, PageHeader, Layout } from '../theme/components';
+import { Footer, Section, Header, Layout } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => {
   return (
     <Layout>
-      <PageHeader displayDemoButton={false} />
+      <Header />
       <Section>
         <Heading
           textAlign="center"

@@ -38,7 +38,7 @@ import {
   Jotform,
   Footer,
   Section,
-  PageHeader,
+  Header,
   Layout,
   PostContainer,
 } from '../theme/components';
@@ -184,7 +184,7 @@ export const Paragraph = ({
 const ModelGenerationApplicationPage = (): JSX.Element => {
   return (
     <Layout>
-      <PageHeader displayDemoButton={false} />
+      <Header />
       <Section>
         <Heading
           textAlign="center"
