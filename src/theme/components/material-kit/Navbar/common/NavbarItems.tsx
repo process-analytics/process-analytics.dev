@@ -36,26 +36,28 @@ import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
 import { MKBox } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
 
-export const NavbarItems = ({
-  routes,
-  center,
-  setCollapseElement,
-  setCollapseName,
-  collapseName,
-}: {
+type NavbarItemsProps = {
   routes: HeaderRoute[];
-  center: undefined | boolean;
+  isCenter?: boolean;
   setCollapseElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setCollapseName: Dispatch<SetStateAction<string | undefined>>;
   collapseName?: string;
-}): JSX.Element => (
+};
+
+export const NavbarItems = ({
+  routes,
+  isCenter,
+  setCollapseElement,
+  setCollapseName,
+  collapseName,
+}: NavbarItemsProps): JSX.Element => (
   <MKBox
     color="inherit"
     display={{ xs: 'none', lg: 'flex' }}
     ml="auto"
-    mr={center ? 'auto' : 2}
+    mr={isCenter ? 'auto' : 2}
   >
     {routes.map(route =>
       isHeaderRouteWithMenus(route) ? (
