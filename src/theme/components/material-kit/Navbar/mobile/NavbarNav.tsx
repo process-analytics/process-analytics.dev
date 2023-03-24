@@ -24,7 +24,7 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 
 // @mui material components
 import { Collapse, Theme } from '@mui/material';
@@ -49,49 +49,47 @@ import { getLinkAttributes } from '../../../Link';
 const DropdownDropdown = ({
   name,
   items,
-}: HeaderMenuWithItems): JSX.Element => {
-  return (
-    <>
+}: HeaderMenuWithItems): JSX.Element => (
+  <>
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="bold"
+      textTransform="capitalize"
+      py={1}
+      px={0.5}
+    >
+      {name}
+    </MKTypography>
+
+    {items.map(subItem => (
       <MKTypography
+        key={subItem.name}
+        {...getLinkAttributes(subItem)}
+        minWidth="11.25rem"
         display="block"
         variant="button"
-        fontWeight="bold"
         textTransform="capitalize"
-        py={1}
-        px={0.5}
+        fontWeight="regular"
+        py={0.625}
+        px={2}
+        sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+          borderRadius: borderRadius.md,
+          cursor: 'pointer',
+          transition: 'all 300ms linear',
+
+          // TODO Make configurable color
+          '&:hover': {
+            backgroundColor: grey[200],
+            color: grey?.A700,
+          },
+        })}
       >
-        {name}
+        {subItem.name}
       </MKTypography>
-
-      {items.map(subItem => (
-        <MKTypography
-          key={subItem.name}
-          {...getLinkAttributes(subItem)}
-          minWidth="11.25rem"
-          display="block"
-          variant="button"
-          textTransform="capitalize"
-          fontWeight="regular"
-          py={0.625}
-          px={2}
-          sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
-            borderRadius: borderRadius.md,
-            cursor: 'pointer',
-            transition: 'all 300ms linear',
-
-            // TODO Make configurable color
-            '&:hover': {
-              backgroundColor: grey[200],
-              color: grey?.A700,
-            },
-          })}
-        >
-          {subItem.name}
-        </MKTypography>
-      ))}
-    </>
-  );
-};
+    ))}
+  </>
+);
 
 const DropdownLink = ({
   name,
@@ -101,81 +99,79 @@ const DropdownLink = ({
   id,
 }: {
   id: number;
-} & Link): JSX.Element => {
-  return (
-    <MKBox
-      key={`${name}_${id}`}
-      display="block"
-      {...getLinkAttributes({ type, url })}
-      sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
-        borderRadius: borderRadius.md,
-        cursor: 'pointer',
-        transition: 'all 300ms linear',
-        py: 1,
-        px: 1.625,
+} & Link): JSX.Element => (
+  <MKBox
+    key={`${name}_${id}`}
+    display="block"
+    {...getLinkAttributes({ type, url })}
+    sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+      borderRadius: borderRadius.md,
+      cursor: 'pointer',
+      transition: 'all 300ms linear',
+      py: 1,
+      px: 1.625,
 
-        // TODO Make configurable color
-        '&:hover': {
-          backgroundColor: grey[200],
+      // TODO Make configurable color
+      '&:hover': {
+        backgroundColor: grey[200],
+        color: grey?.A700,
+
+        '& *': {
           color: grey?.A700,
-
-          '& *': {
-            color: grey?.A700,
-          },
         },
-      })}
+      },
+    })}
+  >
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="bold"
+      textTransform="capitalize"
     >
-      <MKTypography
-        display="block"
-        variant="button"
-        fontWeight="bold"
-        textTransform="capitalize"
-      >
-        {name}
-      </MKTypography>
+      {name}
+    </MKTypography>
 
-      <MKTypography
-        display="block"
-        variant="button"
-        fontWeight="regular"
-        sx={{ transition: 'all 300ms linear' }}
-      >
-        {description}
-      </MKTypography>
-    </MKBox>
-  );
-};
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="regular"
+      sx={{ transition: 'all 300ms linear' }}
+    >
+      {description}
+    </MKTypography>
+  </MKBox>
+);
 
 const NavLink = (route: HeaderRouteAsLink): JSX.Element => (
   <NavbarItem
     key={route.name}
     name={route.name}
-    isMobileMenuView={true}
+    isMobileView
     {...getLinkAttributes(route)}
   />
 );
 
-const NavDropdown = (
-  route: HeaderRouteWithMenus & {
-    setCollapseElement: Dispatch<SetStateAction<string | undefined>>;
-    collapse?: string;
-  },
-): JSX.Element => (
+const NavDropdown = ({
+  name,
+  icon,
+  menus,
+  isCollapsed,
+  onClick,
+}: Omit<HeaderRouteWithMenus, 'withColumns' | 'rowsPerColumn'> & {
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  isCollapsed: boolean;
+}): JSX.Element => (
   <NavbarItem
-    key={route.name}
-    name={route.name}
-    icon={route.icon}
-    onClick={() =>
-      route.setCollapseElement(
-        route.collapse === route.name ? undefined : route.name,
-      )
-    }
-    isCollapsible={Boolean(route.menus)}
-    isCollapsed={route.name === route.collapse}
-    isMobileMenuView={true}
+    key={name}
+    name={name}
+    icon={icon}
+    onClick={onClick}
+    isCollapsed={isCollapsed}
+    isCollapsible
+    isMobileView
   >
     <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-      {route.menus.map((menu, id) => (
+      {menus.map((menu, id) => (
         <MKBox key={menu.name} px={2}>
           {isHeaderMenuWithItems(menu) ? (
             <DropdownDropdown {...menu} />
@@ -190,26 +186,31 @@ const NavDropdown = (
 
 export const NavbarNav = ({
   routes,
-  open,
+  isOpen,
   dropdownStyle,
 }: NavbarNavProps): JSX.Element => {
   const [collapse, setCollapseElement] = useState<string>();
 
   return (
-    <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
+    <Collapse in={isOpen} timeout="auto" unmountOnExit>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2} {...dropdownStyle}>
-        {routes.map(route =>
-          isHeaderRouteWithMenus(route) ? (
+        {routes.map(route => {
+          const isCollapsed = route.name === collapse;
+          return isHeaderRouteWithMenus(route) ? (
             <NavDropdown
               key={route.name}
-              setCollapseElement={setCollapseElement}
-              collapse={collapse}
-              {...route}
+              name={route.name}
+              icon={route.icon}
+              menus={route.menus}
+              isCollapsed={isCollapsed}
+              onClick={() =>
+                setCollapseElement(isCollapsed ? undefined : route.name)
+              }
             />
           ) : (
             <NavLink key={route.name} {...route} />
-          ),
-        )}
+          );
+        })}
       </MKBox>
     </Collapse>
   );
@@ -217,6 +218,6 @@ export const NavbarNav = ({
 
 type NavbarNavProps = {
   routes: HeaderRoute[];
-  open: boolean;
+  isOpen: boolean;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
 };

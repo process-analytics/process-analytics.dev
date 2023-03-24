@@ -49,7 +49,7 @@ const getNavbarItemAttributes = (
         icon: route.icon,
         isCollapsible: !!route.menus,
         isCollapsed: route.name === collapseName,
-        isMobileMenuView: false,
+        isMobileView: false,
         onMouseEnter: ({ currentTarget }) => {
           setCollapseElement(currentTarget);
           setCollapseName(route.name);
@@ -60,7 +60,7 @@ const getNavbarItemAttributes = (
         },
       }
     : {
-        isMobileMenuView: false,
+        isMobileView: false,
         ...getLinkAttributes(route),
       };
 

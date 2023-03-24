@@ -156,7 +156,7 @@ const InnerContainer = ({
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
-            <NavbarNav routes={routes} open={isOpenMobileNavbar} />
+            <NavbarNav routes={routes} isOpen={isOpenMobileNavbar} />
           </MKBox>
         )}
       </MKBox>

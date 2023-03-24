@@ -35,7 +35,7 @@ import { MKBox, MKTypography } from '../..';
 
 const TitleContainer = ({
   isCollapsible,
-  isMobileMenuView,
+  isMobileView,
   children,
   ...rest
 }: PropsWithChildren<Omit<TitleProps, 'icon' | 'name'>>): JSX.Element => (
@@ -51,7 +51,7 @@ const TitleContainer = ({
       userSelect: 'none',
       transition: 'all 300ms linear',
 
-      ...(!isMobileMenuView && {
+      ...(!isMobileView && {
         // TODO Make configurable color
         '*:hover': {
           //fontWeight: 'bold',
@@ -59,7 +59,7 @@ const TitleContainer = ({
         },
       }),
 
-      ...(isMobileMenuView && {
+      ...(isMobileView && {
         // TODO Make configurable color
         '&:hover': {
           backgroundColor: !isCollapsible && grey[200],
@@ -80,11 +80,11 @@ const Title = ({
   icon,
   name,
   isCollapsible,
-  isMobileMenuView,
+  isMobileView,
   ...rest
 }: TitleProps): JSX.Element => (
   <TitleContainer
-    isMobileMenuView={isMobileMenuView}
+    isMobileView={isMobileView}
     isCollapsible={isCollapsible}
     {...rest}
   >
@@ -131,12 +131,12 @@ export const NavbarItem = ({
   children,
   isCollapsible,
   isCollapsed,
-  isMobileMenuView,
+  isMobileView,
   ...rest
 }: PropsWithChildren<NavbarItemProps>): JSX.Element => (
   <>
     <Title
-      isMobileMenuView={isMobileMenuView}
+      isMobileView={isMobileView}
       isCollapsible={isCollapsible}
       icon={icon}
       name={name}
@@ -160,7 +160,7 @@ type TitleProps = {
   name: string;
   icon?: typeof SvgIcon;
   isCollapsible?: boolean;
-  isMobileMenuView: boolean;
+  isMobileView: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
