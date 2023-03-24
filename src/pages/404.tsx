@@ -27,7 +27,7 @@ import {
   Footer,
   Layout,
   Section,
-  PageHeader,
+  Header,
   MailingListSubscription,
 } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
@@ -46,7 +46,7 @@ const StyledParagraph = styled.p`
 
 const NotFoundPage = (): JSX.Element => (
   <Layout>
-    <PageHeader />
+    <Header />
     <Section>
       <h1 style={{ textAlign: 'center' }}>
         <Image

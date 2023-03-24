@@ -19,7 +19,6 @@ export { CardFooter } from './CardFooter';
 export { Divider } from './Divider';
 export { Footer } from './Footer';
 export { Header } from './Header';
-export { PageHeader } from './PageHeader';
 export { Layout } from './Layout';
 export { Library } from './Library';
 export { Link } from './Link';

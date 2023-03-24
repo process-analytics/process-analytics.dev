@@ -16,9 +16,11 @@
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { Link } from '../types';
+import { Link as LinkType } from '../types';
 
-export function getLinkAttributes(item: Required<Pick<Link, 'url' | 'type'>>):
+export function getLinkAttributes(
+  item: Required<Pick<LinkType, 'url' | 'type'>>,
+):
   | { component: typeof GatsbyLink; to: string }
   | {
       component: typeof MaterialLink;
