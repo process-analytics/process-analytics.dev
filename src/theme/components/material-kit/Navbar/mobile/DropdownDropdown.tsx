@@ -60,15 +60,19 @@ export const DropdownDropdown = ({
         fontWeight="regular"
         py={0.625}
         px={2}
-        sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+        sx={({
+          palette: { quaternary, spicy },
+          borders: { borderRadius },
+        }: Theme) => ({
           borderRadius: borderRadius.md,
           cursor: 'pointer',
           transition: 'all 300ms linear',
 
           // TODO Make configurable color
           '&:hover': {
-            backgroundColor: grey[200],
-            color: grey?.A700,
+            backgroundColor: quaternary.main,
+            color: spicy.main,
+            borderRadius: '5px',
           },
         })}
       >
