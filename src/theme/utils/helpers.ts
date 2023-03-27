@@ -15,6 +15,12 @@
  */
 import { SECTION } from './constants';
 
+import { breakpoints } from '../../assets/theme/base';
+import { pxToRem } from '../../assets/theme/functions';
 export const getSectionHref = (section: SECTION): string => {
   return Object.keys(SECTION)[Object.values(SECTION).indexOf(section)];
 };
+
+export const isMobileView = (): boolean =>
+  // TODO Clean
+  Number(pxToRem(window.innerWidth).replace('rem', '')) < breakpoints.values.lg;
