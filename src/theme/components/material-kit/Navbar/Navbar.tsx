@@ -38,14 +38,15 @@ import { Container } from '@mui/material';
 import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React base styles
-import { breakpoints } from '../../../../assets/theme/base';
-import { pxToRem } from '../../../../assets/theme/functions';
+
 import { HeaderRoute } from '../../../types';
 
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, NavbarItems } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
 import { Dropdown } from './desktop';
+
+import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
 
 const InnerContainer = ({
   brand,
@@ -63,20 +64,14 @@ const InnerContainer = ({
   const [collapseName, setCollapseName] = useState<string>();
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
+  const isMobileView = isMobileViewFunc();
 
   useEffect(() => {
     // A function that sets the display state for NavbarMobile.
     function displayMobileNavbar(): void {
-      // TODO Clean
-      if (
-        Number(pxToRem(window.innerWidth).replace('rem', '')) <
-        breakpoints.values.lg
-      ) {
-        setIsMobileView(true);
+      if (isMobileView) {
         setIsOpenMobileNavbar(false);
       } else {
-        setIsMobileView(false);
         setIsOpenMobileNavbar(false);
       }
     }

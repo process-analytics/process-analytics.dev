@@ -34,15 +34,25 @@ const Container = styled(Flex)`
   margin: 30px auto;
   display: inline-flex;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
+  align-items: center;
   justify-content: center;
   max-width: 100rem;
+
+  @media only screen and (min-width: 61.188rem) {
+    flex-direction: row;
+  }
 `;
 
 const Title = styled.h2`
   position: relative;
   color: ${props => props.theme.colors.primary};
   font-weight: bold;
-  font-size: 30px;
+  font-size: 1.625rem;
+
+  @media only screen and (min-width: 61.188rem) {
+    font-size: 1.875rem;
+  }
 `;
 
 const Description = styled.div`
@@ -61,8 +71,9 @@ export const ModelGenerationApp = (): JSX.Element => {
         <Flex
           flexDirection="column"
           justifyContent="center"
+          alignItems={['center', 'start']}
           paddingX={[2, 3, '4.25rem']}
-          maxWidth="50%"
+          maxWidth={['100%', '50%']}
         >
           <Title>
             Need a tool to generate process diagrams from events logs?
@@ -90,7 +101,7 @@ export const ModelGenerationApp = (): JSX.Element => {
           flexDirection="column"
           justifyContent="center"
           paddingX={[2, 3, '4.25rem']}
-          width="30%"
+          width={['80%', '30%']}
         >
           <FontAwesomeIcon
             icon="database"

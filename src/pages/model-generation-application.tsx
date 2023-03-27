@@ -222,18 +222,20 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
       </Section>
       <Section>
         <PartWithSingleColumn backgroundColor="muted">
-          <PartTitle marginBottom="52px">How it works?</PartTitle>
+          <PartTitle marginBottom="3.25rem">How it works?</PartTitle>
           <Part
             marginTop="24px"
             justifyContent={'space-around'}
             alignItems={'center'}
+            flexDirection={['column', 'row']}
           >
             <Image
               src={HowItWorksImg}
               alt={'Generation Model Application Demo'}
-              width="45%"
+              width={['100%', '45%']}
+              marginBottom={['3.25rem', 0]}
             />
-            <Paragraph width="40%" fontSize={[1, 1, 2, 3]}>
+            <Paragraph width={['100%', '40%']} fontSize={[1, 1, 2, 3]}>
               The Model Generation Application is a{' '}
               <Link href="https://shiny.rstudio.com/">shiny R application</Link>{' '}
               that takes an event log file in{' '}
@@ -257,16 +259,18 @@ const ModelGenerationApplicationPage = (): JSX.Element => {
       </Section>
       <Section>
         <Part
+          flexDirection={['column', 'row']}
           justifyContent="space-between"
           alignItems="center"
           padding="114px 24px"
-          width="80%"
+          width={['100%', '80%']}
           marginX="auto"
         >
           <Flex
             width={['5rem', '5.5rem', '6.875rem']}
             height={['5rem', '5.5rem', '6.875rem']}
             alignItems="center"
+            marginBottom={['3.25rem', 0]}
             style={{
               borderRadius: '0.75rem',
               borderColor: colors.primary,
