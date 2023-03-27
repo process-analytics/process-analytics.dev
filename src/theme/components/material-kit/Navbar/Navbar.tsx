@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // @mui material components
 import { Container } from '@mui/material';
@@ -40,72 +40,12 @@ import { MKBox, MKBoxProps } from '..';
 // Material Kit 2 React base styles
 import { breakpoints } from '../../../../assets/theme/base';
 import { pxToRem } from '../../../../assets/theme/functions';
-import { HeaderRoute, isHeaderRouteWithMenus } from '../../../types';
-import { getLinkAttributes } from '../../Link';
-import { BrandLink } from './BrandLink';
-import { DropdownMenu, NestedDropdownMenu } from './desktop';
-import { NavbarButton, NavbarNav } from './mobile';
+import { HeaderRoute } from '../../../types';
 
 // Material Kit 2 React example components
-import { Action, ActionButton } from './ActionButton';
-import { NavbarItem } from './NavbarItem';
-
-const NavbarItems = ({
-  routes,
-  center,
-  setCollapseElement,
-  setCollapseName,
-  collapseName,
-}: {
-  routes: HeaderRoute[];
-  center: undefined | boolean;
-  setCollapseElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >;
-  setCollapseName: Dispatch<SetStateAction<string | undefined>>;
-  collapseName?: string;
-}): JSX.Element => {
-  return (
-    <MKBox
-      color="inherit"
-      display={{ xs: 'none', lg: 'flex' }}
-      ml="auto"
-      mr={center ? 'auto' : 2}
-    >
-      {routes.map(route =>
-        isHeaderRouteWithMenus(route) ? (
-          <NavbarItem
-            key={route.name}
-            name={route.name}
-            icon={route.icon}
-            isCollapsible={!!route.menus}
-            isCollapsed={route.name === collapseName}
-            isMobileMenuView={false}
-            onMouseEnter={({ currentTarget }) => {
-              if (route.menus) {
-                setCollapseElement(currentTarget);
-                setCollapseName(route.name);
-              }
-            }}
-            onMouseLeave={() => {
-              if (route.menus) {
-                setCollapseElement(undefined);
-                setCollapseName(undefined);
-              }
-            }}
-          />
-        ) : (
-          <NavbarItem
-            key={route.name}
-            name={route.name}
-            isMobileMenuView={false}
-            {...getLinkAttributes(route)}
-          />
-        ),
-      )}
-    </MKBox>
-  );
-};
+import { Action, ActionButton, BrandLink, NavbarItems } from './common';
+import { DropdownMenu, NestedDropdownMenu } from './desktop';
+import { NavbarButton, NavbarNav } from './mobile';
 
 const InnerContainer = ({
   brand,
