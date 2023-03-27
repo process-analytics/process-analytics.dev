@@ -147,7 +147,7 @@ const SectionHeader = ({
   <Heading
     color="text"
     fontWeight="700"
-    fontSize="30px"
+    fontSize="1.875rem"
     margin="30px 65px"
     textAlign="center"
   >
