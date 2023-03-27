@@ -90,11 +90,12 @@ const StyledSection = styled.section<StyledSectionProps>`
     position: relative;
     background-color: ${({ backgroundColor }) => backgroundColor};
   }
-  &:nth-of-type(even) > ::before {
+  &:nth-of-type(even)::before {
     background-color: white;
     content: '';
     position: absolute;
     top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -104,11 +105,12 @@ const StyledSection = styled.section<StyledSectionProps>`
     position: relative;
     background-color: white;
   }
-  &:nth-of-type(odd) > ::before {
+  &:nth-of-type(odd)::before {
     background-color: ${({ backgroundColor }) => backgroundColor};
     content: '';
     position: absolute;
     top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
