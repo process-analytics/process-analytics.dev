@@ -49,7 +49,7 @@ export const Post = ({
         {title}
       </EllipsisHeading>
       {cover && <CoverImage src={cover} alt={title} />}
-      <Text m={3} color="text">
+      <Text m={3} color="text" fontSize={['0.875rem', '1.25rem']}>
         {text}
       </Text>
       <CardFooter bg="primary" color="background" position="bottom-right" round>
