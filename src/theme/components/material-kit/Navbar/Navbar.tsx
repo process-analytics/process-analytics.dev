@@ -46,7 +46,10 @@ import { Action, ActionButton, BrandLink, NavbarItems } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
 import { Dropdown } from './desktop';
 
-import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
+import {
+  isMobileView,
+  isMobileView as isMobileViewFunc,
+} from '../../../utils/helpers';
 
 const InnerContainer = ({
   brand,
@@ -64,16 +67,14 @@ const InnerContainer = ({
   const [collapseName, setCollapseName] = useState<string>();
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
+  const isMobileView = isMobileViewFunc();
 
   useEffect(() => {
     // A function that sets the display state for NavbarMobile.
     function displayMobileNavbar(): void {
-      if (isMobileViewFunc()) {
-        setIsMobileView(true);
+      if (isMobileView) {
         setIsOpenMobileNavbar(false);
       } else {
-        setIsMobileView(false);
         setIsOpenMobileNavbar(false);
       }
     }

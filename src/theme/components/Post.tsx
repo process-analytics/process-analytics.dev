@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import { Flex, Heading, Text } from 'rebass/styled-components';
 import styled from 'styled-components';
@@ -49,7 +49,7 @@ export const Post = ({
         {title}
       </EllipsisHeading>
       {cover && <CoverImage src={cover} alt={title} />}
-      <Text m={3} color="text" fontSize={['0.875rem', '1.25rem']}>
+      <Text m={3} color="text" fontSize={['0.875rem', '1rem']}>
         {text}
       </Text>
       <CardFooter bg="primary" color="background" position="bottom-right" round>
@@ -87,7 +87,7 @@ export const PostContainer = ({
   posts,
   pageId,
 }: PostContainerProps): JSX.Element => {
-  const maxNumberOfPosts = isMobileView() ? 3 : 8;
+  const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
     <>
       <CardContainer minWidth={cardMinWidth}>
