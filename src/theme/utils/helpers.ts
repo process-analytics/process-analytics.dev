@@ -24,11 +24,11 @@ export const getSectionHref = (section: SECTION): string => {
   return Object.keys(SECTION)[Object.values(SECTION).indexOf(section)];
 };
 
-export const isMobileView = () => {
+export const isMobileView = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = (): void => {
       // TODO Clean
       setIsMobile(
         Number(pxToRem(window.innerWidth).replace('rem', '')) <

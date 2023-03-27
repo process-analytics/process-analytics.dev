@@ -46,10 +46,7 @@ import { Action, ActionButton, BrandLink, NavbarItems } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
 import { Dropdown } from './desktop';
 
-import {
-  isMobileView,
-  isMobileView as isMobileViewFunc,
-} from '../../../utils/helpers';
+import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
 
 const InnerContainer = ({
   brand,
