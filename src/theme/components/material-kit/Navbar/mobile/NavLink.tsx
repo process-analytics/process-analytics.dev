@@ -18,37 +18,25 @@
  =========================================================
  * Material Kit 2 React - v2.0.0
  =========================================================
-
  * Product Page: https://www.creative-tim.com/product/material-kit-react
  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
  Coded by www.creative-tim.com
-
  =========================================================
-
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
 import React from 'react';
 
-import { Close, Menu } from '@mui/icons-material';
+import { HeaderRouteAsLink } from '../../../../types';
+import { getLinkAttributes } from '../../../Link';
 
-import { MKBox, MKBoxProps } from '../..';
+import { NavbarItem } from '../common';
 
-export const NavbarButton = ({
-  onClick,
-  isOpen,
-}: Pick<MKBoxProps, 'onClick'> & {
-  isOpen: boolean;
-}): JSX.Element => (
-  <MKBox
-    display={{ xs: 'inline-block', lg: 'none' }}
-    lineHeight={0}
-    py={1.5}
-    pl={1.5}
-    sx={{ cursor: 'pointer' }}
-    onClick={onClick}
-  >
-    {isOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
-  </MKBox>
+export const NavLink = (route: HeaderRouteAsLink): JSX.Element => (
+  <NavbarItem
+    key={route.name}
+    name={route.name}
+    isMobileView
+    {...getLinkAttributes(route)}
+  />
 );

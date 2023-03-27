@@ -62,8 +62,8 @@ const InnerContainer = ({
   >();
   const [collapseName, setCollapseName] = useState<string>();
 
-  const [mobileNavbar, setMobileNavbar] = useState(false);
-  const [mobileMenuView, setMobileMenuView] = useState(false);
+  const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
     // A function that sets the display state for NavbarMobile.
@@ -73,11 +73,11 @@ const InnerContainer = ({
         Number(pxToRem(window.innerWidth).replace('rem', '')) <
         breakpoints.values.lg
       ) {
-        setMobileMenuView(true);
-        setMobileNavbar(false);
+        setIsMobileView(true);
+        setIsOpenMobileNavbar(false);
       } else {
-        setMobileMenuView(false);
-        setMobileNavbar(false);
+        setIsMobileView(false);
+        setIsOpenMobileNavbar(false);
       }
     }
 
@@ -129,37 +129,39 @@ const InnerContainer = ({
             brand={brand}
           />
 
-          <NavbarItems
-            routes={routes}
-            isCenter={isCenter}
-            setCollapseElement={setCollapseElement}
-            setCollapseName={setCollapseName}
-            collapseName={collapseName}
-          />
+          {!isMobileView && (
+            <NavbarItems
+              routes={routes}
+              isCenter={isCenter}
+              setCollapseElement={setCollapseElement}
+              setCollapseName={setCollapseName}
+              collapseName={collapseName}
+            />
+          )}
 
           <ActionButton {...action} />
 
-          {mobileMenuView && (
+          {isMobileView && (
             <NavbarButton
-              mobileNavbar={mobileNavbar}
-              setMobileNavbar={setMobileNavbar}
+              onClick={(): void => setIsOpenMobileNavbar(!isOpenMobileNavbar)}
+              isOpen={isOpenMobileNavbar}
             />
           )}
         </MKBox>
 
-        {mobileMenuView && (
+        {isMobileView && (
           <MKBox
             shadow={{ size: isTransparent ? 'lg' : undefined }}
             borderRadius="xl"
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
-            <NavbarNav routes={routes} open={mobileNavbar} />
+            <NavbarNav routes={routes} isOpen={isOpenMobileNavbar} />
           </MKBox>
         )}
       </MKBox>
 
-      {!mobileMenuView && (
+      {!isMobileView && (
         <Dropdown
           routes={routes}
           collapseElement={collapseElement}

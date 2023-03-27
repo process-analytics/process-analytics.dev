@@ -18,37 +18,68 @@
  =========================================================
  * Material Kit 2 React - v2.0.0
  =========================================================
-
  * Product Page: https://www.creative-tim.com/product/material-kit-react
  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
  Coded by www.creative-tim.com
-
  =========================================================
-
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
 import React from 'react';
 
-import { Close, Menu } from '@mui/icons-material';
+import { Theme } from '@mui/material';
 
-import { MKBox, MKBoxProps } from '../..';
+import { Link } from '../../../../types';
+import { MKBox, MKTypography } from '../..';
+import { getLinkAttributes } from '../../../Link';
 
-export const NavbarButton = ({
-  onClick,
-  isOpen,
-}: Pick<MKBoxProps, 'onClick'> & {
-  isOpen: boolean;
+export const DropdownLink = ({
+  name,
+  description,
+  type,
+  url,
+  id,
+}: Link & {
+  id: number;
 }): JSX.Element => (
   <MKBox
-    display={{ xs: 'inline-block', lg: 'none' }}
-    lineHeight={0}
-    py={1.5}
-    pl={1.5}
-    sx={{ cursor: 'pointer' }}
-    onClick={onClick}
+    key={`${name}_${id}`}
+    display="block"
+    {...getLinkAttributes({ type, url })}
+    sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+      borderRadius: borderRadius.md,
+      cursor: 'pointer',
+      transition: 'all 300ms linear',
+      py: 1,
+      px: 1.625,
+
+      // TODO Make configurable color
+      '&:hover': {
+        backgroundColor: grey[200],
+        color: grey?.A700,
+
+        '& *': {
+          color: grey?.A700,
+        },
+      },
+    })}
   >
-    {isOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="bold"
+      textTransform="capitalize"
+    >
+      {name}
+    </MKTypography>
+
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="regular"
+      sx={{ transition: 'all 300ms linear' }}
+    >
+      {description}
+    </MKTypography>
   </MKBox>
 );

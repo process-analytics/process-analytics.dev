@@ -18,37 +18,52 @@
  =========================================================
  * Material Kit 2 React - v2.0.0
  =========================================================
-
  * Product Page: https://www.creative-tim.com/product/material-kit-react
  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
  Coded by www.creative-tim.com
-
  =========================================================
-
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
 import React from 'react';
 
-import { Close, Menu } from '@mui/icons-material';
+import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../../types';
 
-import { MKBox, MKBoxProps } from '../..';
+import { MKBox } from '../..';
 
-export const NavbarButton = ({
+import { NavbarItem } from '../common';
+import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownLink } from './DropdownLink';
+
+export const NavDropdown = ({
+  name,
+  icon,
+  menus,
+  isCollapsed,
   onClick,
-  isOpen,
-}: Pick<MKBoxProps, 'onClick'> & {
-  isOpen: boolean;
+}: Omit<HeaderRouteWithMenus, 'withColumns' | 'rowsPerColumn'> & {
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  isCollapsed: boolean;
 }): JSX.Element => (
-  <MKBox
-    display={{ xs: 'inline-block', lg: 'none' }}
-    lineHeight={0}
-    py={1.5}
-    pl={1.5}
-    sx={{ cursor: 'pointer' }}
+  <NavbarItem
+    key={name}
+    name={name}
+    icon={icon}
     onClick={onClick}
+    isCollapsed={isCollapsed}
+    isCollapsible
+    isMobileView
   >
-    {isOpen ? <Close fontSize="medium" /> : <Menu fontSize="medium" />}
-  </MKBox>
+    <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
+      {menus.map((menu, id) => (
+        <MKBox key={menu.name} px={2}>
+          {isHeaderMenuWithItems(menu) ? (
+            <DropdownDropdown {...menu} />
+          ) : (
+            <DropdownLink id={id} {...menu} />
+          )}
+        </MKBox>
+      ))}
+    </MKBox>
+  </NavbarItem>
 );
