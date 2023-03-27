@@ -44,8 +44,8 @@ import { HeaderRoute } from '../../../types';
 
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, NavbarItems } from './common';
-import { DropdownMenu, NestedDropdownMenu } from './desktop';
 import { NavbarButton, NavbarNav } from './mobile';
+import { Dropdown } from './desktop';
 
 const InnerContainer = ({
   brand,
@@ -61,10 +61,7 @@ const InnerContainer = ({
     EventTarget & HTMLSpanElement
   >();
   const [collapseName, setCollapseName] = useState<string>();
-  const [nestedDropdownElement, setNestedDropdownElement] = useState<
-    EventTarget & HTMLSpanElement
-  >();
-  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
+
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState(false);
 
@@ -161,28 +158,16 @@ const InnerContainer = ({
           </MKBox>
         )}
       </MKBox>
+
       {!mobileMenuView && (
-        <>
-          <DropdownMenu
-            routes={routes}
-            collapseElement={collapseElement}
-            collapseName={collapseName}
-            setCollapseElement={setCollapseElement}
-            nestedDropdownName={nestedDropdownName}
-            setCollapseName={setCollapseName}
-            setNestedDropdownElement={setNestedDropdownElement}
-            setNestedDropdownName={setNestedDropdownName}
-            dropdownStyle={dropdownStyle}
-          />
-          <NestedDropdownMenu
-            routes={routes}
-            nestedDropdownElement={nestedDropdownElement}
-            nestedDropdownName={nestedDropdownName}
-            setNestedDropdownElement={setNestedDropdownElement}
-            setNestedDropdownName={setNestedDropdownName}
-            dropdownStyle={dropdownStyle}
-          />
-        </>
+        <Dropdown
+          routes={routes}
+          collapseElement={collapseElement}
+          collapseName={collapseName}
+          setCollapseElement={setCollapseElement}
+          setCollapseName={setCollapseName}
+          dropdownStyle={dropdownStyle}
+        />
       )}
     </Container>
   );
