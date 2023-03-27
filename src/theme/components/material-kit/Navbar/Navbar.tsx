@@ -61,10 +61,7 @@ const InnerContainer = ({
     EventTarget & HTMLSpanElement
   >();
   const [collapseName, setCollapseName] = useState<string>();
-  const [nestedDropdownElement, setNestedDropdownElement] = useState<
-    EventTarget & HTMLSpanElement
-  >();
-  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
+
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState(false);
 
@@ -168,12 +165,8 @@ const InnerContainer = ({
           collapseElement={collapseElement}
           collapseName={collapseName}
           setCollapseElement={setCollapseElement}
-          nestedDropdownName={nestedDropdownName}
           setCollapseName={setCollapseName}
-          setNestedDropdownElement={setNestedDropdownElement}
-          setNestedDropdownName={setNestedDropdownName}
           dropdownStyle={dropdownStyle}
-          nestedDropdownElement={nestedDropdownElement}
         />
       )}
     </Container>

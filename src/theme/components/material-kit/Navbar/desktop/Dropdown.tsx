@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { useState } from 'react';
 
 import { DropdownMenu, DropdownMenuProps } from './DropdownMenu';
 import {
@@ -26,32 +26,48 @@ export const Dropdown = ({
   collapseElement,
   collapseName,
   setCollapseElement,
-  nestedDropdownName,
   setCollapseName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
-  nestedDropdownElement,
   dropdownStyle,
-}: DropdownMenuProps & NestedDropdownMenuProps): JSX.Element => (
-  <>
-    <DropdownMenu
-      routes={routes}
-      collapseElement={collapseElement}
-      collapseName={collapseName}
-      setCollapseElement={setCollapseElement}
-      nestedDropdownName={nestedDropdownName}
-      setCollapseName={setCollapseName}
-      setNestedDropdownElement={setNestedDropdownElement}
-      setNestedDropdownName={setNestedDropdownName}
-      dropdownStyle={dropdownStyle}
-    />
-    <NestedDropdownMenu
-      routes={routes}
-      nestedDropdownElement={nestedDropdownElement}
-      nestedDropdownName={nestedDropdownName}
-      setNestedDropdownElement={setNestedDropdownElement}
-      setNestedDropdownName={setNestedDropdownName}
-      dropdownStyle={dropdownStyle}
-    />
-  </>
-);
+}: Omit<
+  DropdownMenuProps,
+  | 'nestedDropdownName'
+  | 'setNestedDropdownName'
+  | 'nestedDropdownElement'
+  | 'setNestedDropdownElement'
+> &
+  Omit<
+    NestedDropdownMenuProps,
+    | 'nestedDropdownName'
+    | 'setNestedDropdownName'
+    | 'nestedDropdownElement'
+    | 'setNestedDropdownElement'
+  >): JSX.Element => {
+  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
+  const [nestedDropdownElement, setNestedDropdownElement] = useState<
+    EventTarget & HTMLSpanElement
+  >();
+
+  return (
+    <>
+      <DropdownMenu
+        routes={routes}
+        collapseElement={collapseElement}
+        collapseName={collapseName}
+        setCollapseElement={setCollapseElement}
+        nestedDropdownName={nestedDropdownName}
+        setCollapseName={setCollapseName}
+        setNestedDropdownElement={setNestedDropdownElement}
+        setNestedDropdownName={setNestedDropdownName}
+        dropdownStyle={dropdownStyle}
+      />
+      <NestedDropdownMenu
+        routes={routes}
+        nestedDropdownElement={nestedDropdownElement}
+        nestedDropdownName={nestedDropdownName}
+        setNestedDropdownElement={setNestedDropdownElement}
+        setNestedDropdownName={setNestedDropdownName}
+        dropdownStyle={dropdownStyle}
+      />
+    </>
+  );
+};
