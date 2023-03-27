@@ -54,7 +54,7 @@ export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
     <Popper
       anchorEl={expandedNavDropdownElement}
       popperRef={null}
-      open={!!expandedNavDropdownName}
+      open={!!expandedNavDropdownElement}
       placement="bottom"
       transition
       style={{ zIndex: 10 }}
