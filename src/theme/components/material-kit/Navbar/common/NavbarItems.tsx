@@ -30,63 +30,74 @@
  */
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { NavbarItem } from '.';
+import { NavbarItem, NavbarItemProps } from '.';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
 import { MKBox } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
 
-export const NavbarItems = ({
-  routes,
-  center,
-  setCollapseElement,
-  setCollapseName,
-  collapseName,
-}: {
+const getNavbarItemAttributes = (
+  route: HeaderRoute,
+  setCollapseElement: Dispatch<
+    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
+  >,
+  setCollapseName: Dispatch<SetStateAction<string | undefined>>,
+  collapseName?: string,
+): Omit<NavbarItemProps, 'name'> =>
+  isHeaderRouteWithMenus(route)
+    ? {
+        icon: route.icon,
+        isCollapsible: !!route.menus,
+        isCollapsed: route.name === collapseName,
+        isMobileMenuView: false,
+        onMouseEnter: ({ currentTarget }) => {
+          setCollapseElement(currentTarget);
+          setCollapseName(route.name);
+        },
+        onMouseLeave: () => {
+          setCollapseElement(undefined);
+          setCollapseName(undefined);
+        },
+      }
+    : {
+        isMobileMenuView: false,
+        ...getLinkAttributes(route),
+      };
+
+type NavbarItemsProps = {
   routes: HeaderRoute[];
-  center: undefined | boolean;
+  isCenter?: boolean;
   setCollapseElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setCollapseName: Dispatch<SetStateAction<string | undefined>>;
   collapseName?: string;
-}): JSX.Element => (
+};
+
+export const NavbarItems = ({
+  routes,
+  isCenter,
+  setCollapseElement,
+  setCollapseName,
+  collapseName,
+}: NavbarItemsProps): JSX.Element => (
   <MKBox
     color="inherit"
     display={{ xs: 'none', lg: 'flex' }}
     ml="auto"
-    mr={center ? 'auto' : 2}
+    mr={isCenter ? 'auto' : 2}
   >
-    {routes.map(route =>
-      isHeaderRouteWithMenus(route) ? (
-        <NavbarItem
-          key={route.name}
-          name={route.name}
-          icon={route.icon}
-          isCollapsible={!!route.menus}
-          isCollapsed={route.name === collapseName}
-          isMobileMenuView={false}
-          onMouseEnter={({ currentTarget }) => {
-            if (route.menus) {
-              setCollapseElement(currentTarget);
-              setCollapseName(route.name);
-            }
-          }}
-          onMouseLeave={() => {
-            if (route.menus) {
-              setCollapseElement(undefined);
-              setCollapseName(undefined);
-            }
-          }}
-        />
-      ) : (
-        <NavbarItem
-          key={route.name}
-          name={route.name}
-          isMobileMenuView={false}
-          {...getLinkAttributes(route)}
-        />
-      ),
-    )}
+    {routes.map(route => (
+      <NavbarItem
+        key={route.name}
+        name={route.name}
+        {...getNavbarItemAttributes(
+          route,
+          setCollapseElement,
+          setCollapseName,
+          collapseName,
+        )}
+      />
+    ))}
   </MKBox>
 );

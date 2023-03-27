@@ -134,7 +134,7 @@ const InnerContainer = ({
 
           <NavbarItems
             routes={routes}
-            center={isCenter}
+            isCenter={isCenter}
             setCollapseElement={setCollapseElement}
             setCollapseName={setCollapseName}
             collapseName={collapseName}

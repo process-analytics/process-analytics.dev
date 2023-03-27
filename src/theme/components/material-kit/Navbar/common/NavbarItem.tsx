@@ -33,6 +33,98 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '../..';
 
+const TitleContainer = ({
+  isCollapsible,
+  isMobileMenuView,
+  children,
+  ...rest
+}: PropsWithChildren<Omit<TitleProps, 'icon' | 'name'>>): JSX.Element => (
+  <MKBox
+    {...rest}
+    mx={1}
+    p={1}
+    display="flex"
+    alignItems="baseline"
+    //opacity={isMobileView && open ? 1 : 0.6}
+    sx={({ palette: { grey, spicy } }: Theme) => ({
+      cursor: 'pointer',
+      userSelect: 'none',
+      transition: 'all 300ms linear',
+
+      ...(!isMobileMenuView && {
+        // TODO Make configurable color
+        '*:hover': {
+          //fontWeight: 'bold',
+          color: spicy.main,
+        },
+      }),
+
+      ...(isMobileMenuView && {
+        // TODO Make configurable color
+        '&:hover': {
+          backgroundColor: !isCollapsible && grey[200],
+          color: !isCollapsible && grey?.A700,
+
+          '& *': {
+            color: !isCollapsible && grey?.A700,
+          },
+        },
+      }),
+    })}
+  >
+    {children}
+  </MKBox>
+);
+
+const Title = ({
+  icon,
+  name,
+  isCollapsible,
+  isMobileMenuView,
+  ...rest
+}: TitleProps): JSX.Element => (
+  <TitleContainer
+    isMobileMenuView={isMobileMenuView}
+    isCollapsible={isCollapsible}
+    {...rest}
+  >
+    {icon && (
+      <MKTypography
+        variant="body2"
+        lineHeight={1}
+        color="inherit"
+        sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
+      >
+        {icon}
+      </MKTypography>
+    )}
+
+    <MKTypography
+      variant="button"
+      // variant="body2"
+      fontWeight="regular"
+      textTransform="capitalize"
+      color="inherit"
+      sx={{
+        // fontWeight: 'bold',
+        ml: 1,
+        mr: 0.25,
+        alignSelf: 'center',
+      }}
+    >
+      {name}
+    </MKTypography>
+
+    {isCollapsible && (
+      <MKTypography variant="body2" color="inherit" ml="auto">
+        <KeyboardArrowDown
+          sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
+        />
+      </MKTypography>
+    )}
+  </TitleContainer>
+);
+
 export const NavbarItem = ({
   name,
   icon,
@@ -43,76 +135,13 @@ export const NavbarItem = ({
   ...rest
 }: PropsWithChildren<NavbarItemProps>): JSX.Element => (
   <>
-    <MKBox
+    <Title
+      isMobileMenuView={isMobileMenuView}
+      isCollapsible={isCollapsible}
+      icon={icon}
+      name={name}
       {...rest}
-      mx={1}
-      p={1}
-      display="flex"
-      alignItems="baseline"
-      //opacity={isMobileView && open ? 1 : 0.6}
-      sx={({
-        // TODO Make configurable color
-        palette: { grey, spicy },
-      }: Theme) => ({
-        cursor: 'pointer',
-        userSelect: 'none',
-        transition: 'all 300ms linear',
-
-        ...(!isMobileMenuView && {
-          '*:hover': {
-            //fontWeight: 'bold',
-            color: spicy.main,
-          },
-        }),
-
-        ...(isMobileMenuView && {
-          // TODO Make configurable color
-          '&:hover': {
-            backgroundColor: !isCollapsible && grey[200],
-            color: !isCollapsible && grey?.A700,
-
-            '& *': {
-              color: !isCollapsible && grey?.A700,
-            },
-          },
-        }),
-      })}
-    >
-      {icon && (
-        <MKTypography
-          variant="body2"
-          lineHeight={1}
-          color="inherit"
-          sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
-        >
-          {icon}
-        </MKTypography>
-      )}
-
-      <MKTypography
-        variant="button"
-        // variant="body2"
-        fontWeight="regular"
-        textTransform="capitalize"
-        color="inherit"
-        sx={{
-          // fontWeight: 'bold',
-          ml: 1,
-          mr: 0.25,
-          alignSelf: 'center',
-        }}
-      >
-        {name}
-      </MKTypography>
-
-      {isCollapsible && (
-        <MKTypography variant="body2" color="inherit" ml="auto">
-          <KeyboardArrowDown
-            sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
-          />
-        </MKTypography>
-      )}
-    </MKBox>
+    />
 
     {children && (
       <Collapse in={isCollapsed} timeout={400} unmountOnExit>
@@ -122,13 +151,17 @@ export const NavbarItem = ({
   </>
 );
 
-type NavbarItemProps = React.PropsWithoutRef<{
+export type NavbarItemProps = React.PropsWithoutRef<
+  TitleProps & {
+    isCollapsed?: boolean;
+  }
+>;
+type TitleProps = {
   name: string;
   icon?: typeof SvgIcon;
   isCollapsible?: boolean;
-  isCollapsed?: boolean;
   isMobileMenuView: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
-}>;
+};
