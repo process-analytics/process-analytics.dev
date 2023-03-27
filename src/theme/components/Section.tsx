@@ -67,6 +67,10 @@ const StyledSection = styled.section<StyledSectionProps>`
   border-radius: 0px;
 
   @media only screen and (min-width: 61.188rem) {
+    &:first-of-type {
+      margin-top: 6.25rem;
+    }
+
     &:nth-of-type(even):not(:last-of-type) {
       border-top-left-radius: 18.75rem;
       border-bottom-left-radius: 18.75rem;
@@ -80,10 +84,6 @@ const StyledSection = styled.section<StyledSectionProps>`
 
   text {
     padding: 2.813rem 0;
-  }
-
-  &:first-of-type {
-    margin-top: 6.25rem;
   }
 
   &:nth-of-type(even) {
