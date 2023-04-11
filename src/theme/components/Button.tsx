@@ -30,7 +30,7 @@ type LinkInButtonProps = Pick<
   'backgroundColor' | 'color' | 'borderWidth' | 'padding'
 >;
 
-const ExternalLinkInButton = styled.a<LinkInButtonProps>`
+const ExternalLinkInButton = styled.a`
   text-align: center;
   font-size: 14px;
   font-weight: 700;
@@ -39,9 +39,9 @@ const ExternalLinkInButton = styled.a<LinkInButtonProps>`
   border-radius: 30px;
   text-decoration: none;
   position: relative;
-  background-color: ${props => props.backgroundColor};
-  color: ${props => props.color};
-  border: ${props => `2px solid ${props.color}`};
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.color};
+  border: ${props => `2px solid ${props.theme.color}`};
   display: inline-block;
   margin: 0;
   display: flex;
@@ -53,12 +53,12 @@ const ExternalLinkInButton = styled.a<LinkInButtonProps>`
     border-radius: inherit;
   }
   &:hover {
-    background-color: ${props => props.color};
-    color: ${props => props.backgroundColor};
+    background-color: ${props => props.theme.color};
+    color: ${props => props.theme.backgroundColor};
   }
 `;
 
-const InternalLinkInButton = styled(GatsbyLink)<LinkInButtonProps>`
+const InternalLinkInButton = styled(GatsbyLink)`
   padding: 12px 32px;
   text-align: center;
   font-size: 16.5px;
@@ -67,33 +67,52 @@ const InternalLinkInButton = styled(GatsbyLink)<LinkInButtonProps>`
   border-radius: 20px;
   text-decoration: none;
   position: relative;
-  background-color: ${props => props.backgroundColor};
-  color: ${props => props.color};
-  border: ${props => `2px solid ${props.backgroundColor}`};
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.color};
+  border: ${props => `2px solid ${props.theme.backgroundColor}`};
   display: inline-block;
+
   &:hover {
-    background-color: ${props => props.color};
-    color: ${props => props.backgroundColor};
+    background-color: ${props => props.theme.color};
+    color: ${props => props.theme.backgroundColor};
   }
 `;
 
 export const ButtonWithExternalLink = ({
   children,
+  backgroundColor,
+  color,
+  borderWidth,
+  padding,
   ...rest
 }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 React.PropsWithChildren<AnchorHTMLAttributes<any>> &
   LinkInButtonProps): JSX.Element => (
   <StyledButton>
-    <ExternalLinkInButton {...rest}>{children}</ExternalLinkInButton>
+    <ExternalLinkInButton
+      theme={{ backgroundColor, color, borderWidth, padding }}
+      {...rest}
+    >
+      {children}
+    </ExternalLinkInButton>
   </StyledButton>
 );
 
 export const ButtonWithInternalLink = ({
   children,
+  backgroundColor,
+  color,
+  borderWidth,
+  padding,
   ...rest
 }: React.PropsWithChildren<{ to: string }> &
   LinkInButtonProps): JSX.Element => (
   <StyledButton>
-    <InternalLinkInButton {...rest}>{children}</InternalLinkInButton>
+    <InternalLinkInButton
+      theme={{ backgroundColor, color, borderWidth, padding }}
+      {...rest}
+    >
+      {children}
+    </InternalLinkInButton>
   </StyledButton>
 );
