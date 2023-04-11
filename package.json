@@ -49,7 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.54.1",
     "babel-plugin-styled-components": "^2.0.6",
-    "eslint": "^8.36.0",
+    "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-mdx": "^2.0.5",
     "eslint-plugin-mdx": "^2.0.5",
