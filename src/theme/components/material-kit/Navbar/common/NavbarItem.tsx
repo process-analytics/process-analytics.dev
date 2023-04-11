@@ -46,7 +46,7 @@ const TitleContainer = ({
     display="flex"
     alignItems="baseline"
     //opacity={isMobileView && open ? 1 : 0.6}
-    sx={({ palette: { grey, spicy } }: Theme) => ({
+    sx={({ palette: { quaternary, spicy } }: Theme) => ({
       cursor: 'pointer',
       userSelect: 'none',
       transition: 'all 300ms linear',
@@ -59,17 +59,19 @@ const TitleContainer = ({
         },
       }),
 
-      ...(isMobileView && {
-        // TODO Make configurable color
-        '&:hover': {
-          backgroundColor: !isCollapsible && grey[200],
-          color: !isCollapsible && grey?.A700,
+      ...(isMobileView &&
+        !isCollapsible && {
+          // TODO Make configurable color
+          '&:hover': {
+            backgroundColor: quaternary.main,
+            color: spicy.main,
+            borderRadius: '5px',
 
-          '& *': {
-            color: !isCollapsible && grey?.A700,
+            '& *': {
+              color: spicy.main,
+            },
           },
-        },
-      }),
+        }),
     })}
   >
     {children}

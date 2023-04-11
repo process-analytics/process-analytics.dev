@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/generate-site-preview.yml'
       - 'src/**/*'
+      - 'static/**/*'
       - 'package.json'
       - 'package-lock.json'
       - 'gatsby-*.js'

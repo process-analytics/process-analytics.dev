@@ -46,7 +46,10 @@ export const DropdownLink = ({
     key={`${name}_${id}`}
     display="block"
     {...getLinkAttributes({ type, url })}
-    sx={({ palette: { grey }, borders: { borderRadius } }: Theme) => ({
+    sx={({
+      palette: { quaternary, spicy },
+      borders: { borderRadius },
+    }: Theme) => ({
       borderRadius: borderRadius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
@@ -55,11 +58,12 @@ export const DropdownLink = ({
 
       // TODO Make configurable color
       '&:hover': {
-        backgroundColor: grey[200],
-        color: grey?.A700,
+        backgroundColor: quaternary.main,
+        color: spicy.main,
+        borderRadius: '5px',
 
         '& *': {
-          color: grey?.A700,
+          color: spicy.main,
         },
       },
     })}

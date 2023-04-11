@@ -24,6 +24,7 @@ import { PostDescription } from '../types';
 import { Card, CardContainer, CardFooter, ButtonWithInternalLink } from '.';
 
 import colors from '../colors.json';
+import { isMobileView } from '../utils/helpers';
 
 const cardMinWidth = '350px';
 
@@ -48,7 +49,7 @@ export const Post = ({
         {title}
       </EllipsisHeading>
       {cover && <CoverImage src={cover} alt={title} />}
-      <Text m={3} color="text">
+      <Text m={3} color="text" fontSize={['0.875rem', '1rem']}>
         {text}
       </Text>
       <CardFooter bg="primary" color="background" position="bottom-right" round>
@@ -86,16 +87,17 @@ export const PostContainer = ({
   posts,
   pageId,
 }: PostContainerProps): JSX.Element => {
+  const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
     <>
       <CardContainer minWidth={cardMinWidth}>
         <DownFade>
-          {(pageId ? posts.slice(0, 8) : posts).map(p => (
+          {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map(p => (
             <Post {...p} key={p.url} />
           ))}
         </DownFade>
       </CardContainer>
-      {pageId && posts.length > 8 && (
+      {pageId && posts.length > maxNumberOfPosts && (
         <DownFade>
           <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
             <ButtonWithInternalLink
