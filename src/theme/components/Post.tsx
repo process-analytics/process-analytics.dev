@@ -45,11 +45,11 @@ export const Post = ({
     style={{ textDecoration: 'none' }}
   >
     <Card p={0} pb={4}>
-      <EllipsisHeading m={3} color="text" fontSize={3}>
+      <EllipsisHeading m={3} color="text" fontSize={'1.25rem'}>
         {title}
       </EllipsisHeading>
       {cover && <CoverImage src={cover} alt={title} />}
-      <Text m={3} color="text" fontSize={['0.875rem', '1rem']}>
+      <Text m={3} color="text" fontSize={['0.75rem', '0.875rem']}>
         {text}
       </Text>
       <CardFooter bg="primary" color="background" position="bottom-right" round>
