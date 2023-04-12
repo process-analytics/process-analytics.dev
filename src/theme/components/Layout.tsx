@@ -25,7 +25,8 @@ import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
 import { loadIcons } from '../utils/icons';
 
-import { Footer } from './Footer';
+import { Footer, Header } from '.';
+
 import { FooterRoutes } from '../../content/FooterRoutes';
 
 import 'tippy.js/dist/tippy.css';
@@ -124,6 +125,7 @@ export const Layout = ({
       <GlobalStyle />
       <ThemeProvider theme={{ [THEME_ID]: muiTheme }}>
         <ScopedCssBaseline>
+          <Header />
           {children}
           <Footer content={footerRoutes} />
           {process.env.GATSBY_GA_MEASUREMENT_ID && (

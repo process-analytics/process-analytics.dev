@@ -29,18 +29,13 @@ import {
   Libraries,
 } from '../sections';
 
-import {
-  Layout,
-  Header,
-  MailingListSubscription,
-} from '../theme/components';
+import { Layout, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
 import { footerRoutes } from '../content/FooterRoutes';
 
 const HomePage = (): JSX.Element => (
   <Layout footerRoutes={footerRoutes}>
-    <Header />
     <Landing />
     <ModelGenerationApp />
     <About />
