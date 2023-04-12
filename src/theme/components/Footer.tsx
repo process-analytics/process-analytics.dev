@@ -28,7 +28,6 @@
 import React from 'react';
 
 // @mui material components
-import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
@@ -39,8 +38,6 @@ import { MKBox } from './material-kit/MKBox';
 import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
-
-import { theme } from '../../assets/theme';
 
 import { Link as FooterLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
@@ -56,168 +53,163 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
   /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
       After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
   return (
-        <MKBox component="footer" py={6} bgColor="primary">
-          <Container maxWidth="xxl">
-            <Grid
-              container
-              spacing={3}
-              flexDirection={['column', 'row']}
-              alignItems={['center', undefined]}
-              justifyContent={[undefined, 'space-between']}
-              textAlign={['center', 'left']}
+    <MKBox component="footer" py={6} bgColor="primary">
+      <Container maxWidth="xxl">
+        <Grid
+          container
+          spacing={3}
+          flexDirection={['column', 'row']}
+          alignItems={['center', undefined]}
+          justifyContent={[undefined, 'space-between']}
+          textAlign={['center', 'left']}
+        >
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{ mb: 3 }}
+            display="flex"
+            justifyContent={'center'}
+          >
+            <MKBox
+              width="fit-content"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
             >
-              <Grid
-                item
-                xs={12}
-                md={3}
-                sx={{ mb: 3 }}
-                display="flex"
-                justifyContent={'center'}
-              >
+              <GatsbyLink to={brand.url}>
                 <MKBox
-                  width="fit-content"
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                >
-                  <GatsbyLink to={brand.url}>
-                    <MKBox
-                      component="img"
-                      src={brand.logo}
-                      alt={brand.name}
-                      maxWidth="3rem"
-                      height="3rem"
-                      mb={2}
-                    />
-                  </GatsbyLink>
-                  <MKTypography
-                    variant="h3"
-                    fontSize="1.25rem"
-                    lineHeight="1.375"
-                    fontWeight="700"
-                  >
-                    {brand.name}
-                  </MKTypography>
-                  <MKBox display="flex" alignItems="center" mt={3}>
-                    {socials.map(({ icon, url, name }, key) => (
-                      <SocialLinkWithMaterial
-                        key={url}
-                        icon={icon}
-                        url={url}
-                        name={name}
-                        variant="h5"
-                        opacity={0.8}
-                        mr={key === socials.length - 1 ? 0 : 2.5}
-                      />
-                    ))}
-                  </MKBox>
-                </MKBox>
-              </Grid>
-
-              <Grid
-                container
-                item
-                xs={12}
-                md={9}
-                sx={{ mb: [2, 3] }}
-                flexDirection={['column', 'row']}
-                alignItems={['center', 'start']}
-                justifyContent={['space-between', 'space-evenly']}
+                  component="img"
+                  src={brand.logo}
+                  alt={brand.name}
+                  maxWidth="3rem"
+                  height="3rem"
+                  mb={2}
+                />
+              </GatsbyLink>
+              <MKTypography
+                variant="h3"
+                fontSize="1.25rem"
+                lineHeight="1.375"
+                fontWeight="700"
               >
-                {menus.map(({ name, items }: FooterMenu) => (
-                  <Grid
-                    key={name}
-                    item
-                    xs={false}
-                    md={8 / menus.length}
-                    sx={{ mb: [3, 0] }}
-                  >
-                    <MKTypography
-                      display="block"
-                      variant="body2"
-                      fontWeight="bold"
-                      textTransform="capitalize"
-                      mb={1}
-                    >
-                      {name}
-                    </MKTypography>
+                {brand.name}
+              </MKTypography>
+              <MKBox display="flex" alignItems="center" mt={3}>
+                {socials.map(({ icon, url, name }, key) => (
+                  <SocialLinkWithMaterial
+                    key={url}
+                    icon={icon}
+                    url={url}
+                    name={name}
+                    variant="h5"
+                    opacity={0.8}
+                    mr={key === socials.length - 1 ? 0 : 2.5}
+                  />
+                ))}
+              </MKBox>
+            </MKBox>
+          </Grid>
 
+          <Grid
+            container
+            item
+            xs={12}
+            md={9}
+            sx={{ mb: [2, 3] }}
+            flexDirection={['column', 'row']}
+            alignItems={['center', 'start']}
+            justifyContent={['space-between', 'space-evenly']}
+          >
+            {menus.map(({ name, items }: FooterMenu) => (
+              <Grid
+                key={name}
+                item
+                xs={false}
+                md={8 / menus.length}
+                sx={{ mb: [3, 0] }}
+              >
+                <MKTypography
+                  display="block"
+                  variant="body2"
+                  fontWeight="bold"
+                  textTransform="capitalize"
+                  mb={1}
+                >
+                  {name}
+                </MKTypography>
+
+                <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
+                  {items.map(({ name, url }: FooterLink) => (
                     <MKBox
-                      component="ul"
+                      key={name}
+                      component="li"
                       p={0}
                       m={0}
-                      sx={{ listStyle: 'none' }}
+                      lineHeight={1.25}
                     >
-                      {items.map(({ name, url }: FooterLink) => (
-                        <MKBox
-                          key={name}
-                          component="li"
-                          p={0}
-                          m={0}
-                          lineHeight={1.25}
-                        >
-                          <MKTypography
-                            component={RouteWithMaterial}
-                            to={url}
-                            rel="noreferrer"
-                            variant="button"
-                            fontWeight="regular"
-                            textTransform="capitalize"
-                          >
-                            {name}
-                          </MKTypography>
-                        </MKBox>
-                      ))}
+                      <MKTypography
+                        component={RouteWithMaterial}
+                        to={url}
+                        rel="noreferrer"
+                        variant="button"
+                        fontWeight="regular"
+                        textTransform="capitalize"
+                      >
+                        {name}
+                      </MKTypography>
                     </MKBox>
-                  </Grid>
-                ))}
+                  ))}
+                </MKBox>
               </Grid>
-              <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
-                <MKTypography variant="caption" fontWeight="regular">
-                  Copyright &copy; {year}{' '}
-                  <MKTypography
-                    component={RouteWithMaterial}
-                    to={brand.url}
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    {brand.name}
-                  </MKTypography>
-                </MKTypography>
-                <br />
-                <MKTypography variant="caption" fontWeight="regular">
-                  Powered by{' '}
-                  <MKTypography
-                    component={Link}
-                    href={GATSBY_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    Gatsby
-                  </MKTypography>{' '}
-                  and inspired from the{' '}
-                  <MKTypography
-                    component={Link}
-                    href={copyright.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="caption"
-                    fontWeight="regular"
-                  >
-                    {copyright.name}
-                  </MKTypography>
-                  &nbsp; theme &nbsp;
-                  <span role="img" aria-label="heart">
-                    ❤️
-                  </span>
-                </MKTypography>
-              </Grid>
-            </Grid>
-          </Container>
-        </MKBox>
+            ))}
+          </Grid>
+          <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
+            <MKTypography variant="caption" fontWeight="regular">
+              Copyright &copy; {year}{' '}
+              <MKTypography
+                component={RouteWithMaterial}
+                to={brand.url}
+                rel="noreferrer"
+                variant="caption"
+                fontWeight="regular"
+              >
+                {brand.name}
+              </MKTypography>
+            </MKTypography>
+            <br />
+            <MKTypography variant="caption" fontWeight="regular">
+              Powered by{' '}
+              <MKTypography
+                component={Link}
+                href={GATSBY_URL}
+                target="_blank"
+                rel="noreferrer"
+                variant="caption"
+                fontWeight="regular"
+              >
+                Gatsby
+              </MKTypography>{' '}
+              and inspired from the{' '}
+              <MKTypography
+                component={Link}
+                href={copyright.url}
+                target="_blank"
+                rel="noreferrer"
+                variant="caption"
+                fontWeight="regular"
+              >
+                {copyright.name}
+              </MKTypography>
+              &nbsp; theme &nbsp;
+              <span role="img" aria-label="heart">
+                ❤️
+              </span>
+            </MKTypography>
+          </Grid>
+        </Grid>
+      </Container>
+    </MKBox>
   );
 };
 
