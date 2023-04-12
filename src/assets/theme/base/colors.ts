@@ -55,7 +55,7 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
   mode: 'light',
 
   background: {
-    default: '#f0f2f5',
+    default: '#ffffff',
     paper: '#ffffff',
   },
 

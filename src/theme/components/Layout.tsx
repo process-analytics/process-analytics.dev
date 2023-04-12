@@ -19,7 +19,11 @@ import { Theme } from '@rebass/preset';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import CookieConsent, { Cookies } from 'react-cookie-consent';
-import { ScopedCssBaseline, THEME_ID } from '@mui/material';
+import {
+  CssBaseline,
+  THEME_ID,
+  ThemeProvider as MuiThemeProvider,
+} from '@mui/material';
 
 import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
@@ -123,8 +127,8 @@ export const Layout = ({
   <main>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ThemeProvider theme={{ [THEME_ID]: muiTheme }}>
-        <ScopedCssBaseline>
+      <MuiThemeProvider theme={{ [THEME_ID]: muiTheme }}>
+        <CssBaseline>
           <Header />
           {children}
           <Footer content={footerRoutes} />
@@ -165,8 +169,8 @@ export const Layout = ({
               This website uses cookies to monitor the audience.
             </CookieConsent>
           )}
-        </ScopedCssBaseline>
-      </ThemeProvider>
+        </CssBaseline>
+      </MuiThemeProvider>
     </ThemeProvider>
   </main>
 );
