@@ -67,7 +67,7 @@
     "gatsby-plugin-typescript": "^5.8.0",
     "gatsby-remark-responsive-iframe": "^6.9.0",
     "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-transformer-remark": "^6.8.0",
+    "gatsby-transformer-remark": "^6.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
