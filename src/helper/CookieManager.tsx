@@ -33,9 +33,8 @@ export class CookieManager {
    * Create or modify all <code>Analytics</code> cookies.
    *
    * @param expirationDays The number of days until the cookie expires.
-   * @default This is set to 365 days.
    **/
-  setAllAnalyticsCookies(expirationDays = 365): void {
+  setAllAnalyticsCookies(expirationDays: number): void {
     this._analyticsCookieNames.forEach(cookieName =>
       this.setCookie(cookieName, true, expirationDays),
     );
@@ -59,7 +58,7 @@ export class CookieManager {
    **/
   private setCookie = (
     name: string,
-    newValue: string | boolean,
+    newValue: boolean,
     expirationDays: number,
   ): void => {
     const date = new Date();

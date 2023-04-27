@@ -25,6 +25,19 @@ const logo =
 
 const cookieManager = new CookieManager();
 
+const analyticsCookieCategory = 'analytics';
+const cookieExpirationDays = 365;
+const handleAnalyticsCategory = (cookie: SavedCookieContent): void => {
+  if (cookie.categories.includes(analyticsCookieCategory)) {
+    cookieManager.setAllAnalyticsCookies(cookieExpirationDays);
+  } else {
+    gaOptout();
+
+    // Clean the unnecessary cookies
+    cookieManager.deleteAllAnalyticsCookies();
+  }
+};
+
 export const initCookieConsentBanner = (): void => {
   if (
     process.env.GATSBY_GA_MEASUREMENT_ID &&
@@ -35,19 +48,17 @@ export const initCookieConsentBanner = (): void => {
     //document.body.classList.add('theme_blue');
 
     const cookieConsent = initCookieConsent();
-    const getConfig = (cookieConsent: CookieConsent): number | undefined =>
-      cookieConsent.getConfig('cookie_expiration');
 
     cookieConsent.run({
       autorun: true,
       auto_language: 'document',
       current_lang: 'en',
       autoclear_cookies: true, // default: false
-      cookie_expiration: 365, // default: 182
+      cookie_expiration: cookieExpirationDays, // default: 182
       // page_scripts: true, // default: false
       force_consent: true, // default: false
 
-      // revision: 0,  // default: 0
+      revision: 2, // default: 0
 
       gui_options: {
         consent_modal: {
@@ -67,46 +78,32 @@ export const initCookieConsentBanner = (): void => {
         userPreferences: UserPreferences,
         cookie: SavedCookieContent,
       ): void => {
-        // eslint-disable-next-line no-console
-        console.log('onFirstAction fired');
-        if (cookie.categories.includes('analytics')) {
-          cookieManager.setAllAnalyticsCookies(getConfig(cookieConsent));
-        }
+        handleAnalyticsCategory(cookie);
       },
 
       onAccept: (savedCookieContent: SavedCookieContent): void => {
-        if (savedCookieContent.categories.includes('analytics')) {
-          cookieManager.setAllAnalyticsCookies(getConfig(cookieConsent));
-        }
+        handleAnalyticsCategory(savedCookieContent);
       },
 
       onChange: (
         cookie: SavedCookieContent,
         changedCookieCategories: string[],
       ): void => {
-        // eslint-disable-next-line no-console
-        console.log('onChange fired!');
-
-        if (changedCookieCategories.includes('analytics')) {
-          if (cookie.categories.includes('analytics')) {
-            cookieManager.setAllAnalyticsCookies(getConfig(cookieConsent));
-          } else {
-            gaOptout();
-
-            // Clean the unnecessary cookies
-            cookieManager.deleteAllAnalyticsCookies();
-          }
+        if (changedCookieCategories.includes(analyticsCookieCategory)) {
+          handleAnalyticsCategory(cookie);
         }
       },
 
       languages: {
         en: {
           consent_modal: {
-            title: '🍪 We use cookies!',
+            title: '🍪 Our way of improving your experience!',
             description:
-              'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only upon approval. <button type="button" data-cc="c-settings" class="cc-link">Manage preferences</button>',
+              '<p>This website uses essential cookies to ensure its proper functioning and tracking cookies to analyze your interaction with it. The latter are only activated with your consent.</p></br>' +
+              '<button type="button" data-cc="c-settings" class="cc-link">Manage your settings!</button>',
             revision_message:
-              '<br> Dude, my terms have changed. Sorry for bothering you again!',
+              '<p>Important update: Our Terms and Conditions have changed. Please take a moment to review our updated policies.</p></br>' +
+              'Thank you for your understanding 🙂',
             primary_btn: {
               text: 'Accept all',
               role: 'accept_all', // 'accept_selected' or 'accept_all'
@@ -117,7 +114,6 @@ export const initCookieConsentBanner = (): void => {
             },
           },
           settings_modal: {
-            // title: 'Cookie preferences',
             title: logo,
             save_settings_btn: 'Save settings',
             accept_all_btn: 'Accept all',
@@ -127,18 +123,17 @@ export const initCookieConsentBanner = (): void => {
               { col2: 'Domain' },
               { col3: 'Expiration' },
               { col4: 'Description' },
-              { col5: 'Type' },
             ],
             blocks: [
               {
                 title: 'Cookie settings',
                 description:
-                  'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.',
+                  'Cookies are used on this website to provide essential functionality and to enhance your browsing experience. You can choose to accept or decline each category at any time.',
               },
               {
-                title: 'Strictly necessary cookies',
+                title: 'Essential Cookies',
                 description:
-                  'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.',
+                  'Essential cookies are necessary for the proper functioning of our website. Without them, the website would not function effectively.',
                 toggle: {
                   value: 'necessary',
                   enabled: true,
@@ -146,11 +141,11 @@ export const initCookieConsentBanner = (): void => {
                 },
               },
               {
-                title: 'Analytics cookies',
+                title: 'Analytics Cookies',
                 description:
-                  'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
+                  'These cookies track your behavior on the website, including the pages you visit and the links you click. All information is anonymous and cannot be used to identify you.',
                 toggle: {
-                  value: 'analytics',
+                  value: analyticsCookieCategory,
                   enabled: false,
                   readonly: false,
                 },
@@ -158,17 +153,18 @@ export const initCookieConsentBanner = (): void => {
                   cookieName => ({
                     col1: cookieName,
                     col2: 'google.com',
-                    col3: `${getConfig(cookieConsent) ?? '365'} days`,
+                    col3: `${cookieExpirationDays} days`,
                     col4: 'description ...',
-                    col5: 'Permanent cookie',
                   }),
                 ),
               },
-              {
+
+              // TODO To uncomment when we have a page for the policy
+              /*              {
                 title: 'More information',
                 description:
                   'For more details relative to cookies and other sensitive data, please read the full <a class="cc-link" href="#yourwebsite">privacy policy</a>.',
-              },
+              },*/
             ],
           },
         },
