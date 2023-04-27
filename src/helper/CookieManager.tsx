@@ -14,10 +14,26 @@
  * limitations under the License.
  */
 
+export type Cookie = {
+  name: string;
+  domain: string;
+  description: string;
+};
+
 export class CookieManager {
-  readonly _analyticsCookieNames: readonly string[] = [
-    '_ga',
-    `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.slice(2)}`,
+  readonly _analyticsCookies: readonly Cookie[] = [
+    {
+      name: '_ga',
+      domain: 'google.com',
+      description:
+        'The main cookie is used by Google Analytics to distinguish one visitor from another and over time.',
+    },
+    {
+      name: `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.slice(2)}`,
+      domain: 'google.com',
+      description:
+        'This cookie is used by Google Analytics to store and update a unique value for each page visited.',
+    },
   ];
 
   /**
@@ -25,8 +41,8 @@ export class CookieManager {
    *
    * @returns An array of <code>Analytics</code> cookie names.
    */
-  get analyticsCookieNames(): readonly string[] {
-    return this._analyticsCookieNames;
+  get analyticsCookies(): readonly Cookie[] {
+    return this._analyticsCookies;
   }
 
   /**
@@ -35,8 +51,8 @@ export class CookieManager {
    * @param expirationDays The number of days until the cookie expires.
    **/
   setAllAnalyticsCookies(expirationDays: number): void {
-    this._analyticsCookieNames.forEach(cookieName =>
-      this.setCookie(cookieName, true, expirationDays),
+    this._analyticsCookies.forEach(cookie =>
+      this.setCookie(cookie.name, true, expirationDays),
     );
   }
 
@@ -44,9 +60,7 @@ export class CookieManager {
    * Delete all <code>Analytics</code> cookies.
    */
   deleteAllAnalyticsCookies(): void {
-    this._analyticsCookieNames.forEach(cookieName =>
-      this.deleteCookie(cookieName),
-    );
+    this._analyticsCookies.forEach(cookie => this.deleteCookie(cookie.name));
   }
 
   /**

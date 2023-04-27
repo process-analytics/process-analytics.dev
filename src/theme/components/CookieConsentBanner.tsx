@@ -119,10 +119,10 @@ export const initCookieConsentBanner = (): void => {
             accept_all_btn: 'Accept all',
             reject_all_btn: 'Reject all', // optional, [v.2.5.0 +]
             cookie_table_headers: [
-              { col1: 'Name' },
-              { col2: 'Domain' },
-              { col3: 'Expiration' },
-              { col4: 'Description' },
+              { name: 'Name' },
+              { domain: 'Domain' },
+              { expiration: 'Expiration' },
+              { description: 'Description' },
             ],
             blocks: [
               {
@@ -149,14 +149,10 @@ export const initCookieConsentBanner = (): void => {
                   enabled: false,
                   readonly: false,
                 },
-                cookie_table: cookieManager.analyticsCookieNames.map(
-                  cookieName => ({
-                    col1: cookieName,
-                    col2: 'google.com',
-                    col3: `${cookieExpirationDays} days`,
-                    col4: 'description ...',
-                  }),
-                ),
+                cookie_table: cookieManager.analyticsCookies.map(cookie => ({
+                  ...cookie,
+                  expiration: `${cookieExpirationDays} days`,
+                })),
               },
 
               // TODO To uncomment when we have a page for the policy
