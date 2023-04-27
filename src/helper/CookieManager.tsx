@@ -15,6 +15,41 @@
  */
 
 export class CookieManager {
+  readonly _analyticsCookieNames: readonly string[] = [
+    '_ga',
+    `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.slice(2)}`,
+  ];
+
+  /**
+   * Provides an array of <code>Analytics</code> cookie names used by the website.
+   *
+   * @returns An array of <code>Analytics</code> cookie names.
+   */
+  get analyticsCookieNames(): readonly string[] {
+    return this._analyticsCookieNames;
+  }
+
+  /**
+   * Create or modify all <code>Analytics</code> cookies.
+   *
+   * @param expirationDays The number of days until the cookie expires.
+   * @default This is set to 365 days.
+   **/
+  setAllAnalyticsCookies(expirationDays = 365): void {
+    this._analyticsCookieNames.forEach(cookieName =>
+      this.setCookie(cookieName, true, expirationDays),
+    );
+  }
+
+  /**
+   * Delete all <code>Analytics</code> cookies.
+   */
+  deleteAllAnalyticsCookies(): void {
+    this._analyticsCookieNames.forEach(cookieName =>
+      this.deleteCookie(cookieName),
+    );
+  }
+
   /**
    * Create or modify a cookie.
    *
@@ -22,7 +57,7 @@ export class CookieManager {
    * @param newValue The value of the cookie to set.
    * @param expirationDays The number of days until the cookie expires.
    **/
-  setCookie = (
+  private setCookie = (
     name: string,
     newValue: string | boolean,
     expirationDays: number,
@@ -38,7 +73,7 @@ export class CookieManager {
    *
    * @param name The name of the cookie to delete.
    */
-  deleteCookie = (name: string): void => {
+  private deleteCookie = (name: string): void => {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   };
 }
