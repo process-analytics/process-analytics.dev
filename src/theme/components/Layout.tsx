@@ -19,6 +19,7 @@
 import React, { useEffect } from 'react';
 
 import { Theme } from '@rebass/preset';
+
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import {
@@ -28,6 +29,7 @@ import {
 } from '@mui/material';
 
 import 'vanilla-cookieconsent';
+import { CookieManager } from '../../helper';
 
 // import Logo from '../images/logo.svg';
 
@@ -48,6 +50,8 @@ const cookieNames = [
   '_ga',
   `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
 ];
+
+const cookieManager = new CookieManager();
 
 loadIcons();
 
@@ -73,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    min-height: 0px;
+    min-height: 0;
     position: relative;
     background-color: #f8f8f8;
     border-radius: 4px;
@@ -177,7 +181,7 @@ export const Layout = ({ children }: Props): JSX.Element => {
           console.log('onFirstAction fired');
           if (cookie.categories.includes('analytics')) {
             cookieNames.forEach(cookieName =>
-              setCookie(
+              cookieManager.setCookie(
                 cookieName,
                 true,
                 cookieConsent.getConfig('cookie_expiration') as number,
@@ -189,7 +193,7 @@ export const Layout = ({ children }: Props): JSX.Element => {
         onAccept: (savedCookieContent: SavedCookieContent): void => {
           if (savedCookieContent.categories.includes('analytics')) {
             cookieNames.forEach(cookieName =>
-              setCookie(
+              cookieManager.setCookie(
                 cookieName,
                 true,
                 cookieConsent.getConfig('cookie_expiration') as number,
@@ -207,7 +211,7 @@ export const Layout = ({ children }: Props): JSX.Element => {
           if (changedCookieCategories.includes('analytics')) {
             if (cookie.categories.includes('analytics')) {
               cookieNames.forEach(cookieName =>
-                setCookie(
+                cookieManager.setCookie(
                   cookieName,
                   true,
                   cookieConsent.getConfig('cookie_expiration') as number,
@@ -217,7 +221,9 @@ export const Layout = ({ children }: Props): JSX.Element => {
               gaOptout();
 
               // Clean the unnecessary cookies
-              cookieNames.forEach(cookieName => deleteCookie(cookieName));
+              cookieNames.forEach(cookieName =>
+                cookieManager.deleteCookie(cookieName),
+              );
             }
           }
         },
@@ -317,14 +323,3 @@ export const Layout = ({ children }: Props): JSX.Element => {
 };
 
 export default Layout;
-
-const setCookie = (name: string, value: string | boolean, days: number) => {
-  const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  const expires = 'expires=' + date.toUTCString();
-  document.cookie = name + '=' + value + ';' + expires + ';path=/';
-};
-
-const deleteCookie = (name: string) => {
-  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-};
