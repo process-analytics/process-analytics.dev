@@ -15,6 +15,9 @@
  */
 
 import './src/theme/styles/global.css';
+
+// Cookie consent banner
 import './src/theme/styles/cookieconsent.css';
-import 'tippy.js/dist/tippy.css';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
+
+import 'tippy.js/dist/tippy.css';

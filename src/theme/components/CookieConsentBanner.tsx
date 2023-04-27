@@ -43,9 +43,9 @@ export const initCookieConsentBanner = (): void => {
     process.env.GATSBY_GA_MEASUREMENT_ID &&
     !document.getElementById('cc--main')
   ) {
-    document.body.classList.add('theme_funky');
+    // document.body.classList.add('theme_funky');
     // document.body.classList.add('theme_turquoise');
-    //document.body.classList.add('theme_blue');
+    // document.body.classList.add('theme_blue');
 
     const cookieConsent = initCookieConsent();
 
@@ -166,5 +166,7 @@ export const initCookieConsentBanner = (): void => {
         },
       },
     });
+
+    document.getElementById('cc--main')?.classList.add('theme_my');
   }
 };
