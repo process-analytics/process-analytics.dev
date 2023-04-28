@@ -1,25 +1,23 @@
 /* ------------------------------------------- MU THEME ----------------------------------------- */
 .theme_my {
     --cc-font-family: 'Cabin', 'Open Sans', 'sans-serif';
-    --cc-bg: #f9faff;
-    --cc-text: #112954;
-    --cc-btn-primary-bg: #E20613;
-    --cc-btn-primary-text: var(--cc-bg);
-    --cc-btn-primary-hover-bg: var(--cc-bg);
+    --cc-bg: #f8fdff;
+    --cc-text: #001f25;
+    --cc-btn-primary-bg: #006c4d;
+    --cc-btn-primary-text: #ffffff;
+    --cc-btn-primary-hover-bg: var(--cc-btn-primary-text);
     --cc-btn-primary-hover-text: var(--cc-btn-primary-bg);
-    --cc-btn-secondary-bg: #dfe7f9;
+    --cc-btn-secondary-bg: var(--cc-bg);
     --cc-btn-secondary-text: var(--cc-text);
-    --cc-btn-secondary-hover-bg: #c6d1ea;
-    --cc-toggle-bg-off: #8fa8d6;
-    --cc-toggle-bg-on: var(--cc-btn-primary-bg);
-    --cc-toggle-bg-readonly: #cbd8f1;
-    --cc-toggle-knob-bg: #fff;
-    --cc-toggle-knob-icon-color: #ecf2fa;
-    --cc-block-text: var(--cc-text);
-    --cc-cookie-category-block-bg: #ebeff9;
-    --cc-cookie-category-block-bg-hover: #dbe5f9;
-    --cc-section-border: #f1f3f5;
-    --cc-cookie-table-border: #e1e7f3;
+    --cc-btn-secondary-hover-bg: #ffd9dc;
+    --cc-btn-secondary-hover-text: #400011;
+    --cc-toggle-bg-off: #4B9B85;
+    --cc-toggle-bg-on: #006c4d;
+    --cc-toggle-bg-readonly: #ACDBC3;
+    --cc-cookie-category-block-bg: #dbe5dd;
+    --cc-cookie-category-block-bg-hover: #404944;
+    --cc-cookie-category-block-text-hover: var(--cc-bg);
+    --cc-cookie-table-border: var(--cc-bg);
     --cc-overlay-bg: rgba(4, 6, 8, .85);
     --cc-webkit-scrollbar-bg: var(--cc-cookie-category-block-bg);
     --cc-webkit-scrollbar-bg-hover: var(--cc-btn-primary-bg);
@@ -42,10 +40,26 @@
     border-radius: .7em;
 }
 
-.theme_my #c-p-bn.c-bn {
+.theme_my .c-bn#c-p-bn,
+.theme_my .c-bn#s-all-bn{
     box-shadow: inset 0 0 0 .1rem var(--cc-btn-primary-hover-text);
 }
 
+
+.theme_my #s-bl tbody tr,
+.theme_my .cc_div .bar #s-bl tr:hover td::before {
+    transition: background-color .25s ease, color .25s ease
+}
+
+.theme_my #s-bl tbody tr:hover,
+.theme_my #s-cnt .b-bn .b-tl:active,
+.theme_my #s-cnt .b-bn .b-tl:hover {
+    background: var(--cc-cookie-category-block-bg-hover);
+    color: var(--cc-cookie-category-block-text-hover);
+}
+.theme_my .cc_div .bar #s-bl tr:hover td::before {
+    color: var(--cc-cookie-category-block-text-hover);
+}
 
 /* ------------------------------------------- FUNKY THEME ----------------------------------------- */
 .theme_funky {
