@@ -5,7 +5,8 @@
     --cc-text: #112954;
     --cc-btn-primary-bg: #E20613;
     --cc-btn-primary-text: var(--cc-bg);
-    --cc-btn-primary-hover-bg: #1d2e38;
+    --cc-btn-primary-hover-bg: var(--cc-bg);
+    --cc-btn-primary-hover-text: var(--cc-btn-primary-bg);
     --cc-btn-secondary-bg: #dfe7f9;
     --cc-btn-secondary-text: var(--cc-text);
     --cc-btn-secondary-hover-bg: #c6d1ea;
@@ -40,6 +41,11 @@
 .theme_my .cc_div .c-bn{
     border-radius: .7em;
 }
+
+.theme_my #c-p-bn.c-bn {
+    box-shadow: inset 0 0 0 .1rem var(--cc-btn-primary-hover-text);
+}
+
 
 /* ------------------------------------------- FUNKY THEME ----------------------------------------- */
 .theme_funky {
