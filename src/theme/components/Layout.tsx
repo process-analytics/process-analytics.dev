@@ -121,7 +121,10 @@ const GlobalStyle = createGlobalStyle`
 type Props = {
   footerRoutes: FooterRoutes;
 };
-export const Layout = ({ children, footerRoutes }: PropsWithChildren<Props>): JSX.Element => {
+export const Layout = ({
+  children,
+  footerRoutes,
+}: PropsWithChildren<Props>): JSX.Element => {
   useEffect(() => {
     initCookieConsentBanner();
   }, []);
