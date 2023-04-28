@@ -89,7 +89,7 @@ const CARD_HEIGHT = '200px';
 const INFO_CONTAINER_WIDTH = '30px';
 
 const Title = styled(Text)`
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   display: table;
@@ -101,9 +101,11 @@ const TextContainer = styled.div`
   flex-direction: column;
   padding: 10px;
   width: calc(100% - ${INFO_CONTAINER_WIDTH});
+  font-size: 0.875rem;
 
   ${MEDIA_QUERY_SMALL} {
     width: calc(100% - (${INFO_CONTAINER_WIDTH} / 2));
+    font-size: 0.75rem;
   }
 `;
 
