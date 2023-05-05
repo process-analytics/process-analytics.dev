@@ -48,7 +48,6 @@ export const BrandLink = ({
   return (
     <MKBox
       component={GatsbyLink}
-      //to={`#${getSectionHref(SECTION.home)}`}
       to="/"
       lineHeight={1}
       py={isTransparent ? 1.5 : 0.75}
