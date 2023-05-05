@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 // @mui material components
 import { Container } from '@mui/material';
@@ -65,29 +65,6 @@ const InnerContainer = ({
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
   const isMobileView = isMobileViewFunc();
-
-  useEffect(() => {
-    // A function that sets the display state for NavbarMobile.
-    function displayMobileNavbar(): void {
-      if (isMobileView) {
-        setIsOpenMobileNavbar(false);
-      } else {
-        setIsOpenMobileNavbar(false);
-      }
-    }
-
-    /**
-         The event listener that's calling the displayMobileNavbar function when
-         resizing the window.
-     */
-    window.addEventListener('resize', displayMobileNavbar);
-
-    // Call the displayMobileNavbar function to set the state with the initial value.
-    displayMobileNavbar();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener('resize', displayMobileNavbar);
-  }, []);
 
   return (
     <Container
