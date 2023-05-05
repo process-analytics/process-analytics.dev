@@ -14,3 +14,4 @@
  * limitations under the License.
  */
 export { Dropdown } from './Dropdown';
+export { NavbarItems } from './NavbarItems';

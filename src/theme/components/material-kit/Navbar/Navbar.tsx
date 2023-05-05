@@ -42,9 +42,9 @@ import { MKBox, MKBoxProps } from '..';
 import { HeaderRoute } from '../../../types';
 
 // Material Kit 2 React example components
-import { Action, ActionButton, BrandLink, NavbarItems } from './common';
+import { Action, ActionButton, BrandLink } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
-import { Dropdown } from './desktop';
+import { Dropdown, NavbarItems } from './desktop';
 
 import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
 
