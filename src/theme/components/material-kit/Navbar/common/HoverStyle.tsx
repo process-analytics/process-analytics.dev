@@ -13,7 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { Action, ActionButton } from './ActionButton';
-export { BrandLink } from './BrandLink';
-export { NavbarItem, NavbarItemProps } from './NavbarItem';
-export { HoverStyle, getHoverConfiguration } from './HoverStyle';
+import { Palette, PaletteColorKey, SocialPalette } from '@mui/material';
+import { SxProps } from '@mui/system/styleFunctionSx';
+
+export type HoverStyle = {
+  backgroundColor: PaletteColorKey;
+  color: PaletteColorKey;
+  borderRadius: string;
+};
+export const getHoverConfiguration = (
+  palette: Palette & SocialPalette,
+  hoverStyle: HoverStyle,
+): SxProps => ({
+  '*:hover': {
+    //fontWeight: 'bold',
+    color: palette[hoverStyle.color].main,
+    backgroundColor: palette[hoverStyle.backgroundColor].main,
+    borderRadius: hoverStyle.borderRadius,
+  },
+});

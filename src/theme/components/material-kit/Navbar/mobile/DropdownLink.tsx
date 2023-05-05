@@ -29,43 +29,35 @@ import React from 'react';
 
 import { Theme } from '@mui/material';
 
+import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
+
 import { Link } from '../../../../types';
 import { MKBox, MKTypography } from '../..';
 import { getLinkAttributes } from '../../../Link';
 
+type DropdownLinkProps = Link & {
+  id: number;
+  hoverStyle: HoverStyle;
+};
 export const DropdownLink = ({
   name,
   description,
   type,
   url,
   id,
-}: Link & {
-  id: number;
-}): JSX.Element => (
+  hoverStyle,
+}: DropdownLinkProps): JSX.Element => (
   <MKBox
     key={`${name}_${id}`}
     display="block"
     {...getLinkAttributes({ type, url })}
-    sx={({
-      palette: { quaternary, spicy },
-      borders: { borderRadius },
-    }: Theme) => ({
+    sx={({ palette, borders: { borderRadius } }: Theme) => ({
       borderRadius: borderRadius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       py: 1,
       px: 1.625,
-
-      // TODO Make configurable color
-      '&:hover': {
-        backgroundColor: quaternary.main,
-        color: spicy.main,
-        borderRadius: '5px',
-
-        '& *': {
-          color: spicy.main,
-        },
-      },
+      ...getHoverConfiguration(palette, hoverStyle),
     })}
   >
     <MKTypography

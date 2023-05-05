@@ -29,14 +29,18 @@ import React from 'react';
 
 import { Theme } from '@mui/material';
 
+import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
+
 import { HeaderMenuWithItems } from '../../../../types';
 import { MKTypography } from '../..';
 import { getLinkAttributes } from '../../../Link';
 
+type DropdownDropdownProps = HeaderMenuWithItems & { hoverStyle: HoverStyle };
 export const DropdownDropdown = ({
   name,
   items,
-}: HeaderMenuWithItems): JSX.Element => (
+  hoverStyle,
+}: DropdownDropdownProps): JSX.Element => (
   <>
     <MKTypography
       display="block"
@@ -60,20 +64,11 @@ export const DropdownDropdown = ({
         fontWeight="regular"
         py={0.625}
         px={2}
-        sx={({
-          palette: { quaternary, spicy },
-          borders: { borderRadius },
-        }: Theme) => ({
+        sx={({ palette, borders: { borderRadius } }: Theme) => ({
           borderRadius: borderRadius.md,
           cursor: 'pointer',
           transition: 'all 300ms linear',
-
-          // TODO Make configurable color
-          '&:hover': {
-            backgroundColor: quaternary.main,
-            color: spicy.main,
-            borderRadius: '5px',
-          },
+          ...getHoverConfiguration(palette, hoverStyle),
         })}
       >
         {subItem.name}
