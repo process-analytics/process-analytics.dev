@@ -49,6 +49,7 @@ export const Column: FC<ColumnProps> = ({
   <Grid item xs={12 / rowsPerColumn} sx={{ position: 'relative' }}>
     {isNotFirstColumn && (
       <Divider
+        key={`divider-${index}`}
         orientation="vertical"
         sx={{
           position: 'absolute',

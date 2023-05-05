@@ -39,21 +39,19 @@ import { HoverStyle } from '../../common';
 
 type ColumnNavDropdownProps = {
   content: HeaderMenu[];
-  name: string;
   hoverStyle: HoverStyle;
   rowsPerColumn?: number;
 };
 
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   content,
-  name,
   hoverStyle,
   rowsPerColumn = 3,
 }) => (
-  <Grid key={name} container spacing={3} py={1} px={1.5}>
+  <Grid container spacing={3} py={1} px={1.5}>
     {splitArrayByColumns(content, rowsPerColumn).map((menus, index) => (
       <Column
-        key={`divider-${index}`}
+        key={`column-${index}`}
         rowsPerColumn={rowsPerColumn}
         content={menus}
         hoverStyle={hoverStyle}
