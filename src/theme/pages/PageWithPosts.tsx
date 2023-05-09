@@ -20,9 +20,7 @@ import { Heading, Text } from 'rebass/styled-components';
 import { footerRoutes } from '../../content/FooterRoutes';
 
 import {
-  Footer,
   Layout,
-  Header,
   Section,
   PostContainer,
   MailingListSubscription,
@@ -47,8 +45,7 @@ export const PageWithPosts = ({
   posts,
   description,
 }: PageWithPostsProps): JSX.Element => (
-  <Layout>
-    <Header />
+  <Layout footerRoutes={footerRoutes}>
     <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
         textAlign="center"
@@ -74,7 +71,5 @@ export const PageWithPosts = ({
       <PostContainer posts={posts} />
     </Section>
     <MailingListSubscription />
-    {/* TODO: When there will only one theme provider, move the Footer in the Layout class */}
-    <Footer content={footerRoutes} />
   </Layout>
 );
