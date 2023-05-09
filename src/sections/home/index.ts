@@ -17,5 +17,4 @@ export { About } from './About';
 export { Blog } from './Blog';
 export { Landing } from './Landing';
 export { Libraries } from './Libraries';
-export { ModelGenerationApp } from './ModelGenerationApp';
 export { News } from './News';

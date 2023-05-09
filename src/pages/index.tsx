@@ -20,14 +20,7 @@ import { HeadProps } from 'gatsby';
 import { SEO } from '../components/seo';
 import { DataProps } from '../hooks/use-site-metadata';
 
-import {
-  Landing,
-  ModelGenerationApp,
-  Blog,
-  News,
-  About,
-  Libraries,
-} from '../sections';
+import { Landing, Blog, News, About, Libraries } from '../sections';
 
 import { Layout, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
@@ -37,7 +30,6 @@ import { footerRoutes } from '../content/FooterRoutes';
 const HomePage = (): JSX.Element => (
   <Layout footerRoutes={footerRoutes}>
     <Landing />
-    <ModelGenerationApp />
     <About />
     <Libraries />
     <News />
