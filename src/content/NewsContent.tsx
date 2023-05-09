@@ -18,7 +18,7 @@ import { PostDescription } from '../theme/types';
 const news: PostDescription[] = [
   {
     title: 'April 2023 News',
-    text: 'Process Analytics brings exciting updates this month, including a new API for programmatically styling BPMN elements.',
+    text: 'Process Analytics brings exciting updates this month, including a new bpmnVisualizationR release and the pm4py demo update.',
     cover:
       'https://miro.medium.com/v2/resize:fit:720/format:webp/1*hLXY6hRJOgmpGjcVD5bd-w.jpeg',
     url: 'https://medium.com/@process-analytics/process-analytics-april-2023-news-5ded5ce2e018',
