@@ -57,6 +57,7 @@ const posts: PostDescription[] = [
     url: 'https://medium.com/@process-analytics/247afc3f95c3',
     date: 'August 2022',
     time: 1,
+    isInModelGenerationAppPage: true,
   },
   {
     title: '🇫🇷 Webinar: Dive into Process Analytics',
