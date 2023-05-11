@@ -29,6 +29,5 @@ jobs:
           COMMIT_MESSAGE: "chore(deps-dev): bump gatsby and its plugins"
           LOG_LEVEL: debug
         with:
-          args: -u --verbose --dep dev --color --peer -f /*gatsby*/
-
+          args: -u --verbose --dep dev --color --peer -f /.*gatsby.*/
 
