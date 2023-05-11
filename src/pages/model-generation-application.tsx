@@ -20,6 +20,7 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeadProps } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import { Box, BoxProps, Link } from '@mui/material';
 
@@ -37,7 +38,7 @@ import { PAGE } from '../helper';
 import { DataProps } from '../hooks';
 
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
-import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';
+//import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';
 
 type PartTitleProps = {
   marginBottom?: string;
@@ -179,6 +180,7 @@ const ModelGenerationApplicationPage: FC = () => (
           alt={'Model Generation Application Demo'}
           style={{ borderRadius: '5px' }}
         />
+        //
       </Box>
     </Section>
     <Section>
@@ -199,7 +201,7 @@ const ModelGenerationApplicationPage: FC = () => (
           alignItems={'center'}
           flexDirection={['column', 'row']}
         >
-          <Box
+          {/*<Box
             width={['100%', '45%']}
             height="auto"
             marginBottom={['3.25rem', 0]}
@@ -208,7 +210,7 @@ const ModelGenerationApplicationPage: FC = () => (
               src={HowItWorksImg}
               alt={'Generation Model Application Demo'}
             />
-          </Box>
+          </Box>*/}
           <Paragraph width={['100%', '40%']}>
             The Model Generation Application is a{' '}
             <Link href="https://shiny.rstudio.com/">shiny R application</Link>{' '}
@@ -272,6 +274,14 @@ const ModelGenerationApplicationPage: FC = () => (
           without confidential data) and your email address. <br />
           We will send you back the generated results as soon as they are ready.
         </Paragraph>
+        <StaticImage
+          src="../images/model-generation-app/how_it_works.png"
+          alt={'Generation Model Application Demo'}
+          placeholder="blurred"
+          layout="fixed"
+          width={200}
+          height={200}
+        />
       </Part>
     </Section>
     <Section>
