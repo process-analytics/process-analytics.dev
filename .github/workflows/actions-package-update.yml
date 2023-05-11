@@ -25,7 +25,7 @@ jobs:
           AUTHOR_EMAIL: '62586190+process-analytics-bot@users.noreply.github.com'
           AUTHOR_NAME: 'process-analytics-bot'
           EXECUTE: "true"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
           COMMIT_MESSAGE: "chore(deps-dev)"
           LOG_LEVEL: debug
         with:
