@@ -15,7 +15,9 @@
  */
 
 import * as React from 'react';
+
 import { HeadProps } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import { SEO, Layout, MailingListSubscription } from '../components';
 import { DataProps } from '../hooks';
@@ -27,10 +29,18 @@ const HomePage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Landing />
     <About />
-    <Libraries />
-    <News />
-    <Blog />
-    <MailingListSubscription />
+    {/*<Libraries />*/}
+    {/*<News />*/}
+    {/*<Blog />*/}
+    {/*<MailingListSubscription />*/}
+    <StaticImage
+      src="../images/404.png"
+      alt="A dinosaur"
+      placeholder="blurred"
+      layout="fixed"
+      width={200}
+      height={200}
+    />
   </Layout>
 );
 export default HomePage;
