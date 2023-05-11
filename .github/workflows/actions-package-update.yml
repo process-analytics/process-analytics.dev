@@ -12,12 +12,9 @@ on:
 
 jobs:
   gatsby-package-update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@master
-
-      - name: set remote url
-        run: git remote set-url --push origin https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+      - uses: actions/checkout@v3
 
       - name: package-update
         uses: taichi/actions-package-update@master
