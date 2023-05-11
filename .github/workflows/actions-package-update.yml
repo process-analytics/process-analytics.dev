@@ -26,7 +26,9 @@ jobs:
           AUTHOR_NAME: 'process-analytics-bot'
           EXECUTE: "true"
           GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
-          COMMIT_MESSAGE: "chore(deps-dev)"
+          COMMIT_MESSAGE: "chore(deps-dev): bump gatsby and its plugins"
           LOG_LEVEL: debug
         with:
-          args: -u --verbose --dep dev --color --peer -f "/*gatsby*/"
+          args: -u --verbose --dep dev --color --peer -f /*gatsby*/
+
+
