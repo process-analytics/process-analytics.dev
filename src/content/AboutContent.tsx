@@ -35,25 +35,25 @@ export const aboutContent: AboutContent = [
     },
     withSeparator: true,
   },
-  {
-    mdx: <Content2 />,
-    image: {
-      src: WhatDiagram,
-      alt: 'Total Number Of Executions Diagram',
-      positionFromMdx: 'bottom',
-    },
-    withSeparator: false,
-  },
-  {
-    mdx: <Content3 />,
-    withSeparator: true,
-  },
-  {
-    mdx: <Content4 />,
-    image: {
-      src: Logo,
-      alt: 'Process Analytics Logo',
-    },
-    withSeparator: false,
-  },
+  // {
+  //   mdx: <Content2 />,
+  //   image: {
+  //     src: WhatDiagram,
+  //     alt: 'Total Number Of Executions Diagram',
+  //     positionFromMdx: 'bottom',
+  //   },
+  //   withSeparator: false,
+  // },
+  // {
+  //   mdx: <Content3 />,
+  //   withSeparator: true,
+  // },
+  // {
+  //   mdx: <Content4 />,
+  //   image: {
+  //     src: Logo,
+  //     alt: 'Process Analytics Logo',
+  //   },
+  //   withSeparator: false,
+  // },
 ];
