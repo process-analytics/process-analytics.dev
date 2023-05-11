@@ -98,6 +98,10 @@ const config: GatsbyConfig = {
         plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
+    // https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };
 
