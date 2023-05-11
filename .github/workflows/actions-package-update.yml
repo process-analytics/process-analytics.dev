@@ -29,4 +29,4 @@ jobs:
           COMMIT_MESSAGE: "chore(deps-dev)"
           LOG_LEVEL: debug
         with:
-          args: -u --verbose --dep dev --color --peer -f "/^gatsby.*$/"
+          args: -u --verbose --dep dev --color --peer -f "/^gatsby*/"
