@@ -76,9 +76,8 @@ export type HeaderMenuWithItems = Pick<LinkContent, 'name' | 'description'> & {
   isCollapsed?: boolean; // TODO Modify the code to remove this property
   items: LinkContent[];
 };
-
 export type HeaderMenu =
-  | LinkContent // dropdown-item
+  | LinkContent // dropdown-link
   | HeaderMenuWithItems; //dropdown-menu
 
 export const isHeaderMenuWithItems = (

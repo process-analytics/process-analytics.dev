@@ -60,7 +60,7 @@ export const ListNavDropdown: FC<ListNavDropdownProps> = ({
             currentTarget,
           }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
             if (menu.isCollapsed) {
-              setDropdownDropdownElement(currentTarget ?? undefined);
+              setDropdownDropdownElement(currentTarget);
               setDropdownDropdownName(menu.name);
             }
           }}

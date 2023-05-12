@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 
 import { Grow, Popper } from '@mui/material';
 
