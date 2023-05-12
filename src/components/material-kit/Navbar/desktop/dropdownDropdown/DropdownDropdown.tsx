@@ -42,7 +42,6 @@ export type DropdownDropdownProps = {
   dropdownDropdownName?: string;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
-  onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
@@ -52,7 +51,6 @@ export const DropdownDropdown = ({
   dropdownDropdownName,
   dropdownStyle,
   hoverStyle,
-  onMouseEnter,
   onMouseLeave,
 }: DropdownDropdownProps): JSX.Element => (
   <Popper
@@ -62,7 +60,6 @@ export const DropdownDropdown = ({
     placement="right-start"
     transition
     style={{ zIndex: 10 }}
-    onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
     {({ TransitionProps }) => (

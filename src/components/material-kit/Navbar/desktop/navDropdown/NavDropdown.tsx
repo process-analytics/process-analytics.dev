@@ -34,14 +34,12 @@ import { MKBox, MKBoxProps, MKTypography } from '../../..';
 export type NavDropdownProps = {
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
-  onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
   expandedNavDropdownElement,
   dropdownStyle,
-  onMouseEnter,
   onMouseLeave,
   children,
 }) => {
@@ -75,7 +73,6 @@ export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
           },
         },
       ]}
-      onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {({ TransitionProps }) => (
