@@ -31,9 +31,9 @@ import { Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { borders } from '../../../../assets/theme';
-import { Link, LinkContent } from '../../..';
-import { MKBox, MKTypography } from '../..';
-import { HoverStyle, getHoverConfiguration } from '../common';
+import { Link, LinkContent } from '../../../..';
+import { MKBox, MKTypography } from '../../..';
+import { HoverStyle, getHoverConfiguration } from '../../common';
 
 type DropdownLinkProps = {
   content: LinkContent;

@@ -29,7 +29,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 import { Grow, Popper } from '@mui/material';
 
-import { DropdownLink } from '../DropdownLink';
+import { DropdownLink } from './DropdownLink';
 import { MKBox, MKBoxProps } from '../../..';
 
 import { HeaderMenuWithItems } from '../../../../Header';
