@@ -31,7 +31,7 @@ import { ColumnNavDropdown } from './columnNavDropdown';
 import { ListNavDropdown } from './listNavDropdown';
 
 import { NavDropdown } from './navDropdown';
-import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownDropdown } from './dropdownDropdown';
 import { HoverStyle } from '../common';
 
 import {
@@ -86,8 +86,8 @@ export const Dropdown: FC<DropdownProps> = ({
           withColumns ? (
             // Render the dropdown menu that should be display as columns
             <ColumnNavDropdown
+              key={name}
               content={menus}
-              name={name}
               rowsPerColumn={rowsPerColumn}
               hoverStyle={hoverStyle}
             />

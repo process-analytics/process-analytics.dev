@@ -25,55 +25,48 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, FC, SetStateAction } from 'react';
-
-import { DropdownLink } from './DropdownLink';
-import { DropdownDropdown } from './DropdownDropdown';
-
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import React, { Dispatch, SetStateAction } from 'react';
 
 import { HoverStyle } from '../../common';
+import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
-type ListNavDropdownProps = {
-  content: HeaderMenu[];
+import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownLink } from './DropdownLink';
+
+export type RowProps = {
+  menu: HeaderMenu;
   setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   hoverStyle: HoverStyle;
 };
-
-export const ListNavDropdown: FC<ListNavDropdownProps> = ({
-  content,
+export const Row = ({
+  menu,
+  hoverStyle,
   setDropdownDropdownElement,
   setDropdownDropdownName,
-  hoverStyle,
-}) => (
-  <>
-    {content.map(menu =>
-      isHeaderMenuWithItems(menu) ? (
-        <DropdownDropdown
-          key={menu.name}
-          content={menu}
-          hoverStyle={hoverStyle}
-          onMouseEnter={({
-            currentTarget,
-          }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(currentTarget ?? undefined);
-              setDropdownDropdownName(menu.name);
-            }
-          }}
-          onMouseLeave={() => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(undefined);
-              setDropdownDropdownName(undefined);
-            }
-          }}
-        />
-      ) : (
-        <DropdownLink key={menu.name} content={menu} hoverStyle={hoverStyle} />
-      ),
-    )}
-  </>
-);
+}: RowProps): JSX.Element =>
+  isHeaderMenuWithItems(menu) ? (
+    <DropdownDropdown
+      key={menu.name}
+      content={menu}
+      hoverStyle={hoverStyle}
+      onMouseEnter={({
+        currentTarget,
+      }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
+        if (menu.isCollapsed) {
+          setDropdownDropdownElement(currentTarget ?? undefined);
+          setDropdownDropdownName(menu.name);
+        }
+      }}
+      onMouseLeave={() => {
+        if (menu.isCollapsed) {
+          setDropdownDropdownElement(undefined);
+          setDropdownDropdownName(undefined);
+        }
+      }}
+    />
+  ) : (
+    <DropdownLink key={menu.name} content={menu} hoverStyle={hoverStyle} />
+  );

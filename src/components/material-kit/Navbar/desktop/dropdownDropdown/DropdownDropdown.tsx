@@ -29,12 +29,12 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 import { Grow, Popper } from '@mui/material';
 
-import { DropdownLink } from './DropdownLink';
-import { MKBox, MKBoxProps } from '../..';
+import { DropdownLink } from '../DropdownLink';
+import { MKBox, MKBoxProps } from '../../..';
 
-import { HeaderMenuWithItems } from '../../../Header';
+import { HeaderMenuWithItems } from '../../../../Header';
 
-import { HoverStyle } from '../common';
+import { HoverStyle } from '../../common';
 
 export type DropdownDropdownProps = {
   content: HeaderMenuWithItems[];
