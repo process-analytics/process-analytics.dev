@@ -70,9 +70,7 @@ export const Dropdown: FC<DropdownProps> = ({
       <NavDropdown
         expandedNavDropdownElement={expandedNavDropdownElement}
         dropdownStyle={dropdownStyle}
-        onMouseEnter={() => {
-          setExpandedNavDropdownElement(expandedNavDropdownElement);
-        }}
+        onMouseEnter={() => setExpandedNavDropdownElement(expandedNavDropdownElement)} // TODO: unnecessary ?
         onMouseLeave={() => {
           if (!dropdownDropdownName) {
             setExpandedNavDropdownName(undefined);
@@ -117,10 +115,13 @@ export const Dropdown: FC<DropdownProps> = ({
         }
         dropdownDropdownElement={dropdownDropdownElement}
         dropdownDropdownName={dropdownDropdownName}
-        setDropdownDropdownElement={setDropdownDropdownElement}
-        setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
         hoverStyle={hoverStyle}
+        onMouseEnter={() => setDropdownDropdownElement(dropdownDropdownElement)} // TODO: unnecessary ?
+        onMouseLeave={() => {
+          setDropdownDropdownElement(undefined);
+          setDropdownDropdownName(undefined);
+        }}
       />
     </>
   );

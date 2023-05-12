@@ -40,22 +40,20 @@ export type DropdownDropdownProps = {
   content: HeaderMenuWithItems[];
   dropdownDropdownElement?: EventTarget & HTMLSpanElement;
   dropdownDropdownName?: string;
-  setDropdownDropdownElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >;
-  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
+  onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const DropdownDropdown = ({
   content,
   dropdownDropdownElement,
   dropdownDropdownName,
-  setDropdownDropdownElement,
-  setDropdownDropdownName,
   dropdownStyle,
   hoverStyle,
+  onMouseEnter,
+  onMouseLeave,
 }: DropdownDropdownProps): JSX.Element => (
   <Popper
     anchorEl={dropdownDropdownElement}
@@ -64,13 +62,8 @@ export const DropdownDropdown = ({
     placement="right-start"
     transition
     style={{ zIndex: 10 }}
-    onMouseEnter={() => {
-      setDropdownDropdownElement(dropdownDropdownElement);
-    }}
-    onMouseLeave={() => {
-      setDropdownDropdownElement(undefined);
-      setDropdownDropdownName(undefined);
-    }}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
   >
     {({ TransitionProps }) => (
       <Grow {...TransitionProps} style={{ transformOrigin: 'left top' }}>
