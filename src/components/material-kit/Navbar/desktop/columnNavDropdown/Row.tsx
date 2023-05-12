@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { Theme } from '@mui/material';
 
@@ -34,8 +34,8 @@ import { MKTypography } from '../../..';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
-type MenuProps = { index: number; name: string };
-const Menu = ({ index, name }: MenuProps): JSX.Element => (
+type MenuProps = { isFirstRow: boolean; name: string };
+const Menu = ({ isFirstRow, name }: MenuProps): JSX.Element => (
   <MKTypography
     display="block"
     variant="button"
@@ -43,7 +43,7 @@ const Menu = ({ index, name }: MenuProps): JSX.Element => (
     textTransform="capitalize"
     py={1}
     px={0.5}
-    mt={index !== 0 ? 2 : 0}
+    mt={isFirstRow ? 0 : 2}
   >
     {name}
   </MKTypography>
@@ -84,12 +84,12 @@ type RowProps = {
   hoverStyle: HoverStyle;
 };
 export const Row = ({ menu, index, hoverStyle }: RowProps): JSX.Element => (
-  <Fragment key={menu.name}>
-    <Menu index={index} name={menu.name} />
+  <>
+    <Menu isFirstRow={index === 0} name={menu.name} />
 
     {isHeaderMenuWithItems(menu) &&
       menu.items.map(item => (
         <SubMenu key={item.name} item={item} hoverStyle={hoverStyle} />
       ))}
-  </Fragment>
+  </>
 );
