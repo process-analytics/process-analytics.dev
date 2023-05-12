@@ -33,12 +33,19 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '../..';
 
+type TitleContainerProps = {
+  isMobileView: boolean;
+  isCollapsible?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+};
 const TitleContainer = ({
   isCollapsible,
   isMobileView,
   children,
   ...rest
-}: PropsWithChildren<Omit<TitleProps, 'icon' | 'name'>>): JSX.Element => (
+}: PropsWithChildren<TitleContainerProps>): JSX.Element => (
   <MKBox
     {...rest}
     mx={1}
@@ -77,6 +84,11 @@ const TitleContainer = ({
     {children}
   </MKBox>
 );
+
+type TitleProps = TitleContainerProps & {
+  name: string;
+  icon?: typeof SvgIcon;
+};
 
 const Title = ({
   icon,
@@ -127,6 +139,11 @@ const Title = ({
   </TitleContainer>
 );
 
+export type NavbarItemProps = React.PropsWithoutRef<
+  TitleProps & {
+    isCollapsed?: boolean;
+  }
+>;
 export const NavbarItem = ({
   name,
   icon,
@@ -152,18 +169,3 @@ export const NavbarItem = ({
     )}
   </>
 );
-
-export type NavbarItemProps = React.PropsWithoutRef<
-  TitleProps & {
-    isCollapsed?: boolean;
-  }
->;
-type TitleProps = {
-  name: string;
-  icon?: typeof SvgIcon;
-  isCollapsible?: boolean;
-  isMobileView: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
-};
