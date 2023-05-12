@@ -18,3 +18,4 @@ export { BrandLink } from './BrandLink';
 export { NavbarItem, NavbarItemProps } from './NavbarItem';
 export { HoverStyle, getHoverConfiguration } from './HoverStyle';
 export { NavLink } from './NavLink';
+export { NavDropdown } from './NavDropdown';

@@ -29,14 +29,18 @@ import React, { useState } from 'react';
 // @mui material components
 import { Collapse } from '@mui/material';
 
+import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownLink } from './DropdownLink';
+
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '../..';
-import { HoverStyle, NavLink } from '../common';
+import { HoverStyle, NavLink, NavDropdown } from '../common';
 
-import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
-
-// Material Kit 2 React example components
-import { NavDropdown } from './NavDropdown';
+import {
+  HeaderRoute,
+  isHeaderMenuWithItems,
+  isHeaderRouteWithMenus,
+} from '../../../Header';
 
 export const NavbarNav = ({
   content,
@@ -53,18 +57,36 @@ export const NavbarNav = ({
           const isCollapsed = route.name === collapse;
           return isHeaderRouteWithMenus(route) ? (
             <NavDropdown
-              key={route.name}
-              name={route.name}
-              icon={route.icon}
-              menus={route.menus}
+              // key={route.name}
+              isMobileView={true}
               isCollapsed={isCollapsed}
+              isCollapsible={true}
               onClick={() =>
                 setExpandedNavDropdownElement(
                   isCollapsed ? undefined : route.name,
                 )
               }
               hoverStyle={hoverStyle}
-            />
+              {...route}
+            >
+              <MKBox
+                sx={{
+                  height: '15rem',
+                  maxHeight: '15rem',
+                  overflowY: 'scroll',
+                }}
+              >
+                {route.menus.map((menu, id) => (
+                  <MKBox key={menu.name} px={2}>
+                    {isHeaderMenuWithItems(menu) ? (
+                      <DropdownDropdown {...menu} hoverStyle={hoverStyle} />
+                    ) : (
+                      <DropdownLink id={id} {...menu} hoverStyle={hoverStyle} />
+                    )}
+                  </MKBox>
+                ))}
+              </MKBox>
+            </NavDropdown>
           ) : (
             <NavLink key={route.name} hoverStyle={hoverStyle} {...route} />
           );

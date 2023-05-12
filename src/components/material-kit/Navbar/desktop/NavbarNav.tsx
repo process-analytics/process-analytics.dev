@@ -27,7 +27,7 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { NavbarItem, HoverStyle, NavLink } from '../common';
+import { NavbarItem, HoverStyle, NavLink, NavDropdown } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
@@ -60,10 +60,8 @@ export const NavbarNav = ({
     {content.map(route =>
       isHeaderRouteWithMenus(route) ? (
         <NavbarItem
-          key={route.name}
-          name={route.name}
+          //key={route.name}
           hoverStyle={hoverStyle}
-          icon={route.icon}
           isCollapsible={!!route.menus}
           isCollapsed={route.name === expandedNavDropdownName}
           onMouseEnter={({
@@ -76,6 +74,7 @@ export const NavbarNav = ({
             setExpandedNavDropdownElement(undefined);
             setExpandedNavDropdownName(undefined);
           }}
+          {...route}
         />
       ) : (
         <NavLink key={route.name} hoverStyle={hoverStyle} {...route} />

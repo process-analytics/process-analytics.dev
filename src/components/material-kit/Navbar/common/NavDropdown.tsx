@@ -58,21 +58,12 @@ export const NavDropdown = ({
     icon={icon}
     isCollapsed={isCollapsed}
     isCollapsible={isCollapsible}
+    isMobileView={isMobileView}
     hoverStyle={hoverStyle}
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
-    <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
-      {menus.map((menu, id) => (
-        <MKBox key={menu.name} px={2}>
-          {isHeaderMenuWithItems(menu) ? (
-            <DropdownDropdown content={menu} hoverStyle={hoverStyle} />
-          ) : (
-            <DropdownLink id={id} content={menu} hoverStyle={hoverStyle} />
-          )}
-        </MKBox>
-      ))}
-    </MKBox>
+    {children}
   </NavbarItem>
 );
