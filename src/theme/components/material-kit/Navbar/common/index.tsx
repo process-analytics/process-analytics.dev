@@ -16,4 +16,3 @@
 export { Action, ActionButton } from './ActionButton';
 export { BrandLink } from './BrandLink';
 export { NavbarItem, NavbarItemProps } from './NavbarItem';
-export { NavbarItems } from './NavbarItems';

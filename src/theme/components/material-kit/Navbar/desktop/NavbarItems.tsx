@@ -27,7 +27,7 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { NavbarItem, NavbarItemProps } from '.';
+import { NavbarItem, NavbarItemProps } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
 import { MKBox } from '../../MKBox';
