@@ -59,16 +59,12 @@ export const ListNavDropdown: FC<ListNavDropdownProps> = ({
           onMouseEnter={({
             currentTarget,
           }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(currentTarget);
-              setDropdownDropdownName(menu.name);
-            }
+            setDropdownDropdownElement(currentTarget);
+            setDropdownDropdownName(menu.name);
           }}
           onMouseLeave={() => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(undefined);
-              setDropdownDropdownName(undefined);
-            }
+            setDropdownDropdownElement(undefined);
+            setDropdownDropdownName(undefined);
           }}
         />
       ) : (

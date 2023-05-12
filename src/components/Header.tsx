@@ -70,11 +70,7 @@ export const isHeaderRouteWithMenus = (
  * @field description To define the description of a route under its name
  */
 export type HeaderMenuWithItems = Pick<LinkContent, 'name' | 'description'> & {
-  /**
-   * To define that the item should open a dropdown for its collapse items
-   */
-  isCollapsed?: boolean; // TODO Modify the code to remove this property
-  items: LinkContent[];
+  items: Omit<LinkContent, 'description'>[];
 };
 export type HeaderMenu =
   | LinkContent // dropdown-link

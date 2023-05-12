@@ -25,75 +25,62 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
-import { KeyboardArrowDown } from '@mui/icons-material';
 import { Theme } from '@mui/material';
 
-import { getHoverConfiguration, HoverStyle } from '../../common';
-import { MKTypography, MKBox } from '../../..';
-import { Link, LinkContent } from '../../../..';
+import { borders } from '../../../../assets/theme';
 
-export type RowProps = {
-  isCollapsed?: boolean;
+import { Link, LinkContent } from '../../..';
+import { MKBox, MKTypography } from '../..';
+import { getHoverConfiguration, HoverStyle } from '../common';
+
+type DropdownLinkProps = {
+  content: LinkContent;
   hoverStyle: HoverStyle;
-} & LinkContent;
-export const Row = ({
-  description,
-  name,
-  url,
-  type,
+};
+
+export const DropdownLink: FC<DropdownLinkProps> = ({
+  content,
   hoverStyle,
-  isCollapsed = false,
-}: RowProps): JSX.Element => (
+}) => (
   <Link
     component={MKTypography}
-    key={name}
-    type={type}
-    url={url}
+    type={content.type}
+    url={content.url}
     display="flex"
     justifyContent="space-between"
     alignItems="center"
     variant="button"
     textTransform="capitalize"
-    minWidth={description ? '14rem' : '12rem'}
-    color={'primary'}
-    fontWeight={description ? 'bold' : 'regular'}
-    py={description ? 1 : 0.625}
+    minWidth={content.description ? '14rem' : '12rem'}
+    fontWeight={content.description ? 'bold' : 'regular'}
+    py={content.description ? 1 : 0.625}
     px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),
     })}
   >
-    {description ? (
+    {content.description ? (
       <MKBox>
-        {name}
+        {content.name}
+
         <MKTypography
           display="block"
           variant="button"
-          color="text"
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
-          {description}
+          {content.description}
         </MKTypography>
       </MKBox>
     ) : (
-      name
-    )}
-
-    {isCollapsed && (
-      <KeyboardArrowDown
-        fontSize="small"
-        sx={{
-          fontWeight: 'normal',
-          verticalAlign: 'middle',
-          mr: -0.5,
-        }}
-      />
+      content.name
     )}
   </Link>
 );
+
+// export const DropdownLink: FC<DropdownLinkProps> = <DropdownItem {...menu} />;
