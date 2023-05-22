@@ -13,17 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { PropsWithChildren } from 'react';
+
+import React, { PropsWithChildren, useEffect } from 'react';
 
 import { Theme } from '@rebass/preset';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import CookieConsent, { Cookies } from 'react-cookie-consent';
 import {
   CssBaseline,
   THEME_ID,
   ThemeProvider as MuiThemeProvider,
 } from '@mui/material';
+
+import 'vanilla-cookieconsent';
+
+import { initCookieConsentBanner } from './CookieConsentBanner';
 
 import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
@@ -32,8 +36,6 @@ import { loadIcons } from '../utils/icons';
 import { Footer, Header } from '.';
 
 import { FooterRoutes } from '../../content/FooterRoutes';
-
-import 'tippy.js/dist/tippy.css';
 
 loadIcons();
 
@@ -59,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    min-height: 0px;
+    min-height: 0;
     position: relative;
     background-color: #f8f8f8;
     border-radius: 4px;
@@ -119,58 +121,26 @@ const GlobalStyle = createGlobalStyle`
 type Props = {
   footerRoutes: FooterRoutes;
 };
-
 export const Layout = ({
-  footerRoutes,
   children,
-}: PropsWithChildren<Props>): JSX.Element => (
-  <main>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <MuiThemeProvider theme={{ [THEME_ID]: muiTheme }}>
-        <CssBaseline>
-          <Header />
-          {children}
-          <Footer content={footerRoutes} />
-          {process.env.GATSBY_GA_MEASUREMENT_ID && (
-            <CookieConsent
-              location="bottom"
-              cookieName={`ga-disable-${process.env.GATSBY_GA_MEASUREMENT_ID}`}
-              enableDeclineButton={true}
-              flipButtons={true}
-              style={{
-                background: '#000000',
-              }}
-              contentStyle={{
-                color: '#FFFFFF',
-              }}
-              cookieValue={false}
-              buttonStyle={{
-                background: '#90EE90',
-                color: '#000000',
-              }}
-              declineCookieValue={true}
-              declineButtonStyle={{
-                background: '#fe6262',
-                color: '#000000',
-              }}
-              onDecline={() => {
-                gaOptout();
+  footerRoutes,
+}: PropsWithChildren<Props>): JSX.Element => {
+  useEffect(() => {
+    initCookieConsentBanner();
+  }, []);
 
-                // Clean the unnecessary cookies
-                Cookies.remove('_ga', { path: '/' });
-                Cookies.remove(
-                  `_ga_${process.env.GATSBY_GA_MEASUREMENT_ID?.substr(2)}`,
-                  { path: '/' },
-                );
-              }}
-              overlay={true}
-            >
-              This website uses cookies to monitor the audience.
-            </CookieConsent>
-          )}
-        </CssBaseline>
-      </MuiThemeProvider>
-    </ThemeProvider>
-  </main>
-);
+  return (
+    <main>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MuiThemeProvider theme={{ [THEME_ID]: muiTheme }}>
+          <CssBaseline>
+            <Header />
+            {children}
+            <Footer content={footerRoutes} />
+          </CssBaseline>
+        </MuiThemeProvider>
+      </ThemeProvider>
+    </main>
+  );
+};
