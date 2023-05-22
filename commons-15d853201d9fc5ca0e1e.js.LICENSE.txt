@@ -1,4 +1,9 @@
-/*! For license information please see index.js.LICENSE.txt */
+/*!
+ * CookieConsent v2.9.0
+ * https://www.github.com/orestbida/cookieconsent
+ * Author Orest Bida
+ * Released under the MIT License
+ */
 
 /**
  * @mui/styled-engine v5.12.3
