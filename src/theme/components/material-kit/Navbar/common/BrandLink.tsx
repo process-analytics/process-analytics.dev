@@ -35,20 +35,20 @@ import { Link as GatsbyLink } from 'gatsby-link';
 
 import { MKBox, MKTypography } from '../..';
 
+type BrandLinkProps = {
+  isTransparent: undefined | boolean;
+  isRelative: undefined | boolean;
+  brand: string | undefined;
+};
 export const BrandLink = ({
   isTransparent,
   isRelative,
   brand,
-}: {
-  isTransparent: undefined | boolean;
-  isRelative: undefined | boolean;
-  brand: string | undefined;
-}): JSX.Element => {
+}: BrandLinkProps): JSX.Element => {
   //const { logo } = header;
   return (
     <MKBox
       component={GatsbyLink}
-      //to={`#${getSectionHref(SECTION.home)}`}
       to="/"
       lineHeight={1}
       py={isTransparent ? 1.5 : 0.75}

@@ -172,28 +172,7 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
 };
 
 export const isPaletteColorName = (color: string): color is PaletteColorKey =>
-  [
-    'primary',
-    'secondary',
-    'error',
-    'warning',
-    'info',
-    'success',
-    'tertiary',
-    'quaternary',
-    'primaryLight',
-    'secondaryLight',
-    'spicy',
-    'sweet',
-    'manufacture',
-    'education',
-    'telecom',
-    'financial',
-    'energy',
-    'health',
-    'government',
-    'distribution',
-  ].includes(color);
+  paletteKeys.includes(color);
 
 export const isGreyColorName = (color: string): color is GreyColorName =>
   color === 'grey-100' ||

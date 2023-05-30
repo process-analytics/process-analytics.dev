@@ -35,12 +35,13 @@ import { Close, Menu } from '@mui/icons-material';
 
 import { MKBox, MKBoxProps } from '../..';
 
+type NavbarButtonProps = Pick<MKBoxProps, 'onClick'> & {
+  isOpen: boolean;
+};
 export const NavbarButton = ({
   onClick,
   isOpen,
-}: Pick<MKBoxProps, 'onClick'> & {
-  isOpen: boolean;
-}): JSX.Element => (
+}: NavbarButtonProps): JSX.Element => (
   <MKBox
     display={{ xs: 'inline-block', lg: 'none' }}
     lineHeight={0}
