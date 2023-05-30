@@ -17,6 +17,15 @@ import { PostDescription } from '../theme/types';
 
 const posts: PostDescription[] = [
   {
+    title: 'Exploring the intersection of BPMN with Process Mining',
+    text: 'This article describes our experience integrating the bpmn-visualization library with the popular Python process mining library pm4py.',
+    cover:
+      'https://cdn-images-1.medium.com/v2/resize:fit:880/1*UI_oU_MBPsfBQUxEXtJV6w.png',
+    url: 'https://medium.com/@process-analytics/exploring-the-intersection-of-bpmn-with-process-mining-a5fd246625bf',
+    date: 'May 2023',
+    time: 8,
+  },
+  {
     title: 'Interview with Prof. Wil van der Aalst at ICPM 2022',
     text: 'Interview with Prof. Wil van der Aalst about the scope of Process Mining, research advances, industry adoption, and what the future holds.',
     cover: 'https://miro.medium.com/max/700/0*AGf3gCHlnLo-Kezi',
