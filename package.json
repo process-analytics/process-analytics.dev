@@ -39,7 +39,7 @@
     "react-dom": "^18.2.0",
     "rebass": "^4.0.7",
     "styled-components": "^5.3.10",
-    "vanilla-cookieconsent": "^2.9.0"
+    "vanilla-cookieconsent": "^2.9.1"
   },
   "devDependencies": {
     "@types/chroma-js": "^2.4.0",
@@ -68,7 +68,7 @@
     "gatsby-plugin-typescript": "^5.9.0",
     "gatsby-remark-responsive-iframe": "^6.9.0",
     "gatsby-source-filesystem": "^5.9.0",
-    "gatsby-transformer-remark": "^6.9.0",
+    "gatsby-transformer-remark": "^6.10.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
