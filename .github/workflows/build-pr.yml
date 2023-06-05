@@ -26,6 +26,7 @@ jobs:
       - name: create .env.production file
         run: |
           touch .env.production
-          echo GATSBY_GA_MEASUREMENT_ID =${{ secrets.TEST_GA_MEASUREMENT_ID }} >> .env.production
+          echo GATSBY_GA_MEASUREMENT_ID = ${{ secrets.TEST_GA_MEASUREMENT_ID }} >> .env.production
+          cat .env.production
       - name: Build site
         run: npm run build
