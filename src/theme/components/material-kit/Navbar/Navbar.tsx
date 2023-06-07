@@ -29,20 +29,18 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { useState } from 'react';
-
 // @mui material components
 import { Container } from '@mui/material';
+import React, { useState } from 'react';
 
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React base styles
-
 import { HeaderRoute } from '../../../types';
 
 // Material Kit 2 React example components
-import { Action, ActionButton, BrandLink } from './common';
+import { Action, ActionButton, BrandLink, HoverStyle } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
 import { Dropdown, NavbarItems } from './desktop';
 
@@ -57,7 +55,10 @@ const InnerContainer = ({
   isRelative,
   isCenter,
   dropdownStyle,
-}: NavbarProps): JSX.Element => {
+  hoverStyle,
+}: Omit<NavbarProps, 'hoverStyle'> & {
+  hoverStyle: HoverStyle;
+}): JSX.Element => {
   const [collapseElement, setCollapseElement] = useState<
     EventTarget & HTMLSpanElement
   >();
@@ -95,16 +96,19 @@ const InnerContainer = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <BrandLink
-            isTransparent={isTransparent}
-            isRelative={isRelative}
-            brand={brand}
-          />
+          {brand && (
+            <BrandLink
+              isTransparent={isTransparent}
+              isRelative={isRelative}
+              brand={brand}
+            />
+          )}
 
           {!isMobileView && (
             <NavbarItems
               routes={routes}
               isCenter={isCenter}
+              hoverStyle={hoverStyle}
               setCollapseElement={setCollapseElement}
               setCollapseName={setCollapseName}
               collapseName={collapseName}
@@ -128,7 +132,11 @@ const InnerContainer = ({
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
-            <NavbarNav routes={routes} isOpen={isOpenMobileNavbar} />
+            <NavbarNav
+              routes={routes}
+              isOpen={isOpenMobileNavbar}
+              hoverStyle={hoverStyle}
+            />
           </MKBox>
         )}
       </MKBox>
@@ -141,6 +149,7 @@ const InnerContainer = ({
           setCollapseElement={setCollapseElement}
           setCollapseName={setCollapseName}
           dropdownStyle={dropdownStyle}
+          hoverStyle={hoverStyle}
         />
       )}
     </Container>
@@ -158,26 +167,36 @@ export const Navbar = ({
   bgColor,
   color,
   dropdownStyle,
+  hoverStyle: hoverStyleProp,
   ...rest
-}: NavbarProps): JSX.Element => (
-  <MKBox
-    {...rest}
-    position={isTransparent && isSticky ? 'sticky' : 'relative'}
-    bgColor={isTransparent ? bgColor : 'transparent'}
-    color={color}
-  >
-    <InnerContainer
-      brand={brand}
-      routes={routes}
-      action={action}
-      isTransparent={isTransparent}
-      isSticky={isTransparent ? false : isSticky}
-      isRelative={isTransparent ? true : isRelative}
-      isCenter={isCenter}
-      dropdownStyle={dropdownStyle}
-    />
-  </MKBox>
-);
+}: NavbarProps): JSX.Element => {
+  const hoverStyle = {
+    backgroundColor: hoverStyleProp?.backgroundColor ?? 'quaternary',
+    color: hoverStyleProp?.color ?? 'spicy',
+    borderRadius: hoverStyleProp?.borderRadius ?? '5px',
+  };
+
+  return (
+    <MKBox
+      {...rest}
+      position={isTransparent && isSticky ? 'sticky' : 'relative'}
+      bgColor={isTransparent ? bgColor : 'transparent'}
+      color={color}
+    >
+      <InnerContainer
+        brand={brand}
+        routes={routes}
+        action={action}
+        isTransparent={isTransparent}
+        isSticky={isTransparent ? false : isSticky}
+        isRelative={isTransparent ? true : isRelative}
+        isCenter={isCenter}
+        dropdownStyle={dropdownStyle}
+        hoverStyle={hoverStyle}
+      />
+    </MKBox>
+  );
+};
 
 type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
   brand?: string;
@@ -188,4 +207,5 @@ type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
   isRelative?: boolean;
   isCenter?: boolean;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  hoverStyle?: Partial<HoverStyle>;
 };

@@ -27,7 +27,10 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { NavbarItem, NavbarItemProps } from '../common';
+import { Link as MaterialLink } from '@mui/material';
+import { Link as GatsbyLink } from 'gatsby-link';
+
+import { NavbarItem, NavbarItemProps, HoverStyle } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
 import { MKBox } from '../../MKBox';
@@ -40,26 +43,33 @@ const getNavbarItemAttributes = (
   >,
   setCollapseName: Dispatch<SetStateAction<string | undefined>>,
   collapseName?: string,
-): Omit<NavbarItemProps, 'name'> =>
+):
+  | Omit<NavbarItemProps, 'name' | 'isMobileView' | 'hoverStyle'>
+  | { component: typeof GatsbyLink; to: string }
+  | {
+      component: typeof MaterialLink;
+      rel: string;
+      href: string;
+      target: string;
+    } =>
   isHeaderRouteWithMenus(route)
     ? {
         icon: route.icon,
         isCollapsible: !!route.menus,
         isCollapsed: route.name === collapseName,
-        isMobileView: false,
-        onMouseEnter: ({ currentTarget }) => {
+
+        onMouseEnter: ({
+          currentTarget,
+        }: React.MouseEvent<HTMLDivElement>): void => {
           setCollapseElement(currentTarget);
           setCollapseName(route.name);
         },
-        onMouseLeave: () => {
+        onMouseLeave: (): void => {
           setCollapseElement(undefined);
           setCollapseName(undefined);
         },
       }
-    : {
-        isMobileView: false,
-        ...getLinkAttributes(route),
-      };
+    : getLinkAttributes(route);
 
 type NavbarItemsProps = {
   routes: HeaderRoute[];
@@ -69,6 +79,7 @@ type NavbarItemsProps = {
   >;
   setCollapseName: Dispatch<SetStateAction<string | undefined>>;
   collapseName?: string;
+  hoverStyle: HoverStyle;
 };
 
 export const NavbarItems = ({
@@ -77,6 +88,7 @@ export const NavbarItems = ({
   setCollapseElement,
   setCollapseName,
   collapseName,
+  hoverStyle,
 }: NavbarItemsProps): JSX.Element => (
   <MKBox
     color="inherit"
@@ -88,6 +100,8 @@ export const NavbarItems = ({
       <NavbarItem
         key={route.name}
         name={route.name}
+        isMobileView={false}
+        hoverStyle={hoverStyle}
         {...getNavbarItemAttributes(
           route,
           setCollapseElement,

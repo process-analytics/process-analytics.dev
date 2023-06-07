@@ -30,6 +30,8 @@ import React, { PropsWithChildren } from 'react';
 import { Collapse, SvgIcon, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
+import { getHoverConfiguration, HoverStyle } from './HoverStyle';
+
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '../..';
 
@@ -39,10 +41,12 @@ type TitleContainerProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  hoverStyle: HoverStyle;
 };
 const TitleContainer = ({
   isCollapsible,
   isMobileView,
+  hoverStyle,
   children,
   ...rest
 }: PropsWithChildren<TitleContainerProps>): JSX.Element => (
@@ -53,32 +57,13 @@ const TitleContainer = ({
     display="flex"
     alignItems="baseline"
     //opacity={isMobileView && open ? 1 : 0.6}
-    sx={({ palette: { quaternary, spicy } }: Theme) => ({
+    sx={({ palette }: Theme) => ({
       cursor: 'pointer',
       userSelect: 'none',
       transition: 'all 300ms linear',
 
-      ...(!isMobileView && {
-        // TODO Make configurable color
-        '*:hover': {
-          //fontWeight: 'bold',
-          color: spicy.main,
-        },
-      }),
-
-      ...(isMobileView &&
-        !isCollapsible && {
-          // TODO Make configurable color
-          '&:hover': {
-            backgroundColor: quaternary.main,
-            color: spicy.main,
-            borderRadius: '5px',
-
-            '& *': {
-              color: spicy.main,
-            },
-          },
-        }),
+      ...((!isMobileView || (isMobileView && !isCollapsible)) &&
+        getHoverConfiguration(palette, hoverStyle)),
     })}
   >
     {children}

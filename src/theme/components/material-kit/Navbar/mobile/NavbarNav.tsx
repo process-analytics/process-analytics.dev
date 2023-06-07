@@ -31,6 +31,7 @@ import { Collapse } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '../..';
+import { HoverStyle } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
 
@@ -42,6 +43,7 @@ export const NavbarNav = ({
   routes,
   isOpen,
   dropdownStyle,
+  hoverStyle,
 }: NavbarNavProps): JSX.Element => {
   const [collapse, setCollapseElement] = useState<string>();
 
@@ -60,9 +62,10 @@ export const NavbarNav = ({
               onClick={() =>
                 setCollapseElement(isCollapsed ? undefined : route.name)
               }
+              hoverStyle={hoverStyle}
             />
           ) : (
-            <NavLink key={route.name} {...route} />
+            <NavLink key={route.name} {...route} hoverStyle={hoverStyle} />
           );
         })}
       </MKBox>
@@ -74,4 +77,5 @@ type NavbarNavProps = {
   routes: HeaderRoute[];
   isOpen: boolean;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  hoverStyle: HoverStyle;
 };

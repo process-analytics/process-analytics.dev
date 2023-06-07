@@ -14,10 +14,23 @@
  * limitations under the License.
  */
 
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
 import React, { Dispatch, Fragment, SetStateAction, useState } from 'react';
 
 import { Box, Divider, Grid, Grow, Popper, Theme } from '@mui/material';
 import { ArrowDropUp, KeyboardArrowDown } from '@mui/icons-material';
+
+import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import {
   HeaderMenu,
@@ -33,6 +46,7 @@ import { getLinkAttributes } from '../../../Link';
 const ColumnDropdownMenus = (
   menus: HeaderMenu[],
   name: string,
+  hoverStyle: HoverStyle,
   rowsPerColumn?: number,
 ): JSX.Element => {
   const calculateColumns = menus.reduce(
@@ -87,19 +101,11 @@ const ColumnDropdownMenus = (
                       fontWeight="regular"
                       py={0.625}
                       px={2}
-                      sx={({
-                        palette: { grey },
-                        borders: { borderRadius },
-                      }: Theme) => ({
+                      sx={({ palette, borders: { borderRadius } }: Theme) => ({
                         borderRadius: borderRadius.md,
                         cursor: 'pointer',
                         transition: 'all 300ms linear',
-
-                        // TODO Make configurable color
-                        '&:hover': {
-                          backgroundColor: grey[200],
-                          color: grey?.A700,
-                        },
+                        ...getHoverConfiguration(palette, hoverStyle),
                       })}
                     >
                       {item.name}
@@ -133,6 +139,7 @@ const ListDropdownMenus = (
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >,
   setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>,
+  hoverStyle: HoverStyle,
 ): JSX.Element[] =>
   menus.map(menu => (
     <MKTypography
@@ -147,24 +154,11 @@ const ListDropdownMenus = (
       fontWeight={menu.description ? 'bold' : 'regular'}
       py={menu.description ? 1 : 0.625}
       px={2}
-      sx={({
-        // TODO Make configurable color
-        palette: { grey },
-        borders: { borderRadius },
-      }: Theme) => ({
+      sx={({ palette, borders: { borderRadius } }: Theme) => ({
         borderRadius: borderRadius.md,
         cursor: 'pointer',
         transition: 'all 300ms linear',
-
-        // TODO Make configurable color
-        '&:hover': {
-          backgroundColor: grey[200],
-          color: grey?.A700,
-
-          '& *': {
-            color: grey?.A700,
-          },
-        },
+        ...getHoverConfiguration(palette, hoverStyle),
       })}
       onMouseEnter={({
         currentTarget,
@@ -225,6 +219,7 @@ export type DropdownMenuProps = {
   >;
   setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  hoverStyle: HoverStyle;
 };
 export const DropdownMenu = ({
   routes,
@@ -236,6 +231,7 @@ export const DropdownMenu = ({
   setNestedDropdownElement,
   setNestedDropdownName,
   dropdownStyle,
+  hoverStyle,
 }: DropdownMenuProps): JSX.Element => {
   const [arrowRef, setArrowRef] = useState();
 
@@ -297,12 +293,13 @@ export const DropdownMenu = ({
               ).map(({ name, menus, withColumns, rowsPerColumn }) =>
                 withColumns
                   ? // Render the dropdown menu that should be display as columns
-                    ColumnDropdownMenus(menus, name, rowsPerColumn)
+                    ColumnDropdownMenus(menus, name, hoverStyle, rowsPerColumn)
                   : // Render the dropdown menu that should be display as list items
                     ListDropdownMenus(
                       menus,
                       setNestedDropdownElement,
                       setNestedDropdownName,
+                      hoverStyle,
                     ),
               )}
             </MKBox>

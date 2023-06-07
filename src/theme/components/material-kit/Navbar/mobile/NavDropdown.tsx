@@ -31,20 +31,26 @@ import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../../types';
 
 import { MKBox } from '../..';
 
-import { NavbarItem } from '../common';
+import { NavbarItem, HoverStyle } from '../common';
 import { DropdownDropdown } from './DropdownDropdown';
 import { DropdownLink } from './DropdownLink';
 
+type NavDropdownProps = Omit<
+  HeaderRouteWithMenus,
+  'withColumns' | 'rowsPerColumn'
+> & {
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  isCollapsed: boolean;
+  hoverStyle: HoverStyle;
+};
 export const NavDropdown = ({
   name,
   icon,
   menus,
   isCollapsed,
   onClick,
-}: Omit<HeaderRouteWithMenus, 'withColumns' | 'rowsPerColumn'> & {
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  isCollapsed: boolean;
-}): JSX.Element => (
+  hoverStyle,
+}: NavDropdownProps): JSX.Element => (
   <NavbarItem
     key={name}
     name={name}
@@ -53,14 +59,15 @@ export const NavDropdown = ({
     isCollapsed={isCollapsed}
     isCollapsible
     isMobileView
+    hoverStyle={hoverStyle}
   >
     <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>
       {menus.map((menu, id) => (
         <MKBox key={menu.name} px={2}>
           {isHeaderMenuWithItems(menu) ? (
-            <DropdownDropdown {...menu} />
+            <DropdownDropdown {...menu} hoverStyle={hoverStyle} />
           ) : (
-            <DropdownLink id={id} {...menu} />
+            <DropdownLink id={id} {...menu} hoverStyle={hoverStyle} />
           )}
         </MKBox>
       ))}

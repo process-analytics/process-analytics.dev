@@ -13,6 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ Coded by www.creative-tim.com
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
 import React, { useState } from 'react';
 
 import { DropdownMenu, DropdownMenuProps } from './DropdownMenu';
@@ -28,6 +40,7 @@ export const Dropdown = ({
   setCollapseElement,
   setCollapseName,
   dropdownStyle,
+  hoverStyle,
 }: Omit<
   DropdownMenuProps,
   | 'nestedDropdownName'
@@ -59,6 +72,7 @@ export const Dropdown = ({
         setNestedDropdownElement={setNestedDropdownElement}
         setNestedDropdownName={setNestedDropdownName}
         dropdownStyle={dropdownStyle}
+        hoverStyle={hoverStyle}
       />
       <NestedDropdownMenu
         routes={routes}
@@ -67,6 +81,7 @@ export const Dropdown = ({
         setNestedDropdownElement={setNestedDropdownElement}
         setNestedDropdownName={setNestedDropdownName}
         dropdownStyle={dropdownStyle}
+        hoverStyle={hoverStyle}
       />
     </>
   );
