@@ -13,70 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { ReactNode } from 'react';
+import Grid from '@mui/material/Grid';
+import React from 'react';
 
-import { Flex, Heading, Text } from 'rebass/styled-components';
+import { Flex } from 'rebass/styled-components';
+import { BlogCard } from './material-kit';
 import styled from 'styled-components';
-import { Fade } from 'react-awesome-reveal';
 
 import { PostDescription } from '../types';
 
-import { Card, CardContainer, CardFooter, ButtonWithInternalLink } from '.';
+import { ButtonWithInternalLink } from '.';
 
 import colors from '../colors.json';
 import { isMobileView } from '../utils/helpers';
-
-const cardMinWidth = '350px';
-
-type PostProps = PostDescription;
-
-export const Post = ({
-  title,
-  text,
-  cover,
-  url,
-  date,
-  time,
-}: PostProps): JSX.Element => (
-  <a
-    href={url}
-    target="__blank"
-    title={title}
-    style={{ textDecoration: 'none' }}
-  >
-    <Card p={0} pb={4}>
-      <EllipsisHeading m={3} color="text" fontSize={'1.25rem'}>
-        {title}
-      </EllipsisHeading>
-      {cover && <CoverImage src={cover} alt={title} />}
-      <Text m={3} color="text" fontSize={['0.75rem', '0.875rem']}>
-        {text}
-      </Text>
-      <CardFooter bg="primary" color="background" position="bottom-right" round>
-        <span>{`${date} - `}</span>
-        <TimeReadSpan>{`${Math.ceil(time)} min read`}</TimeReadSpan>
-      </CardFooter>
-    </Card>
-  </a>
-);
-
-const TimeReadSpan = styled.span`
-  text-transform: none;
-`;
-
-const CoverImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: scale-down;
-`;
-
-const EllipsisHeading = styled(Heading)`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-inline-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-`;
 
 type PostContainerProps = {
   posts: PostDescription[];
@@ -90,32 +39,44 @@ export const PostContainer = ({
   const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
     <>
-      <CardContainer minWidth={cardMinWidth}>
-        <DownFade>
-          {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map(p => (
-            <Post {...p} key={p.url} />
-          ))}
-        </DownFade>
-      </CardContainer>
+      <Grid container spacing={3} alignItems="center">
+        {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map(p => (
+          <Grid
+            item
+            key={p.url}
+            xs={12}
+            lg={4}
+            sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}
+          >
+            <BlogCard
+              key={p.url}
+              image={p.cover}
+              title={p.title}
+              description={p.text}
+              textAlign="left"
+              action={{
+                type: 'external',
+                url: p.url,
+                color: 'spicy',
+                label: 'More about',
+                variant: 'text',
+              }}
+            />
+          </Grid>
+        ))}
+      </Grid>
+
       {pageId && posts.length > maxNumberOfPosts && (
-        <DownFade>
-          <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
-            <ButtonWithInternalLink
-              to={`/${pageId}`}
-              color={colors.background}
-              backgroundColor={colors.secondary}
-            >
-              See all
-            </ButtonWithInternalLink>
-          </Flex>
-        </DownFade>
+        <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
+          <ButtonWithInternalLink
+            to={`/${pageId}`}
+            color={colors.background}
+            backgroundColor={colors.secondary}
+          >
+            See all
+          </ButtonWithInternalLink>
+        </Flex>
       )}
     </>
   );
 };
-
-const DownFade = ({ children }: { children: ReactNode }): JSX.Element => (
-  <Fade direction="down" triggerOnce cascade damping={0.5}>
-    {children}
-  </Fade>
-);

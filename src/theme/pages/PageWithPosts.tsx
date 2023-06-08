@@ -16,6 +16,7 @@
 import * as React from 'react';
 
 import { Heading, Text } from 'rebass/styled-components';
+import { MKBox } from '../components/material-kit';
 
 import { footerRoutes } from '../../content/FooterRoutes';
 
@@ -68,7 +69,9 @@ export const PageWithPosts = ({
       >
         {description}
       </Text>
-      <PostContainer posts={posts} />
+      <MKBox component="section" py={12}>
+        <PostContainer posts={posts} />{' '}
+      </MKBox>
     </Section>
     <MailingListSubscription />
   </Layout>

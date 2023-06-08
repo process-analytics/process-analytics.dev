@@ -46,20 +46,18 @@ export const ActionButton = ({
   variant,
   color,
   label,
-}: Action): JSX.Element => {
-  return (
-    <MKBox ml={{ xs: 'auto', lg: 0 }}>
-      <Button
-        {...getLinkAttributes({ type, url })}
-        variant={variant ?? 'gradient'}
-        color={color ?? 'info'}
-        size="medium"
-        sx={{
-          borderRadius: ({ borders }: Theme) => borders.borderRadius.section,
-        }}
-      >
-        {label}
-      </Button>
-    </MKBox>
-  );
-};
+}: Action): JSX.Element => (
+  <MKBox ml={{ xs: 'auto', lg: 0 }}>
+    <Button
+      {...getLinkAttributes({ type, url })}
+      variant={variant ?? 'contained'}
+      color={color ?? 'secondary'}
+      size="medium"
+      sx={{
+        borderRadius: ({ borders }: Theme) => borders.borderRadius.section,
+      }}
+    >
+      {label}
+    </Button>
+  </MKBox>
+);

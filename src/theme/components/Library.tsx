@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import Grid from '@mui/material/Grid';
 import React from 'react';
 
-import { Box, Flex, Text } from 'rebass/styled-components';
-import styled from 'styled-components';
+import { LibraryCard, MKBox } from './material-kit';
 
-import { CardFooter, SocialLink, Card } from './';
+import { SocialLink } from './';
 import { Library as LibraryType } from '../types';
-import { MEDIA_QUERY_SMALL } from '../utils/constants';
 
 type Props = LibraryType;
 
@@ -32,19 +31,40 @@ export const Library = ({
   examples,
   type,
 }: Props): JSX.Element => (
-  <Card p={0}>
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
-        <span>
-          <Title my={2} pb={1} color="text">
-            {name}
-          </Title>
-        </span>
-        <Text width={[1]} style={{ overflow: 'auto' }} color="text">
-          {description}
-        </Text>
-      </TextContainer>
+  <Grid item xs={12} md={6}>
+    <MKBox mb={5}>
+      <LibraryCard
+        title={name}
+        type={type}
+        description={description}
+        textAlign="left"
+        action={{
+          type: 'external',
+          url: repository,
+          color: 'spicy',
+          label: 'More about',
+          variant: 'text',
+        }}
+      />
+    </MKBox>
+  </Grid>
 
+  /* <Grid container item xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
+    <LibraryCard
+      title={name}
+      description={description}
+      textAlign="left"
+      action={{
+        type: 'external',
+        route: repository,
+        color: 'spicy',
+        label: 'More about',
+        variant: 'text',
+      }}
+    />
+  </Grid>*/
+
+  /*
       <InfoContainer>
         <LinksContainer>
           <Flex
@@ -80,48 +100,7 @@ export const Library = ({
         >
           {type}
         </CardFooter>
-      </InfoContainer>
-    </Flex>
-  </Card>
+      </InfoContainer>*/
 );
-
-const CARD_HEIGHT = '200px';
-const INFO_CONTAINER_WIDTH = '30px';
-
-const Title = styled(Text)`
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: table;
-  border-bottom: ${({ theme }) => theme.colors.primary} 5px solid;
-`;
-
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: calc(100% - ${INFO_CONTAINER_WIDTH});
-  font-size: 0.875rem;
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(100% - (${INFO_CONTAINER_WIDTH} / 2));
-    font-size: 0.75rem;
-  }
-`;
-
-const InfoContainer = styled.div`
-  margin: auto;
-  width: ${INFO_CONTAINER_WIDTH};
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(${INFO_CONTAINER_WIDTH} / 2);
-  }
-`;
-
-const LinksContainer = styled.div`
-  position: relative;
-  height: ${CARD_HEIGHT};
-  top: 3.5px;
-`;
 
 export default Library;
