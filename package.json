@@ -63,7 +63,7 @@
     "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-mdx": "^5.9.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sitemap": "^6.9.0",
+    "gatsby-plugin-sitemap": "^6.10.0",
     "gatsby-plugin-styled-components": "^6.9.0",
     "gatsby-plugin-typescript": "^5.9.0",
     "gatsby-remark-responsive-iframe": "^6.9.0",
