@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/chroma-js": "^2.4.0",
-    "@types/react": "^18.2.0",
+    "@types/react": "^18.2.12",
     "@types/react-headroom": "^3.2.0",
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
@@ -57,7 +57,7 @@
     "eslint-plugin-notice": "^0.9.10",
     "eslint-plugin-prettier": "^4.2.1",
     "gatsby": "^5.9.0",
-    "gatsby-plugin-google-gtag": "^5.10.0",
+    "gatsby-plugin-google-gtag": "^5.11.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-material-ui": "^4.1.0",
