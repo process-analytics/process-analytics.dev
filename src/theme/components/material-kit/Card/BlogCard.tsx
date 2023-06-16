@@ -31,7 +31,7 @@ Coded by www.creative-tim.com
 import React from 'react';
 
 // @mui material components
-import { Button, Card, CardActionArea, CardMedia } from '@mui/material';
+import { Button, Card, CardActionArea } from '@mui/material';
 import { Action } from '../Navbar/common';
 import { getLinkAttributes } from '../../Link';
 
@@ -57,12 +57,6 @@ export const BlogCard = ({
   >
     <CardActionArea>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
-        {/*          <CardMedia
-              component="img"
-              alt="green iguana"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-          />*/}
         <MKBox
           component="img"
           src={image}
