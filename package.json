@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/chroma-js": "^2.4.0",
-    "@types/react": "^18.2.0",
+    "@types/react": "^18.2.12",
     "@types/react-headroom": "^3.2.0",
     "@types/rebass": "^4.0.10",
     "@types/rebass__forms": "^4.0.6",
