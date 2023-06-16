@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { GitHub } from '@mui/icons-material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 /**
  =========================================================
  * Material Kit 2 React - v2.0.0
@@ -38,7 +40,7 @@ import { Link } from '../../../../types';
 
 export type Action = Required<Pick<Link, 'url' | 'type'>> &
   Pick<ButtonProps, 'color' | 'variant'> & {
-    label: string;
+    label: string | JSX.Element;
   };
 export const ActionButton = ({
   type,

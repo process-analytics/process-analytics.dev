@@ -13,8 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {
+  Book,
+  BrowseGallery,
+  Category,
+  Dvr,
+  GitHub,
+  LibraryBooks,
+  MenuBook,
+  School,
+  SchoolRounded,
+  SchoolTwoTone,
+  SnippetFolderRounded,
+  SnippetFolderTwoTone,
+  Web,
+} from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
 import React from 'react';
+import { Action } from './material-kit/Navbar/common';
 
 import { LibraryCard, MKBox } from './material-kit';
 
@@ -30,77 +46,97 @@ export const Library = ({
   documentation,
   examples,
   type,
-}: Props): JSX.Element => (
-  <Grid item xs={12} md={6}>
-    <MKBox mb={5}>
-      <LibraryCard
-        title={name}
-        type={type}
-        description={description}
-        textAlign="left"
-        action={{
-          type: 'external',
-          url: repository,
-          color: 'spicy',
-          label: 'More about',
-          variant: 'text',
-        }}
-      />
-    </MKBox>
-  </Grid>
+}: Props): JSX.Element => {
+  const actions: Action[] = [
+    {
+      type: 'external',
+      url: repository,
+      label: <GitHub />,
+    },
+  ];
+  if (documentation) {
+    actions.push({
+      type: 'external',
+      url: documentation,
+      /* label: <LibraryBooks />,*/
+      label: <SchoolRounded />,
+    });
+  }
+  if (examples) {
+    actions.push({
+      type: 'external',
+      url: examples,
+      //label: <Category />,
+      label: <SnippetFolderRounded />,
+    });
+  }
 
-  /* <Grid container item xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
-    <LibraryCard
-      title={name}
-      description={description}
-      textAlign="left"
-      action={{
-        type: 'external',
-        route: repository,
-        color: 'spicy',
-        label: 'More about',
-        variant: 'text',
-      }}
-    />
-  </Grid>*/
+  return (
+    <Grid item xs={12} md={6}>
+      <MKBox mb={5}>
+        <LibraryCard
+          title={name}
+          type={type}
+          description={description}
+          textAlign="left"
+          actions={actions}
+        />
+      </MKBox>
+    </Grid>
 
-  /*
-      <InfoContainer>
-        <LinksContainer>
-          <Flex
-            m={1}
-            style={{
-              float: 'right',
+    /* <Grid container item xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
+          <LibraryCard
+            title={name}
+            description={description}
+            textAlign="left"
+            action={{
+              type: 'external',
+              route: repository,
+              color: 'spicy',
+              label: 'More about',
+              variant: 'text',
             }}
-          >
-            <Box mx={1} fontSize={4}>
-              <SocialLink name="Repository" icon="github" url={repository} />
-            </Box>
-            {documentation && (
-              <Box mx={1} fontSize={4}>
-                <SocialLink
-                  name="Documentation"
-                  icon="book"
-                  url={documentation}
-                />
-              </Box>
-            )}
-            {examples && (
-              <Box mx={1} fontSize={4}>
-                <SocialLink name="Examples" icon="globe" url={examples} />
-              </Box>
-            )}
-          </Flex>
-        </LinksContainer>
-        <CardFooter
-          bg="primary"
-          color="background"
-          position="bottom-right"
-          round
-        >
-          {type}
-        </CardFooter>
-      </InfoContainer>*/
-);
+          />
+        </Grid>*/
+
+    /*
+            <InfoContainer>
+              <LinksContainer>
+                <Flex
+                  m={1}
+                  style={{
+                    float: 'right',
+                  }}
+                >
+                  <Box mx={1} fontSize={4}>
+                    <SocialLink name="Repository" icon="github" url={repository} />
+                  </Box>
+                  {documentation && (
+                    <Box mx={1} fontSize={4}>
+                      <SocialLink
+                        name="Documentation"
+                        icon="book"
+                        url={documentation}
+                      />
+                    </Box>
+                  )}
+                  {examples && (
+                    <Box mx={1} fontSize={4}>
+                      <SocialLink name="Examples" icon="globe" url={examples} />
+                    </Box>
+                  )}
+                </Flex>
+              </LinksContainer>
+              <CardFooter
+                bg="primary"
+                color="background"
+                position="bottom-right"
+                round
+              >
+                {type}
+              </CardFooter>
+            </InfoContainer>*/
+  );
+};
 
 export default Library;

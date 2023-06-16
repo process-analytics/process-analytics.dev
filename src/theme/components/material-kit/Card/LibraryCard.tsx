@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import Typography from '@mui/material/Typography';
 /*
 =========================================================
 * Material Kit 2 React - v2.0.0
@@ -33,13 +32,12 @@ import React from 'react';
 
 // @mui material components
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
-  CardMedia,
+  Chip,
+  IconButton,
 } from '@mui/material';
-import { Library as LibraryType } from '../../../types';
 import { Action } from '../Navbar/common';
 import { getLinkAttributes } from '../../Link';
 
@@ -54,7 +52,7 @@ export const LibraryCard = ({
   title,
   type,
   description,
-  action,
+  actions,
   textAlign = 'center',
 }: LibraryCardProps): JSX.Element => (
   <Card
@@ -62,58 +60,75 @@ export const LibraryCard = ({
       height: CARD_HEIGHT,
       // minWidth: cardMinWidth,
       overflowWrap: 'break-word',
-      overflow: 'visible',
-      maxHeight: CARD_HEIGHT,
+      overflow: 'hidden',
     }}
   >
-    <CardContent>
-      <MKBox p={3} mt={-1} textAlign={textAlign}>
-        <MKBox>
-          <MKTypography
-            display="inline"
-            variant="h5"
-            textTransform="capitalize"
-            fontWeight="regular"
-            textOverflow="ellipsis"
-          >
-            {title}
-          </MKTypography>
-        </MKBox>
-        <MKBox>
-          <MKTypography
-            display="inline"
-            variant="h6"
-            textTransform="capitalize"
-            fontWeight="bold"
-            color="spicy"
-          >
-            {type}
-          </MKTypography>
-        </MKBox>
+    <MKBox display="flex" height="100%" p={3}>
+      <CardContent>
+        <MKBox textAlign={textAlign}>
+          <MKBox>
+            <MKTypography
+              display="inline"
+              variant="h5"
+              textTransform="capitalize"
+              fontWeight="regular"
+              textOverflow="ellipsis"
+            >
+              {title}
+            </MKTypography>
+          </MKBox>
+          <MKBox>
+            <MKTypography
+              display="inline"
+              variant="h6"
+              textTransform="capitalize"
+              fontWeight="bold"
+              color="spicy"
+            >
+              {type}
+            </MKTypography>
+            {/* <Chip label={type} size="small" color="spicy" />*/}
+          </MKBox>
 
-        <MKBox mt={1} mb={3}>
-          <MKTypography
-            variant="body2"
-            component="p"
-            color="text"
-            textOverflow="ellipsis"
-          >
-            {description}
-          </MKTypography>
+          <MKBox mt={1} mb={3}>
+            <MKTypography
+              variant="body2"
+              component="p"
+              color="text"
+              textOverflow="ellipsis"
+            >
+              {description}
+            </MKTypography>
+          </MKBox>
         </MKBox>
-      </MKBox>
-    </CardContent>
-    <CardActions>
-      <Button
-        variant={action.variant ?? 'contained'}
-        size="small"
-        color={action.color ?? 'secondary'}
-        {...getLinkAttributes(action)}
-        sx={{ textTransform: 'none' }}
-      >
-        {action.label}
-      </Button>
-    </CardActions>
+      </CardContent>
+      <CardActions disableSpacing={true} sx={{ pl: 3 }}>
+        <MKBox
+          display="flex"
+          flexDirection="column"
+          justifyContent="start"
+          // justifyContent="space-evenly"
+          height="100%"
+        >
+          {actions.map((action, i) => (
+            <IconButton
+              key={i}
+              size="medium"
+              color={action.color ?? 'secondary'}
+              {...getLinkAttributes(action)}
+              sx={{
+                textTransform: 'none',
+                // mb: 2,
+                //fontSize: 40
+              }}
+              aria-label="add an alarm"
+            >
+              {action.label}
+            </IconButton>
+          ))}
+        </MKBox>
+      </CardActions>
+    </MKBox>
 
     {/*      <Card sx={{ maxWidth: 345 }}>
         <CardMedia
@@ -139,9 +154,10 @@ export const LibraryCard = ({
   </Card>
 );
 
-type LibraryCardProps = LibraryType & {
+type LibraryCardProps = {
   title: string;
   description: string;
-  action: Action;
+  actions: Omit<Action, 'variant'>[];
+  type: string;
   textAlign?: 'center' | 'left' | 'right';
 };
