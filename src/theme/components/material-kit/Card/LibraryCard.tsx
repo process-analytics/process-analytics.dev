@@ -87,7 +87,7 @@ export const LibraryCard = ({
             >
               {type}
             </MKTypography>
-            {/* <Chip label={type} size="small" color="spicy" />*/}
+            {/*<Chip label={type} size="small" color="spicy" />*/}
           </MKBox>
 
           <MKBox mt={1} mb={3}>
@@ -121,36 +121,14 @@ export const LibraryCard = ({
                 // mb: 2,
                 //fontSize: 40
               }}
-              aria-label="add an alarm"
+              title={action.label}
             >
-              {action.label}
+              {action.icon}
             </IconButton>
           ))}
         </MKBox>
       </CardActions>
     </MKBox>
-
-    {/*      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          alt="green iguana"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>*/}
   </Card>
 );
 

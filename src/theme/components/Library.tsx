@@ -50,24 +50,27 @@ export const Library = ({
   const actions: Action[] = [
     {
       type: 'external',
+      label: 'Repository',
       url: repository,
-      label: <GitHub />,
+      icon: <GitHub />,
     },
   ];
   if (documentation) {
     actions.push({
       type: 'external',
+      label: 'Documentation',
       url: documentation,
-      /* label: <LibraryBooks />,*/
-      label: <SchoolRounded />,
+      /* icon: <LibraryBooks />,*/
+      icon: <SchoolRounded />,
     });
   }
   if (examples) {
     actions.push({
       type: 'external',
       url: examples,
-      //label: <Category />,
-      label: <SnippetFolderRounded />,
+      label: 'Examples',
+      //icon: <Category />,
+      icon: <SnippetFolderRounded />,
     });
   }
 
@@ -83,59 +86,6 @@ export const Library = ({
         />
       </MKBox>
     </Grid>
-
-    /* <Grid container item xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
-          <LibraryCard
-            title={name}
-            description={description}
-            textAlign="left"
-            action={{
-              type: 'external',
-              route: repository,
-              color: 'spicy',
-              label: 'More about',
-              variant: 'text',
-            }}
-          />
-        </Grid>*/
-
-    /*
-            <InfoContainer>
-              <LinksContainer>
-                <Flex
-                  m={1}
-                  style={{
-                    float: 'right',
-                  }}
-                >
-                  <Box mx={1} fontSize={4}>
-                    <SocialLink name="Repository" icon="github" url={repository} />
-                  </Box>
-                  {documentation && (
-                    <Box mx={1} fontSize={4}>
-                      <SocialLink
-                        name="Documentation"
-                        icon="book"
-                        url={documentation}
-                      />
-                    </Box>
-                  )}
-                  {examples && (
-                    <Box mx={1} fontSize={4}>
-                      <SocialLink name="Examples" icon="globe" url={examples} />
-                    </Box>
-                  )}
-                </Flex>
-              </LinksContainer>
-              <CardFooter
-                bg="primary"
-                color="background"
-                position="bottom-right"
-                round
-              >
-                {type}
-              </CardFooter>
-            </InfoContainer>*/
   );
 };
 
