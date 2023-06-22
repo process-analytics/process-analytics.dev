@@ -35,7 +35,7 @@ import {
   Card,
   CardActions,
   CardContent,
-  Chip,
+  //  Chip,
   IconButton,
 } from '@mui/material';
 import { Action } from '../Navbar/common';
@@ -43,10 +43,6 @@ import { getLinkAttributes } from '../../Link';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
-
-const CARD_HEIGHT = '200px';
-const INFO_CONTAINER_WIDTH = '30px';
-const cardMinWidth = '300px';
 
 export const LibraryCard = ({
   title,
@@ -57,13 +53,11 @@ export const LibraryCard = ({
 }: LibraryCardProps): JSX.Element => (
   <Card
     sx={{
-      height: CARD_HEIGHT,
-      // minWidth: cardMinWidth,
-      overflowWrap: 'break-word',
       overflow: 'hidden',
+      alignItems: 'stretch',
     }}
   >
-    <MKBox display="flex" height="100%" p={3}>
+    <MKBox display="flex" p={3}>
       <CardContent>
         <MKBox textAlign={textAlign}>
           <MKBox>
@@ -90,7 +84,7 @@ export const LibraryCard = ({
             {/*<Chip label={type} size="small" color="spicy" />*/}
           </MKBox>
 
-          <MKBox mt={1} mb={3}>
+          <MKBox mt={1}>
             <MKTypography
               variant="body2"
               component="p"
@@ -102,12 +96,11 @@ export const LibraryCard = ({
           </MKBox>
         </MKBox>
       </CardContent>
-      <CardActions disableSpacing={true} sx={{ pl: 3 }}>
+      <CardActions disableSpacing={true} sx={{ pl: 2 }}>
         <MKBox
           display="flex"
           flexDirection="column"
           justifyContent="start"
-          // justifyContent="space-evenly"
           height="100%"
         >
           {actions.map((action, i) => (
@@ -118,8 +111,6 @@ export const LibraryCard = ({
               {...getLinkAttributes(action)}
               sx={{
                 textTransform: 'none',
-                // mb: 2,
-                //fontSize: 40
               }}
               title={action.label}
             >

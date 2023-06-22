@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 import {
-  Book,
-  BrowseGallery,
-  Category,
-  Dvr,
   GitHub,
-  LibraryBooks,
-  MenuBook,
-  School,
   SchoolRounded,
-  SchoolTwoTone,
   SnippetFolderRounded,
-  SnippetFolderTwoTone,
-  Web,
 } from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
 import React from 'react';
@@ -34,7 +24,6 @@ import { Action } from './material-kit/Navbar/common';
 
 import { LibraryCard, MKBox } from './material-kit';
 
-import { SocialLink } from './';
 import { Library as LibraryType } from '../types';
 
 type Props = LibraryType;
@@ -76,7 +65,7 @@ export const Library = ({
 
   return (
     <Grid item xs={12} md={6}>
-      <MKBox mb={5}>
+      <MKBox mb={5} display="flex">
         <LibraryCard
           title={name}
           type={type}
