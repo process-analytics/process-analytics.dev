@@ -20,7 +20,7 @@ export { Header } from './Header';
 export { Layout } from './Layout';
 export { Library } from './Library';
 export { Link } from './Link';
-export { Post, PostContainer } from './Post';
+export { PostContainer } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export { SocialLink, SocialLinkWithMaterial } from './SocialLink';
 export { MailingListSubscription } from './mailingListSubscription/MailingListSubscription';

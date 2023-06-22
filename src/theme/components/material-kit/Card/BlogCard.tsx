@@ -38,7 +38,6 @@ import { getLinkAttributes } from '../../Link';
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
 
-const cardMinWidth = '350px';
 export const BlogCard = ({
   image,
   title,
@@ -48,11 +47,9 @@ export const BlogCard = ({
 }: BlogCardProps): JSX.Element => (
   <Card
     sx={{
-      height: '388px',
-      //    minWidth: cardMinWidth,
-      overflowWrap: 'break-word',
       overflow: 'visible',
-      marginTop: '24px',
+      alignItems: 'stretch',
+      marginTop: '24px', // for the image outside the card
     }}
   >
     <CardActionArea>

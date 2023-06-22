@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 
 import { Flex } from 'rebass/styled-components';
-import { BlogCard } from './material-kit';
-import styled from 'styled-components';
+import { BlogCard, MKBox } from './material-kit';
 
 import { PostDescription } from '../types';
 
@@ -32,37 +32,44 @@ type PostContainerProps = {
   pageId?: string;
 };
 
+type PostProps = PostDescription;
+
+const Post = ({ cover, title, text, url }: PostProps): JSX.Element => (
+  <Grid
+    item
+    alignItems="stretch"
+    xs={12}
+    lg={4}
+    sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}
+  >
+    <MKBox mb={3}>
+      <BlogCard
+        image={cover}
+        title={title}
+        description={text}
+        textAlign="left"
+        action={{
+          type: 'external',
+          url: url,
+          color: 'spicy',
+          label: 'More about',
+          variant: 'text',
+        }}
+      />
+    </MKBox>
+  </Grid>
+);
+
 export const PostContainer = ({
   posts,
   pageId,
 }: PostContainerProps): JSX.Element => {
   const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
-    <>
+    <Container>
       <Grid container spacing={3} alignItems="center">
-        {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map(p => (
-          <Grid
-            item
-            key={p.url}
-            xs={12}
-            lg={4}
-            sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}
-          >
-            <BlogCard
-              key={p.url}
-              image={p.cover}
-              title={p.title}
-              description={p.text}
-              textAlign="left"
-              action={{
-                type: 'external',
-                url: p.url,
-                color: 'spicy',
-                label: 'More about',
-                variant: 'text',
-              }}
-            />
-          </Grid>
+        {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map((p, i) => (
+          <Post key={i} {...p} />
         ))}
       </Grid>
 
@@ -77,6 +84,6 @@ export const PostContainer = ({
           </ButtonWithInternalLink>
         </Flex>
       )}
-    </>
+    </Container>
   );
 };
