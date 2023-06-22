@@ -158,7 +158,7 @@ declare module '@mui/material/styles' {
 
   // allow configuration using `createTheme`
   interface ThemeOptions {
-    palette: PaletteOptions & SocialPaletteOptions;
+    palette?: PaletteOptions & SocialPaletteOptions;
     boxShadows?: BoxShadows;
     borders?: Borders;
     functions?: Functions;
