@@ -64,8 +64,8 @@ export const Library = ({
   }
 
   return (
-    <Grid item xs={12} md={6}>
-      <MKBox mb={5} display="flex">
+    <Grid item xs={12} md={6} alignItems="stretch">
+      <MKBox mb={3}>
         <LibraryCard
           title={name}
           type={type}

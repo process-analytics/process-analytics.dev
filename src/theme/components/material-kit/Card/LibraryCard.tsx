@@ -54,7 +54,6 @@ export const LibraryCard = ({
   <Card
     sx={{
       overflow: 'hidden',
-      alignItems: 'stretch',
     }}
   >
     <MKBox display="flex" p={3}>
