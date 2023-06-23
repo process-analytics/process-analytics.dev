@@ -73,7 +73,7 @@ export const LibraryCard = ({
           <MKBox>
             <MKTypography
               display="inline"
-              variant="h6"
+              variant="subtitle2"
               textTransform="capitalize"
               fontWeight="bold"
               color="spicy"
