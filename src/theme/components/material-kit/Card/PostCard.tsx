@@ -109,7 +109,7 @@ export const PostCard = ({
               {title}
             </MKTypography>
             <MKBox mt={1}>
-              <MKTypography variant="caption" color="spicy" fontWeight="bold">
+              <MKTypography variant="overline" color="spicy" fontWeight="bold">
                 {`${Math.ceil(timeToRead)} min read`}
               </MKTypography>
             </MKBox>
