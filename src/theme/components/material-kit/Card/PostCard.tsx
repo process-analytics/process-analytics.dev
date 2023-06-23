@@ -76,7 +76,9 @@ export const PostCard = ({
   image,
   title,
   description,
-  action,
+  postedOn,
+  timeToRead,
+  url,
   textAlign = 'center',
 }: BlogCardProps): JSX.Element => (
   <Card
@@ -86,7 +88,7 @@ export const PostCard = ({
       height: '100%', // to have card with same size
     }}
   >
-    <CardActionArea sx={{ height: '100%' }}>
+    <CardActionArea href={url} target="_blank" sx={{ height: '100%' }}>
       <Grid
         container
         flexDirection="column"
@@ -107,9 +109,8 @@ export const PostCard = ({
               {title}
             </MKTypography>
             <MKBox mt={1}>
-              <MKTypography variant="caption" color="spicy">
-                {'Time to read'}
-                {/* `${Math.ceil(time)} min read`*/}
+              <MKTypography variant="caption" color="spicy" fontWeight="bold">
+                {`${Math.ceil(timeToRead)} min read`}
               </MKTypography>
             </MKBox>
             <MKBox mt={1} mb={3}>
@@ -124,7 +125,7 @@ export const PostCard = ({
           disableSpacing={true}
           sx={{ pt: 0, pb: 3, px: 3, justifyContent: 'end' }}
         >
-          <MKTypography variant="caption">Posted on 28 February</MKTypography>
+          <MKTypography variant="caption">Posted on {postedOn}</MKTypography>
         </CardActions>
       </Grid>
     </CardActionArea>
@@ -135,6 +136,8 @@ interface BlogCardProps {
   image: string;
   title: string;
   description: string;
-  action: Action;
+  postedOn: string;
+  timeToRead: number;
+  url: string;
   textAlign?: 'center' | 'left' | 'right';
 }

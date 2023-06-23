@@ -34,7 +34,14 @@ type PostContainerProps = {
 
 type PostProps = PostDescription;
 
-const Post = ({ cover, title, text, url }: PostProps): JSX.Element => (
+const Post = ({
+  cover,
+  title,
+  text,
+  url,
+  date,
+  time,
+}: PostProps): JSX.Element => (
   <Grid item flex={1} xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
     <MKBox
       mb={3}
@@ -45,13 +52,9 @@ const Post = ({ cover, title, text, url }: PostProps): JSX.Element => (
         title={title}
         description={text}
         textAlign="left"
-        action={{
-          type: 'external',
-          url: url,
-          color: 'spicy',
-          label: 'More about',
-          variant: 'text',
-        }}
+        postedOn={date}
+        timeToRead={time}
+        url={url}
       />
     </MKBox>
   </Grid>
