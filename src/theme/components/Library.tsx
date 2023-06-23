@@ -49,7 +49,6 @@ export const Library = ({
       type: 'external',
       label: 'Documentation',
       url: documentation,
-      /* icon: <LibraryBooks />,*/
       icon: <SchoolRounded />,
     });
   }
@@ -58,7 +57,6 @@ export const Library = ({
       type: 'external',
       url: examples,
       label: 'Examples',
-      //icon: <Category />,
       icon: <SnippetFolderRounded />,
     });
   }
