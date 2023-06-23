@@ -38,7 +38,7 @@ import { getLinkAttributes } from '../../Link';
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
 
-export const BlogCard = ({
+export const PostCard = ({
   image,
   title,
   description,

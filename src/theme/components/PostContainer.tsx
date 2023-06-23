@@ -18,7 +18,7 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 import { Flex } from 'rebass/styled-components';
-import { BlogCard, MKBox } from './material-kit';
+import { PostCard, MKBox } from './material-kit';
 
 import { PostDescription } from '../types';
 
@@ -43,7 +43,7 @@ const Post = ({ cover, title, text, url }: PostProps): JSX.Element => (
     sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}
   >
     <MKBox mb={3}>
-      <BlogCard
+      <PostCard
         image={cover}
         title={title}
         description={text}
