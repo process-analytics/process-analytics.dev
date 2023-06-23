@@ -53,7 +53,7 @@ export const LibraryCard = ({
 }: LibraryCardProps): JSX.Element => (
   <Card
     sx={{
-      overflow: 'hidden',
+      height: '100%', // to have card with same size
     }}
   >
     <MKBox display="flex" p={3}>

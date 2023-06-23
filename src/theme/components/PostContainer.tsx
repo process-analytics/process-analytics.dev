@@ -35,14 +35,11 @@ type PostContainerProps = {
 type PostProps = PostDescription;
 
 const Post = ({ cover, title, text, url }: PostProps): JSX.Element => (
-  <Grid
-    item
-    alignItems="stretch"
-    xs={12}
-    lg={4}
-    sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}
-  >
-    <MKBox mb={3}>
+  <Grid item flex={1} xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
+    <MKBox
+      mb={3}
+      height={'calc(100% - 48px)'} // to have card with same size
+    >
       <PostCard
         image={cover}
         title={title}
@@ -67,7 +64,7 @@ export const PostContainer = ({
   const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
     <Container>
-      <Grid container spacing={3} alignItems="center">
+      <Grid container spacing={3}>
         {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map((p, i) => (
           <Post key={i} {...p} />
         ))}

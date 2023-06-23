@@ -31,12 +31,46 @@ Coded by www.creative-tim.com
 import React from 'react';
 
 // @mui material components
-import { Button, Card, CardActionArea } from '@mui/material';
+import { Card, CardActionArea, CardActions, CardContent } from '@mui/material';
 import { Action } from '../Navbar/common';
-import { getLinkAttributes } from '../../Link';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
+import Grid from '@mui/material/Grid';
+
+const Image = (props: { src: string; alt: string }): JSX.Element => (
+  <MKBox position="relative" borderRadius="lg" mx={2} mt={-3} height="170px">
+    <MKBox
+      component="img"
+      src={props.src}
+      alt={props.alt}
+      borderRadius="lg"
+      width="100%"
+      height="100%"
+      position="relative"
+      zIndex={1}
+      sx={{
+        objectFit: 'cover',
+      }}
+    />
+    <MKBox
+      borderRadius="lg"
+      shadow="md"
+      width="100%"
+      height="100%"
+      position="absolute"
+      left={0}
+      top={0}
+      sx={{
+        backgroundImage: `url(${props.src})`,
+        transform: 'scale(0.94)',
+        filter: 'blur(12px)',
+        backgroundSize: 'cover',
+        objectFit: 'cover',
+      }}
+    />
+  </MKBox>
+);
 
 export const PostCard = ({
   image,
@@ -48,83 +82,51 @@ export const PostCard = ({
   <Card
     sx={{
       overflow: 'visible',
-      alignItems: 'stretch',
       marginTop: '24px', // for the image outside the card
+      height: '100%', // to have card with same size
     }}
   >
-    <CardActionArea>
-      <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
-        <MKBox
-          component="img"
-          src={image}
-          alt={title}
-          borderRadius="lg"
-          width="100%"
-          height="170px"
-          position="relative"
-          zIndex={1}
-          sx={{
-            objectFit: 'cover',
-          }}
-        />
-        <MKBox
-          borderRadius="lg"
-          shadow="md"
-          width="100%"
-          height="170px"
-          position="absolute"
-          left={0}
-          top={0}
-          sx={{
-            backgroundImage: `url(${image})`,
-            transform: 'scale(0.94)',
-            filter: 'blur(12px)',
-            backgroundSize: 'cover',
-            objectFit: 'cover',
-          }}
-        />
-      </MKBox>
-
-      <MKBox
-        p={3}
-        // mt={-1}
-        textAlign={textAlign}
-        height="242px"
-        overflow="hidden"
-        textOverflow="ellipsis"
+    <CardActionArea sx={{ height: '100%' }}>
+      <Grid
+        container
+        flexDirection="column"
+        flex={1}
+        alignItems={'stretch'}
+        height="100%"
       >
-        <MKTypography
-          display="inline"
-          variant="h5"
-          textTransform="capitalize"
-          fontWeight="regular"
-          textOverflow="ellipsis"
+        <Image src={image} alt={title} />
+
+        <CardContent sx={{ marginBottom: 'auto', pb: 0, px: 3 }}>
+          <MKBox p={1} textAlign={textAlign}>
+            <MKTypography
+              display="inline"
+              variant="h5"
+              textTransform="capitalize"
+              fontWeight="regular"
+            >
+              {title}
+            </MKTypography>
+            <MKBox mt={1}>
+              <MKTypography variant="caption" color="spicy">
+                {'Time to read'}
+                {/* `${Math.ceil(time)} min read`*/}
+              </MKTypography>
+            </MKBox>
+            <MKBox mt={1} mb={3}>
+              <MKTypography variant="body2" component="p" color="text">
+                {description}
+              </MKTypography>
+            </MKBox>
+          </MKBox>
+        </CardContent>
+
+        <CardActions
+          disableSpacing={true}
+          sx={{ pt: 0, pb: 3, px: 3, justifyContent: 'end' }}
         >
-          {title}
-        </MKTypography>
-        <MKBox mt={1} mb={3}>
-          <MKTypography
-            variant="body2"
-            component="p"
-            color="text"
-            textOverflow="ellipsis"
-          >
-            {description}
-          </MKTypography>
-        </MKBox>
-        <Button
-          variant={action.variant ?? 'contained'}
-          size="small"
-          color={action.color ?? 'secondary'}
-          {...getLinkAttributes(action)}
-          sx={{ textTransform: 'none' }}
-        >
-          {action.label}
-        </Button>
-        {'Time to read'}
-        Posted on 28 February
-        {/* `${Math.ceil(time)} min read`*/}
-      </MKBox>
+          <MKTypography variant="caption">Posted on 28 February</MKTypography>
+        </CardActions>
+      </Grid>
     </CardActionArea>
   </Card>
 );

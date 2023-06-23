@@ -64,8 +64,11 @@ export const Library = ({
   }
 
   return (
-    <Grid item xs={12} md={6} alignItems="stretch">
-      <MKBox mb={3}>
+    <Grid item xs={12} md={6}>
+      <MKBox
+        mb={3}
+        height={'calc(100% - 48px)'} // to have card with same size
+      >
         <LibraryCard
           title={name}
           type={type}
