@@ -31,13 +31,7 @@ Coded by www.creative-tim.com
 import React from 'react';
 
 // @mui material components
-import {
-  Card,
-  CardActions,
-  CardContent,
-  //  Chip,
-  IconButton,
-} from '@mui/material';
+import { Card, CardActions, CardContent, IconButton } from '@mui/material';
 import { Action } from '../Navbar/common';
 import { getLinkAttributes } from '../../Link';
 
@@ -71,16 +65,9 @@ export const LibraryCard = ({
             </MKTypography>
           </MKBox>
           <MKBox>
-            <MKTypography
-              display="inline"
-              variant="subtitle2"
-              textTransform="capitalize"
-              fontWeight="bold"
-              color="spicy"
-            >
+            <MKTypography variant="overline" fontWeight="bold" color="spicy">
               {type}
             </MKTypography>
-            {/*<Chip label={type} size="small" color="spicy" />*/}
           </MKBox>
 
           <MKBox mt={1}>
