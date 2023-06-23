@@ -32,7 +32,6 @@ import React from 'react';
 
 // @mui material components
 import { Card, CardActionArea, CardActions, CardContent } from '@mui/material';
-import { Action } from '../Navbar/common';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';

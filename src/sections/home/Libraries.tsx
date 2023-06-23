@@ -17,8 +17,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 
-import { MKBox } from '../../theme/components/material-kit';
-
 import { SectionWithTitle } from '../../theme/components/Section';
 import Library from '../../theme/components/Library';
 import { SECTION } from '../../theme/utils/constants';
