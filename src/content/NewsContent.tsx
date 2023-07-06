@@ -17,6 +17,14 @@ import { PostDescription } from '../theme/types';
 
 const news: PostDescription[] = [
   {
+    title: 'June 2023 News',
+    text: "In this issue, we discuss successful webinars, new APIs, and bpmn-visualization's exciting Vue integration.",
+    cover: 'https://miro.medium.com/v2/resize:fit:700/0*B23w9i0t6Y-5SyDf',
+    url: 'https://medium.com/@process-analytics/process-analytics-june-2023-1481798369fb',
+    date: 'July 2023',
+    time: 3,
+  },
+  {
     title: 'May 2023 News',
     text: 'Discover the latest updates, featuring new APIs and a milestone article uncovering the intersection of BPMN and process mining.',
     cover:
