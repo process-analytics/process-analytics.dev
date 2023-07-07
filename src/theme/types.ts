@@ -45,7 +45,7 @@ export type AboutSubSection = {
   withSeparator?: boolean;
 };
 
-export type SocialLink = {
+export type SocialLinkProps = {
   url: string;
   name: string;
   icon: IconName | JSX.Element;
@@ -64,7 +64,7 @@ export type PostDescription = {
 export type Landing = {
   title: string;
   presentation: string;
-  socialLinks: SocialLink[];
+  socialLinks: SocialLinkProps[];
 };
 
 export type Link = {

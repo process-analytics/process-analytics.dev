@@ -39,7 +39,7 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Brand, Link as LinkProps, SocialLink } from '../../theme/types';
+import { Brand, Link as LinkProps, SocialLinkProps } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
@@ -50,7 +50,7 @@ export type FooterProps = {
 export type FooterContent = {
   brand: Brand;
   copyright: { name: string; url: string };
-  socials: SocialLink[];
+  socials: SocialLinkProps[];
   menus: FooterMenu[];
 };
 export type FooterMenu = {
