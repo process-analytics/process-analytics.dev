@@ -15,47 +15,32 @@
  */
 import React from 'react';
 
-import { ScopedCssBaseline, ThemeProvider } from '@mui/material';
-
 import { Navbar } from './material-kit';
 
 import { routes } from '../../content/HeaderRoutes';
 
-import { theme } from '../../assets/theme';
-
-/* TODO: Use ScopedCssBaseline until we need to keep the old theme.
-    After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
-export const Header = (): JSX.Element => {
-  return (
-    <ThemeProvider theme={theme}>
-      <ScopedCssBaseline sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
-        <header>
-          <Navbar
-            routes={routes}
-            brand="Process Analytics"
-            action={{
-              type: 'external',
-              url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
-              label: 'Demo',
-              color: 'secondary',
-              variant: 'contained',
-            }}
-            isTransparent
-            isSticky
-            // isCenter
-            top="0"
-            zIndex="1"
-            bgColor="quaternary"
-            width="100%"
-            shadow={{ size: 'sm' }}
-            py={0.25}
-            dropdownStyle={{
-              bgColor: 'secondaryLight',
-              color: 'secondary',
-            }}
-          />
-        </header>
-      </ScopedCssBaseline>
-    </ThemeProvider>
-  );
-};
+export const Header = (): JSX.Element => (
+  <Navbar
+    routes={routes}
+    brand="Process Analytics"
+    action={{
+      type: 'external',
+      url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+      label: 'Demo',
+      color: 'secondary',
+      variant: 'contained',
+    }}
+    isTransparent
+    isSticky
+    top="0"
+    zIndex="10"
+    bgColor="quaternary"
+    width="100%"
+    shadow={{ size: 'sm' }}
+    py={0.25}
+    dropdownStyle={{
+      bgColor: 'secondaryLight',
+      color: 'secondary',
+    }}
+  />
+);
