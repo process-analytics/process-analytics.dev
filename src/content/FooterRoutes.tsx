@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 import { brand } from './BrandContent';
-import { FooterRoutes } from '../theme/types';
 
 import { socialLinks } from './SocialLinkContent';
 
-export const footerRoutes: FooterRoutes = {
+import { FooterProps } from '../theme/components/Footer';
+
+export const footerRoutes: FooterProps = {
   brand,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,

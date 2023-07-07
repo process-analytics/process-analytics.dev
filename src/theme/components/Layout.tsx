@@ -33,9 +33,7 @@ import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
 import { loadIcons } from '../utils/icons';
 
-import { Footer, Header } from '.';
-
-import { FooterRoutes } from '../../content/FooterRoutes';
+import { Footer, FooterProps, Header } from '.';
 
 loadIcons();
 
@@ -119,7 +117,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 type Props = {
-  footerRoutes: FooterRoutes;
+  footerRoutes: FooterProps;
 };
 export const Layout = ({
   children,
@@ -137,7 +135,7 @@ export const Layout = ({
           <CssBaseline>
             <Header />
             {children}
-            <Footer content={footerRoutes} />
+            <Footer {...footerRoutes} />
           </CssBaseline>
         </MuiThemeProvider>
       </ThemeProvider>

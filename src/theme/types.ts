@@ -78,17 +78,6 @@ export type Brand = Required<Omit<Link, 'description'>> & {
   logo: { primary: string; light: string };
 };
 
-export type FooterRoutes = {
-  brand: Brand;
-  copyright: { name: string; url: string };
-  socials: SocialLink[];
-  menus: FooterMenu[];
-};
-export type FooterMenu = {
-  name: string;
-  items: Required<Omit<Link, 'description'>>[];
-};
-
 export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
   /**
    * The icon of the route on the Navbar
