@@ -13,23 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Link, SocialLink } from '../theme/types';
+import { FooterRoutes } from '../theme/types';
 
 import { socialLinks } from './SocialLinkContent';
 
 // Images
 import logo from '../images/logo_white.svg';
-
-export type FooterRoutes = {
-  brand: Required<Omit<Link, 'description' | 'href'>> & { logo: string };
-  copyright: { name: string; url: string };
-  socials: SocialLink[];
-  menus: FooterMenu[];
-};
-export type FooterMenu = {
-  name: string;
-  items: Required<Omit<Link, 'description' | 'href'>>[];
-};
 
 export const footerRoutes: FooterRoutes = {
   brand: {

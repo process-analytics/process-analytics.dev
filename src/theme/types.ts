@@ -74,6 +74,17 @@ export type Link = {
   url: string;
 };
 
+export type FooterRoutes = {
+  brand: Required<Omit<Link, 'description'>> & { logo: string };
+  copyright: { name: string; url: string };
+  socials: SocialLink[];
+  menus: FooterMenu[];
+};
+export type FooterMenu = {
+  name: string;
+  items: Required<Omit<Link, 'description'>>[];
+};
+
 export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
   /**
    * The icon of the route on the Navbar
