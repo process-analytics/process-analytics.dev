@@ -36,9 +36,9 @@ export type Library = {
   type: string;
 };
 
-export type About = AboutSubSection[];
+export type AboutProps = AboutSubSectionProps[];
 
-export type AboutSubSection = {
+export type AboutSubSectionProps = {
   mdx: JSX.Element;
   image?: Image;
   withSeparator?: boolean;
