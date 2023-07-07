@@ -19,18 +19,19 @@ import { Flex } from 'rebass/styled-components';
 import styled from 'styled-components';
 
 import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../../utils/constants';
-import { Image as ImageType, ImagePosition } from '../../types';
+import { Image, ImagePosition } from '../../types';
 
 import { Divider } from '..';
 import ImagePanel from './ImagePanel';
 import MDXPanel from './MDXPanel';
 
-type PanelProps = {
-  index: number;
+export type AboutSubSectionProps = {
   mdx: JSX.Element;
-  image?: ImageType;
+  image?: Image;
   withSeparator?: boolean;
 };
+
+type PanelProps = AboutSubSectionProps & { index: number };
 
 export const DescriptionPanel = ({
   index,

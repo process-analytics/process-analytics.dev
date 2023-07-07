@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 import * as React from 'react';
-import { AboutProps } from '../theme/types';
+
+import { AboutProps } from '../sections/home/About';
+
 import Logo from '../images/logo.svg';
 import WhyDiagram from '../images/why_diagram.svg';
 import WhatDiagram from '../images/what_diagram.svg';

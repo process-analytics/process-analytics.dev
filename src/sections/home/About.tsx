@@ -19,6 +19,9 @@ import { about } from '../../content/AboutContent';
 
 import { SectionWithTitle, DescriptionPanel } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
+import { AboutSubSectionProps } from '../../theme/components/description/DescriptionPanel';
+
+export type AboutProps = AboutSubSectionProps[];
 
 export const About = (): JSX.Element => {
   return (
