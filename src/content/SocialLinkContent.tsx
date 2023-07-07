@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SocialLinkProps } from '../theme/types';
+import { SocialLinkProps } from '../theme/components/SocialLink';
 
 export const socialLinks: SocialLinkProps[] = [
   {

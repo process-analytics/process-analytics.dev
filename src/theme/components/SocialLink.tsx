@@ -28,11 +28,13 @@ import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-import { SocialLinkProps as SocialLinkType } from '../types';
 import { getIconDefinition } from '../utils/icons';
 import { MKTypography, MKTypographyProps } from './material-kit/MKTypography';
 
-type SocialLinkProps = SocialLinkType & {
+export type SocialLinkProps = {
+  url: string;
+  name: string;
+  icon: IconName | JSX.Element;
   invert?: boolean;
 };
 
@@ -78,7 +80,11 @@ const IconLink = styled(Link)<{ invert?: boolean }>`
   }
 `;
 
-type SocialLinkWithMaterialProps = SocialLinkType & MKTypographyProps;
+export type SocialLinkWithMaterialProps = {
+  url: string;
+  name: string;
+  icon: IconName | JSX.Element;
+} & MKTypographyProps;
 
 export const SocialLinkWithMaterial = ({
   icon,

@@ -31,18 +31,18 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { SocialLinkWithMaterial } from './SocialLink';
-
 // Material Kit 2 React components
 import { MKBox } from './material-kit/MKBox';
 import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Brand, Link as LinkProps, SocialLinkProps } from '../../theme/types';
+import { Brand, Link as LinkProps } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
+
 import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
+import { SocialLinkProps, SocialLinkWithMaterial } from './SocialLink';
 
 export type FooterProps = {
   content: FooterContent;
