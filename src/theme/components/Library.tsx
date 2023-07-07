@@ -24,9 +24,14 @@ import { Action } from './material-kit/Navbar/common';
 
 import { LibraryCard, MKBox } from './material-kit';
 
-import { LibraryProps } from '../types';
-
-type Props = LibraryProps;
+export type LibraryProps = {
+  name: string;
+  description: string;
+  repository: string;
+  documentation?: string;
+  examples?: string;
+  type: string;
+};
 
 export const Library = ({
   name,

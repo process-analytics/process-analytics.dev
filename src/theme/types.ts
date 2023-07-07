@@ -27,15 +27,6 @@ export type Image = {
   positionFromMdx?: ImagePosition;
 };
 
-export type LibraryProps = {
-  name: string;
-  description: string;
-  repository: string;
-  documentation?: string;
-  examples?: string;
-  type: string;
-};
-
 export type PostDescription = {
   title: string;
   text: string;

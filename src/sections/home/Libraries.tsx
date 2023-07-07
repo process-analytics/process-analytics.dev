@@ -17,8 +17,10 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 
-import { SectionWithTitle } from '../../theme/components/Section';
-import Library from '../../theme/components/Library';
+import {
+  Library,
+  SectionWithTitle
+} from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
 
 import { libraries } from '../../content/LibraryContent';
