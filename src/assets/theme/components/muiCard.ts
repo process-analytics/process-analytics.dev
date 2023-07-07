@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Bonitasoft S.A.
+ * Copyright 2022 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { MuiIconButton } from './muiIconButton';
-export { MuiTooltip } from './muiTooltip';
-export { MuiAppBar } from './muiAppBar';
-export { MuiContainer } from './muiContainer';
-export { MuiIcon } from './muiIcon';
-export { MuiSvgIcon } from './muiSvgIcon';
-export { MuiLink } from './muiLink';
-export { MuiCard } from './muiCard';
+
+import { Components, Theme } from '@mui/material';
+
+export const MuiCard: Components<Theme>['MuiCard'] = {
+  styleOverrides: {
+    root: {
+      ':hover': {
+        boxShadow: '0 12px 16px rgba(0, 0, 0, 0.2)',
+      },
+    },
+  },
+};
