@@ -55,7 +55,7 @@ export type PostDescription = {
   isInModelGenerationAppPage?: boolean;
 };
 
-export type Landing = {
+export type LandingProps = {
   title: string;
   presentation: string;
   socialLinks: SocialLinkContent[];
