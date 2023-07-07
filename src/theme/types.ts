@@ -74,8 +74,12 @@ export type Link = {
   url: string;
 };
 
+export type Brand = Required<Omit<Link, 'description'>> & {
+  logo: { primary: string; light: string };
+};
+
 export type FooterRoutes = {
-  brand: Required<Omit<Link, 'description'>> & { logo: string };
+  brand: Brand;
   copyright: { name: string; url: string };
   socials: SocialLink[];
   menus: FooterMenu[];

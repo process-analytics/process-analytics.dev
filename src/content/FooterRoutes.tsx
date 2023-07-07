@@ -13,20 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { brand } from './BrandContent';
 import { FooterRoutes } from '../theme/types';
 
 import { socialLinks } from './SocialLinkContent';
 
-// Images
-import logo from '../images/logo_white.svg';
-
 export const footerRoutes: FooterRoutes = {
-  brand: {
-    type: 'internal',
-    name: 'Process Analytics',
-    logo: logo,
-    url: '/',
-  },
+  brand,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path
