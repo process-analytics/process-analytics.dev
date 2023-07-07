@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LandingProps } from '../theme/types';
+import { LandingProps } from '../sections/home/Landing';
+
 import { socialLinkContent } from './SocialLinkContent';
 
 export const landing: LandingProps = {

@@ -19,12 +19,18 @@ import { Heading, Flex, Box, Text } from 'rebass/styled-components';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { Section, SocialLink } from '../../theme/components';
+import { Section, SocialLink, SocialLinkProps } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
 
 import { landing } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
+
+export type LandingProps = {
+  title: string;
+  presentation: string;
+  socialLinks: SocialLinkContent[];
+};
 
 export const Landing = (): JSX.Element => {
   const { title, presentation, socialLinks } = {
