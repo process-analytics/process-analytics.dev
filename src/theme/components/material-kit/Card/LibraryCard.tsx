@@ -57,7 +57,6 @@ export const LibraryCard = ({
             <MKTypography
               display="inline"
               variant="h5"
-              textTransform="capitalize"
               fontWeight="regular"
               textOverflow="ellipsis"
             >
