@@ -16,7 +16,7 @@
 import React from 'react';
 
 import { SectionWithTitle } from '../theme/components/Section';
-import { PostContainer } from '../theme/components/Post';
+import { PostContainer } from '../theme/components/PostContainer';
 
 import { SECTION } from '../theme/utils/constants';
 import { PostDescription } from '../theme/types';

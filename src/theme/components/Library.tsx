@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {
+  GitHub,
+  SchoolRounded,
+  SnippetFolderRounded,
+} from '@mui/icons-material';
+import Grid from '@mui/material/Grid';
 import React from 'react';
+import { Action } from './material-kit/Navbar/common';
 
-import { Box, Flex, Text } from 'rebass/styled-components';
-import styled from 'styled-components';
+import { LibraryCard, MKBox } from './material-kit';
 
-import { CardFooter, SocialLink, Card } from './';
 import { Library as LibraryType } from '../types';
-import { MEDIA_QUERY_SMALL } from '../utils/constants';
 
 type Props = LibraryType;
 
@@ -31,97 +35,48 @@ export const Library = ({
   documentation,
   examples,
   type,
-}: Props): JSX.Element => (
-  <Card p={0}>
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
-        <span>
-          <Title my={2} pb={1} color="text">
-            {name}
-          </Title>
-        </span>
-        <Text width={[1]} style={{ overflow: 'auto' }} color="text">
-          {description}
-        </Text>
-      </TextContainer>
-
-      <InfoContainer>
-        <LinksContainer>
-          <Flex
-            m={1}
-            style={{
-              float: 'right',
-            }}
-          >
-            <Box mx={1} fontSize={4}>
-              <SocialLink name="Repository" icon="github" url={repository} />
-            </Box>
-            {documentation && (
-              <Box mx={1} fontSize={4}>
-                <SocialLink
-                  name="Documentation"
-                  icon="book"
-                  url={documentation}
-                />
-              </Box>
-            )}
-            {examples && (
-              <Box mx={1} fontSize={4}>
-                <SocialLink name="Examples" icon="globe" url={examples} />
-              </Box>
-            )}
-          </Flex>
-        </LinksContainer>
-        <CardFooter
-          bg="primary"
-          color="background"
-          position="bottom-right"
-          round
-        >
-          {type}
-        </CardFooter>
-      </InfoContainer>
-    </Flex>
-  </Card>
-);
-
-const CARD_HEIGHT = '200px';
-const INFO_CONTAINER_WIDTH = '30px';
-
-const Title = styled(Text)`
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: table;
-  border-bottom: ${({ theme }) => theme.colors.primary} 5px solid;
-`;
-
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: calc(100% - ${INFO_CONTAINER_WIDTH});
-  font-size: 0.875rem;
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(100% - (${INFO_CONTAINER_WIDTH} / 2));
-    font-size: 0.75rem;
+}: Props): JSX.Element => {
+  const actions: Action[] = [
+    {
+      type: 'external',
+      label: 'Repository',
+      url: repository,
+      icon: <GitHub />,
+    },
+  ];
+  if (documentation) {
+    actions.push({
+      type: 'external',
+      label: 'Documentation',
+      url: documentation,
+      icon: <SchoolRounded />,
+    });
   }
-`;
-
-const InfoContainer = styled.div`
-  margin: auto;
-  width: ${INFO_CONTAINER_WIDTH};
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(${INFO_CONTAINER_WIDTH} / 2);
+  if (examples) {
+    actions.push({
+      type: 'external',
+      url: examples,
+      label: 'Examples',
+      icon: <SnippetFolderRounded />,
+    });
   }
-`;
 
-const LinksContainer = styled.div`
-  position: relative;
-  height: ${CARD_HEIGHT};
-  top: 3.5px;
-`;
+  return (
+    <Grid item xs={12} md={6}>
+      <MKBox
+        mb={3}
+        height={'calc(100% - 48px)'} // to have card with same size
+      >
+        <LibraryCard
+          title={name}
+          type={type}
+          description={description}
+          textAlign="left"
+          actions={actions}
+        />
+      </MKBox>
+    </Grid>
+  );
+};
 
 export default Library;

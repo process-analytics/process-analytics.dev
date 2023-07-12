@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import type {} from '@mui/material/Button';
+import type {} from '@mui/material/IconButton';
 
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
+declare module '@mui/material/IconButton' {
+  interface IconButtonPropsColorOverrides {
     primary: true;
     secondary: true;
     error: true;
@@ -38,9 +38,5 @@ declare module '@mui/material/Button' {
     health: true;
     government: true;
     distribution: true;
-  }
-
-  interface ButtonPropsVariantOverrides {
-    gradient: true;
   }
 }
