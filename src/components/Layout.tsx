@@ -22,7 +22,7 @@ import 'vanilla-cookieconsent';
 
 import { initCookieConsentBanner } from './CookieConsentBanner';
 
-import { theme } from '../assets/theme';
+import { createResponsiveTheme } from '../assets/theme';
 import { loadIcons } from '../helper';
 
 import { Footer, FooterContent, Header, HeaderContent } from '.';
@@ -45,7 +45,7 @@ export const Layout = ({
 
   return (
     <main>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={createResponsiveTheme('light')}>
         <CssBaseline />
         <Header content={headerContent} />
         {children}

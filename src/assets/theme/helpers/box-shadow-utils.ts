@@ -31,7 +31,7 @@ import { Color } from 'chroma-js';
 
 import { paletteKeys, rgba } from './color-utils';
 import { pxToRem } from './px-to-rem';
-import { palette } from '../base';
+import { paletteLight } from '../base';
 
 export type BoxShadows = ShadowSize & {
   colored: BoxShadowColor;
@@ -59,7 +59,7 @@ const buildBoxShadowForPaletteColor = (
 ): string => `${boxShadow(
   { x: 0, y: 4 },
   { blur: 20, spread: 0 },
-  palette.grey?.['900'] ?? grey[900],
+  paletteLight.grey?.['900'] ?? grey[900],
   0.14,
 )}, 
   ${boxShadow({ x: 0, y: 7 }, { blur: 10, spread: -5 }, color.main, 0.4)}`;
@@ -68,7 +68,7 @@ const getColored = (): BoxShadowColor => {
   const colored = {} as Partial<BoxShadowColor>;
   paletteKeys.forEach(key => {
     colored[key as keyof BoxShadowColor] = buildBoxShadowForPaletteColor(
-      <PaletteColor>palette[key as keyof PaletteOptions],
+      <PaletteColor>paletteLight[key as keyof PaletteOptions],
     );
   });
   return {

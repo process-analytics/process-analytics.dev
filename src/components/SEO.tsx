@@ -19,7 +19,7 @@ import { ThemeProvider } from '@mui/material';
 
 import { useSiteMetadata } from '../hooks';
 import { landingContent } from '../content';
-import { theme } from '../assets/theme';
+import { createResponsiveTheme } from '../assets/theme';
 
 const LANG = 'en';
 
@@ -57,6 +57,7 @@ export const SEO = ({
     ].join(','),
   };
 
+  const theme = createResponsiveTheme('light');
   return (
     <ThemeProvider theme={theme}>
       <html lang={LANG} />

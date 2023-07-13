@@ -23,9 +23,9 @@
 import { BorderSize } from '@mui/material';
 
 // Material Kit 2 React Base Styles
-import { palette } from '../base';
+import { paletteLight } from '../base';
 
-const { grey } = palette;
+const { grey } = paletteLight;
 
 export type BorderUtils = {
   color?: string;

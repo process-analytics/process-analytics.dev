@@ -30,12 +30,17 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import { createTheme, Theme } from '@mui/material';
+import { createTheme, PaletteMode, Theme } from '@mui/material';
 
 import { responsiveFontSizes } from './responsiveFont';
 
 // Material Kit 2 React base styles
-import { palette, breakpoints, typography } from './base';
+import {
+  paletteLight,
+  paletteDark,
+  breakpoints,
+  typography 
+} from './base';
 
 // Material Kit 2 React components base styles for @mui material components
 import {
@@ -94,7 +99,7 @@ import {
 
 const generatedTheme = createTheme({
   breakpoints,
-  palette,
+  palette: mode === 'light' ? paletteLight : paletteDark,
   typography,
   components: {
     MuiAppBar,
@@ -151,8 +156,9 @@ const generatedTheme = createTheme({
   },
 });
 
-export const theme: Theme =
+
   //Generate responsive typography settings based on the options received.
-  responsiveFontSizes(generatedTheme, {
+  return responsiveFontSizes(generatedTheme, {
     breakpoints: generatedTheme.breakpoints.keys,
   });
+};
