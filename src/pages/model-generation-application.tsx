@@ -16,12 +16,12 @@
 
 import React, { FC } from 'react';
 
+import { Box, BoxProps, Link } from '@mui/material';
+
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeadProps } from 'gatsby';
-
-import { Box, BoxProps, Link } from '@mui/material';
 
 import {
   SEO,
@@ -84,7 +84,6 @@ export const PartWithSingleColumn: FC<React.PropsWithChildren<BoxProps>> = ({
         zIndex: -1,
         border: '0px solid rgba(0, 0, 0, 0.125)',
         borderRadius: '0.5rem',
-        color: 'rgba(0, 0, 0, 0.87)',
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
         transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
@@ -281,7 +280,7 @@ const ModelGenerationApplicationPage: FC = () => (
         style={{
           boxSizing: 'border-box',
           flexFlow: 'row wrap',
-          color: 'rgb(52, 71, 103)',
+          //  color: 'rgb(52, 71, 103)',
           borderRadius: '0.75rem',
           boxShadow:
             'rgba(0, 0, 0, 0.1) 0rem 1.25rem 1.5625rem -0.3125rem, rgba(0, 0, 0, 0.04) 0rem 0.625rem 0.625rem -0.3125rem',
