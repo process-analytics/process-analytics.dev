@@ -32,7 +32,7 @@
 import React, { FC, useState } from 'react';
 
 // @mui material components
-import { Container } from '@mui/material';
+import { Container, IconButton, useTheme } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '..';
@@ -46,7 +46,12 @@ import {
   DropdownStyle,
 } from './desktop';
 
+import { ColorModeContext } from '../../Layout';
+
 import { useMobileViewStatus } from '../../../hooks';
+
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 import { BrandContent } from '../..';
 import {
@@ -95,6 +100,9 @@ const InnerContainer: FC<InnerContainerProps> = ({
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
   const isMobileView = useMobileViewStatus();
+
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
 
   return (
     <Container
@@ -148,6 +156,18 @@ const InnerContainer: FC<InnerContainerProps> = ({
           )}
 
           <ActionButton {...action} />
+
+          <IconButton
+            sx={{ ml: 1 }}
+            onClick={colorMode.toggleColorMode}
+            color="inherit"
+          >
+            {theme.palette.mode === 'dark' ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
 
           {isMobileView && (
             <NavbarButton

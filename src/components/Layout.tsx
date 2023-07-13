@@ -43,14 +43,32 @@ export const Layout = ({
     initCookieConsentBanner();
   }, []);
 
+  const [mode, setMode] = React.useState<PaletteMode>('light');
+  const colorMode = React.useMemo(
+    () => ({
+      // The dark mode switch would invoke this method
+      toggleColorMode: () => {
+        setMode((prevMode: PaletteMode) =>
+          prevMode === 'light' ? 'dark' : 'light',
+        );
+      },
+    }),
+    [],
+  );
+
+  // Update the theme only if the mode changes
+  const theme = React.useMemo(() => createResponsiveTheme(mode), [mode]);
+
   return (
     <main>
-      <ThemeProvider theme={createResponsiveTheme('light')}>
-        <CssBaseline />
-        <Header content={headerContent} />
-        {children}
-        <Footer content={footerContent} />
-      </ThemeProvider>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Header content={headerContent} />
+          {children}
+          <Footer content={footerContent} />
+        </ThemeProvider>
+      </ColorModeContext.Provider>
     </main>
   );
 };
