@@ -41,7 +41,7 @@ type SectionHeaderProps = {
 export const Section: FC<PropsWithChildren<SectionProps>> = ({
   children,
   id,
-  backgroundColor = 'primaryLight',
+  backgroundColor = 'primary',
   justifyContent = 'center',
 }) => (
   <StyledSection
@@ -97,9 +97,12 @@ const StyledSection = styled('section')<StyledSectionProps>`
     position: relative;
     background-color: ${({ theme, backgroundColor }) =>
       theme.palette[backgroundColor].main};
+    color: ${({ theme, backgroundColor }) =>
+      theme.palette[backgroundColor].contrastText};
   }
   &:nth-of-type(even)::before {
-    background-color: white;
+    background-color: ${({ theme }) => theme.palette.quaternary.main};
+    color: ${({ theme }) => theme.palette.quaternary.contrastText};
     content: '';
     position: absolute;
     top: 0;
@@ -111,11 +114,14 @@ const StyledSection = styled('section')<StyledSectionProps>`
 
   &:nth-of-type(odd) {
     position: relative;
-    background-color: white;
+    background-color: ${({ theme }) => theme.palette.quaternary.main};
+    color: ${({ theme }) => theme.palette.quaternary.contrastText};
   }
   &:nth-of-type(odd)::before {
     background-color: ${({ theme, backgroundColor }) =>
       theme.palette[backgroundColor].main};
+    color: ${({ theme, backgroundColor }) =>
+      theme.palette[backgroundColor].contrastText};
     content: '';
     position: absolute;
     top: 0;
@@ -123,6 +129,22 @@ const StyledSection = styled('section')<StyledSectionProps>`
     width: 100%;
     height: 100%;
     z-index: -1;
+  }
+`;
+
+const SectionContainer = styled('div')<SectionContainerProps>`
+  min-width: 20rem;
+  max-width: 87.5vw;
+  display: flex;
+  margin: auto;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: ${({ justifyContent }) => justifyContent};
+  padding: 48px 16px;
+  scroll-behavior: smooth;
+
+  ${MEDIA_QUERY_SMALL} {
+    padding: 2em 1em;
   }
 `;
 
@@ -143,19 +165,3 @@ const SectionHeader: FC<SectionHeaderProps> = ({ name, icon, label }) => (
     )}
   </MKTypography>
 );
-
-const SectionContainer = styled('div')<SectionContainerProps>`
-  min-width: 20rem;
-  max-width: 87.5vw;
-  display: flex;
-  margin: auto;
-  flex: 0 1 auto;
-  flex-direction: column;
-  justify-content: ${({ justifyContent }) => justifyContent};
-  padding: 48px 16px;
-  scroll-behavior: smooth;
-
-  ${MEDIA_QUERY_SMALL} {
-    padding: 2em 1em;
-  }
-`;
