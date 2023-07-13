@@ -16,7 +16,7 @@
 
 import React, { PropsWithChildren, useEffect } from 'react';
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 
 import 'vanilla-cookieconsent';
 
@@ -28,6 +28,11 @@ import { loadIcons } from '../helper';
 import { Footer, FooterContent, Header, HeaderContent } from '.';
 
 loadIcons();
+
+export const ColorModeContext = React.createContext({
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toggleColorMode: () => {},
+});
 
 type LayoutProps = {
   footerContent: FooterContent;

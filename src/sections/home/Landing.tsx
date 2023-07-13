@@ -16,7 +16,6 @@
 import React from 'react';
 
 import { Box, Theme } from '@mui/material';
-
 import { Fade } from 'react-awesome-reveal';
 
 import {

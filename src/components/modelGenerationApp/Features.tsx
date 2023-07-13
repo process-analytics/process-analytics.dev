@@ -21,6 +21,7 @@ import { CardWithIcon } from './CardWithIcon';
 
 const CardBox: FC<PropsWithChildren<BoxProps>> = ({ children }) => (
   <Box
+    display="flex"
     paddingLeft={'24px'}
     paddingTop={'24px'}
     flexBasis={['auto', 'auto', 'calc(100% / 3)']}

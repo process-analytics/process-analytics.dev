@@ -31,10 +31,6 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-// Material Kit 2 React components
-import { MKBox } from './material-kit/MKBox';
-import { MKTypography } from './material-kit/MKTypography';
-
 import { Link as GatsbyLink } from 'gatsby';
 
 import { GATSBY_URL } from '../helper';
@@ -45,6 +41,8 @@ import {
   LinkContent,
   SocialLinkContent,
   SocialLink,
+  MKBox,
+  MKTypography,
 } from '.';
 
 export type FooterProps = {

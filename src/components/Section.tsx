@@ -75,7 +75,7 @@ const StyledSection = styled('section')<StyledSectionProps>`
 
   @media only screen and (min-width: 61.188rem) {
     &:first-of-type {
-      margin-top: 6.25rem;
+      padding-top: 6.25rem;
     }
 
     &:nth-of-type(even):not(:last-of-type) {
