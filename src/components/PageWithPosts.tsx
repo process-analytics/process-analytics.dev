@@ -47,11 +47,10 @@ export const PageWithPosts = ({
   headerContent,
 }: PageWithPostsProps): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
-    <Section id={containerTitle} backgroundColor="primary">
+    <Section id={containerTitle}>
       <MKTypography
         textAlign="center"
         variant="h1"
-        color="primary"
         mb={[3, 4, 4]}
         mt={[5, 5, 6]}
       >
@@ -60,7 +59,6 @@ export const PageWithPosts = ({
       <MKTypography
         variant="body1"
         width={['85%', '80%', '70%']}
-        color="primary"
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
