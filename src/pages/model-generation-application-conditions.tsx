@@ -33,7 +33,6 @@ const ModelGenerationApplicationConditionPage: FC = () => (
       <MKTypography
         textAlign="center"
         variant="h1"
-        color="primary"
         mt={[5, 5, 6]}
         mb={[3, 8, 12]}
       >
