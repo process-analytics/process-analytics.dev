@@ -17,7 +17,8 @@ updates:
     # Create a group of dependencies to be updated together in one pull request
     groups:
       gatsby:
-        patterns: "gatsby*"
+        patterns:
+          - "gatsby*"
       lint:
         patterns:
           - "*eslint*"
@@ -29,19 +30,24 @@ updates:
           - "react-dom"
           - "@types/react"
       fortawesome:
-        patterns: "@fortawesome*"
+        patterns:
+          - "@fortawesome*"
       emotion:
-        patterns: "@emotion*"
+        patterns:
+          - "@emotion*"
       mui:
-        patterns: "@mui*"
+        patterns:
+          - "@mui*"
       rebass:
-        patterns: "*rebass*"
+        patterns:
+          - "*rebass*"
       styled-components:
         patterns:
           - "styled-components"
           - "babel-plugin-styled-components"
       chroma-js:
-        patterns: "*chroma-js*"
+        patterns:
+          - "*chroma-js*"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the default location of `.github/workflows`
