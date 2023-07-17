@@ -53,6 +53,7 @@ export const paletteKeys = [
  */
 export const palette: PaletteOptions & SocialPaletteOptions = {
   mode: 'light',
+  contrastThreshold: 4.5,
 
   background: {
     default: '#ffffff',
@@ -126,48 +127,124 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
   // custom colors for props in Material UI's components.
   tertiary: {
     main: '#EDEEF5',
+    light: 'rgb(240, 241, 247)',
+    dark: 'rgb(165, 166, 171)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
   },
 
   quaternary: {
     main: '#FFFFFF',
+    light: 'rgb(255, 255, 255)',
+    dark: 'rgb(178, 178, 178)',
+    contrastText: '#002395',
   },
 
-  primaryLight: { main: '#DBEFFE' },
-  secondaryLight: { main: '#F9DADC' },
-  spicy: { main: '#05D99E' },
-  sweet: { main: '#FFD560' },
-  manufacture: { main: '#E86A63' },
-  education: { main: '#FFD560' },
-  telecom: { main: '#F1ACC6' },
-  financial: { main: '#62BFEC' },
-  energy: { main: '#2A574A' },
-  health: { main: '#05D99E' },
-  government: { main: '#86BEC2' },
-  distribution: { main: '#7E4F95' },
+  primaryLight: {
+    main: '#DBEFFE',
+    light: 'rgb(226, 242, 254)',
+    dark: 'rgb(153, 167, 177)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  secondaryLight: {
+    main: '#F9DADC',
+    light: 'rgb(250, 225, 227)',
+    dark: 'rgb(174, 152, 154)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  spicy: {
+    main: '#05D99E',
+    light: 'rgb(55, 224, 177)',
+    dark: 'rgb(3, 151, 110)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  sweet: {
+    main: '#FFD560',
+    light: 'rgb(255, 221, 127)',
+    dark: 'rgb(178, 149, 67)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  manufacture: {
+    main: '#E86A63',
+    light: 'rgb(236, 135, 130)',
+    dark: 'rgb(162, 74, 69)',
+    contrastText: '#fff',
+  },
+  education: {
+    main: '#FFD560',
+    light: 'rgb(255, 221, 127)',
+    dark: 'rgb(178, 149, 67)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  telecom: {
+    main: '#F1ACC6',
+    light: 'rgb(243, 188, 209)',
+    dark: 'rgb(168, 120, 138)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  financial: {
+    main: '#62BFEC',
+    light: 'rgb(129, 203, 239)',
+    dark: 'rgb(68, 133, 165)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  energy: {
+    main: '#2A574A',
+    light: 'rgb(84, 120, 110)',
+    dark: 'rgb(29, 60, 51)',
+    contrastText: '#fff',
+  },
+  health: {
+    main: '#05D99E',
+    light: 'rgb(55, 224, 177)',
+    dark: 'rgb(3, 151, 110)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  government: {
+    main: '#86BEC2',
+    light: 'rgb(158, 203, 206)',
+    dark: 'rgb(93, 133, 135)',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
+  },
+  distribution: {
+    main: '#7E4F95',
+    light: 'rgb(151, 114, 170)',
+    dark: 'rgb(88, 55, 104)',
+    contrastText: '#fff',
+  },
 
   twitter: {
     main: '#55acee',
+    light: 'rgb(119, 188, 241)',
     dark: '#3ea1ec',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
   },
 
   pinterest: {
     main: '#cc2127',
+    light: 'rgb(214, 77, 82)',
     dark: '#b21d22',
+    contrastText: '#fff',
   },
 
   youtube: {
     main: '#e52d27',
+    light: 'rgb(234, 87, 82)',
     dark: '#d41f1a',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
   },
 
   slack: {
     main: '#3aaf85',
+    light: 'rgb(97, 191, 157)',
     dark: '#329874',
+    contrastText: 'rgba(0, 0, 0, 0.87)',
   },
 
   github: {
     main: '#24292e',
+    light: 'rgb(79, 83, 87)',
     dark: '#171a1d',
+    contrastText: '#fff',
   },
 };
 

@@ -46,6 +46,7 @@ import {
   MuiIcon,
   MuiSvgIcon,
   MuiLink,
+  MuiCard,
 } from './components';
 
 const generatedTheme = createTheme({
@@ -65,6 +66,7 @@ const generatedTheme = createTheme({
     MuiSvgIcon,
     MuiLink,
     MuiContainer,
+    MuiCard,
   },
 });
 

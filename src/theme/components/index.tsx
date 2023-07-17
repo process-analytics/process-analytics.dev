@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 export { ButtonWithExternalLink, ButtonWithInternalLink } from './Button';
-export { Card, CardContainer } from './Card';
-export { CardFooter } from './CardFooter';
 export { Divider } from './Divider';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { Layout } from './Layout';
 export { Library } from './Library';
 export { Link } from './Link';
-export { Post, PostContainer } from './Post';
+export { PostContainer } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export { SocialLink, SocialLinkWithMaterial } from './SocialLink';
 export { MailingListSubscription } from './mailingListSubscription/MailingListSubscription';

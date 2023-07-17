@@ -13,29 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import React from 'react';
 
-import { Fade } from 'react-awesome-reveal';
-
 import { SectionWithTitle } from '../../theme/components/Section';
-import { CardContainer } from '../../theme/components/Card';
 import Library from '../../theme/components/Library';
 import { SECTION } from '../../theme/utils/constants';
 
 import { libraries } from '../../content/LibraryContent';
 
-const cardMinWidth = '300px';
-
-export const Libraries = (): JSX.Element => {
-  return (
-    <SectionWithTitle id={SECTION.libraries}>
-      <CardContainer minWidth={cardMinWidth} mb="30px">
-        <Fade direction="down" cascade damping={0.5} triggerOnce>
-          {libraries.map((p, i) => (
-            <Library {...p} key={i} />
-          ))}
-        </Fade>
-      </CardContainer>
-    </SectionWithTitle>
-  );
-};
+export const Libraries = (): JSX.Element => (
+  <SectionWithTitle id={SECTION.libraries}>
+    <Container>
+      <Grid container spacing={3} alignItems="center">
+        {libraries.map((p, i) => (
+          <Library {...p} key={i} />
+        ))}
+      </Grid>
+    </Container>
+  </SectionWithTitle>
+);
