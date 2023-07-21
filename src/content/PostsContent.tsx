@@ -20,7 +20,7 @@ const posts: PostDescription[] = [
     title:
       'bpmn-visualization: All you need to know about styling BPMN elements',
     text: 'Diving into bpmn-visualization Typescript library, we focus on style management, with resources for beginners and advanced usage scenarios.',
-    cover: 'https://miro.medium.com/v2/resize:fit:770/0*7wlYSrLCWLhQBRUi',
+    cover: 'https://miro.medium.com/v2/resize:fit:600/0*7wlYSrLCWLhQBRUi',
     url: 'https://medium.com/@process-analytics/bpmn-visualization-all-you-need-to-know-about-styling-bpmn-elements-24289154c16c',
     date: 'July 2023',
     time: 8,
