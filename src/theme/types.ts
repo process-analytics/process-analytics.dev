@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SocialLinkProps } from './components/SocialLink';
+import { SocialLinkContent } from './components/SocialLink';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -58,7 +58,7 @@ export type PostDescription = {
 export type Landing = {
   title: string;
   presentation: string;
-  socialLinks: SocialLinkProps[];
+  socialLinks: SocialLinkContent[];
 };
 
 export type Link = {
