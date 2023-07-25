@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Library } from '../theme/types';
+import { LibraryContent } from '../theme/components';
 
-export const libraries: Library[] = [
+export const libraryContent: LibraryContent[] = [
   {
     name: 'bpmn-visualization',
     description:

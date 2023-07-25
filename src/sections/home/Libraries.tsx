@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import React from 'react';
 
-import { SectionWithTitle } from '../../theme/components/Section';
-import Library from '../../theme/components/Library';
+import { Container, Grid } from '@mui/material';
+
+import { Library, SectionWithTitle } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
 
-import { libraries } from '../../content/LibraryContent';
+import { libraryContent } from '../../content/LibraryContent';
 
 export const Libraries = (): JSX.Element => (
   <SectionWithTitle id={SECTION.libraries}>
     <Container>
       <Grid container spacing={3} alignItems="center">
-        {libraries.map((p, i) => (
-          <Library {...p} key={i} />
+        {libraryContent.map((content, index) => (
+          <Library content={content} key={index} />
         ))}
       </Grid>
     </Container>

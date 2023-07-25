@@ -13,29 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import React from 'react';
+
 import {
   GitHub,
   SchoolRounded,
   SnippetFolderRounded,
 } from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
-import React from 'react';
-import { Action } from './material-kit/Navbar/common';
 
+import { Action } from './material-kit/Navbar/common';
 import { LibraryCard, MKBox } from './material-kit';
 
-import { Library as LibraryType } from '../types';
+export type LibraryProps = {
+  content: LibraryContent;
+};
 
-type Props = LibraryType;
+export type LibraryContent = {
+  name: string;
+  type: string;
+  description: string;
+  repository: string;
+  documentation?: string;
+  examples?: string;
+};
 
-export const Library = ({
-  name,
-  description,
-  repository,
-  documentation,
-  examples,
-  type,
-}: Props): JSX.Element => {
+export const Library = ({ content }: LibraryProps): JSX.Element => {
+  const { name, description, repository, documentation, examples, type } =
+    content;
+
   const actions: Action[] = [
     {
       type: 'external',
@@ -71,8 +77,8 @@ export const Library = ({
           title={name}
           type={type}
           description={description}
-          textAlign="left"
           actions={actions}
+          textAlign="left"
         />
       </MKBox>
     </Grid>
