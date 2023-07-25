@@ -16,94 +16,70 @@
 import React from 'react';
 
 import { Flex } from 'rebass/styled-components';
-import styled from 'styled-components';
 
-import { MEDIA_QUERY_MEDIUM, MEDIA_QUERY_SMALL } from '../../utils/constants';
-import { Image, ImagePosition } from '../../types';
+import { Image } from '../../types';
 
 import { Divider } from '..';
 import ImagePanel from './ImagePanel';
 import MDXPanel from './MDXPanel';
 
-export type AboutSubSectionProps = {
+export type DescriptionPanelContent = {
   mdx: JSX.Element;
   image?: Image;
   withSeparator?: boolean;
 };
 
-type PanelProps = AboutSubSectionProps & { index: number };
+type DescriptionPanelProps = {
+  content: DescriptionPanelContent;
+  index: number;
+};
 
 export const DescriptionPanel = ({
+  content: { mdx, image, withSeparator = false },
   index,
-  mdx,
-  image,
-  withSeparator = false,
-}: PanelProps): JSX.Element => {
+}: DescriptionPanelProps): JSX.Element => {
   if (image && !image.positionFromMdx) {
     image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const isFullPage = !image || isVerticalSubSection(image.positionFromMdx!);
-  const imageIsOnLeftOrOnRight =
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    image && isImageOnLeftOrOnRight(image.positionFromMdx!);
+  const isFullPage =
+    !image ||
+    image.positionFromMdx === 'top' ||
+    image.positionFromMdx === 'bottom';
 
   return (
     <>
-      <SubSection
+      <Flex
         key={index}
-        withSeparator={withSeparator}
         marginTop={['10px', '10px', '30px']}
+        marginBottom={withSeparator ? ['10px', '10px', '30px'] : 0}
         pt={['1em', '1em', '1.5em']}
+        alignItems="center"
+        flexWrap="wrap"
         flexDirection={
           isFullPage
-            ? imageIsOnLeftOrOnRight
-              ? 'column'
-              : 'column-reverse'
-            : imageIsOnLeftOrOnRight
-            ? 'row'
-            : 'row-reverse'
+            ? image?.positionFromMdx === 'bottom'
+              ? 'column-reverse'
+              : 'column'
+            : image.positionFromMdx === 'right'
+            ? 'row-reverse'
+            : 'row'
         }
+        sx={{
+          ':first-of-type': {
+            marginTop: 0,
+          },
+          ':last-of-type': {
+            marginBottom: '30px',
+          },
+        }}
       >
         <>
           {image && <ImagePanel image={image} isFullPage={isFullPage} />}
           <MDXPanel mdx={mdx} isFullPage={isFullPage} />
         </>
-      </SubSection>
+      </Flex>
       {withSeparator && <Divider />}
     </>
   );
 };
-
-type SubSectionProps = {
-  withSeparator: boolean;
-};
-const SubSection = styled(Flex)<SubSectionProps>`
-  align-items: center;
-  flex-wrap: wrap;
-
-  margin-bottom: ${({ withSeparator }) => (withSeparator ? '30px' : '0px')};
-
-  ${MEDIA_QUERY_MEDIUM} {
-    margin-bottom: ${({ withSeparator }) => (withSeparator ? '10px' : '0px')};
-  }
-  ${MEDIA_QUERY_SMALL} {
-    margin-bottom: ${({ withSeparator }) => (withSeparator ? '10px' : '0px')};
-  }
-
-  &:first-of-type {
-    margin-top: 0px;
-  }
-  &:last-of-type {
-    margin-bottom: 30px;
-  }
-`;
-
-function isVerticalSubSection(imagePosition: ImagePosition): boolean {
-  return imagePosition === 'top' || imagePosition === 'bottom';
-}
-
-function isImageOnLeftOrOnRight(imagePosition: ImagePosition): boolean {
-  return imagePosition === 'left' || imagePosition === 'top';
-}
