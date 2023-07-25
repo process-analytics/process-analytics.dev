@@ -18,7 +18,7 @@ export { Divider } from './Divider';
 export { Footer, FooterProps, FooterContent } from './Footer';
 export { Header } from './Header';
 export { Layout } from './Layout';
-export { Library, LibraryProps } from './Library';
+export { Library, LibraryProps, LibraryContent } from './Library';
 export { Link } from './Link';
 export { PostContainer } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
