@@ -15,17 +15,18 @@
  */
 import React from 'react';
 
-import { about } from '../../content/AboutContent';
+import { aboutContent } from '../../content/AboutContent';
 
 import { SectionWithTitle, DescriptionPanel } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
+import { DescriptionPanelContent } from '../../theme/components/description/DescriptionPanel';
 
-export const About = (): JSX.Element => {
-  return (
-    <SectionWithTitle id={SECTION.about}>
-      {about.map((subsection, index) => (
-        <DescriptionPanel key={index} index={index} {...subsection} />
-      ))}
-    </SectionWithTitle>
-  );
-};
+export type AboutContent = DescriptionPanelContent[];
+
+export const About = (): JSX.Element => (
+  <SectionWithTitle id={SECTION.about}>
+    {aboutContent.map((panelContent, index) => (
+      <DescriptionPanel key={index} index={index} content={panelContent} />
+    ))}
+  </SectionWithTitle>
+);

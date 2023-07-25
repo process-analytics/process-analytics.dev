@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 import * as React from 'react';
-import { About } from '../theme/types';
+
+import { AboutContent } from '../sections/home/About';
+
 import Logo from '../images/logo.svg';
 import WhyDiagram from '../images/why_diagram.svg';
 import WhatDiagram from '../images/what_diagram.svg';
@@ -23,7 +25,7 @@ import Content2 from './about_content_2.mdx';
 import Content3 from './about_content_3.mdx';
 import Content4 from './about_content_4.mdx';
 
-export const about: About = [
+export const aboutContent: AboutContent = [
   {
     mdx: <Content1 />,
     image: {

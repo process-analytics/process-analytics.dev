@@ -36,14 +36,6 @@ export type Library = {
   type: string;
 };
 
-export type About = AboutSubSection[];
-
-export type AboutSubSection = {
-  mdx: JSX.Element;
-  image?: Image;
-  withSeparator?: boolean;
-};
-
 export type PostDescription = {
   title: string;
   text: string;

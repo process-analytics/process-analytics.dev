@@ -54,40 +54,29 @@ const ImagePanel = ({
 }: {
   image: ImageType;
   isFullPage: boolean;
-}): JSX.Element => {
-  const boxProps = isFullPage
-    ? {
-        width: [1, 1, 1],
-        style: {
-          margin: 'auto',
-        },
-      }
-    : {
-        width: [1, 1, 1 / 3],
-        style: {
-          margin: 'auto',
-          maxWidth: '300px',
-        },
-      };
-
-  return (
-    <Box {...boxProps}>
-      {image && (
-        <Fade
-          direction={convertPositionToFadeDirection(image)}
-          triggerOnce
-          style={{ textAlign: 'center' }}
-        >
-          <Image
-            height={'auto'}
-            style={{ borderRadius: '5px' }}
-            css={{ aspectRatio: 'attr(width) / attr(height)' }}
-            {...getImageProps(image)}
-            {...image}
-          />
-        </Fade>
-      )}
-    </Box>
-  );
-};
+}): JSX.Element => (
+  <Box
+    width={[1, 1, isFullPage ? 1 : 1 / 3]}
+    style={{
+      margin: 'auto',
+      maxWidth: isFullPage ? 'auto' : '300px',
+    }}
+  >
+    {image && (
+      <Fade
+        direction={convertPositionToFadeDirection(image)}
+        triggerOnce
+        style={{ textAlign: 'center' }}
+      >
+        <Image
+          height={'auto'}
+          style={{ borderRadius: '5px' }}
+          css={{ aspectRatio: 'attr(width) / attr(height)' }}
+          {...getImageProps(image)}
+          {...image}
+        />
+      </Fade>
+    )}
+  </Box>
+);
 export default ImagePanel;
