@@ -15,7 +15,7 @@
  */
 import { PostContent } from '../theme/components';
 
-const news: PostContent[] = [
+const newsContent: PostContent[] = [
   {
     title: 'June 2023 News',
     text: "In this issue, we discuss successful webinars, new APIs, and bpmn-visualization's exciting Vue integration.",
@@ -215,7 +215,7 @@ const news: PostContent[] = [
 ];
 
 export const newsContent = {
-  news,
+  news: newsContent,
   description:
     'Find all the news articles about Process Analytics to be informed of major changes, new libraries, examples update, and more.',
 };

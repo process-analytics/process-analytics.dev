@@ -16,23 +16,22 @@
 import React from 'react';
 
 import { SectionWithTitle } from '../theme/components/Section';
-import { PostContainer } from '../theme/components/PostContainer';
+import { PostContainer, PostContent } from '../theme/components';
 
 import { SECTION } from '../theme/utils/constants';
-import { PostContent } from '../theme/types';
 
 interface SectionWithPostsProps {
   title: SECTION;
-  posts: PostContent[];
+  postContents: PostContent[];
   pageId: string;
 }
 
 export const SectionWithPosts = ({
   title,
-  posts,
+  postContents,
   pageId,
 }: SectionWithPostsProps): JSX.Element => (
   <SectionWithTitle id={title}>
-    <PostContainer postContents={posts} pageId={pageId} />
+    <PostContainer postContents={postContents} pageId={pageId} />
   </SectionWithTitle>
 );

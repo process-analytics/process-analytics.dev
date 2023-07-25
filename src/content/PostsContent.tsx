@@ -15,7 +15,7 @@
  */
 import { PostContent } from '../theme/components';
 
-const posts: PostContent[] = [
+const postContent: PostContent[] = [
   {
     title:
       'bpmn-visualization: All you need to know about styling BPMN elements',
@@ -196,8 +196,8 @@ const posts: PostContent[] = [
 ];
 
 export const postsContent = {
-  posts: posts,
+  posts: postContent,
   description:
-    'Find all the blog posts explaining how to use the libraries developed by Process Analytics, ' +
+    'Find all the blog postContent explaining how to use the libraries developed by Process Analytics, ' +
     'as well as those explaining how they were developed using external technical tools, and more.',
 };

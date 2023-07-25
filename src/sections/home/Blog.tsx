@@ -24,7 +24,7 @@ import { SectionWithPosts } from '../SectionWithPosts';
 const Blog = (): JSX.Element => (
   <SectionWithPosts
     title={SECTION.blog}
-    posts={postsContent.posts}
+    postContents={postsContent.posts}
     pageId="blog"
   />
 );
