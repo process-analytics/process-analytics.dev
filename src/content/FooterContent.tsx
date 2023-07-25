@@ -19,7 +19,7 @@ import { socialLinks } from './SocialLinkContent';
 
 import { FooterProps } from '../theme/components/Footer';
 
-export const footerRoutes: FooterProps = {
+export const footerContent: FooterProps = {
   brand,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,

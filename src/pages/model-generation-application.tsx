@@ -42,7 +42,7 @@ import {
 } from '../theme/components';
 
 import { postsContent } from '../content/PostsContent';
-import { footerRoutes } from '../content/FooterRoutes';
+import { footerContent } from '../content/FooterContent';
 
 import { PostDescription } from '../theme/types';
 import { PAGE } from '../theme/utils/constants';
@@ -180,7 +180,7 @@ export const Paragraph = ({
 };
 
 const ModelGenerationApplicationPage = (): JSX.Element => (
-  <Layout footerRoutes={footerRoutes}>
+  <Layout footerProps={footerContent}>
     <Section>
       <Heading
         textAlign="center"

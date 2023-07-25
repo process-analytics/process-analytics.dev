@@ -117,11 +117,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 type Props = {
-  footerRoutes: FooterProps;
+  footerProps: FooterProps;
 };
 export const Layout = ({
   children,
-  footerRoutes,
+  footerProps,
 }: PropsWithChildren<Props>): JSX.Element => {
   useEffect(() => {
     initCookieConsentBanner();
@@ -135,7 +135,7 @@ export const Layout = ({
           <CssBaseline>
             <Header />
             {children}
-            <Footer {...footerRoutes} />
+            <Footer {...footerProps} />
           </CssBaseline>
         </MuiThemeProvider>
       </ThemeProvider>

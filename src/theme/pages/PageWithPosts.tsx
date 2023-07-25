@@ -18,7 +18,7 @@ import * as React from 'react';
 import { Heading, Text } from 'rebass/styled-components';
 import { MKBox } from '../components/material-kit';
 
-import { footerRoutes } from '../../content/FooterRoutes';
+import { footerContent } from '../content/FooterContent';
 
 import {
   Layout,
@@ -46,7 +46,7 @@ export const PageWithPosts = ({
   posts,
   description,
 }: PageWithPostsProps): JSX.Element => (
-  <Layout footerRoutes={footerRoutes}>
+  <Layout footerProps={footerContent}>
     <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
         textAlign="center"

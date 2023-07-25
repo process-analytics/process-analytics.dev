@@ -21,7 +21,7 @@ import styled from 'styled-components';
 
 import { DataProps } from '../hooks/use-site-metadata';
 
-import { footerRoutes } from '../content/FooterRoutes';
+import { footerContent } from '../content/FooterContent';
 
 import { Layout, Section, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
@@ -39,7 +39,7 @@ const StyledParagraph = styled.p`
 `;
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout footerRoutes={footerRoutes}>
+  <Layout footerProps={footerContent}>
     <Section>
       <h1 style={{ textAlign: 'center' }}>
         <Image

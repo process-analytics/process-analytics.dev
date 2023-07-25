@@ -25,10 +25,10 @@ import { Landing, Blog, News, About, Libraries } from '../sections';
 import { Layout, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
-import { footerRoutes } from '../content/FooterRoutes';
+import { footerContent } from '../content/FooterContent';
 
 const HomePage = (): JSX.Element => (
-  <Layout footerRoutes={footerRoutes}>
+  <Layout footerProps={footerContent}>
     <Landing />
     <About />
     <Libraries />
