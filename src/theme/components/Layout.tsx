@@ -33,9 +33,7 @@ import { theme } from '../theme';
 import { theme as muiTheme } from '../../assets/theme';
 import { loadIcons } from '../utils/icons';
 
-import { Footer, Header } from '.';
-
-import { FooterRoutes } from '../../content/FooterRoutes';
+import { Footer, FooterContent, Header } from '.';
 
 loadIcons();
 
@@ -119,11 +117,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 type Props = {
-  footerRoutes: FooterRoutes;
+  footerContent: FooterContent;
 };
 export const Layout = ({
   children,
-  footerRoutes,
+  footerContent,
 }: PropsWithChildren<Props>): JSX.Element => {
   useEffect(() => {
     initCookieConsentBanner();
@@ -137,7 +135,7 @@ export const Layout = ({
           <CssBaseline>
             <Header />
             {children}
-            <Footer content={footerRoutes} />
+            <Footer content={footerContent} />
           </CssBaseline>
         </MuiThemeProvider>
       </ThemeProvider>

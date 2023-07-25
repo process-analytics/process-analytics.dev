@@ -13,31 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Link, SocialLink } from '../theme/types';
+import { brandContent } from './BrandContent';
 
 import { socialLinks } from './SocialLinkContent';
 
-// Images
-import logo from '../images/logo_white.svg';
+import { FooterContent } from '../theme/components/Footer';
 
-export type FooterRoutes = {
-  brand: Required<Omit<Link, 'description' | 'href'>> & { logo: string };
-  copyright: { name: string; url: string };
-  socials: SocialLink[];
-  menus: FooterMenu[];
-};
-export type FooterMenu = {
-  name: string;
-  items: Required<Omit<Link, 'description' | 'href'>>[];
-};
-
-export const footerRoutes: FooterRoutes = {
-  brand: {
-    type: 'internal',
-    name: 'Process Analytics',
-    logo: logo,
-    url: '/',
-  },
+export const footerContent: FooterContent = {
+  brand: brandContent,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path

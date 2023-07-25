@@ -74,6 +74,10 @@ export type Link = {
   url: string;
 };
 
+export type Brand = Required<Omit<Link, 'description'>> & {
+  logo: { primary: string; light: string };
+};
+
 export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
   /**
    * The icon of the route on the Navbar

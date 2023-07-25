@@ -39,19 +39,29 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Link as FooterLink } from '../../theme/types';
+import { Brand, Link as LinkProps, SocialLink } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
-import { FooterMenu, FooterRoutes } from '../../content/FooterRoutes';
 import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
 
+export type FooterProps = {
+  content: FooterContent;
+};
+export type FooterContent = {
+  brand: Brand;
+  copyright: { name: string; url: string };
+  socials: SocialLink[];
+  menus: FooterMenu[];
+};
+export type FooterMenu = {
+  name: string;
+  items: Required<Omit<LinkProps, 'description'>>[];
+};
+
 export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;
-
   const year = new Date().getFullYear();
 
-  /* TODO: Use ScopedCssBaseline until we need to keep the old theme.
-      After, use CssBaseline and move it with the ThemeProvider in the Layout class  */
   return (
     <MKBox component="footer" py={6} bgColor="primary">
       <Container maxWidth="xxl">
@@ -80,7 +90,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               <GatsbyLink to={brand.url}>
                 <MKBox
                   component="img"
-                  src={brand.logo}
+                  src={brand.logo.light}
                   alt={brand.name}
                   maxWidth="3rem"
                   height="3rem"
@@ -140,7 +150,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 </MKTypography>
 
                 <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
-                  {items.map(({ name, url }: FooterLink) => (
+                  {items.map(({ name, url }: LinkProps) => (
                     <MKBox
                       key={name}
                       component="li"
@@ -212,8 +222,3 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
     </MKBox>
   );
 };
-
-// Typechecking props for the DefaultFooter
-interface FooterProps {
-  content: FooterRoutes;
-}
