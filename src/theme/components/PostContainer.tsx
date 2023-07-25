@@ -20,27 +20,32 @@ import React from 'react';
 import { Flex } from 'rebass/styled-components';
 import { PostCard, MKBox } from './material-kit';
 
-import { PostDescription } from '../types';
-
 import { ButtonWithInternalLink } from '.';
 
 import colors from '../colors.json';
 import { isMobileView } from '../utils/helpers';
 
 type PostContainerProps = {
-  posts: PostDescription[];
+  postContents: PostContent[];
   pageId?: string;
 };
 
-type PostProps = PostDescription;
+export type PostProps = {
+  content: PostContent;
+};
+
+export type PostContent = {
+  title: string;
+  text: string;
+  cover: string;
+  url: string;
+  date: string;
+  time: number;
+  isInModelGenerationAppPage?: boolean;
+};
 
 const Post = ({
-  cover,
-  title,
-  text,
-  url,
-  date,
-  time,
+  content: { cover, title, text, url, date, time },
 }: PostProps): JSX.Element => (
   <Grid item flex={1} xs={12} lg={4} sx={{ ml: 'auto', mt: { xs: 3, lg: 0 } }}>
     <MKBox
@@ -61,19 +66,21 @@ const Post = ({
 );
 
 export const PostContainer = ({
-  posts,
+  postContents,
   pageId,
 }: PostContainerProps): JSX.Element => {
   const maxNumberOfPosts = isMobileView() ? 3 : 6;
   return (
     <Container>
       <Grid container spacing={3}>
-        {(pageId ? posts.slice(0, maxNumberOfPosts) : posts).map((p, i) => (
-          <Post key={i} {...p} />
-        ))}
+        {(pageId ? postContents.slice(0, maxNumberOfPosts) : postContents).map(
+          (content, i) => (
+            <Post key={i} content={content} />
+          ),
+        )}
       </Grid>
 
-      {pageId && posts.length > maxNumberOfPosts && (
+      {pageId && postContents.length > maxNumberOfPosts && (
         <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
           <ButtonWithInternalLink
             to={`/${pageId}`}

@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { PostDescription } from '../theme/types';
+import { PostContent } from '../theme/components';
 
-const news: PostDescription[] = [
+const news: PostContent[] = [
   {
     title: 'June 2023 News',
     text: "In this issue, we discuss successful webinars, new APIs, and bpmn-visualization's exciting Vue integration.",

@@ -24,10 +24,9 @@ import {
   Layout,
   Section,
   PostContainer,
+  PostContent,
   MailingListSubscription,
 } from '../components';
-
-import { PostDescription } from '../types';
 
 import { SECTION } from '../utils/constants';
 import { theme } from '../theme';
@@ -37,13 +36,13 @@ const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 interface PageWithPostsProps {
   containerTitle: SECTION;
-  posts: PostDescription[];
+  postContents: PostContent[];
   description: string;
 }
 
 export const PageWithPosts = ({
   containerTitle,
-  posts,
+  postContents,
   description,
 }: PageWithPostsProps): JSX.Element => (
   <Layout footerContent={footerContent}>
@@ -70,7 +69,7 @@ export const PageWithPosts = ({
         {description}
       </Text>
       <MKBox component="section" py={12}>
-        <PostContainer posts={posts} />{' '}
+        <PostContainer postContents={postContents} />
       </MKBox>
     </Section>
     <MailingListSubscription />

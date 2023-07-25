@@ -19,11 +19,11 @@ import { SectionWithTitle } from '../theme/components/Section';
 import { PostContainer } from '../theme/components/PostContainer';
 
 import { SECTION } from '../theme/utils/constants';
-import { PostDescription } from '../theme/types';
+import { PostContent } from '../theme/types';
 
 interface SectionWithPostsProps {
   title: SECTION;
-  posts: PostDescription[];
+  posts: PostContent[];
   pageId: string;
 }
 
@@ -33,6 +33,6 @@ export const SectionWithPosts = ({
   pageId,
 }: SectionWithPostsProps): JSX.Element => (
   <SectionWithTitle id={title}>
-    <PostContainer posts={posts} pageId={pageId} />
+    <PostContainer postContents={posts} pageId={pageId} />
   </SectionWithTitle>
 );

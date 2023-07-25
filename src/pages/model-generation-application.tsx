@@ -44,7 +44,6 @@ import {
 import { postsContent } from '../content/PostsContent';
 import { footerContent } from '../content/FooterContent';
 
-import { PostDescription } from '../theme/types';
 import { PAGE } from '../theme/utils/constants';
 import colors from '../theme/colors.json';
 
@@ -321,8 +320,8 @@ const ModelGenerationApplicationPage = (): JSX.Element => (
           More information in this series of articles
         </PartTitle>
         <PostContainer
-          posts={postsContent.posts.filter(
-            (post: PostDescription) => post.isInModelGenerationAppPage,
+          postContents={postsContent.posts.filter(
+            post => post.isInModelGenerationAppPage,
           )}
           pageId="blog"
         />

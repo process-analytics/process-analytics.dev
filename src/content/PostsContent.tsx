@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { PostDescription } from '../theme/types';
+import { PostContent } from '../theme/components';
 
-const posts: PostDescription[] = [
+const posts: PostContent[] = [
   {
     title:
       'bpmn-visualization: All you need to know about styling BPMN elements',
