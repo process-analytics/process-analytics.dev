@@ -22,11 +22,11 @@ import { Fade } from 'react-awesome-reveal';
 import { Section, SocialLink, SocialLinkContent } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
 
-import { landing } from '../../content/LandingContent';
+import { landingContent } from '../../content/LandingContent';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
-export type LandingProps = {
+export type LandingContent = {
   title: string;
   presentation: string;
   socialLinks: SocialLinkContent[];
@@ -34,7 +34,7 @@ export type LandingProps = {
 
 export const Landing = (): JSX.Element => {
   const { title, presentation, socialLinks } = {
-    ...landing,
+    ...landingContent,
   };
 
   return (

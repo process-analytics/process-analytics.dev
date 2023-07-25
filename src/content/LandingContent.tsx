@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LandingProps } from '../sections/home/Landing';
-
+import { LandingContent } from '../sections/home/Landing';
 import { socialLinkContent } from './SocialLinkContent';
 
-export const landing: LandingProps = {
+export const landingContent: LandingContent = {
   title: 'Process Analytics',
   // WARN: if it is longer than 160 characters, please do ellipsis in HelmetContent
   presentation:
