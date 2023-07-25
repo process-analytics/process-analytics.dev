@@ -6,11 +6,26 @@ You can create and build applications to visualize:
   sx={{
     ul: {
       listStyle: 'inside',
-      display: 'grid',
-      gridGap: 1,
-      gridTemplateColumns: '1fr 1fr',
+      // Common styles for both desktop and mobile
+      display: 'block',
+      listStyleType: 'disc',
+      marginBlockStart: '1rem',
+      marginBlockEnd: '1rem',
+      marginInlineStart: 0,
+      marginInlineEnd: 0,
+      paddingInlineStart: '40px',
+      // Desktop view styles (2 columns)
+      '@media screen and (min-width: 768px)': {
+        display: 'grid',
+        gridGap: 1,
+        gridTemplateColumns: '1fr 1fr',
+      },
     },
-    li: {},
+    li: {
+      display: 'list-item',
+      textAlign: '-webkit-match-parent',
+      marginBottom: '1rem',
+    },
   }}
 >
   <ul>
