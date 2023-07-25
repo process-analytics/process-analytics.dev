@@ -18,7 +18,7 @@ import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { useSiteMetadata } from '../hooks/use-site-metadata';
-import { landing } from '../content/LandingContent';
+import { landingContent } from '../content/LandingContent';
 import { theme } from '../theme/theme';
 
 const LANG = 'en';
@@ -31,7 +31,7 @@ export interface SEOProps {
 
 export const SEO = ({
   title,
-  description = landing.presentation,
+  description = landingContent.presentation,
   pathname,
   children,
 }: PropsWithChildren<SEOProps>): JSX.Element => {
