@@ -37,7 +37,7 @@ import React, { useState } from 'react';
 import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React base styles
-import { HeaderRoute } from '../../../types';
+import { HeaderContent } from '../../Header';
 
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, HoverStyle } from './common';
@@ -200,7 +200,7 @@ export const Navbar = ({
 
 type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
   brand?: string;
-  routes: HeaderRoute[];
+  routes: HeaderContent[];
   action: Action;
   isTransparent?: boolean;
   isSticky?: boolean;

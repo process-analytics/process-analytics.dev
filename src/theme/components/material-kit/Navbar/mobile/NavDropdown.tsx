@@ -27,7 +27,7 @@
 
 import React from 'react';
 
-import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../../types';
+import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../Header';
 
 import { MKBox } from '../..';
 

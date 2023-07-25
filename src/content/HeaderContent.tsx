@@ -32,7 +32,8 @@ Coded by www.creative-tim.com
  Once you add a new route on this file it will be visible automatically on
  the Navbar.
  */
-import { HeaderRoute } from '../theme/types';
+
+import { HeaderContent } from '../theme/components/Header';
 
 /*import SvgLogo from '../images/logo.svg';
 
@@ -41,7 +42,8 @@ export const header = {
 };*/
 
 // TODO: Mutualize with FooterRoutes
-export const routes: HeaderRoute[] = [
+
+export const headerContent: HeaderContent[] = [
   {
     type: 'internal',
     name: 'model generation application',

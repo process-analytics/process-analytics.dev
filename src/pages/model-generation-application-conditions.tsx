@@ -27,12 +27,13 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import { footerContent } from '../content/FooterContent';
+import { headerContent } from '../content/HeaderContent';
 
 import { Section, Layout } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (
-  <Layout footerContent={footerContent}>
+  <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
       <Heading
         textAlign="center"

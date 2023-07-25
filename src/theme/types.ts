@@ -16,8 +16,6 @@
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
-import { SvgIcon } from '@mui/material';
-
 export type Theme = DefaultTheme & RebassTheme;
 
 export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
@@ -36,60 +34,4 @@ export type Link = {
 
 export type Brand = Required<Omit<Link, 'description'>> & {
   logo: { primary: string; light: string };
-};
-
-export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
-  /**
-   * The icon of the route on the Navbar
-   */
-  icon: typeof SvgIcon;
-  /**
-   * For making a collapsible item on the Navbar that contains other routes inside (nested routes)
-   */
-  menus: HeaderMenu[];
-  /**
-   * To define that how the content should look inside the dropdown menu as columns, you can set the columns amount based on this key
-   */
-  withColumns?: boolean;
-  /**
-   * To define that how many rows should be in a column
-   */
-  rowsPerColumn?: number;
-}; //dropdown
-
-/**
- * @field url To store the route location which is used for the React router or to store the external link location
- */
-export type HeaderRouteAsLink = Omit<Link, 'description'>; // nav-link
-
-/**
- * @field name The name of the route on the Navbar
- */
-export type HeaderRoute = HeaderRouteAsLink | HeaderRouteWithMenus; // nav-item
-// HeaderRoutes = navbar nav
-
-export const isHeaderRouteWithMenus = (
-  route: HeaderRoute,
-): route is HeaderRouteWithMenus => {
-  return 'icon' in route && 'menus' in route;
-};
-
-/**
- * @field description To define the description of a route under its name
- */
-export type HeaderMenuWithItems = Pick<Link, 'name' | 'description'> & {
-  /**
-   * To define that the item should open a dropdown for its collapse items
-   */
-  isCollapsed?: boolean; // TODO Modify the code to remove this property
-  items: Link[];
-};
-export type HeaderMenu =
-  | Link // dropdown-item
-  | HeaderMenuWithItems; //dropdown-menu
-
-export const isHeaderMenuWithItems = (
-  menu: HeaderMenu,
-): menu is HeaderMenuWithItems => {
-  return 'items' in menu;
 };

@@ -29,9 +29,9 @@ import React from 'react';
 
 import { Theme } from '@mui/material';
 
+import { HeaderMenuWithItems } from '../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
-import { HeaderMenuWithItems } from '../../../../types';
 import { MKTypography } from '../..';
 import { getLinkAttributes } from '../../../Link';
 

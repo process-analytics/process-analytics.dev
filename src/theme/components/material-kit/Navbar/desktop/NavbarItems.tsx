@@ -32,12 +32,12 @@ import { Link as GatsbyLink } from 'gatsby-link';
 
 import { NavbarItem, NavbarItemProps, HoverStyle } from '../common';
 
-import { HeaderRoute, isHeaderRouteWithMenus } from '../../../../types';
+import { HeaderContent, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
 
 const getNavbarItemAttributes = (
-  route: HeaderRoute,
+  route: HeaderContent,
   setCollapseElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >,
@@ -72,7 +72,7 @@ const getNavbarItemAttributes = (
     : getLinkAttributes(route);
 
 type NavbarItemsProps = {
-  routes: HeaderRoute[];
+  routes: HeaderContent[];
   isCenter?: boolean;
   setCollapseElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>

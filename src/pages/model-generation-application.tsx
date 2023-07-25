@@ -43,6 +43,7 @@ import {
 
 import { postsContent } from '../content/PostsContent';
 import { footerContent } from '../content/FooterContent';
+import { headerContent } from '../content/HeaderContent';
 
 import { PAGE } from '../theme/utils/constants';
 import colors from '../theme/colors.json';
@@ -179,7 +180,7 @@ export const Paragraph = ({
 };
 
 const ModelGenerationApplicationPage = (): JSX.Element => (
-  <Layout footerContent={footerContent}>
+  <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
       <Heading
         textAlign="center"
