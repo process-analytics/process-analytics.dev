@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import React from 'react';
+
 import { Box } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
 import { StyledMDXComponents } from '../MarkdownComponents';
-import styled from 'styled-components';
-import React from 'react';
-import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
 
 const MDXPanel = ({
   mdx,
@@ -27,33 +26,17 @@ const MDXPanel = ({
 }: {
   mdx: JSX.Element;
   isFullPage: boolean;
-}): JSX.Element => {
-  const boxProps = isFullPage
-    ? {
-        width: [1, 1, 1],
-      }
-    : {
-        width: [1, 1, 2 / 3],
-      };
-  return (
-    <Box {...boxProps} px={[1, 2, 4]} mt={2}>
-      <Fade direction="down" triggerOnce>
-        <CustomBox>
-          <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
-        </CustomBox>
-      </Fade>
-    </Box>
-  );
-};
-
-const CustomBox = styled.div`
-  font-size: large;
-  line-height: 2em;
-
-  ${MEDIA_QUERY_MEDIUM} {
-    line-height: 1.5em;
-    font-size: medium;
-  }
-`;
+}): JSX.Element => (
+  <Box width={isFullPage ? [1, 1, 1] : [1, 1, 2 / 3]} px={[1, 2, 4]} mt={2}>
+    <Fade direction="down" triggerOnce>
+      <Box
+        fontSize={['medium', 'medium', 'large']}
+        lineHeight={['1.5rem', '1.5rem', '2rem']}
+      >
+        <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
+      </Box>
+    </Fade>
+  </Box>
+);
 
 export default MDXPanel;
