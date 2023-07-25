@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { brand } from './BrandContent';
+import { brandContent } from './BrandContent';
 
 import { socialLinks } from './SocialLinkContent';
 
 import { FooterContent } from '../theme/components/Footer';
 
 export const footerContent: FooterContent = {
-  brand,
+  brand: brandContent,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: socialLinks,
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path

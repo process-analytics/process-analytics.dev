@@ -90,7 +90,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               <GatsbyLink to={brand.url}>
                 <MKBox
                   component="img"
-                  src={brand.logo}
+                  src={brand.logo.light}
                   alt={brand.name}
                   maxWidth="3rem"
                   height="3rem"

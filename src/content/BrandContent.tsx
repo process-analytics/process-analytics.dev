@@ -18,7 +18,7 @@ import LightLogo from '../images/logo_white.svg';
 
 import { Brand } from '../theme/types';
 
-export const brand: Brand = {
+export const brandContent: Brand = {
   type: 'internal',
   name: 'Process Analytics',
   logo: { primary: PrimaryLogo, light: LightLogo },
