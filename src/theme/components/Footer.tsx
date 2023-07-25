@@ -42,7 +42,7 @@ import { GATSBY_URL } from '../utils/constants';
 
 import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
-import { SocialLinkProps, SocialLinkWithMaterial } from './SocialLink';
+import { SocialLinkContent, SocialLinkWithMaterial } from './SocialLink';
 
 export type FooterProps = {
   content: FooterContent;
@@ -50,7 +50,7 @@ export type FooterProps = {
 export type FooterContent = {
   brand: Brand;
   copyright: { name: string; url: string };
-  socials: SocialLinkProps[];
+  socials: SocialLinkContent[];
   menus: FooterMenu[];
 };
 export type FooterMenu = {
@@ -106,15 +106,15 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 {brand.name}
               </MKTypography>
               <MKBox display="flex" alignItems="center" mt={3}>
-                {socials.map(({ icon, url, name }, key) => (
+                {socials.map((content, key) => (
                   <SocialLinkWithMaterial
-                    key={url}
-                    icon={icon}
-                    url={url}
-                    name={name}
-                    variant="h5"
-                    opacity={0.8}
-                    mr={key === socials.length - 1 ? 0 : 2.5}
+                    key={content.url}
+                    content={content}
+                    style={{
+                      variant: 'h5',
+                      opacity: 0.8,
+                      mr: key === socials.length - 1 ? 0 : 2.5,
+                    }}
                   />
                 ))}
               </MKBox>

@@ -16,13 +16,13 @@
 
 import React from 'react';
 
-import { Link } from 'rebass/styled-components';
 import {
   Link as MaterialLink,
   LinkProps,
   styled as MaterialStyled,
 } from '@mui/material';
 import styled from 'styled-components';
+import { Link } from 'rebass/styled-components';
 import Tippy from '@tippyjs/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,18 +32,22 @@ import { getIconDefinition } from '../utils/icons';
 import { MKTypography, MKTypographyProps } from './material-kit/MKTypography';
 
 export type SocialLinkProps = {
+  content: SocialLinkContent;
+  style?: { invert?: boolean };
+};
+
+export type SocialLinkContent = {
   url: string;
   name: string;
   icon: IconName | JSX.Element;
-  invert?: boolean;
 };
 
 export const SocialLink = ({
-  icon,
-  name,
-  url,
-  invert,
+  content,
+  style = { invert: false },
 }: SocialLinkProps): JSX.Element | null => {
+  const { url, name, icon } = content;
+
   const iconDefinition = getIconDefinition(icon as IconName);
   if (!iconDefinition) {
     return null;
@@ -59,7 +63,7 @@ export const SocialLink = ({
       <IconLink
         href={url}
         target="_blank"
-        invert={invert}
+        invert={style.invert}
         rel="noreferrer"
         aria-label={name}
       >
@@ -81,17 +85,16 @@ const IconLink = styled(Link)<{ invert?: boolean }>`
 `;
 
 export type SocialLinkWithMaterialProps = {
-  url: string;
-  name: string;
-  icon: IconName | JSX.Element;
-} & MKTypographyProps;
+  content: SocialLinkContent;
+  style?: MKTypographyProps;
+};
 
 export const SocialLinkWithMaterial = ({
-  icon,
-  name,
-  url,
-  ...rest
+  content,
+  style,
 }: SocialLinkWithMaterialProps): JSX.Element | null => {
+  const { url, name, icon } = content;
+
   const iconDefinition = getIconDefinition(icon as IconName);
   if (!iconDefinition) {
     return null;
@@ -110,7 +113,7 @@ export const SocialLinkWithMaterial = ({
         target="_blank"
         rel="noreferrer"
         aria-label={name}
-        {...rest}
+        {...style}
       >
         <FontAwesomeIcon icon={iconDefinition} />
       </MKTypography>

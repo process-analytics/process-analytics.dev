@@ -26,6 +26,7 @@ export {
   SocialLink,
   SocialLinkWithMaterial,
   SocialLinkProps,
+  SocialLinkContent,
   SocialLinkWithMaterialProps,
 } from './SocialLink';
 export { MailingListSubscription } from './mailingListSubscription/MailingListSubscription';
