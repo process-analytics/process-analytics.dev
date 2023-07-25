@@ -45,6 +45,9 @@ import { Link } from './Link';
 import { RouteWithMaterial } from './Route';
 
 export type FooterProps = {
+  content: FooterContent;
+};
+export type FooterContent = {
   brand: Brand;
   copyright: { name: string; url: string };
   socials: SocialLink[];
@@ -55,12 +58,8 @@ export type FooterMenu = {
   items: Required<Omit<LinkProps, 'description'>>[];
 };
 
-export const Footer = ({
-  brand,
-  socials,
-  menus,
-  copyright,
-}: FooterProps): JSX.Element => {
+export const Footer = ({ content }: FooterProps): JSX.Element => {
+  const { brand, socials, menus, copyright } = content;
   const year = new Date().getFullYear();
 
   return (

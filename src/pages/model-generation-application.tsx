@@ -180,7 +180,7 @@ export const Paragraph = ({
 };
 
 const ModelGenerationApplicationPage = (): JSX.Element => (
-  <Layout footerProps={footerContent}>
+  <Layout footerContent={footerContent}>
     <Section>
       <Heading
         textAlign="center"

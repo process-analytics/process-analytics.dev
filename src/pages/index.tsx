@@ -28,7 +28,7 @@ import { PAGE } from '../theme/utils/constants';
 import { footerContent } from '../content/FooterContent';
 
 const HomePage = (): JSX.Element => (
-  <Layout footerProps={footerContent}>
+  <Layout footerContent={footerContent}>
     <Landing />
     <About />
     <Libraries />

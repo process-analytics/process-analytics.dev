@@ -32,7 +32,7 @@ import { Section, Layout } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (
-  <Layout footerProps={footerContent}>
+  <Layout footerContent={footerContent}>
     <Section>
       <Heading
         textAlign="center"

@@ -39,7 +39,7 @@ const StyledParagraph = styled.p`
 `;
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout footerProps={footerContent}>
+  <Layout footerContent={footerContent}>
     <Section>
       <h1 style={{ textAlign: 'center' }}>
         <Image
