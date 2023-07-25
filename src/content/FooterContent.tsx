@@ -15,14 +15,14 @@
  */
 import { brandContent } from './BrandContent';
 
-import { socialLinks } from './SocialLinkContent';
+import { socialLinkContent } from './SocialLinkContent';
 
 import { FooterContent } from '../theme/components/Footer';
 
 export const footerContent: FooterContent = {
   brand: brandContent,
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
-  socials: socialLinks,
+  socials: socialLinkContent,
   // TODO: To build from page path & constants of page title to avoid duplication and bad url path
   menus: [
     {

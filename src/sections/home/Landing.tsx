@@ -19,8 +19,7 @@ import { Heading, Flex, Box, Text } from 'rebass/styled-components';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { Section } from '../../theme/components/Section';
-import { SocialLink } from '../../theme/components/SocialLink';
+import { Section, SocialLink } from '../../theme/components';
 import { SECTION } from '../../theme/utils/constants';
 
 import { landing } from '../../content/LandingContent';
@@ -70,7 +69,7 @@ export const Landing = (): JSX.Element => {
         <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
           {socialLinks.map(sl => (
             <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
-              <SocialLink {...sl} />
+              <SocialLink content={sl} />
             </Box>
           ))}
         </Flex>

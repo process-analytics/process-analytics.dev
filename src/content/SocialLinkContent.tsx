@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SocialLink } from '../theme/types';
+import { SocialLinkContent } from '../theme/components';
 
-export const socialLinks: SocialLink[] = [
+export const socialLinkContent: SocialLinkContent[] = [
   {
     url: 'https://github.com/process-analytics',
     name: 'GitHub Organization',

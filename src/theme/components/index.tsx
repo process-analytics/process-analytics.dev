@@ -22,7 +22,13 @@ export { Library } from './Library';
 export { Link } from './Link';
 export { PostContainer } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
-export { SocialLink, SocialLinkWithMaterial } from './SocialLink';
+export {
+  SocialLink,
+  SocialLinkWithMaterial,
+  SocialLinkProps,
+  SocialLinkContent,
+  SocialLinkWithMaterialProps,
+} from './SocialLink';
 export { MailingListSubscription } from './mailingListSubscription/MailingListSubscription';
 export { Features, Jotform } from './modelGenerationApp';
 export { DescriptionPanel } from './description/DescriptionPanel';

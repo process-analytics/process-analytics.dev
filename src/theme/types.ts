@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { SocialLinkContent } from './components/SocialLink';
 import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
@@ -45,12 +45,6 @@ export type AboutSubSection = {
   withSeparator?: boolean;
 };
 
-export type SocialLink = {
-  url: string;
-  name: string;
-  icon: IconName | JSX.Element;
-};
-
 export type PostDescription = {
   title: string;
   text: string;
@@ -64,7 +58,7 @@ export type PostDescription = {
 export type Landing = {
   title: string;
   presentation: string;
-  socialLinks: SocialLink[];
+  socialLinks: SocialLinkContent[];
 };
 
 export type Link = {
