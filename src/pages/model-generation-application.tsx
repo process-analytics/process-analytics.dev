@@ -48,8 +48,8 @@ import { headerContent } from '../content/HeaderContent';
 import { PAGE } from '../theme/utils/constants';
 import colors from '../theme/colors.json';
 
-import AppPreview from '../images/model-generation-app/model_generation_app_preview.gif';
-import HowItWorksImg from '../images/model-generation-app/how_it_works.png';
+import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
+import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';
 import { DataProps } from '../hooks/use-site-metadata';
 
 export const Part = ({
