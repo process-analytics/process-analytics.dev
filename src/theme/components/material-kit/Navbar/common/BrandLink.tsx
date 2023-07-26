@@ -69,7 +69,7 @@ export const BrandLink = ({
         style={{ cursor: 'pointer', margin: 'auto' }}
       />*/}
       <MKTypography variant="button" fontWeight="bold">
-        {content}
+        {content.name}
       </MKTypography>
     </MKBox>
   );
