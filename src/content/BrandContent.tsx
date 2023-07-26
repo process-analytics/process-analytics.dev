@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { BrandContent } from '../theme/components';
 import PrimaryLogo from '../images/logo.svg';
 import LightLogo from '../images/logo_white.svg';
 
-import { Brand } from '../theme/types';
-
-export const brandContent: Brand = {
+export const brandContent: BrandContent = {
   type: 'internal',
   name: 'Process Analytics',
   logo: { primary: PrimaryLogo, light: LightLogo },

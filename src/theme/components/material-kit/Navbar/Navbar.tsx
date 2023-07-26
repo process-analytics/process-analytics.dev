@@ -29,15 +29,13 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+import React, { useState } from 'react';
+
 // @mui material components
 import { Container } from '@mui/material';
-import React, { useState } from 'react';
 
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '..';
-
-// Material Kit 2 React base styles
-import { HeaderContent } from '../../Header';
 
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, HoverStyle } from './common';
@@ -46,8 +44,11 @@ import { Dropdown, NavbarItems } from './desktop';
 
 import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
 
+import { BrandContent } from '../..';
+import { HeaderRoute } from '../../Header';
+
 const InnerContainer = ({
-  brand,
+  brandContent,
   routes,
   action,
   isTransparent,
@@ -96,11 +97,10 @@ const InnerContainer = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          {brand && (
+          {brandContent && (
             <BrandLink
-              isTransparent={isTransparent}
-              isRelative={isRelative}
-              brand={brand}
+              style={{ isTransparent, isRelative }}
+              content={brandContent}
             />
           )}
 
@@ -157,7 +157,7 @@ const InnerContainer = ({
 };
 
 export const Navbar = ({
-  brand,
+  brandContent,
   routes,
   action,
   isTransparent,
@@ -184,7 +184,7 @@ export const Navbar = ({
       color={color}
     >
       <InnerContainer
-        brand={brand}
+        brandContent={brandContent}
         routes={routes}
         action={action}
         isTransparent={isTransparent}
@@ -199,8 +199,8 @@ export const Navbar = ({
 };
 
 type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
-  brand?: string;
-  routes: HeaderContent[];
+  brandContent: BrandContent;
+  routes: HeaderRoute[];
   action: Action;
   isTransparent?: boolean;
   isSticky?: boolean;

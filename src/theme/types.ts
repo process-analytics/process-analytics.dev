@@ -31,7 +31,3 @@ export type Link = {
   description?: string;
   url: string;
 };
-
-export type Brand = Required<Omit<Link, 'description'>> & {
-  logo: { primary: string; light: string };
-};
