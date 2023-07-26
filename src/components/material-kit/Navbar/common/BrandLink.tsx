@@ -61,13 +61,21 @@ export const BrandLink = ({
       py={isTransparent ? 1.5 : 0.75}
       pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
-      {/*      <img
-        src={brand.src}
+      <img
+        src={content.logo.primary}
         height="100%"
         width="100%"
-        alt="Process Analytics Logo"
+        alt={content.name}
         style={{ cursor: 'pointer', margin: 'auto' }}
-      />*/}
+      />
+      <MKBox
+        component="img"
+        src={content.logo.primary}
+        alt={content.name}
+        height="100%"
+        width="100%"
+        style={{ cursor: 'pointer', margin: 'auto' }}
+      />
       <MKTypography variant="button" fontWeight="bold">
         {content.name}
       </MKTypography>
