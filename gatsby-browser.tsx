@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import './src/theme/styles/global.css';
+import './src/assets/css/global.css';
 
 // Cookie consent banner
-import './src/theme/styles/cookieconsent.css';
+import './src/assets/css/cookieconsent.css';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 
 import 'tippy.js/dist/tippy.css';
