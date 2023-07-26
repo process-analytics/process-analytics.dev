@@ -34,12 +34,12 @@ import { getHoverConfiguration, HoverStyle } from '../common';
 
 import {
   HeaderMenuWithItems,
-  HeaderRoute,
+  HeaderContent,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
-  Link,
-} from '../../../../types';
+} from '../../../Header';
+import { Link } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
@@ -107,7 +107,7 @@ const DropdownSubMenu = ({
 );
 
 export type NestedDropdownMenuProps = {
-  routes: HeaderRoute[];
+  routes: HeaderContent[];
   nestedDropdownElement?: EventTarget & HTMLSpanElement;
   nestedDropdownName?: string;
   setNestedDropdownElement: Dispatch<

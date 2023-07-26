@@ -34,11 +34,11 @@ import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import {
   HeaderMenu,
-  HeaderRoute,
+  HeaderContent,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
-} from '../../../../types';
+} from '../../../Header';
 import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
@@ -206,7 +206,7 @@ const ListDropdownMenus = (
   ));
 
 export type DropdownMenuProps = {
-  routes: HeaderRoute[];
+  routes: HeaderContent[];
   collapseElement?: EventTarget & HTMLSpanElement;
   collapseName?: string;
   setCollapseElement: Dispatch<

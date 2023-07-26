@@ -19,6 +19,7 @@ import { Heading, Text } from 'rebass/styled-components';
 import { MKBox } from '../components/material-kit';
 
 import { footerContent } from '../../content/FooterContent';
+import { headerContent } from '../../content/HeaderContent';
 
 import {
   Layout,
@@ -45,7 +46,7 @@ export const PageWithPosts = ({
   postContents,
   description,
 }: PageWithPostsProps): JSX.Element => (
-  <Layout footerContent={footerContent}>
+  <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section id={containerTitle} backgroundColor={theme.colors.primary}>
       <Heading
         textAlign="center"

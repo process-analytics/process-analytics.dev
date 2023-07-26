@@ -16,7 +16,7 @@
 export { ButtonWithExternalLink, ButtonWithInternalLink } from './Button';
 export { Divider } from './Divider';
 export { Footer, FooterProps, FooterContent } from './Footer';
-export { Header } from './Header';
+export { Header, HeaderContent } from './Header';
 export { Layout } from './Layout';
 export { Library, LibraryProps, LibraryContent } from './Library';
 export { Link } from './Link';

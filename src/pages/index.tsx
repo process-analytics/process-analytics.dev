@@ -26,9 +26,10 @@ import { Layout, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
 import { footerContent } from '../content/FooterContent';
+import { headerContent } from '../content/HeaderContent';
 
 const HomePage = (): JSX.Element => (
-  <Layout footerContent={footerContent}>
+  <Layout footerContent={footerContent} headerContent={headerContent}>
     <Landing />
     <About />
     <Libraries />

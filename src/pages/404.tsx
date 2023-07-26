@@ -22,6 +22,7 @@ import styled from 'styled-components';
 import { DataProps } from '../hooks/use-site-metadata';
 
 import { footerContent } from '../content/FooterContent';
+import { headerContent } from '../content/HeaderContent';
 
 import { Layout, Section, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
@@ -39,7 +40,7 @@ const StyledParagraph = styled.p`
 `;
 
 const NotFoundPage = (): JSX.Element => (
-  <Layout footerContent={footerContent}>
+  <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
       <h1 style={{ textAlign: 'center' }}>
         <Image
