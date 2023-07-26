@@ -20,7 +20,7 @@ import { Heading, Flex, Box, Text } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 
 import { Section, SocialLink, SocialLinkContent } from '../../components';
-import { SECTION } from '../../theme/utils/constants';
+import { SECTION } from '../../helper/constants';
 
 import { landingContent } from '../../content/LandingContent';
 

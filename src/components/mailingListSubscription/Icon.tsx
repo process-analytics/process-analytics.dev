@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Button } from 'rebass/styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+import { Button } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
-import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
+
+import { MEDIA_QUERY_MEDIUM } from '../../helper';
 
 export interface IconProps {
   icon: IconDefinition;

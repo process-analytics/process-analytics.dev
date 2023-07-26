@@ -17,8 +17,8 @@ import { useEffect, useState } from 'react';
 
 import { SECTION } from './constants';
 
-import { breakpoints } from '../../assets/theme/base';
-import { pxToRem } from '../../assets/theme/functions';
+import { breakpoints } from '../assets/theme/base';
+import { pxToRem } from '../assets/theme/functions';
 
 export const getSectionHref = (section: SECTION): string => {
   return Object.keys(SECTION)[Object.values(SECTION).indexOf(section)];

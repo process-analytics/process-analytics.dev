@@ -39,10 +39,11 @@ import {
   isHeaderRouteWithMenus,
   HeaderRoute,
 } from '../../../Header';
-import { Link } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
+
+import { Link } from '../../../../types';
 
 type DropdownSubMenuProps = {
   isCollapsed?: boolean;

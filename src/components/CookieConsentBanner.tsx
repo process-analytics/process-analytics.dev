@@ -16,7 +16,7 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vanilla-cookieconsent" />
 
-import { CookieManager } from '../../helper';
+import { CookieManager } from '../helper';
 
 import Logo from '../../assets/images/logo.svg';
 

@@ -18,7 +18,7 @@ import React from 'react';
 import { SectionWithTitle } from '../components/Section';
 import { PostContainer, PostContent } from '../components';
 
-import { SECTION } from '../theme/utils/constants';
+import { SECTION } from '../helper/constants';
 
 interface SectionWithPostsProps {
   title: SECTION;

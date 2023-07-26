@@ -18,7 +18,7 @@ import React from 'react';
 import { newsContent } from '../../content/NewsContent';
 import { SectionWithPosts } from '../SectionWithPosts';
 
-import { SECTION } from '../../theme/utils/constants';
+import { SECTION } from '../../helper/constants';
 
 const News = (): JSX.Element => (
   <SectionWithPosts

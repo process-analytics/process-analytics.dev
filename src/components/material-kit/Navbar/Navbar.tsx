@@ -42,7 +42,7 @@ import { Action, ActionButton, BrandLink, HoverStyle } from './common';
 import { NavbarButton, NavbarNav } from './mobile';
 import { Dropdown, NavbarItems } from './desktop';
 
-import { isMobileView as isMobileViewFunc } from '../../../utils/helpers';
+import { isMobileView as isMobileViewFunc } from '../../../helper';
 
 import { BrandContent } from '../..';
 import { HeaderRoute } from '../../Header';

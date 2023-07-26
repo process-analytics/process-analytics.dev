@@ -30,8 +30,8 @@ import 'vanilla-cookieconsent';
 import { initCookieConsentBanner } from './CookieConsentBanner';
 
 import { theme } from '../theme';
-import { theme as muiTheme } from '../../assets/theme';
-import { loadIcons } from '../utils/icons';
+import { theme as muiTheme } from '../assets/theme';
+import { loadIcons } from '../helper';
 
 import { Footer, FooterContent, Header, HeaderContent } from '.';
 

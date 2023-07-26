@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 import styled from 'styled-components';
-import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
+
+import { MEDIA_QUERY_MEDIUM } from '../../helper';
 import colors from '../../colors.json';
 
 interface OverlayProps {

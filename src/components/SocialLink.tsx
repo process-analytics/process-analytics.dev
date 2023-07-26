@@ -28,7 +28,7 @@ import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-import { getIconDefinition } from '../utils/icons';
+import { getIconDefinition } from '../helper';
 import { MKTypography, MKTypographyProps } from './material-kit/MKTypography';
 
 export type SocialLinkProps = {

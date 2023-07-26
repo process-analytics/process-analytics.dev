@@ -20,7 +20,7 @@ import { Flex, Heading, Text } from 'rebass/styled-components';
 import colors from '../../colors.json';
 import { Form } from './Form';
 import { ResponseContainer } from './ResponseContainer';
-import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
+import { MEDIA_QUERY_MEDIUM } from '../../helper';
 
 export interface ContainerContentProps {
   open: boolean;

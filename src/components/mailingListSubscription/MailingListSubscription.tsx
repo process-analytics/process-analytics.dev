@@ -21,7 +21,7 @@ import colors from '../../colors.json';
 import { Flex } from 'rebass/styled-components';
 import { Icon } from './Icon';
 import { Overlay } from './Overlay';
-import { MEDIA_QUERY_MEDIUM } from '../../utils/constants';
+import { MEDIA_QUERY_MEDIUM } from '../../helper';
 
 export const MailingListSubscription = (): JSX.Element => {
   const [open, setOpen] = useState(false);

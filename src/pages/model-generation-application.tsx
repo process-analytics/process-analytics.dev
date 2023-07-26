@@ -45,7 +45,7 @@ import { postsContent } from '../content/PostsContent';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { PAGE } from '../theme/utils/constants';
+import { PAGE } from '../helper/constants';
 import colors from '../theme/colors.json';
 
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';

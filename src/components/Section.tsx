@@ -20,8 +20,7 @@ import { Heading } from 'rebass/styled-components';
 
 import { Link } from 'gatsby';
 
-import { MEDIA_QUERY_SMALL, SECTION } from '../utils/constants';
-import { getSectionHref } from '../utils/helpers';
+import { MEDIA_QUERY_SMALL, SECTION, getSectionHref } from '../helper';
 import { theme } from '../theme';
 
 type SectionProps = StyledSectionProps &

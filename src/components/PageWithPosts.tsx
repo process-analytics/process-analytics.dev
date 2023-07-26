@@ -18,8 +18,8 @@ import * as React from 'react';
 import { Heading, Text } from 'rebass/styled-components';
 import { MKBox } from '../components/material-kit';
 
-import { footerContent } from '../../content/FooterContent';
-import { headerContent } from '../../content/HeaderContent';
+import { footerContent } from '../content/FooterContent';
+import { headerContent } from '../content/HeaderContent';
 
 import {
   Layout,
@@ -29,7 +29,7 @@ import {
   MailingListSubscription,
 } from '../components';
 
-import { SECTION } from '../utils/constants';
+import { SECTION } from '../helper';
 import { theme } from '../theme';
 
 // TODO duplicated from Landing.tsx

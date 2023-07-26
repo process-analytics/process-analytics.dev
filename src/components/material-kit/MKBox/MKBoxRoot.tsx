@@ -41,7 +41,7 @@ import {
 import {
   isGreyColorName,
   isPaletteColorName,
-} from '../../../../assets/theme/base/colors';
+} from '../../../assets/theme/base/colors';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';

@@ -17,7 +17,7 @@ import React from 'react';
 
 import { postsContent } from '../../content/PostsContent';
 
-import { SECTION } from '../../theme/utils/constants';
+import { SECTION } from '../../helper/constants';
 
 import { SectionWithPosts } from '../SectionWithPosts';
 

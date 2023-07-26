@@ -13,4 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+export * from './constants';
 export { CookieManager } from './CookieManager';
+export * from './helpers';
+export * from './icons';
+export * from './string';
