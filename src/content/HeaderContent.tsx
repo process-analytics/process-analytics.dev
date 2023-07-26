@@ -29,39 +29,28 @@ Coded by www.creative-tim.com
  All routes for the Material Kit 2 React  are added here,
  You can add a new route, customize the routes and delete the routes here.
 
- Once you add a new route on this file it will be visible automatically on
- the Navbar.
+ Once you add a new route on this file it will be visible automatically on the Navbar.
  */
 
-import { HeaderContent } from '../theme/components/Header';
+import { brandContent } from './BrandContent';
+import { HeaderContent } from '../theme/components';
 
-/*import SvgLogo from '../images/logo.svg';
+export const headerContent: HeaderContent = {
+  brand: brandContent,
 
-export const header = {
-  logo: { src: SvgLogo },
-};*/
-
-// TODO: Mutualize with FooterRoutes
-
-export const headerContent: HeaderContent[] = [
-  {
-    type: 'internal',
-    name: 'model generation application',
-    url: '/model-generation-application',
-  },
-  {
-    type: 'internal',
-    name: 'news',
-    url: '/news',
-  },
-  {
-    type: 'internal',
-    name: 'blog',
-    url: '/blog',
-  },
-  {
-    type: 'internal',
-    name: 'Terms & Policies',
-    url: '/model-generation-application-conditions',
-  },
-];
+  // TODO: Mutualize with FooterRoutes
+  routes: [
+    {
+      type: 'internal',
+      name: 'model generation application',
+      url: '/model-generation-application',
+    },
+    { type: 'internal', name: 'news', url: '/news' },
+    { type: 'internal', name: 'blog', url: '/blog' },
+    {
+      type: 'internal',
+      name: 'Terms & Policies',
+      url: '/model-generation-application-conditions',
+    },
+  ],
+};

@@ -38,6 +38,7 @@ import {
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
+  HeaderRoute,
 } from '../../../Header';
 import { Link } from '../../../../types';
 import { MKTypography } from '../../MKTypography';
@@ -107,7 +108,7 @@ const DropdownSubMenu = ({
 );
 
 export type NestedDropdownMenuProps = {
-  routes: HeaderContent[];
+  routes: HeaderRoute[];
   nestedDropdownElement?: EventTarget & HTMLSpanElement;
   nestedDropdownName?: string;
   setNestedDropdownElement: Dispatch<

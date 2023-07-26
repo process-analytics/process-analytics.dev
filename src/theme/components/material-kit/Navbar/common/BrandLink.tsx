@@ -33,19 +33,26 @@ import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
+import { Link } from '../../../../types';
+
 import { MKBox, MKTypography } from '../..';
 
-type BrandLinkProps = {
-  isTransparent: undefined | boolean;
-  isRelative: undefined | boolean;
-  brand: string | undefined;
+export type BrandContent = Required<Omit<Link, 'description'>> & {
+  logo: { primary: string; light: string };
 };
+
+type BrandLinkProps = {
+  style: {
+    isTransparent?: boolean;
+    isRelative?: boolean;
+  };
+  content: BrandContent;
+};
+
 export const BrandLink = ({
-  isTransparent,
-  isRelative,
-  brand,
+  style: { isTransparent, isRelative },
+  content,
 }: BrandLinkProps): JSX.Element => {
-  //const { logo } = header;
   return (
     <MKBox
       component={GatsbyLink}
@@ -55,14 +62,14 @@ export const BrandLink = ({
       pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
       {/*      <img
-        src={logo.src}
+        src={brand.src}
         height="100%"
         width="100%"
         alt="Process Analytics Logo"
         style={{ cursor: 'pointer', margin: 'auto' }}
       />*/}
       <MKTypography variant="button" fontWeight="bold">
-        {brand}
+        {content}
       </MKTypography>
     </MKBox>
   );

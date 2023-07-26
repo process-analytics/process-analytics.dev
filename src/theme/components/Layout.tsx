@@ -118,7 +118,7 @@ const GlobalStyle = createGlobalStyle`
 
 type Props = {
   footerContent: FooterContent;
-  headerContent: HeaderContent[];
+  headerContent: HeaderContent;
 };
 export const Layout = ({
   children,

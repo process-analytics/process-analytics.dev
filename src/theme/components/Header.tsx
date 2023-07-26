@@ -17,11 +17,18 @@ import React from 'react';
 
 import { SvgIcon } from '@mui/material';
 
+import { BrandContent } from '.';
+
 import { Navbar } from './material-kit';
 import { Link } from '../types';
 
 export type HeaderProps = {
-  content: HeaderContent[];
+  content: HeaderContent;
+};
+
+export type HeaderContent = {
+  brand: BrandContent;
+  routes: HeaderRoute[];
 };
 
 export type HeaderRouteWithMenus = Required<Pick<Link, 'name'>> & {
@@ -51,11 +58,11 @@ export type HeaderRouteAsLink = Omit<Link, 'description'>; // nav-link
 /**
  * @field name The name of the route on the Navbar
  */
-export type HeaderContent = HeaderRouteAsLink | HeaderRouteWithMenus; // nav-item
+export type HeaderRoute = HeaderRouteAsLink | HeaderRouteWithMenus; // nav-item
 // HeaderRoutes = navbar nav
 
 export const isHeaderRouteWithMenus = (
-  route: HeaderContent,
+  route: HeaderRoute,
 ): route is HeaderRouteWithMenus => {
   return 'icon' in route && 'menus' in route;
 };
@@ -70,6 +77,7 @@ export type HeaderMenuWithItems = Pick<Link, 'name' | 'description'> & {
   isCollapsed?: boolean; // TODO Modify the code to remove this property
   items: Link[];
 };
+
 export type HeaderMenu =
   | Link // dropdown-item
   | HeaderMenuWithItems; //dropdown-menu
@@ -82,8 +90,8 @@ export const isHeaderMenuWithItems = (
 
 export const Header = ({ content }: HeaderProps): JSX.Element => (
   <Navbar
-    routes={content}
-    brand="Process Analytics"
+    routes={content.routes}
+    brandContent={content.brand}
     action={{
       type: 'external',
       url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',

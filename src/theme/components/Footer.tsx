@@ -37,18 +37,22 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Brand, Link as LinkProps } from '../../theme/types';
+import { Link as LinkProps } from '../../theme/types';
 import { GATSBY_URL } from '../utils/constants';
 
-import { Link } from './Link';
+import {
+  BrandContent,
+  Link,
+  SocialLinkContent,
+  SocialLinkWithMaterial,
+} from '.';
 import { RouteWithMaterial } from './Route';
-import { SocialLinkContent, SocialLinkWithMaterial } from './SocialLink';
 
 export type FooterProps = {
   content: FooterContent;
 };
 export type FooterContent = {
-  brand: Brand;
+  brand: BrandContent;
   copyright: { name: string; url: string };
   socials: SocialLinkContent[];
   menus: FooterMenu[];
