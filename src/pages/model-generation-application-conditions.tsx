@@ -29,7 +29,7 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { Section, Layout } from '../theme/components';
+import { Section, Layout } from '../components';
 import { PAGE } from '../theme/utils/constants';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (

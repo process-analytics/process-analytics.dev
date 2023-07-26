@@ -22,7 +22,7 @@ import { DataProps } from '../hooks/use-site-metadata';
 
 import { Landing, Blog, News, About, Libraries } from '../sections';
 
-import { Layout, MailingListSubscription } from '../theme/components';
+import { Layout, MailingListSubscription } from '../components';
 import { PAGE } from '../theme/utils/constants';
 
 import { footerContent } from '../content/FooterContent';

@@ -39,7 +39,7 @@ import {
   Section,
   Layout,
   PostContainer,
-} from '../theme/components';
+} from '../components';
 
 import { postsContent } from '../content/PostsContent';
 import { footerContent } from '../content/FooterContent';

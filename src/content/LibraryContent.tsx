@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LibraryContent } from '../theme/components';
+import { LibraryContent } from '../components';
 
 export const libraryContent: LibraryContent[] = [
   {

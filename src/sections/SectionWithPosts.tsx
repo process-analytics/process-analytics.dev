@@ -15,8 +15,8 @@
  */
 import React from 'react';
 
-import { SectionWithTitle } from '../theme/components/Section';
-import { PostContainer, PostContent } from '../theme/components';
+import { SectionWithTitle } from '../components/Section';
+import { PostContainer, PostContent } from '../components';
 
 import { SECTION } from '../theme/utils/constants';
 

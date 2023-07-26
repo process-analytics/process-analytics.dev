@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BrandContent } from '../theme/components';
+import { BrandContent } from '../components';
 import PrimaryLogo from '../assets/images/logo.svg';
 import LightLogo from '../assets/images/logo_white.svg';
 

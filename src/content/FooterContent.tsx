@@ -17,7 +17,7 @@ import { brandContent } from './BrandContent';
 
 import { socialLinkContent } from './SocialLinkContent';
 
-import { FooterContent } from '../theme/components/Footer';
+import { FooterContent } from '../components/Footer';
 
 export const footerContent: FooterContent = {
   brand: brandContent,

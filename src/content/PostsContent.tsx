@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { PostContent } from '../theme/components';
+import { PostContent } from '../components';
 
 const posts: PostContent[] = [
   {

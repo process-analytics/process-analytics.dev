@@ -24,7 +24,7 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { Layout, Section, MailingListSubscription } from '../theme/components';
+import { Layout, Section, MailingListSubscription } from '../components';
 import { PAGE } from '../theme/utils/constants';
 
 import Img from '../assets/images/404.png';
