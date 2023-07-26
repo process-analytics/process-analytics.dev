@@ -17,13 +17,13 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { SEO } from '../components';
 import { DataProps } from '../hooks/use-site-metadata';
 
 import { Landing, Blog, News, About, Libraries } from '../sections';
 
-import { Layout, MailingListSubscription } from '../theme/components';
-import { PAGE } from '../theme/utils/constants';
+import { Layout, MailingListSubscription } from '../components';
+import { PAGE } from '../helper';
 
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';

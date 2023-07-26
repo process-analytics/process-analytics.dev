@@ -13,25 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import styled from 'styled-components';
+import { Theme } from '../assets/oldTheme';
 
-import { SectionWithTitle } from '../components/Section';
-import { PostContainer, PostContent } from '../components';
-
-import { SECTION } from '../helper/constants';
-
-interface SectionWithPostsProps {
-  title: SECTION;
-  postContents: PostContent[];
-  pageId: string;
-}
-
-export const SectionWithPosts = ({
-  title,
-  postContents,
-  pageId,
-}: SectionWithPostsProps): JSX.Element => (
-  <SectionWithTitle id={title}>
-    <PostContainer postContents={postContents} pageId={pageId} />
-  </SectionWithTitle>
-);
+export const Divider = styled.div`
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      ${props => (props.theme as Theme).colors.primary},
+      transparent
+    );
+  }
+`;

@@ -29,8 +29,8 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { Section, Layout } from '../theme/components';
-import { PAGE } from '../theme/utils/constants';
+import { Section, Layout } from '../components';
+import { PAGE } from '../helper';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>

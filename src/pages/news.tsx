@@ -18,12 +18,11 @@ import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
 import { DataProps } from '../hooks/use-site-metadata';
-import { SEO } from '../components/seo';
+import { SEO, PageWithPosts } from '../components';
 
 import { newsContent } from '../content/NewsContent';
 
-import { PAGE, SECTION } from '../theme/utils/constants';
-import { PageWithPosts } from '../theme/pages/PageWithPosts';
+import { PAGE, SECTION } from '../helper';
 
 const NewsPage = (): JSX.Element => (
   <PageWithPosts

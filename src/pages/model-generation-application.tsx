@@ -39,14 +39,14 @@ import {
   Section,
   Layout,
   PostContainer,
-} from '../theme/components';
+} from '../components';
 
 import { postsContent } from '../content/PostsContent';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { PAGE } from '../theme/utils/constants';
-import colors from '../theme/colors.json';
+import { PAGE } from '../helper';
+import colors from '../assets/oldTheme/colors.json';
 
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';

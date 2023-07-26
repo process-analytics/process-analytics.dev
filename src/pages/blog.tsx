@@ -22,8 +22,8 @@ import { SEO } from '../components/seo';
 
 import { postsContent } from '../content/PostsContent';
 
-import { PAGE, SECTION } from '../theme/utils/constants';
-import { PageWithPosts } from '../theme/pages/PageWithPosts';
+import { PAGE, SECTION } from '../helper/constants';
+import { PageWithPosts } from '../components';
 
 const BlogPage = (): JSX.Element => (
   <PageWithPosts
