@@ -34,7 +34,6 @@ import { getHoverConfiguration, HoverStyle } from '../common';
 
 import {
   HeaderMenuWithItems,
-  HeaderContent,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
