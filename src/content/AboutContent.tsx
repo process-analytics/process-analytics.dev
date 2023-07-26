@@ -17,9 +17,9 @@ import * as React from 'react';
 
 import { AboutContent } from '../sections/home/About';
 
-import Logo from '../images/logo.svg';
-import WhyDiagram from '../images/why_diagram.svg';
-import WhatDiagram from '../images/what_diagram.svg';
+import Logo from '../assets/images/logo.svg';
+import WhyDiagram from '../assets/images/why_diagram.svg';
+import WhatDiagram from '../assets/images/what_diagram.svg';
 import Content1 from './about_content_1.mdx';
 import Content2 from './about_content_2.mdx';
 import Content3 from './about_content_3.mdx';

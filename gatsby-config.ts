@@ -44,7 +44,7 @@ const config: GatsbyConfig = {
         background_color: colors.background,
         theme_color: colors.primary,
         display: 'minimal-ui',
-        icon: 'src/images/logo.svg',
+        icon: 'src/assets/images/logo.svg',
       },
     },
     {

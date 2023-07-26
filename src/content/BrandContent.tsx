@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 import { BrandContent } from '../theme/components';
-import PrimaryLogo from '../images/logo.svg';
-import LightLogo from '../images/logo_white.svg';
+import PrimaryLogo from '../assets/images/logo.svg';
+import LightLogo from '../assets/images/logo_white.svg';
 
 export const brandContent: BrandContent = {
   type: 'internal',

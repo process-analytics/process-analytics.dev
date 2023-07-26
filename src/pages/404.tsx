@@ -27,7 +27,7 @@ import { headerContent } from '../content/HeaderContent';
 import { Layout, Section, MailingListSubscription } from '../theme/components';
 import { PAGE } from '../theme/utils/constants';
 
-import Img from '../images/404.png';
+import Img from '../assets/images/404.png';
 
 import { SEO } from '../components/seo';
 

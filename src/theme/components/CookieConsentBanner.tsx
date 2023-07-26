@@ -18,7 +18,7 @@
 
 import { CookieManager } from '../../helper';
 
-import Logo from '../../images/logo.svg';
+import Logo from '../../assets/images/logo.svg';
 
 const cookieManager = new CookieManager();
 
