@@ -23,7 +23,7 @@ import { SECTION } from '../../theme/utils/constants';
 const News = (): JSX.Element => (
   <SectionWithPosts
     title={SECTION.news}
-    posts={newsContent.news}
+    postContents={newsContent.news}
     pageId="news"
   />
 );

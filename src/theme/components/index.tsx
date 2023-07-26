@@ -20,7 +20,7 @@ export { Header } from './Header';
 export { Layout } from './Layout';
 export { Library, LibraryProps, LibraryContent } from './Library';
 export { Link } from './Link';
-export { PostContainer } from './PostContainer';
+export { PostContainer, PostContent } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export {
   SocialLink,

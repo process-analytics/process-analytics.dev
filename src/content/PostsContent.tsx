@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { PostDescription } from '../theme/types';
+import { PostContent } from '../theme/components';
 
-const posts: PostDescription[] = [
+const posts: PostContent[] = [
   {
     title:
       'bpmn-visualization: All you need to know about styling BPMN elements',
@@ -196,7 +196,7 @@ const posts: PostDescription[] = [
 ];
 
 export const postsContent = {
-  posts: posts,
+  posts,
   description:
     'Find all the blog posts explaining how to use the libraries developed by Process Analytics, ' +
     'as well as those explaining how they were developed using external technical tools, and more.',

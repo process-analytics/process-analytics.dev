@@ -28,7 +28,7 @@ import { PageWithPosts } from '../theme/pages/PageWithPosts';
 const NewsPage = (): JSX.Element => (
   <PageWithPosts
     containerTitle={SECTION.news}
-    posts={newsContent.news}
+    postContents={newsContent.news}
     description={newsContent.description}
   />
 );

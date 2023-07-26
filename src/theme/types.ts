@@ -27,16 +27,6 @@ export type Image = {
   positionFromMdx?: ImagePosition;
 };
 
-export type PostDescription = {
-  title: string;
-  text: string;
-  cover: string;
-  url: string;
-  date: string;
-  time: number;
-  isInModelGenerationAppPage?: boolean;
-};
-
 export type Link = {
   type: 'internal' | 'external';
   name: string;
