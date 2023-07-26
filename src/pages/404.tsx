@@ -24,12 +24,10 @@ import { DataProps } from '../hooks/use-site-metadata';
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { Layout, Section, MailingListSubscription } from '../components';
+import { Layout, Section, MailingListSubscription, SEO } from '../components';
 import { PAGE } from '../helper';
 
 import Img from '../assets/images/404.png';
-
-import { SEO } from '../components/seo';
 
 const StyledParagraph = styled.p`
   text-align: center;

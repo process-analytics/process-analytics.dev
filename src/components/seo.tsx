@@ -19,7 +19,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { landingContent } from '../content/LandingContent';
-import { theme } from '../theme/theme';
+import { theme } from '../assets/oldTheme';
 
 const LANG = 'en';
 

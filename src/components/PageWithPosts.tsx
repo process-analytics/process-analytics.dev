@@ -30,7 +30,7 @@ import {
 } from '../components';
 
 import { SECTION } from '../helper';
-import { theme } from '../theme';
+import { theme } from '../assets/oldTheme';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };

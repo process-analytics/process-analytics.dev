@@ -17,7 +17,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { faEnvelope, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { ContainerContent } from './ContainerContent';
-import colors from '../../colors.json';
+import colors from '../../assets/oldTheme/colors.json';
 import { Flex } from 'rebass/styled-components';
 import { Icon } from './Icon';
 import { Overlay } from './Overlay';

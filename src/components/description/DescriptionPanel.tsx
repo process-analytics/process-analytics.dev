@@ -17,7 +17,7 @@ import React from 'react';
 
 import { Flex } from 'rebass/styled-components';
 
-import { Image } from '../../types';
+import { Image } from '../../assets/oldTheme';
 
 import { Divider } from '..';
 import ImagePanel from './ImagePanel';

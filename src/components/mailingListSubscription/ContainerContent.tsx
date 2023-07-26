@@ -17,7 +17,7 @@ import React, { useState } from 'react';
 import { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
 import { Flex, Heading, Text } from 'rebass/styled-components';
-import colors from '../../colors.json';
+import colors from '../../assets/oldTheme/colors.json';
 import { Form } from './Form';
 import { ResponseContainer } from './ResponseContainer';
 import { MEDIA_QUERY_MEDIUM } from '../../helper';

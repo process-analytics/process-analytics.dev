@@ -20,7 +20,7 @@ import { SvgIcon } from '@mui/material';
 import { BrandContent } from '.';
 
 import { Navbar } from './material-kit';
-import { Link } from '../types';
+import { Link } from '../assets/oldTheme';
 
 export type HeaderProps = {
   content: HeaderContent;

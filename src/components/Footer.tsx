@@ -37,7 +37,7 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Link as LinkProps } from '../../theme/types';
+import { Link as LinkProps } from '../assets/oldTheme';
 import { GATSBY_URL } from '../helper';
 
 import {

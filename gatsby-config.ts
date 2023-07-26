@@ -17,7 +17,7 @@
 import type { GatsbyConfig } from 'gatsby';
 import dotenv from 'dotenv';
 
-import colors from './src/theme/colors.json';
+import colors from './src/assets/oldTheme/colors.json';
 
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });

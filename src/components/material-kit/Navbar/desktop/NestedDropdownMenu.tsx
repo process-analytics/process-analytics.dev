@@ -43,7 +43,7 @@ import { MKTypography } from '../../MKTypography';
 import { MKBox, MKBoxProps } from '../../MKBox';
 import { getLinkAttributes } from '../../../Link';
 
-import { Link } from '../../../../types';
+import { Link } from '../../../../assets/oldTheme';
 
 type DropdownSubMenuProps = {
   isCollapsed?: boolean;

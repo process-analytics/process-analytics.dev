@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import styled from 'styled-components';
-import colors from '../../colors.json';
+import colors from '../../assets/oldTheme/colors.json';
 import React, { BaseSyntheticEvent, useState } from 'react';
 import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
 import { Button } from 'rebass/styled-components';

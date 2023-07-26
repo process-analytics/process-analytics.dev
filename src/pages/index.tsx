@@ -17,7 +17,7 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { SEO } from '../components';
 import { DataProps } from '../hooks/use-site-metadata';
 
 import { Landing, Blog, News, About, Libraries } from '../sections';

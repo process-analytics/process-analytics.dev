@@ -29,7 +29,7 @@ import 'vanilla-cookieconsent';
 
 import { initCookieConsentBanner } from './CookieConsentBanner';
 
-import { theme } from '../theme';
+import { theme } from '../assets/oldTheme';
 import { theme as muiTheme } from '../assets/theme';
 import { loadIcons } from '../helper';
 

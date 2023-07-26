@@ -16,7 +16,7 @@
 import styled from 'styled-components';
 
 import { MEDIA_QUERY_MEDIUM } from '../../helper';
-import colors from '../../colors.json';
+import colors from '../../assets/oldTheme/colors.json';
 
 interface OverlayProps {
   open: boolean;

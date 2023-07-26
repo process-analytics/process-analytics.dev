@@ -16,7 +16,7 @@
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { Link as LinkType } from '../types';
+import { Link as LinkType } from '../assets/oldTheme';
 
 export function getLinkAttributes(
   item: Required<Pick<LinkType, 'url' | 'type'>>,

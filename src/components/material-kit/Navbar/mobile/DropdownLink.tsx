@@ -31,7 +31,7 @@ import { Theme } from '@mui/material';
 
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
-import { Link } from '../../../../types';
+import { Link } from '../../../../assets/oldTheme';
 import { MKBox, MKTypography } from '../..';
 import { getLinkAttributes } from '../../../Link';
 

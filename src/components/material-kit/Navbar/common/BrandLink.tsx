@@ -33,7 +33,7 @@ import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { Link } from '../../../../types';
+import { Link } from '../../../../assets/oldTheme';
 
 import { MKBox, MKTypography } from '../..';
 

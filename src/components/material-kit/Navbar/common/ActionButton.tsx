@@ -34,7 +34,7 @@ import { Button, ButtonProps, Theme } from '@mui/material';
 
 import { MKBox } from '../..';
 import { getLinkAttributes } from '../../../Link';
-import { Link } from '../../../../types';
+import { Link } from '../../../../assets/oldTheme';
 
 export type Action = Required<Pick<Link, 'url' | 'type'>> &
   Pick<ButtonProps, 'color' | 'variant'> & {

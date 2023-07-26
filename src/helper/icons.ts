@@ -22,7 +22,7 @@ import {
 import { prefix as brandPrefix } from '@fortawesome/free-brands-svg-icons';
 import { prefix as basePrefix } from '@fortawesome/free-solid-svg-icons';
 
-import { ICONS } from '../icons';
+import { ICONS } from '../assets/oldTheme';
 
 export const loadIcons = (): void => library.add(...ICONS);
 

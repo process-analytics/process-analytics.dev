@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Image as ImageType } from '../../types';
+import { Image as ImageType } from '../../assets/oldTheme';
 import { Box, Image, ImageProps } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 import React from 'react';
