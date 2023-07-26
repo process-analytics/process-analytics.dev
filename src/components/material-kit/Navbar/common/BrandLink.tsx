@@ -57,26 +57,29 @@ export const BrandLink = ({
     <MKBox
       component={GatsbyLink}
       to="/"
-      lineHeight={1}
-      py={isTransparent ? 1.5 : 0.75}
       pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      height="100%"
     >
       <img
         src={content.logo.primary}
-        height="100%"
-        width="100%"
         alt={content.name}
-        style={{ cursor: 'pointer', margin: 'auto' }}
+        style={{
+          cursor: 'pointer',
+          marginRight: '1rem',
+          maxWidth: '52px',
+          height: 'auto',
+        }}
       />
-      <MKBox
-        component="img"
-        src={content.logo.primary}
-        alt={content.name}
-        height="100%"
-        width="100%"
-        style={{ cursor: 'pointer', margin: 'auto' }}
-      />
-      <MKTypography variant="button" fontWeight="bold">
+
+      <MKTypography
+        variant="button"
+        fontWeight="bold"
+        lineHeight={1}
+        py={isTransparent ? 1.5 : 0.75}
+      >
         {content.name}
       </MKTypography>
     </MKBox>
