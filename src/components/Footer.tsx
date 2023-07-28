@@ -37,12 +37,12 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Link as LinkProps } from '../assets/oldTheme';
 import { GATSBY_URL } from '../helper';
 
 import {
   BrandContent,
   Link,
+  LinkPlop,
   SocialLinkContent,
   SocialLinkWithMaterial,
 } from '.';
@@ -59,7 +59,7 @@ export type FooterContent = {
 };
 export type FooterMenu = {
   name: string;
-  items: Required<Omit<LinkProps, 'description'>>[];
+  items: Required<Omit<LinkPlop, 'description'>>[];
 };
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
@@ -154,7 +154,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 </MKTypography>
 
                 <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
-                  {items.map(({ name, url }: LinkProps) => (
+                  {items.map(({ name, url }) => (
                     <MKBox
                       key={name}
                       component="li"

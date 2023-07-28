@@ -33,10 +33,9 @@ import React from 'react';
 import { Button, ButtonProps, Theme } from '@mui/material';
 
 import { MKBox } from '../..';
-import { getLinkAttributes } from '../../../Link';
-import { Link } from '../../../../assets/oldTheme';
+import { LinkPlop, getLinkAttributes } from '../../..';
 
-export type Action = Required<Pick<Link, 'url' | 'type'>> &
+export type Action = Required<Pick<LinkPlop, 'url' | 'type'>> &
   Pick<ButtonProps, 'color' | 'variant'> & {
     label: string;
     icon?: JSX.Element;

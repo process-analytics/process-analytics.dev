@@ -28,7 +28,7 @@
 import React from 'react';
 
 import { HeaderRouteAsLink } from '../../../Header';
-import { getLinkAttributes } from '../../../Link';
+import { getLinkAttributes } from '../../..';
 
 import { NavbarItem, HoverStyle } from '../common';
 

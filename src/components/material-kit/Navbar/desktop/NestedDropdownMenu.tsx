@@ -39,16 +39,13 @@ import {
   isHeaderRouteWithMenus,
   HeaderRoute,
 } from '../../../Header';
-import { MKTypography } from '../../MKTypography';
-import { MKBox, MKBoxProps } from '../../MKBox';
-import { getLinkAttributes } from '../../../Link';
-
-import { Link } from '../../../../assets/oldTheme';
+import { MKTypography, MKBox, MKBoxProps } from '../..';
+import { LinkPlop, getLinkAttributes } from '../../..';
 
 type DropdownSubMenuProps = {
   isCollapsed?: boolean;
   hoverStyle: HoverStyle;
-} & Link;
+} & LinkPlop;
 const DropdownSubMenu = ({
   description,
   name,

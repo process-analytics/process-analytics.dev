@@ -33,7 +33,7 @@ import { HeaderMenuWithItems } from '../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import { MKTypography } from '../..';
-import { getLinkAttributes } from '../../../Link';
+import { getLinkAttributes } from '../../..';
 
 type DropdownDropdownProps = HeaderMenuWithItems & { hoverStyle: HoverStyle };
 export const DropdownDropdown = ({

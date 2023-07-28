@@ -32,8 +32,9 @@ import React from 'react';
 
 // @mui material components
 import { Card, CardActions, CardContent, IconButton } from '@mui/material';
+
 import { Action } from '../Navbar/common';
-import { getLinkAttributes } from '../../Link';
+import { getLinkAttributes } from '../..';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';

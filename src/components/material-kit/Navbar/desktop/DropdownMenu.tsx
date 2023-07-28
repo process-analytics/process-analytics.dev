@@ -39,9 +39,8 @@ import {
   isHeaderRouteWithMenus,
   HeaderRoute,
 } from '../../../Header';
-import { MKTypography } from '../../MKTypography';
-import { MKBox, MKBoxProps } from '../../MKBox';
-import { getLinkAttributes } from '../../../Link';
+import { MKTypography, MKBox, MKBoxProps } from '../..';
+import { getLinkAttributes } from '../../..';
 
 const ColumnDropdownMenus = (
   menus: HeaderMenu[],

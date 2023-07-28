@@ -16,10 +16,15 @@
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { Link as LinkType } from '../assets/oldTheme';
+export type LinkPlop = {
+  type: 'internal' | 'external';
+  name: string;
+  description?: string;
+  url: string;
+};
 
 export function getLinkAttributes(
-  item: Required<Pick<LinkType, 'url' | 'type'>>,
+  item: Required<Pick<LinkPlop, 'url' | 'type'>>,
 ):
   | { component: typeof GatsbyLink; to: string }
   | {

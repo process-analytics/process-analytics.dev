@@ -31,11 +31,10 @@ import { Theme } from '@mui/material';
 
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
-import { Link } from '../../../../assets/oldTheme';
 import { MKBox, MKTypography } from '../..';
-import { getLinkAttributes } from '../../../Link';
+import { LinkPlop, getLinkAttributes } from '../../..';
 
-type DropdownLinkProps = Link & {
+type DropdownLinkProps = LinkPlop & {
   id: number;
   hoverStyle: HoverStyle;
 };

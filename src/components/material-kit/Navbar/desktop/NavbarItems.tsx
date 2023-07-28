@@ -33,8 +33,8 @@ import { Link as GatsbyLink } from 'gatsby-link';
 import { NavbarItem, NavbarItemProps, HoverStyle } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
-import { MKBox } from '../../MKBox';
-import { getLinkAttributes } from '../../../Link';
+import { MKBox } from '../..';
+import { getLinkAttributes } from '../../..';
 
 const getNavbarItemAttributes = (
   route: HeaderRoute,
