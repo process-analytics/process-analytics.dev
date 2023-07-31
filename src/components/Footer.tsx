@@ -41,12 +41,11 @@ import { GATSBY_URL } from '../helper';
 
 import {
   BrandContent,
-  Link,
+  GenericComponent,
   LinkPlop,
   SocialLinkContent,
   SocialLinkWithMaterial,
 } from '.';
-import { RouteWithMaterial } from './Route';
 
 export type FooterProps = {
   content: FooterContent;
@@ -154,7 +153,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 </MKTypography>
 
                 <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
-                  {items.map(({ name, url }) => (
+                  {items.map(({ name, url, type }) => (
                     <MKBox
                       key={name}
                       component="li"
@@ -162,16 +161,21 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       m={0}
                       lineHeight={1.25}
                     >
-                      <MKTypography
-                        component={RouteWithMaterial}
-                        to={url}
+                      <GenericComponent
+                        component={MKTypography}
+                        type={type}
+                        url={url}
                         rel="noreferrer"
                         variant="button"
                         fontWeight="regular"
                         textTransform="capitalize"
+                        pb="1px"
+                        sx={{
+                          ':hover': { borderBottom: '2px solid #05D99E' },
+                        }}
                       >
                         {name}
-                      </MKTypography>
+                      </GenericComponent>
                     </MKBox>
                   ))}
                 </MKBox>
@@ -181,40 +185,55 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
           <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
             <MKTypography variant="caption" fontWeight="regular">
               Copyright &copy; {year}{' '}
-              <MKTypography
-                component={RouteWithMaterial}
-                to={brand.url}
+              <GenericComponent
+                component={MKTypography}
+                type={brand.type}
+                url={brand.url}
                 rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
+                pb="1px"
+                sx={{
+                  ':hover': { borderBottom: '2px solid #05D99E' },
+                }}
               >
                 {brand.name}
-              </MKTypography>
+              </GenericComponent>
             </MKTypography>
             <br />
             <MKTypography variant="caption" fontWeight="regular">
               Powered by{' '}
-              <MKTypography
-                component={Link}
-                href={GATSBY_URL}
+              <GenericComponent
+                component={MKTypography}
+                type="external"
+                url={GATSBY_URL}
                 target="_blank"
                 rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
+                pb="1px"
+                sx={{
+                  ':hover': { borderBottom: '2px solid #05D99E' },
+                }}
               >
                 Gatsby
-              </MKTypography>{' '}
+              </GenericComponent>{' '}
               and inspired from the{' '}
-              <MKTypography
-                component={Link}
-                href={copyright.url}
+              <GenericComponent
+                component={MKTypography}
+                type="external"
+                url={copyright.url}
                 target="_blank"
                 rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
+                pb="1px"
+                sx={{
+                  ':hover': { borderBottom: '2px solid #05D99E' },
+                }}
               >
                 {copyright.name}
-              </MKTypography>
+              </GenericComponent>
               &nbsp; theme &nbsp;
               <span role="img" aria-label="heart">
                 ❤️

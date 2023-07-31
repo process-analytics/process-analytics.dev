@@ -16,7 +16,7 @@
 
 import React, { PropsWithChildren } from 'react';
 
-import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
+import { Link as MaterialLink } from '@mui/material';
 
 import {
   OverridableComponent,
@@ -60,64 +60,3 @@ export const GenericComponent: React.FC<
     </WrapperComponent>
   );
 };
-
-export function getLinkAttributes(
-  item: Required<Pick<LinkPlop, 'url' | 'type'>>,
-):
-  | { component: typeof GatsbyLink; to: string }
-  | {
-      component: typeof MaterialLink;
-      rel: string;
-      href: string;
-      target: string;
-    } {
-  return item.type === 'internal'
-    ? {
-        component: GatsbyLink,
-        to: item.url,
-      }
-    : {
-        component: MaterialLink,
-        href: item.url,
-        target: '_blank',
-        rel: 'noreferrer',
-      };
-}
-
-type LinkProps = {
-  selected?: boolean;
-  href?: string;
-  onClick?: () => void;
-};
-
-export const Link = MaterialStyled(MaterialLink)<LinkProps>(
-  ({ theme, selected, href, onClick }) => `
-  text-decoration: none;
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 3px;
-  color: inherit;
-  font-weight: 600;
-  ${selected && `border-bottom: 3px solid ${theme.palette.primary.main}`};
-  transition: 0.4s;
-  cursor: ${onClick || href ? 'pointer' : 'default'};
-  &:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 0;
-    bottom: -3px;
-    background: ${theme.palette.secondary.main};
-    height: 3px;
-    transition-property: width;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
-  }
-  &:focus:after,
-  &:hover:after {
-    left: 0;
-    right: auto;
-    width: 100%;
-  }
-`,
-);
