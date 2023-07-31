@@ -32,7 +32,7 @@ import { Theme } from '@mui/material';
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import { MKBox, MKTypography } from '../..';
-import { LinkPlop, getLinkAttributes } from '../../..';
+import { LinkPlop, GenericComponent } from '../../..';
 
 type DropdownLinkProps = LinkPlop & {
   id: number;
@@ -46,10 +46,12 @@ export const DropdownLink = ({
   id,
   hoverStyle,
 }: DropdownLinkProps): JSX.Element => (
-  <MKBox
+  <GenericComponent
+    component={MKBox}
+    type={type}
+    url={url}
     key={`${name}_${id}`}
     display="block"
-    {...getLinkAttributes({ type, url })}
     sx={({ palette, borders: { borderRadius } }: Theme) => ({
       borderRadius: borderRadius.md,
       cursor: 'pointer',
@@ -76,5 +78,5 @@ export const DropdownLink = ({
     >
       {description}
     </MKTypography>
-  </MKBox>
+  </GenericComponent>
 );

@@ -13,7 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import React, { PropsWithChildren } from 'react';
+
 import { styled as MaterialStyled, Link as MaterialLink } from '@mui/material';
+
+import {
+  OverridableComponent,
+  OverridableTypeMap,
+} from '@mui/material/OverridableComponent';
+
 import { Link as GatsbyLink } from 'gatsby-link';
 
 export type LinkPlop = {
@@ -21,6 +30,35 @@ export type LinkPlop = {
   name: string;
   description?: string;
   url: string;
+};
+
+// Define the prop type for the generic component
+type GenericComponentProps = Required<Pick<LinkPlop, 'url' | 'type'>> & {
+  component: OverridableComponent<OverridableTypeMap> | React.ElementType;
+} & React.ComponentProps<
+    OverridableComponent<OverridableTypeMap> | React.ElementType
+  >;
+
+export const GenericComponent: React.FC<
+  PropsWithChildren<GenericComponentProps>
+> = ({ component: WrapperComponent, type, url, children, ...restProps }) => {
+  return type === 'internal' ? (
+    <WrapperComponent component={GatsbyLink} to={url} {...restProps}>
+      {/* Render the children inside the WrapperComponent */}
+      {children}
+    </WrapperComponent>
+  ) : (
+    <WrapperComponent
+      component={MaterialLink}
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      {...restProps}
+    >
+      {/* Render the children inside the WrapperComponent */}
+      {children}
+    </WrapperComponent>
+  );
 };
 
 export function getLinkAttributes(

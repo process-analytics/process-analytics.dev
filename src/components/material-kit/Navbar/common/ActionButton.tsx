@@ -33,7 +33,7 @@ import React from 'react';
 import { Button, ButtonProps, Theme } from '@mui/material';
 
 import { MKBox } from '../..';
-import { LinkPlop, getLinkAttributes } from '../../..';
+import { LinkPlop, GenericComponent } from '../../..';
 
 export type Action = Required<Pick<LinkPlop, 'url' | 'type'>> &
   Pick<ButtonProps, 'color' | 'variant'> & {
@@ -48,8 +48,10 @@ export const ActionButton = ({
   label,
 }: Action): JSX.Element => (
   <MKBox ml={{ xs: 'auto', lg: 0 }}>
-    <Button
-      {...getLinkAttributes({ type, url })}
+    <GenericComponent
+      component={Button}
+      type={type}
+      url={url}
       variant={variant ?? 'contained'}
       color={color ?? 'secondary'}
       size="medium"
@@ -58,6 +60,6 @@ export const ActionButton = ({
       }}
     >
       {label}
-    </Button>
+    </GenericComponent>
   </MKBox>
 );

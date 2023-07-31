@@ -40,7 +40,7 @@ import {
   HeaderRoute,
 } from '../../../Header';
 import { MKTypography, MKBox, MKBoxProps } from '../..';
-import { getLinkAttributes } from '../../..';
+import { GenericComponent } from '../../..';
 
 const ColumnDropdownMenus = (
   menus: HeaderMenu[],
@@ -90,9 +90,11 @@ const ColumnDropdownMenus = (
 
                 {isHeaderMenuWithItems(menu) &&
                   menu.items.map(item => (
-                    <MKTypography
+                    <GenericComponent
+                      component={MKTypography}
+                      type={item.type}
+                      url={item.url}
                       key={item.name}
-                      {...getLinkAttributes(item)}
                       minWidth="11.25rem"
                       display="block"
                       variant="button"
@@ -108,7 +110,7 @@ const ColumnDropdownMenus = (
                       })}
                     >
                       {item.name}
-                    </MKTypography>
+                    </GenericComponent>
                   ))}
               </Fragment>
             ))}
@@ -140,58 +142,56 @@ const ListDropdownMenus = (
   setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>,
   hoverStyle: HoverStyle,
 ): JSX.Element[] =>
-  menus.map(menu => (
-    <MKTypography
-      key={menu.name}
-      {...(!isHeaderMenuWithItems(menu) && getLinkAttributes(menu))}
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      variant="button"
-      textTransform="capitalize"
-      minWidth={menu.description ? '14rem' : '12rem'}
-      fontWeight={menu.description ? 'bold' : 'regular'}
-      py={menu.description ? 1 : 0.625}
-      px={2}
-      sx={({ palette, borders: { borderRadius } }: Theme) => ({
-        borderRadius: borderRadius.md,
-        cursor: 'pointer',
-        transition: 'all 300ms linear',
-        ...getHoverConfiguration(palette, hoverStyle),
-      })}
-      onMouseEnter={({
-        currentTarget,
-      }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-        if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-          setNestedDropdownElement(currentTarget ?? undefined);
-          setNestedDropdownName(menu.name);
-        }
-      }}
-      onMouseLeave={() => {
-        if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-          setNestedDropdownElement(undefined);
-          setNestedDropdownName(undefined);
-        }
-      }}
-    >
-      {menu.description ? (
-        <MKBox>
-          {menu.name}
+  menus.map(menu =>
+    isHeaderMenuWithItems(menu) ? (
+      <MKTypography
+        key={menu.name}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        variant="button"
+        textTransform="capitalize"
+        minWidth={menu.description ? '14rem' : '12rem'}
+        fontWeight={menu.description ? 'bold' : 'regular'}
+        py={menu.description ? 1 : 0.625}
+        px={2}
+        sx={({ palette, borders: { borderRadius } }: Theme) => ({
+          borderRadius: borderRadius.md,
+          cursor: 'pointer',
+          transition: 'all 300ms linear',
+          ...getHoverConfiguration(palette, hoverStyle),
+        })}
+        onMouseEnter={({
+          currentTarget,
+        }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
+          if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            setNestedDropdownElement(currentTarget ?? undefined);
+            setNestedDropdownName(menu.name);
+          }
+        }}
+        onMouseLeave={() => {
+          if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            setNestedDropdownElement(undefined);
+            setNestedDropdownName(undefined);
+          }
+        }}
+      >
+        {menu.description ? (
+          <MKBox>
+            {menu.name}
 
-          <MKTypography
-            display="block"
-            variant="button"
-            fontWeight="regular"
-            sx={{ transition: 'all 300ms linear' }}
-          >
-            {menu.description}
-          </MKTypography>
-        </MKBox>
-      ) : (
-        menu.name
-      )}
-
-      {isHeaderMenuWithItems(menu) && (
+            <MKTypography
+              display="block"
+              variant="button"
+              fontWeight="regular"
+              sx={{ transition: 'all 300ms linear' }}
+            >
+              {menu.description}
+            </MKTypography>
+          </MKBox>
+        ) : (
+          menu.name
+        )}
         <KeyboardArrowDown
           fontSize="small"
           sx={{
@@ -200,9 +200,62 @@ const ListDropdownMenus = (
             mr: -0.5,
           }}
         />
-      )}
-    </MKTypography>
-  ));
+      </MKTypography>
+    ) : (
+      <GenericComponent
+        component={MKTypography}
+        type={menu.type}
+        url={menu.url}
+        key={menu.name}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        variant="button"
+        textTransform="capitalize"
+        minWidth={menu.description ? '14rem' : '12rem'}
+        fontWeight={menu.description ? 'bold' : 'regular'}
+        py={menu.description ? 1 : 0.625}
+        px={2}
+        sx={({ palette, borders: { borderRadius } }: Theme) => ({
+          borderRadius: borderRadius.md,
+          cursor: 'pointer',
+          transition: 'all 300ms linear',
+          ...getHoverConfiguration(palette, hoverStyle),
+        })}
+        onMouseEnter={({
+          currentTarget,
+        }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
+          if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            setNestedDropdownElement(currentTarget ?? undefined);
+            setNestedDropdownName(menu.name);
+          }
+        }}
+        onMouseLeave={() => {
+          if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            setNestedDropdownElement(undefined);
+            setNestedDropdownName(undefined);
+          }
+        }}
+      >
+        {menu.description ? (
+          <MKBox>
+            {menu.name}
+
+            <MKTypography
+              display="block"
+              variant="button"
+              fontWeight="regular"
+              sx={{ transition: 'all 300ms linear' }}
+            >
+              {menu.description}
+            </MKTypography>
+          </MKBox>
+        ) : (
+          menu.name
+        )}
+      </GenericComponent>
+    ),
+  );
 
 export type DropdownMenuProps = {
   routes: HeaderRoute[];

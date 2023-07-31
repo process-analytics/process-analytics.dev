@@ -40,7 +40,7 @@ import {
   HeaderRoute,
 } from '../../../Header';
 import { MKTypography, MKBox, MKBoxProps } from '../..';
-import { LinkPlop, getLinkAttributes } from '../../..';
+import { LinkPlop, GenericComponent } from '../../..';
 
 type DropdownSubMenuProps = {
   isCollapsed?: boolean;
@@ -54,9 +54,11 @@ const DropdownSubMenu = ({
   hoverStyle,
   isCollapsed = false,
 }: DropdownSubMenuProps): JSX.Element => (
-  <MKTypography
+  <GenericComponent
+    component={MKTypography}
     key={name}
-    {...getLinkAttributes({ url, type })}
+    type={type}
+    url={url}
     display="flex"
     justifyContent="space-between"
     alignItems="center"
@@ -101,7 +103,7 @@ const DropdownSubMenu = ({
         }}
       />
     )}
-  </MKTypography>
+  </GenericComponent>
 );
 
 export type NestedDropdownMenuProps = {
