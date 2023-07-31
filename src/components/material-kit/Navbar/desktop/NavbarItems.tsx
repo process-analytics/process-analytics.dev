@@ -31,7 +31,7 @@ import { NavbarItem, HoverStyle } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
-import { GenericComponent } from '../../..';
+import { Link } from '../../..';
 
 type NavbarItemsProps = {
   routes: HeaderRoute[];
@@ -80,7 +80,7 @@ export const NavbarItems = ({
           }}
         />
       ) : (
-        <GenericComponent
+        <Link
           component={NavbarItem}
           type={route.type}
           url={route.url}

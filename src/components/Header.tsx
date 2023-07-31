@@ -17,7 +17,7 @@ import React from 'react';
 
 import { SvgIcon } from '@mui/material';
 
-import { BrandContent, LinkPlop } from '.';
+import { BrandContent, LinkContent } from '.';
 
 import { Navbar } from './material-kit';
 
@@ -30,7 +30,7 @@ export type HeaderContent = {
   routes: HeaderRoute[];
 };
 
-export type HeaderRouteWithMenus = Required<Pick<LinkPlop, 'name'>> & {
+export type HeaderRouteWithMenus = Required<Pick<LinkContent, 'name'>> & {
   /**
    * The icon of the route on the Navbar
    */
@@ -52,7 +52,7 @@ export type HeaderRouteWithMenus = Required<Pick<LinkPlop, 'name'>> & {
 /**
  * @field url To store the route location which is used for the React router or to store the external link location
  */
-export type HeaderRouteAsLink = Omit<LinkPlop, 'description'>; // nav-link
+export type HeaderRouteAsLink = Omit<LinkContent, 'description'>; // nav-link
 
 /**
  * @field name The name of the route on the Navbar
@@ -69,16 +69,16 @@ export const isHeaderRouteWithMenus = (
 /**
  * @field description To define the description of a route under its name
  */
-export type HeaderMenuWithItems = Pick<LinkPlop, 'name' | 'description'> & {
+export type HeaderMenuWithItems = Pick<LinkContent, 'name' | 'description'> & {
   /**
    * To define that the item should open a dropdown for its collapse items
    */
   isCollapsed?: boolean; // TODO Modify the code to remove this property
-  items: LinkPlop[];
+  items: LinkContent[];
 };
 
 export type HeaderMenu =
-  | LinkPlop // dropdown-item
+  | LinkContent // dropdown-item
   | HeaderMenuWithItems; //dropdown-menu
 
 export const isHeaderMenuWithItems = (

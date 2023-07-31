@@ -41,8 +41,8 @@ import { GATSBY_URL } from '../helper';
 
 import {
   BrandContent,
-  GenericComponent,
-  LinkPlop,
+  Link,
+  LinkContent,
   SocialLinkContent,
   SocialLinkWithMaterial,
 } from '.';
@@ -58,7 +58,7 @@ export type FooterContent = {
 };
 export type FooterMenu = {
   name: string;
-  items: Required<Omit<LinkPlop, 'description'>>[];
+  items: Required<Omit<LinkContent, 'description'>>[];
 };
 
 const FooterLink = ({
@@ -67,11 +67,11 @@ const FooterLink = ({
   name,
   variant,
   textTransform,
-}: Required<Omit<LinkPlop, 'description'>> & {
+}: Required<Omit<LinkContent, 'description'>> & {
   variant: 'caption' | 'button';
   textTransform?: 'capitalize';
 }): JSX.Element => (
-  <GenericComponent
+  <Link
     component={MKTypography}
     type={type}
     url={url}
@@ -84,7 +84,7 @@ const FooterLink = ({
     }}
   >
     {name}
-  </GenericComponent>
+  </Link>
 );
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {

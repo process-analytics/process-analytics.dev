@@ -40,7 +40,7 @@ import {
   HeaderRoute,
 } from '../../../Header';
 import { MKTypography, MKBox, MKBoxProps } from '../..';
-import { GenericComponent } from '../../..';
+import { Link } from '../../..';
 
 const ColumnDropdownMenus = (
   menus: HeaderMenu[],
@@ -90,7 +90,7 @@ const ColumnDropdownMenus = (
 
                 {isHeaderMenuWithItems(menu) &&
                   menu.items.map(item => (
-                    <GenericComponent
+                    <Link
                       component={MKTypography}
                       type={item.type}
                       url={item.url}
@@ -110,7 +110,7 @@ const ColumnDropdownMenus = (
                       })}
                     >
                       {item.name}
-                    </GenericComponent>
+                    </Link>
                   ))}
               </Fragment>
             ))}
@@ -202,7 +202,7 @@ const ListDropdownMenus = (
         />
       </MKTypography>
     ) : (
-      <GenericComponent
+      <Link
         component={MKTypography}
         type={menu.type}
         url={menu.url}
@@ -253,7 +253,7 @@ const ListDropdownMenus = (
         ) : (
           menu.name
         )}
-      </GenericComponent>
+      </Link>
     ),
   );
 

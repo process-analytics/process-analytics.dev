@@ -34,7 +34,7 @@ import React from 'react';
 import { Card, CardActions, CardContent, IconButton } from '@mui/material';
 
 import { Action } from '../Navbar/common';
-import { GenericComponent } from '../..';
+import { Link } from '../..';
 
 // Material Kit 2 React components
 import { MKBox, MKTypography } from '..';
@@ -90,7 +90,7 @@ export const LibraryCard = ({
           height="100%"
         >
           {actions.map((action, i) => (
-            <GenericComponent
+            <Link
               component={IconButton}
               type={action.type}
               url={action.url}
@@ -103,7 +103,7 @@ export const LibraryCard = ({
               title={action.label}
             >
               {action.icon}
-            </GenericComponent>
+            </Link>
           ))}
         </MKBox>
       </CardActions>

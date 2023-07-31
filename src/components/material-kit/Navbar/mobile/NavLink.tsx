@@ -28,7 +28,7 @@
 import React from 'react';
 
 import { HeaderRouteAsLink } from '../../../Header';
-import { GenericComponent } from '../../..';
+import { Link } from '../../..';
 
 import { NavbarItem, HoverStyle } from '../common';
 
@@ -37,7 +37,7 @@ export const NavLink = ({
   hoverStyle,
   ...route
 }: NavLinkProps): JSX.Element => (
-  <GenericComponent
+  <Link
     component={NavbarItem}
     type={route.type}
     url={route.url}

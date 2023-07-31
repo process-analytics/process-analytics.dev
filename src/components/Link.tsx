@@ -25,7 +25,7 @@ import {
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-export type LinkPlop = {
+export type LinkContent = {
   type: 'internal' | 'external';
   name: string;
   description?: string;
@@ -33,23 +33,26 @@ export type LinkPlop = {
 };
 
 // Define the prop type for the generic component
-type GenericComponentProps = Required<Pick<LinkPlop, 'url' | 'type'>> & {
+type LinkProps = Required<Pick<LinkContent, 'url' | 'type'>> & {
   component: OverridableComponent<OverridableTypeMap> | React.ElementType;
 } & React.ComponentProps<
     OverridableComponent<OverridableTypeMap> | React.ElementType
   >;
 
-export const GenericComponent: React.FC<
-  PropsWithChildren<GenericComponentProps>
-> = ({ component: WrapperComponent, type, url, children, ...restProps }) => {
-  return type === 'internal' ? (
+export const Link: React.FC<PropsWithChildren<LinkProps>> = ({
+  component: WrapperComponent,
+  type,
+  url,
+  children,
+  ...restProps
+}) =>
+  type === 'internal' ? (
     <WrapperComponent
       component={GatsbyLink}
       to={url}
       rel="noreferrer"
       {...restProps}
     >
-      {/* Render the children inside the WrapperComponent */}
       {children}
     </WrapperComponent>
   ) : (
@@ -60,8 +63,6 @@ export const GenericComponent: React.FC<
       rel="noreferrer"
       {...restProps}
     >
-      {/* Render the children inside the WrapperComponent */}
       {children}
     </WrapperComponent>
   );
-};
