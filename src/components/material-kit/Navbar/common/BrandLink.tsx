@@ -33,11 +33,11 @@ import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { Link } from '../../../../assets/oldTheme';
+import { LinkContent } from '../../../';
 
 import { MKBox, MKTypography } from '../..';
 
-export type BrandContent = Required<Omit<Link, 'description'>> & {
+export type BrandContent = Required<Omit<LinkContent, 'description'>> & {
   logo: { primary: string; light: string };
 };
 

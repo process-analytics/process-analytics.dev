@@ -24,10 +24,3 @@ export type Image = {
   alt: string;
   positionFromMdx?: ImagePosition;
 };
-
-export type Link = {
-  type: 'internal' | 'external';
-  name: string;
-  description?: string;
-  url: string;
-};

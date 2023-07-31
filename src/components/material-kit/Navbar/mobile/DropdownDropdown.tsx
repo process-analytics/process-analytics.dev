@@ -33,7 +33,7 @@ import { HeaderMenuWithItems } from '../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import { MKTypography } from '../..';
-import { getLinkAttributes } from '../../../Link';
+import { Link } from '../../..';
 
 type DropdownDropdownProps = HeaderMenuWithItems & { hoverStyle: HoverStyle };
 export const DropdownDropdown = ({
@@ -54,9 +54,11 @@ export const DropdownDropdown = ({
     </MKTypography>
 
     {items.map(subItem => (
-      <MKTypography
+      <Link
+        component={MKTypography}
+        type={subItem.type}
+        url={subItem.url}
         key={subItem.name}
-        {...getLinkAttributes(subItem)}
         minWidth="11.25rem"
         display="block"
         variant="button"
@@ -72,7 +74,7 @@ export const DropdownDropdown = ({
         })}
       >
         {subItem.name}
-      </MKTypography>
+      </Link>
     ))}
   </>
 );

@@ -37,16 +37,15 @@ import { MKTypography } from './material-kit/MKTypography';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import { Link as LinkProps } from '../assets/oldTheme';
 import { GATSBY_URL } from '../helper';
 
 import {
   BrandContent,
   Link,
+  LinkContent,
   SocialLinkContent,
   SocialLinkWithMaterial,
 } from '.';
-import { RouteWithMaterial } from './Route';
 
 export type FooterProps = {
   content: FooterContent;
@@ -59,8 +58,34 @@ export type FooterContent = {
 };
 export type FooterMenu = {
   name: string;
-  items: Required<Omit<LinkProps, 'description'>>[];
+  items: Required<Omit<LinkContent, 'description'>>[];
 };
+
+const FooterLink = ({
+  type,
+  url,
+  name,
+  variant,
+  textTransform,
+}: Required<Omit<LinkContent, 'description'>> & {
+  variant: 'caption' | 'button';
+  textTransform?: 'capitalize';
+}): JSX.Element => (
+  <Link
+    component={MKTypography}
+    type={type}
+    url={url}
+    variant={variant}
+    textTransform={textTransform}
+    fontWeight="regular"
+    pb="1px"
+    sx={{
+      ':hover': { borderBottom: '2px solid #05D99E' },
+    }}
+  >
+    {name}
+  </Link>
+);
 
 export const Footer = ({ content }: FooterProps): JSX.Element => {
   const { brand, socials, menus, copyright } = content;
@@ -154,7 +179,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 </MKTypography>
 
                 <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
-                  {items.map(({ name, url }: LinkProps) => (
+                  {items.map(({ name, url, type }) => (
                     <MKBox
                       key={name}
                       component="li"
@@ -162,16 +187,13 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                       m={0}
                       lineHeight={1.25}
                     >
-                      <MKTypography
-                        component={RouteWithMaterial}
-                        to={url}
-                        rel="noreferrer"
+                      <FooterLink
+                        type={type}
+                        url={url}
+                        name={name}
                         variant="button"
-                        fontWeight="regular"
                         textTransform="capitalize"
-                      >
-                        {name}
-                      </MKTypography>
+                      />
                     </MKBox>
                   ))}
                 </MKBox>
@@ -181,40 +203,24 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
           <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
             <MKTypography variant="caption" fontWeight="regular">
               Copyright &copy; {year}{' '}
-              <MKTypography
-                component={RouteWithMaterial}
-                to={brand.url}
-                rel="noreferrer"
-                variant="caption"
-                fontWeight="regular"
-              >
-                {brand.name}
-              </MKTypography>
+              <FooterLink variant={'caption'} {...brand} />
             </MKTypography>
             <br />
             <MKTypography variant="caption" fontWeight="regular">
               Powered by{' '}
-              <MKTypography
-                component={Link}
-                href={GATSBY_URL}
-                target="_blank"
-                rel="noreferrer"
+              <FooterLink
+                type="external"
+                url={GATSBY_URL}
+                name="Gatsby"
                 variant="caption"
-                fontWeight="regular"
-              >
-                Gatsby
-              </MKTypography>{' '}
+              />{' '}
               and inspired from the{' '}
-              <MKTypography
-                component={Link}
-                href={copyright.url}
-                target="_blank"
-                rel="noreferrer"
+              <FooterLink
+                type="external"
+                url={copyright.url}
+                name={copyright.name}
                 variant="caption"
-                fontWeight="regular"
-              >
-                {copyright.name}
-              </MKTypography>
+              />
               &nbsp; theme &nbsp;
               <span role="img" aria-label="heart">
                 ❤️

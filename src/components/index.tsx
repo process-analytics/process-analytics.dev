@@ -19,7 +19,7 @@ export { Footer, FooterProps, FooterContent } from './Footer';
 export { Header, HeaderContent } from './Header';
 export { Layout } from './Layout';
 export { Library, LibraryProps, LibraryContent } from './Library';
-export { Link } from './Link';
+export { LinkContent, Link } from './Link';
 export { PageWithPosts } from './PageWithPosts';
 export { PostContainer, PostContent } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';

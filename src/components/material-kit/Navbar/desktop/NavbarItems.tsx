@@ -27,49 +27,11 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { Link as MaterialLink } from '@mui/material';
-import { Link as GatsbyLink } from 'gatsby-link';
-
-import { NavbarItem, NavbarItemProps, HoverStyle } from '../common';
+import { NavbarItem, HoverStyle } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
-import { MKBox } from '../../MKBox';
-import { getLinkAttributes } from '../../../Link';
-
-const getNavbarItemAttributes = (
-  route: HeaderRoute,
-  setCollapseElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >,
-  setCollapseName: Dispatch<SetStateAction<string | undefined>>,
-  collapseName?: string,
-):
-  | Omit<NavbarItemProps, 'name' | 'isMobileView' | 'hoverStyle'>
-  | { component: typeof GatsbyLink; to: string }
-  | {
-      component: typeof MaterialLink;
-      rel: string;
-      href: string;
-      target: string;
-    } =>
-  isHeaderRouteWithMenus(route)
-    ? {
-        icon: route.icon,
-        isCollapsible: !!route.menus,
-        isCollapsed: route.name === collapseName,
-
-        onMouseEnter: ({
-          currentTarget,
-        }: React.MouseEvent<HTMLDivElement>): void => {
-          setCollapseElement(currentTarget);
-          setCollapseName(route.name);
-        },
-        onMouseLeave: (): void => {
-          setCollapseElement(undefined);
-          setCollapseName(undefined);
-        },
-      }
-    : getLinkAttributes(route);
+import { MKBox } from '../..';
+import { Link } from '../../..';
 
 type NavbarItemsProps = {
   routes: HeaderRoute[];
@@ -96,19 +58,38 @@ export const NavbarItems = ({
     ml="auto"
     mr={isCenter ? 'auto' : 2}
   >
-    {routes.map(route => (
-      <NavbarItem
-        key={route.name}
-        name={route.name}
-        isMobileView={false}
-        hoverStyle={hoverStyle}
-        {...getNavbarItemAttributes(
-          route,
-          setCollapseElement,
-          setCollapseName,
-          collapseName,
-        )}
-      />
-    ))}
+    {routes.map(route =>
+      isHeaderRouteWithMenus(route) ? (
+        <NavbarItem
+          key={route.name}
+          name={route.name}
+          isMobileView={false}
+          hoverStyle={hoverStyle}
+          icon={route.icon}
+          isCollapsible={!!route.menus}
+          isCollapsed={route.name === collapseName}
+          onMouseEnter={({
+            currentTarget,
+          }: React.MouseEvent<HTMLDivElement>): void => {
+            setCollapseElement(currentTarget);
+            setCollapseName(route.name);
+          }}
+          onMouseLeave={(): void => {
+            setCollapseElement(undefined);
+            setCollapseName(undefined);
+          }}
+        />
+      ) : (
+        <Link
+          component={NavbarItem}
+          type={route.type}
+          url={route.url}
+          key={route.name}
+          name={route.name}
+          isMobileView={false}
+          hoverStyle={hoverStyle}
+        />
+      ),
+    )}
   </MKBox>
 );

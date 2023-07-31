@@ -28,7 +28,7 @@
 import React from 'react';
 
 import { HeaderRouteAsLink } from '../../../Header';
-import { getLinkAttributes } from '../../../Link';
+import { Link } from '../../..';
 
 import { NavbarItem, HoverStyle } from '../common';
 
@@ -37,11 +37,13 @@ export const NavLink = ({
   hoverStyle,
   ...route
 }: NavLinkProps): JSX.Element => (
-  <NavbarItem
+  <Link
+    component={NavbarItem}
+    type={route.type}
+    url={route.url}
     key={route.name}
     name={route.name}
     hoverStyle={hoverStyle}
     isMobileView
-    {...getLinkAttributes(route)}
   />
 );

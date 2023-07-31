@@ -33,10 +33,9 @@ import React from 'react';
 import { Button, ButtonProps, Theme } from '@mui/material';
 
 import { MKBox } from '../..';
-import { getLinkAttributes } from '../../../Link';
-import { Link } from '../../../../assets/oldTheme';
+import { LinkContent, Link } from '../../..';
 
-export type Action = Required<Pick<Link, 'url' | 'type'>> &
+export type Action = Required<Pick<LinkContent, 'url' | 'type'>> &
   Pick<ButtonProps, 'color' | 'variant'> & {
     label: string;
     icon?: JSX.Element;
@@ -49,8 +48,10 @@ export const ActionButton = ({
   label,
 }: Action): JSX.Element => (
   <MKBox ml={{ xs: 'auto', lg: 0 }}>
-    <Button
-      {...getLinkAttributes({ type, url })}
+    <Link
+      component={Button}
+      type={type}
+      url={url}
       variant={variant ?? 'contained'}
       color={color ?? 'secondary'}
       size="medium"
@@ -59,6 +60,6 @@ export const ActionButton = ({
       }}
     >
       {label}
-    </Button>
+    </Link>
   </MKBox>
 );
