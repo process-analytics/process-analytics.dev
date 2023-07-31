@@ -165,7 +165,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                         component={MKTypography}
                         type={type}
                         url={url}
-                        rel="noreferrer"
                         variant="button"
                         fontWeight="regular"
                         textTransform="capitalize"
@@ -189,7 +188,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 component={MKTypography}
                 type={brand.type}
                 url={brand.url}
-                rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
                 pb="1px"
@@ -207,8 +205,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 component={MKTypography}
                 type="external"
                 url={GATSBY_URL}
-                target="_blank"
-                rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
                 pb="1px"
@@ -223,8 +219,6 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 component={MKTypography}
                 type="external"
                 url={copyright.url}
-                target="_blank"
-                rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
                 pb="1px"
