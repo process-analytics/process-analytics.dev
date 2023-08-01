@@ -46,47 +46,48 @@ type MKTypographyRootProps = {
   ownerState: TypographyProps;
 };
 
-export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(
-  ({ theme, ownerState }) => {
-    const { palette, functions } = theme;
-    const {
-      color,
-      textTransform,
-      verticalAlign,
-      fontWeight,
-      opacity,
-      textGradient,
-    } = ownerState;
+export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
+  theme,
+  ownerState,
+}) => {
+  const { palette, functions } = theme;
+  const {
+    color,
+    textTransform,
+    verticalAlign,
+    fontWeight,
+    opacity,
+    textGradient,
+  } = ownerState;
 
-    const { linearGradient } = functions;
+  const { linearGradient } = functions;
 
-    const calculatedColor =
-      !color || color === 'inherit' || !palette[color]
-        ? 'inherit'
-        : color === 'text'
-        ? palette.text.primary
-        : palette[color].main;
-    const backgroundColor =
-      color &&
-      (color !== 'text' && color !== 'inherit'
-        ? linearGradient(palette[color].main, palette[color].dark)
-        : linearGradient(palette.background.default, palette.background.paper));
-    return {
-      opacity,
-      verticalAlign,
-      textDecoration: 'none',
-      textTransform,
-      color: calculatedColor,
-      letterSpacing: '-0.125px',
-      fontWeight,
-      ...(textGradient && {
-        backgroundImage: backgroundColor,
-        display: 'inline-block',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        position: 'relative',
-        zIndex: 1,
-      }),
-    };
-  },
-);
+  const calculatedColor =
+    !color || color === 'inherit' || !palette[color]
+      ? 'inherit'
+      : color === 'text'
+      ? palette.text.primary
+      : palette[color].main;
+  const backgroundColor =
+    color &&
+    (color !== 'text' && color !== 'inherit'
+      ? linearGradient(palette[color].main, palette[color].dark)
+      : linearGradient(palette.background.default, palette.background.paper));
+  return {
+    opacity,
+    verticalAlign,
+    textDecoration: 'none',
+    textTransform,
+    color: calculatedColor,
+    letterSpacing: '-0.125px',
+    fontWeight,
+    ...(textGradient && {
+      backgroundImage: backgroundColor,
+      display: 'inline-block',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      position: 'relative',
+      zIndex: 1,
+    }),
+  };
+});

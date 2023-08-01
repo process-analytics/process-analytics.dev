@@ -82,13 +82,17 @@ const FormContainer = styled(Flex)`
   border: none;
   cursor: pointer;
   z-index: 901;
-  transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
+  transition:
+    all 0.2s 0.45s,
+    height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
     max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s,
     width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
 
   margin: 0 auto;
   overflow: hidden;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
 
   ${(props: FormContainerProps) =>
     props.open &&

@@ -77,7 +77,9 @@ const StyledContent = styled(Flex)`
   margin: 0 20px 20px 20px;
   opacity: 0;
   text-align: left;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s 0.2s;
 
   ${(props: StyledContentProps) =>
     props.open &&

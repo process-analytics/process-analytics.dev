@@ -152,5 +152,7 @@ const StyledSubmitButton = styled(Button)`
   font-size: 120%;
   height: 65px;
   box-shadow: 0 5px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s, transform 0s 0.6s;
+  transition:
+    all 0.1s,
+    transform 0s 0.6s;
 `;

@@ -70,56 +70,53 @@ const getColor = (
     ? palette[color].main
     : getGreyColor(palette, color);
 
-export const MKBoxRoot = styled(Box)<MKBoxRootProps>(
-  ({ theme, ownerState }) => {
-    const { palette, functions, borders, boxShadows } = theme;
-    const { variant, bgColor, color, opacity, borderRadius, shadow } =
-      ownerState;
+export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
+  theme,
+  ownerState,
+}) => {
+  const { palette, functions, borders, boxShadows } = theme;
+  const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
 
-    // background value
-    let backgroundValue;
-    if (variant === 'gradient') {
-      backgroundValue =
-        bgColor && isPaletteColorName(bgColor)
-          ? functions.linearGradient(
-              palette[bgColor].main,
-              palette[bgColor].dark,
-            )
-          : 'White';
-    } else if (!bgColor || bgColor === 'transparent') {
-      backgroundValue = 'transparent';
-    } else if (bgColor === 'inherit') {
-      backgroundValue = 'inherit';
-    } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
-      backgroundValue = getColor(palette, bgColor);
-    } else {
-      backgroundValue = bgColor;
-    }
+  // background value
+  let backgroundValue;
+  if (variant === 'gradient') {
+    backgroundValue =
+      bgColor && isPaletteColorName(bgColor)
+        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
+        : 'White';
+  } else if (!bgColor || bgColor === 'transparent') {
+    backgroundValue = 'transparent';
+  } else if (bgColor === 'inherit') {
+    backgroundValue = 'inherit';
+  } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
+    backgroundValue = getColor(palette, bgColor);
+  } else {
+    backgroundValue = bgColor;
+  }
 
-    // color value
-    let colorValue;
-    if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
-      colorValue = getColor(palette, color);
-    } else if (!bgColor) {
-      colorValue = color;
-    } else if (bgColor === 'inherit') {
-      colorValue = 'inherit';
-    } else if (isPaletteColorName(bgColor)) {
-      colorValue = palette[bgColor].contrastText;
-    } else {
-      colorValue = palette.text.primary;
-    }
+  // color value
+  let colorValue;
+  if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
+    colorValue = getColor(palette, color);
+  } else if (!bgColor) {
+    colorValue = color;
+  } else if (bgColor === 'inherit') {
+    colorValue = 'inherit';
+  } else if (isPaletteColorName(bgColor)) {
+    colorValue = palette[bgColor].contrastText;
+  } else {
+    colorValue = palette.text.primary;
+  }
 
-    return {
-      opacity,
-      background: backgroundValue,
-      color: colorValue,
-      borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
-      boxShadow: shadow?.size
-        ? boxShadows[shadow.size]
-        : shadow?.color
-        ? boxShadows.colored[shadow.color]
-        : 'none',
-    };
-  },
-);
+  return {
+    opacity,
+    background: backgroundValue,
+    color: colorValue,
+    borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
+    boxShadow: shadow?.size
+      ? boxShadows[shadow.size]
+      : shadow?.color
+      ? boxShadows.colored[shadow.color]
+      : 'none',
+  };
+});
