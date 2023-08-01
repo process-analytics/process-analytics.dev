@@ -17,9 +17,9 @@ import { Palette, PaletteColorKey, SocialPalette } from '@mui/material';
 import { SxProps } from '@mui/system/styleFunctionSx';
 
 export type HoverStyle = {
-  backgroundColor: PaletteColorKey;
-  color: PaletteColorKey;
-  borderRadius: string;
+  backgroundColor?: PaletteColorKey;
+  color?: PaletteColorKey;
+  borderRadius?: string;
 };
 export const getHoverConfiguration = (
   palette: Palette & SocialPalette,
@@ -27,8 +27,10 @@ export const getHoverConfiguration = (
 ): SxProps => ({
   '*:hover': {
     //fontWeight: 'bold',
-    color: palette[hoverStyle.color].main,
-    backgroundColor: palette[hoverStyle.backgroundColor].main,
-    borderRadius: hoverStyle.borderRadius,
+    color: hoverStyle.color ? palette[hoverStyle.color].main : 'inherit',
+    backgroundColor: hoverStyle.backgroundColor
+      ? palette[hoverStyle.backgroundColor].main
+      : 'inherit',
+    borderRadius: hoverStyle.borderRadius ?? 'inherit',
   },
 });

@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 // @mui material components
 import { Container } from '@mui/material';
@@ -47,7 +47,28 @@ import { isMobileView as isMobileViewFunc } from '../../../helper';
 import { BrandContent } from '../..';
 import { HeaderRoute } from '../../Header';
 
-const InnerContainer = ({
+type NavbarStyleProps = {
+  isTransparent: boolean;
+  isSticky: boolean;
+  isRelative: boolean;
+  isCenter: boolean;
+  hoverStyle: HoverStyle;
+};
+
+type CommonProps = {
+  brandContent: BrandContent;
+  routes: HeaderRoute[];
+  action: Action;
+  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+};
+
+type InnerContainerProps = NavbarStyleProps & CommonProps;
+
+type NavbarProps = React.PropsWithoutRef<MKBoxProps> &
+  Partial<NavbarStyleProps> &
+  CommonProps;
+
+const InnerContainer: FC<InnerContainerProps> = ({
   brandContent,
   routes,
   action,
@@ -57,9 +78,7 @@ const InnerContainer = ({
   isCenter,
   dropdownStyle,
   hoverStyle,
-}: Omit<NavbarProps, 'hoverStyle'> & {
-  hoverStyle: HoverStyle;
-}): JSX.Element => {
+}) => {
   const [collapseElement, setCollapseElement] = useState<
     EventTarget & HTMLSpanElement
   >();
@@ -156,56 +175,40 @@ const InnerContainer = ({
   );
 };
 
-export const Navbar = ({
+export const Navbar: FC<NavbarProps> = ({
   brandContent,
   routes,
   action,
-  isTransparent,
-  isSticky,
-  isRelative,
-  isCenter,
+  isTransparent = false,
+  isSticky = false,
+  isRelative = false,
+  isCenter = false,
   bgColor,
   color,
   dropdownStyle,
   hoverStyle: hoverStyleProp,
   ...rest
-}: NavbarProps): JSX.Element => {
-  const hoverStyle = {
-    backgroundColor: hoverStyleProp?.backgroundColor ?? 'quaternary',
-    color: hoverStyleProp?.color ?? 'spicy',
-    borderRadius: hoverStyleProp?.borderRadius ?? '5px',
-  };
-
-  return (
-    <MKBox
-      {...rest}
-      position={isTransparent && isSticky ? 'sticky' : 'relative'}
-      bgColor={isTransparent ? bgColor : 'transparent'}
-      color={color}
-    >
-      <InnerContainer
-        brandContent={brandContent}
-        routes={routes}
-        action={action}
-        isTransparent={isTransparent}
-        isSticky={isTransparent ? false : isSticky}
-        isRelative={isTransparent ? true : isRelative}
-        isCenter={isCenter}
-        dropdownStyle={dropdownStyle}
-        hoverStyle={hoverStyle}
-      />
-    </MKBox>
-  );
-};
-
-type NavbarProps = React.PropsWithoutRef<MKBoxProps> & {
-  brandContent: BrandContent;
-  routes: HeaderRoute[];
-  action: Action;
-  isTransparent?: boolean;
-  isSticky?: boolean;
-  isRelative?: boolean;
-  isCenter?: boolean;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
-  hoverStyle?: Partial<HoverStyle>;
-};
+}) => (
+  <MKBox
+    {...rest}
+    position={isTransparent && isSticky ? 'sticky' : 'relative'}
+    bgColor={isTransparent ? bgColor : 'transparent'}
+    color={color}
+  >
+    <InnerContainer
+      brandContent={brandContent}
+      routes={routes}
+      action={action}
+      isTransparent={isTransparent}
+      isSticky={isTransparent ? false : isSticky}
+      isRelative={isTransparent ? true : isRelative}
+      isCenter={isCenter}
+      dropdownStyle={dropdownStyle}
+      hoverStyle={{
+        backgroundColor: hoverStyleProp?.backgroundColor ?? 'quaternary',
+        color: hoverStyleProp?.color ?? 'spicy',
+        borderRadius: hoverStyleProp?.borderRadius ?? '5px',
+      }}
+    />
+  </MKBox>
+);
