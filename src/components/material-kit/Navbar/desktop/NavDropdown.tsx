@@ -257,7 +257,7 @@ const ListDropdownMenus = (
     ),
   );
 
-export type DropdownMenuProps = {
+export type NavDropdownProps = {
   routes: HeaderRoute[];
   collapseElement?: EventTarget & HTMLSpanElement;
   collapseName?: string;
@@ -273,7 +273,7 @@ export type DropdownMenuProps = {
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
 };
-export const DropdownMenu = ({
+export const NavDropdown = ({
   routes,
   collapseElement,
   collapseName,
@@ -284,7 +284,7 @@ export const DropdownMenu = ({
   setNestedDropdownName,
   dropdownStyle,
   hoverStyle,
-}: DropdownMenuProps): JSX.Element => {
+}: NavDropdownProps): JSX.Element => {
   const [arrowRef, setArrowRef] = useState();
 
   return (
