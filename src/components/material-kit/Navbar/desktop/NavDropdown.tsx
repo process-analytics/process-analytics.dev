@@ -136,10 +136,10 @@ const ColumnDropdownMenus = (
 
 const ListDropdownMenus = (
   menus: HeaderMenu[],
-  setNestedDropdownElement: Dispatch<
+  setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >,
-  setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>,
+  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>,
   hoverStyle: HoverStyle,
 ): JSX.Element[] =>
   menus.map(menu =>
@@ -165,14 +165,14 @@ const ListDropdownMenus = (
           currentTarget,
         }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
           if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-            setNestedDropdownElement(currentTarget ?? undefined);
-            setNestedDropdownName(menu.name);
+            setDropdownDropdownElement(currentTarget ?? undefined);
+            setDropdownDropdownName(menu.name);
           }
         }}
         onMouseLeave={() => {
           if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-            setNestedDropdownElement(undefined);
-            setNestedDropdownName(undefined);
+            setDropdownDropdownElement(undefined);
+            setDropdownDropdownName(undefined);
           }
         }}
       >
@@ -226,14 +226,14 @@ const ListDropdownMenus = (
           currentTarget,
         }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
           if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-            setNestedDropdownElement(currentTarget ?? undefined);
-            setNestedDropdownName(menu.name);
+            setDropdownDropdownElement(currentTarget ?? undefined);
+            setDropdownDropdownName(menu.name);
           }
         }}
         onMouseLeave={() => {
           if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
-            setNestedDropdownElement(undefined);
-            setNestedDropdownName(undefined);
+            setDropdownDropdownElement(undefined);
+            setDropdownDropdownName(undefined);
           }
         }}
       >
@@ -259,29 +259,29 @@ const ListDropdownMenus = (
 
 export type NavDropdownProps = {
   routes: HeaderRoute[];
-  collapseElement?: EventTarget & HTMLSpanElement;
-  collapseName?: string;
-  setCollapseElement: Dispatch<
+  expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
+  expandedNavDropdownName?: string;
+  setExpandedNavDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
-  nestedDropdownName?: string;
-  setCollapseName: Dispatch<SetStateAction<string | undefined>>;
-  setNestedDropdownElement: Dispatch<
+  dropdownDropdownName?: string;
+  setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
-  setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
 };
 export const NavDropdown = ({
   routes,
-  collapseElement,
-  collapseName,
-  setCollapseElement,
-  nestedDropdownName,
-  setCollapseName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
+  expandedNavDropdownElement,
+  expandedNavDropdownName,
+  setExpandedNavDropdownElement,
+  dropdownDropdownName,
+  setExpandedNavDropdownName,
+  setDropdownDropdownElement,
+  setDropdownDropdownName,
   dropdownStyle,
   hoverStyle,
 }: NavDropdownProps): JSX.Element => {
@@ -289,9 +289,9 @@ export const NavDropdown = ({
 
   return (
     <Popper
-      anchorEl={collapseElement}
+      anchorEl={expandedNavDropdownElement}
       popperRef={null}
-      open={!!collapseName}
+      open={!!expandedNavDropdownName}
       placement="bottom"
       transition
       style={{ zIndex: 10 }}
@@ -316,11 +316,11 @@ export const NavDropdown = ({
         },
       ]}
       onMouseEnter={() => {
-        setCollapseElement(collapseElement);
+        setExpandedNavDropdownElement(expandedNavDropdownElement);
       }}
       onMouseLeave={() => {
-        if (!nestedDropdownName) {
-          setCollapseName(undefined);
+        if (!dropdownDropdownName) {
+          setExpandedNavDropdownName(undefined);
         }
       }}
     >
@@ -339,7 +339,7 @@ export const NavDropdown = ({
                 routes.filter(
                   route =>
                     isHeaderRouteWithMenus(route) &&
-                    route.name === collapseName &&
+                    route.name === expandedNavDropdownName &&
                     route.menus,
                 ) as HeaderRouteWithMenus[]
               ).map(({ name, menus, withColumns, rowsPerColumn }) =>
@@ -349,8 +349,8 @@ export const NavDropdown = ({
                   : // Render the dropdown menu that should be display as list items
                     ListDropdownMenus(
                       menus,
-                      setNestedDropdownElement,
-                      setNestedDropdownName,
+                      setDropdownDropdownElement,
+                      setDropdownDropdownName,
                       hoverStyle,
                     ),
               )}

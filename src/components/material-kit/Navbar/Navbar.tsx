@@ -79,10 +79,11 @@ const InnerContainer: FC<InnerContainerProps> = ({
   dropdownStyle,
   hoverStyle,
 }) => {
-  const [collapseElement, setCollapseElement] = useState<
+  const [expandedNavDropdownElement, setExpandedNavDropdownElement] = useState<
     EventTarget & HTMLSpanElement
   >();
-  const [collapseName, setCollapseName] = useState<string>();
+  const [expandedNavDropdownName, setExpandedNavDropdownName] =
+    useState<string>();
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
   const isMobileView = isMobileViewFunc();
@@ -128,9 +129,9 @@ const InnerContainer: FC<InnerContainerProps> = ({
               routes={routes}
               isCenter={isCenter}
               hoverStyle={hoverStyle}
-              setCollapseElement={setCollapseElement}
-              setCollapseName={setCollapseName}
-              collapseName={collapseName}
+              setExpandedNavDropdownElement={setExpandedNavDropdownElement}
+              setExpandedNavDropdownName={setExpandedNavDropdownName}
+              expandedNavDropdownName={expandedNavDropdownName}
             />
           )}
 
@@ -163,10 +164,10 @@ const InnerContainer: FC<InnerContainerProps> = ({
       {!isMobileView && (
         <Dropdown
           routes={routes}
-          collapseElement={collapseElement}
-          collapseName={collapseName}
-          setCollapseElement={setCollapseElement}
-          setCollapseName={setCollapseName}
+          expandedNavDropdownElement={expandedNavDropdownElement}
+          expandedNavDropdownName={expandedNavDropdownName}
+          setExpandedNavDropdownElement={setExpandedNavDropdownElement}
+          setExpandedNavDropdownName={setExpandedNavDropdownName}
           dropdownStyle={dropdownStyle}
           hoverStyle={hoverStyle}
         />

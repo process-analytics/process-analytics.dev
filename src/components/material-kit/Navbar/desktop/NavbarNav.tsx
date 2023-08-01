@@ -36,20 +36,20 @@ import { Link } from '../../..';
 type NavbarNavProps = {
   routes: HeaderRoute[];
   isCenter?: boolean;
-  setCollapseElement: Dispatch<
+  setExpandedNavDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
-  setCollapseName: Dispatch<SetStateAction<string | undefined>>;
-  collapseName?: string;
+  setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  expandedNavDropdownName?: string;
   hoverStyle: HoverStyle;
 };
 
 export const NavbarNav = ({
   routes,
   isCenter,
-  setCollapseElement,
-  setCollapseName,
-  collapseName,
+  setExpandedNavDropdownElement,
+  setExpandedNavDropdownName,
+  expandedNavDropdownName,
   hoverStyle,
 }: NavbarNavProps): JSX.Element => (
   <MKBox
@@ -67,16 +67,16 @@ export const NavbarNav = ({
           hoverStyle={hoverStyle}
           icon={route.icon}
           isCollapsible={!!route.menus}
-          isCollapsed={route.name === collapseName}
+          isCollapsed={route.name === expandedNavDropdownName}
           onMouseEnter={({
             currentTarget,
           }: React.MouseEvent<HTMLDivElement>): void => {
-            setCollapseElement(currentTarget);
-            setCollapseName(route.name);
+            setExpandedNavDropdownElement(currentTarget);
+            setExpandedNavDropdownName(route.name);
           }}
           onMouseLeave={(): void => {
-            setCollapseElement(undefined);
-            setCollapseName(undefined);
+            setExpandedNavDropdownElement(undefined);
+            setExpandedNavDropdownName(undefined);
           }}
         />
       ) : (

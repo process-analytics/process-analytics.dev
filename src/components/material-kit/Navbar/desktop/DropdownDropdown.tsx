@@ -108,38 +108,38 @@ const DropdownLink = ({
 
 export type DropdownDropdownProps = {
   routes: HeaderRoute[];
-  nestedDropdownElement?: EventTarget & HTMLSpanElement;
-  nestedDropdownName?: string;
-  setNestedDropdownElement: Dispatch<
+  dropdownDropdownElement?: EventTarget & HTMLSpanElement;
+  dropdownDropdownName?: string;
+  setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
-  setNestedDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
 };
 
 export const DropdownDropdown = ({
   routes,
-  nestedDropdownElement,
-  nestedDropdownName,
-  setNestedDropdownElement,
-  setNestedDropdownName,
+  dropdownDropdownElement,
+  dropdownDropdownName,
+  setDropdownDropdownElement,
+  setDropdownDropdownName,
   dropdownStyle,
   hoverStyle,
 }: DropdownDropdownProps): JSX.Element => (
   <Popper
-    anchorEl={nestedDropdownElement}
+    anchorEl={dropdownDropdownElement}
     popperRef={null}
-    open={!!nestedDropdownName}
+    open={!!dropdownDropdownName}
     placement="right-start"
     transition
     style={{ zIndex: 10 }}
     onMouseEnter={() => {
-      setNestedDropdownElement(nestedDropdownElement);
+      setDropdownDropdownElement(dropdownDropdownElement);
     }}
     onMouseLeave={() => {
-      setNestedDropdownElement(undefined);
-      setNestedDropdownName(undefined);
+      setDropdownDropdownElement(undefined);
+      setDropdownDropdownName(undefined);
     }}
   >
     {({ TransitionProps }) => (
@@ -160,7 +160,7 @@ export const DropdownDropdown = ({
               (
                 menus.filter(
                   menu =>
-                    menu.name === nestedDropdownName &&
+                    menu.name === dropdownDropdownName &&
                     isHeaderMenuWithItems(menu),
                 ) as HeaderMenuWithItems[]
               ).map(({ items, isCollapsed }) =>
