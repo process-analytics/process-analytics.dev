@@ -45,7 +45,7 @@ export const NavbarNav = ({
   dropdownStyle,
   hoverStyle,
 }: NavbarNavProps): JSX.Element => {
-  const [collapse, setCollapseElement] = useState<string>();
+  const [collapse, setExpandedNavDropdownElement] = useState<string>();
 
   return (
     <Collapse in={isOpen} timeout="auto" unmountOnExit>
@@ -60,7 +60,9 @@ export const NavbarNav = ({
               menus={route.menus}
               isCollapsed={isCollapsed}
               onClick={() =>
-                setCollapseElement(isCollapsed ? undefined : route.name)
+                setExpandedNavDropdownElement(
+                  isCollapsed ? undefined : route.name,
+                )
               }
               hoverStyle={hoverStyle}
             />

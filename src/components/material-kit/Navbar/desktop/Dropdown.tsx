@@ -32,28 +32,28 @@ import { DropdownDropdown, DropdownDropdownProps } from './DropdownDropdown';
 
 export const Dropdown = ({
   routes,
-  collapseElement,
-  collapseName,
-  setCollapseElement,
-  setCollapseName,
+  expandedNavDropdownElement,
+  expandedNavDropdownName,
+  setExpandedNavDropdownElement,
+  setExpandedNavDropdownName,
   dropdownStyle,
   hoverStyle,
 }: Omit<
   NavDropdownProps,
-  | 'nestedDropdownName'
-  | 'setNestedDropdownName'
-  | 'nestedDropdownElement'
-  | 'setNestedDropdownElement'
+  | 'dropdownDropdownName'
+  | 'setDropdownDropdownName'
+  | 'dropdownDropdownElement'
+  | 'setDropdownDropdownElement'
 > &
   Omit<
     DropdownDropdownProps,
-    | 'nestedDropdownName'
-    | 'setNestedDropdownName'
-    | 'nestedDropdownElement'
-    | 'setNestedDropdownElement'
+    | 'dropdownDropdownName'
+    | 'setDropdownDropdownName'
+    | 'dropdownDropdownElement'
+    | 'setDropdownDropdownElement'
   >): JSX.Element => {
-  const [nestedDropdownName, setNestedDropdownName] = useState<string>();
-  const [nestedDropdownElement, setNestedDropdownElement] = useState<
+  const [dropdownDropdownName, setDropdownDropdownName] = useState<string>();
+  const [dropdownDropdownElement, setDropdownDropdownElement] = useState<
     EventTarget & HTMLSpanElement
   >();
 
@@ -61,22 +61,22 @@ export const Dropdown = ({
     <>
       <NavDropdown
         routes={routes}
-        collapseElement={collapseElement}
-        collapseName={collapseName}
-        setCollapseElement={setCollapseElement}
-        nestedDropdownName={nestedDropdownName}
-        setCollapseName={setCollapseName}
-        setNestedDropdownElement={setNestedDropdownElement}
-        setNestedDropdownName={setNestedDropdownName}
+        expandedNavDropdownElement={expandedNavDropdownElement}
+        expandedNavDropdownName={expandedNavDropdownName}
+        setExpandedNavDropdownElement={setExpandedNavDropdownElement}
+        dropdownDropdownName={dropdownDropdownName}
+        setExpandedNavDropdownName={setExpandedNavDropdownName}
+        setDropdownDropdownElement={setDropdownDropdownElement}
+        setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
         hoverStyle={hoverStyle}
       />
       <DropdownDropdown
         routes={routes}
-        nestedDropdownElement={nestedDropdownElement}
-        nestedDropdownName={nestedDropdownName}
-        setNestedDropdownElement={setNestedDropdownElement}
-        setNestedDropdownName={setNestedDropdownName}
+        dropdownDropdownElement={dropdownDropdownElement}
+        dropdownDropdownName={dropdownDropdownName}
+        setDropdownDropdownElement={setDropdownDropdownElement}
+        setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
         hoverStyle={hoverStyle}
       />
