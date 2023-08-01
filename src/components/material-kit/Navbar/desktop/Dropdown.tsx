@@ -32,9 +32,9 @@ import {
   NavDropdownProps,
 } from 'src/components/material-kit/Navbar/desktop/NavDropdown';
 import {
-  NestedDropdownMenu,
+  DropdownDropdown,
   NestedDropdownMenuProps,
-} from './NestedDropdownMenu';
+} from 'src/components/material-kit/Navbar/desktop/DropdownDropdown';
 
 export const Dropdown = ({
   routes,
@@ -77,7 +77,7 @@ export const Dropdown = ({
         dropdownStyle={dropdownStyle}
         hoverStyle={hoverStyle}
       />
-      <NestedDropdownMenu
+      <DropdownDropdown
         routes={routes}
         nestedDropdownElement={nestedDropdownElement}
         nestedDropdownName={nestedDropdownName}

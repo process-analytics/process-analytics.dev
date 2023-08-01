@@ -106,7 +106,7 @@ const DropdownSubMenu = ({
   </Link>
 );
 
-export type NestedDropdownMenuProps = {
+export type DropdownDropdownProps = {
   routes: HeaderRoute[];
   nestedDropdownElement?: EventTarget & HTMLSpanElement;
   nestedDropdownName?: string;
@@ -118,7 +118,7 @@ export type NestedDropdownMenuProps = {
   hoverStyle: HoverStyle;
 };
 
-export const NestedDropdownMenu = ({
+export const DropdownDropdown = ({
   routes,
   nestedDropdownElement,
   nestedDropdownName,
@@ -126,7 +126,7 @@ export const NestedDropdownMenu = ({
   setNestedDropdownName,
   dropdownStyle,
   hoverStyle,
-}: NestedDropdownMenuProps): JSX.Element => (
+}: DropdownDropdownProps): JSX.Element => (
   <Popper
     anchorEl={nestedDropdownElement}
     popperRef={null}
