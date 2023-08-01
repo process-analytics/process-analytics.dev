@@ -39,8 +39,8 @@ import { MKBox, MKBoxProps } from '..';
 
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, HoverStyle } from './common';
-import { NavbarButton, NavbarNav } from './mobile';
-import { Dropdown, NavbarItems } from './desktop';
+import { NavbarButton, NavbarNav as MobileNavbarNav } from './mobile';
+import { Dropdown, NavbarNav as DesktopNavbarNav } from './desktop';
 
 import { isMobileView as isMobileViewFunc } from '../../../helper';
 
@@ -105,7 +105,7 @@ const InnerContainer = ({
           )}
 
           {!isMobileView && (
-            <NavbarItems
+            <DesktopNavbarNav
               routes={routes}
               isCenter={isCenter}
               hoverStyle={hoverStyle}
@@ -132,7 +132,7 @@ const InnerContainer = ({
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
-            <NavbarNav
+            <MobileNavbarNav
               routes={routes}
               isOpen={isOpenMobileNavbar}
               hoverStyle={hoverStyle}

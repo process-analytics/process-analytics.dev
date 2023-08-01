@@ -33,7 +33,7 @@ import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
 import { Link } from '../../..';
 
-type NavbarItemsProps = {
+type NavbarNavProps = {
   routes: HeaderRoute[];
   isCenter?: boolean;
   setCollapseElement: Dispatch<
@@ -44,14 +44,14 @@ type NavbarItemsProps = {
   hoverStyle: HoverStyle;
 };
 
-export const NavbarItems = ({
+export const NavbarNav = ({
   routes,
   isCenter,
   setCollapseElement,
   setCollapseName,
   collapseName,
   hoverStyle,
-}: NavbarItemsProps): JSX.Element => (
+}: NavbarNavProps): JSX.Element => (
   <MKBox
     color="inherit"
     display={{ xs: 'none', lg: 'flex' }}
