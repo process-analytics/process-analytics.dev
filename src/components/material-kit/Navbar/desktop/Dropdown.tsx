@@ -27,14 +27,8 @@
 
 import React, { useState } from 'react';
 
-import {
-  NavDropdown,
-  NavDropdownProps,
-} from 'src/components/material-kit/Navbar/desktop/NavDropdown';
-import {
-  DropdownDropdown,
-  NestedDropdownMenuProps,
-} from 'src/components/material-kit/Navbar/desktop/DropdownDropdown';
+import { NavDropdown, NavDropdownProps } from './NavDropdown';
+import { DropdownDropdown, DropdownDropdownProps } from './DropdownDropdown';
 
 export const Dropdown = ({
   routes,
@@ -52,7 +46,7 @@ export const Dropdown = ({
   | 'setNestedDropdownElement'
 > &
   Omit<
-    NestedDropdownMenuProps,
+    DropdownDropdownProps,
     | 'nestedDropdownName'
     | 'setNestedDropdownName'
     | 'nestedDropdownElement'
