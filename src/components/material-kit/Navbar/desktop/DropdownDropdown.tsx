@@ -42,18 +42,18 @@ import {
 import { MKTypography, MKBox, MKBoxProps } from '../..';
 import { LinkContent, Link } from '../../..';
 
-type DropdownSubMenuProps = {
+type DropdownLinkProps = {
   isCollapsed?: boolean;
   hoverStyle: HoverStyle;
 } & LinkContent;
-const DropdownSubMenu = ({
+const DropdownLink = ({
   description,
   name,
   url,
   type,
   hoverStyle,
   isCollapsed = false,
-}: DropdownSubMenuProps): JSX.Element => (
+}: DropdownLinkProps): JSX.Element => (
   <Link
     component={MKTypography}
     key={name}
@@ -165,7 +165,7 @@ export const DropdownDropdown = ({
                 ) as HeaderMenuWithItems[]
               ).map(({ items, isCollapsed }) =>
                 items.map(subItem => (
-                  <DropdownSubMenu
+                  <DropdownLink
                     isCollapsed={isCollapsed}
                     {...subItem}
                     hoverStyle={hoverStyle}
