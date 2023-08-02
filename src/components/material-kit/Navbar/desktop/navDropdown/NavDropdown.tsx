@@ -35,16 +35,12 @@ import { ListNavDropdown } from '../listNavDropdown';
 
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
 
-import {
-  HeaderRoute,
-  HeaderRouteWithMenus,
-  isHeaderRouteWithMenus,
-} from '../../../../Header';
+import { HeaderRouteWithMenus } from '../../../../Header';
 
 import { HoverStyle } from '../../common';
 
 export type NavDropdownProps = {
-  routes: HeaderRoute[];
+  routes: HeaderRouteWithMenus[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   expandedNavDropdownName?: string;
   setDropdownDropdownElement: Dispatch<
@@ -112,14 +108,7 @@ export const NavDropdown: FC<NavDropdownProps> = ({
             </MKTypography>
 
             <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
-              {(
-                routes.filter(
-                  route =>
-                    isHeaderRouteWithMenus(route) &&
-                    route.name === expandedNavDropdownName &&
-                    route.menus,
-                ) as HeaderRouteWithMenus[]
-              ).map(({ name, menus, withColumns, rowsPerColumn }) =>
+              {routes.map(({ name, menus, withColumns, rowsPerColumn }) =>
                 withColumns ? (
                   // Render the dropdown menu that should be display as columns
                   <ColumnNavDropdown
