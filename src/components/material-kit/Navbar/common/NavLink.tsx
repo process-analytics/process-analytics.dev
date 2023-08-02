@@ -27,6 +27,8 @@
 
 import React, { FC } from 'react';
 
+import { isMobileView } from '../../../../helper';
+
 import { HeaderRouteAsLink } from '../../../Header';
 import { Link } from '../../..';
 
@@ -43,5 +45,6 @@ export const NavLink: FC<NavLinkProps> = ({ hoverStyle, ...route }) => (
     url={route.url}
     name={route.name}
     hoverStyle={hoverStyle}
+    isMobileView={isMobileView()}
   />
 );
