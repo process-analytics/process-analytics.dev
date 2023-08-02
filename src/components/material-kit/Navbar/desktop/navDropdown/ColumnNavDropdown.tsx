@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 
 import { Divider, Grid, Theme } from '@mui/material';
 
@@ -55,6 +55,55 @@ function splitArrayByColumns<T>(array: T[], rowsPerColumn: number): T[][] {
   }, []);
 }
 
+const DropdownItem = ({
+  menu,
+  index,
+  hoverStyle,
+}: {
+  menu: HeaderMenu;
+  index: number;
+  hoverStyle: HoverStyle;
+}): JSX.Element => (
+  <>
+    <MKTypography
+      display="block"
+      variant="button"
+      fontWeight="bold"
+      textTransform="capitalize"
+      py={1}
+      px={0.5}
+      mt={index !== 0 ? 2 : 0}
+    >
+      {menu.name}
+    </MKTypography>
+
+    {isHeaderMenuWithItems(menu) &&
+      menu.items.map(item => (
+        <Link
+          component={MKTypography}
+          type={item.type}
+          url={item.url}
+          key={item.name}
+          minWidth="11.25rem"
+          display="block"
+          variant="button"
+          textTransform="capitalize"
+          fontWeight="regular"
+          py={0.625}
+          px={2}
+          sx={({ palette, borders: { borderRadius } }: Theme) => ({
+            borderRadius: borderRadius.md,
+            cursor: 'pointer',
+            transition: 'all 300ms linear',
+            ...getHoverConfiguration(palette, hoverStyle),
+          })}
+        >
+          {item.name}
+        </Link>
+      ))}
+  </>
+);
+
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   menus,
   name,
@@ -77,44 +126,12 @@ export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
             sx={{ position: 'relative' }}
           >
             {menus.map((menu, index) => (
-              <Fragment key={menu.name}>
-                <MKTypography
-                  display="block"
-                  variant="button"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                  py={1}
-                  px={0.5}
-                  mt={index !== 0 ? 2 : 0}
-                >
-                  {menu.name}
-                </MKTypography>
-
-                {isHeaderMenuWithItems(menu) &&
-                  menu.items.map(item => (
-                    <Link
-                      component={MKTypography}
-                      type={item.type}
-                      url={item.url}
-                      key={item.name}
-                      minWidth="11.25rem"
-                      display="block"
-                      variant="button"
-                      textTransform="capitalize"
-                      fontWeight="regular"
-                      py={0.625}
-                      px={2}
-                      sx={({ palette, borders: { borderRadius } }: Theme) => ({
-                        borderRadius: borderRadius.md,
-                        cursor: 'pointer',
-                        transition: 'all 300ms linear',
-                        ...getHoverConfiguration(palette, hoverStyle),
-                      })}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-              </Fragment>
+              <DropdownItem
+                key={menu.name}
+                menu={menu}
+                index={index}
+                hoverStyle={hoverStyle}
+              />
             ))}
             {key !== 0 && (
               <Divider
