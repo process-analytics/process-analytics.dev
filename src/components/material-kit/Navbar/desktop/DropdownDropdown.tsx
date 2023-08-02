@@ -27,84 +27,20 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { Grow, Popper, Theme } from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+import { Grow, Popper } from '@mui/material';
 
-import { getHoverConfiguration, HoverStyle } from '../common';
+import { DropdownLink } from './DropdownLink';
+import { MKBox, MKBoxProps } from '../..';
 
 import {
   HeaderMenuWithItems,
+  HeaderRoute,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
-  HeaderRoute,
 } from '../../../Header';
-import { MKTypography, MKBox, MKBoxProps } from '../..';
-import { LinkContent, Link } from '../../..';
 
-type DropdownLinkProps = {
-  isCollapsed?: boolean;
-  hoverStyle: HoverStyle;
-} & LinkContent;
-const DropdownLink = ({
-  description,
-  name,
-  url,
-  type,
-  hoverStyle,
-  isCollapsed = false,
-}: DropdownLinkProps): JSX.Element => (
-  <Link
-    component={MKTypography}
-    key={name}
-    type={type}
-    url={url}
-    display="flex"
-    justifyContent="space-between"
-    alignItems="center"
-    variant="button"
-    textTransform="capitalize"
-    minWidth={description ? '14rem' : '12rem'}
-    color={'primary'}
-    fontWeight={description ? 'bold' : 'regular'}
-    py={description ? 1 : 0.625}
-    px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
-      cursor: 'pointer',
-      transition: 'all 300ms linear',
-      ...getHoverConfiguration(palette, hoverStyle),
-    })}
-  >
-    {description ? (
-      <MKBox>
-        {name}
-        <MKTypography
-          display="block"
-          variant="button"
-          color="text"
-          fontWeight="regular"
-          sx={{ transition: 'all 300ms linear' }}
-        >
-          {description}
-        </MKTypography>
-      </MKBox>
-    ) : (
-      name
-    )}
-
-    {isCollapsed && (
-      <KeyboardArrowDown
-        fontSize="small"
-        sx={{
-          fontWeight: 'normal',
-          verticalAlign: 'middle',
-          mr: -0.5,
-        }}
-      />
-    )}
-  </Link>
-);
+import { HoverStyle } from '../common';
 
 export type DropdownDropdownProps = {
   routes: HeaderRoute[];
