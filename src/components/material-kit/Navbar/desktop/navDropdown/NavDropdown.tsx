@@ -131,7 +131,12 @@ export const NavDropdown = ({
               ).map(({ name, menus, withColumns, rowsPerColumn }) =>
                 withColumns ? (
                   // Render the dropdown menu that should be display as columns
-                  ColumnNavDropdown(menus, name, hoverStyle, rowsPerColumn)
+                  <ColumnNavDropdown
+                    menus={menus}
+                    name={name}
+                    rowsPerColumn={rowsPerColumn}
+                    hoverStyle={hoverStyle}
+                  />
                 ) : (
                   // Render the dropdown menu that should be display as list items
                   <ListNavDropdown
