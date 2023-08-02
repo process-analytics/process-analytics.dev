@@ -30,7 +30,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
-import { ColumnDropdownMenus } from './ColumnDropdownMenus';
+import { ColumnNavDropdown } from './ColumnNavDropdown';
 import { ListDropdownMenus } from './ListDropdownMenus';
 
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
@@ -131,7 +131,7 @@ export const NavDropdown = ({
               ).map(({ name, menus, withColumns, rowsPerColumn }) =>
                 withColumns
                   ? // Render the dropdown menu that should be display as columns
-                    ColumnDropdownMenus(menus, name, hoverStyle, rowsPerColumn)
+                    ColumnNavDropdown(menus, name, hoverStyle, rowsPerColumn)
                   : // Render the dropdown menu that should be display as list items
                     ListDropdownMenus(
                       menus,

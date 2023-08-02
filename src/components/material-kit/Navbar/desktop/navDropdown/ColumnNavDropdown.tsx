@@ -36,7 +36,7 @@ import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
-export const ColumnDropdownMenus = (
+export const ColumnNavDropdown = (
   menus: HeaderMenu[],
   name: string,
   hoverStyle: HoverStyle,
