@@ -37,7 +37,7 @@ import { Link } from '../../../..';
 
 import { HoverStyle, getHoverConfiguration } from '../../common';
 
-export const ListDropdownMenus = (
+export const ListNavDropdown = (
   menus: HeaderMenu[],
   setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>

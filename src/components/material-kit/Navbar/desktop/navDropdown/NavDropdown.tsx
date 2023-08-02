@@ -31,7 +31,7 @@ import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
 import { ColumnNavDropdown } from './ColumnNavDropdown';
-import { ListDropdownMenus } from './ListDropdownMenus';
+import { ListNavDropdown } from './ListNavDropdown';
 
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
 
@@ -133,7 +133,7 @@ export const NavDropdown = ({
                   ? // Render the dropdown menu that should be display as columns
                     ColumnNavDropdown(menus, name, hoverStyle, rowsPerColumn)
                   : // Render the dropdown menu that should be display as list items
-                    ListDropdownMenus(
+                    ListNavDropdown(
                       menus,
                       setDropdownDropdownElement,
                       setDropdownDropdownName,
