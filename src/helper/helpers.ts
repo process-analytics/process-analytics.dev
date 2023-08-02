@@ -47,3 +47,18 @@ export const isMobileView = (): boolean => {
 
   return isMobile;
 };
+
+export function splitArrayByColumns<T>(
+  array: T[],
+  rowsPerColumn: number,
+): T[][] {
+  return array.reduce((resultArray: T[][], item, index) => {
+    const chunkIndex = Math.floor(index / rowsPerColumn);
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [];
+    }
+
+    resultArray[chunkIndex].push(item);
+    return resultArray;
+  }, []);
+}

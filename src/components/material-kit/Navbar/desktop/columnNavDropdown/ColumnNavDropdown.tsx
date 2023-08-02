@@ -27,14 +27,15 @@
 
 import React, { FC } from 'react';
 
-import { Divider, Grid, Theme } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 
-import { MKTypography } from '../../..';
-import { Link, LinkContent } from '../../../..';
+import { splitArrayByColumns } from '../../../../../helper';
 
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import { DropdownItem } from './DropdownItem';
 
-import { getHoverConfiguration, HoverStyle } from '../../common';
+import { HeaderMenu } from '../../../../Header';
+
+import { HoverStyle } from '../../common';
 
 type ColumnNavDropdownProps = {
   menus: HeaderMenu[];
@@ -42,77 +43,6 @@ type ColumnNavDropdownProps = {
   hoverStyle: HoverStyle;
   rowsPerColumn?: number;
 };
-
-function splitArrayByColumns<T>(array: T[], rowsPerColumn: number): T[][] {
-  return array.reduce((resultArray: T[][], item, index) => {
-    const chunkIndex = Math.floor(index / rowsPerColumn);
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
-    }
-
-    resultArray[chunkIndex].push(item);
-    return resultArray;
-  }, []);
-}
-
-const DropdownDropdown = ({
-  type,
-  url,
-  name,
-  hoverStyle,
-}: LinkContent & {
-  hoverStyle: HoverStyle;
-}): JSX.Element => (
-  <Link
-    component={MKTypography}
-    type={type}
-    url={url}
-    minWidth="11.25rem"
-    display="block"
-    variant="button"
-    textTransform="capitalize"
-    fontWeight="regular"
-    py={0.625}
-    px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
-      cursor: 'pointer',
-      transition: 'all 300ms linear',
-      ...getHoverConfiguration(palette, hoverStyle),
-    })}
-  >
-    {name}
-  </Link>
-);
-
-const DropdownItem = ({
-  menu,
-  index,
-  hoverStyle,
-}: {
-  menu: HeaderMenu;
-  index: number;
-  hoverStyle: HoverStyle;
-}): JSX.Element => (
-  <>
-    <MKTypography
-      display="block"
-      variant="button"
-      fontWeight="bold"
-      textTransform="capitalize"
-      py={1}
-      px={0.5}
-      mt={index !== 0 ? 2 : 0}
-    >
-      {menu.name}
-    </MKTypography>
-
-    {isHeaderMenuWithItems(menu) &&
-      menu.items.map(item => (
-        <DropdownDropdown key={item.name} hoverStyle={hoverStyle} {...item} />
-      ))}
-  </>
-);
 
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   menus,

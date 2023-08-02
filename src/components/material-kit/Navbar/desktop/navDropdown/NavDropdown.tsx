@@ -30,7 +30,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
-import { ColumnNavDropdown } from './ColumnNavDropdown';
+import { ColumnNavDropdown } from '../columnNavDropdown';
 import { ListNavDropdown } from '../listNavDropdown';
 
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
