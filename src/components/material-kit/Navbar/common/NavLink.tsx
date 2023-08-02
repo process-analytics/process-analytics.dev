@@ -43,7 +43,6 @@ export const NavLink: FC<NavLinkProps> = ({ hoverStyle, ...route }) => (
     component={NavbarItem}
     type={route.type}
     url={route.url}
-    key={route.name}
     name={route.name}
     sx={({ palette }: Theme) => getHoverConfiguration(palette, hoverStyle)}
   />
