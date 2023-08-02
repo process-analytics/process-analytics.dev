@@ -27,16 +27,12 @@
 
 import React, { Dispatch, FC, SetStateAction } from 'react';
 
-import { Theme } from '@mui/material';
-
-import { DropdownDropdown } from './DropdownDropdown';
-
-import { MKBox, MKTypography } from '../../..';
-import { Link, LinkContent } from '../../../..';
-
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
-import { getHoverConfiguration, HoverStyle } from '../../common';
+import { HoverStyle } from '../../common';
+
+import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownLink } from './DropdownLink';
 
 type ListNavDropdownProps = {
   menus: HeaderMenu[];
@@ -46,51 +42,6 @@ type ListNavDropdownProps = {
   setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   hoverStyle: HoverStyle;
 };
-
-type DropdownLinkProps = {
-  link: LinkContent;
-  hoverStyle: HoverStyle;
-};
-
-const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
-  <Link
-    component={MKTypography}
-    type={link.type}
-    url={link.url}
-    display="flex"
-    justifyContent="space-between"
-    alignItems="center"
-    variant="button"
-    textTransform="capitalize"
-    minWidth={link.description ? '14rem' : '12rem'}
-    fontWeight={link.description ? 'bold' : 'regular'}
-    py={link.description ? 1 : 0.625}
-    px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
-      cursor: 'pointer',
-      transition: 'all 300ms linear',
-      ...getHoverConfiguration(palette, hoverStyle),
-    })}
-  >
-    {link.description ? (
-      <MKBox>
-        {link.name}
-
-        <MKTypography
-          display="block"
-          variant="button"
-          fontWeight="regular"
-          sx={{ transition: 'all 300ms linear' }}
-        >
-          {link.description}
-        </MKTypography>
-      </MKBox>
-    ) : (
-      link.name
-    )}
-  </Link>
-);
 
 export const ListNavDropdown: FC<ListNavDropdownProps> = ({
   menus,
