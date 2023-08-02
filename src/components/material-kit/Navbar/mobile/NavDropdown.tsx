@@ -27,12 +27,15 @@
 
 import React, { PropsWithChildren } from 'react';
 
-import { HeaderRouteWithMenus } from '../../../Header';
+import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownLink } from './DropdownLink';
+
+import { MKBox } from '../../..';
+import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../Header';
 
 import { NavbarItem, HoverStyle } from '../common';
 
 type NavDropdownProps = HeaderRouteWithMenus & {
-  isMobileView: boolean;
   isCollapsed: boolean;
   isCollapsible: boolean;
   hoverStyle: HoverStyle;
@@ -43,14 +46,13 @@ type NavDropdownProps = HeaderRouteWithMenus & {
 export const NavDropdown = ({
   name,
   icon,
-  isMobileView,
   isCollapsed,
   isCollapsible,
   hoverStyle,
   onClick,
   onMouseEnter,
   onMouseLeave,
-  children,
+  menus,
 }: PropsWithChildren<NavDropdownProps>): JSX.Element => (
   <NavbarItem
     key={name}

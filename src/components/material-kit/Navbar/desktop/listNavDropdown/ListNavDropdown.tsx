@@ -27,7 +27,7 @@
 
 import React, { Dispatch, FC, SetStateAction } from 'react';
 
-import { DropdownLink } from './DropdownLink';
+import { DropdownLink } from '../DropdownLink';
 import { DropdownDropdown } from './DropdownDropdown';
 
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';

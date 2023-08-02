@@ -29,6 +29,8 @@ import React from 'react';
 
 import { Theme } from '@mui/material';
 
+import { borders } from '../../../../../assets/theme';
+
 import { Link, LinkContent } from '../../../../Link';
 import { MKTypography } from '../../..';
 import { getHoverConfiguration, HoverStyle } from '../../common';
@@ -67,8 +69,8 @@ const SubMenu = ({ item, hoverStyle }: SubMenuProps): JSX.Element => (
     fontWeight="regular"
     py={0.625}
     px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),

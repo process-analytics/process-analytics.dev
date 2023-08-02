@@ -29,7 +29,7 @@ import React from 'react';
 
 import { Grow, Popper } from '@mui/material';
 
-import { DropdownLink } from './DropdownLink';
+import { DropdownLink } from '../DropdownLink';
 import { MKBox, MKBoxProps } from '../../..';
 
 import { HeaderMenuWithItems } from '../../../../Header';
@@ -74,10 +74,7 @@ export const DropdownDropdown = ({
           >
             {content.map(({ items }) =>
               items.map(link => (
-                <DropdownLink
-                  content={link}
-                  hoverStyle={hoverStyle}
-                />
+                <DropdownLink content={link} hoverStyle={hoverStyle} />
               )),
             )}
           </MKBox>

@@ -28,6 +28,7 @@
 import React, { FC } from 'react';
 
 import { Theme } from '@mui/material';
+import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { borders } from '../../../../assets/theme';
 
@@ -38,11 +39,13 @@ import { getHoverConfiguration, HoverStyle } from '../common';
 type DropdownLinkProps = {
   content: LinkContent;
   hoverStyle: HoverStyle;
+  isCollapsed?: boolean;
 };
 
 export const DropdownLink: FC<DropdownLinkProps> = ({
   content,
   hoverStyle,
+  isCollapsed = false,
 }) => (
   <Link
     component={MKTypography}
@@ -78,7 +81,18 @@ export const DropdownLink: FC<DropdownLinkProps> = ({
         </MKTypography>
       </MKBox>
     ) : (
-      content.name
+      name
+    )}
+
+    {isCollapsed && (
+      <KeyboardArrowDown
+        fontSize="small"
+        sx={{
+          fontWeight: 'normal',
+          verticalAlign: 'middle',
+          mr: -0.5,
+        }}
+      />
     )}
   </Link>
 );

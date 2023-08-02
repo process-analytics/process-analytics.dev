@@ -32,7 +32,6 @@ import { HeaderRouteWithMenus } from '../../../Header';
 import { NavbarItem, HoverStyle } from '../common';
 
 type NavDropdownProps = HeaderRouteWithMenus & {
-  isMobileView: boolean;
   isCollapsed: boolean;
   isCollapsible: boolean;
   hoverStyle: HoverStyle;
@@ -43,7 +42,6 @@ type NavDropdownProps = HeaderRouteWithMenus & {
 export const NavDropdown = ({
   name,
   icon,
-  isMobileView,
   isCollapsed,
   isCollapsible,
   hoverStyle,
@@ -58,7 +56,6 @@ export const NavDropdown = ({
     icon={icon}
     isCollapsed={isCollapsed}
     isCollapsible={isCollapsible}
-    isMobileView={isMobileView}
     hoverStyle={hoverStyle}
     onClick={onClick}
     onMouseEnter={onMouseEnter}

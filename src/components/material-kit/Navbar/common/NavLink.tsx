@@ -36,10 +36,7 @@ type NavLinkProps = HeaderRouteAsLink & {
   hoverStyle: HoverStyle;
 };
 
-export const NavLink = ({
-  hoverStyle,
-  ...route
-}: NavLinkProps): JSX.Element => (
+export const NavLink: FC<NavLinkProps> = ({ hoverStyle, ...route }) => (
   <Link
     component={NavbarItem}
     type={route.type}
