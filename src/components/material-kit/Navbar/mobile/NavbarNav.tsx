@@ -31,12 +31,11 @@ import { Collapse } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox, MKBoxProps } from '../..';
-import { HoverStyle } from '../common';
+import { HoverStyle, NavLink } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 
 // Material Kit 2 React example components
-import { NavLink } from './NavLink';
 import { NavDropdown } from './NavDropdown';
 
 export const NavbarNav = ({
@@ -67,7 +66,7 @@ export const NavbarNav = ({
               hoverStyle={hoverStyle}
             />
           ) : (
-            <NavLink key={route.name} {...route} hoverStyle={hoverStyle} />
+            <NavLink key={route.name} hoverStyle={hoverStyle} {...route} />
           );
         })}
       </MKBox>
