@@ -45,7 +45,11 @@ import { Dropdown, NavbarNav as DesktopNavbarNav } from './desktop';
 import { isMobileView as isMobileViewFunc } from '../../../helper';
 
 import { BrandContent } from '../..';
-import { HeaderRoute } from '../../Header';
+import {
+  HeaderRoute,
+  HeaderRouteWithMenus,
+  isHeaderRouteWithMenus,
+} from '../../Header';
 
 type NavbarStyleProps = {
   isTransparent: boolean;
@@ -163,7 +167,11 @@ const InnerContainer: FC<InnerContainerProps> = ({
 
       {!isMobileView && (
         <Dropdown
-          routes={routes}
+          routes={
+            routes.filter(route =>
+              isHeaderRouteWithMenus(route),
+            ) as HeaderRouteWithMenus[]
+          }
           expandedNavDropdownElement={expandedNavDropdownElement}
           expandedNavDropdownName={expandedNavDropdownName}
           setExpandedNavDropdownElement={setExpandedNavDropdownElement}

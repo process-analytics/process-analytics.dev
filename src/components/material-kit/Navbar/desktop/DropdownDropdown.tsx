@@ -34,16 +34,14 @@ import { MKBox, MKBoxProps } from '../..';
 
 import {
   HeaderMenuWithItems,
-  HeaderRoute,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
-  isHeaderRouteWithMenus,
 } from '../../../Header';
 
 import { HoverStyle } from '../common';
 
 export type DropdownDropdownProps = {
-  routes: HeaderRoute[];
+  routes: HeaderRouteWithMenus[];
   dropdownDropdownElement?: EventTarget & HTMLSpanElement;
   dropdownDropdownName?: string;
   setDropdownDropdownElement: Dispatch<
@@ -88,27 +86,25 @@ export const DropdownDropdown = ({
             px={1}
             mt={2}
           >
-            {(
-              routes.filter(
-                route => isHeaderRouteWithMenus(route) && !route.withColumns,
-              ) as HeaderRouteWithMenus[]
-            ).map(({ menus }) =>
-              (
-                menus.filter(
-                  menu =>
-                    menu.name === dropdownDropdownName &&
-                    isHeaderMenuWithItems(menu),
-                ) as HeaderMenuWithItems[]
-              ).map(({ items, isCollapsed }) =>
-                items.map(subItem => (
-                  <DropdownLink
-                    isCollapsed={isCollapsed}
-                    {...subItem}
-                    hoverStyle={hoverStyle}
-                  />
-                )),
-              ),
-            )}
+            {routes
+              .filter(route => !route.withColumns)
+              .map(({ menus }) =>
+                (
+                  menus.filter(
+                    menu =>
+                      menu.name === dropdownDropdownName &&
+                      isHeaderMenuWithItems(menu),
+                  ) as HeaderMenuWithItems[]
+                ).map(({ items, isCollapsed }) =>
+                  items.map(subItem => (
+                    <DropdownLink
+                      isCollapsed={isCollapsed}
+                      {...subItem}
+                      hoverStyle={hoverStyle}
+                    />
+                  )),
+                ),
+              )}
           </MKBox>
         </MKBox>
       </Grow>

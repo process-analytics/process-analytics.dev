@@ -31,11 +31,11 @@ import { NavDropdown } from './navDropdown';
 import { DropdownDropdown } from './DropdownDropdown';
 import { HoverStyle } from '../common';
 
-import { HeaderRoute } from '../../../Header';
+import { HeaderRouteWithMenus } from '../../../Header';
 import { MKBoxProps } from '../..';
 
 export type DropdownProps = {
-  routes: HeaderRoute[];
+  routes: HeaderRouteWithMenus[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   setExpandedNavDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
@@ -63,9 +63,8 @@ export const Dropdown: FC<DropdownProps> = ({
   return (
     <>
       <NavDropdown
-        routes={routes}
+        routes={routes.filter(route => route.name === expandedNavDropdownName)}
         expandedNavDropdownElement={expandedNavDropdownElement}
-        expandedNavDropdownName={expandedNavDropdownName}
         setDropdownDropdownElement={setDropdownDropdownElement}
         setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
