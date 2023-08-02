@@ -25,12 +25,28 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 
-import { NavDropdown, NavDropdownProps } from './NavDropdown';
-import { DropdownDropdown, DropdownDropdownProps } from './DropdownDropdown';
+import { NavDropdown } from './NavDropdown';
+import { DropdownDropdown } from './DropdownDropdown';
+import { HoverStyle } from '../common';
 
-export const Dropdown = ({
+import { HeaderRoute } from '../../../Header';
+import { MKBoxProps } from '../..';
+
+export type DropdownProps = {
+  routes: HeaderRoute[];
+  expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
+  setExpandedNavDropdownElement: Dispatch<
+    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
+  >;
+  expandedNavDropdownName?: string;
+  setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  hoverStyle: HoverStyle;
+};
+
+export const Dropdown: FC<DropdownProps> = ({
   routes,
   expandedNavDropdownElement,
   expandedNavDropdownName,
@@ -38,20 +54,7 @@ export const Dropdown = ({
   setExpandedNavDropdownName,
   dropdownStyle,
   hoverStyle,
-}: Omit<
-  NavDropdownProps,
-  | 'dropdownDropdownName'
-  | 'setDropdownDropdownName'
-  | 'dropdownDropdownElement'
-  | 'setDropdownDropdownElement'
-> &
-  Omit<
-    DropdownDropdownProps,
-    | 'dropdownDropdownName'
-    | 'setDropdownDropdownName'
-    | 'dropdownDropdownElement'
-    | 'setDropdownDropdownElement'
-  >): JSX.Element => {
+}) => {
   const [dropdownDropdownName, setDropdownDropdownName] = useState<string>();
   const [dropdownDropdownElement, setDropdownDropdownElement] = useState<
     EventTarget & HTMLSpanElement
