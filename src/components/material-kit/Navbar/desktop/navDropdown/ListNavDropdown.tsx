@@ -32,7 +32,11 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { MKBox, MKTypography } from '../../..';
 
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import {
+  HeaderMenu,
+  HeaderMenuWithItems,
+  isHeaderMenuWithItems,
+} from '../../../../Header';
 import { Link } from '../../../..';
 
 import { HoverStyle, getHoverConfiguration } from '../../common';
@@ -46,6 +50,68 @@ type ListNavDropdownProps = {
   hoverStyle: HoverStyle;
 };
 
+type DropdownDropdownProps = {
+  menu: HeaderMenuWithItems;
+  hoverStyle: HoverStyle;
+  onMouseEnter: ({
+    currentTarget,
+  }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => void;
+  onMouseLeave: () => void;
+};
+const DropdownDropdown: FC<DropdownDropdownProps> = ({
+  menu,
+  hoverStyle,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
+  return (
+    <MKTypography
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      variant="button"
+      textTransform="capitalize"
+      minWidth={menu.description ? '14rem' : '12rem'}
+      fontWeight={menu.description ? 'bold' : 'regular'}
+      py={menu.description ? 1 : 0.625}
+      px={2}
+      sx={({ palette, borders: { borderRadius } }: Theme) => ({
+        borderRadius: borderRadius.md,
+        cursor: 'pointer',
+        transition: 'all 300ms linear',
+        ...getHoverConfiguration(palette, hoverStyle),
+      })}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {menu.description ? (
+        <MKBox>
+          {menu.name}
+
+          <MKTypography
+            display="block"
+            variant="button"
+            fontWeight="regular"
+            sx={{ transition: 'all 300ms linear' }}
+          >
+            {menu.description}
+          </MKTypography>
+        </MKBox>
+      ) : (
+        menu.name
+      )}
+      <KeyboardArrowDown
+        fontSize="small"
+        sx={{
+          fontWeight: 'normal',
+          verticalAlign: 'middle',
+          mr: -0.5,
+        }}
+      />
+    </MKTypography>
+  );
+};
+
 export const ListNavDropdown: FC<ListNavDropdownProps> = ({
   menus,
   setDropdownDropdownElement,
@@ -55,63 +121,25 @@ export const ListNavDropdown: FC<ListNavDropdownProps> = ({
   <>
     {menus.map(menu =>
       isHeaderMenuWithItems(menu) ? (
-        <MKTypography
+        <DropdownDropdown
           key={menu.name}
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          variant="button"
-          textTransform="capitalize"
-          minWidth={menu.description ? '14rem' : '12rem'}
-          fontWeight={menu.description ? 'bold' : 'regular'}
-          py={menu.description ? 1 : 0.625}
-          px={2}
-          sx={({ palette, borders: { borderRadius } }: Theme) => ({
-            borderRadius: borderRadius.md,
-            cursor: 'pointer',
-            transition: 'all 300ms linear',
-            ...getHoverConfiguration(palette, hoverStyle),
-          })}
+          menu={menu}
+          hoverStyle={hoverStyle}
           onMouseEnter={({
             currentTarget,
           }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-            if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            if (menu.isCollapsed) {
               setDropdownDropdownElement(currentTarget ?? undefined);
               setDropdownDropdownName(menu.name);
             }
           }}
           onMouseLeave={() => {
-            if (isHeaderMenuWithItems(menu) && menu.isCollapsed) {
+            if (menu.isCollapsed) {
               setDropdownDropdownElement(undefined);
               setDropdownDropdownName(undefined);
             }
           }}
-        >
-          {menu.description ? (
-            <MKBox>
-              {menu.name}
-
-              <MKTypography
-                display="block"
-                variant="button"
-                fontWeight="regular"
-                sx={{ transition: 'all 300ms linear' }}
-              >
-                {menu.description}
-              </MKTypography>
-            </MKBox>
-          ) : (
-            menu.name
-          )}
-          <KeyboardArrowDown
-            fontSize="small"
-            sx={{
-              fontWeight: 'normal',
-              verticalAlign: 'middle',
-              mr: -0.5,
-            }}
-          />
-        </MKTypography>
+        />
       ) : (
         <Link
           component={MKTypography}
