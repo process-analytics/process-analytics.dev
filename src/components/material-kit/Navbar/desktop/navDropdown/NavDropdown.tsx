@@ -53,8 +53,8 @@ export type NavDropdownProps = {
   setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const NavDropdown: FC<NavDropdownProps> = ({
