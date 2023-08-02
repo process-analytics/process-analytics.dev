@@ -43,24 +43,25 @@ type ColumnNavDropdownProps = {
   rowsPerColumn?: number;
 };
 
+function splitArrayByColumns<T>(array: T[], rowsPerColumn: number): T[][] {
+  return array.reduce((resultArray: T[][], item, index) => {
+    const chunkIndex = Math.floor(index / rowsPerColumn);
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [];
+    }
+
+    resultArray[chunkIndex].push(item);
+    return resultArray;
+  }, []);
+}
+
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   menus,
   name,
   hoverStyle,
   rowsPerColumn = 3,
 }) => {
-  const calculateColumns = menus.reduce(
-    (resultArray: HeaderMenu[][], item, index) => {
-      const chunkIndex = Math.floor(index / (rowsPerColumn ?? 3));
-      if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = [];
-      }
-
-      resultArray[chunkIndex].push(item);
-      return resultArray;
-    },
-    [],
-  );
+  const calculateColumns = splitArrayByColumns(menus, rowsPerColumn);
 
   return (
     <Grid key={name} container spacing={3} py={1} px={1.5}>
