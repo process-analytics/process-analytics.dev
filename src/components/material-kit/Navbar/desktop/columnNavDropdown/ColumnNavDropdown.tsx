@@ -27,14 +27,15 @@
 
 import React, { FC } from 'react';
 
-import { Divider, Grid, Theme } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
+
+import { DropdownDropdown } from './DropdownDropdown';
 
 import { MKTypography } from '../../..';
-import { Link, LinkContent } from '../../../..';
 
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
-import { getHoverConfiguration, HoverStyle } from '../../common';
+import { HoverStyle } from '../../common';
 
 type ColumnNavDropdownProps = {
   menus: HeaderMenu[];
@@ -54,36 +55,6 @@ function splitArrayByColumns<T>(array: T[], rowsPerColumn: number): T[][] {
     return resultArray;
   }, []);
 }
-
-const DropdownDropdown = ({
-  type,
-  url,
-  name,
-  hoverStyle,
-}: LinkContent & {
-  hoverStyle: HoverStyle;
-}): JSX.Element => (
-  <Link
-    component={MKTypography}
-    type={type}
-    url={url}
-    minWidth="11.25rem"
-    display="block"
-    variant="button"
-    textTransform="capitalize"
-    fontWeight="regular"
-    py={0.625}
-    px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
-      cursor: 'pointer',
-      transition: 'all 300ms linear',
-      ...getHoverConfiguration(palette, hoverStyle),
-    })}
-  >
-    {name}
-  </Link>
-);
 
 const DropdownItem = ({
   menu,
