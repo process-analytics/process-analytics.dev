@@ -31,7 +31,7 @@ import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
 import { ColumnNavDropdown } from './ColumnNavDropdown';
-import { ListNavDropdown } from './ListNavDropdown';
+import { ListNavDropdown } from '../listNavDropdown';
 
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
 

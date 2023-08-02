@@ -58,6 +58,12 @@ type DropdownDropdownProps = {
   }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => void;
   onMouseLeave: () => void;
 };
+
+type DropdownLinkProps = {
+  link: LinkContent;
+  hoverStyle: HoverStyle;
+};
+
 const DropdownDropdown: FC<DropdownDropdownProps> = ({
   menu,
   hoverStyle,
@@ -112,14 +118,7 @@ const DropdownDropdown: FC<DropdownDropdownProps> = ({
   );
 };
 
-type DropdownLinkProps = {
-  link: LinkContent;
-  hoverStyle: HoverStyle;
-};
-const DropdownLink: FC<DropdownLinkProps> = ({
-  link,
-  hoverStyle,
-}: DropdownLinkProps) => (
+const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
   <Link
     component={MKTypography}
     type={link.type}
