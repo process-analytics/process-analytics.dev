@@ -27,11 +27,10 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { NavbarItem, HoverStyle } from '../common';
+import { NavbarItem, HoverStyle, NavLink } from '../common';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
-import { Link } from '../../..';
 
 type NavbarNavProps = {
   routes: HeaderRoute[];
@@ -80,15 +79,7 @@ export const NavbarNav = ({
           }}
         />
       ) : (
-        <Link
-          component={NavbarItem}
-          type={route.type}
-          url={route.url}
-          key={route.name}
-          name={route.name}
-          isMobileView={false}
-          hoverStyle={hoverStyle}
-        />
+        <NavLink key={route.name} hoverStyle={hoverStyle} {...route} />
       ),
     )}
   </MKBox>

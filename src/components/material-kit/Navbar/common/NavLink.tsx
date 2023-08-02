@@ -25,25 +25,26 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
+
+import { isMobileView } from '../../../../helper';
 
 import { HeaderRouteAsLink } from '../../../Header';
 import { Link } from '../../..';
 
 import { NavbarItem, HoverStyle } from '../common';
 
-type NavLinkProps = HeaderRouteAsLink & { hoverStyle: HoverStyle };
-export const NavLink = ({
-  hoverStyle,
-  ...route
-}: NavLinkProps): JSX.Element => (
+type NavLinkProps = HeaderRouteAsLink & {
+  hoverStyle: HoverStyle;
+};
+
+export const NavLink: FC<NavLinkProps> = ({ hoverStyle, ...route }) => (
   <Link
     component={NavbarItem}
     type={route.type}
     url={route.url}
-    key={route.name}
     name={route.name}
     hoverStyle={hoverStyle}
-    isMobileView
+    isMobileView={isMobileView()}
   />
 );
