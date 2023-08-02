@@ -103,12 +103,10 @@ const Title = ({
 
     <MKTypography
       variant="button"
-      // variant="body2"
       fontWeight="regular"
       textTransform="capitalize"
       color="inherit"
       sx={{
-        // fontWeight: 'bold',
         ml: 1,
         mr: 0.25,
         alignSelf: 'center',

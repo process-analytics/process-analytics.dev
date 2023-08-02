@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
 import { Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
@@ -45,11 +45,12 @@ type DropdownDropdownProps = {
   onMouseLeave: () => void;
 };
 
-export const DropdownDropdown: FC<DropdownDropdownProps> = ({
-  content,
-  hoverStyle,
+const DropdownItem: FC<PropsWithChildren<DropdownDropdownProps>> = ({
+  content: { name, description },
   onMouseEnter,
   onMouseLeave,
+  hoverStyle,
+  children,
 }) => (
   <MKTypography
     display="flex"
@@ -57,9 +58,9 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     alignItems="center"
     variant="button"
     textTransform="capitalize"
-    minWidth={content.description ? '14rem' : '12rem'}
-    fontWeight={content.description ? 'bold' : 'regular'}
-    py={content.description ? 1 : 0.625}
+    minWidth={description ? '14rem' : '12rem'}
+    fontWeight={description ? 'bold' : 'regular'}
+    py={description ? 1 : 0.625}
     px={2}
     sx={({ palette }: Theme) => ({
       borderRadius: borders.radius.md,
@@ -70,9 +71,9 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
-    {content.description ? (
+    {description ? (
       <MKBox>
-        {content.name}
+        {name}
 
         <MKTypography
           display="block"
@@ -80,12 +81,19 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
-          {content.description}
+          {description}
         </MKTypography>
       </MKBox>
     ) : (
-      content.name
+      name
     )}
+
+    {children}
+  </MKTypography>
+);
+
+export const DropdownDropdown: FC<DropdownDropdownProps> = props => (
+  <DropdownItem {...props}>
     <KeyboardArrowDown
       fontSize="small"
       sx={{
@@ -94,5 +102,5 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
         mr: -0.5,
       }}
     />
-  </MKTypography>
+  </DropdownItem>
 );

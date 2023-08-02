@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  =========================================================
  * Material Kit 2 React - v2.0.0
@@ -34,7 +33,6 @@ import { MKBox, MKBoxProps, MKTypography } from '../../..';
 
 export type NavDropdownProps = {
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
-  expandedNavDropdownName?: string;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
@@ -42,7 +40,6 @@ export type NavDropdownProps = {
 
 export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
   expandedNavDropdownElement,
-  expandedNavDropdownName,
   dropdownStyle,
   onMouseEnter,
   onMouseLeave,
@@ -54,7 +51,7 @@ export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
     <Popper
       anchorEl={expandedNavDropdownElement}
       popperRef={null}
-      open={!!expandedNavDropdownName}
+      open={!!expandedNavDropdownElement}
       placement="bottom"
       transition
       style={{ zIndex: 10 }}
