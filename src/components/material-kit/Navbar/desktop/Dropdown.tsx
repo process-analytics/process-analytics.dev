@@ -27,7 +27,7 @@
 
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 
-import { NavDropdown } from './NavDropdown';
+import { NavDropdown } from './navDropdown';
 import { DropdownDropdown } from './DropdownDropdown';
 import { HoverStyle } from '../common';
 
