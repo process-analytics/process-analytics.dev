@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Fragment } from 'react';
+import React, { FC, Fragment } from 'react';
 
 import { Divider, Grid, Theme } from '@mui/material';
 
@@ -36,12 +36,19 @@ import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
-export const ColumnNavDropdown = (
-  menus: HeaderMenu[],
-  name: string,
-  hoverStyle: HoverStyle,
-  rowsPerColumn?: number,
-): JSX.Element => {
+type ColumnNavDropdownProps = {
+  menus: HeaderMenu[];
+  name: string;
+  hoverStyle: HoverStyle;
+  rowsPerColumn?: number;
+};
+
+export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
+  menus,
+  name,
+  hoverStyle,
+  rowsPerColumn = 3,
+}) => {
   const calculateColumns = menus.reduce(
     (resultArray: HeaderMenu[][], item, index) => {
       const chunkIndex = Math.floor(index / (rowsPerColumn ?? 3));
