@@ -25,114 +25,25 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, Fragment, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
-import { Box, Divider, Grid, Grow, Popper, Theme } from '@mui/material';
+import { Box, Grow, Popper, Theme } from '@mui/material';
 import { ArrowDropUp, KeyboardArrowDown } from '@mui/icons-material';
 
-import { getHoverConfiguration, HoverStyle } from '../../common/HoverStyle';
+import { ColumnDropdownMenus } from './ColumnDropdownMenus';
+
+import { MKBox, MKBoxProps, MKTypography } from '../../..';
+import { Link } from '../../../..';
 
 import {
   HeaderMenu,
+  HeaderRoute,
   HeaderRouteWithMenus,
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
-  HeaderRoute,
 } from '../../../../Header';
-import { MKTypography, MKBox, MKBoxProps } from '../../..';
-import { Link } from '../../../..';
 
-const ColumnDropdownMenus = (
-  menus: HeaderMenu[],
-  name: string,
-  hoverStyle: HoverStyle,
-  rowsPerColumn?: number,
-): JSX.Element => {
-  const calculateColumns = menus.reduce(
-    (resultArray: HeaderMenu[][], item, index) => {
-      const chunkIndex = Math.floor(index / (rowsPerColumn ?? 3));
-      if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = [];
-      }
-
-      resultArray[chunkIndex].push(item);
-      return resultArray;
-    },
-    [],
-  );
-
-  return (
-    <Grid key={name} container spacing={3} py={1} px={1.5}>
-      {calculateColumns.map((menus, key) => {
-        const gridKey = `grid-${key}`;
-        const dividerKey = `divider-${key}`;
-
-        return (
-          <Grid
-            key={gridKey}
-            item
-            xs={12 / (rowsPerColumn ?? 5)}
-            sx={{ position: 'relative' }}
-          >
-            {menus.map((menu, index) => (
-              <Fragment key={menu.name}>
-                <MKTypography
-                  display="block"
-                  variant="button"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                  py={1}
-                  px={0.5}
-                  mt={index !== 0 ? 2 : 0}
-                >
-                  {menu.name}
-                </MKTypography>
-
-                {isHeaderMenuWithItems(menu) &&
-                  menu.items.map(item => (
-                    <Link
-                      component={MKTypography}
-                      type={item.type}
-                      url={item.url}
-                      key={item.name}
-                      minWidth="11.25rem"
-                      display="block"
-                      variant="button"
-                      textTransform="capitalize"
-                      fontWeight="regular"
-                      py={0.625}
-                      px={2}
-                      sx={({ palette, borders: { borderRadius } }: Theme) => ({
-                        borderRadius: borderRadius.md,
-                        cursor: 'pointer',
-                        transition: 'all 300ms linear',
-                        ...getHoverConfiguration(palette, hoverStyle),
-                      })}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-              </Fragment>
-            ))}
-            {key !== 0 && (
-              <Divider
-                key={dividerKey}
-                orientation="vertical"
-                sx={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '-4px',
-                  transform: 'translateY(-45%)',
-                  height: '90%',
-                }}
-              />
-            )}
-          </Grid>
-        );
-      })}
-    </Grid>
-  );
-};
+import { getHoverConfiguration, HoverStyle } from '../../common';
 
 const ListDropdownMenus = (
   menus: HeaderMenu[],
