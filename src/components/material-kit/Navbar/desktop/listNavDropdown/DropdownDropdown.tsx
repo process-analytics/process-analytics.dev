@@ -33,7 +33,7 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 import { borders } from '../../../../../assets/theme';
 
 import { MKBox, MKTypography } from '../../..';
-import { HeaderMenu, HeaderMenuWithItems } from '../../../../Header';
+import { HeaderMenuWithItems } from '../../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
 type DropdownDropdownProps = {
@@ -45,9 +45,8 @@ type DropdownDropdownProps = {
   onMouseLeave: () => void;
 };
 
-const DropdownItem: FC<DropdownDropdownProps> = ({
-  name,
-  description,
+const DropdownItem: FC<PropsWithChildren<DropdownDropdownProps>> = ({
+  content: { name, description },
   onMouseEnter,
   onMouseLeave,
   hoverStyle,
@@ -93,7 +92,7 @@ const DropdownItem: FC<DropdownDropdownProps> = ({
   </MKTypography>
 );
 
-export const DropdownDropdown: FC<DropdownDropdownProps> = (props) => (
+export const DropdownDropdown: FC<DropdownDropdownProps> = props => (
   <DropdownItem {...props}>
     <KeyboardArrowDown
       fontSize="small"
