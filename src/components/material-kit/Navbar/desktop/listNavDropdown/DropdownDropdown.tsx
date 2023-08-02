@@ -25,46 +25,39 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
 
 import { Theme } from '@mui/material';
-
-import { DropdownDropdown } from './DropdownDropdown';
+import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { MKBox, MKTypography } from '../../..';
-import { Link, LinkContent } from '../../../..';
-
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
-
+import { HeaderMenuWithItems } from '../../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
-type ListNavDropdownProps = {
-  menus: HeaderMenu[];
-  setDropdownDropdownElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >;
-  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
+type DropdownDropdownProps = {
+  menu: HeaderMenuWithItems;
   hoverStyle: HoverStyle;
+  onMouseEnter: ({
+    currentTarget,
+  }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => void;
+  onMouseLeave: () => void;
 };
 
-type DropdownLinkProps = {
-  link: LinkContent;
-  hoverStyle: HoverStyle;
-};
-
-const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
-  <Link
-    component={MKTypography}
-    type={link.type}
-    url={link.url}
+export const DropdownDropdown: FC<DropdownDropdownProps> = ({
+  menu,
+  hoverStyle,
+  onMouseEnter,
+  onMouseLeave,
+}) => (
+  <MKTypography
     display="flex"
     justifyContent="space-between"
     alignItems="center"
     variant="button"
     textTransform="capitalize"
-    minWidth={link.description ? '14rem' : '12rem'}
-    fontWeight={link.description ? 'bold' : 'regular'}
-    py={link.description ? 1 : 0.625}
+    minWidth={menu.description ? '14rem' : '12rem'}
+    fontWeight={menu.description ? 'bold' : 'regular'}
+    py={menu.description ? 1 : 0.625}
     px={2}
     sx={({ palette, borders: { borderRadius } }: Theme) => ({
       borderRadius: borderRadius.md,
@@ -72,10 +65,12 @@ const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),
     })}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
   >
-    {link.description ? (
+    {menu.description ? (
       <MKBox>
-        {link.name}
+        {menu.name}
 
         <MKTypography
           display="block"
@@ -83,46 +78,19 @@ const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
-          {link.description}
+          {menu.description}
         </MKTypography>
       </MKBox>
     ) : (
-      link.name
+      menu.name
     )}
-  </Link>
-);
-
-export const ListNavDropdown: FC<ListNavDropdownProps> = ({
-  menus,
-  setDropdownDropdownElement,
-  setDropdownDropdownName,
-  hoverStyle,
-}) => (
-  <>
-    {menus.map(menu =>
-      isHeaderMenuWithItems(menu) ? (
-        <DropdownDropdown
-          key={menu.name}
-          menu={menu}
-          hoverStyle={hoverStyle}
-          onMouseEnter={({
-            currentTarget,
-          }: React.MouseEvent<HTMLSpanElement | HTMLLinkElement>) => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(currentTarget ?? undefined);
-              setDropdownDropdownName(menu.name);
-            }
-          }}
-          onMouseLeave={() => {
-            if (menu.isCollapsed) {
-              setDropdownDropdownElement(undefined);
-              setDropdownDropdownName(undefined);
-            }
-          }}
-        />
-      ) : (
-        <DropdownLink key={menu.name} link={menu} hoverStyle={hoverStyle} />
-      ),
-    )}
-  </>
+    <KeyboardArrowDown
+      fontSize="small"
+      sx={{
+        fontWeight: 'normal',
+        verticalAlign: 'middle',
+        mr: -0.5,
+      }}
+    />
+  </MKTypography>
 );
