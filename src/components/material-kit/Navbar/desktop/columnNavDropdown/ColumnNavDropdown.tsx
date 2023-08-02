@@ -29,11 +29,9 @@ import React, { FC } from 'react';
 
 import { Divider, Grid } from '@mui/material';
 
-import { DropdownDropdown } from './DropdownDropdown';
+import { DropdownItem } from './DropdownItem';
 
-import { MKTypography } from '../../..';
-
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import { HeaderMenu } from '../../../../Header';
 
 import { HoverStyle } from '../../common';
 
@@ -55,35 +53,6 @@ function splitArrayByColumns<T>(array: T[], rowsPerColumn: number): T[][] {
     return resultArray;
   }, []);
 }
-
-const DropdownItem = ({
-  menu,
-  index,
-  hoverStyle,
-}: {
-  menu: HeaderMenu;
-  index: number;
-  hoverStyle: HoverStyle;
-}): JSX.Element => (
-  <>
-    <MKTypography
-      display="block"
-      variant="button"
-      fontWeight="bold"
-      textTransform="capitalize"
-      py={1}
-      px={0.5}
-      mt={index !== 0 ? 2 : 0}
-    >
-      {menu.name}
-    </MKTypography>
-
-    {isHeaderMenuWithItems(menu) &&
-      menu.items.map(item => (
-        <DropdownDropdown key={item.name} hoverStyle={hoverStyle} {...item} />
-      ))}
-  </>
-);
 
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   menus,
