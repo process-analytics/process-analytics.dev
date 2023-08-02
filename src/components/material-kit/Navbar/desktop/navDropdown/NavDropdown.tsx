@@ -30,7 +30,7 @@ import React, { Dispatch, Fragment, SetStateAction, useState } from 'react';
 import { Box, Divider, Grid, Grow, Popper, Theme } from '@mui/material';
 import { ArrowDropUp, KeyboardArrowDown } from '@mui/icons-material';
 
-import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
+import { getHoverConfiguration, HoverStyle } from '../../common/HoverStyle';
 
 import {
   HeaderMenu,
@@ -38,9 +38,9 @@ import {
   isHeaderMenuWithItems,
   isHeaderRouteWithMenus,
   HeaderRoute,
-} from '../../../Header';
-import { MKTypography, MKBox, MKBoxProps } from '../..';
-import { Link } from '../../..';
+} from '../../../../Header';
+import { MKTypography, MKBox, MKBoxProps } from '../../..';
+import { Link } from '../../../..';
 
 const ColumnDropdownMenus = (
   menus: HeaderMenu[],
