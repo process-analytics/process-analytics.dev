@@ -27,12 +27,10 @@
 
 import React, { FC } from 'react';
 
-import { Theme } from '@mui/material';
-
 import { HeaderRouteAsLink } from '../../../Header';
 import { Link } from '../../..';
 
-import { NavbarItem, HoverStyle, getHoverConfiguration } from '../common';
+import { NavbarItem, HoverStyle } from '../common';
 
 type NavLinkProps = HeaderRouteAsLink & {
   hoverStyle: HoverStyle;
@@ -44,6 +42,6 @@ export const NavLink: FC<NavLinkProps> = ({ hoverStyle, ...route }) => (
     type={route.type}
     url={route.url}
     name={route.name}
-    sx={({ palette }: Theme) => getHoverConfiguration(palette, hoverStyle)}
+    hoverStyle={hoverStyle}
   />
 );
