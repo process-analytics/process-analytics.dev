@@ -66,13 +66,21 @@ export const Dropdown: FC<DropdownProps> = ({
         routes={routes}
         expandedNavDropdownElement={expandedNavDropdownElement}
         expandedNavDropdownName={expandedNavDropdownName}
-        setExpandedNavDropdownElement={setExpandedNavDropdownElement}
-        dropdownDropdownName={dropdownDropdownName}
-        setExpandedNavDropdownName={setExpandedNavDropdownName}
         setDropdownDropdownElement={setDropdownDropdownElement}
         setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
         hoverStyle={hoverStyle}
+        onMouseEnter={() => {
+          setExpandedNavDropdownElement(expandedNavDropdownElement);
+        }}
+        onMouseLeave={() => {
+          if (!dropdownDropdownName) {
+            setExpandedNavDropdownName(undefined);
+            setExpandedNavDropdownElement(undefined);
+            setDropdownDropdownName(undefined);
+            setDropdownDropdownElement(undefined);
+          }
+        }}
       />
       <DropdownDropdown
         routes={routes}

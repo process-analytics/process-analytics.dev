@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
@@ -47,30 +47,27 @@ export type NavDropdownProps = {
   routes: HeaderRoute[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   expandedNavDropdownName?: string;
-  setExpandedNavDropdownElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >;
-  dropdownDropdownName?: string;
-  setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
   setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
-export const NavDropdown = ({
+
+export const NavDropdown: FC<NavDropdownProps> = ({
   routes,
   expandedNavDropdownElement,
   expandedNavDropdownName,
-  setExpandedNavDropdownElement,
-  dropdownDropdownName,
-  setExpandedNavDropdownName,
   setDropdownDropdownElement,
   setDropdownDropdownName,
   dropdownStyle,
   hoverStyle,
-}: NavDropdownProps): JSX.Element => {
+  onMouseEnter,
+  onMouseLeave,
+}) => {
   const [arrowRef, setArrowRef] = useState();
 
   return (
@@ -101,14 +98,8 @@ export const NavDropdown = ({
           },
         },
       ]}
-      onMouseEnter={() => {
-        setExpandedNavDropdownElement(expandedNavDropdownElement);
-      }}
-      onMouseLeave={() => {
-        if (!dropdownDropdownName) {
-          setExpandedNavDropdownName(undefined);
-        }
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {({ TransitionProps }) => (
         <Grow {...TransitionProps} style={{ transformOrigin: 'left top' }}>
