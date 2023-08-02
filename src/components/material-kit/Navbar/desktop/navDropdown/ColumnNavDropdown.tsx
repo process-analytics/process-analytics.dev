@@ -119,46 +119,37 @@ export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   name,
   hoverStyle,
   rowsPerColumn = 3,
-}) => {
-  const calculateColumns = splitArrayByColumns(menus, rowsPerColumn);
-
-  return (
-    <Grid key={name} container spacing={3} py={1} px={1.5}>
-      {calculateColumns.map((menus, key) => {
-        const gridKey = `grid-${key}`;
-        const dividerKey = `divider-${key}`;
-
-        return (
-          <Grid
-            key={gridKey}
-            item
-            xs={12 / (rowsPerColumn ?? 5)}
-            sx={{ position: 'relative' }}
-          >
-            {menus.map((menu, index) => (
-              <DropdownItem
-                key={menu.name}
-                menu={menu}
-                index={index}
-                hoverStyle={hoverStyle}
-              />
-            ))}
-            {key !== 0 && (
-              <Divider
-                key={dividerKey}
-                orientation="vertical"
-                sx={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '-4px',
-                  transform: 'translateY(-45%)',
-                  height: '90%',
-                }}
-              />
-            )}
-          </Grid>
-        );
-      })}
-    </Grid>
-  );
-};
+}) => (
+  <Grid key={name} container spacing={3} py={1} px={1.5}>
+    {splitArrayByColumns(menus, rowsPerColumn).map((menus, key) => (
+      <Grid
+        key={`grid-${key}`}
+        item
+        xs={12 / rowsPerColumn}
+        sx={{ position: 'relative' }}
+      >
+        {menus.map((menu, index) => (
+          <DropdownItem
+            key={menu.name}
+            menu={menu}
+            index={index}
+            hoverStyle={hoverStyle}
+          />
+        ))}
+        {key !== 0 && (
+          <Divider
+            key={`divider-${key}`}
+            orientation="vertical"
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '-4px',
+              transform: 'translateY(-45%)',
+              height: '90%',
+            }}
+          />
+        )}
+      </Grid>
+    ))}
+  </Grid>
+);
