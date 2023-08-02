@@ -129,16 +129,18 @@ export const NavDropdown = ({
                     route.menus,
                 ) as HeaderRouteWithMenus[]
               ).map(({ name, menus, withColumns, rowsPerColumn }) =>
-                withColumns
-                  ? // Render the dropdown menu that should be display as columns
-                    ColumnNavDropdown(menus, name, hoverStyle, rowsPerColumn)
-                  : // Render the dropdown menu that should be display as list items
-                    ListNavDropdown(
-                      menus,
-                      setDropdownDropdownElement,
-                      setDropdownDropdownName,
-                      hoverStyle,
-                    ),
+                withColumns ? (
+                  // Render the dropdown menu that should be display as columns
+                  ColumnNavDropdown(menus, name, hoverStyle, rowsPerColumn)
+                ) : (
+                  // Render the dropdown menu that should be display as list items
+                  <ListNavDropdown
+                    menus={menus}
+                    setDropdownDropdownElement={setDropdownDropdownElement}
+                    setDropdownDropdownName={setDropdownDropdownName}
+                    hoverStyle={hoverStyle}
+                  />
+                ),
               )}
             </MKBox>
           </MKBox>

@@ -37,14 +37,21 @@ import { Link } from '../../../..';
 
 import { HoverStyle, getHoverConfiguration } from '../../common';
 
-export const ListNavDropdown = (
-  menus: HeaderMenu[],
+type ListNavDropdownProps = {
+  menus: HeaderMenu[];
   setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >,
-  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>,
-  hoverStyle: HoverStyle,
-): JSX.Element[] =>
+  >;
+  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
+  hoverStyle: HoverStyle;
+};
+
+export const ListNavDropdown = ({
+  menus,
+  setDropdownDropdownElement,
+  setDropdownDropdownName,
+  hoverStyle,
+}: ListNavDropdownProps): JSX.Element[] =>
   menus.map(menu =>
     isHeaderMenuWithItems(menu) ? (
       <MKTypography
