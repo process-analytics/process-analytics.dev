@@ -65,9 +65,9 @@ export const NavDropdown = ({
       {menus.map((menu, id) => (
         <MKBox key={menu.name} px={2}>
           {isHeaderMenuWithItems(menu) ? (
-            <DropdownDropdown {...menu} hoverStyle={hoverStyle} />
+            <DropdownDropdown content={menu} hoverStyle={hoverStyle} />
           ) : (
-            <DropdownLink id={id} {...menu} hoverStyle={hoverStyle} />
+            <DropdownLink id={id} content={menu} hoverStyle={hoverStyle} />
           )}
         </MKBox>
       ))}

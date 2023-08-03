@@ -74,7 +74,7 @@ export type HeaderMenuWithItems = Pick<LinkContent, 'name' | 'description'> & {
    * To define that the item should open a dropdown for its collapse items
    */
   isCollapsed?: boolean; // TODO Modify the code to remove this property
-  links: LinkContent[];
+  items: LinkContent[];
 };
 
 export type HeaderMenu =

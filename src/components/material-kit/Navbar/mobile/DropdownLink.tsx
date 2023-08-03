@@ -34,15 +34,13 @@ import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 import { MKBox, MKTypography } from '../..';
 import { LinkContent, Link } from '../../..';
 
-type DropdownLinkProps = LinkContent & {
+type DropdownLinkProps = {
   id: number;
+  content: LinkContent;
   hoverStyle: HoverStyle;
 };
 export const DropdownLink = ({
-  name,
-  description,
-  type,
-  url,
+  content: { name, description, type, url },
   id,
   hoverStyle,
 }: DropdownLinkProps): JSX.Element => (

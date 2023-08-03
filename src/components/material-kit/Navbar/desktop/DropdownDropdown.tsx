@@ -82,8 +82,8 @@ export const DropdownDropdown = ({
             px={1}
             mt={2}
           >
-            {content.map(({ links, isCollapsed }) =>
-              links.map(link => (
+            {content.map(({ items, isCollapsed }) =>
+              items.map(link => (
                 <DropdownLink
                   content={link}
                   isCollapsed={isCollapsed}

@@ -35,10 +35,12 @@ import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 import { MKTypography } from '../..';
 import { Link } from '../../..';
 
-type DropdownDropdownProps = HeaderMenuWithItems & { hoverStyle: HoverStyle };
+type DropdownDropdownProps = {
+  content: HeaderMenuWithItems;
+  hoverStyle: HoverStyle;
+};
 export const DropdownDropdown = ({
-  name,
-  links,
+  content: { name, items },
   hoverStyle,
 }: DropdownDropdownProps): JSX.Element => (
   <>
@@ -53,12 +55,12 @@ export const DropdownDropdown = ({
       {name}
     </MKTypography>
 
-    {links.map(subItem => (
+    {items.map(item => (
       <Link
         component={MKTypography}
-        type={subItem.type}
-        url={subItem.url}
-        key={subItem.name}
+        type={item.type}
+        url={item.url}
+        key={item.name}
         minWidth="11.25rem"
         display="block"
         variant="button"
@@ -73,7 +75,7 @@ export const DropdownDropdown = ({
           ...getHoverConfiguration(palette, hoverStyle),
         })}
       >
-        {subItem.name}
+        {item.name}
       </Link>
     ))}
   </>
