@@ -19,8 +19,7 @@ import { Container, Grid } from '@mui/material';
 
 import { Library, SectionWithTitle } from '../../components';
 import { SECTION } from '../../helper';
-
-import { libraryContent } from '../../content/LibraryContent';
+import { libraryContent } from '../../content';
 
 export const Libraries = (): JSX.Element => (
   <SectionWithTitle id={SECTION.libraries}>

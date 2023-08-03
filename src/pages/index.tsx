@@ -19,13 +19,9 @@ import { HeadProps } from 'gatsby';
 
 import { SEO, Layout, MailingListSubscription } from '../components';
 import { DataProps } from '../hooks';
-
 import { Landing, Blog, News, About, Libraries } from '../sections';
-
 import { PAGE } from '../helper';
-
-import { footerContent } from '../content/FooterContent';
-import { headerContent } from '../content/HeaderContent';
+import { footerContent, headerContent } from '../content';
 
 const HomePage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>

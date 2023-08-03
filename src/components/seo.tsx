@@ -18,7 +18,7 @@ import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { useSiteMetadata } from '../hooks';
-import { landingContent } from '../content/LandingContent';
+import { landingContent } from '../content';
 import { theme } from '../assets/oldTheme';
 
 const LANG = 'en';

@@ -21,8 +21,7 @@ import styled from 'styled-components';
 
 import { DataProps } from '../hooks';
 
-import { footerContent } from '../content/FooterContent';
-import { headerContent } from '../content/HeaderContent';
+import { footerContent, headerContent } from '../content';
 
 import { Layout, Section, MailingListSubscription, SEO } from '../components';
 import { PAGE } from '../helper';

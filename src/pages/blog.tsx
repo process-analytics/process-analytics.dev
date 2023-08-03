@@ -19,9 +19,7 @@ import { HeadProps } from 'gatsby';
 
 import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
-
-import { postsContent } from '../content/PostsContent';
-
+import { postsContent } from '../content';
 import { PAGE, SECTION } from '../helper';
 
 const BlogPage = (): JSX.Element => (

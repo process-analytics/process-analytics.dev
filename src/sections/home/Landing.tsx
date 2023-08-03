@@ -21,8 +21,7 @@ import { Fade } from 'react-awesome-reveal';
 
 import { Section, SocialLink, SocialLinkContent } from '../../components';
 import { SECTION } from '../../helper';
-
-import { landingContent } from '../../content/LandingContent';
+import { landingContent } from '../../content';
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 

@@ -15,9 +15,8 @@
  */
 import React from 'react';
 
-import { newsContent } from '../../content/NewsContent';
+import { newsContent } from '../../content';
 import { SectionWithPosts } from '../SectionWithPosts';
-
 import { SECTION } from '../../helper';
 
 const News = (): JSX.Element => (

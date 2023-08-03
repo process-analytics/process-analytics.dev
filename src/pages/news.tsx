@@ -19,9 +19,7 @@ import { HeadProps } from 'gatsby';
 
 import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
-
-import { newsContent } from '../content/NewsContent';
-
+import { newsContent } from '../content';
 import { PAGE, SECTION } from '../helper';
 
 const NewsPage = (): JSX.Element => (
