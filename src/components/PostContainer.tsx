@@ -16,13 +16,9 @@
 
 import React from 'react';
 
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-
-import { Flex } from 'rebass/styled-components';
+import { Box, Container, Grid } from '@mui/material';
 
 import { PostCard, MKBox, Button } from '.';
-
 import { useMobileViewStatus } from '../hooks';
 
 type PostContainerProps = {
@@ -81,7 +77,13 @@ export const PostContainer = ({
       </Grid>
 
       {pageId && postContents.length > maxNumberOfPosts && (
-        <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt="30px"
+          mb="30px"
+          fontSize={[2, 3]}
+        >
           <Button
             content={{
               type: 'internal',
@@ -91,7 +93,7 @@ export const PostContainer = ({
             color="quaternary"
             backgroundColor="secondary"
           />
-        </Flex>
+        </Box>
       )}
     </Container>
   );
