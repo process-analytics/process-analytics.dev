@@ -18,3 +18,4 @@ export { CookieManager } from './CookieManager';
 export * from './helpers';
 export * from './icons';
 export * from './string';
+export { useMobileViewStatus } from './useMobileViewStatus';
