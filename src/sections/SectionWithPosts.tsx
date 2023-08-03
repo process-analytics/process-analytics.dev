@@ -15,10 +15,8 @@
  */
 import React from 'react';
 
-import { SectionWithTitle } from '../components/Section';
-import { PostContainer, PostContent } from '../components';
-
-import { SECTION } from '../helper/constants';
+import { SectionWithTitle, PostContainer, PostContent } from '../components';
+import { SECTION } from '../helper';
 
 interface SectionWithPostsProps {
   title: SECTION;

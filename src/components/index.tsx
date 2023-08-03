@@ -31,7 +31,7 @@ export {
   SocialLinkContent,
   SocialLinkWithMaterialProps,
 } from './SocialLink';
-export { MailingListSubscription } from './mailingListSubscription';
+export * from './mailingListSubscription';
 export { Features, Jotform } from './modelGenerationApp';
-export { DescriptionPanel } from './description';
-export { BrandContent } from './material-kit/Navbar/common/BrandLink';
+export * from './description';
+export * from './material-kit';
