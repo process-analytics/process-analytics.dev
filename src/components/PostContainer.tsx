@@ -23,7 +23,7 @@ import { PostCard, MKBox } from './material-kit';
 import { ButtonWithInternalLink } from '.';
 
 import colors from '../assets/oldTheme/colors.json';
-import { useMobileViewStatus } from '../helper';
+import { useMobileViewStatus } from '../hooks';
 
 type PostContainerProps = {
   postContents: PostContent[];

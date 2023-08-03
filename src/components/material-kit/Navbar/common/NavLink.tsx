@@ -27,7 +27,7 @@
 
 import React, { FC } from 'react';
 
-import { useMobileViewStatus } from '../../../../helper';
+import { useMobileViewStatus } from '../../../../hooks';
 
 import { HeaderRouteAsLink } from '../../../Header';
 import { Link } from '../../..';
