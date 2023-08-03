@@ -12,7 +12,7 @@ on:
       - 'static/**/*'
       - 'package.json'
       - 'package-lock.json'
-      - 'gatsby-*.js'
+      - 'gatsby-*.ts*'
       - '.nvmrc'
 
 permissions:

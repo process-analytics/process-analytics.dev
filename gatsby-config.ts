@@ -17,8 +17,6 @@
 import type { GatsbyConfig } from 'gatsby';
 import dotenv from 'dotenv';
 
-import colors from './src/assets/oldTheme/colors.json';
-
 // Only the variables prefixed by 'GATSBY_' can be available in browser code
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -41,8 +39,8 @@ const config: GatsbyConfig = {
       options: {
         name: 'Process Analytics',
         start_url: '/',
-        background_color: colors.background,
-        theme_color: colors.primary,
+        background_color: '#f0f2f5',
+        theme_color: '#002395',
         display: 'minimal-ui',
         icon: 'src/assets/images/logo.svg',
       },
