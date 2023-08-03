@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-import { Theme } from '../assets/oldTheme';
+import { styled } from '@mui/material';
 
-export const Divider = styled.div`
+export const Divider = styled('div')`
   position: relative;
+
   &:before {
     content: '';
     position: absolute;
     left: 35%;
     right: 35%;
     height: 2px;
-    background-image: linear-gradient(
+    background-image: ${props => `linear-gradient(
       to right,
       transparent,
-      ${props => (props.theme as Theme).colors.primary},
+      ${props.theme.palette.primary},
       transparent
-    );
+    )`};
   }
 `;
