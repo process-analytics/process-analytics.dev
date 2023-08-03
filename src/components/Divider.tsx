@@ -24,11 +24,7 @@ export const Divider = styled('div')`
     left: 35%;
     right: 35%;
     height: 2px;
-    background-image: ${props => `linear-gradient(
-      to right,
-      transparent,
-      ${props.theme.palette.primary},
-      transparent
-    )`};
+    background-image: ${({ theme }) =>
+      `linear-gradient(to right, transparent, ${theme.palette.primary.main}, transparent)`};
   }
 `;
