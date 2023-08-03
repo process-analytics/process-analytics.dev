@@ -18,9 +18,7 @@ import * as React from 'react';
 import { Heading, Text } from 'rebass/styled-components';
 
 import { MKBox } from '../components';
-
-import { footerContent } from '../content/FooterContent';
-import { headerContent } from '../content/HeaderContent';
+import { footerContent, headerContent } from '../content';
 
 import {
   Layout,

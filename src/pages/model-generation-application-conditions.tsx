@@ -23,13 +23,10 @@ import styled from 'styled-components';
 
 import { SEO, Section, Layout } from '../components';
 import { DataProps } from '../hooks';
+import { footerContent, headerContent } from '../content';
+import { PAGE } from '../helper';
 
 import { Part, Paragraph, PartTitle } from './model-generation-application';
-
-import { footerContent } from '../content/FooterContent';
-import { headerContent } from '../content/HeaderContent';
-
-import { PAGE } from '../helper';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>

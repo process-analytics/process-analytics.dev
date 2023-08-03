@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-
-import { aboutContent } from '../../content';
-import {
-  SectionWithTitle,
-  DescriptionPanel,
-  DescriptionPanelContent,
-} from '../../components';
-import { SECTION } from '../../helper';
-
-export type AboutContent = DescriptionPanelContent[];
-
-export const About = (): JSX.Element => (
-  <SectionWithTitle id={SECTION.about}>
-    {aboutContent.map((panelContent, index) => (
-      <DescriptionPanel key={index} index={index} content={panelContent} />
-    ))}
-  </SectionWithTitle>
-);
+export { aboutContent } from './AboutContent';
+export { brandContent } from './BrandContent';
+export { footerContent } from './FooterContent';
+export { headerContent } from './HeaderContent';
+export { landingContent } from './LandingContent';
+export { libraryContent } from './LibraryContent';
+export { newsContent } from './NewsContent';
+export { postsContent } from './PostsContent';
+export { socialLinkContent } from './SocialLinkContent';
