@@ -58,6 +58,7 @@ const ExternalLinkInButton = styled(MaterialLink)<LinkProps>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   & > * {
     margin: 4px 2px 4px 0;
     border-radius: inherit;
@@ -79,9 +80,16 @@ const InternalLinkInButton = styled(GatsbyLink)<Partial<LinkInButtonProps>>`
   border-radius: 20px;
   text-decoration: none;
   position: relative;
-  background-color: ${props => props.backgroundColor || 'inherit'};
+  /*  background-color: ${props => props.backgroundColor || 'inherit'};
   color: ${props => props.color || 'inherit'};
-  border: ${props => `2px solid ${props.backgroundColor || 'inherit'}`};
+  border: ${props => `2px solid ${props.backgroundColor || 'inherit'}`};*/
+
+  background-color: ${({ theme, backgroundColor }) =>
+    theme.palette[backgroundColor as PaletteColorKey].main || 'inherit'};
+  color: ${({ theme, color }) =>
+    theme.palette[color as PaletteColorKey].main || 'inherit'};
+  border: ${({ theme, color }) =>
+    `2px solid ${theme.palette[color as PaletteColorKey].main || 'inherit'}`};
   display: inline-block;
 
   &:hover {
