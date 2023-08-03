@@ -42,7 +42,7 @@ import { Action, ActionButton, BrandLink, HoverStyle } from './common';
 import { NavbarButton, NavbarNav as MobileNavbarNav } from './mobile';
 import { Dropdown, NavbarNav as DesktopNavbarNav } from './desktop';
 
-import { isMobileView as isMobileViewFunc } from '../../../helper';
+import { useMobileViewStatus } from '../../../helper';
 
 import { BrandContent } from '../..';
 import {
@@ -90,7 +90,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
     useState<string>();
 
   const [isOpenMobileNavbar, setIsOpenMobileNavbar] = useState(false);
-  const isMobileView = isMobileViewFunc();
+  const isMobileView = useMobileViewStatus();
 
   return (
     <Container

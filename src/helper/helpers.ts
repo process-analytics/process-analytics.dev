@@ -24,7 +24,7 @@ export const getSectionHref = (section: SECTION): string => {
   return Object.keys(SECTION)[Object.values(SECTION).indexOf(section)];
 };
 
-export const isMobileView = (): boolean => {
+export const useMobileViewStatus = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
