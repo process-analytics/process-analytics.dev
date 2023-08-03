@@ -24,13 +24,7 @@ export { PageWithPosts } from './PageWithPosts';
 export { PostContainer, PostContent } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export { SEO } from './seo';
-export {
-  SocialLink,
-  SocialLinkWithMaterial,
-  SocialLinkProps,
-  SocialLinkContent,
-  SocialLinkWithMaterialProps,
-} from './SocialLink';
+export { SocialLink, SocialLinkProps, SocialLinkContent } from './SocialLink';
 export * from './mailingListSubscription';
 export { Features, Jotform } from './modelGenerationApp';
 export * from './description';
