@@ -29,7 +29,7 @@ import React, { FC } from 'react';
 
 import { Divider, Grid } from '@mui/material';
 
-import { DropdownItem } from 'src/components/material-kit/Navbar/desktop/columnNavDropdown/DropdownItem';
+import { DropdownItem } from './DropdownItem';
 import { HeaderMenu } from '../../../../Header';
 import { HoverStyle } from '../../common';
 
