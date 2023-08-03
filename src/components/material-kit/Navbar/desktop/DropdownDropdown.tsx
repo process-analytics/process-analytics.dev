@@ -32,16 +32,12 @@ import { Grow, Popper } from '@mui/material';
 import { DropdownLink } from './DropdownLink';
 import { MKBox, MKBoxProps } from '../..';
 
-import {
-  HeaderMenuWithItems,
-  HeaderRouteWithMenus,
-  isHeaderMenuWithItems,
-} from '../../../Header';
+import { HeaderMenuWithItems } from '../../../Header';
 
 import { HoverStyle } from '../common';
 
 export type DropdownDropdownProps = {
-  routes: HeaderRouteWithMenus[];
+  content: HeaderMenuWithItems[];
   dropdownDropdownElement?: EventTarget & HTMLSpanElement;
   dropdownDropdownName?: string;
   setDropdownDropdownElement: Dispatch<
@@ -53,7 +49,7 @@ export type DropdownDropdownProps = {
 };
 
 export const DropdownDropdown = ({
-  routes,
+  content,
   dropdownDropdownElement,
   dropdownDropdownName,
   setDropdownDropdownElement,
@@ -86,25 +82,15 @@ export const DropdownDropdown = ({
             px={1}
             mt={2}
           >
-            {routes
-              .filter(route => !route.withColumns)
-              .map(({ menus }) =>
-                (
-                  menus.filter(
-                    menu =>
-                      menu.name === dropdownDropdownName &&
-                      isHeaderMenuWithItems(menu),
-                  ) as HeaderMenuWithItems[]
-                ).map(({ items, isCollapsed }) =>
-                  items.map(subItem => (
-                    <DropdownLink
-                      isCollapsed={isCollapsed}
-                      {...subItem}
-                      hoverStyle={hoverStyle}
-                    />
-                  )),
-                ),
-              )}
+            {content.map(({ links, isCollapsed }) =>
+              links.map(link => (
+                <DropdownLink
+                  content={link}
+                  isCollapsed={isCollapsed}
+                  hoverStyle={hoverStyle}
+                />
+              )),
+            )}
           </MKBox>
         </MKBox>
       </Grow>

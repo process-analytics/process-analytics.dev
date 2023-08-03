@@ -74,7 +74,7 @@ export type HeaderMenuWithItems = Pick<LinkContent, 'name' | 'description'> & {
    * To define that the item should open a dropdown for its collapse items
    */
   isCollapsed?: boolean; // TODO Modify the code to remove this property
-  items: LinkContent[];
+  links: LinkContent[];
 };
 
 export type HeaderMenu =
@@ -89,7 +89,7 @@ export const isHeaderMenuWithItems = (
 
 export const Header = ({ content }: HeaderProps): JSX.Element => (
   <Navbar
-    routes={content.routes}
+    routeContent={content.routes}
     brandContent={content.brand}
     action={{
       type: 'external',

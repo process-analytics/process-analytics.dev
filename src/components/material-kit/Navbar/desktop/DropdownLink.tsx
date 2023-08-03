@@ -35,15 +35,13 @@ import { MKBox, MKTypography } from '../..';
 import { HoverStyle, getHoverConfiguration } from '../common';
 
 type DropdownLinkProps = {
+  content: LinkContent;
   isCollapsed?: boolean;
   hoverStyle: HoverStyle;
-} & LinkContent;
+};
 
 export const DropdownLink = ({
-  description,
-  name,
-  url,
-  type,
+  content: { description, name, url, type },
   hoverStyle,
   isCollapsed = false,
 }: DropdownLinkProps): JSX.Element => (

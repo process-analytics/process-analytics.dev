@@ -25,44 +25,28 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, FC, SetStateAction, useState } from 'react';
+import React, { FC, PropsWithChildren, useState } from 'react';
 
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
-import { ColumnNavDropdown } from '../columnNavDropdown';
-import { ListNavDropdown } from '../listNavDropdown';
-
 import { MKBox, MKBoxProps, MKTypography } from '../../..';
 
-import { HeaderRouteWithMenus } from '../../../../Header';
-
-import { HoverStyle } from '../../common';
-
 export type NavDropdownProps = {
-  routes: HeaderRouteWithMenus[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   expandedNavDropdownName?: string;
-  setDropdownDropdownElement: Dispatch<
-    SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
-  >;
-  setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
-  hoverStyle: HoverStyle;
   onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
-export const NavDropdown: FC<NavDropdownProps> = ({
-  routes,
+export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
   expandedNavDropdownElement,
   expandedNavDropdownName,
-  setDropdownDropdownElement,
-  setDropdownDropdownName,
   dropdownStyle,
-  hoverStyle,
   onMouseEnter,
   onMouseLeave,
+  children,
 }) => {
   const [arrowRef, setArrowRef] = useState();
 
@@ -108,25 +92,7 @@ export const NavDropdown: FC<NavDropdownProps> = ({
             </MKTypography>
 
             <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
-              {routes.map(({ name, menus, withColumns, rowsPerColumn }) =>
-                withColumns ? (
-                  // Render the dropdown menu that should be display as columns
-                  <ColumnNavDropdown
-                    content={menus}
-                    name={name}
-                    rowsPerColumn={rowsPerColumn}
-                    hoverStyle={hoverStyle}
-                  />
-                ) : (
-                  // Render the dropdown menu that should be display as list items
-                  <ListNavDropdown
-                    menus={menus}
-                    setDropdownDropdownElement={setDropdownDropdownElement}
-                    setDropdownDropdownName={setDropdownDropdownName}
-                    hoverStyle={hoverStyle}
-                  />
-                ),
-              )}
+              {children}
             </MKBox>
           </MKBox>
         </Grow>

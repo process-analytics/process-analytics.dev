@@ -38,7 +38,7 @@ import { Link } from '../../..';
 type DropdownDropdownProps = HeaderMenuWithItems & { hoverStyle: HoverStyle };
 export const DropdownDropdown = ({
   name,
-  items,
+  links,
   hoverStyle,
 }: DropdownDropdownProps): JSX.Element => (
   <>
@@ -53,7 +53,7 @@ export const DropdownDropdown = ({
       {name}
     </MKTypography>
 
-    {items.map(subItem => (
+    {links.map(subItem => (
       <Link
         component={MKTypography}
         type={subItem.type}

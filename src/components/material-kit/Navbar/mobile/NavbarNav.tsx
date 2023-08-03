@@ -39,7 +39,7 @@ import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { NavDropdown } from './NavDropdown';
 
 export const NavbarNav = ({
-  routes,
+  content,
   isOpen,
   dropdownStyle,
   hoverStyle,
@@ -49,7 +49,7 @@ export const NavbarNav = ({
   return (
     <Collapse in={isOpen} timeout="auto" unmountOnExit>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2} {...dropdownStyle}>
-        {routes.map(route => {
+        {content.map(route => {
           const isCollapsed = route.name === collapse;
           return isHeaderRouteWithMenus(route) ? (
             <NavDropdown
@@ -75,7 +75,7 @@ export const NavbarNav = ({
 };
 
 type NavbarNavProps = {
-  routes: HeaderRoute[];
+  content: HeaderRoute[];
   isOpen: boolean;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
