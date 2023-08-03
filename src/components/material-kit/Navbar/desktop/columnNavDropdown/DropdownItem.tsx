@@ -82,7 +82,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     <Title isFirstRow={isFirstRow} content={content} hoverStyle={hoverStyle} />
 
     {isHeaderMenuWithItems(content) &&
-      content.links.map(item => (
+      content.items.map(item => (
         <DropdownDropdown
           key={item.name}
           hoverStyle={hoverStyle}
