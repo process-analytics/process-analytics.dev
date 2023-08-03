@@ -44,6 +44,43 @@ type ColumnNavDropdownProps = {
   rowsPerColumn?: number;
 };
 
+type ColumnProps = {
+  rowsPerColumn: number;
+  menus: HeaderMenu[];
+  isNotFirstColumn: boolean;
+  hoverStyle: HoverStyle;
+};
+const Column: FC<ColumnProps> = ({
+  rowsPerColumn,
+  menus,
+  isNotFirstColumn,
+  hoverStyle,
+}) => (
+  <Grid item xs={12 / rowsPerColumn} sx={{ position: 'relative' }}>
+    {isNotFirstColumn && (
+      <Divider
+        orientation="vertical"
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '-4px',
+          transform: 'translateY(-45%)',
+          height: '90%',
+        }}
+      />
+    )}
+
+    {menus.map((menu, index) => (
+      <DropdownItem
+        key={menu.name}
+        menu={menu}
+        index={index}
+        hoverStyle={hoverStyle}
+      />
+    ))}
+  </Grid>
+);
+
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   menus,
   name,
@@ -51,35 +88,14 @@ export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
   rowsPerColumn = 3,
 }) => (
   <Grid key={name} container spacing={3} py={1} px={1.5}>
-    {splitArrayByColumns(menus, rowsPerColumn).map((menus, key) => (
-      <Grid
-        key={`grid-${key}`}
-        item
-        xs={12 / rowsPerColumn}
-        sx={{ position: 'relative' }}
-      >
-        {menus.map((menu, index) => (
-          <DropdownItem
-            key={menu.name}
-            menu={menu}
-            index={index}
-            hoverStyle={hoverStyle}
-          />
-        ))}
-        {key !== 0 && (
-          <Divider
-            key={`divider-${key}`}
-            orientation="vertical"
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '-4px',
-              transform: 'translateY(-45%)',
-              height: '90%',
-            }}
-          />
-        )}
-      </Grid>
+    {splitArrayByColumns(menus, rowsPerColumn).map((menus, index) => (
+      <Column
+        key={`divider-${index}`}
+        rowsPerColumn={rowsPerColumn}
+        menus={menus}
+        hoverStyle={hoverStyle}
+        isNotFirstColumn={index !== 0}
+      />
     ))}
   </Grid>
 );
