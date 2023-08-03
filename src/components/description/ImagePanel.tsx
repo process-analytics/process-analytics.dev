@@ -16,17 +16,26 @@
 
 import React, { FC } from 'react';
 
-import { Box, Image, ImageProps } from 'rebass/styled-components';
+import {
+  Box,
+  Image as RebassImage,
+  ImageProps,
+} from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 
-import { Image as ImageType } from '../../assets/oldTheme';
+export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
+export type Image = {
+  src: string;
+  alt: string;
+  positionFromMdx?: ImagePosition;
+};
 
 type ImagePanelProps = {
-  image: ImageType;
+  image: Image;
   isFullPage: boolean;
 };
 
-function getImageProps(image: ImageType): ImageProps {
+function getImageProps(image: Image): ImageProps {
   switch (image.positionFromMdx) {
     case 'top':
       return { width: 1, mb: [3, 3, 4] };
@@ -41,7 +50,7 @@ function getImageProps(image: ImageType): ImageProps {
 }
 
 function convertPositionToFadeDirection(
-  image: ImageType,
+  image: Image,
 ): 'down' | 'up' | 'left' | 'right' {
   switch (image.positionFromMdx) {
     case 'top':
@@ -70,7 +79,7 @@ export const ImagePanel: FC<ImagePanelProps> = ({ image, isFullPage }) => (
         triggerOnce
         style={{ textAlign: 'center' }}
       >
-        <Image
+        <RebassImage
           height={'auto'}
           style={{ borderRadius: '5px' }}
           css={{ aspectRatio: 'attr(width) / attr(height)' }}

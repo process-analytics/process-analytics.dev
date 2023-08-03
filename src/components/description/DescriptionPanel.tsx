@@ -15,12 +15,10 @@
  */
 import React, { FC } from 'react';
 
-import { Flex } from 'rebass/styled-components';
-
-import { Image } from '../../assets/oldTheme';
+import { Box } from '@mui/material';
 
 import { Divider } from '..';
-import { ImagePanel } from './ImagePanel';
+import { Image, ImagePanel } from './ImagePanel';
 import { MDXPanel } from './MDXPanel';
 
 export type DescriptionPanelContent = {
@@ -49,7 +47,8 @@ export const DescriptionPanel: FC<DescriptionPanelProps> = ({
 
   return (
     <>
-      <Flex
+      <Box
+        display="flex"
         key={index}
         marginTop={['10px', '10px', '30px']}
         marginBottom={withSeparator ? ['10px', '10px', '30px'] : 0}
@@ -78,7 +77,7 @@ export const DescriptionPanel: FC<DescriptionPanelProps> = ({
           {image && <ImagePanel image={image} isFullPage={isFullPage} />}
           <MDXPanel mdx={mdx} isFullPage={isFullPage} />
         </>
-      </Flex>
+      </Box>
       {withSeparator && <Divider />}
     </>
   );
