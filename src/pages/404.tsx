@@ -19,7 +19,7 @@ import { Image, Text } from 'rebass/styled-components';
 import { HeadProps, Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { DataProps } from '../hooks/use-site-metadata';
+import { DataProps } from '../hooks';
 
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';

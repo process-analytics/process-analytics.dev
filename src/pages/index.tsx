@@ -17,12 +17,11 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO } from '../components';
-import { DataProps } from '../hooks/use-site-metadata';
+import { SEO, Layout, MailingListSubscription } from '../components';
+import { DataProps } from '../hooks';
 
 import { Landing, Blog, News, About, Libraries } from '../sections';
 
-import { Layout, MailingListSubscription } from '../components';
 import { PAGE } from '../helper';
 
 import { footerContent } from '../content/FooterContent';
@@ -38,7 +37,6 @@ const HomePage = (): JSX.Element => (
     <MailingListSubscription />
   </Layout>
 );
-
 export default HomePage;
 
 /*
