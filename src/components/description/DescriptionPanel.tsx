@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Flex } from 'rebass/styled-components';
 
 import { Image } from '../../assets/oldTheme';
 
 import { Divider } from '..';
-import ImagePanel from './ImagePanel';
-import MDXPanel from './MDXPanel';
+import { ImagePanel } from './ImagePanel';
+import { MDXPanel } from './MDXPanel';
 
 export type DescriptionPanelContent = {
   mdx: JSX.Element;
@@ -34,10 +34,10 @@ type DescriptionPanelProps = {
   index: number;
 };
 
-export const DescriptionPanel = ({
+export const DescriptionPanel: FC<DescriptionPanelProps> = ({
   content: { mdx, image, withSeparator = false },
   index,
-}: DescriptionPanelProps): JSX.Element => {
+}) => {
   if (image && !image.positionFromMdx) {
     image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
   }

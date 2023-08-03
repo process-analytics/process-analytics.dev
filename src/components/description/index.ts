@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-
-import { newsContent } from '../../content/NewsContent';
-import { SectionWithPosts } from '../SectionWithPosts';
-
-import { SECTION } from '../../helper';
-
-const News = (): JSX.Element => (
-  <SectionWithPosts
-    title={SECTION.news}
-    postContents={newsContent.news}
-    pageId="news"
-  />
-);
-
-export { News };
+export { DescriptionPanel, DescriptionPanelContent } from './DescriptionPanel';

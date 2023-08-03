@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 import { brandContent } from './BrandContent';
-
 import { socialLinkContent } from './SocialLinkContent';
-
-import { FooterContent } from '../components/Footer';
+import { FooterContent } from '../components';
 
 export const footerContent: FooterContent = {
   brand: brandContent,

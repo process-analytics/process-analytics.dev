@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { FC } from 'react';
 
 import {
   GitHub,
@@ -38,7 +38,7 @@ export type LibraryContent = {
   examples?: string;
 };
 
-export const Library = ({ content }: LibraryProps): JSX.Element => {
+export const Library: FC<LibraryProps> = ({ content }) => {
   const { name, description, repository, documentation, examples, type } =
     content;
 
@@ -84,5 +84,3 @@ export const Library = ({ content }: LibraryProps): JSX.Element => {
     </Grid>
   );
 };
-
-export default Library;

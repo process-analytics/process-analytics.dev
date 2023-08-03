@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Box, Image, ImageProps } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 
 import { Image as ImageType } from '../../assets/oldTheme';
+
+type ImagePanelProps = {
+  image: ImageType;
+  isFullPage: boolean;
+};
 
 function getImageProps(image: ImageType): ImageProps {
   switch (image.positionFromMdx) {
@@ -51,13 +56,7 @@ function convertPositionToFadeDirection(
   }
 }
 
-const ImagePanel = ({
-  image,
-  isFullPage,
-}: {
-  image: ImageType;
-  isFullPage: boolean;
-}): JSX.Element => (
+export const ImagePanel: FC<ImagePanelProps> = ({ image, isFullPage }) => (
   <Box
     width={[1, 1, isFullPage ? 1 : 1 / 3]}
     style={{
@@ -82,4 +81,3 @@ const ImagePanel = ({
     )}
   </Box>
 );
-export default ImagePanel;

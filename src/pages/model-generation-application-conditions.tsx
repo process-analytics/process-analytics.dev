@@ -21,15 +21,14 @@ import { HeadProps } from 'gatsby';
 import { Heading } from 'rebass/styled-components';
 import styled from 'styled-components';
 
-import { SEO } from '../components/seo';
-import { DataProps } from '../hooks/use-site-metadata';
+import { SEO, Section, Layout } from '../components';
+import { DataProps } from '../hooks';
 
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
 import { footerContent } from '../content/FooterContent';
 import { headerContent } from '../content/HeaderContent';
 
-import { Section, Layout } from '../components';
 import { PAGE } from '../helper';
 
 const ModelGenerationApplicationConditionPage = (): JSX.Element => (
@@ -159,7 +158,6 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
 const Bold = styled.b`
   font-weight: 700;
 `;
-
 export default ModelGenerationApplicationConditionPage;
 
 /*

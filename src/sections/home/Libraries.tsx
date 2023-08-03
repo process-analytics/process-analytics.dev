@@ -18,7 +18,7 @@ import React from 'react';
 import { Container, Grid } from '@mui/material';
 
 import { Library, SectionWithTitle } from '../../components';
-import { SECTION } from '../../helper/constants';
+import { SECTION } from '../../helper';
 
 import { libraryContent } from '../../content/LibraryContent';
 

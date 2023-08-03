@@ -31,9 +31,8 @@ import {
   Text,
 } from 'rebass/styled-components';
 
-import { SEO } from '../components/seo';
-
 import {
+  SEO,
   Features,
   Jotform,
   Section,
@@ -50,7 +49,7 @@ import colors from '../assets/oldTheme/colors.json';
 
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';
-import { DataProps } from '../hooks/use-site-metadata';
+import { DataProps } from '../hooks';
 
 export const Part = ({
   padding,
@@ -330,7 +329,6 @@ const ModelGenerationApplicationPage = (): JSX.Element => (
     </Section>
   </Layout>
 );
-
 export default ModelGenerationApplicationPage;
 
 /*

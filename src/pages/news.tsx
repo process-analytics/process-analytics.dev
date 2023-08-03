@@ -17,7 +17,7 @@ import * as React from 'react';
 
 import { HeadProps } from 'gatsby';
 
-import { DataProps } from '../hooks/use-site-metadata';
+import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
 
 import { newsContent } from '../content/NewsContent';
@@ -31,7 +31,6 @@ const NewsPage = (): JSX.Element => (
     description={newsContent.description}
   />
 );
-
 export default NewsPage;
 
 /*
