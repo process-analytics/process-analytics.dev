@@ -38,24 +38,24 @@ import { HeaderMenu } from '../../../../Header';
 import { HoverStyle } from '../../common';
 
 type ColumnNavDropdownProps = {
-  menus: HeaderMenu[];
+  content: HeaderMenu[];
   name: string;
   hoverStyle: HoverStyle;
   rowsPerColumn?: number;
 };
 
 export const ColumnNavDropdown: FC<ColumnNavDropdownProps> = ({
-  menus,
+  content,
   name,
   hoverStyle,
   rowsPerColumn = 3,
 }) => (
   <Grid key={name} container spacing={3} py={1} px={1.5}>
-    {splitArrayByColumns(menus, rowsPerColumn).map((menus, index) => (
+    {splitArrayByColumns(content, rowsPerColumn).map((menus, index) => (
       <Column
         key={`divider-${index}`}
         rowsPerColumn={rowsPerColumn}
-        menus={menus}
+        content={menus}
         hoverStyle={hoverStyle}
         isNotFirstColumn={index !== 0}
       />

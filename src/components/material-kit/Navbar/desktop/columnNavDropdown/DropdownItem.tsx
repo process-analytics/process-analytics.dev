@@ -30,22 +30,20 @@ import React, { FC } from 'react';
 import { DropdownDropdown } from './DropdownDropdown';
 
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import { Link } from '../../../..';
+
 import { MKTypography } from '../../..';
 
 import { HoverStyle } from '../../common';
 
 type DropdownItemProps = {
-  menu: HeaderMenu;
-  index: number;
+  content: HeaderMenu;
+  isFirstRow: boolean;
   hoverStyle: HoverStyle;
 };
 
-export const DropdownItem: FC<DropdownItemProps> = ({
-  menu,
-  index,
-  hoverStyle,
-}) => (
-  <>
+const Title: FC<DropdownItemProps> = ({ isFirstRow, content, hoverStyle }) =>
+  isHeaderMenuWithItems(content) ? (
     <MKTypography
       display="block"
       variant="button"
@@ -53,14 +51,43 @@ export const DropdownItem: FC<DropdownItemProps> = ({
       textTransform="capitalize"
       py={1}
       px={0.5}
-      mt={index !== 0 ? 2 : 0}
+      mt={isFirstRow ? 0 : 2}
     >
-      {menu.name}
+      {content.name}
     </MKTypography>
+  ) : (
+    <Link
+      component={MKTypography}
+      type={content.type}
+      url={content.url}
+      hoverStyle={hoverStyle}
+      display="block"
+      variant="button"
+      fontWeight="bold"
+      textTransform="capitalize"
+      py={1}
+      px={0.5}
+      mt={isFirstRow ? 0 : 2}
+    >
+      {content.name}
+    </Link>
+  );
 
-    {isHeaderMenuWithItems(menu) &&
-      menu.items.map(item => (
-        <DropdownDropdown key={item.name} hoverStyle={hoverStyle} {...item} />
+export const DropdownItem: FC<DropdownItemProps> = ({
+  content,
+  isFirstRow,
+  hoverStyle,
+}) => (
+  <>
+    <Title isFirstRow={isFirstRow} content={content} hoverStyle={hoverStyle} />
+
+    {isHeaderMenuWithItems(content) &&
+      content.items.map(item => (
+        <DropdownDropdown
+          key={item.name}
+          hoverStyle={hoverStyle}
+          content={item}
+        />
       ))}
   </>
 );

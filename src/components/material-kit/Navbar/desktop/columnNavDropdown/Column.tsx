@@ -29,20 +29,20 @@ import React, { FC } from 'react';
 
 import { Divider, Grid } from '@mui/material';
 
-import { DropdownItem } from './DropdownItem';
+import { DropdownItem } from 'src/components/material-kit/Navbar/desktop/columnNavDropdown/DropdownItem';
 import { HeaderMenu } from '../../../../Header';
 import { HoverStyle } from '../../common';
 
 type ColumnProps = {
   rowsPerColumn: number;
-  menus: HeaderMenu[];
+  content: HeaderMenu[];
   isNotFirstColumn: boolean;
   hoverStyle: HoverStyle;
 };
 
 export const Column: FC<ColumnProps> = ({
   rowsPerColumn,
-  menus,
+  content,
   isNotFirstColumn,
   hoverStyle,
 }) => (
@@ -60,11 +60,11 @@ export const Column: FC<ColumnProps> = ({
       />
     )}
 
-    {menus.map((menu, index) => (
+    {content.map((menu, index) => (
       <DropdownItem
         key={menu.name}
-        menu={menu}
-        index={index}
+        content={menu}
+        isFirstRow={index == 0}
         hoverStyle={hoverStyle}
       />
     ))}
