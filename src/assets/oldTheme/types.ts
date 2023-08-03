@@ -17,10 +17,3 @@ import { DefaultTheme } from 'styled-components';
 import { Theme as RebassTheme } from '@rebass/preset';
 
 export type Theme = DefaultTheme & RebassTheme;
-
-export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
-export type Image = {
-  src: string;
-  alt: string;
-  positionFromMdx?: ImagePosition;
-};

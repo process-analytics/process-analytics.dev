@@ -17,11 +17,16 @@ import React, { FC } from 'react';
 
 import { Box } from '@mui/material';
 
-import { Image } from '../../assets/oldTheme';
-
 import { Divider } from '..';
 import { ImagePanel } from './ImagePanel';
 import { MDXPanel } from './MDXPanel';
+
+export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
+export type Image = {
+  src: string;
+  alt: string;
+  positionFromMdx?: ImagePosition;
+};
 
 export type DescriptionPanelContent = {
   mdx: JSX.Element;
