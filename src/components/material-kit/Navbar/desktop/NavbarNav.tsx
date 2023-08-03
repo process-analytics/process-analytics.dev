@@ -33,7 +33,7 @@ import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
 
 type NavbarNavProps = {
-  routes: HeaderRoute[];
+  content: HeaderRoute[];
   isCenter?: boolean;
   setExpandedNavDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
@@ -44,7 +44,7 @@ type NavbarNavProps = {
 };
 
 export const NavbarNav = ({
-  routes,
+  content,
   isCenter,
   setExpandedNavDropdownElement,
   setExpandedNavDropdownName,
@@ -57,7 +57,7 @@ export const NavbarNav = ({
     ml="auto"
     mr={isCenter ? 'auto' : 2}
   >
-    {routes.map(route =>
+    {content.map(route =>
       isHeaderRouteWithMenus(route) ? (
         <NavbarItem
           key={route.name}

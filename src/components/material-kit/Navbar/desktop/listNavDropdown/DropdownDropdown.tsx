@@ -35,7 +35,7 @@ import { HeaderMenuWithItems } from '../../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
 type DropdownDropdownProps = {
-  menu: HeaderMenuWithItems;
+  content: HeaderMenuWithItems;
   hoverStyle: HoverStyle;
   onMouseEnter: ({
     currentTarget,
@@ -44,7 +44,7 @@ type DropdownDropdownProps = {
 };
 
 export const DropdownDropdown: FC<DropdownDropdownProps> = ({
-  menu,
+  content,
   hoverStyle,
   onMouseEnter,
   onMouseLeave,
@@ -55,9 +55,9 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     alignItems="center"
     variant="button"
     textTransform="capitalize"
-    minWidth={menu.description ? '14rem' : '12rem'}
-    fontWeight={menu.description ? 'bold' : 'regular'}
-    py={menu.description ? 1 : 0.625}
+    minWidth={content.description ? '14rem' : '12rem'}
+    fontWeight={content.description ? 'bold' : 'regular'}
+    py={content.description ? 1 : 0.625}
     px={2}
     sx={({ palette, borders: { borderRadius } }: Theme) => ({
       borderRadius: borderRadius.md,
@@ -68,9 +68,9 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
-    {menu.description ? (
+    {content.description ? (
       <MKBox>
-        {menu.name}
+        {content.name}
 
         <MKTypography
           display="block"
@@ -78,11 +78,11 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
-          {menu.description}
+          {content.description}
         </MKTypography>
       </MKBox>
     ) : (
-      menu.name
+      content.name
     )}
     <KeyboardArrowDown
       fontSize="small"

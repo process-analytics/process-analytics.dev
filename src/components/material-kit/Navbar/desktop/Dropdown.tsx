@@ -27,29 +27,34 @@
 
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 
+import { ColumnNavDropdown } from './columnNavDropdown';
+import { ListNavDropdown } from './listNavDropdown';
+
 import { NavDropdown } from './navDropdown';
 import { DropdownDropdown } from './DropdownDropdown';
 import { HoverStyle } from '../common';
 
-import { HeaderRouteWithMenus } from '../../../Header';
+import {
+  HeaderMenuWithItems,
+  HeaderRouteWithMenus,
+  isHeaderMenuWithItems,
+} from '../../../Header';
 import { MKBoxProps } from '../..';
 
 export type DropdownProps = {
-  routes: HeaderRouteWithMenus[];
+  content: HeaderRouteWithMenus[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   setExpandedNavDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
-  expandedNavDropdownName?: string;
   setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
   hoverStyle: HoverStyle;
 };
 
 export const Dropdown: FC<DropdownProps> = ({
-  routes,
+  content,
   expandedNavDropdownElement,
-  expandedNavDropdownName,
   setExpandedNavDropdownElement,
   setExpandedNavDropdownName,
   dropdownStyle,
@@ -63,12 +68,8 @@ export const Dropdown: FC<DropdownProps> = ({
   return (
     <>
       <NavDropdown
-        routes={routes.filter(route => route.name === expandedNavDropdownName)}
         expandedNavDropdownElement={expandedNavDropdownElement}
-        setDropdownDropdownElement={setDropdownDropdownElement}
-        setDropdownDropdownName={setDropdownDropdownName}
         dropdownStyle={dropdownStyle}
-        hoverStyle={hoverStyle}
         onMouseEnter={() => {
           setExpandedNavDropdownElement(expandedNavDropdownElement);
         }}
@@ -80,9 +81,40 @@ export const Dropdown: FC<DropdownProps> = ({
             setDropdownDropdownElement(undefined);
           }
         }}
-      />
+      >
+        {content.map(({ name, menus, withColumns, rowsPerColumn }) =>
+          withColumns ? (
+            // Render the dropdown menu that should be display as columns
+            <ColumnNavDropdown
+              content={menus}
+              name={name}
+              rowsPerColumn={rowsPerColumn}
+              hoverStyle={hoverStyle}
+            />
+          ) : (
+            // Render the dropdown menu that should be display as list items
+            <ListNavDropdown
+              content={menus}
+              setDropdownDropdownElement={setDropdownDropdownElement}
+              setDropdownDropdownName={setDropdownDropdownName}
+              hoverStyle={hoverStyle}
+            />
+          ),
+        )}
+      </NavDropdown>
       <DropdownDropdown
-        routes={routes}
+        content={
+          content
+            .filter(route => !route.withColumns)
+            .map(({ menus }) =>
+              menus.filter(
+                menu =>
+                  isHeaderMenuWithItems(menu) &&
+                  menu.name === dropdownDropdownName,
+              ),
+            )
+            .flat() as HeaderMenuWithItems[]
+        }
         dropdownDropdownElement={dropdownDropdownElement}
         dropdownDropdownName={dropdownDropdownName}
         setDropdownDropdownElement={setDropdownDropdownElement}

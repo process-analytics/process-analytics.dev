@@ -34,23 +34,26 @@ import { MKBox, MKTypography } from '../../..';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
 type DropdownLinkProps = {
-  link: LinkContent;
+  content: LinkContent;
   hoverStyle: HoverStyle;
 };
 
-export const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
+export const DropdownLink: FC<DropdownLinkProps> = ({
+  content,
+  hoverStyle,
+}) => (
   <Link
     component={MKTypography}
-    type={link.type}
-    url={link.url}
+    type={content.type}
+    url={content.url}
     display="flex"
     justifyContent="space-between"
     alignItems="center"
     variant="button"
     textTransform="capitalize"
-    minWidth={link.description ? '14rem' : '12rem'}
-    fontWeight={link.description ? 'bold' : 'regular'}
-    py={link.description ? 1 : 0.625}
+    minWidth={content.description ? '14rem' : '12rem'}
+    fontWeight={content.description ? 'bold' : 'regular'}
+    py={content.description ? 1 : 0.625}
     px={2}
     sx={({ palette, borders: { borderRadius } }: Theme) => ({
       borderRadius: borderRadius.md,
@@ -59,9 +62,9 @@ export const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
       ...getHoverConfiguration(palette, hoverStyle),
     })}
   >
-    {link.description ? (
+    {content.description ? (
       <MKBox>
-        {link.name}
+        {content.name}
 
         <MKTypography
           display="block"
@@ -69,11 +72,11 @@ export const DropdownLink: FC<DropdownLinkProps> = ({ link, hoverStyle }) => (
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
-          {link.description}
+          {content.description}
         </MKTypography>
       </MKBox>
     ) : (
-      link.name
+      content.name
     )}
   </Link>
 );

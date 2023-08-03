@@ -35,7 +35,7 @@ import { DropdownDropdown } from './DropdownDropdown';
 import { DropdownLink } from './DropdownLink';
 
 type ListNavDropdownProps = {
-  menus: HeaderMenu[];
+  content: HeaderMenu[];
   setDropdownDropdownElement: Dispatch<
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
@@ -44,17 +44,17 @@ type ListNavDropdownProps = {
 };
 
 export const ListNavDropdown: FC<ListNavDropdownProps> = ({
-  menus,
+  content,
   setDropdownDropdownElement,
   setDropdownDropdownName,
   hoverStyle,
 }) => (
   <>
-    {menus.map(menu =>
+    {content.map(menu =>
       isHeaderMenuWithItems(menu) ? (
         <DropdownDropdown
           key={menu.name}
-          menu={menu}
+          content={menu}
           hoverStyle={hoverStyle}
           onMouseEnter={({
             currentTarget,
@@ -72,7 +72,7 @@ export const ListNavDropdown: FC<ListNavDropdownProps> = ({
           }}
         />
       ) : (
-        <DropdownLink key={menu.name} link={menu} hoverStyle={hoverStyle} />
+        <DropdownLink key={menu.name} content={menu} hoverStyle={hoverStyle} />
       ),
     )}
   </>

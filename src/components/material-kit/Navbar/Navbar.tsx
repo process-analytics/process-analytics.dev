@@ -61,7 +61,7 @@ type NavbarStyleProps = {
 
 type CommonProps = {
   brandContent: BrandContent;
-  routes: HeaderRoute[];
+  routeContent: HeaderRoute[];
   action: Action;
   dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
 };
@@ -74,7 +74,7 @@ type NavbarProps = React.PropsWithoutRef<MKBoxProps> &
 
 const InnerContainer: FC<InnerContainerProps> = ({
   brandContent,
-  routes,
+  routeContent,
   action,
   isTransparent,
   isSticky,
@@ -130,7 +130,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
 
           {!isMobileView && (
             <DesktopNavbarNav
-              routes={routes}
+              content={routeContent}
               isCenter={isCenter}
               hoverStyle={hoverStyle}
               setExpandedNavDropdownElement={setExpandedNavDropdownElement}
@@ -157,7 +157,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
             {...dropdownStyle}
           >
             <MobileNavbarNav
-              routes={routes}
+              content={routeContent}
               isOpen={isOpenMobileNavbar}
               hoverStyle={hoverStyle}
             />
@@ -167,13 +167,14 @@ const InnerContainer: FC<InnerContainerProps> = ({
 
       {!isMobileView && (
         <Dropdown
-          routes={
-            routes.filter(route =>
-              isHeaderRouteWithMenus(route),
+          content={
+            routeContent.filter(
+              route =>
+                isHeaderRouteWithMenus(route) &&
+                route.name === expandedNavDropdownName,
             ) as HeaderRouteWithMenus[]
           }
           expandedNavDropdownElement={expandedNavDropdownElement}
-          expandedNavDropdownName={expandedNavDropdownName}
           setExpandedNavDropdownElement={setExpandedNavDropdownElement}
           setExpandedNavDropdownName={setExpandedNavDropdownName}
           dropdownStyle={dropdownStyle}
@@ -186,7 +187,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
 
 export const Navbar: FC<NavbarProps> = ({
   brandContent,
-  routes,
+  routeContent,
   action,
   isTransparent = false,
   isSticky = false,
@@ -206,7 +207,7 @@ export const Navbar: FC<NavbarProps> = ({
   >
     <InnerContainer
       brandContent={brandContent}
-      routes={routes}
+      routeContent={routeContent}
       action={action}
       isTransparent={isTransparent}
       isSticky={isTransparent ? false : isSticky}
