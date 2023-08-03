@@ -23,7 +23,7 @@ import { PostCard, MKBox } from './material-kit';
 import { ButtonWithInternalLink } from '.';
 
 import colors from '../assets/oldTheme/colors.json';
-import { isMobileView } from '../helper';
+import { useMobileViewStatus } from '../hooks';
 
 type PostContainerProps = {
   postContents: PostContent[];
@@ -69,7 +69,7 @@ export const PostContainer = ({
   postContents,
   pageId,
 }: PostContainerProps): JSX.Element => {
-  const maxNumberOfPosts = isMobileView() ? 3 : 6;
+  const maxNumberOfPosts = useMobileViewStatus() ? 3 : 6;
   return (
     <Container>
       <Grid container spacing={3}>

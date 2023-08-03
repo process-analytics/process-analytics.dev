@@ -13,39 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { useEffect, useState } from 'react';
-
 import { SECTION } from './constants';
-
-import { breakpoints } from '../assets/theme/base';
-import { pxToRem } from '../assets/theme/functions';
 
 export const getSectionHref = (section: SECTION): string => {
   return Object.keys(SECTION)[Object.values(SECTION).indexOf(section)];
-};
-
-export const isMobileView = (): boolean => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = (): void => {
-      // TODO Clean
-      setIsMobile(
-        Number(pxToRem(window.innerWidth).replace('rem', '')) <
-          breakpoints.values.lg,
-      );
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return isMobile;
 };
 
 export function splitArrayByColumns<T>(

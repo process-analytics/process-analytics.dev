@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Image as ImageType } from '../../assets/oldTheme';
+
+import React from 'react';
+
 import { Box, Image, ImageProps } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
-import React from 'react';
+
+import { Image as ImageType } from '../../assets/oldTheme';
 
 function getImageProps(image: ImageType): ImageProps {
   switch (image.positionFromMdx) {

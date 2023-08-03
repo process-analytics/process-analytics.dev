@@ -17,7 +17,7 @@ import React, { PropsWithChildren } from 'react';
 
 import { ThemeProvider } from 'styled-components';
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from '../hooks';
 import { landingContent } from '../content/LandingContent';
 import { theme } from '../assets/oldTheme';
 
