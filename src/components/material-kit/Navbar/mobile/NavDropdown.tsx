@@ -58,7 +58,6 @@ export const NavDropdown = ({
     onClick={onClick}
     isCollapsed={isCollapsed}
     isCollapsible
-    isMobileView
     hoverStyle={hoverStyle}
   >
     <MKBox sx={{ height: '15rem', maxHeight: '15rem', overflowY: 'scroll' }}>

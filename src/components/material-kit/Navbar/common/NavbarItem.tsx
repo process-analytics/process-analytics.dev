@@ -24,69 +24,72 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
 import { Collapse, SvgIcon, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
+import { useMobileViewStatus } from '../../../../hooks';
 import { getHoverConfiguration, HoverStyle } from './HoverStyle';
-
-// Material Kit 2 React components
 import { MKBox, MKTypography } from '../..';
 
 type TitleContainerProps = {
-  isMobileView: boolean;
   isCollapsible?: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
   hoverStyle: HoverStyle;
 };
-const TitleContainer = ({
-  isCollapsible,
-  isMobileView,
-  hoverStyle,
-  children,
-  ...rest
-}: PropsWithChildren<TitleContainerProps>): JSX.Element => (
-  <MKBox
-    {...rest}
-    mx={1}
-    p={1}
-    display="flex"
-    alignItems="baseline"
-    //opacity={isMobileView && open ? 1 : 0.6}
-    sx={({ palette }: Theme) => ({
-      cursor: 'pointer',
-      userSelect: 'none',
-      transition: 'all 300ms linear',
-
-      ...((!isMobileView || (isMobileView && !isCollapsible)) &&
-        getHoverConfiguration(palette, hoverStyle)),
-    })}
-  >
-    {children}
-  </MKBox>
-);
 
 type TitleProps = TitleContainerProps & {
   name: string;
   icon?: typeof SvgIcon;
 };
 
+export type NavbarItemProps = React.PropsWithoutRef<
+  TitleProps & {
+    isCollapsed?: boolean;
+  }
+>;
+
+const TitleContainer = ({
+  isCollapsible,
+  hoverStyle,
+  children,
+  ...rest
+}: PropsWithChildren<TitleContainerProps>): JSX.Element => {
+  const isMobileView = useMobileViewStatus();
+  return (
+    <MKBox
+      {...rest}
+      mx={1}
+      p={1}
+      display="flex"
+      alignItems="baseline"
+      //opacity={isMobileView && open ? 1 : 0.6}
+      sx={({ palette }: Theme) => ({
+        cursor: 'pointer',
+        userSelect: 'none',
+        transition: 'all 300ms linear',
+
+        ...((!isMobileView || (isMobileView && !isCollapsible)) &&
+          getHoverConfiguration(palette, hoverStyle)),
+      })}
+    >
+      {children}
+    </MKBox>
+  );
+};
+
 const Title = ({
   icon,
   name,
   isCollapsible,
-  isMobileView,
   ...rest
 }: TitleProps): JSX.Element => (
-  <TitleContainer
-    isMobileView={isMobileView}
-    isCollapsible={isCollapsible}
-    {...rest}
-  >
+  <TitleContainer isCollapsible={isCollapsible} {...rest}>
     {icon && (
       <MKTypography
         variant="body2"
@@ -124,28 +127,16 @@ const Title = ({
   </TitleContainer>
 );
 
-export type NavbarItemProps = React.PropsWithoutRef<
-  TitleProps & {
-    isCollapsed?: boolean;
-  }
->;
 export const NavbarItem = ({
   name,
   icon,
   children,
   isCollapsible,
   isCollapsed,
-  isMobileView,
   ...rest
 }: PropsWithChildren<NavbarItemProps>): JSX.Element => (
   <>
-    <Title
-      isMobileView={isMobileView}
-      isCollapsible={isCollapsible}
-      icon={icon}
-      name={name}
-      {...rest}
-    />
+    <Title isCollapsible={isCollapsible} icon={icon} name={name} {...rest} />
 
     {children && (
       <Collapse in={isCollapsed} timeout={400} unmountOnExit>

@@ -62,7 +62,6 @@ export const NavbarNav = ({
         <NavbarItem
           key={route.name}
           name={route.name}
-          isMobileView={false}
           hoverStyle={hoverStyle}
           icon={route.icon}
           isCollapsible={!!route.menus}
