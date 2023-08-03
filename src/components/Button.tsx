@@ -13,24 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { CSSProperties } from 'react';
+
+import {
+  Button,
+  ButtonProps,
+  Link as MaterialLink,
+  LinkProps,
+  PaletteColorKey,
+  styled,
+} from '@mui/material';
 
 import { Link as GatsbyLink } from 'gatsby-link';
-import styled, { CSSProperties } from 'styled-components';
 
-const StyledButton = styled.div`
+const StyledButton = styled(Button)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 `;
 
-type LinkInButtonProps = Pick<
-  CSSProperties,
-  'backgroundColor' | 'color' | 'borderWidth' | 'padding'
->;
+type LinkInButtonProps = Pick<CSSProperties, 'borderWidth' | 'padding'> & {
+  backgroundColor: PaletteColorKey | 'inherit';
+  color: PaletteColorKey | 'inherit';
+};
 
-const ExternalLinkInButton = styled.a`
+const ExternalLinkInButton = styled(MaterialLink)<LinkProps>`
   text-align: center;
   font-size: 14px;
   font-weight: 700;
@@ -39,26 +47,30 @@ const ExternalLinkInButton = styled.a`
   border-radius: 30px;
   text-decoration: none;
   position: relative;
-  background-color: ${props => props.theme.backgroundColor};
-  color: ${props => props.theme.color};
-  border: ${props => `2px solid ${props.theme.color}`};
-  display: inline-block;
+  /* background-color: ${({ theme, bgcolor }) =>
+    theme.palette[bgcolor as PaletteColorKey].main};*/
+  /* color: ${({ theme, color }) =>
+    theme.palette[color as PaletteColorKey].main}; */
+  border: ${({ theme, color }) =>
+    `2px solid ${theme.palette[color as PaletteColorKey].main}`};
   margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   & > * {
-    margin: 4px 2px 4px 0px;
+    margin: 4px 2px 4px 0;
     border-radius: inherit;
   }
   &:hover {
-    background-color: ${props => props.theme.color};
-    color: ${props => props.theme.backgroundColor};
+    background-color: ${({ theme, color }) =>
+      theme.palette[color as PaletteColorKey].main};
+    color: ${({ theme, bgcolor }) =>
+      theme.palette[bgcolor as PaletteColorKey].main};
   }
 `;
 
-const InternalLinkInButton = styled(GatsbyLink)`
+const InternalLinkInButton = styled(GatsbyLink)<Partial<LinkInButtonProps>>`
   padding: 12px 32px;
   text-align: center;
   font-size: 16.5px;
@@ -67,52 +79,39 @@ const InternalLinkInButton = styled(GatsbyLink)`
   border-radius: 20px;
   text-decoration: none;
   position: relative;
-  background-color: ${props => props.theme.backgroundColor};
-  color: ${props => props.theme.color};
-  border: ${props => `2px solid ${props.theme.backgroundColor}`};
+  background-color: ${props => props.backgroundColor || 'inherit'};
+  color: ${props => props.color || 'inherit'};
+  border: ${props => `2px solid ${props.backgroundColor || 'inherit'}`};
   display: inline-block;
 
   &:hover {
-    background-color: ${props => props.theme.color};
-    color: ${props => props.theme.backgroundColor};
+    background-color: ${props => props.color || 'inherit'};
+    color: ${props => props.backgroundColor || 'inherit'};
   }
 `;
 
 export const ButtonWithExternalLink = ({
   children,
-  backgroundColor,
-  color,
-  borderWidth,
-  padding,
-  ...rest
-}: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-React.PropsWithChildren<AnchorHTMLAttributes<any>> &
-  LinkInButtonProps): JSX.Element => (
-  <StyledButton>
-    <ExternalLinkInButton
-      theme={{ backgroundColor, color, borderWidth, padding }}
-      {...rest}
-    >
-      {children}
-    </ExternalLinkInButton>
+  link,
+  button,
+}: React.PropsWithChildren<{
+  link?: Partial<LinkProps>;
+  button?: Partial<ButtonProps>;
+}>): JSX.Element => (
+  <StyledButton {...button}>
+    <ExternalLinkInButton {...link}>{children}</ExternalLinkInButton>
   </StyledButton>
 );
 
 export const ButtonWithInternalLink = ({
   children,
-  backgroundColor,
-  color,
-  borderWidth,
-  padding,
-  ...rest
-}: React.PropsWithChildren<{ to: string }> &
-  LinkInButtonProps): JSX.Element => (
-  <StyledButton>
-    <InternalLinkInButton
-      theme={{ backgroundColor, color, borderWidth, padding }}
-      {...rest}
-    >
-      {children}
-    </InternalLinkInButton>
+  link,
+  button,
+}: React.PropsWithChildren<{
+  link: { to: string } & Partial<LinkInButtonProps>;
+  button?: Partial<ButtonProps>;
+}>): JSX.Element => (
+  <StyledButton {...button}>
+    <InternalLinkInButton {...link}>{children}</InternalLinkInButton>
   </StyledButton>
 );
