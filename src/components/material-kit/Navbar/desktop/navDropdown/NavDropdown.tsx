@@ -112,7 +112,7 @@ export const NavDropdown: FC<NavDropdownProps> = ({
                 withColumns ? (
                   // Render the dropdown menu that should be display as columns
                   <ColumnNavDropdown
-                    menus={menus}
+                    content={menus}
                     name={name}
                     rowsPerColumn={rowsPerColumn}
                     hoverStyle={hoverStyle}

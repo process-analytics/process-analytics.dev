@@ -35,14 +35,13 @@ import { Link, LinkContent } from '../../../..';
 
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
-type DropdownDropdownProps = LinkContent & {
+type DropdownDropdownProps = {
+  content: LinkContent;
   hoverStyle: HoverStyle;
 };
 
 export const DropdownDropdown: FC<DropdownDropdownProps> = ({
-  type,
-  url,
-  name,
+  content: { type, url, name },
   hoverStyle,
 }) => (
   <Link
