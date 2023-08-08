@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+
 import React from 'react';
 
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+
 import { Flex } from 'rebass/styled-components';
-import { PostCard, MKBox } from './material-kit';
 
-import { ButtonWithInternalLink } from '.';
+import { PostCard, MKBox, Button } from '.';
 
-import colors from '../assets/oldTheme/colors.json';
 import { useMobileViewStatus } from '../hooks';
 
 type PostContainerProps = {
@@ -82,13 +82,15 @@ export const PostContainer = ({
 
       {pageId && postContents.length > maxNumberOfPosts && (
         <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
-          <ButtonWithInternalLink
-            to={`/${pageId}`}
-            color={colors.background}
-            backgroundColor={colors.secondary}
-          >
-            See all
-          </ButtonWithInternalLink>
+          <Button
+            content={{
+              type: 'internal',
+              url: `/${pageId}`,
+              name: 'See all',
+            }}
+            color="quaternary"
+            backgroundColor="secondary"
+          />
         </Flex>
       )}
     </Container>
