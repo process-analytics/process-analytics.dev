@@ -77,7 +77,7 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
     opacity,
     verticalAlign,
     textDecoration: 'none',
-    textTransform,
+    textTransform: textTransform ?? 'none',
     color: calculatedColor,
     letterSpacing: '-0.125px',
     fontWeight,

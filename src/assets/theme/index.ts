@@ -16,7 +16,8 @@
 
 // @mui material components
 import { createTheme, Theme } from '@mui/material';
-import responsiveFontSizes from '@mui/material/styles/responsiveFontSizes';
+
+import { responsiveFontSizes } from './responsiveFont';
 
 // Material Kit 2 React base styles
 import {
