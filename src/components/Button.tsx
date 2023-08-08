@@ -17,31 +17,27 @@ import React, { FC } from 'react';
 
 import {
   Button as MaterialButton,
-  ButtonProps as MaterialButtonProps,
   PaletteColorKey,
   Theme,
 } from '@mui/material';
 
 import { Link, LinkContent } from './Link';
 
-type InternalButtonProps = Partial<Omit<MaterialButtonProps, 'color'>> & {
+type ButtonProps = {
+  content: Omit<LinkContent, 'description'>;
   backgroundColor: PaletteColorKey;
   color: PaletteColorKey;
 };
 
-type ButtonProps = {
-  link: Omit<LinkContent, 'description'>;
-  button: InternalButtonProps;
-};
-
 export const Button: FC<ButtonProps> = ({
-  link: { name, ...rest },
-  button: { backgroundColor, color },
+  content: { name, ...contentRest },
+  backgroundColor,
+  color,
 }) => (
   <Link
     component={MaterialButton}
+    {...contentRest}
     color={color}
-    {...rest}
     sx={{
       margin: '4px 2px',
       padding: '12px 32px',

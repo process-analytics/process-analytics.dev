@@ -83,15 +83,13 @@ export const PostContainer = ({
       {pageId && postContents.length > maxNumberOfPosts && (
         <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
           <Button
-            link={{
+            content={{
               type: 'internal',
               url: `/${pageId}`,
               name: 'See all',
             }}
-            button={{
-              color: 'quaternary',
-              backgroundColor: 'secondary',
-            }}
+            color="quaternary"
+            backgroundColor="secondary"
           />
         </Flex>
       )}
