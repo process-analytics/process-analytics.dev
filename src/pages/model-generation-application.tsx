@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeadProps } from 'gatsby';
 
-import { FlexProps, TextProps } from 'rebass';
-import {
-  Box,
-  Flex,
-  Heading,
-  Image,
-  Link,
-  Text,
-} from 'rebass/styled-components';
+import { Box, BoxProps, Link } from '@mui/material';
 
 import {
   SEO,
@@ -38,46 +30,58 @@ import {
   Section,
   Layout,
   PostContainer,
+  MKTypography,
 } from '../components';
 import { postsContent, footerContent, headerContent } from '../content';
 import { PAGE } from '../helper';
 import { DataProps } from '../hooks';
 
-import colors from '../assets/oldTheme/colors.json';
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';
 
-export const Part = ({
+type PartTitleProps = {
+  marginBottom?: string;
+  width?: string;
+};
+
+type ParagraphProps = {
+  marginBottom?: number[];
+  marginTop?: number[];
+  marginLeft?: string[];
+  fontSize?: number[];
+  width?: string | string[];
+};
+
+export const Part: FC<React.PropsWithChildren<BoxProps>> = ({
   padding,
   children,
   ...props
-}: React.PropsWithChildren<FlexProps>): JSX.Element => {
-  return (
-    <Flex
-      marginX="16px"
-      padding={padding}
-      fontSize="1.25rem"
-      fontWeight={400}
-      lineHeight={1.625}
-      letterSpacing={'0.00938em'}
-      style={{
-        position: 'relative',
-        borderRadius: '0.75rem',
-      }}
-      {...props}
-    >
-      {children}
-    </Flex>
-  );
-};
+}) => (
+  <Box
+    display="flex"
+    marginX="16px"
+    padding={padding}
+    fontSize="1.25rem"
+    fontWeight={400}
+    lineHeight={1.625}
+    letterSpacing={'0.00938em'}
+    style={{
+      position: 'relative',
+      borderRadius: '0.75rem',
+    }}
+    {...props}
+  >
+    {children}
+  </Box>
+);
 
-export const PartWithSingleColumn = ({
-  backgroundColor,
+export const PartWithSingleColumn: FC<React.PropsWithChildren<BoxProps>> = ({
+  bgcolor,
   children,
-}: React.PropsWithChildren<FlexProps>): JSX.Element => {
+}) => {
   const background = (
     <Box
-      backgroundColor={backgroundColor}
+      bgcolor={bgcolor}
       width="100%"
       height="100%"
       style={{
@@ -90,19 +94,19 @@ export const PartWithSingleColumn = ({
           'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
         transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
         backgroundClip: 'border-box',
+        opacity: '0.3',
       }}
-      opacity="0.3"
       margin={0}
     />
   );
 
-  const partPadding = !backgroundColor ? '104px 24px' : 0;
-  const boxPadding = !backgroundColor ? 0 : '52px 24px';
-  const boxWidth = !backgroundColor ? 80 : 100;
+  const partPadding = !bgcolor ? '104px 24px' : 0;
+  const boxPadding = !bgcolor ? 0 : '52px 24px';
+  const boxWidth = !bgcolor ? 80 : 100;
 
   return (
     <Part padding={partPadding}>
-      {backgroundColor && background}
+      {bgcolor && background}
       <Box
         style={{ width: `${boxWidth}%`, padding: boxPadding }}
         marginX="auto"
@@ -113,54 +117,50 @@ export const PartWithSingleColumn = ({
   );
 };
 
-export const PartTitle = ({
+export const PartTitle: FC<React.PropsWithChildren<PartTitleProps>> = ({
   children,
   ...props
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
-  return (
-    <Text
-      as="h3"
-      color="text"
-      marginBottom="24px"
-      fontSize="1.875rem"
-      fontWeight={700}
-      lineHeight={1.375}
-      letterSpacing="-0.125px"
-      textAlign="center"
-      {...props}
-    >
-      {children}
-    </Text>
-  );
-};
+}) => (
+  <MKTypography
+    variant="h3"
+    color="text"
+    marginBottom="24px"
+    fontSize="1.875rem"
+    fontWeight={700}
+    lineHeight={1.375}
+    letterSpacing="-0.125px"
+    textAlign="center"
+    {...props}
+  >
+    {children}
+  </MKTypography>
+);
 
-const HighlightMessage = ({
+const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
   children,
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
-  return (
-    <Text
-      as="h4"
-      color="secondary"
-      marginBottom="2rem"
-      paddingY={['0.5rem', '0.5rem', '1.5rem']}
-      fontSize="1.675rem"
-      fontWeight={700}
-      lineHeight={1.375}
-      letterSpacing="-0.125px"
-      textAlign="center"
-    >
-      {children}
-    </Text>
-  );
-};
+}) => (
+  <MKTypography
+    variant="h4"
+    color="secondary"
+    marginBottom="2rem"
+    paddingY={['0.5rem', '0.5rem', '1.5rem']}
+    fontSize="1.675rem"
+    fontWeight={700}
+    lineHeight={1.375}
+    letterSpacing="-0.125px"
+    textAlign="center"
+  >
+    {children}
+  </MKTypography>
+);
 
-export const Paragraph = ({
+export const Paragraph: FC<React.PropsWithChildren<ParagraphProps>> = ({
   children,
   ...props
-}: React.PropsWithChildren<TextProps>): JSX.Element => {
+}) => {
   return (
-    <Text
-      as="p"
+    <MKTypography
+      variant="body1"
       color="text"
       margin="0"
       fontSize="1.25rem"
@@ -170,36 +170,44 @@ export const Paragraph = ({
       {...props}
     >
       {children}
-    </Text>
+    </MKTypography>
   );
 };
 
-const ModelGenerationApplicationPage = (): JSX.Element => (
+const ModelGenerationApplicationPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <Heading
+      <MKTypography
         textAlign="center"
-        as="h1"
+        variant="h1"
         color="primary"
         fontSize={[6, 8]}
         marginY={[5, 5, '12rem']}
       >
         Model Generation Application
-      </Heading>
+      </MKTypography>
     </Section>
     <Section>
       <Box
         style={{
+          borderRadius: '0.75rem',
+          borderColor: 'primary',
+          borderWidth: '5px',
+          borderStyle: 'solid',
+          color: 'secondary',
+          flexShrink: 0,
           boxShadow:
             'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
         }}
       >
-        <Image
-          style={{ borderRadius: '5px' }}
-          css={{ aspectRatio: 'attr(width) / attr(height)' }}
-          src={AppPreview}
-          alt={'Model Generation Application Demo'}
-        />
+        <Box
+          sx={{
+            aspectRatio: 'attr(width) / attr(height)',
+            borderRadius: '5px',
+          }}
+        >
+          <img src={AppPreview} alt={'Model Generation Application Demo'} />
+        </Box>
       </Box>
     </Section>
     <Section>
@@ -212,7 +220,7 @@ const ModelGenerationApplicationPage = (): JSX.Element => (
       </PartWithSingleColumn>
     </Section>
     <Section>
-      <PartWithSingleColumn backgroundColor="muted">
+      <PartWithSingleColumn bgcolor="muted">
         <PartTitle marginBottom="3.25rem">How it works?</PartTitle>
         <Part
           marginTop="24px"
@@ -220,12 +228,16 @@ const ModelGenerationApplicationPage = (): JSX.Element => (
           alignItems={'center'}
           flexDirection={['column', 'row']}
         >
-          <Image
-            src={HowItWorksImg}
-            alt={'Generation Model Application Demo'}
+          <Box
             width={['100%', '45%']}
+            height="auto"
             marginBottom={['3.25rem', 0]}
-          />
+          >
+            <img
+              src={HowItWorksImg}
+              alt={'Generation Model Application Demo'}
+            />
+          </Box>
           <Paragraph width={['100%', '40%']} fontSize={[1, 1, 2, 3]}>
             The Model Generation Application is a{' '}
             <Link href="https://shiny.rstudio.com/">shiny R application</Link>{' '}
@@ -257,24 +269,25 @@ const ModelGenerationApplicationPage = (): JSX.Element => (
         width={['100%', '80%']}
         marginX="auto"
       >
-        <Flex
+        <Box
+          display="flex"
           width={['5rem', '5.5rem', '6.875rem']}
           height={['5rem', '5.5rem', '6.875rem']}
           alignItems="center"
           marginBottom={['3.25rem', 0]}
           style={{
             borderRadius: '0.75rem',
-            borderColor: colors.primary,
+            borderColor: 'primary',
             borderWidth: '5px',
             borderStyle: 'solid',
-            color: colors.secondary,
+            color: 'secondary',
             flexShrink: 0,
             boxShadow:
               'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
           }}
         >
           <FontAwesomeIcon icon={faInfo} width="100%" height="100%" size="2x" />
-        </Flex>
+        </Box>
         <Paragraph
           fontSize={[1, 1, 2, 3]}
           marginLeft={['2rem', '3rem', '5rem']}
@@ -332,6 +345,6 @@ export default ModelGenerationApplicationPage;
  * Valid tags inside the Head function are: link, meta, style, title, base, script, and noscript.
  * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
+export const Head: FC<HeadProps<DataProps>> = ({ location }) => (
   <SEO title={PAGE.modelGenerationApplication} pathname={location.pathname} />
 );
