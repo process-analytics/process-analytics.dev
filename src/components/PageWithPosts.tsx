@@ -53,7 +53,6 @@ export const PageWithPosts = ({
         textAlign="center"
         variant="h1"
         color="primary"
-        fontSize={[6, 8]}
         mb={[3, 4, 4]}
         mt={[5, 5, 6]}
       >
@@ -63,7 +62,6 @@ export const PageWithPosts = ({
         variant="body1"
         width={['85%', '80%', '70%']}
         color="primary"
-        fontSize={[2, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
