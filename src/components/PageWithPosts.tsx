@@ -15,21 +15,19 @@
  */
 import * as React from 'react';
 
-import { Heading, Text } from 'rebass/styled-components';
-
-import { MKBox } from '../components';
-import { footerContent, headerContent } from '../content';
-
 import {
   Layout,
   Section,
   PostContainer,
   PostContent,
   MailingListSubscription,
+  FooterContent,
+  HeaderContent,
+  MKBox,
+  MKTypography,
 } from '../components';
 
 import { SECTION } from '../helper';
-import { theme } from '../assets/oldTheme';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
@@ -38,36 +36,38 @@ interface PageWithPostsProps {
   containerTitle: SECTION;
   postContents: PostContent[];
   description: string;
+  footerContent: FooterContent;
+  headerContent: HeaderContent;
 }
 
 export const PageWithPosts = ({
   containerTitle,
   postContents,
   description,
+  footerContent,
+  headerContent,
 }: PageWithPostsProps): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
-    <Section id={containerTitle} backgroundColor={theme.colors.primary}>
-      <Heading
+    <Section id={containerTitle} backgroundColor="primary">
+      <MKTypography
         textAlign="center"
-        as="h1"
+        variant="h1"
         color="primary"
-        fontSize={[6, 8]}
         mb={[3, 4, 4]}
         mt={[5, 5, 6]}
       >
         {containerTitle}
-      </Heading>
-      <Text
-        as="p"
+      </MKTypography>
+      <MKTypography
+        variant="body1"
         width={['85%', '80%', '70%']}
         color="primary"
-        fontSize={[2, 4]}
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
       >
         {description}
-      </Text>
+      </MKTypography>
       <MKBox component="section" py={12}>
         <PostContainer postContents={postContents} />
       </MKBox>

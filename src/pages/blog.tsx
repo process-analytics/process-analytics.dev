@@ -19,14 +19,16 @@ import { HeadProps } from 'gatsby';
 
 import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
-import { postsContent } from '../content';
+import { footerContent, headerContent, postsContent } from '../content';
 import { PAGE, SECTION } from '../helper';
 
 const BlogPage = (): JSX.Element => (
   <PageWithPosts
     containerTitle={SECTION.blog}
-    postContents={postsContent.posts}
     description={postsContent.description}
+    postContents={postsContent.posts}
+    headerContent={headerContent}
+    footerContent={footerContent}
   />
 );
 
