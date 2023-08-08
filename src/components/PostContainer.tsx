@@ -87,6 +87,8 @@ export const PostContainer = ({
               type: 'internal',
               url: `/${pageId}`,
               name: 'See all',
+            }}
+            button={{
               color: 'quaternary',
               backgroundColor: 'secondary',
             }}
