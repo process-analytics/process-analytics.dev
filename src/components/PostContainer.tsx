@@ -21,7 +21,7 @@ import Grid from '@mui/material/Grid';
 
 import { Flex } from 'rebass/styled-components';
 
-import { PostCard, MKBox, ButtonWithInternalLink } from '.';
+import { PostCard, MKBox, Button } from '.';
 
 import { useMobileViewStatus } from '../hooks';
 
@@ -82,15 +82,15 @@ export const PostContainer = ({
 
       {pageId && postContents.length > maxNumberOfPosts && (
         <Flex justifyContent="center" mt="30px" mb="30px" fontSize={[2, 3]}>
-          <ButtonWithInternalLink
+          <Button
             link={{
-              to: `/${pageId}`,
+              type: 'internal',
+              url: `/${pageId}`,
+              name: 'See all',
               color: 'quaternary',
               backgroundColor: 'secondary',
             }}
-          >
-            See all
-          </ButtonWithInternalLink>
+          />
         </Flex>
       )}
     </Container>

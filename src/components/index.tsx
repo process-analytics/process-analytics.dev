@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { ButtonWithExternalLink, ButtonWithInternalLink } from './Button';
+export { Button } from './Button';
 export { Divider } from './Divider';
 export { Footer, FooterProps, FooterContent } from './Footer';
 export { Header, HeaderContent } from './Header';

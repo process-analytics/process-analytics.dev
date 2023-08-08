@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, FC } from 'react';
 
 import {
-  ButtonProps,
+  ButtonProps as MaterialButtonProps,
   Link as MaterialLink,
   LinkProps,
   PaletteColorKey,
@@ -24,6 +24,18 @@ import {
 } from '@mui/material';
 
 import { Link as GatsbyLink } from 'gatsby-link';
+
+import { Link, LinkContent } from './Link';
+
+type ButtonProps = {
+  link: Omit<LinkContent, 'description'> & Partial<LinkInButtonProps>;
+  button?: Partial<MaterialButtonProps>;
+};
+
+type LinkInButtonProps = Pick<CSSProperties, 'borderWidth' | 'padding'> & {
+  backgroundColor: PaletteColorKey;
+  color: PaletteColorKey;
+};
 
 const StyledButton = styled('button')`
   display: inline-flex;
@@ -33,11 +45,6 @@ const StyledButton = styled('button')`
   border: none;
   background-color: inherit;
 `;
-
-type LinkInButtonProps = Pick<CSSProperties, 'borderWidth' | 'padding'> & {
-  backgroundColor: PaletteColorKey;
-  color: PaletteColorKey;
-};
 
 const ExternalLinkInButton = styled(MaterialLink)<LinkProps>`
   text-align: center;
@@ -100,28 +107,18 @@ const InternalLinkInButton = styled(GatsbyLink)<Partial<LinkInButtonProps>>`
   }
 `;
 
-export const ButtonWithExternalLink = ({
-  children,
-  link,
+export const Button: FC<ButtonProps> = ({
+  link: { name, ...rest },
   button,
-}: React.PropsWithChildren<{
-  link?: Partial<LinkProps>;
-  button?: Partial<ButtonProps>;
-}>): JSX.Element => (
+}) => (
   <StyledButton {...button}>
-    <ExternalLinkInButton {...link}>{children}</ExternalLinkInButton>
-  </StyledButton>
-);
-
-export const ButtonWithInternalLink = ({
-  children,
-  link,
-  button,
-}: React.PropsWithChildren<{
-  link: { to: string } & Partial<LinkInButtonProps>;
-  button?: Partial<ButtonProps>;
-}>): JSX.Element => (
-  <StyledButton {...button}>
-    <InternalLinkInButton {...link}>{children}</InternalLinkInButton>
+    <Link
+      component={
+        rest.type == 'internal' ? InternalLinkInButton : ExternalLinkInButton
+      }
+      {...rest}
+    >
+      {name}
+    </Link>
   </StyledButton>
 );
