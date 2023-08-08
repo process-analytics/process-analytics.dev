@@ -45,9 +45,9 @@ type PartTitleProps = {
 };
 
 type ParagraphProps = {
-  marginBottom?: number[];
-  marginTop?: number[];
-  marginLeft?: string[];
+  marginBottom?: number | number[];
+  marginTop?: number | number[];
+  marginLeft?: string | string[];
   width?: string | string[];
 };
 
@@ -145,7 +145,7 @@ export const Paragraph: FC<React.PropsWithChildren<ParagraphProps>> = ({
   children,
   ...props
 }) => (
-  <MKTypography variant="body1" color="text" margin="0" {...props}>
+  <MKTypography variant="body2" color="text" margin="0" {...props}>
     {children}
   </MKTypography>
 );

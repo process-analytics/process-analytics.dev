@@ -16,9 +16,9 @@
 
 import React, { FC } from 'react';
 
-import { styled } from '@mui/material';
+import { styled, Link as MaterialLink } from '@mui/material';
 
-import { HeadProps } from 'gatsby';
+import { HeadProps, Link as GatsbyLink } from 'gatsby';
 
 import { SEO, Section, Layout, MKTypography } from '../components';
 import { DataProps } from '../hooks';
@@ -34,7 +34,8 @@ const ModelGenerationApplicationConditionPage: FC = () => (
         textAlign="center"
         variant="h1"
         color="primary"
-        marginY={[5, 5, '12rem']}
+        mt={[5, 5, 6]}
+        mb={[3, 8, 12]}
       >
         Usage conditions of Model Generation Application
       </MKTypography>
@@ -43,9 +44,9 @@ const ModelGenerationApplicationConditionPage: FC = () => (
         <PartTitle>Terms of Use</PartTitle>
         <Paragraph>
           The{' '}
-          <a href={'/model-generation-application'}>
+          <GatsbyLink to={'/model-generation-application'}>
             <Bold>Model Generation Application</Bold>{' '}
-          </a>
+          </GatsbyLink>
           is edited by:
           <br />
           <code>
@@ -61,21 +62,25 @@ const ModelGenerationApplicationConditionPage: FC = () => (
           <br />
           <br />
           Contact:{' '}
-          <a href="mailto:process.analytics.dev@gmail.com">
+          <MaterialLink href="mailto:process.analytics.dev@gmail.com">
             process.analytics.dev@gmail.com
-          </a>
+          </MaterialLink>
         </Paragraph>
         <Paragraph marginTop={[4, 5]}>
           The form used to submit data is provided by&nbsp;
-          <a href="https://www.jotform.com">JOTForm</a>. The following rules
-          apply:
+          <MaterialLink href="https://www.jotform.com">JOTForm</MaterialLink>.
+          The following rules apply:
           <ul>
             <li>
-              <a href="https://www.jotform.com/terms/">JOTForm terms</a>
+              <MaterialLink href="https://www.jotform.com/terms/">
+                JOTForm terms
+              </MaterialLink>
             </li>
             <li>
-              <a href="https://www.jotform.com/privacy/">JOTForm privacy</a>. In
-              particular, please read the following paragraphs
+              <MaterialLink href="https://www.jotform.com/privacy/">
+                JOTForm privacy
+              </MaterialLink>
+              . In particular, please read the following paragraphs
               <ul>
                 <li>
                   <i>"INFORMATION WE COLLECT / From Form Responders"</i>
