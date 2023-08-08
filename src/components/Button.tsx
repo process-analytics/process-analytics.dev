@@ -16,7 +16,6 @@
 import React, { CSSProperties } from 'react';
 
 import {
-  Button,
   ButtonProps,
   Link as MaterialLink,
   LinkProps,
@@ -26,16 +25,18 @@ import {
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-const StyledButton = styled(Button)`
+const StyledButton = styled('button')`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: none;
+  background-color: inherit;
 `;
 
 type LinkInButtonProps = Pick<CSSProperties, 'borderWidth' | 'padding'> & {
-  backgroundColor: PaletteColorKey | 'inherit';
-  color: PaletteColorKey | 'inherit';
+  backgroundColor: PaletteColorKey;
+  color: PaletteColorKey;
 };
 
 const ExternalLinkInButton = styled(MaterialLink)<LinkProps>`
@@ -85,16 +86,17 @@ const InternalLinkInButton = styled(GatsbyLink)<Partial<LinkInButtonProps>>`
   border: ${props => `2px solid ${props.backgroundColor || 'inherit'}`};*/
 
   background-color: ${({ theme, backgroundColor }) =>
-    theme.palette[backgroundColor as PaletteColorKey].main || 'inherit'};
-  color: ${({ theme, color }) =>
-    theme.palette[color as PaletteColorKey].main || 'inherit'};
-  border: ${({ theme, color }) =>
-    `2px solid ${theme.palette[color as PaletteColorKey].main || 'inherit'}`};
+    theme.palette[backgroundColor as PaletteColorKey].main};
+  color: ${({ theme, color }) => theme.palette[color as PaletteColorKey].main};
+  border: ${({ theme, backgroundColor }) =>
+    `2px solid ${theme.palette[backgroundColor as PaletteColorKey].main}`};
   display: inline-block;
 
   &:hover {
-    background-color: ${props => props.color || 'inherit'};
-    color: ${props => props.backgroundColor || 'inherit'};
+    background-color: ${({ theme, color }) =>
+      theme.palette[color as PaletteColorKey].main};
+    color: ${({ theme, backgroundColor }) =>
+      theme.palette[backgroundColor as PaletteColorKey].main};
   }
 `;
 
