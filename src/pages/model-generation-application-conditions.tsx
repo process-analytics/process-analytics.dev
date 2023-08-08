@@ -43,7 +43,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
 
       <Part flexDirection="column" width="80%" marginX="auto">
         <PartTitle>Terms of Use</PartTitle>
-        <Paragraph fontSize={[1, 1, 2, 3]}>
+        <Paragraph>
           The{' '}
           <a href={'/model-generation-application'}>
             <Bold>Model Generation Application</Bold>{' '}
@@ -67,7 +67,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
             process.analytics.dev@gmail.com
           </a>
         </Paragraph>
-        <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4, 5]}>
+        <Paragraph marginTop={[4, 5]}>
           The form used to submit data is provided by&nbsp;
           <a href="https://www.jotform.com">JOTForm</a>. The following rules
           apply:
@@ -93,7 +93,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
             <li>Data is only stored in Europe (Germany)</li>
           </ul>
         </Paragraph>
-        <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]} marginBottom={[4]}>
+        <Paragraph marginTop={[4]} marginBottom={[4]}>
           The <Bold>Process Analytics Project</Bold> collects data (name, email,
           XES file) for the sole purpose of sending you the processing results.
           <br />
@@ -117,7 +117,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
         <PartTitle>
           Disclaimer of Warranties and Limitation of Liability
         </PartTitle>
-        <Paragraph fontSize={[1, 1, 2, 3]}>
+        <Paragraph>
           <Bold>(a) Warranty Disclaimer:</Bold> THE SITE AND THE SITE CONTENT
           ARE PROVIDED STRICTLY ON AN “AS IS” AND “AS AVAILABLE” BASIS, AND THE
           PROCESS ANALYTICS PROJECT MAKES NO WARRANTY THAT THE SITE OR THE SITE
@@ -132,7 +132,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
           WARRANTY THAT THE SITE AVAILABILITY WILL BE UNINTERRUPTED, OR THE SITE
           AND/OR THE SITE CONTENT WILL BE ERROR FREE.
         </Paragraph>
-        <Paragraph fontSize={[1, 1, 2, 3]} marginTop={[4]}>
+        <Paragraph marginTop={[4]}>
           <Bold>(b) Limitation of Liability:</Bold> TO THE FULLEST EXTENT
           PERMITTED BY APPLICABLE LAW, YOU AGREE THAT THE PROCESS ANALYTICS
           PROJECT SHALL NOT BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF OR

@@ -48,7 +48,6 @@ type ParagraphProps = {
   marginBottom?: number[];
   marginTop?: number[];
   marginLeft?: string[];
-  fontSize?: number[];
   width?: string | string[];
 };
 
@@ -61,10 +60,6 @@ export const Part: FC<React.PropsWithChildren<BoxProps>> = ({
     display="flex"
     marginX="16px"
     padding={padding}
-    fontSize="1.25rem"
-    fontWeight={400}
-    lineHeight={1.625}
-    letterSpacing={'0.00938em'}
     style={{
       position: 'relative',
       borderRadius: '0.75rem',
@@ -125,10 +120,6 @@ export const PartTitle: FC<React.PropsWithChildren<PartTitleProps>> = ({
     variant="h3"
     color="text"
     marginBottom="24px"
-    fontSize="1.875rem"
-    fontWeight={700}
-    lineHeight={1.375}
-    letterSpacing="-0.125px"
     textAlign="center"
     {...props}
   >
@@ -144,10 +135,6 @@ const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
     color="secondary"
     marginBottom="2rem"
     paddingY={['0.5rem', '0.5rem', '1.5rem']}
-    fontSize="1.675rem"
-    fontWeight={700}
-    lineHeight={1.375}
-    letterSpacing="-0.125px"
     textAlign="center"
   >
     {children}
@@ -157,22 +144,11 @@ const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
 export const Paragraph: FC<React.PropsWithChildren<ParagraphProps>> = ({
   children,
   ...props
-}) => {
-  return (
-    <MKTypography
-      variant="body1"
-      color="text"
-      margin="0"
-      fontSize="1.25rem"
-      fontWeight={300}
-      lineHeight={1.625}
-      letterSpacing="-0.125px"
-      {...props}
-    >
-      {children}
-    </MKTypography>
-  );
-};
+}) => (
+  <MKTypography variant="body1" color="text" margin="0" {...props}>
+    {children}
+  </MKTypography>
+);
 
 const ModelGenerationApplicationPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
@@ -181,33 +157,26 @@ const ModelGenerationApplicationPage: FC = () => (
         textAlign="center"
         variant="h1"
         color="primary"
-        fontSize={[6, 8]}
-        marginY={[5, 5, '12rem']}
+        mt={[5, 5, 6]}
+        mb={[3, 8, 12]}
       >
         Model Generation Application
       </MKTypography>
     </Section>
     <Section>
       <Box
-        style={{
-          borderRadius: '0.75rem',
-          borderColor: 'primary',
-          borderWidth: '5px',
-          borderStyle: 'solid',
-          color: 'secondary',
-          flexShrink: 0,
+        marginX={[0, 0, 0, 5]}
+        sx={{
+          borderRadius: '5px',
           boxShadow:
             'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
         }}
       >
-        <Box
-          sx={{
-            aspectRatio: 'attr(width) / attr(height)',
-            borderRadius: '5px',
-          }}
-        >
-          <img src={AppPreview} alt={'Model Generation Application Demo'} />
-        </Box>
+        <img
+          src={AppPreview}
+          alt={'Model Generation Application Demo'}
+          style={{ borderRadius: '5px' }}
+        />
       </Box>
     </Section>
     <Section>
@@ -238,7 +207,7 @@ const ModelGenerationApplicationPage: FC = () => (
               alt={'Generation Model Application Demo'}
             />
           </Box>
-          <Paragraph width={['100%', '40%']} fontSize={[1, 1, 2, 3]}>
+          <Paragraph width={['100%', '40%']}>
             The Model Generation Application is a{' '}
             <Link href="https://shiny.rstudio.com/">shiny R application</Link>{' '}
             that takes an event log file in{' '}
@@ -271,27 +240,29 @@ const ModelGenerationApplicationPage: FC = () => (
       >
         <Box
           display="flex"
+          flexShrink={0}
+          alignItems="center"
           width={['5rem', '5.5rem', '6.875rem']}
           height={['5rem', '5.5rem', '6.875rem']}
-          alignItems="center"
           marginBottom={['3.25rem', 0]}
-          style={{
+          sx={{
+            color: 'secondary.main',
+            border: '5px solid',
             borderRadius: '0.75rem',
-            borderColor: 'primary',
-            borderWidth: '5px',
-            borderStyle: 'solid',
-            color: 'secondary',
-            flexShrink: 0,
+            borderColor: 'primary.main',
             boxShadow:
               'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
           }}
         >
-          <FontAwesomeIcon icon={faInfo} width="100%" height="100%" size="2x" />
+          <FontAwesomeIcon
+            icon={faInfo}
+            width="100%"
+            height="100%"
+            size="2x"
+            color="inherit"
+          />
         </Box>
-        <Paragraph
-          fontSize={[1, 1, 2, 3]}
-          marginLeft={['2rem', '3rem', '5rem']}
-        >
+        <Paragraph marginLeft={['2rem', '3rem', '5rem']}>
           This tool is currently in preview. We are working on improving the
           performance and usability of the tool.
           <br /> <br />
@@ -304,7 +275,7 @@ const ModelGenerationApplicationPage: FC = () => (
     <Section>
       <Part
         id={'form'}
-        marginBottom="124px"
+        marginY={[0, 0, 0, 3]}
         style={{
           boxSizing: 'border-box',
           flexFlow: 'row wrap',

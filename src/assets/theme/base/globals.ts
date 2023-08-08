@@ -60,7 +60,7 @@ export const globals: ComponentsOverrides<Theme>['MuiCssBaseline'] = {
   },
 
   body: {
-    fontSize: 'inherit',
+    fontSize: '14px',
     boxSizing: 'border-box',
     margin: 0,
     padding: 0,
