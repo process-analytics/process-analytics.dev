@@ -14,32 +14,30 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
+
+import { styled } from '@mui/material';
 
 import { HeadProps } from 'gatsby';
 
-import { Heading } from 'rebass/styled-components';
-import styled from 'styled-components';
-
-import { SEO, Section, Layout } from '../components';
+import { SEO, Section, Layout, MKTypography } from '../components';
 import { DataProps } from '../hooks';
 import { footerContent, headerContent } from '../content';
 import { PAGE } from '../helper';
 
 import { Part, Paragraph, PartTitle } from './model-generation-application';
 
-const ModelGenerationApplicationConditionPage = (): JSX.Element => (
+const ModelGenerationApplicationConditionPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <Heading
+      <MKTypography
         textAlign="center"
-        as="h1"
+        variant="h1"
         color="primary"
-        fontSize={[6, 8]}
         marginY={[5, 5, '12rem']}
       >
         Usage conditions of Model Generation Application
-      </Heading>
+      </MKTypography>
 
       <Part flexDirection="column" width="80%" marginX="auto">
         <PartTitle>Terms of Use</PartTitle>
@@ -93,7 +91,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
             <li>Data is only stored in Europe (Germany)</li>
           </ul>
         </Paragraph>
-        <Paragraph marginTop={[4]} marginBottom={[4]}>
+        <Paragraph marginTop={4} marginBottom={4}>
           The <Bold>Process Analytics Project</Bold> collects data (name, email,
           XES file) for the sole purpose of sending you the processing results.
           <br />
@@ -132,7 +130,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
           WARRANTY THAT THE SITE AVAILABILITY WILL BE UNINTERRUPTED, OR THE SITE
           AND/OR THE SITE CONTENT WILL BE ERROR FREE.
         </Paragraph>
-        <Paragraph marginTop={[4]}>
+        <Paragraph marginTop={4}>
           <Bold>(b) Limitation of Liability:</Bold> TO THE FULLEST EXTENT
           PERMITTED BY APPLICABLE LAW, YOU AGREE THAT THE PROCESS ANALYTICS
           PROJECT SHALL NOT BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF OR
@@ -152,7 +150,7 @@ const ModelGenerationApplicationConditionPage = (): JSX.Element => (
   </Layout>
 );
 
-const Bold = styled.b`
+const Bold = styled('b')`
   font-weight: 700;
 `;
 export default ModelGenerationApplicationConditionPage;
