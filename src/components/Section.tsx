@@ -127,20 +127,20 @@ const StyledSection = styled('section')<StyledSectionProps>`
 `;
 
 const SectionHeader: FC<SectionHeaderProps> = ({ name, icon, label }) => (
-  <MKTypography variant="h2" color="text" mb={4}>
-    // color="text" fontWeight="700" fontSize="1.875rem" margin="30px 65px"
+  <MKTypography
+    component={Link}
+    variant="h2"
+    mb={4}
     textAlign="center"
-    <Link
-      to={`#${getSectionHref(name)}`}
-      style={{ color: 'inherit', cursor: 'default' }}
-    >
-      {name}
-      {icon && (
-        <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-          {icon}
-        </span>
-      )}
-    </Link>
+    to={`#${getSectionHref(name)}`}
+    style={{ cursor: 'default' }}
+  >
+    {name}
+    {icon && (
+      <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+        {icon}
+      </span>
+    )}
   </MKTypography>
 );
 
