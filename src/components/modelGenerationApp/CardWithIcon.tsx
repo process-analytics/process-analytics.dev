@@ -37,61 +37,32 @@ export const CardWithIcon: FC<CardWithIconProps> = ({
 }) => (
   <Box
     style={{
-      /*      fontSize: '1.25rem',
-      fontWeight: '400',
-      lineHeight: '1',
-      letterSpacing: '0.00938em',*/
       padding: '16px',
       textAlign: 'center',
     }}
   >
-    <MKTypography
-      variant="h2"
-      style={{
-        /*        fontSize: '2.25rem',
-        fontWeight: '700',
-        lineHeight: '1.3',
-        letterSpacing: '-0.125px',*/
-        padding: '0',
-      }}
-    >
+    <MKTypography variant="h3" display="block">
       <FontAwesomeIcon
         icon={icon}
         color={iconColor}
         style={{
-          width: '1em',
-          height: '1em',
+          width: '1.75rem',
+          height: '1.75rem',
           overflow: 'hidden',
           display: 'inline-block',
-          padding: '0',
         }}
       />
     </MKTypography>
     <MKTypography
-      variant={'h5'}
-      style={{
-        margin: '8px 0px 12px',
-        /*        display: 'block',
-        fontWeight: '700',
-        letterSpacing: '-0.125px',*/
-      }}
+      variant="body1"
+      display="block"
+      fontWeight="bold"
+      mt={1}
+      mb={1.5}
     >
       {title}
     </MKTypography>
-    <MKTypography
-      variant="body1"
-      paddingX="0"
-      margin="0"
-      style={
-        {
-          /* fontSize: '1rem',
-        fontWeight: '300',
-        lineHeight: '1.6',
-        display: 'block',
-        letterSpacing: '-0.125px',*/
-        }
-      }
-    >
+    <MKTypography variant="body2" display="block" color="text">
       {description}
     </MKTypography>
   </Box>
