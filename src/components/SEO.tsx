@@ -15,7 +15,7 @@
  */
 import React, { PropsWithChildren } from 'react';
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 
 import { useSiteMetadata } from '../hooks';
 import { landingContent } from '../content';
@@ -59,37 +59,35 @@ export const SEO = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline>
-        <html lang={LANG} />
-        <title>{seo.title}</title>
-        <meta charSet="utf-8" />
-        <meta name="description" content={seo.description} />
-        <meta name="image" content={seo.image} />
-        <meta name="keywords" content={seo.metaKeywords} />
+      <html lang={LANG} />
+      <title>{seo.title}</title>
+      <meta charSet="utf-8" />
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      <meta name="keywords" content={seo.metaKeywords} />
 
-        <meta name="theme-color" content={theme.palette.background.default} />
-        <meta itemProp="name" content={seo.title} />
-        <meta itemProp="description" content={seo.description} />
+      <meta name="theme-color" content={theme.palette.background.default} />
+      <meta itemProp="name" content={seo.title} />
+      <meta itemProp="description" content={seo.description} />
 
-        <meta name="og:title" content={seo.title} />
-        <meta name="og:description" content={seo.description} />
-        <meta name="og:image" content={seo.image} />
-        <meta name="og:site_name" content={seo.title} />
-        <meta name="og:locale" content={LANG} />
-        <meta name="og:type" content="website" />
+      <meta name="og:title" content={seo.title} />
+      <meta name="og:description" content={seo.description} />
+      <meta name="og:image" content={seo.image} />
+      <meta name="og:site_name" content={seo.title} />
+      <meta name="og:locale" content={LANG} />
+      <meta name="og:type" content="website" />
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={seo.title} />
-        <meta name="twitter:creator" content={seo.twitterUsername} />
-        <meta name="twitter:site" content={seo.twitterUsername} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:creator" content={seo.twitterUsername} />
+      <meta name="twitter:site" content={seo.twitterUsername} />
 
-        <meta
-          name="google-site-verification"
-          content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
-        />
+      <meta
+        name="google-site-verification"
+        content="qp3t994P7OXLorDDzsmT0N_-KaxDwvjuNuJbxkbjKrM"
+      />
 
-        {children}
-      </CssBaseline>
+      {children}
     </ThemeProvider>
   );
 };
