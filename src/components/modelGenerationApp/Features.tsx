@@ -36,10 +36,6 @@ export const Features = (): JSX.Element => (
     flexDirection={['column', 'column', 'row']}
     flexWrap="wrap"
     style={{
-      /*      fontSize: '1.25rem',
-      fontWeight: '400',
-      lineHeight: '1.625',
-      letterSpacing: '0.00938em',*/
       boxSizing: 'border-box',
       marginTop: '-24px',
       width: 'calc(100% + 24px)',
