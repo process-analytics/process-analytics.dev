@@ -15,7 +15,7 @@
  */
 import React from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Theme } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 
@@ -45,19 +45,21 @@ export const Landing = (): JSX.Element => (
       justifyContent="center"
       marginTop={5}
       marginBottom={5}
+      color="primary"
     >
       <MKTypography
-        textAlign="center"
         variant="h1"
-        color="primary"
-        mb={[3, 4, 5]}
-        mt={4}
+        sx={({ breakpoints }: Theme) => ({
+          [breakpoints.down('md')]: {
+            fontSize: '1.875rem',
+          },
+        })}
+        mb={3}
       >
         {landingContent.title}
       </MKTypography>
       <MKTypography
         variant="h2"
-        color="primary"
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
@@ -67,6 +69,9 @@ export const Landing = (): JSX.Element => (
             {landingContent.presentation}
           </MKTypography>
         </Fade>
+      </MKTypography>
+      <MKTypography variant="body2" mb={3} fontWeight={700}>
+        Find us on
       </MKTypography>
       <Box
         display="flex"
