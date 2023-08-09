@@ -15,11 +15,16 @@
  */
 import React from 'react';
 
-import { Heading, Flex, Box, Text } from 'rebass/styled-components';
+import { Box, Theme } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { Section, SocialLink, SocialLinkContent } from '../../components';
+import {
+  MKTypography,
+  Section,
+  SocialLink,
+  SocialLinkContent,
+} from '../../components';
 import { SECTION } from '../../helper';
 import { landingContent } from '../../content';
 
@@ -31,54 +36,55 @@ export type LandingContent = {
   socialLinks: SocialLinkContent[];
 };
 
-export const Landing = (): JSX.Element => {
-  const { title, presentation, socialLinks } = {
-    ...landingContent,
-  };
-
-  return (
-    <Section id={SECTION.home} justifyContent="space-around">
-      <Flex
-        flexDirection="column"
+export const Landing = (): JSX.Element => (
+  <Section id={SECTION.home} justifyContent="space-around">
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      marginTop={5}
+      marginBottom={5}
+      color="primary"
+    >
+      <MKTypography
+        variant="h1"
+        sx={({ breakpoints }: Theme) => ({
+          [breakpoints.down('md')]: {
+            fontSize: '1.875rem',
+          },
+        })}
+        mb={3}
+      >
+        {landingContent.title}
+      </MKTypography>
+      <MKTypography
+        variant="h2"
+        mb={[3, 5]}
+        textAlign="center"
+        style={centerHorizontally}
+      >
+        <Fade direction="down" triggerOnce>
+          <MKTypography width={[300, 700]} key="presentation">
+            {landingContent.presentation}
+          </MKTypography>
+        </Fade>
+      </MKTypography>
+      <MKTypography variant="body2" mb={3} fontWeight={700}>
+        Find us on
+      </MKTypography>
+      <Box
+        display="flex"
         alignItems="center"
         justifyContent="center"
-        marginTop={5}
-        marginBottom={5}
+        flexWrap="wrap"
       >
-        <Heading
-          textAlign="center"
-          as="h1"
-          color="primary"
-          fontSize={[6, 8]}
-          mb={[3, 4, 5]}
-          mt={4}
-        >
-          {title}
-        </Heading>
-
-        <Heading
-          as="h2"
-          color="primary"
-          fontSize={[2, 4]}
-          mb={[3, 5]}
-          textAlign="center"
-          style={centerHorizontally}
-        >
-          <Fade direction="down" triggerOnce>
-            <Text width={[300, 700]} key="presentation">
-              {presentation}
-            </Text>
-          </Fade>
-        </Heading>
-
-        <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-          {socialLinks.map(sl => (
-            <Box mx={3} fontSize={[5, 6, 6]} key={sl.name}>
-              <SocialLink content={sl} />
-            </Box>
-          ))}
-        </Flex>
-      </Flex>
-    </Section>
-  );
-};
+        {landingContent.socialLinks.map(socialLink => (
+          <Box key={socialLink.name} mx={3}>
+            <SocialLink content={socialLink} />
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  </Section>
+);
