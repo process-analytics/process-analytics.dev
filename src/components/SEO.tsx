@@ -15,11 +15,11 @@
  */
 import React, { PropsWithChildren } from 'react';
 
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@mui/material';
 
 import { useSiteMetadata } from '../hooks';
 import { landingContent } from '../content';
-import { theme } from '../assets/oldTheme';
+import { theme } from '../assets/theme';
 
 const LANG = 'en';
 
@@ -59,14 +59,14 @@ export const SEO = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <html lang="en" />
+      <html lang={LANG} />
       <title>{seo.title}</title>
       <meta charSet="utf-8" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta name="keywords" content={seo.metaKeywords} />
 
-      <meta name="theme-color" content={theme.colors.background} />
+      <meta name="theme-color" content={theme.palette.background.default} />
       <meta itemProp="name" content={seo.title} />
       <meta itemProp="description" content={seo.description} />
 
