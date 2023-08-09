@@ -37,8 +37,7 @@ export const typography: TypographyOptions = {
   fontWeightMedium: fontWeight.medium,
   fontWeightBold: fontWeight.bold,
 
-  fontSize: 10,
-  htmlFontSize: 10,
+  htmlFontSize: 10, // in px
 
   h1: {
     fontSize: '3rem',
