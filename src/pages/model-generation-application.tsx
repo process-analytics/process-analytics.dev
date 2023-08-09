@@ -117,7 +117,7 @@ export const PartTitle: FC<React.PropsWithChildren<PartTitleProps>> = ({
   ...props
 }) => (
   <MKTypography
-    variant="h3"
+    variant="h2"
     color="text"
     marginBottom="24px"
     textAlign="center"
@@ -131,11 +131,13 @@ const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
   children,
 }) => (
   <MKTypography
-    variant="h4"
+    variant="body1"
     color="secondary"
-    marginBottom="2rem"
     paddingY={['0.5rem', '0.5rem', '1.5rem']}
     textAlign="center"
+    sx={{
+      fontWeight: 700,
+    }}
   >
     {children}
   </MKTypography>

@@ -13,10 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import React, { FC } from 'react';
+
+import { Box } from '@mui/material';
+
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { Box, Heading, Text } from 'rebass/styled-components';
+
+import { MKTypography } from '../material-kit';
 
 export interface CardWithIconProps {
   icon: IconProp;
@@ -24,70 +28,42 @@ export interface CardWithIconProps {
   title: string;
   description: string;
 }
-export const CardWithIcon = ({
+
+export const CardWithIcon: FC<CardWithIconProps> = ({
   iconColor,
   icon,
   title,
   description,
-}: CardWithIconProps): JSX.Element => {
-  return (
-    <Box
-      style={{
-        fontSize: '1.25rem',
-        fontWeight: '400',
-        lineHeight: '1',
-        letterSpacing: '0.00938em',
-        padding: '16px',
-        textAlign: 'center',
-      }}
+}) => (
+  <Box
+    style={{
+      padding: '16px',
+      textAlign: 'center',
+    }}
+  >
+    <MKTypography variant="h3" display="block">
+      <FontAwesomeIcon
+        icon={icon}
+        color={iconColor}
+        style={{
+          width: '1.75rem',
+          height: '1.75rem',
+          overflow: 'hidden',
+          display: 'inline-block',
+        }}
+      />
+    </MKTypography>
+    <MKTypography
+      variant="body1"
+      display="block"
+      fontWeight="bold"
+      mt={1}
+      mb={1.5}
     >
-      <Heading
-        as={'h2'}
-        style={{
-          fontSize: '2.25rem',
-          fontWeight: '700',
-          lineHeight: '1.3',
-          letterSpacing: '-0.125px',
-          padding: '0',
-        }}
-      >
-        <FontAwesomeIcon
-          icon={icon}
-          color={iconColor}
-          style={{
-            width: '1em',
-            height: '1em',
-            overflow: 'hidden',
-            display: 'inline-block',
-            padding: '0',
-          }}
-        />
-      </Heading>
-      <Text
-        as={'span'}
-        style={{
-          margin: '8px 0px 12px',
-          display: 'block',
-          fontWeight: '700',
-          letterSpacing: '-0.125px',
-        }}
-      >
-        {title}
-      </Text>
-      <Text
-        as={'p'}
-        paddingX={'0'}
-        margin={'0'}
-        style={{
-          fontSize: '1rem',
-          fontWeight: '300',
-          lineHeight: '1.6',
-          display: 'block',
-          letterSpacing: '-0.125px',
-        }}
-      >
-        {description}
-      </Text>
-    </Box>
-  );
-};
+      {title}
+    </MKTypography>
+    <MKTypography variant="body2" display="block" color="text">
+      {description}
+    </MKTypography>
+  </Box>
+);
