@@ -13,51 +13,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as React from 'react';
+import React, { FC } from 'react';
 
-import { Image, Text } from 'rebass/styled-components';
 import { HeadProps, Link } from 'gatsby';
-import styled from 'styled-components';
+
+import { Box } from '@mui/material';
 
 import { DataProps } from '../hooks';
 
 import { footerContent, headerContent } from '../content';
 
-import { Layout, Section, MailingListSubscription, SEO } from '../components';
+import {
+  Layout,
+  Section,
+  MailingListSubscription,
+  SEO,
+  MKTypography,
+} from '../components';
 import { PAGE } from '../helper';
 
 import Img from '../assets/images/404.png';
 
-const StyledParagraph = styled.p`
-  text-align: center;
-  margin: 0 0 10px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const NotFoundPage = (): JSX.Element => (
+const NotFoundPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <h1 style={{ textAlign: 'center' }}>
-        <Image
-          src={Img}
-          margin="auto"
-          width={['50%', '31.25rem']}
-          alt="404 not found"
-        />
-      </h1>
-      <h2 style={{ textAlign: 'center' }}>
-        <Text fontSize="24px" color="secondary">
-          OOPS, LOOKS LIKE THE PAGE CANNOT BE FOUND...
-        </Text>
-      </h2>
-      <StyledParagraph>
+      <MKTypography variant="h1" textAlign="center">
+        <Box marginX="auto" width={['50%', '31.25rem']}>
+          <img src={Img} alt="404 not found" style={{ margin: 'auto' }} />
+        </Box>
+      </MKTypography>
+      <MKTypography
+        variant="body1"
+        color="secondary"
+        textAlign="center"
+        fontWeight="bold"
+      >
+        OOPS, LOOKS LIKE THE PAGE CANNOT BE FOUND...
+      </MKTypography>
+      <MKTypography variant="body2" textAlign="center" marginY="0.625rem">
         GO BACK TO THE{' '}
         <strong>
           <Link to="/">HOME PAGE</Link>
         </strong>
-      </StyledParagraph>
+      </MKTypography>
     </Section>
     <MailingListSubscription />
   </Layout>
