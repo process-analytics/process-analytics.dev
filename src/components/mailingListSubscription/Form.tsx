@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-import colors from '../../assets/oldTheme/colors.json';
-import React, { BaseSyntheticEvent, useState } from 'react';
-import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
-import { Button } from 'rebass/styled-components';
+import React, { BaseSyntheticEvent, FC, useState } from 'react';
 
-export interface FormProps {
+import { styled, Button } from '@mui/material';
+
+import addToMailchimp, { MailchimpResponse } from 'gatsby-plugin-mailchimp';
+
+export type FormProps = {
   onSubmit: (response: MailchimpResponse, submitted: boolean) => void;
   submitted: boolean;
-}
+};
 
-interface InputProps {
+type InputProps = {
   error?: boolean;
   submitted: boolean;
-}
+};
 
-export const Form = (props: FormProps): JSX.Element => {
+export const Form: FC<FormProps> = props => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -74,29 +74,27 @@ export const Form = (props: FormProps): JSX.Element => {
         value="Subscribe"
         as={StyledInput}
         type="submit"
-        bg={colors.background}
         submitted={props.submitted}
       />
     </StyledForm>
   );
 };
 
-const StyledForm = styled.form`
-  color: ${colors.secondary};
+const StyledForm = styled('form')`
+  color: ${({ theme }) => theme.palette.secondary.main};
   box-sizing: border-box;
   text-align: left;
 `;
 
-const StyledInput = styled.input`
+const StyledInput = styled('input')<InputProps>`
   background: rgba(0, 0, 0, 0.2);
-  color: ${colors.background};
+  color: ${({ theme }) => theme.palette.background.default};
   display: block;
   height: 50px;
   width: 100%;
   font-size: inherit;
   margin: 0.6rem 0;
   padding: 0 0.6rem;
-  border-width: 0;
   box-sizing: border-box;
   border: none;
   outline: none;
@@ -146,9 +144,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledSubmitButton = styled(Button)`
-  background-color: ${colors.background};
-  color: ${colors.secondary};
+const StyledSubmitButton = styled(Button)<InputProps>`
+  background-color: ${({ theme }) => theme.palette.background.default};
+  color: ${({ theme }) => theme.palette.secondary.main};
   font-size: 120%;
   height: 65px;
   box-shadow: 0 5px rgba(0, 0, 0, 0.5);

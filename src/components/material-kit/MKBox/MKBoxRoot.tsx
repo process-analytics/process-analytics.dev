@@ -101,11 +101,11 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   let colorValue;
   if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
     colorValue = getColor(palette, color);
-  } else if (!bgColor) {
+  } else if (color && !bgColor) {
     colorValue = color;
   } else if (bgColor === 'inherit') {
     colorValue = 'inherit';
-  } else if (isPaletteColorName(bgColor)) {
+  } else if (bgColor && isPaletteColorName(bgColor)) {
     colorValue = palette[bgColor].contrastText;
   } else {
     colorValue = palette.text.primary;

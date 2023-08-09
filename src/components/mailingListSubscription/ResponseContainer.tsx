@@ -13,43 +13,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-import { Box, Flex, Text } from 'rebass/styled-components';
-import React from 'react';
+import React, { FC } from 'react';
+
+import { Box, styled } from '@mui/material';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheckCircle,
   faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 
-export interface ResponseContainerProps extends MessageProps {
+import { MKTypography } from '..';
+
+export type ResponseContainerProps = MessageProps & {
   msg: string;
-}
-
-interface MessageProps {
-  error: boolean;
-}
-
-export const ResponseContainer = (
-  props: ResponseContainerProps,
-): JSX.Element => {
-  return (
-    <Box>
-      <Message error={props.error} maxWidth="100%" margin="auto" height="auto">
-        {props.error && (
-          <FontAwesomeIcon size="lg" icon={faExclamationTriangle} />
-        )}
-        {!props.error && <FontAwesomeIcon size="lg" icon={faCheckCircle} />}
-        <Text
-          overflow={{ wrap: 'break-word' }}
-          dangerouslySetInnerHTML={{ __html: props.msg }}
-        />
-      </Message>
-    </Box>
-  );
 };
 
-const Message = styled(Flex)`
+type MessageProps = {
+  error: boolean;
+};
+
+export const ResponseContainer: FC<ResponseContainerProps> = props => (
+  <Box>
+    <Message error={props.error} maxWidth="100%" margin="auto" height="auto">
+      {props.error && (
+        <FontAwesomeIcon size="lg" icon={faExclamationTriangle} />
+      )}
+      {!props.error && <FontAwesomeIcon size="lg" icon={faCheckCircle} />}
+      <MKTypography
+        overflow={{ wrap: 'break-word' }}
+        dangerouslySetInnerHTML={{ __html: props.msg }}
+      />
+    </Message>
+  </Box>
+);
+
+const Message = styled(Box)`
+  display: flex;
   justify-content: start;
   align-items: center;
   padding: 0.5rem 0.6rem;

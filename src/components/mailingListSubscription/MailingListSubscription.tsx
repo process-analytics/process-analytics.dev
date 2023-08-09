@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
-import styled from 'styled-components';
-import { Flex } from 'rebass/styled-components';
+import { Box, styled } from '@mui/material';
 
 import { faEnvelope, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 import { ContainerContent } from './ContainerContent';
-
-import colors from '../../assets/oldTheme/colors.json';
-
 import { Icon } from './Icon';
 import { Overlay } from './Overlay';
+
 import { MEDIA_QUERY_MEDIUM } from '../../helper';
 
-export const MailingListSubscription = (): JSX.Element => {
+type FormContainerProps = {
+  open: boolean;
+};
+
+export const MailingListSubscription: FC = () => {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -69,16 +70,13 @@ export const MailingListSubscription = (): JSX.Element => {
   );
 };
 
-interface FormContainerProps {
-  open: boolean;
-}
-
-const FormContainer = styled(Flex)`
+const FormContainer = styled(Box)<FormContainerProps>`
+  display: flex;
   position: fixed;
   bottom: 7vh;
   right: 2vw;
-  background-color: ${colors.secondary};
-  color: ${colors.background};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
+  color: ${({ theme }) => theme.palette.background.default};
   border-radius: 50%;
   width: 3.5rem;
   max-width: 3.5rem;
@@ -99,9 +97,9 @@ const FormContainer = styled(Flex)`
     0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
 
-  ${(props: FormContainerProps) =>
+  ${props =>
     props.open &&
-    `background-color: ${colors.secondary};
+    `background-color: ${props.theme.palette.secondary.main};
      cursor: auto;
      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
      border-radius: 0;
@@ -116,7 +114,7 @@ const FormContainer = styled(Flex)`
     bottom: 8vh;
     right: 3vw;
 
-    ${(props: FormContainerProps) =>
+    ${props =>
       props.open &&
       `width: 100vw;
       max-width: 100vw;

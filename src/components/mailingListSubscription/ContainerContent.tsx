@@ -13,22 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
+
+import { Box, styled } from '@mui/material';
+
 import { MailchimpResponse } from 'gatsby-plugin-mailchimp';
-import styled from 'styled-components';
-import { Flex, Heading, Text } from 'rebass/styled-components';
-import colors from '../../assets/oldTheme/colors.json';
+
 import { Form } from './Form';
 import { ResponseContainer } from './ResponseContainer';
 import { MEDIA_QUERY_MEDIUM } from '../../helper';
+import { MKTypography } from '..';
 
-export interface ContainerContentProps {
+type StyledContentProps = {
   open: boolean;
   submitted: boolean;
-  onSubmit: (submitted: boolean) => void;
-}
+};
 
-export const ContainerContent = (props: ContainerContentProps): JSX.Element => {
+export type ContainerContentProps = StyledContentProps & {
+  onSubmit: (submitted: boolean) => void;
+};
+
+export const ContainerContent: FC<ContainerContentProps> = props => {
   const [response, setResponse] = useState<MailchimpResponse>();
 
   return (
@@ -36,14 +41,16 @@ export const ContainerContent = (props: ContainerContentProps): JSX.Element => {
       <Header>
         {!props.submitted && (
           <>
-            <Title as="h1">Sign up</Title>
-            <Text as="p">Receive our low-traffic Newsletter</Text>
+            <Title variant="h1">Sign up</Title>
+            <MKTypography variant="body1">
+              Receive our low-traffic Newsletter
+            </MKTypography>
           </>
         )}
         {props.submitted && (
           <>
             <Title as="h1">Thanks!</Title>
-            <Text as="p">We'll be in touch ASAP</Text>
+            <MKTypography variant="body1">We'll be in touch ASAP</MKTypography>
           </>
         )}
       </Header>
@@ -66,11 +73,8 @@ export const ContainerContent = (props: ContainerContentProps): JSX.Element => {
   );
 };
 
-interface StyledContentProps {
-  open: boolean;
-  submitted: boolean;
-}
-const StyledContent = styled(Flex)`
+const StyledContent = styled(Box)`
+  display: flex;
   flex-direction: column;
   justify-content: center;
   transform: translateY(150%);
@@ -94,15 +98,15 @@ const StyledContent = styled(Flex)`
      transition: justify-content;`}
 `;
 
-const Title = styled(Heading)`
-  color: ${colors.background};
+const Title = styled(MKTypography)`
+  color: ${({ theme }) => theme.palette.background.default};
 
   ${MEDIA_QUERY_MEDIUM} {
     font-size: 300%;
   }
 `;
 
-const Header = styled.div`
+const Header = styled('div')`
   text-align: center;
   transition: all 0.8s 0.6s;
 
