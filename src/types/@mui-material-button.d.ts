@@ -39,8 +39,4 @@ declare module '@mui/material/Button' {
     government: true;
     distribution: true;
   }
-
-  interface ButtonPropsVariantOverrides {
-    gradient: true;
-  }
 }
