@@ -23,13 +23,7 @@ import { DataProps } from '../hooks';
 
 import { footerContent, headerContent } from '../content';
 
-import {
-  Layout,
-  Section,
-  MailingListSubscription,
-  SEO,
-  MKTypography,
-} from '../components';
+import { Layout, Section, SEO, MKTypography } from '../components';
 import { PAGE } from '../helper';
 
 import Img from '../assets/images/404.png';
@@ -57,7 +51,6 @@ const NotFoundPage: FC = () => (
         </strong>
       </MKTypography>
     </Section>
-    <MailingListSubscription />
   </Layout>
 );
 export default NotFoundPage;

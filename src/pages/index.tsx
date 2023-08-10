@@ -17,9 +17,9 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO, Layout, MailingListSubscription } from '../components';
+import { SEO, Layout } from '../components';
 import { DataProps } from '../hooks';
-import { Landing, Blog, News, About, Libraries } from '../sections';
+import { Landing, Blog, News, About, Libraries, Newsletter } from '../sections';
 import { PAGE } from '../helper';
 import { footerContent, headerContent } from '../content';
 
@@ -30,7 +30,8 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
-    <MailingListSubscription />
+    {/* <MailingListSubscription />*/}
+    <Newsletter />
   </Layout>
 );
 export default HomePage;

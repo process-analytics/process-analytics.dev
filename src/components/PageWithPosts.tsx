@@ -20,7 +20,6 @@ import {
   Section,
   PostContainer,
   PostContent,
-  MailingListSubscription,
   FooterContent,
   HeaderContent,
   MKBox,
@@ -72,6 +71,5 @@ export const PageWithPosts = ({
         <PostContainer postContents={postContents} />
       </MKBox>
     </Section>
-    <MailingListSubscription />
   </Layout>
 );
