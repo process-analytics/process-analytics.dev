@@ -31,7 +31,6 @@ import {
   faLightbulb,
   faInfo,
   faDatabase,
-  faCircleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const ICONS: IconDefinition[] = [
@@ -51,5 +50,4 @@ export const ICONS: IconDefinition[] = [
   faTools,
   faInfo,
   faDatabase,
-  faCircleExclamation,
 ];

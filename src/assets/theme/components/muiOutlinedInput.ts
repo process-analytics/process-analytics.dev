@@ -22,6 +22,5 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
       backgroundColor: `${theme.palette.quaternary.main} !important`,
     }),
     input: { backgroundColor: 'transparent !important' },
-    //  notchedOutline: { backgroundColor: 'transparent !important' },
   },
 };

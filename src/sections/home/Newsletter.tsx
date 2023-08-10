@@ -29,11 +29,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import {
-  faCheckCircle,
-  //faCircleExclamation,
-  // faExclamationTriangle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 //import addToMailchimp from 'gatsby-plugin-mailchimp';
@@ -43,6 +39,7 @@ import React, { BaseSyntheticEvent, FC, useState } from 'react';
 import {
   Button,
   Container,
+  FormHelperText,
   Grid,
   InputAdornment,
   TextField,
@@ -56,8 +53,7 @@ import { MKBox, MKTypography, Section } from '../../components';
 import logo from '../../assets/images/logo.svg';
 
 type FormProps = {
-  onSubmit: (event: React.BaseSyntheticEvent) => Promise<void>;
-  error: boolean;
+  onSubmit: (submitted: boolean, responseMsg: string) => void;
   responseMsg: string;
 };
 
@@ -67,37 +63,7 @@ type ResponseContainerProps = {
 
 export const Newsletter: FC = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
   const [responseMsg, setResponseMsg] = useState('');
-  //  const [email, setEmail] = useState('');
-
-  const isEmailValid = (email: string): boolean => {
-    const pattern =
-      /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-    return pattern.test(email);
-  };
-  const handleSubmit = async (event: BaseSyntheticEvent): Promise<void> => {
-    event.preventDefault();
-
-    setError(false);
-    setResponseMsg('');
-
-    const email = event.currentTarget.value;
-    if (!isEmailValid(email)) {
-      setError(true);
-      return;
-    }
-
-    //  setEmail(email);
-
-    const response = { msg: 'plop', result: 'error' };
-    // await addToMailchimp(email);
-
-    const isError = response.result === 'error';
-    setSubmitted(!isError);
-    setError(isError);
-    setResponseMsg(response.msg);
-  };
 
   return (
     <Section>
@@ -106,7 +72,7 @@ export const Newsletter: FC = () => {
           <Grid
             item
             sm={12}
-            md={6}
+            md={8}
             sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 12, md: 0 } }}
           >
             <MKTypography variant="h4">
@@ -119,16 +85,22 @@ export const Newsletter: FC = () => {
               <ResponseContainer msg={responseMsg} />
             ) : (
               <Form
-                onSubmit={handleSubmit}
-                error={error}
+                onSubmit={(submitted, responseMsg) => {
+                  setSubmitted(submitted);
+                  setResponseMsg(responseMsg);
+                }}
                 responseMsg={responseMsg}
               />
             )}
           </Grid>
-          <Grid item xs={12} md={5} sx={{ ml: 'auto' }}>
-            <MKBox position="relative">
-              <MKBox component="img" src={logo} alt="macbook" width="40%" />
-            </MKBox>
+          <Grid item xs={12} md={3} sx={{ m: 'auto', textAlign: 'center' }}>
+            <MKBox
+              component="img"
+              src={logo}
+              alt="macbook"
+              maxWidth="80%"
+              height="auto"
+            />
           </Grid>
         </Grid>
       </Container>
@@ -153,50 +125,92 @@ const ResponseContainer: FC<ResponseContainerProps> = props => (
   </MKBox>
 );
 
-const Form: FC<FormProps> = props => (
-  <Grid
-    component="form"
-    container
-    spacing={1}
-    onSubmit={props.onSubmit}
-    flexDirection={useMobileViewStatus() ? 'column' : 'row'}
-  >
-    <Grid item>
-      <TextField
-        type="email"
-        variant="outlined"
-        color="primary"
-        label="Email"
-        fullWidth
-        placeholder="Email address"
-        autoComplete="email"
-        size="small"
-        error={props.error}
-        InputProps={{
-          endAdornment: props.error ? (
-            <InputAdornment position="end">
-              <ErrorOutlineIcon color="error" />
-            </InputAdornment>
-          ) : undefined,
-        }}
-        helperText={
-          props.error ? props.responseMsg ?? 'Incorrect entry.' : undefined
-        }
-        required
-      />
-    </Grid>
-    <Grid item justifyContent="center" marginX="auto">
-      <Button
-        type="submit"
-        variant="contained"
-        color="secondary"
-        sx={{
-          height: '100%',
-          borderRadius: ({ borders }: Theme) => borders.borderRadius.lg,
-        }}
+const Form: FC<FormProps> = props => {
+  const isMobileView = useMobileViewStatus();
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const isEmailValid = (email: string): boolean => {
+    const pattern =
+      /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(email);
+  };
+  const handleSubmit = async (event: BaseSyntheticEvent): Promise<void> => {
+    event.preventDefault();
+
+    setError(false);
+    props.onSubmit(false, '');
+
+    if (!isEmailValid(email)) {
+      setError(true);
+      props.onSubmit(false, 'Incorrect entry.');
+      return;
+    }
+
+    const response = { msg: 'plop', result: 'error' };
+    // await addToMailchimp(email);
+
+    const isError = response.result === 'error';
+    setError(isError);
+    props.onSubmit(!isError, response.msg);
+  };
+
+  return (
+    <Grid
+      component="form"
+      container
+      spacing={1}
+      onSubmit={handleSubmit}
+      justifyContent={isMobileView ? 'center' : 'start'}
+    >
+      <Grid
+        container
+        flexDirection={isMobileView ? 'column' : 'row'}
+        // mb={3}
       >
-        Subscribe
-      </Button>
+        <Grid item md={8} ml={isMobileView ? 0 : 1} mb={isMobileView ? 1.5 : 0}>
+          <TextField
+            type="email"
+            variant="outlined"
+            color="primary"
+            label="Email"
+            fullWidth
+            placeholder="Email address"
+            autoComplete="email"
+            size="small"
+            error={error}
+            InputProps={{
+              endAdornment: error ? (
+                <InputAdornment position="end">
+                  <ErrorOutlineIcon color="error" />
+                </InputAdornment>
+              ) : undefined,
+            }}
+            required
+            onChange={event => setEmail(event.target.value)}
+          />
+        </Grid>
+        <Grid item md={3} justifyContent="center" marginX="auto">
+          <Button
+            type="submit"
+            variant="contained"
+            color="secondary"
+            sx={{
+              height: '100%',
+              borderRadius: ({ borders }: Theme) => borders.borderRadius.lg,
+            }}
+          >
+            Subscribe
+          </Button>
+        </Grid>
+      </Grid>
+      {error && (
+        <Grid item p={0} md={8} mt={isMobileView ? 3 : 0}>
+          <FormHelperText variant="outlined" error={error}>
+            {props.responseMsg}
+          </FormHelperText>
+        </Grid>
+      )}
     </Grid>
-  </Grid>
-);
+  );
+};
