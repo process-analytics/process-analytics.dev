@@ -17,6 +17,12 @@
 import type {} from '@mui/material/Button';
 
 declare module '@mui/material/Button' {
+  export class Button extends StyledComponent<ButtonProps & ExtraProps> {}
+
+  type ExtraProps = {
+    circular?: boolean;
+  };
+
   interface ButtonPropsColorOverrides {
     primary: true;
     secondary: true;

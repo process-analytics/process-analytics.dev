@@ -31,9 +31,11 @@ Coded by www.creative-tim.com
 
 import {
   faCheckCircle,
+  //faCircleExclamation,
   // faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 //import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React, { BaseSyntheticEvent, FC, useState } from 'react';
 
@@ -42,12 +44,12 @@ import {
   Button,
   Container,
   Grid,
-  //  styled,
+  InputAdornment,
   TextField,
   Theme,
 } from '@mui/material';
 
-// Material Kit 2 React components
+import { useMobileViewStatus } from '../../hooks';
 import { MKBox, MKTypography, Section } from '../../components';
 
 // Images
@@ -69,17 +71,32 @@ export const Newsletter: FC = () => {
   const [responseMsg, setResponseMsg] = useState('');
   //  const [email, setEmail] = useState('');
 
+  const isEmailValid = (email: string): boolean => {
+    const pattern =
+      /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(email);
+  };
   const handleSubmit = async (event: BaseSyntheticEvent): Promise<void> => {
     event.preventDefault();
 
-    //  setEmail(event.currentTarget.value);
+    setError(false);
+    setResponseMsg('');
 
-    const response = { failed: false, msg: 'plop', result: 'ok' };
+    const email = event.currentTarget.value;
+    if (!isEmailValid(email)) {
+      setError(true);
+      return;
+    }
+
+    //  setEmail(email);
+
+    const response = { msg: 'plop', result: 'error' };
     // await addToMailchimp(email);
 
-    setError(response.result === 'error');
+    const isError = response.result === 'error';
+    setSubmitted(!isError);
+    setError(isError);
     setResponseMsg(response.msg);
-    setSubmitted(!error);
   };
 
   return (
@@ -137,8 +154,14 @@ const ResponseContainer: FC<ResponseContainerProps> = props => (
 );
 
 const Form: FC<FormProps> = props => (
-  <Grid component="form" container spacing={1} onSubmit={props.onSubmit}>
-    <Grid item xs={8}>
+  <Grid
+    component="form"
+    container
+    spacing={1}
+    onSubmit={props.onSubmit}
+    flexDirection={useMobileViewStatus() ? 'column' : 'row'}
+  >
+    <Grid item>
       <TextField
         type="email"
         variant="outlined"
@@ -149,13 +172,20 @@ const Form: FC<FormProps> = props => (
         autoComplete="email"
         size="small"
         error={props.error}
+        InputProps={{
+          endAdornment: props.error ? (
+            <InputAdornment position="end">
+              <ErrorOutlineIcon color="error" />
+            </InputAdornment>
+          ) : undefined,
+        }}
         helperText={
           props.error ? props.responseMsg ?? 'Incorrect entry.' : undefined
         }
         required
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item justifyContent="center" marginX="auto">
       <Button
         type="submit"
         variant="contained"

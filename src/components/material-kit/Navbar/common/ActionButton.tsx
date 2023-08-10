@@ -36,11 +36,12 @@ import { borders } from '../../../../assets/theme';
 import { MKBox } from '../..';
 import { LinkContent, Link } from '../../..';
 
-export type Action = Required<Pick<LinkContent, 'url' | 'type'>> &
-  Pick<ButtonProps, 'color' | 'variant'> & {
-    label: string;
-    icon?: JSX.Element;
-  };
+export type Action = Required<Pick<LinkContent, 'url' | 'type'>> & {
+  label: string;
+  icon?: JSX.Element;
+  color?: ButtonProps['color'];
+  variant?: ButtonProps['variant'];
+};
 export const ActionButton = ({
   type,
   url,
@@ -56,9 +57,7 @@ export const ActionButton = ({
       variant={variant ?? 'contained'}
       color={color ?? 'secondary'}
       size="medium"
-      sx={{
-        borderRadius: borders.radius.section,
-      }}
+      circular
     >
       {label}
     </Link>

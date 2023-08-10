@@ -136,39 +136,4 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       },
     },
   },
-  /*  variants: [
-    {
-      props: { variant: 'text' },
-      style: {
-        textTransform: 'none',
-        border: `2px dashed ${blue[500]}`,
-      },
-    },
-    {
-      props: { variant: 'contained' },
-      style: {
-        textTransform: 'none',
-        border: `2px dashed ${blue[500]}`,
-      },
-    },
-    {
-      props: { variant: 'outlined' },
-      style: {
-        borderRadius: '0.5rem',
-        padding: '0.625rem 1.5rem',
-        minHeight: '2.5rem',
-        lineHeight: 1.4,
-        fontWeight: 700,
-        fontSize: '0.75rem',
-        letterSpacing: '0.02857em',
-      },
-    },
-
-    {
-      props: { variant: 'outlined', circular: true },
-      style: {
-        borderRadius: ({ theme }) => theme.borders.borderRadius.section,
-      },
-    },
-  ],*/
 };
