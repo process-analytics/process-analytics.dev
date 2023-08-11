@@ -39,6 +39,7 @@ import { palette, breakpoints, typography, globals } from './base';
 
 // Material Kit 2 React components base styles for @mui material components
 import {
+  MuiButton,
   MuiIconButton,
   MuiTooltip,
   MuiAppBar,
@@ -47,6 +48,13 @@ import {
   MuiSvgIcon,
   MuiLink,
   MuiCard,
+  MuiOutlinedInput,
+  MuiInputLabel,
+  MuiInputBase,
+  MuiFormControlLabel,
+  MuiFormLabel,
+  MuiInput,
+  MuiTextField,
 } from './components';
 
 const generatedTheme = createTheme({
@@ -59,14 +67,22 @@ const generatedTheme = createTheme({
         globals,
       },
     },
-    MuiIconButton,
-    MuiTooltip,
     MuiAppBar,
-    MuiIcon,
-    MuiSvgIcon,
-    MuiLink,
-    MuiContainer,
+    MuiButton,
     MuiCard,
+    MuiContainer,
+    MuiFormControlLabel,
+    MuiFormLabel,
+    MuiIcon,
+    MuiIconButton,
+    MuiInput,
+    MuiInputBase,
+    MuiInputLabel,
+    MuiOutlinedInput,
+    MuiLink,
+    MuiSvgIcon,
+    MuiTextField,
+    MuiTooltip,
   },
 });
 

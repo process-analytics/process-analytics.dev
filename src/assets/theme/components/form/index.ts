@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-export { MuiIconButton } from './muiIconButton';
-export { MuiTooltip } from './muiTooltip';
-export { MuiAppBar } from './muiAppBar';
-export { MuiContainer } from './muiContainer';
-export { MuiIcon } from './muiIcon';
-export { MuiSvgIcon } from './muiSvgIcon';
-export { MuiLink } from './muiLink';
-export { MuiCard } from './muiCard';
-export { MuiButton } from './muiButton';
-
-export * from './form';
+export { MuiOutlinedInput } from './muiOutlinedInput';
+export { MuiInputLabel } from './muiInputLabel';
+export { MuiInputBase } from './muiInputBase';
+export { MuiFormControlLabel } from './muiFormControlLabel';
+export { MuiFormLabel } from './muiFormLabel';
+export { MuiInput } from './muiInput';
+export { MuiTextField } from './muiTextField';
