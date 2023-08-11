@@ -26,7 +26,6 @@ const baseHeadingProperties = {
   color: 'inherit',
   fontWeight: 700,
   fontFamily: 'inherit',
-  margin: '1.5rem 0 1.5rem 0',
 };
 
 export const typography: TypographyOptions = {
