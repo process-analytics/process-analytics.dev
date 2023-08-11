@@ -31,7 +31,7 @@ import { Components, Theme } from '@mui/material';
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-export const MuiCard: Components<Theme>['MuiCard'] = {
+export const MuiCardContent: Components<Theme>['MuiCardContent'] = {
   styleOverrides: {
     root: {
       marginTop: 0,

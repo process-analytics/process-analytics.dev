@@ -35,17 +35,17 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
   styleOverrides: {
     popper: {
       boxShadow: lg,
-      padding: pxToRem(8),
+      padding: '0.5rem',
       fontSize: size.sm,
       color: text.main,
       textAlign: 'left',
-      backgroundColor: `${white.main} !important`,
+      backgroundColor: 'White !important',
       borderRadius: borderRadius.md,
     },
 
     paper: {
       boxShadow: 'none',
-      backgroundColor: transparent.main,
+      backgroundColor: 'transparent',
     },
 
     option: {
@@ -85,18 +85,18 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
       display: 'flex',
       alignItems: 'center',
       height: 'auto',
-      padding: pxToRem(4),
+      padding: '0.25rem',
       backgroundColor: gradients.dark.state,
-      color: white.main,
+      color: 'White',
 
       '& .MuiChip-label': {
         lineHeight: 1.2,
-        padding: `0 ${pxToRem(10)} 0 ${pxToRem(4)}`,
+        padding: `0 ${pxToRem(10)} 0 0.25rem`,
       },
 
       '& .MuiSvgIcon-root, & .MuiSvgIcon-root:hover, & .MuiSvgIcon-root:focus':
         {
-          color: white.main,
+          color: 'White',
           marginRight: 0,
         },
     },

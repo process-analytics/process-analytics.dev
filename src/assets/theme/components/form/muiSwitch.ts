@@ -48,7 +48,7 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
         color: gradients.dark.main,
 
         '&:hover': {
-          backgroundColor: transparent.main,
+          backgroundColor: 'transparent',
         },
 
         '& .MuiSwitch-thumb': {

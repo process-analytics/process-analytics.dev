@@ -40,7 +40,7 @@ export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
         backgroundRepeat: 'no-repeat',
         width: pxToRem(20),
         height: pxToRem(20),
-        color: transparent.main,
+        color: 'transparent',
         border: `${borderWidth[1]} solid ${borderColor}`,
         borderRadius: pxToRem(5.6),
       },
