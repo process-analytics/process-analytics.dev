@@ -1,4 +1,4 @@
-muiCardMedia2.ts; /**
+/**
  * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,6 +30,10 @@ muiCardMedia2.ts; /**
  */
 
 import { Components, Theme } from '@mui/material';
+
+import { borders } from '../../base';
+
+const { borderWidth, borderColor } = borders;
 
 export const MuiDialogContent: Components<Theme>['MuiDialogContent'] = {
   styleOverrides: {

@@ -31,6 +31,10 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../../base';
+
+const { borderRadius } = borders;
+
 export const MuiTab: Components<Theme>['MuiTab'] = {
   styleOverrides: {
     root: {
@@ -46,7 +50,7 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       fontWeight: fontWeightRegular,
       textTransform: 'none',
       lineHeight: 'inherit',
-      padding: pxToRem(4),
+      padding: '0.25rem',
       borderRadius: borderRadius.lg,
       color: `${dark.main} !important`,
       opacity: '1 !important',
@@ -67,7 +71,7 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
     },
 
     labelIcon: {
-      paddingTop: pxToRem(4),
+      paddingTop: '0.25rem',
     },
   },
 };

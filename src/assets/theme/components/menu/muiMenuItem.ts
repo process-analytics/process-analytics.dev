@@ -31,6 +31,10 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../../base';
+
+const { borderRadius } = borders;
+
 export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
   styleOverrides: {
     root: {

@@ -33,6 +33,10 @@ import { Components, Theme } from '@mui/material';
 
 import { boxShadow } from '../functions';
 
+import { borders } from '../base';
+
+const { borderRadius } = borders;
+
 export const MuiSlider: Components<Theme>['MuiSlider'] = {
   styleOverrides: {
     root: {

@@ -31,6 +31,10 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../../base';
+
+const { borderRadius } = borders;
+
 export const MuiTabs: Components<Theme>['MuiTabs'] = {
   styleOverrides: {
     root: {
@@ -38,7 +42,7 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
       backgroundColor: grey[100],
       borderRadius: borderRadius.xl,
       minHeight: 'unset',
-      padding: pxToRem(4),
+      padding: '0.25rem',
     },
 
     flexContainer: {

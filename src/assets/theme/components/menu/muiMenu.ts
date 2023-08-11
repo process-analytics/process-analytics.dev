@@ -31,6 +31,10 @@ muiCardMedia1.ts; /**
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../../base';
+
+const { borderRadius } = borders;
+
 export const MuiMenu: Components<Theme>['MuiMenu'] = {
   defaultProps: {
     disableAutoFocusItem: true,
