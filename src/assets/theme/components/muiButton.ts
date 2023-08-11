@@ -32,6 +32,9 @@ Coded by www.creative-tim.com
 import { Components, Theme } from '@mui/material';
 
 export const MuiButton: Components<Theme>['MuiButton'] = {
+  defaultProps: {
+    disableRipple: false,
+  },
   styleOverrides: {
     root: ({ ownerState, theme }) => ({
       display: 'inline-flex',
