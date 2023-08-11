@@ -153,9 +153,9 @@ const Form: FC<FormProps> = props => {
         container
         flexDirection={isMobileView ? 'column' : 'row'}
         spacing={1}
-        // mb={3}
+        alignItems={isMobileView ? 'center' : 'start'}
       >
-        <Grid item md={8} ml={isMobileView ? 0 : 1} mb={isMobileView ? 1.5 : 0}>
+        <Grid item md={8}>
           <TextField
             type="email"
             variant="outlined"
@@ -177,7 +177,13 @@ const Form: FC<FormProps> = props => {
             onChange={event => setEmail(event.target.value)}
           />
         </Grid>
-        <Grid item md={4} justifyContent="center" alignItems="center">
+        <Grid
+          item
+          md={4}
+          justifyContent="center"
+          alignItems="center"
+          height={isMobileView ? 'auto' : '100%'}
+        >
           <Button
             type="submit"
             variant="contained"
