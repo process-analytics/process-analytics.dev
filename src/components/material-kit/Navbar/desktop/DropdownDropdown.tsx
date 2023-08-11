@@ -29,8 +29,9 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 import { Grow, Popper } from '@mui/material';
 
+import { DropdownStyle } from './Dropdown';
 import { DropdownLink } from './DropdownLink';
-import { MKBox, MKBoxProps } from '../..';
+import { MKBox } from '../..';
 
 import { HeaderMenuWithItems } from '../../../Header';
 
@@ -44,7 +45,7 @@ export type DropdownDropdownProps = {
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setDropdownDropdownName: Dispatch<SetStateAction<string | undefined>>;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  dropdownStyle?: DropdownStyle;
   hoverStyle: HoverStyle;
 };
 

@@ -35,12 +35,13 @@ import { MKBoxRoot, BoxProps } from './MKBoxRoot';
 export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
   (
     {
-      variant = 'contained',
-      bgColor = 'inherit',
+      variant,
+      bgcolor,
       color,
-      opacity = 1,
+      opacity,
       borderRadius,
       shadow,
+      children,
       ...rest
     },
     ref,
@@ -50,16 +51,18 @@ export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
       ref={ref}
       ownerState={{
         variant,
-        bgColor,
+        bgcolor,
         color,
         opacity,
         borderRadius,
         shadow,
       }}
-    />
+    >
+      {children}
+    </MKBoxRoot>
   ),
 );
 
 export type MKBoxProps<
   D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = React.PropsWithChildren<BoxProps> & MuiBoxProps<D>;
+> = React.PropsWithChildren<Partial<BoxProps>> & MuiBoxProps<D>;

@@ -209,9 +209,10 @@ const Form: FC<FormProps> = props => {
 };
 
 const ResponseContainer: FC<ResponseContainerProps> = props => (
-  <MKBox color="success">
+  <MKBox bgcolor="success" width="75%" borderRadius="md" p={2}>
     <MKTypography
-      variant="body1"
+      variant="body2"
+      //  color="success.contrastText"
       fontWeight="bold"
       overflow={{ wrap: 'break-word' }}
     >
