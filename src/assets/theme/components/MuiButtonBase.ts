@@ -31,4 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
-export const MuiCardMedia: Components<Theme>['MuiCardMedia'] = {};
+export const MuiButtonBase: Components<Theme>['MuiButtonBase'] = {
+  defaultProps: {
+    disableRipple: false,
+  },
+};

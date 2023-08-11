@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-export { MuiIconButton } from './muiIconButton';
-export { MuiTooltip } from './muiTooltip';
 export { MuiAppBar } from './muiAppBar';
-export { MuiContainer } from './muiContainer';
-export { MuiIcon } from './muiIcon';
-export { MuiSvgIcon } from './muiSvgIcon';
-export { MuiLink } from './muiLink';
+export { MuiAvatar } from './muiAvatar';
+export { MuiBreadcrumbs } from './muiBreadcrumbs';
 export { MuiButton } from './muiButton';
+export { MuiButtonBase } from './MuiButtonBase';
+export { MuiContainer } from './muiContainer';
+export { MuiDivider } from './muiDivider';
+export { MuiIcon } from './muiIcon';
+export { MuiIconButton } from './muiIconButton';
+export { MuiLinearProgress } from './muiLinearProgress';
+export { MuiLink } from './muiLink';
+export { MuiPopover } from './muiPopover';
+export { MuiSlider } from './muiSlider';
+export { MuiSvgIcon } from './muiSvgIcon';
+export { MuiTooltip } from './muiTooltip';
 
 export * from './card';
 export * from './dialog';
