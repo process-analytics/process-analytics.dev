@@ -52,8 +52,8 @@ const buildMaxWidthByBreakpoint = (
 export const MuiContainer: Components<Theme>['MuiContainer'] = {
   styleOverrides: {
     root: ({ theme }: { theme: Theme }) => ({
-      paddingRight: `2rem !important`,
-      paddingLeft: `2rem !important`,
+      paddingRight: '2rem !important',
+      paddingLeft: '2rem !important',
       marginRight: 'auto !important',
       marginLeft: 'auto !important',
       width: '100% !important',

@@ -16,12 +16,30 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders, boxShadows } from '../base';
+import { rgba } from '../functions';
+
+const { borderWidth, borderRadius } = borders;
+const { md } = boxShadows;
+
 export const MuiCard: Components<Theme>['MuiCard'] = {
   styleOverrides: {
-    root: {
+    root: ({ theme: { palette } }) => ({
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      minWidth: 0,
+      wordWrap: 'break-word',
+      backgroundColor: palette.quaternary.main,
+      backgroundClip: 'border-box',
+      border: `${borderWidth.xs} solid ${rgba('#000000', 0.125)}`,
+      borderRadius: borderRadius.xl,
+      boxShadow: md,
+      overflow: 'visible',
+
       ':hover': {
-        boxShadow: '0 12px 16px rgba(0, 0, 0, 0.2)',
+        boxShadow: '0 0.75rem 1rem rgba(0, 0, 0, 0.2)',
       },
-    },
+    }),
   },
 };

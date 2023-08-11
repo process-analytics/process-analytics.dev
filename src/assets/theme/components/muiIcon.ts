@@ -31,9 +31,6 @@
 
 import { Components, Theme } from '@mui/material';
 
-// Material Kit 2 React helper functions
-import { pxToRem } from '../functions/pxToRem';
-
 export const MuiIcon: Components<Theme>['MuiIcon'] = {
   defaultProps: {
     baseClassName: 'material-icons-round',
@@ -46,11 +43,11 @@ export const MuiIcon: Components<Theme>['MuiIcon'] = {
     },
 
     fontSizeSmall: {
-      fontSize: `${pxToRem(20)} !important`,
+      fontSize: '1.25rem !important',
     },
 
     fontSizeLarge: {
-      fontSize: `${pxToRem(36)} !important`,
+      fontSize: '2.25rem !important',
     },
   },
 };

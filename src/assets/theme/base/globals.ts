@@ -20,9 +20,8 @@ import { ComponentsOverrides } from '@mui/material/styles/overrides';
 
 // Material Kit 2 React Base Styles
 import { palette } from './colors';
-import { typography } from './typography';
 
-const { info, secondary, background, text } = palette;
+const { info, secondary } = palette;
 
 export const globals: ComponentsOverrides<Theme>['MuiCssBaseline'] = {
   html: {
@@ -37,43 +36,10 @@ export const globals: ComponentsOverrides<Theme>['MuiCssBaseline'] = {
   '*, *::before, *::after': {
     margin: 0,
     padding: 0,
-    boxSizing: 'border-box',
-  },
-
-  header: {
-    width: '100%',
-    display: 'block',
-    fontFamily: '"Open Sans",Helvetica,Arial,sans-serif',
-    fontSize: 'inherit',
-    margin: '0',
-    padding: '0',
-    border: '0',
-    minHeight: '0',
-    position: 'relative',
-    backgroundColor: '#f8f8f8',
-    borderRadius: '4px',
-
-    '&::before, &::after': {
-      display: 'table',
-      content: '" "',
-    },
   },
 
   body: {
-    fontSize: '14px',
-    boxSizing: 'border-box',
-    margin: 0,
-    padding: 0,
-    width: '100vw',
-    overflowX: 'hidden',
-    fontFamily: typography.fontFamily,
-    background: background?.default,
-    color: text?.primary,
-    lineHeight: 1.5,
-  },
-
-  p: {
-    margin: '0 0 10px',
+    fontSize: '10px',
   },
 
   img: {
@@ -82,12 +48,8 @@ export const globals: ComponentsOverrides<Theme>['MuiCssBaseline'] = {
     border: 0,
   },
 
-  'a[href]': {
-    cursor: 'pointer',
-  },
   a: {
     textDecoration: 'none',
-    backgroundColor: 'transparent',
   },
   'a.link, .link, a.link:link, .link:link, a.link:visited, .link:visited': {
     color: `${(secondary as SimplePaletteColorOptions)?.main} !important`,
