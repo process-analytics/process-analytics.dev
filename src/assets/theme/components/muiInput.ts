@@ -14,46 +14,41 @@
  * limitations under the License.
  */
 
-import { Components, Palette, PaletteColor, Theme } from '@mui/material';
-import grey from '@mui/material/colors/grey';
+/**
+ =========================================================
+ * Material Kit 2 React - v2.0.0
+ =========================================================
 
-export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
+ * Product Page: https://www.creative-tim.com/product/material-kit-react
+ * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+ Coded by www.creative-tim.com
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
+import { Components, Palette, PaletteColor, Theme } from '@mui/material';
+
+export const MuiInput: Components<Theme>['MuiInput'] = {
   styleOverrides: {
     root: ({ theme, ownerState: { color } }) => ({
-      backgroundColor: `${theme.palette.quaternary.main} !important`,
       fontSize: '0.875rem !important',
-      borderRadius: '0.375rem',
+      color: '#344767',
 
-      '&:hover .MuiOutlinedInput-notchedOutline': {
+      '&:hover:not(.Mui-disabled):before': {
+        borderBottom: '0.0625rem solid #d2d6da',
+      },
+
+      '&:before': {
         borderColor: '#d2d6da',
       },
 
-      '&.Mui-focused': {
-        '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: (theme.palette[color as keyof Palette] as PaletteColor)
-            .main,
-        },
+      '&:after': {
+        borderColor: (theme.palette[color as keyof Palette] as PaletteColor)
+          .main,
       },
     }),
-
-    notchedOutline: {
-      borderColor: '#d2d6da',
-    },
-
-    input: {
-      color: grey[700],
-      padding: '0.75rem',
-      backgroundColor: 'transparent',
-    },
-
-    inputSizeSmall: {
-      fontSize: '0.75rem !important',
-      padding: '0.625rem',
-    },
-
-    multiline: {
-      color: grey[700],
-      padding: 0,
-    },
   },
 };

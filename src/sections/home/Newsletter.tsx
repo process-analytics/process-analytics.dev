@@ -111,20 +111,6 @@ export const Newsletter: FC = () => {
   );
 };
 
-const ResponseContainer: FC<ResponseContainerProps> = props => (
-  <MKBox color="success">
-    <MKTypography
-      variant="body1"
-      fontWeight="bold"
-      overflow={{ wrap: 'break-word' }}
-    >
-      {props.msg}
-      {'\u00A0'} {/* Non-breaking space */}
-      <CheckCircle sx={{ verticalAlign: 'middle' }} />
-    </MKTypography>
-  </MKBox>
-);
-
 const Form: FC<FormProps> = props => {
   const isMobileView = useMobileViewStatus();
   const [error, setError] = useState(false);
@@ -159,13 +145,14 @@ const Form: FC<FormProps> = props => {
     <Grid
       component="form"
       container
-      spacing={1}
+      //   spacing={1}
       onSubmit={handleSubmit}
       justifyContent={isMobileView ? 'center' : 'start'}
     >
       <Grid
         container
         flexDirection={isMobileView ? 'column' : 'row'}
+        spacing={1}
         // mb={3}
       >
         <Grid item md={8} ml={isMobileView ? 0 : 1} mb={isMobileView ? 1.5 : 0}>
@@ -177,7 +164,7 @@ const Form: FC<FormProps> = props => {
             fullWidth
             placeholder="Email address"
             autoComplete="email"
-            size="small"
+            // size="small"
             error={error}
             InputProps={{
               endAdornment: error ? (
@@ -190,7 +177,7 @@ const Form: FC<FormProps> = props => {
             onChange={event => setEmail(event.target.value)}
           />
         </Grid>
-        <Grid item md={3} justifyContent="center" marginX="auto">
+        <Grid item md={4} justifyContent="center" alignItems="center">
           <Button
             type="submit"
             variant="contained"
@@ -214,3 +201,17 @@ const Form: FC<FormProps> = props => {
     </Grid>
   );
 };
+
+const ResponseContainer: FC<ResponseContainerProps> = props => (
+  <MKBox color="success">
+    <MKTypography
+      variant="body1"
+      fontWeight="bold"
+      overflow={{ wrap: 'break-word' }}
+    >
+      {props.msg}
+      {'\u00A0'} {/* Non-breaking space */}
+      <CheckCircle sx={{ verticalAlign: 'middle' }} />
+    </MKTypography>
+  </MKBox>
+);

@@ -14,10 +14,45 @@
  * limitations under the License.
  */
 
-import { Components, Theme } from '@mui/material';
+import { Components, Palette, PaletteColor, Theme } from '@mui/material';
 
 export const MuiInputLabel: Components<Theme>['MuiInputLabel'] = {
   styleOverrides: {
-    outlined: { color: 'currentcolor' },
+    root: ({ theme: { palette }, ownerState: { color } }) => ({
+      fontSize: '0.875rem !important',
+      color: palette.text.primary,
+      lineHeight: 0.9,
+
+      '&.Mui-focused': {
+        color:
+          (palette[color as keyof Palette] as PaletteColor)?.main ??
+          palette.primary.main,
+      },
+
+      '&.MuiInputLabel-shrink': {
+        lineHeight: 1.5,
+        fontSize: '1rem',
+
+        '~ .MuiInputBase-root .MuiOutlinedInput-notchedOutline legend': {
+          fontSize: '0.85em',
+        },
+      },
+    }),
+
+    // outlined: { color: 'currentcolor' },
+
+    sizeSmall: {
+      fontSize: '0.75rem !important',
+      lineHeight: 1.625,
+
+      '&.MuiInputLabel-shrink': {
+        lineHeight: 1.6,
+        fontSize: '0.875rem',
+
+        '~ .MuiInputBase-root .MuiOutlinedInput-notchedOutline legend': {
+          fontSize: '0.72em',
+        },
+      },
+    },
   },
 };
