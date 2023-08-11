@@ -153,6 +153,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
           <MKBox
             shadow={{ size: isTransparent ? 'lg' : undefined }}
             borderRadius="xl"
+            mt={1}
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
