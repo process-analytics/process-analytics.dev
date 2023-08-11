@@ -78,6 +78,8 @@ import {
   MuiTableCell,
   MuiTableContainer,
   MuiTableHead,
+  MuiTab,
+  MuiTabs,
   MuiTextField,
   MuiTooltip,
 } from './components';
@@ -131,6 +133,8 @@ const generatedTheme = createTheme({
     MuiTableCell,
     MuiTableContainer,
     MuiTableHead,
+    MuiTab,
+    MuiTabs,
     MuiTextField,
     MuiTooltip,
   },
