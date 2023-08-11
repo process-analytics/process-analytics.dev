@@ -29,11 +29,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 //import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React, { BaseSyntheticEvent, FC, useState } from 'react';
+
+import { CheckCircle, ErrorOutline } from '@mui/icons-material';
 
 // @mui material components
 import {
@@ -68,7 +67,11 @@ export const Newsletter: FC = () => {
   return (
     <Section>
       <Container>
-        <Grid container alignItems="center">
+        <Grid
+          container
+          alignItems="center"
+          flexDirection={useMobileViewStatus() ? 'column' : 'row'}
+        >
           <Grid
             item
             sm={12}
@@ -109,19 +112,16 @@ export const Newsletter: FC = () => {
 };
 
 const ResponseContainer: FC<ResponseContainerProps> = props => (
-  <MKBox display="flex" color="success" alignItems="center">
+  <MKBox color="success">
     <MKTypography
       variant="body1"
       fontWeight="bold"
       overflow={{ wrap: 'break-word' }}
     >
       {props.msg}
+      {'\u00A0'} {/* Non-breaking space */}
+      <CheckCircle sx={{ verticalAlign: 'middle' }} />
     </MKTypography>
-    <FontAwesomeIcon
-      size="lg"
-      icon={faCheckCircle}
-      style={{ marginLeft: '1rem' }}
-    />
   </MKBox>
 );
 
@@ -147,7 +147,7 @@ const Form: FC<FormProps> = props => {
       return;
     }
 
-    const response = { msg: 'plop', result: 'error' };
+    const response = { msg: 'plop', result: 'ok' };
     // await addToMailchimp(email);
 
     const isError = response.result === 'error';
@@ -182,7 +182,7 @@ const Form: FC<FormProps> = props => {
             InputProps={{
               endAdornment: error ? (
                 <InputAdornment position="end">
-                  <ErrorOutlineIcon color="error" />
+                  <ErrorOutline color="error" />
                 </InputAdornment>
               ) : undefined,
             }}
