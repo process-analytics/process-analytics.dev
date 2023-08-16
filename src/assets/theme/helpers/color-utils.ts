@@ -1,5 +1,3 @@
-import { GreyColorName, PaletteColorKey } from '@mui/material';
-
 /**
  * Copyright 2023 Bonitasoft S.A.
  *
@@ -15,7 +13,10 @@ import { GreyColorName, PaletteColorKey } from '@mui/material';
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const paletteKeys = [
+
+import { GreyColorName, PaletteColorKey, PaletteOptions } from '@mui/material';
+
+export const paletteKeys: (keyof PaletteOptions)[] = [
   'primary',
   'secondary',
   'error',
@@ -39,7 +40,7 @@ export const paletteKeys = [
 ];
 
 export const isPaletteColorName = (color: string): color is PaletteColorKey =>
-  paletteKeys.includes(color);
+  paletteKeys.includes(color as keyof PaletteOptions);
 
 export const isGreyColorName = (color: string): color is GreyColorName =>
   color === 'grey-100' ||

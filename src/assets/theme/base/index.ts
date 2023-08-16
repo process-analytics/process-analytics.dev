@@ -16,5 +16,4 @@
 export * from './colors';
 export { breakpoints } from './breakpoints';
 export { typography } from './typography';
-export { boxShadows } from './boxShadows';
 export { globals } from './globals';

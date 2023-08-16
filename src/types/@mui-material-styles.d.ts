@@ -81,16 +81,6 @@ declare module '@mui/material/styles' {
     inset: string;
   };
 
-  type BoxShadows = ShadowSize & {
-    colored: BoxShadowColor;
-    sliderBoxShadow: {
-      thumb: string;
-    };
-    tabsBoxShadow: {
-      indicator: string;
-    };
-  };
-
   type Functions = {
     boxShadow: (
       offset?: number[],
@@ -110,13 +100,7 @@ declare module '@mui/material/styles' {
   };
 
   interface Theme {
-    /*    mixins: Mixins;
-    shadows: Shadows;
-    transitions: Transitions; */
-
     palette: Palette & SocialPalette;
-    boxShadows: BoxShadows;
-    borders: Borders;
     functions: Functions;
   }
 
@@ -147,8 +131,6 @@ declare module '@mui/material/styles' {
   // allow configuration using `createTheme`
   interface ThemeOptions {
     palette?: PaletteOptions & SocialPaletteOptions;
-    boxShadows?: BoxShadows;
-    borders?: Borders;
     functions?: Functions;
   }
 

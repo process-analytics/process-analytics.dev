@@ -20,26 +20,30 @@
  * You can customize the box-shadow for the entire Material Kit 2 React using this file.
  */
 import grey from '@mui/material/colors/grey';
-import {
-  BoxShadows,
-  PaletteColor,
-  BoxShadowColor,
-  PaletteOptions,
-} from '@mui/material';
-
-import { paletteKeys } from '..';
+import { PaletteColor, BoxShadowColor, PaletteOptions } from '@mui/material';
+import { ShadowSize } from '@mui/material/styles';
 
 // Material Kit 2 React Helper Functions
 import { boxShadow } from '../functions/boxShadow';
+import { paletteKeys } from '..';
+import { palette } from '../base';
 
-import { palette } from './colors';
+export type BoxShadows = ShadowSize & {
+  colored: BoxShadowColor;
+  sliderBoxShadow: {
+    thumb: string;
+  };
+  tabsBoxShadow: {
+    indicator: string;
+  };
+};
 
-function buildBoxShadowForPaletteColor(color: PaletteColor): string {
-  return `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, 
+const buildBoxShadowForPaletteColor = (
+  color: PaletteColor,
+): string => `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, 
   ${boxShadow([0, 7], [10, -5], color.main, 0.4)}`;
-}
 
-function getColored(): BoxShadowColor {
+const getColored = (): BoxShadowColor => {
   const colored = {} as Partial<BoxShadowColor>;
   paletteKeys.forEach(key => {
     colored[key as keyof BoxShadowColor] = buildBoxShadowForPaletteColor(
@@ -51,7 +55,7 @@ function getColored(): BoxShadowColor {
     white: `${boxShadow([0, 4], [20, 0], grey[50], 0.14)}, 
     ${boxShadow([0, 7], [10, -5], grey[50], 0.4)}`,
   } as BoxShadowColor;
-}
+};
 
 export const boxShadows: BoxShadows = {
   xs: boxShadow([0, 2], [9, -5], grey[900], 0.15),

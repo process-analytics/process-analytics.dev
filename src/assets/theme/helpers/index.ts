@@ -15,3 +15,4 @@
  */
 export * from './border-utils';
 export * from './color-utils';
+export * from './box-shadow-utils';

@@ -37,7 +37,7 @@ import { createTheme, Theme } from '@mui/material';
 import { responsiveFontSizes } from './responsiveFont';
 
 // Material Kit 2 React base styles
-import { palette, breakpoints, typography, boxShadows, globals } from './base';
+import { palette, breakpoints, typography, globals } from './base';
 
 // Material Kit 2 React helper functions
 import {
@@ -86,7 +86,6 @@ export const theme: Theme = {
   ...responsiveFontSizes(generatedTheme, {
     breakpoints: generatedTheme.breakpoints.keys,
   }),
-  boxShadows,
   functions: {
     boxShadow,
     hexToRgb,
