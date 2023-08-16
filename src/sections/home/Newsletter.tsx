@@ -76,13 +76,14 @@ export const Newsletter: FC = () => {
             item
             sm={12}
             md={8}
+            mr="auto"
             sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 12, md: 0 } }}
           >
-            <MKTypography variant="h4">
+            <MKTypography variant="h4" mb={1}>
               Be the first to see the news
             </MKTypography>
             <MKTypography variant="body2" color="text" mb={3}>
-              Receive our low-traffic Newsletter
+              Join our low-traffic newsletter and get news in your inbox!
             </MKTypography>
             {submitted ? (
               <ResponseContainer msg={responseMsg} />
@@ -145,7 +146,6 @@ const Form: FC<FormProps> = props => {
     <Grid
       component="form"
       container
-      //   spacing={1}
       onSubmit={handleSubmit}
       justifyContent={isMobileView ? 'center' : 'start'}
     >

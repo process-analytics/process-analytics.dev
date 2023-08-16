@@ -30,10 +30,7 @@ type MDXPanelProps = {
 export const MDXPanel: FC<MDXPanelProps> = ({ mdx, isFullPage }) => (
   <Box width={isFullPage ? [1, 1, 1] : [1, 1, 2 / 3]} px={[1, 2, 4]} mt={2}>
     <Fade direction="down" triggerOnce>
-      <Box
-        //  fontSize={['medium', 'medium', 'large']}
-        lineHeight={['1.5rem', '1.5rem', '2rem']}
-      >
+      <Box lineHeight={['1.5rem', '1.5rem', '2rem']}>
         <Typography variant="body2">
           <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
         </Typography>
