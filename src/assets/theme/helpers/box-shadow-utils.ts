@@ -20,13 +20,17 @@
  * You can customize the box-shadow for the entire Material Kit 2 React using this file.
  */
 import grey from '@mui/material/colors/grey';
-import { PaletteColor, BoxShadowColor, PaletteOptions } from '@mui/material';
-import { ShadowSize } from '@mui/material/styles';
+import {
+  PaletteColor,
+  BoxShadowColor,
+  PaletteOptions,
+  ShadowSize,
+} from '@mui/material';
 
 import { Color } from 'chroma-js';
 
-// Material Kit 2 React Helper Functions
-import { paletteKeys, pxToRem, rgba } from '..';
+import { paletteKeys, rgba } from './color-utils';
+import { pxToRem } from './px-to-rem';
 import { palette } from '../base';
 
 export type BoxShadows = ShadowSize & {
@@ -40,24 +44,25 @@ export type BoxShadows = ShadowSize & {
 };
 
 const boxShadow = (
-  offset: number[] = [],
-  radius: number[] = [],
+  offset: { x: number; y: number },
+  radius: { blur: number; spread: number },
   color: string | number | Color,
   opacity: number,
   inset = '',
-): string => {
-  const [x, y] = offset;
-  const [blur, spread] = radius;
-
-  return `${inset} ${pxToRem(x)} ${pxToRem(y)} ${pxToRem(blur)} ${pxToRem(
-    spread,
-  )} ${rgba(color, opacity)}`;
-};
+): string =>
+  `${inset} ${pxToRem(offset.x)} ${pxToRem(offset.y)} ${pxToRem(
+    radius.blur,
+  )} ${pxToRem(radius.spread)} ${rgba(color, opacity)}`;
 
 const buildBoxShadowForPaletteColor = (
   color: PaletteColor,
-): string => `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, 
-  ${boxShadow([0, 7], [10, -5], color.main, 0.4)}`;
+): string => `${boxShadow(
+  { x: 0, y: 4 },
+  { blur: 20, spread: 0 },
+  palette.grey?.['900'] ?? grey[900],
+  0.14,
+)}, 
+  ${boxShadow({ x: 0, y: 7 }, { blur: 10, spread: -5 }, color.main, 0.4)}`;
 
 const getColored = (): BoxShadowColor => {
   const colored = {} as Partial<BoxShadowColor>;
@@ -68,28 +73,39 @@ const getColored = (): BoxShadowColor => {
   });
   return {
     ...colored,
-    white: `${boxShadow([0, 4], [20, 0], grey[50], 0.14)}, 
-    ${boxShadow([0, 7], [10, -5], grey[50], 0.4)}`,
+    white: `${boxShadow(
+      { x: 0, y: 4 },
+      { blur: 20, spread: 0 },
+      grey[50],
+      0.14,
+    )}, 
+    ${boxShadow({ x: 0, y: 7 }, { blur: 10, spread: -5 }, grey[50], 0.4)}`,
   } as BoxShadowColor;
 };
 
 export const boxShadows: BoxShadows = {
-  xs: boxShadow([0, 2], [9, -5], grey[900], 0.15),
-  sm: boxShadow([0, 5], [10, 0], grey[900], 0.12),
-  md: `${boxShadow([0, 4], [6, -1], grey[900], 0.1)}, 
-  ${boxShadow([0, 2], [4, -1], grey[900], 0.06)}`,
-  lg: `${boxShadow([0, 10], [15, -3], grey[900], 0.1)}, 
-    ${boxShadow([0, 4], [6, -2], grey[900], 0.05)}`,
-  xl: `${boxShadow([0, 20], [25, -5], grey[900], 0.1)}, 
-    ${boxShadow([0, 10], [10, -5], grey[900], 0.04)}`,
-  xxl: boxShadow([0, 20], [27, 0], grey[900], 0.05),
-  inset: boxShadow([0, 1], [2, 0], grey[900], 0.075, 'inset'),
+  xs: boxShadow({ x: 0, y: 2 }, { blur: 9, spread: -5 }, grey[900], 0.15),
+  sm: boxShadow({ x: 0, y: 5 }, { blur: 10, spread: 0 }, grey[900], 0.12),
+  md: `${boxShadow({ x: 0, y: 4 }, { blur: 6, spread: -1 }, grey[900], 0.1)}, 
+  ${boxShadow({ x: 0, y: 2 }, { blur: 4, spread: -1 }, grey[900], 0.06)}`,
+  lg: `${boxShadow({ x: 0, y: 10 }, { blur: 15, spread: -3 }, grey[900], 0.1)}, 
+    ${boxShadow({ x: 0, y: 4 }, { blur: 6, spread: -6 }, grey[900], 0.05)}`,
+  xl: `${boxShadow({ x: 0, y: 20 }, { blur: 25, spread: -5 }, grey[900], 0.1)}, 
+    ${boxShadow({ x: 0, y: 10 }, { blur: 10, spread: -5 }, grey[900], 0.04)}`,
+  xxl: boxShadow({ x: 0, y: 20 }, { blur: 27, spread: 0 }, grey[900], 0.05),
+  inset: boxShadow(
+    { x: 0, y: 1 },
+    { blur: 2, spread: 0 },
+    grey[900],
+    0.075,
+    'inset',
+  ),
   colored: getColored(),
 
   sliderBoxShadow: {
-    thumb: boxShadow([0, 1], [13, 0], grey[900], 0.2),
+    thumb: boxShadow({ x: 0, y: 1 }, { blur: 13, spread: 0 }, grey[900], 0.2),
   },
   tabsBoxShadow: {
-    indicator: boxShadow([0, 1], [5, 1], '#ddd', 1),
+    indicator: boxShadow({ x: 0, y: 1 }, { blur: 5, spread: 1 }, '#ddd', 1),
   },
 };
