@@ -31,24 +31,17 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, light } from '..';
+import { borders } from '..';
 
 export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
   styleOverrides: {
-    root: {
+    root: ({ theme: { palette } }) => ({
       height: '0.375rem',
       borderRadius: borders.radius.md,
       overflow: 'visible',
       position: 'relative',
-    },
-
-    colorPrimary: {
-      backgroundColor: light,
-    },
-
-    colorSecondary: {
-      backgroundColor: light,
-    },
+      backgroundColor: palette.grey.A200,
+    }),
 
     bar: {
       height: '0.375rem',

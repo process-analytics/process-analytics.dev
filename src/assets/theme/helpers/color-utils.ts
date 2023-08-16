@@ -71,7 +71,6 @@ export const isGreyColorName = (color: string): color is GreyColorName =>
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-export const light = '#f0f2f5';
 export const dark = '#344767';
 export const darker = '#191919';
 

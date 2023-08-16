@@ -16,8 +16,6 @@
 
 import { PaletteOptions, SocialPaletteOptions } from '@mui/material';
 
-import { light } from '..';
-
 /**
  * The base colors for the Material Kit 2 React.
  * You can add new color using this file.
@@ -87,7 +85,7 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
 
   grey: {
     '100': '#f8f9fa',
-    '200': light,
+    '200': '#f0f2f5',
     '300': '#dee2e6',
     '400': '#ced4da',
     '500': '#adb5bd',

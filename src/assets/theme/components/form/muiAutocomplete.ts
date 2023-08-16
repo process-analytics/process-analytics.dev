@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, dark, darker, light } from '../..';
+import { borders, boxShadows, dark, darker } from '../..';
 
 import { fontSize } from '../..';
 
@@ -61,12 +61,12 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light,
+          backgroundColor: palette.grey.A200,
           color: dark,
         },
 
       '&[aria-selected="true"]': {
-        backgroundColor: `${light} !important`,
+        backgroundColor: `${palette.grey.A200} !important`,
         color: `${dark} !important`,
       },
     }),

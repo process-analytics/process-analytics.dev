@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, dark, fontSize, light } from '../..';
+import { borders, dark, fontSize } from '../..';
 
 export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
   styleOverrides: {
@@ -46,7 +46,7 @@ export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light,
+          backgroundColor: palette.grey.A200,
           color: dark,
         },
     }),
