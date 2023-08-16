@@ -31,16 +31,14 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-
-const { borderRadius } = borders;
+import { borders } from '../..';
 
 export const MuiTableContainer: Components<Theme>['MuiTableContainer'] = {
   styleOverrides: {
     root: {
       backgroundColor: 'white',
       boxShadow: md,
-      borderRadius: borderRadius.xl,
+      borderRadius: borders.radius.xl,
     },
   },
 };

@@ -31,10 +31,7 @@ muiCardMedia1.ts; /**
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-import { size } from '../..';
-
-const { borderRadius } = borders;
+import { borders, size } from '../..';
 
 export const MuiMenu: Components<Theme>['MuiMenu'] = {
   defaultProps: {
@@ -50,7 +47,7 @@ export const MuiMenu: Components<Theme>['MuiMenu'] = {
       color: text.main,
       textAlign: 'left',
       backgroundColor: 'White !important',
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
     },
   },
 };

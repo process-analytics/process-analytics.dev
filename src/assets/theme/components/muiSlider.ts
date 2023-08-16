@@ -33,9 +33,7 @@ import { Components, Theme } from '@mui/material';
 
 import { boxShadow } from '../functions';
 
-import { borders } from '../base';
-
-const { borderRadius } = borders;
+import { borders } from '..';
 
 export const MuiSlider: Components<Theme>['MuiSlider'] = {
   styleOverrides: {
@@ -54,7 +52,7 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
     rail: {
       height: pxToRem(2),
       background: grey[200],
-      borderRadius: borderRadius.sm,
+      borderRadius: borders.radius.sm,
       opacity: 1,
     },
 
@@ -63,7 +61,7 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
       height: pxToRem(2),
       position: 'relative',
       border: 'none',
-      borderRadius: borderRadius.lg,
+      borderRadius: borders.radius.lg,
       zIndex: 1,
     },
 
@@ -73,7 +71,7 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
       backgroundColor: 'white',
       zIndex: 10,
       boxShadow: sliderBoxShadow.thumb,
-      border: `${borderWidth[1]} solid ${info.main}`,
+      border: `${borders.width.sm} solid ${info.main}`,
       transition: 'all 200ms linear',
 
       '&:hover': {

@@ -37,8 +37,6 @@ import Fade from '@mui/material/Fade';
 // Material Kit 2 React base styles
 import { borders } from '..';
 
-const { radius } = borders;
-
 export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
   defaultProps: {
     arrow: true,
@@ -53,7 +51,7 @@ export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
       fontSize: '0.875rem',
       fontWeight: typography.fontWeightRegular,
       textAlign: 'center',
-      borderRadius: radius.md,
+      borderRadius: borders.radius.md,
       opacity: 0.7,
       padding: '0.3125rem 0.5rem 0.25rem',
     }),

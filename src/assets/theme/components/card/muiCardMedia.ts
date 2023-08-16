@@ -31,14 +31,12 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-
-const { borderRadius } = borders;
+import { borders } from '../..';
 
 export const MuiCardMedia: Components<Theme>['MuiCardMedia'] = {
   styleOverrides: {
     root: {
-      borderRadius: borderRadius.xl,
+      borderRadius: borders.radius.xl,
       margin: '1rem 1rem 0',
     },
 

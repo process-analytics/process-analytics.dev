@@ -77,14 +77,14 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
     thumb: {
       backgroundColor: 'white',
       boxShadow: md,
-      border: `${borderWidth[1]} solid ${grey[400]}`,
+      border: `${borders.width.sm} solid ${grey[400]}`,
     },
 
     track: {
       width: '2rem',
       height: pxToRem(15),
       backgroundColor: grey[400],
-      border: `${borderWidth[1]} solid ${grey[400]}`,
+      border: `${borders.width.sm} solid ${grey[400]}`,
       opacity: 1,
     },
 

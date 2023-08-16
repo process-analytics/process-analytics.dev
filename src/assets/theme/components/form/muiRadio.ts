@@ -32,9 +32,7 @@
 import { Components, Theme } from '@mui/material';
 
 import { linearGradient } from '../../functions';
-import { borders } from '../../base';
-
-const { borderWidth, borderColor } = borders;
+import { borders } from '../..';
 
 export const MuiRadio: Components<Theme>['MuiRadio'] = {
   styleOverrides: {
@@ -43,7 +41,7 @@ export const MuiRadio: Components<Theme>['MuiRadio'] = {
         width: pxToRem(20),
         height: pxToRem(20),
         color: 'transparent',
-        border: `${borderWidth[1]} solid ${borderColor}`,
+        border: `${borders.width.sm} solid ${borders.color}`,
         borderRadius: '50%',
       },
 
@@ -68,12 +66,12 @@ export const MuiRadio: Components<Theme>['MuiRadio'] = {
       },
 
       '&.Mui-focusVisible': {
-        border: `${borderWidth[2]} solid ${info.main} !important`,
+        border: `${borders.width.md} solid ${info.main} !important`,
       },
     },
 
     colorPrimary: {
-      color: borderColor,
+      color: borders.color,
 
       '&.Mui-checked': {
         color: info.main,
@@ -89,7 +87,7 @@ export const MuiRadio: Components<Theme>['MuiRadio'] = {
     },
 
     colorSecondary: {
-      color: borderColor,
+      color: borders.color,
 
       '&.Mui-checked': {
         color: info.main,

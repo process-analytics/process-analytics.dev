@@ -53,7 +53,7 @@ export const MuiStepConnector: Components<Theme>['MuiStepConnector'] = {
     },
 
     line: {
-      borderWidth: `${borderWidth[2]} !important`,
+      borderWidth: `${borders.width.md} !important`,
       borderColor: 'currentColor',
       opacity: 0.5,
     },

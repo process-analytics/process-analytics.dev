@@ -33,9 +33,7 @@ import { Components, Theme } from '@mui/material';
 
 import { linearGradient } from '../../functions';
 
-import { borders } from '../../base';
-
-const { borderWidth, borderColor } = borders;
+import { borders } from '../..';
 
 export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
   styleOverrides: {
@@ -47,7 +45,7 @@ export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
         width: pxToRem(20),
         height: pxToRem(20),
         color: 'transparent',
-        border: `${borderWidth[1]} solid ${borderColor}`,
+        border: `${borders.width.sm} solid ${borders.color}`,
         borderRadius: pxToRem(5.6),
       },
 
@@ -56,12 +54,12 @@ export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
       },
 
       '&.Mui-focusVisible': {
-        border: `${borderWidth[2]} solid ${info.main} !important`,
+        border: `${borders.width.md} solid ${info.main} !important`,
       },
     },
 
     colorPrimary: {
-      color: borderColor,
+      color: borders.color,
 
       '&.Mui-checked': {
         color: info.main,
@@ -77,7 +75,7 @@ export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
     },
 
     colorSecondary: {
-      color: borderColor,
+      color: borders.color,
 
       '& .MuiSvgIcon-root': {
         color: info.main,

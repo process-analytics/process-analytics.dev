@@ -31,16 +31,14 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../base';
-
-const { borderRadius } = borders;
+import { borders } from '..';
 
 export const MuiPopover: Components<Theme>['MuiPopover'] = {
   styleOverrides: {
     paper: {
       backgroundColor: 'transparent',
       boxShadow: lg,
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
     },
   },
 };

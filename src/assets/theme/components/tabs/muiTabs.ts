@@ -31,16 +31,14 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-
-const { borderRadius } = borders;
+import { borders } from '../..';
 
 export const MuiTabs: Components<Theme>['MuiTabs'] = {
   styleOverrides: {
     root: {
       position: 'relative',
       backgroundColor: grey[100],
-      borderRadius: borderRadius.xl,
+      borderRadius: borders.radius.xl,
       minHeight: 'unset',
       padding: '0.25rem',
     },
@@ -64,7 +62,7 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
 
     indicator: {
       height: '100%',
-      borderRadius: borderRadius.lg,
+      borderRadius: borders.radius.lg,
       backgroundColor: 'white',
       boxShadow: tabsBoxShadow.indicator,
       transition: 'all 500ms ease',

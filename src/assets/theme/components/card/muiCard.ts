@@ -31,7 +31,9 @@ Coded by www.creative-tim.com
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, rgba } from '..';
+import { borders } from '../..';
+
+import { boxShadows, rgba } from '..';
 
 export const MuiCard: Components<Theme>['MuiCard'] = {
   styleOverrides: {

@@ -31,15 +31,13 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../base';
-
-const { borderRadius } = borders;
+import { borders } from '..';
 
 export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
   styleOverrides: {
     root: {
       height: pxToRem(6),
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
       overflow: 'visible',
       position: 'relative',
     },
@@ -54,7 +52,7 @@ export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
 
     bar: {
       height: pxToRem(6),
-      borderRadius: borderRadius.sm,
+      borderRadius: borders.radius.sm,
       position: 'absolute',
       transform: `translate(0, 0) !important`,
       transition: 'width 0.6s ease !important',

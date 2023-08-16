@@ -31,9 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../base';
-
-const { borderRadius } = borders;
+import { borders } from '..';
 
 export const MuiAvatar: Components<Theme>['MuiAvatar'] = {
   styleOverrides: {
@@ -42,7 +40,7 @@ export const MuiAvatar: Components<Theme>['MuiAvatar'] = {
     },
 
     rounded: {
-      borderRadius: borderRadius.lg,
+      borderRadius: borders.radius.lg,
     },
 
     img: {

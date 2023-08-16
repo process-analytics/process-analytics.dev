@@ -31,10 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-import { size } from '../..';
-
-const { borderRadius } = borders;
+import { borders, size } from '../..';
 
 export const MuiTab: Components<Theme>['MuiTab'] = {
   styleOverrides: {
@@ -52,7 +49,7 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       textTransform: 'none',
       lineHeight: 'inherit',
       padding: '0.25rem',
-      borderRadius: borderRadius.lg,
+      borderRadius: borders.radius.lg,
       color: `${dark.main} !important`,
       opacity: '1 !important',
 

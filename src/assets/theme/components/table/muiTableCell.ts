@@ -35,7 +35,7 @@ export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
   styleOverrides: {
     root: {
       padding: `${pxToRem(12)} 1rem`,
-      borderBottom: `${borderWidth[1]} solid ${light.main}`,
+      borderBottom: `${borders.width.sm} solid ${light.main}`,
     },
   },
 };

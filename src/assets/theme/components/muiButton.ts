@@ -31,12 +31,14 @@ Coded by www.creative-tim.com
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '..';
+
 export const MuiButton: Components<Theme>['MuiButton'] = {
   defaultProps: {
     disableRipple: false,
   },
   styleOverrides: {
-    root: ({ ownerState, theme }) => ({
+    root: ({ ownerState }) => ({
       display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -68,7 +70,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       },
 
       ...(ownerState.circular === true && {
-        borderRadius: theme.borders.borderRadius.section,
+        borderRadius: borders.radius.section,
       }),
     }),
 

@@ -31,10 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { size } from '../..';
-import { borders } from '../../base';
-
-const { borderWidth, borderColor } = borders;
+import { size, borders } from '../..';
 
 export const MuiDialogContent: Components<Theme>['MuiDialogContent'] = {
   styleOverrides: {
@@ -45,8 +42,8 @@ export const MuiDialogContent: Components<Theme>['MuiDialogContent'] = {
     }),
 
     dividers: {
-      borderTop: `${borderWidth[1]} solid ${borderColor}`,
-      borderBottom: `${borderWidth[1]} solid ${borderColor}`,
+      borderTop: `${borders.width.sm} solid ${borders.color}`,
+      borderBottom: `${borders.width.sm} solid ${borders.color}`,
     },
   },
 };

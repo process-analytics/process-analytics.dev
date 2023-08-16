@@ -31,16 +31,14 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-
-const { borderRadius } = borders;
+import { borders } from '../..';
 
 export const MuiStepper: Components<Theme>['MuiStepper'] = {
   styleOverrides: {
     root: {
       background: linearGradient(gradients.info.main, gradients.info.state),
       padding: '1.5rem 0 1rem',
-      borderRadius: borderRadius.lg,
+      borderRadius: borders.radius.lg,
       boxShadow: colored.info,
 
       '&.MuiPaper-root': {

@@ -31,9 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../../base';
-
-const { borderRadius } = borders;
+import { borders } from '../..';
 
 import { size } from '../..';
 
@@ -46,7 +44,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
       color: text.main,
       textAlign: 'left',
       backgroundColor: 'White !important',
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
     },
 
     paper: {
@@ -56,7 +54,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
 
     option: {
       padding: `${pxToRem(4.8)} 1rem`,
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
       fontSize: size.sm,
       color: text.main,
       transition: 'background-color 300ms ease, color 300ms ease',
