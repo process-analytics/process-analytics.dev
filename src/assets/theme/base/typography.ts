@@ -22,7 +22,7 @@
 
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-import { fontSize, fontWeight } from '..';
+import { fontSize, fontWeight } from '../helpers/font-utils';
 
 const baseHeadingProperties = {
   color: 'inherit',
