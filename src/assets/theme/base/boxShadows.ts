@@ -27,10 +27,12 @@ import {
   PaletteOptions,
 } from '@mui/material';
 
+import { paletteKeys } from '..';
+
 // Material Kit 2 React Helper Functions
 import { boxShadow } from '../functions/boxShadow';
 
-import { palette, paletteKeys } from './colors';
+import { palette } from './colors';
 
 function buildBoxShadowForPaletteColor(color: PaletteColor): string {
   return `${boxShadow([0, 4], [20, 0], grey[900], 0.14)}, 

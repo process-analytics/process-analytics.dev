@@ -16,7 +16,8 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows } from '../base';
+import { borders } from '..';
+import { boxShadows } from '../base';
 import { rgba } from '../functions';
 
 const { width, radius } = borders;

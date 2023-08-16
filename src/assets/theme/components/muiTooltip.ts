@@ -35,7 +35,7 @@ import { Components, Theme } from '@mui/material';
 import Fade from '@mui/material/Fade';
 
 // Material Kit 2 React base styles
-import { borders } from '../base/borders';
+import { borders } from '..';
 
 const { radius } = borders;
 

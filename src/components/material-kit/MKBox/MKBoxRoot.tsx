@@ -38,10 +38,7 @@ import {
   Color,
 } from '@mui/material';
 
-import {
-  isGreyColorName,
-  isPaletteColorName,
-} from '../../../assets/theme/base';
+import { isGreyColorName, isPaletteColorName } from '../../../assets/theme';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
