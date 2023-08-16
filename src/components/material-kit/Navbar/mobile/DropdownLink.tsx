@@ -29,6 +29,8 @@ import React from 'react';
 
 import { Theme } from '@mui/material';
 
+import { borders } from '../../../../assets/theme';
+
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
 import { MKBox, MKTypography } from '../..';
@@ -50,8 +52,8 @@ export const DropdownLink = ({
     url={url}
     key={`${name}_${id}`}
     display="block"
-    sx={({ palette, borders: { radius } }: Theme) => ({
-      borderRadius: radius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       py: 1,

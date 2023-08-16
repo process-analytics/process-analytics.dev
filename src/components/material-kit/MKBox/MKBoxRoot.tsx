@@ -38,7 +38,12 @@ import {
   Color,
 } from '@mui/material';
 
-import { isGreyColorName, isPaletteColorName } from '../../../assets/theme';
+import {
+  borders,
+  boxShadows,
+  isGreyColorName,
+  isPaletteColorName,
+} from '../../../assets/theme';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
@@ -71,7 +76,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   theme,
   ownerState,
 }) => {
-  const { palette, functions, borders, boxShadows } = theme;
+  const { palette, functions } = theme;
   const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
 
   // background value
@@ -109,7 +114,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
     opacity,
     background: backgroundValue,
     color: colorValue,
-    borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
+    borderRadius: borderRadius ? borders.radius[borderRadius] : 'none',
     boxShadow: shadow?.size
       ? boxShadows[shadow.size]
       : shadow?.color

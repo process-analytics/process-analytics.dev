@@ -29,10 +29,10 @@ import React, { FC } from 'react';
 
 import { Theme } from '@mui/material';
 
+import { borders } from '../../../../../assets/theme';
+
 import { MKTypography } from '../../..';
-
 import { Link, LinkContent } from '../../../..';
-
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
 type DropdownDropdownProps = {
@@ -55,8 +55,8 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     fontWeight="regular"
     py={0.625}
     px={2}
-    sx={({ palette, borders: { radius } }: Theme) => ({
-      borderRadius: radius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),

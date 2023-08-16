@@ -30,8 +30,9 @@
  */
 import React from 'react';
 
-import { Button, ButtonProps, Theme } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 
+import { borders } from '../../../../assets/theme';
 import { MKBox } from '../..';
 import { LinkContent, Link } from '../../..';
 
@@ -56,7 +57,7 @@ export const ActionButton = ({
       color={color ?? 'secondary'}
       size="medium"
       sx={{
-        borderRadius: ({ borders }: Theme) => borders.radius.section,
+        borderRadius: borders.radius.section,
       }}
     >
       {label}
