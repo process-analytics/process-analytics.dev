@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, fontWeight, fontSize } from '../..';
+import { borders, fontWeight, fontSize, dark } from '../..';
 
 export const MuiTab: Components<Theme>['MuiTab'] = {
   styleOverrides: {

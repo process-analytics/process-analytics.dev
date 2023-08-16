@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, linearGradient } from '../..';
+import { borders, boxShadows, darker, linearGradient } from '../..';
 
 export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
   defaultProps: {
@@ -39,41 +39,42 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
   },
 
   styleOverrides: {
-    switchBase: {
-      color: gradients.dark,
-
-      '&:hover': {
-        backgroundColor: 'transparent',
-      },
-
-      '&.Mui-checked': {
-        color: gradients.dark,
+    switchBase: ({ theme: { palette }, ownerState: { color } }) => {
+      const usedColor =
+        color && color !== 'default' ? palette[color] : palette.primary;
+      return {
+        color: darker,
 
         '&:hover': {
           backgroundColor: 'transparent',
         },
 
-        '& .MuiSwitch-thumb': {
-          borderColor: `${gradients.dark} !important`,
+        '&.Mui-checked': {
+          color: darker,
+
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+
+          '& .MuiSwitch-thumb': {
+            borderColor: `${darker} !important`,
+          },
+
+          '& + .MuiSwitch-track': {
+            backgroundColor: `${darker} !important`,
+            borderColor: `${darker} !important`,
+            opacity: 1,
+          },
         },
 
-        '& + .MuiSwitch-track': {
-          backgroundColor: `${gradients.dark} !important`,
-          borderColor: `${gradients.dark} !important`,
-          opacity: 1,
+        '&.Mui-disabled + .MuiSwitch-track': {
+          opacity: '0.3 !important',
         },
-      },
 
-      '&.Mui-disabled + .MuiSwitch-track': {
-        opacity: '0.3 !important',
-      },
-
-      '&.Mui-focusVisible .MuiSwitch-thumb': {
-        backgroundImage: linearGradient(
-          gradients.info.main,
-          gradients.info.state,
-        ),
-      },
+        '&.Mui-focusVisible .MuiSwitch-thumb': {
+          backgroundImage: linearGradient(usedColor.main, usedColor.dark),
+        },
+      };
     },
 
     thumb: ({ theme: { palette } }) => ({

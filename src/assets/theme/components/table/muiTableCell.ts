@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../..';
+import { borders, light } from '../..';
 
 export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
   styleOverrides: {

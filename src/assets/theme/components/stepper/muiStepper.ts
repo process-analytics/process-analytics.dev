@@ -30,20 +30,27 @@
  */
 
 import { Components, Theme } from '@mui/material';
+import { PaletteColorKey } from '@mui/material/styles';
 
-import { borders, linearGradient } from '../..';
+import { borders, boxShadows, isPaletteColorName, linearGradient } from '../..';
 
 export const MuiStepper: Components<Theme>['MuiStepper'] = {
   styleOverrides: {
-    root: {
-      background: linearGradient(gradients.info.main, gradients.info.state),
-      padding: '1.5rem 0 1rem',
-      borderRadius: borders.radius.lg,
-      boxShadow: colored.info,
+    root: ({ theme: { palette }, ownerState: { color } }) => {
+      const usedColor =
+        color && isPaletteColorName(color) ? palette[color] : palette.primary;
+      return {
+        background: linearGradient(usedColor.main, usedColor.dark),
+        padding: '1.5rem 0 1rem',
+        borderRadius: borders.radius.lg,
+        boxShadow: color
+          ? boxShadows.colored[color as unknown as PaletteColorKey]
+          : boxShadows.colored.primary,
 
-      '&.MuiPaper-root': {
-        backgroundColor: 'transparent',
-      },
+        '&.MuiPaper-root': {
+          backgroundColor: 'transparent',
+        },
+      };
     },
   },
 };

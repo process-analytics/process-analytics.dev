@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, dark, light } from '../..';
+import { borders, boxShadows, dark, darker, light } from '../..';
 
 import { fontSize } from '../..';
 
@@ -90,7 +90,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
       alignItems: 'center',
       height: 'auto',
       padding: '0.25rem',
-      backgroundColor: gradients.dark.state,
+      backgroundColor: darker,
       color: 'White',
 
       '& .MuiChip-label': {
