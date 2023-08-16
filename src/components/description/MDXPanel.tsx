@@ -15,7 +15,7 @@
  */
 import React, { FC } from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
@@ -31,10 +31,12 @@ export const MDXPanel: FC<MDXPanelProps> = ({ mdx, isFullPage }) => (
   <Box width={isFullPage ? [1, 1, 1] : [1, 1, 2 / 3]} px={[1, 2, 4]} mt={2}>
     <Fade direction="down" triggerOnce>
       <Box
-        fontSize={['medium', 'medium', 'large']}
+        //  fontSize={['medium', 'medium', 'large']}
         lineHeight={['1.5rem', '1.5rem', '2rem']}
       >
-        <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
+        <Typography variant="body2">
+          <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
+        </Typography>
       </Box>
     </Fade>
   </Box>
