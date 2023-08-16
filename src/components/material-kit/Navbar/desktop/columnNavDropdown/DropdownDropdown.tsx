@@ -55,8 +55,8 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     fontWeight="regular"
     py={0.625}
     px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette, borders: { radius } }: Theme) => ({
+      borderRadius: radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),

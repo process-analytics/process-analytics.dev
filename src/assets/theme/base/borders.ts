@@ -28,9 +28,9 @@ import { palette } from './colors';
 const { grey } = palette;
 
 export const borders: Borders = {
-  borderColor: grey ? grey[300] : undefined,
+  color: grey ? grey[300] : undefined,
 
-  borderWidth: {
+  width: {
     xs: '0rem',
     sm: '0.0625rem',
     md: '0.125rem',
@@ -39,7 +39,7 @@ export const borders: Borders = {
     xxl: '0.3125rem',
   },
 
-  borderRadius: {
+  radius: {
     xs: '0.1rem',
     sm: '0.125rem',
     md: '0.375rem',

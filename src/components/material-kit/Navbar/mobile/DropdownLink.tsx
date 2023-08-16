@@ -50,8 +50,8 @@ export const DropdownLink = ({
     url={url}
     key={`${name}_${id}`}
     display="block"
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette, borders: { radius } }: Theme) => ({
+      borderRadius: radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       py: 1,

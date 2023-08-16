@@ -56,7 +56,7 @@ export const ActionButton = ({
       color={color ?? 'secondary'}
       size="medium"
       sx={{
-        borderRadius: ({ borders }: Theme) => borders.borderRadius.section,
+        borderRadius: ({ borders }: Theme) => borders.radius.section,
       }}
     >
       {label}

@@ -71,9 +71,9 @@ declare module '@mui/material/styles' {
     section: string;
   };
   type Borders = {
-    borderColor?: string;
-    borderWidth: Omi<BorderRadius, 'section'>;
-    borderRadius: BorderRadius;
+    color?: string;
+    width: Omi<BorderRadius, 'section'>;
+    radius: BorderRadius;
   };
 
   type ShadowSize = {
