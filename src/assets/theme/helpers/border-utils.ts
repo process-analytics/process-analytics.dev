@@ -20,14 +20,20 @@
  * You can customize the borders value for the entire Material Kit 2 React using this file.
  */
 
-import { Borders } from '@mui/material/styles';
+import { BorderSize } from '@mui/material';
 
 // Material Kit 2 React Base Styles
-import { palette } from './colors';
+import { palette } from '../base';
 
 const { grey } = palette;
 
-export const borders: Borders = {
+export type BorderUtils = {
+  color?: string;
+  width: Omit<BorderSize, 'section'>;
+  radius: BorderSize;
+};
+
+export const borders: BorderUtils = {
   color: grey ? grey[300] : undefined,
 
   width: {

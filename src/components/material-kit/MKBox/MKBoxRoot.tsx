@@ -27,7 +27,7 @@
 
 // @mui material components
 import {
-  BorderRadius,
+  BorderSize,
   BoxShadowColor,
   GreyColorName,
   Palette,
@@ -41,14 +41,14 @@ import {
 import {
   isGreyColorName,
   isPaletteColorName,
-} from '../../../assets/theme/base/colors';
+} from '../../../assets/theme/base';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
   bgColor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
   color?: PaletteColorKey | GreyColorName | 'inherit';
   opacity?: number;
-  borderRadius?: keyof BorderRadius;
+  borderRadius?: keyof BorderSize;
   shadow?: {
     size?: keyof ShadowSize;
     color?: keyof BoxShadowColor;
