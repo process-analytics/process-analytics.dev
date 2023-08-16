@@ -31,24 +31,13 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { fontSize } from '../..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiFormLabel: Components<Theme>['MuiFormLabel'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
-    },
-
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
-    },
-
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
-    },
+    root: ({ theme }) => ({
+      color: theme.palette.text.primary,
+      fontSize: fontSize.sm,
+    }),
   },
 };

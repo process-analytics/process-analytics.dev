@@ -31,24 +31,10 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
-
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiTextField: Components<Theme>['MuiTextField'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
-    },
-
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
-    },
-
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
+    root: {
+      backgroundColor: 'transparent',
     },
   },
 };

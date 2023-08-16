@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 
 /**
  =========================================================
- * Material Kit 2 React - v2.0.0
+ * Material Kit 2 React - v2.1.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-kit-react
- * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
  Coded by www.creative-tim.com
 
@@ -31,24 +31,13 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { fontSize } from '../..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiDialogTitle: Components<Theme>['MuiDialogTitle'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
-    },
-
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
-    },
-
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
+    root: {
+      padding: '1rem',
+      fontSize: fontSize.xl,
     },
   },
 };

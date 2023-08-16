@@ -31,24 +31,25 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { dark, fontSize } from '../..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiInput: Components<Theme>['MuiInput'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
-    },
+    root: ({ theme: { palette }, ownerState: { color } }) => ({
+      fontSize: `${fontSize.sm} !important`,
+      color: dark,
 
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
-    },
+      '&:hover:not(.Mui-disabled):before': {
+        borderBottom: '0.0625rem solid #d2d6da',
+      },
 
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
-    },
+      '&:before': {
+        borderColor: '#d2d6da',
+      },
+
+      '&:after': {
+        borderColor: color ? palette[color].main : palette.primary.main,
+      },
+    }),
   },
 };

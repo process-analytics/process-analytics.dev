@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './border-utils';
-export * from './box-shadow-utils';
-export * from './color-utils';
-export * from './font-utils';
-export * from './px-to-rem';
+
+export { MuiDialog } from './muiDialog';
+export { MuiDialogActions } from './muiDialogActions';
+export { MuiDialogContent } from './muiDialogContent';
+export { MuiDialogContentText } from './muiDialogContentText';
+export { MuiDialogTitle } from './muiDialogTitle';

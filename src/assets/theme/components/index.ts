@@ -13,11 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { MuiIconButton } from './muiIconButton';
-export { MuiTooltip } from './muiTooltip';
+
 export { MuiAppBar } from './muiAppBar';
+export { MuiAvatar } from './muiAvatar';
+export { MuiBreadcrumbs } from './muiBreadcrumbs';
+export { MuiButton } from './muiButton';
+export { MuiButtonBase } from './MuiButtonBase';
 export { MuiContainer } from './muiContainer';
+export { MuiDivider } from './muiDivider';
 export { MuiIcon } from './muiIcon';
-export { MuiSvgIcon } from './muiSvgIcon';
+export { MuiIconButton } from './muiIconButton';
+export { MuiLinearProgress } from './muiLinearProgress';
 export { MuiLink } from './muiLink';
-export { MuiCard } from './muiCard';
+export { MuiPopover } from './muiPopover';
+export { MuiSlider } from './muiSlider';
+export { MuiSvgIcon } from './muiSvgIcon';
+export { MuiTooltip } from './muiTooltip';
+
+export * from './card';
+export * from './dialog';
+export * from './form';
+export * from './list';
+export * from './menu';
+export * from './stepper';
+export * from './table';
+export * from './tabs';

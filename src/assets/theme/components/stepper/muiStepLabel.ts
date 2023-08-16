@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 
 /**
  =========================================================
- * Material Kit 2 React - v2.0.0
+ * Material Kit 2 React - v2.1.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-kit-react
- * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
  Coded by www.creative-tim.com
 
@@ -31,24 +31,26 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { fontSize, rgba, fontWeight } from '../..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiStepLabel: Components<Theme>['MuiStepLabel'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
-    },
+    label: {
+      marginTop: '0.5rem !important',
+      fontWeight: fontWeight.regular,
+      fontSize: fontSize.xs,
+      color: '#9fc9ff',
+      textTransform: 'uppercase',
 
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
-    },
+      '&.Mui-active': {
+        fontWeight: `${fontWeight.regular} !important`,
+        color: `${rgba('white', 0.8)} !important`,
+      },
 
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
+      '&.Mui-completed': {
+        fontWeight: `${fontWeight.regular} !important`,
+        color: `${rgba('white', 0.8)} !important`,
+      },
     },
   },
 };

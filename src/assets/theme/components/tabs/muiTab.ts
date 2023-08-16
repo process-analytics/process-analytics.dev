@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 
 /**
  =========================================================
- * Material Kit 2 React - v2.0.0
+ * Material Kit 2 React - v2.1.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-kit-react
- * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
  Coded by www.creative-tim.com
 
@@ -31,33 +31,45 @@
 
 import { Components, Theme } from '@mui/material';
 
-// @mui material components
-import Fade from '@mui/material/Fade';
+import { borders, fontWeight, fontSize, dark } from '../..';
 
-// Material Kit 2 React base styles
-import { borders, fontSize } from '..';
-
-export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
-  defaultProps: {
-    arrow: true,
-    TransitionComponent: Fade,
-  },
-
+export const MuiTab: Components<Theme>['MuiTab'] = {
   styleOverrides: {
-    tooltip: ({ theme: { typography, palette } }) => ({
-      maxWidth: '12.5rem',
-      backgroundColor: 'black',
-      color: palette.grey.A200,
-      fontSize: fontSize.sm,
-      fontWeight: typography.fontWeightRegular,
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'row',
+      flex: '1 1 auto',
       textAlign: 'center',
-      borderRadius: borders.radius.md,
-      opacity: 0.7,
-      padding: '0.3125rem 0.5rem 0.25rem',
-    }),
+      maxWidth: 'unset !important',
+      minWidth: 'unset !important',
+      minHeight: 'unset !important',
+      fontSize: fontSize.md,
+      fontWeight: fontWeight.regular,
+      textTransform: 'none',
+      lineHeight: 'inherit',
+      padding: '0.25rem',
+      borderRadius: borders.radius.lg,
+      color: `${dark} !important`,
+      opacity: '1 !important',
 
-    arrow: {
-      color: 'black',
+      '& .material-icons, .material-icons-round': {
+        marginBottom: '0 !important',
+        marginRight: '0.375rem',
+      },
+
+      '& svg': {
+        marginBottom: '0 !important',
+        marginRight: '0.375rem',
+      },
+
+      '& i.MuiTab-iconWrapper': {
+        marginBottom: 0,
+      },
+    },
+
+    labelIcon: {
+      paddingTop: '0.25rem',
     },
   },
 };

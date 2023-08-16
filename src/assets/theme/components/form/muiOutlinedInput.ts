@@ -16,11 +16,11 @@
 
 /**
  =========================================================
- * Material Kit 2 React - v2.0.0
+ * Material Kit 2 React - v2.1.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-kit-react
- * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
  Coded by www.creative-tim.com
 
@@ -31,24 +31,44 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { fontSize } from '../..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
+    root: ({ theme: { palette }, ownerState: { color } }) => ({
+      backgroundColor: `${palette.quaternary.main} !important`,
+      fontSize: `${fontSize.sm} !important`,
+      borderRadius: '0.375rem',
+
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#d2d6da',
+      },
+
+      '&.Mui-focused': {
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: color ? palette[color].main : palette.primary.main,
+        },
+      },
+    }),
+
+    notchedOutline: {
+      borderColor: '#d2d6da',
     },
 
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
+    input: ({ theme: { palette } }) => ({
+      color: palette.grey[700],
+      padding: '0.75rem',
+      backgroundColor: 'transparent',
+    }),
+
+    inputSizeSmall: {
+      fontSize: `${fontSize.xs} !important`,
+      padding: '0.625rem',
     },
 
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
-    },
+    multiline: ({ theme: { palette } }) => ({
+      color: palette.grey[700],
+      padding: 0,
+    }),
   },
 };

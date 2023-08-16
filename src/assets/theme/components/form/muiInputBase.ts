@@ -16,26 +16,13 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, rgba } from '..';
+import { fontSize } from '../..';
 
-export const MuiCard: Components<Theme>['MuiCard'] = {
+export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
   styleOverrides: {
-    root: ({ theme: { palette } }) => ({
-      display: 'flex',
-      flexDirection: 'column',
-      position: 'relative',
-      minWidth: 0,
-      wordWrap: 'break-word',
-      backgroundColor: palette.quaternary.main,
-      backgroundClip: 'border-box',
-      border: `${borders.width.xs} solid ${rgba('#000000', 0.125)}`,
-      borderRadius: borders.radius.xl,
-      boxShadow: boxShadows.md,
-      overflow: 'visible',
-
-      ':hover': {
-        boxShadow: '0 0.75rem 1rem rgba(0, 0, 0, 0.2)',
-      },
-    }),
+    root: {
+      fontSize: `${fontSize.sm} !important`,
+    },
+    inputAdornedEnd: { backgroundColor: 'transparent !important' },
   },
 };

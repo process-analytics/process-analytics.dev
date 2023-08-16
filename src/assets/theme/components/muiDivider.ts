@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Bonitasoft S.A.
+ * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 
 /**
  =========================================================
- * Material Kit 2 React - v2.0.0
+ * Material Kit 2 React - v2.1.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-kit-react
- * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+ * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
  Coded by www.creative-tim.com
 
@@ -31,24 +31,32 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '..';
+import { dark, rgba } from '..';
 
-export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
-  defaultProps: {
-    fontSize: 'inherit',
-  },
-
+export const MuiDivider: Components<Theme>['MuiDivider'] = {
   styleOverrides: {
-    fontSizeInherit: {
-      fontSize: 'inherit !important',
+    root: {
+      background: rgba(dark, 0.2),
+      height: '0.0625rem',
+      margin: '1rem 0',
+      borderBottom: 'none',
+      opacity: 0.25,
     },
 
-    fontSizeSmall: {
-      fontSize: `${fontSize.xl} !important`,
+    vertical: {
+      background: rgba(dark, 0.2),
+      width: '0.0625rem',
+      height: '100%',
+      margin: '0 1rem',
+      borderRight: 'none',
     },
 
-    fontSizeLarge: {
-      fontSize: '2.25rem !important',
+    light: {
+      background: rgba('white', 0.2),
+
+      '&.MuiDivider-vertical': {
+        background: rgba('white', 0.2),
+      },
     },
   },
 };

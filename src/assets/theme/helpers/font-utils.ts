@@ -13,8 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './border-utils';
-export * from './box-shadow-utils';
-export * from './color-utils';
-export * from './font-utils';
-export * from './px-to-rem';
+
+export const fontSize = {
+  xxs: '0.65rem',
+  xs: '0.75rem',
+  sm: '0.875rem',
+  md: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  '2xl': '1.5rem',
+  '3xl': '1.875rem',
+};
+
+export const fontWeight = {
+  lighter: 100,
+  light: 300,
+  regular: 400,
+  medium: 600,
+  bold: 700,
+};
