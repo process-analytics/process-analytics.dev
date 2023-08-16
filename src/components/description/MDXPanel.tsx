@@ -15,9 +15,11 @@
  */
 import React, { FC } from 'react';
 
-import { Box } from 'rebass/styled-components';
+import { Box } from '@mui/material';
+
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
+
 import { StyledMDXComponents } from '../MarkdownComponents';
 
 type MDXPanelProps = {
