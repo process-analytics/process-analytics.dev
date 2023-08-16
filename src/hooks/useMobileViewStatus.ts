@@ -17,7 +17,7 @@
 import { useEffect, useState } from 'react';
 
 import { breakpoints } from '../assets/theme/base';
-import { pxToRem } from '../assets/theme/functions';
+import { pxToRem } from '../assets/theme';
 
 export const useMobileViewStatus = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);

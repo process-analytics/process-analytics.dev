@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { palette } from './colors';
+export * from './colors';
 export { breakpoints } from './breakpoints';
 export { typography } from './typography';
-export { boxShadows } from './boxShadows';
-export { borders } from './borders';
 export { globals } from './globals';

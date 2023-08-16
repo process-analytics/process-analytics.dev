@@ -27,7 +27,7 @@
 
 // @mui material components
 import {
-  BorderRadius,
+  BorderSize,
   BoxShadowColor,
   GreyColorName,
   Palette,
@@ -39,16 +39,19 @@ import {
 } from '@mui/material';
 
 import {
+  borders,
+  boxShadows,
   isGreyColorName,
   isPaletteColorName,
-} from '../../../assets/theme/base/colors';
+  linearGradient,
+} from '../../../assets/theme';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
   bgColor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
   color?: PaletteColorKey | GreyColorName | 'inherit';
   opacity?: number;
-  borderRadius?: keyof BorderRadius;
+  borderRadius?: keyof BorderSize;
   shadow?: {
     size?: keyof ShadowSize;
     color?: keyof BoxShadowColor;
@@ -74,7 +77,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   theme,
   ownerState,
 }) => {
-  const { palette, functions, borders, boxShadows } = theme;
+  const { palette } = theme;
   const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
 
   // background value
@@ -82,7 +85,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   if (variant === 'gradient') {
     backgroundValue =
       bgColor && isPaletteColorName(bgColor)
-        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
+        ? linearGradient(palette[bgColor].main, palette[bgColor].dark)
         : 'White';
   } else if (!bgColor || bgColor === 'transparent') {
     backgroundValue = 'transparent';
@@ -112,7 +115,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
     opacity,
     background: backgroundValue,
     color: colorValue,
-    borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
+    borderRadius: borderRadius ? borders.radius[borderRadius] : 'none',
     boxShadow: shadow?.size
       ? boxShadows[shadow.size]
       : shadow?.color

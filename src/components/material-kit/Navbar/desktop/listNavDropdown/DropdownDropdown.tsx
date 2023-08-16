@@ -30,6 +30,8 @@ import React, { FC } from 'react';
 import { Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
+import { borders } from '../../../../../assets/theme';
+
 import { MKBox, MKTypography } from '../../..';
 import { HeaderMenuWithItems } from '../../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../../common';
@@ -59,8 +61,8 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     fontWeight={content.description ? 'bold' : 'regular'}
     py={content.description ? 1 : 0.625}
     px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),

@@ -20,7 +20,6 @@ import {
   TypographyUtils,
   Variant,
 } from '@mui/material/styles/createTypography';
-import { Color } from 'chroma-js';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -61,7 +60,7 @@ declare module '@mui/material/styles' {
     distribution: string;
   };
 
-  type BorderRadius = {
+  type BorderSize = {
     xs: string;
     sm: string;
     md: string;
@@ -69,11 +68,6 @@ declare module '@mui/material/styles' {
     xl: string;
     xxl: string;
     section: string;
-  };
-  type Borders = {
-    borderColor?: string;
-    borderWidth: Omi<BorderRadius, 'section'>;
-    borderRadius: BorderRadius;
   };
 
   type ShadowSize = {
@@ -86,43 +80,8 @@ declare module '@mui/material/styles' {
     inset: string;
   };
 
-  type BoxShadows = ShadowSize & {
-    colored: BoxShadowColor;
-    sliderBoxShadow: {
-      thumb: string;
-    };
-    tabsBoxShadow: {
-      indicator: string;
-    };
-  };
-
-  type Functions = {
-    boxShadow: (
-      offset?: number[],
-      radius?: number[],
-      color: string | number | Color,
-      opacity: number,
-      inset?: string,
-    ) => string;
-    hexToRgb: (color: string | number | Color) => string;
-    linearGradient: (
-      color: string | number | Color,
-      colorState: string | number | Color,
-      angle?: number,
-    ) => string;
-    pxToRem: (number: number, baseNumber?: number) => string;
-    rgba: (color: string | number | Color, opacity: number) => string;
-  };
-
   interface Theme {
-    /*    mixins: Mixins;
-    shadows: Shadows;
-    transitions: Transitions; */
-
     palette: Palette & SocialPalette;
-    boxShadows: BoxShadows;
-    borders: Borders;
-    functions: Functions;
   }
 
   interface Palette {
@@ -152,9 +111,6 @@ declare module '@mui/material/styles' {
   // allow configuration using `createTheme`
   interface ThemeOptions {
     palette?: PaletteOptions & SocialPaletteOptions;
-    boxShadows?: BoxShadows;
-    borders?: Borders;
-    functions?: Functions;
   }
 
   interface PaletteOptions {

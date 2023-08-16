@@ -16,11 +16,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows } from '../base';
-import { rgba } from '../functions';
-
-const { borderWidth, borderRadius } = borders;
-const { md } = boxShadows;
+import { borders, boxShadows, rgba } from '..';
 
 export const MuiCard: Components<Theme>['MuiCard'] = {
   styleOverrides: {
@@ -32,9 +28,9 @@ export const MuiCard: Components<Theme>['MuiCard'] = {
       wordWrap: 'break-word',
       backgroundColor: palette.quaternary.main,
       backgroundClip: 'border-box',
-      border: `${borderWidth.xs} solid ${rgba('#000000', 0.125)}`,
-      borderRadius: borderRadius.xl,
-      boxShadow: md,
+      border: `${borders.width.xs} solid ${rgba('#000000', 0.125)}`,
+      borderRadius: borders.radius.xl,
+      boxShadow: boxShadows.md,
       overflow: 'visible',
 
       ':hover': {

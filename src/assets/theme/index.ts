@@ -14,29 +14,30 @@
  * limitations under the License.
  */
 
+export * from './helpers';
+
+/*
+=========================================================
+* Material Kit 2 React - v2.0.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-kit-react
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
 // @mui material components
 import { createTheme, Theme } from '@mui/material';
 
 import { responsiveFontSizes } from './responsiveFont';
 
 // Material Kit 2 React base styles
-import {
-  palette,
-  breakpoints,
-  typography,
-  boxShadows,
-  borders,
-  globals,
-} from './base';
-
-// Material Kit 2 React helper functions
-import {
-  boxShadow,
-  hexToRgb,
-  linearGradient,
-  pxToRem,
-  rgba,
-} from './functions';
+import { palette, breakpoints, typography, globals } from './base';
 
 // Material Kit 2 React components base styles for @mui material components
 import {
@@ -71,18 +72,8 @@ const generatedTheme = createTheme({
   },
 });
 
-export const theme: Theme = {
+export const theme: Theme =
   //Generate responsive typography settings based on the options received.
-  ...responsiveFontSizes(generatedTheme, {
+  responsiveFontSizes(generatedTheme, {
     breakpoints: generatedTheme.breakpoints.keys,
-  }),
-  borders,
-  boxShadows,
-  functions: {
-    boxShadow,
-    hexToRgb,
-    linearGradient,
-    pxToRem,
-    rgba,
-  },
-};
+  });
