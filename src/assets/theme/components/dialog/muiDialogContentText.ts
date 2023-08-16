@@ -31,12 +31,12 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { size } from '../..';
+import { fontSize } from '../..';
 
 export const MuiDialogContentText: Components<Theme>['MuiDialogContentText'] = {
   styleOverrides: {
     root: ({ theme: { palette } }) => ({
-      fontSize: size.md,
+      fontSize: fontSize.md,
       color: palette.text.primary,
     }),
   },

@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { fontSize } from '..';
+
 export const MuiIcon: Components<Theme>['MuiIcon'] = {
   defaultProps: {
     baseClassName: 'material-icons-round',
@@ -43,7 +45,7 @@ export const MuiIcon: Components<Theme>['MuiIcon'] = {
     },
 
     fontSizeSmall: {
-      fontSize: '1.25rem !important',
+      fontSize: `${fontSize.xl} !important`,
     },
 
     fontSizeLarge: {

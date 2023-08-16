@@ -31,11 +31,13 @@
 
 import { Components, Palette, PaletteColor, Theme } from '@mui/material';
 
+import { fontSize } from '../..';
+
 export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     root: ({ theme, ownerState: { color } }) => ({
       backgroundColor: `${theme.palette.quaternary.main} !important`,
-      fontSize: '0.875rem !important',
+      fontSize: `${fontSize.sm} !important`,
       borderRadius: '0.375rem',
 
       '&:hover .MuiOutlinedInput-notchedOutline': {
@@ -61,7 +63,7 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
     }),
 
     inputSizeSmall: {
-      fontSize: '0.75rem !important',
+      fontSize: `${fontSize.xs} !important`,
       padding: '0.625rem',
     },
 

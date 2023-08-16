@@ -31,7 +31,7 @@ Coded by www.creative-tim.com
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '..';
+import { borders, fontSize, fontWeight } from '..';
 
 export const MuiButton: Components<Theme>['MuiButton'] = {
   defaultProps: {
@@ -46,8 +46,8 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       padding: '0.625rem 1.5rem',
       minHeight: '2.5rem',
       lineHeight: 1.4,
-      fontWeight: 700,
-      fontSize: '0.75rem',
+      fontWeight: fontWeight.bold,
+      fontSize: fontSize.xs,
       letterSpacing: '0.02857em',
       textAlign: 'center',
       textTransform: 'uppercase',
@@ -66,7 +66,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
         marginTop: '-0.125rem',
       },
       '& .material-icon, .material-icons-round, svg': {
-        fontSize: '1rem !important',
+        fontSize: `${fontSize.md} !important`,
       },
 
       ...(ownerState.circular === true && {
@@ -77,16 +77,16 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     containedSizeSmall: {
       minHeight: '2rem',
       padding: '0.375rem 1rem',
-      fontSize: '0.75rem',
+      fontSize: fontSize.xs,
 
       '& .material-icon, .material-icons-round, svg': {
-        fontSize: '0.75rem !important',
+        fontSize: `${fontSize.xs} !important`,
       },
     },
     containedSizeLarge: {
       minHeight: '2.9375rem',
       padding: '0.75rem 1.75rem',
-      fontSize: '0.875rem',
+      fontSize: fontSize.sm,
 
       '& .material-icon, .material-icons-round, svg': {
         fontSize: '1.375rem !important',
@@ -95,16 +95,16 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     outlinedSizeSmall: {
       minHeight: '2rem',
       padding: '0.375rem 1rem',
-      fontSize: '0.75rem',
+      fontSize: fontSize.xs,
 
       '& .material-icon, .material-icons-round, svg': {
-        fontSize: '0.75rem !important',
+        fontSize: `${fontSize.xs} !important`,
       },
     },
     outlinedSizeLarge: {
       minHeight: '2.9375rem',
       padding: '0.75rem 1.75rem',
-      fontSize: '0.875rem',
+      fontSize: fontSize.sm,
 
       '& .material-icon, .material-icons-round, svg': {
         fontSize: '1.375rem !important',
@@ -120,16 +120,16 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     textSizeSmall: {
       minHeight: '2rem',
       padding: '0.375rem 1rem',
-      fontSize: '0.75rem',
+      fontSize: fontSize.xs,
 
       '& .material-icon, .material-icons-round, svg': {
-        fontSize: '0.75rem !important',
+        fontSize: `${fontSize.xs} !important`,
       },
     },
     textSizeLarge: {
       minHeight: '2.9375rem',
       padding: '0.75rem 1.75rem',
-      fontSize: '0.875rem',
+      fontSize: fontSize.sm,
 
       '& .material-icon, .material-icons-round, svg': {
         fontSize: '1.375rem !important',

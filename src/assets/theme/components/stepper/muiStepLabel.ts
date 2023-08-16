@@ -31,24 +31,24 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { size, rgba } from '../..';
+import { fontSize, rgba, fontWeight } from '../..';
 
 export const MuiStepLabel: Components<Theme>['MuiStepLabel'] = {
   styleOverrides: {
     label: {
       marginTop: '0.5rem !important',
-      fontWeight: fontWeightRegular,
-      fontSize: size.xs,
+      fontWeight: fontWeight.regular,
+      fontSize: fontSize.xs,
       color: '#9fc9ff',
       textTransform: 'uppercase',
 
       '&.Mui-active': {
-        fontWeight: `${fontWeightRegular} !important`,
+        fontWeight: `${fontWeight.regular} !important`,
         color: `${rgba('white', 0.8)} !important`,
       },
 
       '&.Mui-completed': {
-        fontWeight: `${fontWeightRegular} !important`,
+        fontWeight: `${fontWeight.regular} !important`,
         color: `${rgba('white', 0.8)} !important`,
       },
     },

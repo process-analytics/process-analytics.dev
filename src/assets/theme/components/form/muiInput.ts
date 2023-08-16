@@ -31,10 +31,12 @@
 
 import { Components, Palette, PaletteColor, Theme } from '@mui/material';
 
+import { fontSize } from '../..';
+
 export const MuiInput: Components<Theme>['MuiInput'] = {
   styleOverrides: {
     root: ({ theme, ownerState: { color } }) => ({
-      fontSize: '0.875rem !important',
+      fontSize: `${fontSize.sm} !important`,
       color: '#344767',
 
       '&:hover:not(.Mui-disabled):before': {

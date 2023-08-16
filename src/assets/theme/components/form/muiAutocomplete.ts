@@ -33,14 +33,14 @@ import { Components, Theme } from '@mui/material';
 
 import { borders, boxShadows } from '../..';
 
-import { size } from '../..';
+import { fontSize } from '../..';
 
 export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
   styleOverrides: {
     popper: {
       boxShadow: boxShadows.lg,
       padding: '0.5rem',
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
       textAlign: 'left',
       backgroundColor: 'White !important',
@@ -55,7 +55,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
     option: {
       padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
       transition: 'background-color 300ms ease, color 300ms ease',
 
@@ -72,7 +72,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
     },
 
     noOptions: {
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
     },
 
@@ -81,7 +81,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
     },
 
     loading: {
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
     },
 

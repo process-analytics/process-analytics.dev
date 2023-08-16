@@ -31,11 +31,13 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { fontSize } from '../..';
+
 export const MuiFormLabel: Components<Theme>['MuiFormLabel'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.text.primary,
-      fontSize: '0.875rem',
+      fontSize: fontSize.sm,
     }),
   },
 };

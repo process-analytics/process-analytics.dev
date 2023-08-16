@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, size } from '../..';
+import { borders, fontWeight, fontSize } from '../..';
 
 export const MuiTab: Components<Theme>['MuiTab'] = {
   styleOverrides: {
@@ -44,8 +44,8 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       maxWidth: 'unset !important',
       minWidth: 'unset !important',
       minHeight: 'unset !important',
-      fontSize: size.md,
-      fontWeight: fontWeightRegular,
+      fontSize: fontSize.md,
+      fontWeight: fontWeight.regular,
       textTransform: 'none',
       lineHeight: 'inherit',
       padding: '0.25rem',

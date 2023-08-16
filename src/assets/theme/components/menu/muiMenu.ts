@@ -31,7 +31,7 @@ muiCardMedia1.ts; /**
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows, size } from '../..';
+import { borders, boxShadows, fontSize } from '../..';
 
 export const MuiMenu: Components<Theme>['MuiMenu'] = {
   defaultProps: {
@@ -43,7 +43,7 @@ export const MuiMenu: Components<Theme>['MuiMenu'] = {
       minWidth: '10rem',
       boxShadow: boxShadows.lg,
       padding: '1rem 0.5rem',
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
       textAlign: 'left',
       backgroundColor: 'White !important',

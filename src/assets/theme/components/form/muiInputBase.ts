@@ -16,10 +16,12 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { fontSize } from '../..';
+
 export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
   styleOverrides: {
     root: {
-      fontSize: '0.875rem !important',
+      fontSize: `${fontSize.sm} !important`,
     },
     inputAdornedEnd: { backgroundColor: 'transparent !important' },
   },

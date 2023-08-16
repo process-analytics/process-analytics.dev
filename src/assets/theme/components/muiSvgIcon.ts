@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { fontSize } from '..';
+
 export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
   defaultProps: {
     fontSize: 'inherit',
@@ -42,7 +44,7 @@ export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
     },
 
     fontSizeSmall: {
-      fontSize: '1.25rem !important',
+      fontSize: `${fontSize.xl} !important`,
     },
 
     fontSizeLarge: {

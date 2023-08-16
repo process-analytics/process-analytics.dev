@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-export const size = {
+export const fontSize = {
   xxs: '0.65rem',
   xs: '0.75rem',
   sm: '0.875rem',
@@ -23,4 +23,12 @@ export const size = {
   xl: '1.25rem',
   '2xl': '1.5rem',
   '3xl': '1.875rem',
+};
+
+export const fontWeight = {
+  lighter: 100,
+  light: 300,
+  regular: 400,
+  medium: 600,
+  bold: 700,
 };

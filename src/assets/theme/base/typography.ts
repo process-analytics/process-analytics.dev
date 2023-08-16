@@ -22,18 +22,20 @@
 
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
+import { fontSize, fontWeight } from '..';
+
 const baseHeadingProperties = {
   color: 'inherit',
-  fontWeight: 700,
+  fontWeight: fontWeight.bold,
   fontFamily: 'inherit',
 };
 
 export const typography: TypographyOptions = {
   fontFamily: ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'].join(','),
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 600,
-  fontWeightBold: 700,
+  fontWeightLight: fontWeight.light,
+  fontWeightRegular: fontWeight.regular,
+  fontWeightMedium: fontWeight.medium,
+  fontWeightBold: fontWeight.bold,
 
   fontSize: 10,
   htmlFontSize: 10,
@@ -51,63 +53,63 @@ export const typography: TypographyOptions = {
   },
 
   h3: {
-    fontSize: '1.875rem',
+    fontSize: fontSize['3xl'],
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h4: {
-    fontSize: '1.5rem',
+    fontSize: fontSize['2xl'],
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h5: {
-    fontSize: '1.25rem',
+    fontSize: fontSize.xl,
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h6: {
-    fontSize: '1rem',
+    fontSize: fontSize.md,
     lineHeight: 1.625,
     ...baseHeadingProperties,
   },
 
   subtitle1: {
-    fontSize: '1.25rem',
-    fontWeight: 300,
+    fontSize: fontSize.xl,
+    fontWeight: fontWeight.light,
     lineHeight: 1.625,
   },
 
   subtitle2: {
-    fontSize: '1rem',
-    fontWeight: 300,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.light,
     lineHeight: 1.6,
   },
 
   body1: {
-    fontSize: '1.25rem',
-    fontWeight: 400,
+    fontSize: fontSize.xl,
+    fontWeight: fontWeight.regular,
     lineHeight: 1.625,
   },
 
   body2: {
-    fontSize: '1rem',
-    fontWeight: 300,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.light,
     lineHeight: 1.6,
   },
 
   button: {
-    fontSize: '0.875rem',
-    fontWeight: 300,
+    fontSize: fontSize.sm,
+    fontWeight: fontWeight.light,
     lineHeight: 1.5,
     textTransform: 'uppercase',
   },
 
   caption: {
-    fontSize: '0.75rem',
-    fontWeight: 300,
+    fontSize: fontSize.xs,
+    fontWeight: fontWeight.light,
     lineHeight: 1.25,
   },
 

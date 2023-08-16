@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, size } from '../..';
+import { borders, fontSize } from '../..';
 
 export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
   styleOverrides: {
@@ -40,7 +40,7 @@ export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
       minHeight: 'unset',
       padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: text.main,
       transition: 'background-color 300ms ease, color 300ms ease',
 

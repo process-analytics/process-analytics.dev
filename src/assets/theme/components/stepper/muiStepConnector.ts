@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../..';
+
 export const MuiStepConnector: Components<Theme>['MuiStepConnector'] = {
   styleOverrides: {
     root: {

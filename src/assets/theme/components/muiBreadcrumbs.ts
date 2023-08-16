@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { size } from '..';
+import { fontSize } from '..';
 
 export const MuiBreadcrumbs: Components<Theme>['MuiBreadcrumbs'] = {
   styleOverrides: {
@@ -40,7 +40,7 @@ export const MuiBreadcrumbs: Components<Theme>['MuiBreadcrumbs'] = {
     },
 
     separator: {
-      fontSize: size.sm,
+      fontSize: fontSize.sm,
       color: grey[600],
     },
   },

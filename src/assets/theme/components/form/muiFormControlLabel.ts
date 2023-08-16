@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { fontSize, fontWeight } from '../..';
+
 export const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
   styleOverrides: {
     root: {
@@ -41,8 +43,8 @@ export const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
 
     label: {
       display: 'inline-block',
-      fontSize: '0.875rem',
-      fontWeight: 700,
+      fontSize: fontSize.sm,
+      fontWeight: fontWeight.bold,
       color: '#344767',
       lineHeight: 1,
       transform: 'translateY(0.0625rem)',
