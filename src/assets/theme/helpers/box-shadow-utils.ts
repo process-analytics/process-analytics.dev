@@ -23,9 +23,10 @@ import grey from '@mui/material/colors/grey';
 import { PaletteColor, BoxShadowColor, PaletteOptions } from '@mui/material';
 import { ShadowSize } from '@mui/material/styles';
 
+import { Color } from 'chroma-js';
+
 // Material Kit 2 React Helper Functions
-import { boxShadow } from '../functions/boxShadow';
-import { paletteKeys } from '..';
+import { paletteKeys, pxToRem, rgba } from '..';
 import { palette } from '../base';
 
 export type BoxShadows = ShadowSize & {
@@ -36,6 +37,21 @@ export type BoxShadows = ShadowSize & {
   tabsBoxShadow: {
     indicator: string;
   };
+};
+
+const boxShadow = (
+  offset: number[] = [],
+  radius: number[] = [],
+  color: string | number | Color,
+  opacity: number,
+  inset = '',
+): string => {
+  const [x, y] = offset;
+  const [blur, spread] = radius;
+
+  return `${inset} ${pxToRem(x)} ${pxToRem(y)} ${pxToRem(blur)} ${pxToRem(
+    spread,
+  )} ${rgba(color, opacity)}`;
 };
 
 const buildBoxShadowForPaletteColor = (

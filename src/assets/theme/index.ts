@@ -39,15 +39,6 @@ import { responsiveFontSizes } from './responsiveFont';
 // Material Kit 2 React base styles
 import { palette, breakpoints, typography, globals } from './base';
 
-// Material Kit 2 React helper functions
-import {
-  boxShadow,
-  hexToRgb,
-  linearGradient,
-  pxToRem,
-  rgba,
-} from './functions';
-
 // Material Kit 2 React components base styles for @mui material components
 import {
   MuiIconButton,
@@ -81,16 +72,8 @@ const generatedTheme = createTheme({
   },
 });
 
-export const theme: Theme = {
+export const theme: Theme =
   //Generate responsive typography settings based on the options received.
-  ...responsiveFontSizes(generatedTheme, {
+  responsiveFontSizes(generatedTheme, {
     breakpoints: generatedTheme.breakpoints.keys,
-  }),
-  functions: {
-    boxShadow,
-    hexToRgb,
-    linearGradient,
-    pxToRem,
-    rgba,
-  },
-};
+  });

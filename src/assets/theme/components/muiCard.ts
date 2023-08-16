@@ -16,8 +16,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows } from '..';
-import { rgba } from '../functions';
+import { borders, boxShadows, rgba } from '..';
 
 export const MuiCard: Components<Theme>['MuiCard'] = {
   styleOverrides: {

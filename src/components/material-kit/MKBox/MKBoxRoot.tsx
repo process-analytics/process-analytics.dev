@@ -43,6 +43,7 @@ import {
   boxShadows,
   isGreyColorName,
   isPaletteColorName,
+  linearGradient,
 } from '../../../assets/theme';
 
 export type BoxProps = {
@@ -76,7 +77,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   theme,
   ownerState,
 }) => {
-  const { palette, functions } = theme;
+  const { palette } = theme;
   const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
 
   // background value
@@ -84,7 +85,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   if (variant === 'gradient') {
     backgroundValue =
       bgColor && isPaletteColorName(bgColor)
-        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
+        ? linearGradient(palette[bgColor].main, palette[bgColor].dark)
         : 'White';
   } else if (!bgColor || bgColor === 'transparent') {
     backgroundValue = 'transparent';
