@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { size } from '..';
+
 export const MuiBreadcrumbs: Components<Theme>['MuiBreadcrumbs'] = {
   styleOverrides: {
     li: {

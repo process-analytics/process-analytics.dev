@@ -32,6 +32,7 @@
 import { Components, Theme } from '@mui/material';
 
 import { borders } from '../../base';
+import { size } from '../..';
 
 const { borderRadius } = borders;
 

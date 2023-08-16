@@ -16,5 +16,5 @@
 export * from './border-utils';
 export * from './box-shadow-utils';
 export * from './color-utils';
-export * from './font';
+export * from './font-utils';
 export * from './px-to-rem';

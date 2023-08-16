@@ -35,6 +35,8 @@ import { borders } from '../../base';
 
 const { borderRadius } = borders;
 
+import { size } from '../..';
+
 export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
   styleOverrides: {
     popper: {

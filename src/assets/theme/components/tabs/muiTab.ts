@@ -32,6 +32,7 @@
 import { Components, Theme } from '@mui/material';
 
 import { borders } from '../../base';
+import { size } from '../..';
 
 const { borderRadius } = borders;
 
@@ -57,12 +58,12 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
 
       '& .material-icons, .material-icons-round': {
         marginBottom: '0 !important',
-        marginRight: pxToRem(6),
+        marginRight: '0.375rem',
       },
 
       '& svg': {
         marginBottom: '0 !important',
-        marginRight: pxToRem(6),
+        marginRight: '0.375rem',
       },
 
       '& i.MuiTab-iconWrapper': {

@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { size } from '../..';
+
 export const MuiDialogTitle: Components<Theme>['MuiDialogTitle'] = {
   styleOverrides: {
     root: {
