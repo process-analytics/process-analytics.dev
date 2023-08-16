@@ -48,7 +48,7 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
     },
 
     rail: {
-      height: pxToRem(2),
+      height: '0.125rem',
       background: grey[200],
       borderRadius: borders.radius.sm,
       opacity: 1,
@@ -56,7 +56,7 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
 
     track: {
       background: info.main,
-      height: pxToRem(2),
+      height: '0.125rem',
       position: 'relative',
       border: 'none',
       borderRadius: borders.radius.lg,
@@ -64,11 +64,16 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
     },
 
     thumb: {
-      width: pxToRem(14),
-      height: pxToRem(14),
+      width: '0.875rem',
+      height: '0.875rem',
       backgroundColor: 'white',
       zIndex: 10,
-      boxShadow: sliderBoxShadow.thumb,
+      boxShadow: boxShadow(
+        { x: 0, y: 1 },
+        { blur: 13, spread: 0 },
+        'black',
+        0.2,
+      ),
       border: `${borders.width.sm} solid ${info.main}`,
       transition: 'all 200ms linear',
 
@@ -81,7 +86,15 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
       },
 
       '&.Mui-active': {
-        boxShadow: boxShadow([0, 0], [0, 14], info.main, 0.16),
+        boxShadow: boxShadow(
+          { x: 0, y: 0 },
+          {
+            blur: 0,
+            spread: 14,
+          },
+          info.main,
+          0.16,
+        ),
       },
     },
   },

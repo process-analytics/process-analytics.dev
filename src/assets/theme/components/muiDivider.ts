@@ -37,7 +37,7 @@ export const MuiDivider: Components<Theme>['MuiDivider'] = {
   styleOverrides: {
     root: {
       background: rgba(dark.main, 0.2),
-      height: pxToRem(1),
+      height: '0.0625rem',
       margin: '1rem 0',
       borderBottom: 'none',
       opacity: 0.25,
@@ -45,7 +45,7 @@ export const MuiDivider: Components<Theme>['MuiDivider'] = {
 
     vertical: {
       background: rgba(dark.main, 0.2),
-      width: pxToRem(1),
+      width: '0.0625rem',
       height: '100%',
       margin: '0 1rem',
       borderRight: 'none',

@@ -31,10 +31,12 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders } from '../..';
+
 export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
   styleOverrides: {
     root: {
-      padding: `${pxToRem(12)} 1rem`,
+      padding: '0.75rem 1rem',
       borderBottom: `${borders.width.sm} solid ${light.main}`,
     },
   },

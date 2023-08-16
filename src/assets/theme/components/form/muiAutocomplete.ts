@@ -53,7 +53,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
     },
 
     option: {
-      padding: `${pxToRem(4.8)} 1rem`,
+      padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
       fontSize: size.sm,
       color: text.main,
@@ -95,7 +95,7 @@ export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
 
       '& .MuiChip-label': {
         lineHeight: 1.2,
-        padding: `0 ${pxToRem(10)} 0 0.25rem`,
+        padding: '0 0.625rem 0 0.25rem',
       },
 
       '& .MuiSvgIcon-root, & .MuiSvgIcon-root:hover, & .MuiSvgIcon-root:focus':

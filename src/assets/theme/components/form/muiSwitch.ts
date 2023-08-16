@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, linearGradient } from '../..';
+import { borders, boxShadows, linearGradient } from '../..';
 
 export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
   defaultProps: {
@@ -78,13 +78,13 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
 
     thumb: {
       backgroundColor: 'white',
-      boxShadow: md,
+      boxShadow: boxShadows.md,
       border: `${borders.width.sm} solid ${grey[400]}`,
     },
 
     track: {
       width: '2rem',
-      height: pxToRem(15),
+      height: '0.9375rem',
       backgroundColor: grey[400],
       border: `${borders.width.sm} solid ${grey[400]}`,
       opacity: 1,

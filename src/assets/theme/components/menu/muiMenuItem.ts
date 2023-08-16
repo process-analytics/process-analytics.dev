@@ -38,7 +38,7 @@ export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
     root: {
       minWidth: '10rem',
       minHeight: 'unset',
-      padding: `${pxToRem(4.8)} 1rem`,
+      padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
       fontSize: size.sm,
       color: text.main,

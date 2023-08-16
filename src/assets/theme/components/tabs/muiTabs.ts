@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../..';
+import { borders, boxShadow } from '../..';
 
 export const MuiTabs: Components<Theme>['MuiTabs'] = {
   styleOverrides: {
@@ -64,7 +64,7 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
       height: '100%',
       borderRadius: borders.radius.lg,
       backgroundColor: 'white',
-      boxShadow: tabsBoxShadow.indicator,
+      boxShadow: boxShadow({ x: 0, y: 1 }, { blur: 5, spread: 1 }, '#ddd', 1),
       transition: 'all 500ms ease',
     },
   },
