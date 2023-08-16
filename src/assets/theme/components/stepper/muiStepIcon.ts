@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { boxShadow } from '../../functions';
+import { boxShadow } from '../..';
 
 export const MuiStepIcon: Components<Theme>['MuiStepIcon'] = {
   styleOverrides: {
@@ -51,7 +51,12 @@ export const MuiStepIcon: Components<Theme>['MuiStepIcon'] = {
         fill: 'white',
         stroke: 'white',
         borderColor: 'white',
-        boxShadow: boxShadow([0, 0], [0, 2], 'white', 1),
+        boxShadow: boxShadow(
+          { x: 0, y: 0 },
+          { blur: 0, spread: 2 },
+          'white',
+          1,
+        ),
       },
 
       '&.Mui-completed': {
@@ -59,7 +64,12 @@ export const MuiStepIcon: Components<Theme>['MuiStepIcon'] = {
         fill: 'white',
         stroke: 'white',
         borderColor: 'white',
-        boxShadow: boxShadow([0, 0], [0, 2], 'white', 1),
+        boxShadow: boxShadow(
+          { x: 0, y: 0 },
+          { blur: 0, spread: 2 },
+          'white',
+          1,
+        ),
       },
     },
   },

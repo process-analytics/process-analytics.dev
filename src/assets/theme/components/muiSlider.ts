@@ -31,9 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { boxShadow } from '../functions';
-
-import { borders } from '..';
+import { borders, boxShadow } from '..';
 
 export const MuiSlider: Components<Theme>['MuiSlider'] = {
   styleOverrides: {

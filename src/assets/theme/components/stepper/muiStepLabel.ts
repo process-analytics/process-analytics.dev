@@ -31,8 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { rgba } from '../../functions';
-import { size } from '../..';
+import { size, rgba } from '../..';
 
 export const MuiStepLabel: Components<Theme>['MuiStepLabel'] = {
   styleOverrides: {

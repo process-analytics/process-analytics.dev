@@ -31,6 +31,8 @@
 
 import { Components, Theme } from '@mui/material';
 
+import { borders, linearGradient } from '../..';
+
 export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
   defaultProps: {
     disableRipple: false,

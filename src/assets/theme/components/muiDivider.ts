@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { rgba } from '../functions';
+import { rgba } from '..';
 
 export const MuiDivider: Components<Theme>['MuiDivider'] = {
   styleOverrides: {

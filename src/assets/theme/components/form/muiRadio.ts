@@ -31,8 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { linearGradient } from '../../functions';
-import { borders } from '../..';
+import { borders, linearGradient } from '../..';
 
 export const MuiRadio: Components<Theme>['MuiRadio'] = {
   styleOverrides: {

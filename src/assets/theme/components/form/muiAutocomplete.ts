@@ -31,14 +31,14 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../..';
+import { borders, boxShadows } from '../..';
 
 import { size } from '../..';
 
 export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
   styleOverrides: {
     popper: {
-      boxShadow: lg,
+      boxShadow: boxShadows.lg,
       padding: '0.5rem',
       fontSize: size.sm,
       color: text.main,

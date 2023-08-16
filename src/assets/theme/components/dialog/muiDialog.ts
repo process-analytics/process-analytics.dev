@@ -31,17 +31,13 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../..';
-
-import { boxShadows } from '../../base';
-
-const { xxl } = boxShadows;
+import { borders, boxShadows } from '../..';
 
 export const MuiDialog: Components<Theme>['MuiDialog'] = {
   styleOverrides: {
     paper: {
       borderRadius: borders.radius.lg,
-      boxShadow: xxl,
+      boxShadow: boxShadows.xxl,
     },
 
     paperFullScreen: {

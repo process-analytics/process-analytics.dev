@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '../..';
+import { borders, linearGradient } from '../..';
 
 export const MuiStepper: Components<Theme>['MuiStepper'] = {
   styleOverrides: {

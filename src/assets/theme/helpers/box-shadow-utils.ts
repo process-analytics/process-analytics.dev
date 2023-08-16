@@ -43,7 +43,7 @@ export type BoxShadows = ShadowSize & {
   };
 };
 
-const boxShadow = (
+export const boxShadow = (
   offset: { x: number; y: number },
   radius: { blur: number; spread: number },
   color: string | number | Color,

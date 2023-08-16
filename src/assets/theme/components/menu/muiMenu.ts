@@ -31,7 +31,7 @@ muiCardMedia1.ts; /**
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, size } from '../..';
+import { borders, boxShadows, size } from '../..';
 
 export const MuiMenu: Components<Theme>['MuiMenu'] = {
   defaultProps: {
@@ -41,7 +41,7 @@ export const MuiMenu: Components<Theme>['MuiMenu'] = {
   styleOverrides: {
     paper: {
       minWidth: '10rem',
-      boxShadow: lg,
+      boxShadow: boxShadows.lg,
       padding: '1rem 0.5rem',
       fontSize: size.sm,
       color: text.main,
