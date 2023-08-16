@@ -71,6 +71,9 @@ export const isGreyColorName = (color: string): color is GreyColorName =>
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+export const light = '#f0f2f5';
+export const dark = '#344767';
+
 /**
  The hexToRgb() function helps you to change the hex color code to rgb
  using chroma-js library.

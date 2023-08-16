@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders } from '..';
+import { borders, light } from '..';
 
 export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
   styleOverrides: {
@@ -43,11 +43,11 @@ export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
     },
 
     colorPrimary: {
-      backgroundColor: light.main,
+      backgroundColor: light,
     },
 
     colorSecondary: {
-      backgroundColor: light.main,
+      backgroundColor: light,
     },
 
     bar: {

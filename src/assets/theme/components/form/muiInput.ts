@@ -29,15 +29,15 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import { Components, Palette, PaletteColor, Theme } from '@mui/material';
+import { Components, Theme } from '@mui/material';
 
-import { fontSize } from '../..';
+import { dark, fontSize } from '../..';
 
 export const MuiInput: Components<Theme>['MuiInput'] = {
   styleOverrides: {
-    root: ({ theme, ownerState: { color } }) => ({
+    root: ({ theme: { palette }, ownerState: { color } }) => ({
       fontSize: `${fontSize.sm} !important`,
-      color: '#344767',
+      color: dark,
 
       '&:hover:not(.Mui-disabled):before': {
         borderBottom: '0.0625rem solid #d2d6da',
@@ -48,8 +48,7 @@ export const MuiInput: Components<Theme>['MuiInput'] = {
       },
 
       '&:after': {
-        borderColor: (theme.palette[color as keyof Palette] as PaletteColor)
-          .main,
+        borderColor: color ? palette[color].main : palette.primary.main,
       },
     }),
   },

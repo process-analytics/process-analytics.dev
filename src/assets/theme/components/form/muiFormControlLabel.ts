@@ -31,7 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { fontSize, fontWeight } from '../..';
+import { dark, fontSize, fontWeight } from '../..';
 
 export const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
   styleOverrides: {
@@ -45,13 +45,13 @@ export const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
       display: 'inline-block',
       fontSize: fontSize.sm,
       fontWeight: fontWeight.bold,
-      color: '#344767',
+      color: dark,
       lineHeight: 1,
       transform: 'translateY(0.0625rem)',
       marginLeft: '0.25rem',
 
       '&.Mui-disabled': {
-        color: '#344767',
+        color: dark,
       },
     },
   },

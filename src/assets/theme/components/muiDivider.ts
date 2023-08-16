@@ -31,12 +31,12 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { rgba } from '..';
+import { dark, rgba } from '..';
 
 export const MuiDivider: Components<Theme>['MuiDivider'] = {
   styleOverrides: {
     root: {
-      background: rgba(dark.main, 0.2),
+      background: rgba(dark, 0.2),
       height: '0.0625rem',
       margin: '1rem 0',
       borderBottom: 'none',
@@ -44,7 +44,7 @@ export const MuiDivider: Components<Theme>['MuiDivider'] = {
     },
 
     vertical: {
-      background: rgba(dark.main, 0.2),
+      background: rgba(dark, 0.2),
       width: '0.0625rem',
       height: '100%',
       margin: '0 1rem',

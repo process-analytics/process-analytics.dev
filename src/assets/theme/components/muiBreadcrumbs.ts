@@ -39,9 +39,9 @@ export const MuiBreadcrumbs: Components<Theme>['MuiBreadcrumbs'] = {
       lineHeight: 0,
     },
 
-    separator: {
+    separator: ({ theme: { palette } }) => ({
       fontSize: fontSize.sm,
-      color: grey[600],
-    },
+      color: palette.grey[600],
+    }),
   },
 };

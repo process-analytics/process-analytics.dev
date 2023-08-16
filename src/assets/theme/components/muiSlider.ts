@@ -47,55 +47,55 @@ export const MuiSlider: Components<Theme>['MuiSlider'] = {
       },
     },
 
-    rail: {
+    rail: ({ theme: { palette } }) => ({
       height: '0.125rem',
-      background: grey[200],
+      background: palette.grey[200],
       borderRadius: borders.radius.sm,
       opacity: 1,
-    },
+    }),
 
-    track: {
-      background: info.main,
+    track: ({ theme: { palette }, ownerState: { color } }) => ({
+      background: color ? palette[color].main : palette.primary.main,
       height: '0.125rem',
       position: 'relative',
       border: 'none',
       borderRadius: borders.radius.lg,
       zIndex: 1,
-    },
+    }),
 
-    thumb: {
-      width: '0.875rem',
-      height: '0.875rem',
-      backgroundColor: 'white',
-      zIndex: 10,
-      boxShadow: boxShadow(
-        { x: 0, y: 1 },
-        { blur: 13, spread: 0 },
-        'black',
-        0.2,
-      ),
-      border: `${borders.width.sm} solid ${info.main}`,
-      transition: 'all 200ms linear',
-
-      '&:hover': {
-        boxShadow: 'none',
-      },
-
-      '&:active': {
-        transform: 'translate(-50%, -50%) scale(1.4)',
-      },
-
-      '&.Mui-active': {
+    thumb: ({ theme: { palette }, ownerState: { color } }) => {
+      const usedColor = color ? palette[color].main : palette.primary.main;
+      return {
+        width: '0.875rem',
+        height: '0.875rem',
+        backgroundColor: 'white',
+        zIndex: 10,
         boxShadow: boxShadow(
-          { x: 0, y: 0 },
-          {
-            blur: 0,
-            spread: 14,
-          },
-          info.main,
-          0.16,
+          { x: 0, y: 1 },
+          { blur: 13, spread: 0 },
+          'black',
+          0.2,
         ),
-      },
+        border: `${borders.width.sm} solid ${usedColor}`,
+        transition: 'all 200ms linear',
+
+        '&:hover': {
+          boxShadow: 'none',
+        },
+
+        '&:active': {
+          transform: 'translate(-50%, -50%) scale(1.4)',
+        },
+
+        '&.Mui-active': {
+          boxShadow: boxShadow(
+            { x: 0, y: 0 },
+            { blur: 0, spread: 14 },
+            usedColor,
+            0.16,
+          ),
+        },
+      };
     },
   },
 };

@@ -31,59 +31,59 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, boxShadows } from '../..';
+import { borders, boxShadows, dark, light } from '../..';
 
 import { fontSize } from '../..';
 
 export const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
   styleOverrides: {
-    popper: {
+    popper: ({ theme: { palette } }) => ({
       boxShadow: boxShadows.lg,
       padding: '0.5rem',
       fontSize: fontSize.sm,
-      color: text.main,
+      color: palette.text.primary,
       textAlign: 'left',
       backgroundColor: 'White !important',
       borderRadius: borders.radius.md,
-    },
+    }),
 
     paper: {
       boxShadow: 'none',
       backgroundColor: 'transparent',
     },
 
-    option: {
+    option: ({ theme: { palette } }) => ({
       padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
       fontSize: fontSize.sm,
-      color: text.main,
+      color: palette.text.primary,
       transition: 'background-color 300ms ease, color 300ms ease',
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light.main,
-          color: dark.main,
+          backgroundColor: light,
+          color: dark,
         },
 
       '&[aria-selected="true"]': {
-        backgroundColor: `${light.main} !important`,
-        color: `${dark.main} !important`,
+        backgroundColor: `${light} !important`,
+        color: `${dark} !important`,
       },
-    },
+    }),
 
-    noOptions: {
+    noOptions: ({ theme: { palette } }) => ({
       fontSize: fontSize.sm,
-      color: text.main,
-    },
+      color: palette.text.primary,
+    }),
 
     groupLabel: {
-      color: dark.main,
+      color: dark,
     },
 
-    loading: {
+    loading: ({ theme: { palette } }) => ({
       fontSize: fontSize.sm,
-      color: text.main,
-    },
+      color: palette.text.primary,
+    }),
 
     tag: {
       display: 'flex',

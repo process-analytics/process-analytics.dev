@@ -31,24 +31,24 @@
 
 import { Components, Theme } from '@mui/material';
 
-import { borders, fontSize } from '../..';
+import { borders, dark, fontSize, light } from '../..';
 
 export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
   styleOverrides: {
-    root: {
+    root: ({ theme: { palette } }) => ({
       minWidth: '10rem',
       minHeight: 'unset',
       padding: '0.3rem 1rem',
       borderRadius: borders.radius.md,
       fontSize: fontSize.sm,
-      color: text.main,
+      color: palette.text.primary,
       transition: 'background-color 300ms ease, color 300ms ease',
 
       '&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus':
         {
-          backgroundColor: light.main,
-          color: dark.main,
+          backgroundColor: light,
+          color: dark,
         },
-    },
+    }),
   },
 };

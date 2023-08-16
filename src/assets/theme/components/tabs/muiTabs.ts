@@ -35,13 +35,13 @@ import { borders, boxShadow } from '../..';
 
 export const MuiTabs: Components<Theme>['MuiTabs'] = {
   styleOverrides: {
-    root: {
+    root: ({ theme: { palette } }) => ({
       position: 'relative',
-      backgroundColor: grey[100],
+      backgroundColor: palette.grey[100],
       borderRadius: borders.radius.xl,
       minHeight: 'unset',
       padding: '0.25rem',
-    },
+    }),
 
     flexContainer: {
       height: '100%',
@@ -51,7 +51,7 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
 
     fixed: {
       overflow: 'unset !important',
-      overflowX: 'unset !important',
+      overflowX: 'unset',
     },
 
     vertical: {

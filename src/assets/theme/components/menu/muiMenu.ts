@@ -1,4 +1,4 @@
-muiCardMedia1.ts; /**
+/**
  * Copyright 2023 Bonitasoft S.A.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,15 +39,15 @@ export const MuiMenu: Components<Theme>['MuiMenu'] = {
   },
 
   styleOverrides: {
-    paper: {
+    paper: ({ theme: { palette } }) => ({
       minWidth: '10rem',
       boxShadow: boxShadows.lg,
       padding: '1rem 0.5rem',
       fontSize: fontSize.sm,
-      color: text.main,
+      color: palette.text.primary,
       textAlign: 'left',
       backgroundColor: 'White !important',
       borderRadius: borders.radius.md,
-    },
+    }),
   },
 };

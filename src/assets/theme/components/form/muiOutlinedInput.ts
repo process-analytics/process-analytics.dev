@@ -29,14 +29,14 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import { Components, Palette, PaletteColor, Theme } from '@mui/material';
+import { Components, Theme } from '@mui/material';
 
 import { fontSize } from '../..';
 
 export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
-    root: ({ theme, ownerState: { color } }) => ({
-      backgroundColor: `${theme.palette.quaternary.main} !important`,
+    root: ({ theme: { palette }, ownerState: { color } }) => ({
+      backgroundColor: `${palette.quaternary.main} !important`,
       fontSize: `${fontSize.sm} !important`,
       borderRadius: '0.375rem',
 
@@ -46,8 +46,7 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
 
       '&.Mui-focused': {
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: (theme.palette[color as keyof Palette] as PaletteColor)
-            .main,
+          borderColor: color ? palette[color].main : palette.primary.main,
         },
       },
     }),

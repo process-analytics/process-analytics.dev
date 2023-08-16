@@ -50,7 +50,7 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       lineHeight: 'inherit',
       padding: '0.25rem',
       borderRadius: borders.radius.lg,
-      color: `${dark.main} !important`,
+      color: `${dark} !important`,
       opacity: '1 !important',
 
       '& .material-icons, .material-icons-round': {

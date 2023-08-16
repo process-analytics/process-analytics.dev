@@ -40,26 +40,26 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
 
   styleOverrides: {
     switchBase: {
-      color: gradients.dark.main,
+      color: gradients.dark,
 
       '&:hover': {
         backgroundColor: 'transparent',
       },
 
       '&.Mui-checked': {
-        color: gradients.dark.main,
+        color: gradients.dark,
 
         '&:hover': {
           backgroundColor: 'transparent',
         },
 
         '& .MuiSwitch-thumb': {
-          borderColor: `${gradients.dark.main} !important`,
+          borderColor: `${gradients.dark} !important`,
         },
 
         '& + .MuiSwitch-track': {
-          backgroundColor: `${gradients.dark.main} !important`,
-          borderColor: `${gradients.dark.main} !important`,
+          backgroundColor: `${gradients.dark} !important`,
+          borderColor: `${gradients.dark} !important`,
           opacity: 1,
         },
       },
@@ -76,19 +76,19 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
       },
     },
 
-    thumb: {
+    thumb: ({ theme: { palette } }) => ({
       backgroundColor: 'white',
       boxShadow: boxShadows.md,
-      border: `${borders.width.sm} solid ${grey[400]}`,
-    },
+      border: `${borders.width.sm} solid ${palette.grey[400]}`,
+    }),
 
-    track: {
+    track: ({ theme: { palette } }) => ({
       width: '2rem',
       height: '0.9375rem',
-      backgroundColor: grey[400],
-      border: `${borders.width.sm} solid ${grey[400]}`,
+      backgroundColor: palette.grey[400],
+      border: `${borders.width.sm} solid ${palette.grey[400]}`,
       opacity: 1,
-    },
+    }),
 
     checked: {},
   },
