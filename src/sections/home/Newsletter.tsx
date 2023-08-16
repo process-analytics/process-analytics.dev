@@ -42,9 +42,9 @@ import {
   Grid,
   InputAdornment,
   TextField,
-  Theme,
 } from '@mui/material';
 
+import { borders } from '../../assets/theme';
 import { useMobileViewStatus } from '../../hooks';
 import { MKBox, MKTypography, Section } from '../../components';
 
@@ -190,7 +190,7 @@ const Form: FC<FormProps> = props => {
             color="secondary"
             sx={{
               height: '100%',
-              borderRadius: ({ borders }: Theme) => borders.borderRadius.lg,
+              borderRadius: borders.radius.lg,
             }}
           >
             Subscribe

@@ -78,8 +78,14 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   ownerState,
 }) => {
   const { palette } = theme;
-  const {     variant = 'contained',
-    bgcolor = 'inherit', color, opacity, borderRadius, shadow } = ownerState;
+  const {
+    variant = 'contained',
+    bgcolor = 'inherit',
+    color,
+    opacity,
+    borderRadius,
+    shadow,
+  } = ownerState;
 
   // background value
   let backgroundValue;

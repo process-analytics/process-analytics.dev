@@ -32,7 +32,6 @@ import React from 'react';
 
 import { Button, ButtonProps } from '@mui/material';
 
-import { borders } from '../../../../assets/theme';
 import { MKBox } from '../..';
 import { LinkContent, Link } from '../../..';
 
