@@ -30,7 +30,6 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
-    {/* <MailingListSubscription />*/}
     <Newsletter />
   </Layout>
 );
