@@ -29,12 +29,8 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-//import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React, { BaseSyntheticEvent, FC, useState } from 'react';
 
-import { CheckCircle, ErrorOutline } from '@mui/icons-material';
-
-// @mui material components
 import {
   Box,
   Button,
@@ -44,11 +40,13 @@ import {
   InputAdornment,
   TextField,
 } from '@mui/material';
+import { CheckCircle, ErrorOutline } from '@mui/icons-material';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 
+import { useMobileViewStatus } from '../../hooks';
 import { borders, boxShadows } from '../../assets/theme';
 import { MKBox, MKTypography, Section } from '../../components';
 
-// Images
 import logo from '../../assets/images/logo.svg';
 
 type FormProps = {
@@ -108,6 +106,7 @@ export const Newsletter: FC = () => {
 };
 
 const Form: FC<FormProps> = props => {
+  const isMobileView = useMobileViewStatus();
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -128,14 +127,20 @@ const Form: FC<FormProps> = props => {
       return;
     }
 
-    const response = { msg: 'plop', result: 'ok' };
-    // await addToMailchimp(email);
+    const response = await addToMailchimp(email);
 
     const isError = response.result === 'error';
     setError(isError);
     props.onSubmit(!isError, response.msg);
   };
 
+  const formHelperText = (
+    <>
+      <FormHelperText variant="outlined" error={error}>
+        {props.responseMsg}
+      </FormHelperText>
+    </>
+  );
   return (
     <Grid
       component="form"
@@ -169,6 +174,7 @@ const Form: FC<FormProps> = props => {
             required
             onChange={event => setEmail(event.target.value)}
           />
+          {error && isMobileView && formHelperText}
         </Grid>
         <Grid
           item
@@ -190,11 +196,9 @@ const Form: FC<FormProps> = props => {
           </Button>
         </Grid>
       </Grid>
-      {error && (
+      {error && !isMobileView && (
         <Grid item md={8} mt={[3, 0]} p={0}>
-          <FormHelperText variant="outlined" error={error}>
-            {props.responseMsg}
-          </FormHelperText>
+          {formHelperText}
         </Grid>
       )}
     </Grid>
