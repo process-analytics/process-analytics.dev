@@ -36,6 +36,7 @@ import { CheckCircle, ErrorOutline } from '@mui/icons-material';
 
 // @mui material components
 import {
+  Box,
   Button,
   Container,
   FormHelperText,
@@ -44,8 +45,7 @@ import {
   TextField,
 } from '@mui/material';
 
-import { borders } from '../../assets/theme';
-import { useMobileViewStatus } from '../../hooks';
+import { borders, boxShadows } from '../../assets/theme';
 import { MKBox, MKTypography, Section } from '../../components';
 
 // Images
@@ -67,22 +67,17 @@ export const Newsletter: FC = () => {
   return (
     <Section>
       <Container>
-        <Grid
-          container
-          alignItems="center"
-          flexDirection={useMobileViewStatus() ? 'column' : 'row'}
-        >
+        <Grid container alignItems="center" flexDirection={['column', 'row']}>
           <Grid
             item
-            sm={12}
             md={8}
             mr="auto"
-            sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 12, md: 0 } }}
+            sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 8, md: 0 } }}
           >
-            <MKTypography variant="h4" mb={1}>
+            <MKTypography variant="h4" mb={1} ml={-0.25}>
               Be the first to see the news
             </MKTypography>
-            <MKTypography variant="body2" color="text" mb={3}>
+            <MKTypography variant="body2" color="text" mb={3} ml={0}>
               Join our low-traffic newsletter and get news in your inbox!
             </MKTypography>
             {submitted ? (
@@ -97,7 +92,7 @@ export const Newsletter: FC = () => {
               />
             )}
           </Grid>
-          <Grid item xs={12} md={3} sx={{ m: 'auto', textAlign: 'center' }}>
+          <Grid item md={3} m="auto" sx={{ textAlign: 'center' }} width="100%">
             <MKBox
               component="img"
               src={logo}
@@ -113,7 +108,6 @@ export const Newsletter: FC = () => {
 };
 
 const Form: FC<FormProps> = props => {
-  const isMobileView = useMobileViewStatus();
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -147,15 +141,15 @@ const Form: FC<FormProps> = props => {
       component="form"
       container
       onSubmit={handleSubmit}
-      justifyContent={isMobileView ? 'center' : 'start'}
+      justifyContent={['center', 'start']}
     >
       <Grid
         container
-        flexDirection={isMobileView ? 'column' : 'row'}
+        flexDirection={['column', 'row']}
         spacing={1}
-        alignItems={isMobileView ? 'center' : 'start'}
+        alignItems={['center', 'start']}
       >
-        <Grid item md={8}>
+        <Grid item md={8} width="100%">
           <TextField
             type="email"
             variant="outlined"
@@ -164,7 +158,6 @@ const Form: FC<FormProps> = props => {
             fullWidth
             placeholder="Email address"
             autoComplete="email"
-            // size="small"
             error={error}
             InputProps={{
               endAdornment: error ? (
@@ -182,7 +175,7 @@ const Form: FC<FormProps> = props => {
           md={4}
           justifyContent="center"
           alignItems="center"
-          height={isMobileView ? 'auto' : '100%'}
+          height={['auto', '100%']}
         >
           <Button
             type="submit"
@@ -198,7 +191,7 @@ const Form: FC<FormProps> = props => {
         </Grid>
       </Grid>
       {error && (
-        <Grid item p={0} md={8} mt={isMobileView ? 3 : 0}>
+        <Grid item md={8} mt={[3, 0]} p={0}>
           <FormHelperText variant="outlined" error={error}>
             {props.responseMsg}
           </FormHelperText>
@@ -209,10 +202,17 @@ const Form: FC<FormProps> = props => {
 };
 
 const ResponseContainer: FC<ResponseContainerProps> = props => (
-  <MKBox bgcolor="success" width="75%" borderRadius="md" p={2}>
+  <Box
+    bgcolor="success.contrastText"
+    color="success.dark"
+    width={['100%', '75%']}
+    borderRadius={borders.radius.md}
+    p={2}
+    ml={-0.25}
+    boxShadow={boxShadows.colored.success}
+  >
     <MKTypography
       variant="body2"
-      //  color="success.contrastText"
       fontWeight="bold"
       overflow={{ wrap: 'break-word' }}
     >
@@ -220,5 +220,5 @@ const ResponseContainer: FC<ResponseContainerProps> = props => (
       {'\u00A0'} {/* Non-breaking space */}
       <CheckCircle sx={{ verticalAlign: 'middle' }} />
     </MKTypography>
-  </MKBox>
+  </Box>
 );
