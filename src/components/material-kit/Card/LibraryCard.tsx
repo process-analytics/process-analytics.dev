@@ -82,30 +82,31 @@ export const LibraryCard = ({
           </MKBox>
         </MKBox>
       </CardContent>
-      <CardActions disableSpacing={true} sx={{ pl: 2 }}>
-        <MKBox
-          display="flex"
-          flexDirection="column"
-          justifyContent="start"
-          height="100%"
-        >
-          {actions.map((action, i) => (
-            <Link
-              component={IconButton}
-              type={action.type}
-              url={action.url}
-              key={i}
-              size="medium"
-              color={action.color ?? 'secondary'}
-              sx={{
-                textTransform: 'none',
-              }}
-              title={action.label}
-            >
-              {action.icon}
-            </Link>
-          ))}
-        </MKBox>
+      <CardActions
+        disableSpacing={true}
+        sx={{
+          pl: [0, 2],
+          flexDirection: ['row', 'column'],
+          justifyContent: ['center', 'start'],
+          height: '100%',
+        }}
+      >
+        {actions.map((action, i) => (
+          <Link
+            component={IconButton}
+            type={action.type}
+            url={action.url}
+            key={i}
+            size="medium"
+            color={action.color ?? 'secondary'}
+            sx={{
+              textTransform: 'none',
+            }}
+            title={action.label}
+          >
+            {action.icon}
+          </Link>
+        ))}
       </CardActions>
     </MKBox>
   </Card>
