@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
@@ -49,39 +49,37 @@ type BrandLinkProps = {
   content: BrandContent;
 };
 
-export const BrandLink = ({
+export const BrandLink: FC<BrandLinkProps> = ({
   style: { isTransparent, isRelative },
   content,
-}: BrandLinkProps): JSX.Element => {
-  return (
-    <MKBox
-      component={GatsbyLink}
-      to="/"
-      pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      height="100%"
-    >
-      <img
-        src={content.logo.primary}
-        alt={content.name}
-        style={{
-          cursor: 'pointer',
-          marginRight: '1rem',
-          maxWidth: '52px',
-          height: 'auto',
-        }}
-      />
+}) => (
+  <MKBox
+    component={GatsbyLink}
+    to="/"
+    pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
+    display="flex"
+    alignItems="center"
+    justifyContent="space-between"
+    height="100%"
+  >
+    <img
+      src={content.logo.primary}
+      alt={content.name}
+      style={{
+        cursor: 'pointer',
+        maxWidth: '52px',
+        height: 'auto',
+      }}
+    />
 
-      <MKTypography
-        variant="button"
-        fontWeight="bold"
-        lineHeight={1}
-        py={isTransparent ? 1.5 : 0.75}
-      >
-        {content.name}
-      </MKTypography>
-    </MKBox>
-  );
-};
+    <MKTypography
+      variant="button"
+      fontWeight="bold"
+      lineHeight={1}
+      ml={{ xs: 0.6, sm: 1 }}
+      py={isTransparent ? 1.5 : 0.75}
+    >
+      {content.name}
+    </MKTypography>
+  </MKBox>
+);
