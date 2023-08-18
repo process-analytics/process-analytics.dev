@@ -14,23 +14,10 @@
  * limitations under the License.
  */
 import type {} from '@mui/material/styles';
-import {
-  FontStyle,
-  TypographyStyle,
-  TypographyUtils,
-  Variant,
-} from '@mui/material/styles/createTypography';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     xxl: true;
-  }
-
-  interface Typography
-    extends Record<Variant, TypographyStyle>,
-      FontStyle,
-      TypographyUtils {
-    [key: string]: TypographyStyle; // add index signature to allow any string keys
   }
 
   type BoxShadowColor = {
