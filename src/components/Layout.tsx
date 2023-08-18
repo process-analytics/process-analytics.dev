@@ -46,11 +46,10 @@ export const Layout = ({
   return (
     <main>
       <ThemeProvider theme={theme}>
-        <CssBaseline>
-          <Header content={headerContent} />
-          {children}
-          <Footer content={footerContent} />
-        </CssBaseline>
+        <CssBaseline />
+        <Header content={headerContent} />
+        {children}
+        <Footer content={footerContent} />
       </ThemeProvider>
     </main>
   );
