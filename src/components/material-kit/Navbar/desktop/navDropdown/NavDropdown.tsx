@@ -30,12 +30,13 @@ import React, { FC, PropsWithChildren, useState } from 'react';
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
-import { MKBox, MKBoxProps, MKTypography } from '../../..';
+import { DropdownStyle } from '../Dropdown';
+import { MKBox, MKTypography } from '../../..';
 
 export type NavDropdownProps = {
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
   expandedNavDropdownName?: string;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  dropdownStyle?: DropdownStyle;
   onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void;
 };

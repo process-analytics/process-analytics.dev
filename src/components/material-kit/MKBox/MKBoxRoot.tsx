@@ -48,7 +48,7 @@ import {
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
-  bgColor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
+  bgcolor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
   color?: PaletteColorKey | GreyColorName | 'inherit';
   opacity?: number;
   borderRadius?: keyof BorderSize;
@@ -78,35 +78,38 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   ownerState,
 }) => {
   const { palette } = theme;
-  const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
+  const {
+    variant = 'contained',
+    bgcolor = 'inherit',
+    color,
+    opacity,
+    borderRadius,
+    shadow,
+  } = ownerState;
 
   // background value
   let backgroundValue;
   if (variant === 'gradient') {
     backgroundValue =
-      bgColor && isPaletteColorName(bgColor)
-        ? linearGradient(palette[bgColor].main, palette[bgColor].dark)
+      bgcolor && isPaletteColorName(bgcolor)
+        ? linearGradient(palette[bgcolor].main, palette[bgcolor].dark)
         : 'White';
-  } else if (!bgColor || bgColor === 'transparent') {
-    backgroundValue = 'transparent';
-  } else if (bgColor === 'inherit') {
-    backgroundValue = 'inherit';
-  } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
-    backgroundValue = getColor(palette, bgColor);
+  } else if (isPaletteColorName(bgcolor) || isGreyColorName(bgcolor)) {
+    backgroundValue = getColor(palette, bgcolor);
   } else {
-    backgroundValue = bgColor;
+    backgroundValue = bgcolor;
   }
 
   // color value
   let colorValue;
   if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
     colorValue = getColor(palette, color);
-  } else if (!bgColor) {
+  } else if (color && !bgcolor) {
     colorValue = color;
-  } else if (bgColor === 'inherit') {
+  } else if (bgcolor === 'inherit') {
     colorValue = 'inherit';
-  } else if (isPaletteColorName(bgColor)) {
-    colorValue = palette[bgColor].contrastText;
+  } else if (bgcolor && isPaletteColorName(bgcolor)) {
+    colorValue = palette[bgcolor].contrastText;
   } else {
     colorValue = palette.text.primary;
   }

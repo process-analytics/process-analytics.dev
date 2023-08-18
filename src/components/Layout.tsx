@@ -76,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     overflow-x: hidden;
     font-family: ${props => (props.theme as Theme).fonts.body};
-    font-size: 14px;
+    font-size: 10px;
     background: ${props => (props.theme as Theme).colors.background};
     color: ${props => (props.theme as Theme).colors.text};
     line-height: 1.5;

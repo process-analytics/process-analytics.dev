@@ -66,7 +66,7 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
     main: '#4CAF50',
     light: '#80e27e',
     dark: '#087f23',
-    contrastText: '#000000',
+    contrastText: 'white',
   },
 
   warning: {

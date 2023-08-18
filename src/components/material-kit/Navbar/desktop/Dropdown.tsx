@@ -41,6 +41,10 @@ import {
 } from '../../../Header';
 import { MKBoxProps } from '../..';
 
+export type DropdownStyle = React.PropsWithoutRef<
+  Omit<MKBoxProps, 'variant' | 'opacity'>
+>;
+
 export type DropdownProps = {
   content: HeaderRouteWithMenus[];
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
@@ -48,7 +52,7 @@ export type DropdownProps = {
     SetStateAction<(EventTarget & HTMLSpanElement) | undefined>
   >;
   setExpandedNavDropdownName: Dispatch<SetStateAction<string | undefined>>;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  dropdownStyle?: DropdownStyle;
   hoverStyle: HoverStyle;
 };
 
