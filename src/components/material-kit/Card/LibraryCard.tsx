@@ -97,7 +97,7 @@ export const LibraryCard = ({
             type={action.type}
             url={action.url}
             key={i}
-            size="medium"
+            size="small"
             color={action.color ?? 'secondary'}
             sx={{
               textTransform: 'none',
