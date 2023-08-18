@@ -32,6 +32,67 @@ import { formatMuiErrorMessage as _formatMuiErrorMessage } from '@mui/utils';
 // ---------- OVERRIDE SOME FUNCTIONS OF MATERIAL UI ----------
 // Because it doesn't take in consideration the value unit of the breakpoints :(
 
+export const responsiveFontSizes = (
+  themeInput: Theme,
+  options: ResponsiveFontSizesOptions = {},
+): Theme => {
+  const {
+    breakpoints = ['sm', 'md', 'lg'],
+    disableAlign = false,
+    factor = 2,
+    variants = [
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'subtitle1',
+      'subtitle2',
+      'body1',
+      'body2',
+      'caption',
+      'button',
+      'overline',
+    ],
+  } = options;
+
+  const theme = { ...themeInput };
+  const typography = theme.typography;
+
+  // Convert between CSS lengths e.g. em->px or px->rem
+  // Set the baseFontSize for your project. Defaults to 16px (also the browser default).
+  const convert = convertLength(String(typography.htmlFontSize));
+  const breakpointValues = breakpoints.map(x => theme.breakpoints.values[x]);
+  const breakpointUnit = theme.breakpoints.unit;
+
+  variants.forEach(variant => {
+    const style = typography[variant] as TypographyStyle;
+    if (!style) {
+      return;
+    }
+    const remFontSize = parseFloat(convert(String(style.fontSize), 'rem'));
+    if (remFontSize <= 1) {
+      return;
+    }
+
+    // Will be fix in another PR
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    typography[variant] = responsiveFontVariant(
+      convert,
+      style,
+      factor,
+      disableAlign,
+      typography,
+      remFontSize,
+      breakpointValues,
+      breakpointUnit,
+    );
+  });
+  return theme;
+};
+
 const responsiveFontVariant = (
   convert: (length: string, toUnit: string) => string,
   style: CSSProperties,
@@ -89,74 +150,15 @@ Use unitless line heights instead.`
   };
 };
 
-export const responsiveFontSizes = (
-  theme: Theme,
-  options: ResponsiveFontSizesOptions = {},
-): Theme => {
-  const {
-    breakpoints = ['sm', 'md', 'lg'],
-    disableAlign = false,
-    factor = 2,
-    variants = [
-      'h1',
-      'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
-      'subtitle1',
-      'subtitle2',
-      'body1',
-      'body2',
-      'caption',
-      'button',
-      'overline',
-    ],
-  } = options;
-  const typography = theme.typography;
-
-  // Convert between CSS lengths e.g. em->px or px->rem
-  // Set the baseFontSize for your project. Defaults to 16px (also the browser default).
-  const convert = convertLength(String(typography.htmlFontSize));
-  const breakpointValues = breakpoints.map(x => theme.breakpoints.values[x]);
-  const breakpointUnit = theme.breakpoints.unit;
-
-  variants.forEach(variant => {
-    const style = typography[variant] as TypographyStyle;
-    if (!style) {
-      return;
-    }
-    const remFontSize = parseFloat(convert(String(style.fontSize), 'rem'));
-    if (remFontSize <= 1) {
-      return;
-    }
-
-    // Will be fix in another PR
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    typography[variant] = responsiveFontVariant(
-      convert,
-      style,
-      factor,
-      disableAlign,
-      typography,
-      remFontSize,
-      breakpointValues,
-      breakpointUnit,
-    );
-  });
-  return theme;
-};
-
 const responsiveProperty = ({
   cssProperty,
   min,
   max,
   unit = 'rem',
   breakpoints = [600, 900, 1200],
-  breakpointUnit = 'px',
+  breakpointUnit,
   transform,
-}: ResponsivePropertyParams & { breakpointUnit?: string }): CSSProperties => {
+}: ResponsivePropertyParams & { breakpointUnit: string }): CSSProperties => {
   const output: CSSProperties = {
     [cssProperty]: `${min}${unit}`,
   };
