@@ -35,7 +35,7 @@ import { createTheme, Theme } from '@mui/material';
 import { responsiveFontSizes } from './responsiveFont';
 
 // Material Kit 2 React base styles
-import { palette, breakpoints, typography, globals } from './base';
+import { palette, breakpoints, typography } from './base';
 
 // Material Kit 2 React components base styles for @mui material components
 import {
@@ -50,6 +50,7 @@ import {
   MuiCardMedia,
   MuiCheckbox,
   MuiContainer,
+  MuiCssBaseline,
   MuiDialog,
   MuiDialogActions,
   MuiDialogContent,
@@ -96,11 +97,6 @@ const generatedTheme = createTheme({
   palette,
   typography,
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        globals,
-      },
-    },
     MuiAppBar,
     MuiAutocomplete,
     MuiAvatar,
@@ -112,6 +108,7 @@ const generatedTheme = createTheme({
     MuiCardMedia,
     MuiCheckbox,
     MuiContainer,
+    MuiCssBaseline,
     MuiDialog,
     MuiDialogActions,
     MuiDialogContent,
