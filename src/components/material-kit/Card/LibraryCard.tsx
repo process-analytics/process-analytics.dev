@@ -51,7 +51,7 @@ export const LibraryCard = ({
       height: '100%', // to have card with same size
     }}
   >
-    <MKBox display="flex" p={3}>
+    <MKBox display="flex" p={3} flexDirection={['column', 'row']}>
       <CardContent>
         <MKBox textAlign={textAlign}>
           <MKBox>
