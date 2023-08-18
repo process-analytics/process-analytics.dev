@@ -113,6 +113,11 @@ export const typography: TypographyOptions = {
   },
 
   overline: {
-    // Keep default theme
+    fontSize: fontSize.xs,
+    fontWeight: 400,
+    lineHeight: 2.66,
+    letterSpacing: '-0.0078rem',
+    textTransform: 'none',
+    margin: 0,
   },
 };
