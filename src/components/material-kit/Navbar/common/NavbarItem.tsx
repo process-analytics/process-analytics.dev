@@ -25,15 +25,19 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIcon, Theme } from '@mui/material';
+import { Collapse, Theme, Typography } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+
+import { getIconDefinition } from '../../../../helper';
 import { useMobileViewStatus } from '../../../../hooks';
 import { getHoverConfiguration, HoverStyle } from './HoverStyle';
-import { MKBox, MKTypography } from '../..';
+import { MKBox } from '../..';
 
 type TitleContainerProps = {
   isCollapsible?: boolean;
@@ -45,7 +49,7 @@ type TitleContainerProps = {
 
 type TitleProps = TitleContainerProps & {
   name: string;
-  icon?: typeof SvgIcon;
+  icon?: IconName;
 };
 
 export type NavbarItemProps = React.PropsWithoutRef<
@@ -88,44 +92,47 @@ const Title = ({
   name,
   isCollapsible,
   ...rest
-}: TitleProps): JSX.Element => (
-  <TitleContainer isCollapsible={isCollapsible} {...rest}>
-    {icon && (
-      <MKTypography
-        variant="body2"
-        lineHeight={1}
+}: TitleProps): JSX.Element => {
+  const iconDefinition = icon && getIconDefinition(icon);
+  return (
+    <TitleContainer isCollapsible={isCollapsible} {...rest}>
+      {iconDefinition && (
+        <Typography
+          variant="body2"
+          lineHeight={1}
+          color="inherit"
+          sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
+        >
+          <FontAwesomeIcon icon={iconDefinition} />
+        </Typography>
+      )}
+
+      <Typography
+        variant="button"
+        // variant="body2"
+        fontWeight="regular"
+        textTransform="capitalize"
         color="inherit"
-        sx={{ alignSelf: 'center', '& *': { verticalAlign: 'middle' } }}
+        sx={{
+          // fontWeight: 'bold',
+          ml: 1,
+          mr: 0.25,
+          alignSelf: 'center',
+        }}
       >
-        {icon}
-      </MKTypography>
-    )}
+        {name}
+      </Typography>
 
-    <MKTypography
-      variant="button"
-      // variant="body2"
-      fontWeight="regular"
-      textTransform="capitalize"
-      color="inherit"
-      sx={{
-        // fontWeight: 'bold',
-        ml: 1,
-        mr: 0.25,
-        alignSelf: 'center',
-      }}
-    >
-      {name}
-    </MKTypography>
-
-    {isCollapsible && (
-      <MKTypography variant="body2" color="inherit" ml="auto">
-        <KeyboardArrowDown
-          sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
-        />
-      </MKTypography>
-    )}
-  </TitleContainer>
-);
+      {isCollapsible && (
+        <Typography variant="body2" color="inherit" ml="auto">
+          <KeyboardArrowDown
+            sx={{ fontWeight: 'normal', verticalAlign: 'middle' }}
+          />
+        </Typography>
+      )}
+    </TitleContainer>
+  );
+};
 
 export const NavbarItem = ({
   name,

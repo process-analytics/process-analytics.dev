@@ -15,11 +15,9 @@
  */
 import React from 'react';
 
-import { SvgIcon } from '@mui/material';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-import { BrandContent, LinkContent } from '.';
-
-import { Navbar } from './material-kit';
+import { BrandContent, LinkContent, Navbar } from '.';
 
 export type HeaderProps = {
   content: HeaderContent;
@@ -34,7 +32,7 @@ export type HeaderRouteWithMenus = Required<Pick<LinkContent, 'name'>> & {
   /**
    * The icon of the route on the Navbar
    */
-  icon: typeof SvgIcon;
+  icon: IconName;
   /**
    * For making a collapsible item on the Navbar that contains other routes inside (nested routes)
    */

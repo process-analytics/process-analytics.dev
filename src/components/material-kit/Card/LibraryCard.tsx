@@ -31,13 +31,19 @@ Coded by www.creative-tim.com
 import React from 'react';
 
 // @mui material components
-import { Card, CardActions, CardContent, IconButton } from '@mui/material';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  IconButton,
+  Typography,
+} from '@mui/material';
 
 import { Action } from '../Navbar/common';
 import { Link } from '../..';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '..';
+import { MKBox } from '..';
 
 export const LibraryCard = ({
   title,
@@ -55,30 +61,30 @@ export const LibraryCard = ({
       <CardContent>
         <MKBox textAlign={textAlign}>
           <MKBox>
-            <MKTypography
+            <Typography
               display="inline"
               variant="h5"
               fontWeight="regular"
               textOverflow="ellipsis"
             >
               {title}
-            </MKTypography>
+            </Typography>
           </MKBox>
           <MKBox>
-            <MKTypography variant="overline" fontWeight="bold" color="spicy">
+            <Typography variant="overline" fontWeight="bold" color="spicy">
               {type}
-            </MKTypography>
+            </Typography>
           </MKBox>
 
           <MKBox mt={1}>
-            <MKTypography
+            <Typography
               variant="body2"
               component="p"
               color="text"
               textOverflow="ellipsis"
             >
               {description}
-            </MKTypography>
+            </Typography>
           </MKBox>
         </MKBox>
       </CardContent>

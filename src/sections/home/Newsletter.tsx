@@ -39,13 +39,14 @@ import {
   Grid,
   InputAdornment,
   TextField,
+  Typography,
 } from '@mui/material';
 import { CheckCircle, ErrorOutline } from '@mui/icons-material';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 import { useMobileViewStatus } from '../../hooks';
 import { borders, boxShadows } from '../../assets/theme';
-import { MKBox, MKTypography, Section } from '../../components';
+import { MKBox, Section } from '../../components';
 
 import logo from '../../assets/images/logo.svg';
 
@@ -72,12 +73,12 @@ export const Newsletter: FC = () => {
             mr="auto"
             sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 8, md: 0 } }}
           >
-            <MKTypography variant="h4" mb={1} ml={-0.25}>
+            <Typography variant="h4" mb={1} ml={-0.25}>
               Be the first to see the news
-            </MKTypography>
-            <MKTypography variant="body2" color="text" mb={3} ml={0}>
+            </Typography>
+            <Typography variant="body2" color="text" mb={3} ml={0}>
               Join our low-traffic newsletter and get news in your inbox!
-            </MKTypography>
+            </Typography>
             {submitted ? (
               <ResponseContainer msg={responseMsg} />
             ) : (
@@ -215,7 +216,7 @@ const ResponseContainer: FC<ResponseContainerProps> = props => (
     ml={-0.25}
     boxShadow={boxShadows.colored.success}
   >
-    <MKTypography
+    <Typography
       variant="body2"
       fontWeight="bold"
       overflow={{ wrap: 'break-word' }}
@@ -223,6 +224,6 @@ const ResponseContainer: FC<ResponseContainerProps> = props => (
       {props.msg}
       {'\u00A0'} {/* Non-breaking space */}
       <CheckCircle sx={{ verticalAlign: 'middle' }} />
-    </MKTypography>
+    </Typography>
   </Box>
 );

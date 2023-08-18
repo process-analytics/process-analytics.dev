@@ -20,14 +20,20 @@
  * You can customize the typography styles for the entire Material Kit 2 React using this file.
  */
 
-import { TypographyOptions } from '@mui/material/styles/createTypography';
+import {
+  CSSProperties,
+  TypographyOptions,
+} from '@mui/material/styles/createTypography';
 
 import { fontSize, fontWeight } from '../helpers/font-utils';
 
-const baseHeadingProperties = {
+const baseHeadingProperties: CSSProperties = {
   color: 'inherit',
   fontWeight: fontWeight.bold,
   fontFamily: 'inherit',
+  letterSpacing: '-0.0078rem',
+  textDecoration: 'none',
+  textTransform: 'none',
 };
 
 export const typography: TypographyOptions = {
@@ -116,8 +122,6 @@ export const typography: TypographyOptions = {
     fontSize: fontSize.xs,
     fontWeight: 400,
     lineHeight: 2.66,
-    letterSpacing: '-0.0078rem',
-    textTransform: 'none',
     margin: 0,
   },
 };

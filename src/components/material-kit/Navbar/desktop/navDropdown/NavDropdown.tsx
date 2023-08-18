@@ -27,11 +27,11 @@
 
 import React, { FC, PropsWithChildren, useState } from 'react';
 
-import { Box, Grow, Popper } from '@mui/material';
+import { Box, Grow, Popper, Typography } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
 import { DropdownStyle } from '../Dropdown';
-import { MKBox, MKTypography } from '../../..';
+import { MKBox } from '../../..';
 
 export type NavDropdownProps = {
   expandedNavDropdownElement?: EventTarget & HTMLSpanElement;
@@ -85,12 +85,12 @@ export const NavDropdown: FC<PropsWithChildren<NavDropdownProps>> = ({
       {({ TransitionProps }) => (
         <Grow {...TransitionProps} style={{ transformOrigin: 'left top' }}>
           <MKBox borderRadius="lg" {...dropdownStyle}>
-            <MKTypography variant="h1">
-              {/*<MKTypography variant="h1" color="quaternary">*/}
+            <Typography variant="h1">
+              {/*<Typography variant="h1" color="quaternary">*/}
               <Box ref={setArrowRef}>
                 <ArrowDropUp sx={{ mt: -3 }} />
               </Box>
-            </MKTypography>
+            </Typography>
 
             <MKBox shadow={{ size: 'lg' }} borderRadius="lg" p={2} mt={2}>
               {children}

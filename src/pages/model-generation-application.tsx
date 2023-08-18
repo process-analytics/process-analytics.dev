@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { HeadProps } from 'gatsby';
 
-import { Box, BoxProps, Link } from '@mui/material';
+import { Box, BoxProps, Link, Typography } from '@mui/material';
 
 import {
   SEO,
@@ -30,7 +30,6 @@ import {
   Section,
   Layout,
   PostContainer,
-  MKTypography,
 } from '../components';
 import { postsContent, footerContent, headerContent } from '../content';
 import { PAGE } from '../helper';
@@ -116,7 +115,7 @@ export const PartTitle: FC<React.PropsWithChildren<PartTitleProps>> = ({
   children,
   ...props
 }) => (
-  <MKTypography
+  <Typography
     variant="h2"
     color="text"
     marginBottom="24px"
@@ -124,13 +123,13 @@ export const PartTitle: FC<React.PropsWithChildren<PartTitleProps>> = ({
     {...props}
   >
     {children}
-  </MKTypography>
+  </Typography>
 );
 
 const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
   children,
 }) => (
-  <MKTypography
+  <Typography
     variant="body1"
     color="secondary"
     paddingY={['0.5rem', '0.5rem', '1.5rem']}
@@ -140,22 +139,22 @@ const HighlightMessage: FC<React.PropsWithChildren<BoxProps>> = ({
     }}
   >
     {children}
-  </MKTypography>
+  </Typography>
 );
 
 export const Paragraph: FC<React.PropsWithChildren<ParagraphProps>> = ({
   children,
   ...props
 }) => (
-  <MKTypography variant="body2" color="text" margin="0" {...props}>
+  <Typography variant="body2" color="text" margin="0" {...props}>
     {children}
-  </MKTypography>
+  </Typography>
 );
 
 const ModelGenerationApplicationPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <MKTypography
+      <Typography
         textAlign="center"
         variant="h1"
         color="primary"
@@ -163,7 +162,7 @@ const ModelGenerationApplicationPage: FC = () => (
         mb={[3, 8, 12]}
       >
         Model Generation Application
-      </MKTypography>
+      </Typography>
     </Section>
     <Section>
       <Box

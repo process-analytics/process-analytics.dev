@@ -27,13 +27,12 @@
 
 import React from 'react';
 
-import { Theme } from '@mui/material';
+import { Theme, Typography } from '@mui/material';
 
 import { borders } from '../../../../assets/theme';
 import { HeaderMenuWithItems } from '../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
-import { MKTypography } from '../..';
 import { Link } from '../../..';
 
 type DropdownDropdownProps = {
@@ -45,7 +44,7 @@ export const DropdownDropdown = ({
   hoverStyle,
 }: DropdownDropdownProps): JSX.Element => (
   <>
-    <MKTypography
+    <Typography
       display="block"
       variant="button"
       fontWeight="bold"
@@ -54,11 +53,11 @@ export const DropdownDropdown = ({
       px={0.5}
     >
       {name}
-    </MKTypography>
+    </Typography>
 
     {items.map(item => (
       <Link
-        component={MKTypography}
+        component={Typography}
         type={item.type}
         url={item.url}
         key={item.name}

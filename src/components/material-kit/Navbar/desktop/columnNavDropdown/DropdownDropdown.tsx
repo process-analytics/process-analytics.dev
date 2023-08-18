@@ -27,11 +27,10 @@
 
 import React, { FC } from 'react';
 
-import { Theme } from '@mui/material';
+import { Theme, Typography } from '@mui/material';
 
 import { borders } from '../../../../../assets/theme';
 
-import { MKTypography } from '../../..';
 import { Link, LinkContent } from '../../../..';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
@@ -45,7 +44,7 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
   hoverStyle,
 }) => (
   <Link
-    component={MKTypography}
+    component={Typography}
     type={type}
     url={url}
     minWidth="11.25rem"

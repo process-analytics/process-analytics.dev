@@ -27,13 +27,13 @@
 
 import React from 'react';
 
-import { Theme } from '@mui/material';
+import { Theme, Typography } from '@mui/material';
 
 import { borders } from '../../../../assets/theme';
 
 import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
 
-import { MKBox, MKTypography } from '../..';
+import { MKBox } from '../..';
 import { LinkContent, Link } from '../../..';
 
 type DropdownLinkProps = {
@@ -61,22 +61,22 @@ export const DropdownLink = ({
       ...getHoverConfiguration(palette, hoverStyle),
     })}
   >
-    <MKTypography
+    <Typography
       display="block"
       variant="button"
       fontWeight="bold"
       textTransform="capitalize"
     >
       {name}
-    </MKTypography>
+    </Typography>
 
-    <MKTypography
+    <Typography
       display="block"
       variant="button"
       fontWeight="regular"
       sx={{ transition: 'all 300ms linear' }}
     >
       {description}
-    </MKTypography>
+    </Typography>
   </Link>
 );

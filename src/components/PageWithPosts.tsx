@@ -15,6 +15,8 @@
  */
 import * as React from 'react';
 
+import { Typography } from '@mui/material';
+
 import {
   Layout,
   Section,
@@ -23,7 +25,6 @@ import {
   FooterContent,
   HeaderContent,
   MKBox,
-  MKTypography,
 } from '../components';
 
 import { SECTION } from '../helper';
@@ -48,7 +49,7 @@ export const PageWithPosts = ({
 }: PageWithPostsProps): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section id={containerTitle} backgroundColor="primary">
-      <MKTypography
+      <Typography
         textAlign="center"
         variant="h1"
         color="primary"
@@ -56,8 +57,8 @@ export const PageWithPosts = ({
         mt={[5, 5, 6]}
       >
         {containerTitle}
-      </MKTypography>
-      <MKTypography
+      </Typography>
+      <Typography
         variant="body1"
         width={['85%', '80%', '70%']}
         color="primary"
@@ -66,7 +67,7 @@ export const PageWithPosts = ({
         style={centerHorizontally}
       >
         {description}
-      </MKTypography>
+      </Typography>
       <MKBox component="section" py={12}>
         <PostContainer postContents={postContents} />
       </MKBox>

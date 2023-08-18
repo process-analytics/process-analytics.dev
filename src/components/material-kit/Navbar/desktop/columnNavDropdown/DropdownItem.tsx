@@ -27,12 +27,12 @@
 
 import React, { FC } from 'react';
 
+import { Typography } from '@mui/material';
+
 import { DropdownDropdown } from './DropdownDropdown';
 
 import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
 import { Link } from '../../../..';
-
-import { MKTypography } from '../../..';
 
 import { HoverStyle } from '../../common';
 
@@ -44,7 +44,7 @@ type DropdownItemProps = {
 
 const Title: FC<DropdownItemProps> = ({ isFirstRow, content, hoverStyle }) =>
   isHeaderMenuWithItems(content) ? (
-    <MKTypography
+    <Typography
       display="block"
       variant="button"
       fontWeight="bold"
@@ -54,10 +54,10 @@ const Title: FC<DropdownItemProps> = ({ isFirstRow, content, hoverStyle }) =>
       mt={isFirstRow ? 0 : 2}
     >
       {content.name}
-    </MKTypography>
+    </Typography>
   ) : (
     <Link
-      component={MKTypography}
+      component={Typography}
       type={content.type}
       url={content.url}
       hoverStyle={hoverStyle}

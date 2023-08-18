@@ -27,12 +27,12 @@
 
 import React from 'react';
 
-import { Theme } from '@mui/material';
+import { Theme, Typography } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { borders } from '../../../../assets/theme';
 import { Link, LinkContent } from '../../..';
-import { MKBox, MKTypography } from '../..';
+import { MKBox } from '../..';
 import { HoverStyle, getHoverConfiguration } from '../common';
 
 type DropdownLinkProps = {
@@ -47,7 +47,7 @@ export const DropdownLink = ({
   isCollapsed = false,
 }: DropdownLinkProps): JSX.Element => (
   <Link
-    component={MKTypography}
+    component={Typography}
     key={name}
     type={type}
     url={url}
@@ -71,7 +71,7 @@ export const DropdownLink = ({
     {description ? (
       <MKBox>
         {name}
-        <MKTypography
+        <Typography
           display="block"
           variant="button"
           color="text"
@@ -79,7 +79,7 @@ export const DropdownLink = ({
           sx={{ transition: 'all 300ms linear' }}
         >
           {description}
-        </MKTypography>
+        </Typography>
       </MKBox>
     ) : (
       name

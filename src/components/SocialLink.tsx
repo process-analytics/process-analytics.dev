@@ -16,7 +16,13 @@
 
 import React from 'react';
 
-import { Link, LinkProps, styled } from '@mui/material';
+import {
+  Link,
+  LinkProps,
+  styled,
+  Typography,
+  TypographyProps,
+} from '@mui/material';
 
 import Tippy from '@tippyjs/react';
 
@@ -24,7 +30,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 import { getIconDefinition } from '../helper';
-import { MKTypography, MKTypographyProps } from '.';
 
 export type SocialLinkProps = {
   content: SocialLinkContent;
@@ -32,7 +37,7 @@ export type SocialLinkProps = {
 };
 
 export type SocialLinkStyle = LinkProps &
-  MKTypographyProps<typeof IconLink> &
+  TypographyProps<typeof IconLink> &
   IconLinkProps;
 
 type IconLinkProps = { invert?: boolean };
@@ -61,7 +66,7 @@ export const SocialLink = ({
       trigger="mouseenter focus"
       arrow={false}
     >
-      <MKTypography
+      <Typography
         component={IconLink}
         href={url}
         target="_blank"
@@ -70,7 +75,7 @@ export const SocialLink = ({
         {...style}
       >
         <FontAwesomeIcon icon={iconDefinition} />
-      </MKTypography>
+      </Typography>
     </Tippy>
   );
 };

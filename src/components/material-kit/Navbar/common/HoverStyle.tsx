@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Palette, PaletteColorKey, SocialPalette } from '@mui/material';
-import { SxProps } from '@mui/system/styleFunctionSx';
+import { Palette, PaletteColorKey, SocialPalette, Theme } from '@mui/material';
+import { SystemStyleObject } from '@mui/system/styleFunctionSx';
 
 export type HoverStyle = {
   backgroundColor?: PaletteColorKey;
@@ -24,7 +24,7 @@ export type HoverStyle = {
 export const getHoverConfiguration = (
   palette: Palette & SocialPalette,
   hoverStyle: HoverStyle,
-): SxProps => ({
+): SystemStyleObject<Theme> => ({
   '*:hover': {
     //fontWeight: 'bold',
     color: hoverStyle.color ? palette[hoverStyle.color].main : 'inherit',

@@ -15,12 +15,10 @@
  */
 import React, { FC } from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { MKTypography } from '../material-kit';
 
 export interface CardWithIconProps {
   icon: IconProp;
@@ -41,7 +39,7 @@ export const CardWithIcon: FC<CardWithIconProps> = ({
       textAlign: 'center',
     }}
   >
-    <MKTypography variant="h3" display="block">
+    <Typography variant="h3" display="block">
       <FontAwesomeIcon
         icon={icon}
         color={iconColor}
@@ -52,8 +50,8 @@ export const CardWithIcon: FC<CardWithIconProps> = ({
           display: 'inline-block',
         }}
       />
-    </MKTypography>
-    <MKTypography
+    </Typography>
+    <Typography
       variant="body1"
       display="block"
       fontWeight="bold"
@@ -61,9 +59,9 @@ export const CardWithIcon: FC<CardWithIconProps> = ({
       mb={1.5}
     >
       {title}
-    </MKTypography>
-    <MKTypography variant="body2" display="block" color="text">
+    </Typography>
+    <Typography variant="body2" display="block" color="text">
       {description}
-    </MKTypography>
+    </Typography>
   </Box>
 );

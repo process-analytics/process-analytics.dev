@@ -15,16 +15,11 @@
  */
 import React from 'react';
 
-import { Box, Theme } from '@mui/material';
+import { Box, Theme, Typography } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 
-import {
-  MKTypography,
-  Section,
-  SocialLink,
-  SocialLinkContent,
-} from '../../components';
+import { Section, SocialLink, SocialLinkContent } from '../../components';
 import { SECTION } from '../../helper';
 import { landingContent } from '../../content';
 
@@ -47,7 +42,7 @@ export const Landing = (): JSX.Element => (
       marginBottom={5}
       color="primary"
     >
-      <MKTypography
+      <Typography
         variant="h1"
         sx={({ breakpoints }: Theme) => ({
           [breakpoints.down('md')]: {
@@ -57,22 +52,22 @@ export const Landing = (): JSX.Element => (
         mb={3}
       >
         {landingContent.title}
-      </MKTypography>
-      <MKTypography
+      </Typography>
+      <Typography
         variant="h2"
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}
       >
         <Fade direction="down" triggerOnce>
-          <MKTypography width={[300, 700]} key="presentation">
+          <Typography width={[300, 700]} key="presentation">
             {landingContent.presentation}
-          </MKTypography>
+          </Typography>
         </Fade>
-      </MKTypography>
-      <MKTypography variant="body2" mb={3} fontWeight={700}>
+      </Typography>
+      <Typography variant="body2" mb={3} fontWeight={700}>
         Find us on
-      </MKTypography>
+      </Typography>
       <Box
         display="flex"
         alignItems="center"

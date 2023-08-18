@@ -15,11 +15,9 @@
  */
 import React, { FC, PropsWithChildren } from 'react';
 
-import { PaletteColorKey, styled } from '@mui/material';
+import { PaletteColorKey, styled, Typography } from '@mui/material';
 
 import { Link } from 'gatsby';
-
-import { MKTypography } from '.';
 
 import { MEDIA_QUERY_SMALL, SECTION, getSectionHref } from '../helper';
 
@@ -127,7 +125,7 @@ const StyledSection = styled('section')<StyledSectionProps>`
 `;
 
 const SectionHeader: FC<SectionHeaderProps> = ({ name, icon, label }) => (
-  <MKTypography
+  <Typography
     component={Link}
     variant="h2"
     mb={4}
@@ -141,7 +139,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({ name, icon, label }) => (
         {icon}
       </span>
     )}
-  </MKTypography>
+  </Typography>
 );
 
 const SectionContainer = styled('div')<SectionContainerProps>`

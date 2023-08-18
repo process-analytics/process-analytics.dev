@@ -31,11 +31,12 @@
 
 import React, { FC } from 'react';
 
+import { Typography } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby-link';
 
 import { LinkContent } from '../../../';
 
-import { MKBox, MKTypography } from '../..';
+import { MKBox } from '../..';
 
 export type BrandContent = Required<Omit<LinkContent, 'description'>> & {
   logo: { primary: string; light: string };
@@ -72,7 +73,7 @@ export const BrandLink: FC<BrandLinkProps> = ({
       }}
     />
 
-    <MKTypography
+    <Typography
       variant="button"
       fontWeight="bold"
       lineHeight={1}
@@ -80,6 +81,6 @@ export const BrandLink: FC<BrandLinkProps> = ({
       py={isTransparent ? 1.5 : 0.75}
     >
       {content.name}
-    </MKTypography>
+    </Typography>
   </MKBox>
 );

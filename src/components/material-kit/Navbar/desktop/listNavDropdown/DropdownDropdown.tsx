@@ -27,12 +27,12 @@
 
 import React, { FC } from 'react';
 
-import { Theme } from '@mui/material';
+import { Typography } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { borders } from '../../../../../assets/theme';
 
-import { MKBox, MKTypography } from '../../..';
+import { MKBox } from '../../..';
 import { HeaderMenuWithItems } from '../../../../Header';
 import { getHoverConfiguration, HoverStyle } from '../../common';
 
@@ -51,7 +51,7 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
   onMouseEnter,
   onMouseLeave,
 }) => (
-  <MKTypography
+  <Typography
     display="flex"
     justifyContent="space-between"
     alignItems="center"
@@ -61,7 +61,7 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
     fontWeight={content.description ? 'bold' : 'regular'}
     py={content.description ? 1 : 0.625}
     px={2}
-    sx={({ palette }: Theme) => ({
+    sx={({ palette }) => ({
       borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
@@ -74,14 +74,14 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
       <MKBox>
         {content.name}
 
-        <MKTypography
+        <Typography
           display="block"
           variant="button"
           fontWeight="regular"
           sx={{ transition: 'all 300ms linear' }}
         >
           {content.description}
-        </MKTypography>
+        </Typography>
       </MKBox>
     ) : (
       content.name
@@ -94,5 +94,5 @@ export const DropdownDropdown: FC<DropdownDropdownProps> = ({
         mr: -0.5,
       }}
     />
-  </MKTypography>
+  </Typography>
 );

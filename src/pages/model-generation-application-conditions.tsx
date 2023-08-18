@@ -16,11 +16,11 @@
 
 import React, { FC } from 'react';
 
-import { styled, Link as MaterialLink } from '@mui/material';
+import { styled, Link as MaterialLink, Typography } from '@mui/material';
 
 import { HeadProps, Link as GatsbyLink } from 'gatsby';
 
-import { SEO, Section, Layout, MKTypography } from '../components';
+import { SEO, Section, Layout } from '../components';
 import { DataProps } from '../hooks';
 import { footerContent, headerContent } from '../content';
 import { PAGE } from '../helper';
@@ -30,7 +30,7 @@ import { Part, Paragraph, PartTitle } from './model-generation-application';
 const ModelGenerationApplicationConditionPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <MKTypography
+      <Typography
         textAlign="center"
         variant="h1"
         color="primary"
@@ -38,7 +38,7 @@ const ModelGenerationApplicationConditionPage: FC = () => (
         mb={[3, 8, 12]}
       >
         Usage conditions of Model Generation Application
-      </MKTypography>
+      </Typography>
 
       <Part flexDirection="column" width="80%" marginX="auto">
         <PartTitle>Terms of Use</PartTitle>

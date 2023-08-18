@@ -27,14 +27,7 @@
 
 import React from 'react';
 
-// @mui material components
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-
-// Material Kit 2 React components
-import { MKBox } from './material-kit/MKBox';
-import { MKTypography } from './material-kit/MKTypography';
-
+import { Container, Grid, Typography } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { GATSBY_URL } from '../helper';
@@ -45,6 +38,7 @@ import {
   LinkContent,
   SocialLinkContent,
   SocialLink,
+  MKBox,
 } from '.';
 
 export type FooterProps = {
@@ -72,7 +66,7 @@ const FooterLink = ({
   textTransform?: 'capitalize';
 }): JSX.Element => (
   <Link
-    component={MKTypography}
+    component={Typography}
     type={type}
     url={url}
     variant={variant}
@@ -126,14 +120,14 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   mb={2}
                 />
               </GatsbyLink>
-              <MKTypography
+              <Typography
                 variant="h3"
                 fontSize="1.25rem"
                 lineHeight="1.375"
                 fontWeight="700"
               >
                 {brand.name}
-              </MKTypography>
+              </Typography>
               <MKBox display="flex" alignItems="center" mt={3}>
                 {socials.map((content, key) => (
                   <SocialLink
@@ -141,8 +135,8 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                     content={content}
                     style={{
                       variant: 'h5',
-                      opacity: 0.8,
                       mr: key === socials.length - 1 ? 0 : 2.5,
+                      sx: { opacity: 0.8 },
                     }}
                   />
                 ))}
@@ -168,7 +162,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                 md={8 / menus.length}
                 sx={{ mb: [3, 0] }}
               >
-                <MKTypography
+                <Typography
                   display="block"
                   variant="body2"
                   fontWeight="bold"
@@ -176,7 +170,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
                   mb={1}
                 >
                   {name}
-                </MKTypography>
+                </Typography>
 
                 <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
                   {items.map(({ name, url, type }) => (
@@ -201,12 +195,12 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
             ))}
           </Grid>
           <Grid item xs={12} sx={{ textAlign: 'center', my: [2, 3] }}>
-            <MKTypography variant="caption" fontWeight="regular">
+            <Typography variant="caption" fontWeight="regular">
               Copyright &copy; {year}{' '}
               <FooterLink variant={'caption'} {...brand} />
-            </MKTypography>
+            </Typography>
             <br />
-            <MKTypography variant="caption" fontWeight="regular">
+            <Typography variant="caption" fontWeight="regular">
               Powered by{' '}
               <FooterLink
                 type="external"
@@ -225,7 +219,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               <span role="img" aria-label="heart">
                 ❤️
               </span>
-            </MKTypography>
+            </Typography>
           </Grid>
         </Grid>
       </Container>

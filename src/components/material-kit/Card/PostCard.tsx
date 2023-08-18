@@ -31,10 +31,16 @@ Coded by www.creative-tim.com
 import React from 'react';
 
 // @mui material components
-import { Card, CardActionArea, CardActions, CardContent } from '@mui/material';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Typography,
+} from '@mui/material';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '..';
+import { MKBox } from '..';
 import Grid from '@mui/material/Grid';
 
 const Image = (props: { src: string; alt: string }): JSX.Element => (
@@ -99,23 +105,23 @@ export const PostCard = ({
 
         <CardContent sx={{ marginBottom: 'auto', pb: 0, px: 3 }}>
           <MKBox p={1} textAlign={textAlign}>
-            <MKTypography
+            <Typography
               display="inline"
               variant="h5"
               textTransform="capitalize"
               fontWeight="regular"
             >
               {title}
-            </MKTypography>
+            </Typography>
             <MKBox mt={1}>
-              <MKTypography variant="overline" color="spicy" fontWeight="bold">
+              <Typography variant="overline" color="spicy" fontWeight="bold">
                 {`${Math.ceil(timeToRead)} min read`}
-              </MKTypography>
+              </Typography>
             </MKBox>
             <MKBox mt={1} mb={3}>
-              <MKTypography variant="body2" component="p" color="text">
+              <Typography variant="body2" component="p" color="text">
                 {description}
-              </MKTypography>
+              </Typography>
             </MKBox>
           </MKBox>
         </CardContent>
@@ -124,7 +130,7 @@ export const PostCard = ({
           disableSpacing={true}
           sx={{ pt: 0, pb: 3, px: 3, justifyContent: 'end' }}
         >
-          <MKTypography variant="caption">Posted on {postedOn}</MKTypography>
+          <Typography variant="caption">Posted on {postedOn}</Typography>
         </CardActions>
       </Grid>
     </CardActionArea>

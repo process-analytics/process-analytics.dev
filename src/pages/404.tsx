@@ -17,13 +17,13 @@ import React, { FC } from 'react';
 
 import { HeadProps, Link } from 'gatsby';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { DataProps } from '../hooks';
 
 import { footerContent, headerContent } from '../content';
 
-import { Layout, Section, SEO, MKTypography } from '../components';
+import { Layout, Section, SEO } from '../components';
 import { PAGE } from '../helper';
 
 import Img from '../assets/images/404.png';
@@ -31,25 +31,25 @@ import Img from '../assets/images/404.png';
 const NotFoundPage: FC = () => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
     <Section>
-      <MKTypography variant="h1" textAlign="center">
+      <Typography variant="h1" textAlign="center">
         <Box marginX="auto" width={['50%', '31.25rem']}>
           <img src={Img} alt="404 not found" style={{ margin: 'auto' }} />
         </Box>
-      </MKTypography>
-      <MKTypography
+      </Typography>
+      <Typography
         variant="body1"
         color="secondary"
         textAlign="center"
         fontWeight="bold"
       >
         OOPS, LOOKS LIKE THE PAGE CANNOT BE FOUND...
-      </MKTypography>
-      <MKTypography variant="body2" textAlign="center" marginY="0.625rem">
+      </Typography>
+      <Typography variant="body2" textAlign="center" marginY="0.625rem">
         GO BACK TO THE{' '}
         <strong>
           <Link to="/">HOME PAGE</Link>
         </strong>
-      </MKTypography>
+      </Typography>
     </Section>
   </Layout>
 );

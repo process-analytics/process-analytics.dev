@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 export * from './MKBox';
-export * from './MKTypography';
 export * from './Navbar';
 export * from './Card';
 export { BrandContent } from './Navbar/common/BrandLink';
