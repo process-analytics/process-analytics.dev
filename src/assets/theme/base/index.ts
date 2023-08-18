@@ -16,4 +16,3 @@
 export * from './colors';
 export { breakpoints } from './breakpoints';
 export { typography } from './typography';
-export { globals } from './globals';

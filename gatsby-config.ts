@@ -50,7 +50,6 @@ const config: GatsbyConfig = {
       options: { policy: [robotsPolicy] },
     },
     'gatsby-plugin-typescript',
-    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

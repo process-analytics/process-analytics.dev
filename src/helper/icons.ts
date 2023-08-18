@@ -19,10 +19,45 @@ import {
   findIconDefinition,
   IconDefinition,
 } from '@fortawesome/fontawesome-svg-core';
-import { prefix as brandPrefix } from '@fortawesome/free-brands-svg-icons';
-import { prefix as basePrefix } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDev,
+  faDiscord,
+  faGithub,
+  faMedium,
+  faTwitter,
+  faYoutube,
+  prefix as brandPrefix,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faArrowRight,
+  faBoltLightning,
+  faBook,
+  faDatabase,
+  faGlobe,
+  faInfo,
+  faLightbulb,
+  faTools,
+  prefix as basePrefix,
+} from '@fortawesome/free-solid-svg-icons';
 
-import { ICONS } from '../assets/oldTheme';
+const ICONS: IconDefinition[] = [
+  // brands
+  faDev,
+  faGithub,
+  faMedium,
+  faTwitter,
+  faDiscord,
+  faYoutube,
+  // solid
+  faArrowRight,
+  faBoltLightning,
+  faBook,
+  faGlobe,
+  faLightbulb,
+  faTools,
+  faInfo,
+  faDatabase,
+];
 
 export const loadIcons = (): void => library.add(...ICONS);
 
