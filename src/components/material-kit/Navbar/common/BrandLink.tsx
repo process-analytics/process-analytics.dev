@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
@@ -49,28 +49,37 @@ type BrandLinkProps = {
   content: BrandContent;
 };
 
-export const BrandLink = ({
+export const BrandLink: FC<BrandLinkProps> = ({
   style: { isTransparent, isRelative },
   content,
-}: BrandLinkProps): JSX.Element => {
-  return (
-    <MKBox
-      component={GatsbyLink}
-      to="/"
+}) => (
+  <MKBox
+    component={GatsbyLink}
+    to="/"
+    pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
+    display="flex"
+    alignItems="center"
+    justifyContent="space-between"
+    height="100%"
+  >
+    <img
+      src={content.logo.primary}
+      alt={content.name}
+      style={{
+        cursor: 'pointer',
+        maxWidth: '52px',
+        height: 'auto',
+      }}
+    />
+
+    <MKTypography
+      variant="button"
+      fontWeight="bold"
       lineHeight={1}
+      ml={{ xs: 0.6, sm: 1 }}
       py={isTransparent ? 1.5 : 0.75}
-      pl={isRelative || isTransparent ? 0 : { xs: 0, lg: 1 }}
     >
-      {/*      <img
-        src={brand.src}
-        height="100%"
-        width="100%"
-        alt="Process Analytics Logo"
-        style={{ cursor: 'pointer', margin: 'auto' }}
-      />*/}
-      <MKTypography variant="button" fontWeight="bold">
-        {content.name}
-      </MKTypography>
-    </MKBox>
-  );
-};
+      {content.name}
+    </MKTypography>
+  </MKBox>
+);
