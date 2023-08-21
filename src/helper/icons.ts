@@ -24,7 +24,7 @@ import {
   faDiscord,
   faGithub,
   faMedium,
-  faTwitter,
+  faXTwitter,
   faYoutube,
   prefix as brandPrefix,
 } from '@fortawesome/free-brands-svg-icons';
@@ -45,7 +45,7 @@ const ICONS: IconDefinition[] = [
   faDev,
   faGithub,
   faMedium,
-  faTwitter,
+  faXTwitter,
   faDiscord,
   faYoutube,
   // solid
