@@ -94,7 +94,7 @@ export const Newsletter: FC = () => {
             <MKBox
               component="img"
               src={logo}
-              alt="macbook"
+              alt="Logo of the Process Analytics project"
               maxWidth="80%"
               height="auto"
             />

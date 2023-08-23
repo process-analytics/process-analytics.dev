@@ -24,6 +24,7 @@ export enum SECTION {
   libraries = 'Libraries',
   news = 'News',
   blog = 'Blog Posts',
+  testimonials = 'Testimonials',
 }
 
 /**
