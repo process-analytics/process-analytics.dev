@@ -17,11 +17,12 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO, Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { DataProps } from '../hooks';
-import { Landing, Blog, News, About, Libraries, Newsletter } from '../sections';
+import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
 import { PAGE } from '../helper';
 import { footerContent, headerContent } from '../content';
+import { Testimonials } from '../sections/home/Testimonials';
 
 const HomePage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
@@ -30,6 +31,7 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
+    <Testimonials />
     <Newsletter />
   </Layout>
 );
