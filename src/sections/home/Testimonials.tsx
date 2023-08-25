@@ -15,10 +15,12 @@
  */
 import React, { FC } from 'react';
 
-import { MKTypography, MKBox, SectionWithTitle } from '../../components';
 import { Container, Grid, Link } from '@mui/material';
-import logo from '../../assets/images/logo_bonitasoft_inline.svg';
+
+import { MKTypography, MKBox, SectionWithTitle } from '../../components';
 import { SECTION } from '../../helper';
+
+import logo from '../../assets/images/logo_bonitasoft_inline.svg';
 
 export const Testimonials: FC = () => (
   <SectionWithTitle id={SECTION.testimonials}>
@@ -29,7 +31,15 @@ export const Testimonials: FC = () => (
         flexDirection={['column', 'row']}
         justifyContent={'center'}
       >
-        <Grid item md={5} m="auto" sx={{ textAlign: 'center' }} width="100%">
+        <Grid
+          item
+          xs={12}
+          md={5}
+          px={{ xs: 0, md: 4 }}
+          sx={{
+            mb: { xs: 4, md: 0 },
+          }}
+        >
           <Link
             href="https://www.bonitasoft.com/process-mining-AI?utm_source=ProcessAnalyticsWebsite&utm_medium=CTA&utm_campaign=ProcessAnalytics"
             target="_blank"
@@ -39,22 +49,13 @@ export const Testimonials: FC = () => (
               component="img"
               src={logo}
               alt="Bonitasoft logo"
-              maxWidth="80%"
+              maxWidth="100%"
               height="auto"
             />
           </Link>
         </Grid>
-        <Grid
-          item
-          md={5}
-          mr="auto"
-          sx={{
-            textAlign: 'center',
-            ml: { xs: 0, lg: 3 },
-            mb: { xs: 8, md: 0 },
-          }}
-        >
-          <MKTypography variant="body2" color="text" ml={0}>
+        <Grid item xs={12} md={6} px={{ xs: 0, md: 4 }}>
+          <MKTypography variant="body2" color="text">
             Process mining algorithms (process performance mining) can be used
             in Bonita to provide visibility, analysis and better understanding
             of business operating models - through real-time information on
