@@ -35,7 +35,7 @@ export const MuiCssBaseline: Components<Theme>['MuiCssBaseline'] = {
   styleOverrides: ({ palette }) => ({
     html: {
       scrollBehavior: 'smooth',
-      fontFamily: '"Open Sans",Helvetica,Arial,sans-serif',
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     },
     'html *': {
       mozOsxFontSmoothing: 'grayscale',
