@@ -30,8 +30,10 @@ const baseHeadingProperties = {
   fontFamily: 'inherit',
 };
 
+const fontFamilyForBigTitle = ['"Roboto Slab"', 'sans-serif'].join(',');
+
 export const typography: TypographyOptions = {
-  fontFamily: ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'].join(','),
+  fontFamily: ['"Roboto", "Helvetica", "Arial", sans-serif'].join(','),
   fontWeightLight: fontWeight.light,
   fontWeightRegular: fontWeight.regular,
   fontWeightMedium: fontWeight.medium,
@@ -40,21 +42,24 @@ export const typography: TypographyOptions = {
   htmlFontSize: 10, // in px
 
   h1: {
+    ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
     fontSize: '3rem',
     lineHeight: 1.25,
-    ...baseHeadingProperties,
   },
 
   h2: {
+    ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
     fontSize: '2.25rem',
     lineHeight: 1.3,
-    ...baseHeadingProperties,
   },
 
   h3: {
+    ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
     fontSize: fontSize['3xl'],
     lineHeight: 1.375,
-    ...baseHeadingProperties,
   },
 
   h4: {
