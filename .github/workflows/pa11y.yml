@@ -24,7 +24,7 @@ jobs:
         run: npm install -g pa11y-ci
       - name: Run Pa11y CLI
         id: pa11y
-        uses: mathiasvr/command-output@v1
+        uses: mathiasvr/command-output@v2.0.0
         with:
           run: pa11y-ci $WEBSITE_TO_AUDIT -c ./.pa11yci
       - name: Comment pull request

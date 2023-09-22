@@ -24,7 +24,7 @@ jobs:
       # Using the Lighthouse GitHub Action
       # @see https://github.com/marketplace/actions/lighthouse-ci-action
       - name: Run Lighthouse GitHub Action
-        uses: treosh/lighthouse-ci-action@v9
+        uses: treosh/lighthouse-ci-action@v10
         id: lighthouse_audit
         with:
           urls: $WEBSITE_TO_AUDIT
@@ -34,7 +34,7 @@ jobs:
       - name: Format lighthouse score
         if: always()
         id: format_lighthouse_score
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             const lighthouseCommentMaker = require('./.github/workflows/lighthouse-comment.js');

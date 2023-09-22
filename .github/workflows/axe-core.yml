@@ -20,15 +20,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Use Chrome Driver
-        uses: nanasess/setup-chromedriver@v1
-        with:
-          chromedriver-version: '108.0.5359.71'
+        uses: nanasess/setup-chromedriver@v2
       - name: Install Axe CLI
         run: npm install -g @axe-core/cli
 
       - name: Run Axe CLI
         id: axe
-        uses: mathiasvr/command-output@v1
+        uses: mathiasvr/command-output@v2.0.0
         with:
           run: axe $WEBSITE_TO_AUDIT --chromedriver-path="/usr/local/bin/chromedriver" --exit --tags wcag2aaa
 
