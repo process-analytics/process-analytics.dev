@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-import { Box, BoxProps, Flex } from 'rebass/styled-components';
+import React, { FC, PropsWithChildren } from 'react';
+
+import { Box, BoxProps } from '@mui/material';
 
 import { CardWithIcon } from './CardWithIcon';
 
-const CardBox = ({
-  children,
-}: React.PropsWithChildren<BoxProps>): JSX.Element => (
+const CardBox: FC<PropsWithChildren<BoxProps>> = ({ children }) => (
   <Box
     paddingLeft={'24px'}
     paddingTop={'24px'}
@@ -31,46 +30,41 @@ const CardBox = ({
   </Box>
 );
 
-export const Features = (): JSX.Element => {
-  return (
-    <Flex
-      flexDirection={['column', 'column', 'row']}
-      flexWrap="wrap"
-      style={{
-        fontSize: '1.25rem',
-        fontWeight: '400',
-        lineHeight: '1.625',
-        letterSpacing: '0.00938em',
-        boxSizing: 'border-box',
-        marginTop: '-24px',
-        width: 'calc(100% + 24px)',
-        marginLeft: '-24px',
-      }}
-    >
-      <CardBox>
-        <CardWithIcon
-          iconColor="muted"
-          icon="lightbulb"
-          title="Free tool"
-          description="Generate and visualize process activities in BPMN Standards."
-        />
-      </CardBox>
-      <CardBox>
-        <CardWithIcon
-          iconColor="muted"
-          icon="tools"
-          title="Simple usage"
-          description="Provide event logs and select the format of the diagram to be generated."
-        />
-      </CardBox>
-      <CardBox>
-        <CardWithIcon
-          iconColor="muted"
-          icon="bolt-lightning"
-          title="Process Analytics"
-          description="Built by assembling various libraries provided by the Process Analytics project."
-        />
-      </CardBox>
-    </Flex>
-  );
-};
+export const Features = (): JSX.Element => (
+  <Box
+    display="flex"
+    flexDirection={['column', 'column', 'row']}
+    flexWrap="wrap"
+    style={{
+      boxSizing: 'border-box',
+      marginTop: '-24px',
+      width: 'calc(100% + 24px)',
+      marginLeft: '-24px',
+    }}
+  >
+    <CardBox>
+      <CardWithIcon
+        iconColor="muted"
+        icon="lightbulb"
+        title="Free tool"
+        description="Generate and visualize process activities in BPMN Standards."
+      />
+    </CardBox>
+    <CardBox>
+      <CardWithIcon
+        iconColor="muted"
+        icon="tools"
+        title="Simple usage"
+        description="Provide event logs and select the format of the diagram to be generated."
+      />
+    </CardBox>
+    <CardBox>
+      <CardWithIcon
+        iconColor="muted"
+        icon="bolt-lightning"
+        title="Process Analytics"
+        description="Built by assembling various libraries provided by the Process Analytics project."
+      />
+    </CardBox>
+  </Box>
+);

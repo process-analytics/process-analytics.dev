@@ -13,30 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { FC } from 'react';
 
-import { Box } from 'rebass/styled-components';
+import { Box, Typography } from '@mui/material';
+
 import { Fade } from 'react-awesome-reveal';
 import { MDXProvider } from '@mdx-js/react';
+
 import { StyledMDXComponents } from '../MarkdownComponents';
 
-const MDXPanel = ({
-  mdx,
-  isFullPage,
-}: {
+type MDXPanelProps = {
   mdx: JSX.Element;
   isFullPage: boolean;
-}): JSX.Element => (
+};
+
+export const MDXPanel: FC<MDXPanelProps> = ({ mdx, isFullPage }) => (
   <Box width={isFullPage ? [1, 1, 1] : [1, 1, 2 / 3]} px={[1, 2, 4]} mt={2}>
     <Fade direction="down" triggerOnce>
-      <Box
-        fontSize={['medium', 'medium', 'large']}
-        lineHeight={['1.5rem', '1.5rem', '2rem']}
-      >
-        <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
+      <Box lineHeight={['1.5rem', '1.5rem', '2rem']}>
+        <Typography variant="body2">
+          <MDXProvider components={StyledMDXComponents}>{mdx}</MDXProvider>
+        </Typography>
       </Box>
     </Fade>
   </Box>
 );
-
-export default MDXPanel;

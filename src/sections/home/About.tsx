@@ -15,11 +15,13 @@
  */
 import React from 'react';
 
-import { aboutContent } from '../../content/AboutContent';
-
-import { SectionWithTitle, DescriptionPanel } from '../../components';
-import { SECTION } from '../../helper/constants';
-import { DescriptionPanelContent } from '../../components/description/DescriptionPanel';
+import { aboutContent } from '../../content';
+import {
+  SectionWithTitle,
+  DescriptionPanel,
+  DescriptionPanelContent,
+} from '../../components';
+import { SECTION } from '../../helper';
 
 export type AboutContent = DescriptionPanelContent[];
 

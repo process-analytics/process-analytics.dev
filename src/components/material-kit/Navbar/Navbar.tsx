@@ -40,7 +40,11 @@ import { MKBox, MKBoxProps } from '..';
 // Material Kit 2 React example components
 import { Action, ActionButton, BrandLink, HoverStyle } from './common';
 import { NavbarButton, NavbarNav as MobileNavbarNav } from './mobile';
-import { Dropdown, NavbarNav as DesktopNavbarNav } from './desktop';
+import {
+  Dropdown,
+  NavbarNav as DesktopNavbarNav,
+  DropdownStyle,
+} from './desktop';
 
 import { useMobileViewStatus } from '../../../hooks';
 
@@ -63,7 +67,7 @@ type CommonProps = {
   brandContent: BrandContent;
   routeContent: HeaderRoute[];
   action: Action;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  dropdownStyle?: DropdownStyle;
 };
 
 type InnerContainerProps = NavbarStyleProps & CommonProps;
@@ -102,7 +106,11 @@ const InnerContainer: FC<InnerContainerProps> = ({
     >
       <MKBox
         py={1}
-        px={{ xs: 4, sm: isTransparent ? 2 : 3, lg: isTransparent ? 0 : 2 }}
+        px={{
+          xs: 0,
+          sm: isTransparent ? 2 : 3,
+          lg: isTransparent ? 4 : 2,
+        }}
         my={isRelative ? 0 : 2}
         mx={isRelative ? 0 : 3}
         width={isRelative ? '100%' : 'calc(100% - 48px)'}
@@ -153,6 +161,7 @@ const InnerContainer: FC<InnerContainerProps> = ({
           <MKBox
             shadow={{ size: isTransparent ? 'lg' : undefined }}
             borderRadius="xl"
+            mt={1}
             px={isTransparent ? 2 : 0}
             {...dropdownStyle}
           >
@@ -193,7 +202,7 @@ export const Navbar: FC<NavbarProps> = ({
   isSticky = false,
   isRelative = false,
   isCenter = false,
-  bgColor,
+  bgcolor,
   color,
   dropdownStyle,
   hoverStyle: hoverStyleProp,
@@ -202,7 +211,7 @@ export const Navbar: FC<NavbarProps> = ({
   <MKBox
     {...rest}
     position={isTransparent && isSticky ? 'sticky' : 'relative'}
-    bgColor={isTransparent ? bgColor : 'transparent'}
+    bgcolor={isTransparent ? bgcolor : 'transparent'}
     color={color}
   >
     <InnerContainer

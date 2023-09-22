@@ -14,35 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  GreyColorName,
-  PaletteColorKey,
-  SocialPaletteOptions,
-  PaletteOptions,
-} from '@mui/material';
-
-export const paletteKeys = [
-  'primary',
-  'secondary',
-  'error',
-  'warning',
-  'info',
-  'success',
-  'tertiary',
-  'quaternary',
-  'primaryLight',
-  'secondaryLight',
-  'spicy',
-  'sweet',
-  'manufacture',
-  'education',
-  'telecom',
-  'financial',
-  'energy',
-  'health',
-  'government',
-  'distribution',
-];
+import { PaletteOptions, SocialPaletteOptions } from '@mui/material';
 
 /**
  * The base colors for the Material Kit 2 React.
@@ -94,7 +66,7 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
     main: '#4CAF50',
     light: '#80e27e',
     dark: '#087f23',
-    contrastText: '#000000',
+    contrastText: 'white',
   },
 
   warning: {
@@ -247,17 +219,3 @@ export const palette: PaletteOptions & SocialPaletteOptions = {
     contrastText: '#fff',
   },
 };
-
-export const isPaletteColorName = (color: string): color is PaletteColorKey =>
-  paletteKeys.includes(color);
-
-export const isGreyColorName = (color: string): color is GreyColorName =>
-  color === 'grey-100' ||
-  color === 'grey-200' ||
-  color === 'grey-300' ||
-  color === 'grey-400' ||
-  color === 'grey-500' ||
-  color === 'grey-600' ||
-  color === 'grey-700' ||
-  color === 'grey-800' ||
-  color === 'grey-900';

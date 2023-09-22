@@ -102,12 +102,12 @@ export const Header = ({ content }: HeaderProps): JSX.Element => (
     isSticky
     top="0"
     zIndex="10"
-    bgColor="quaternary"
+    bgcolor="quaternary"
     width="100%"
     shadow={{ size: 'sm' }}
     py={0.25}
     dropdownStyle={{
-      bgColor: 'secondaryLight',
+      bgcolor: 'secondaryLight',
       color: 'secondary',
     }}
   />

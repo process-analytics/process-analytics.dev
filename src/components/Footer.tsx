@@ -44,7 +44,7 @@ import {
   Link,
   LinkContent,
   SocialLinkContent,
-  SocialLinkWithMaterial,
+  SocialLink,
 } from '.';
 
 export type FooterProps = {
@@ -92,7 +92,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
   const year = new Date().getFullYear();
 
   return (
-    <MKBox component="footer" py={6} bgColor="primary">
+    <MKBox component="footer" py={6} bgcolor="primary">
       <Container maxWidth="xxl">
         <Grid
           container
@@ -136,7 +136,7 @@ export const Footer = ({ content }: FooterProps): JSX.Element => {
               </MKTypography>
               <MKBox display="flex" alignItems="center" mt={3}>
                 {socials.map((content, key) => (
-                  <SocialLinkWithMaterial
+                  <SocialLink
                     key={content.url}
                     content={content}
                     style={{

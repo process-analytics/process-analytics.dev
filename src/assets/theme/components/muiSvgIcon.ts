@@ -31,8 +31,7 @@
 
 import { Components, Theme } from '@mui/material';
 
-// Material Kit 2 React helper functions
-import { pxToRem } from '../functions/pxToRem';
+import { fontSize } from '..';
 
 export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
   defaultProps: {
@@ -45,11 +44,11 @@ export const MuiSvgIcon: Components<Theme>['MuiSvgIcon'] = {
     },
 
     fontSizeSmall: {
-      fontSize: `${pxToRem(20)} !important`,
+      fontSize: `${fontSize.xl} !important`,
     },
 
     fontSizeLarge: {
-      fontSize: `${pxToRem(36)} !important`,
+      fontSize: '2.25rem !important',
     },
   },
 };

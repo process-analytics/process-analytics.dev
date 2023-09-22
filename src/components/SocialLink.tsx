@@ -16,25 +16,26 @@
 
 import React from 'react';
 
-import {
-  Link as MaterialLink,
-  LinkProps,
-  styled as MaterialStyled,
-} from '@mui/material';
-import styled from 'styled-components';
-import { Link } from 'rebass/styled-components';
+import { Link, LinkProps, styled } from '@mui/material';
+
 import Tippy from '@tippyjs/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 import { getIconDefinition } from '../helper';
-import { MKTypography, MKTypographyProps } from './material-kit/MKTypography';
+import { MKTypography, MKTypographyProps } from '.';
 
 export type SocialLinkProps = {
   content: SocialLinkContent;
-  style?: { invert?: boolean };
+  style?: SocialLinkStyle;
 };
+
+export type SocialLinkStyle = LinkProps &
+  MKTypographyProps<typeof IconLink> &
+  IconLinkProps;
+
+type IconLinkProps = { invert?: boolean };
 
 export type SocialLinkContent = {
   url: string;
@@ -60,55 +61,8 @@ export const SocialLink = ({
       trigger="mouseenter focus"
       arrow={false}
     >
-      <IconLink
-        href={url}
-        target="_blank"
-        invert={style.invert}
-        rel="noreferrer"
-        aria-label={name}
-      >
-        <FontAwesomeIcon icon={iconDefinition} />
-      </IconLink>
-    </Tippy>
-  );
-};
-
-const IconLink = styled(Link)<{ invert?: boolean }>`
-  transition: opacity 0.4s;
-  color: ${({ theme, invert }) =>
-    invert ? theme.colors.background : theme.colors.primary};
-  text-decoration: none;
-
-  &:hover {
-    opacity: 0.7;
-  }
-`;
-
-export type SocialLinkWithMaterialProps = {
-  content: SocialLinkContent;
-  style?: MKTypographyProps;
-};
-
-export const SocialLinkWithMaterial = ({
-  content,
-  style,
-}: SocialLinkWithMaterialProps): JSX.Element | null => {
-  const { url, name, icon } = content;
-
-  const iconDefinition = getIconDefinition(icon as IconName);
-  if (!iconDefinition) {
-    return null;
-  }
-
-  return (
-    <Tippy
-      content={name}
-      placement="bottom"
-      trigger="mouseenter focus"
-      arrow={false}
-    >
       <MKTypography
-        component={IconLinkWithMaterial}
+        component={IconLink}
         href={url}
         target="_blank"
         rel="noreferrer"
@@ -121,8 +75,10 @@ export const SocialLinkWithMaterial = ({
   );
 };
 
-const IconLinkWithMaterial = MaterialStyled(MaterialLink)<LinkProps>`
+const IconLink = styled(Link)<IconLinkProps>`
   transition: opacity 0.4s;
+  color: ${({ theme, invert }) =>
+    invert ? theme.palette.background.default : theme.palette.primary.main};
   text-decoration: none;
 
   &:hover {

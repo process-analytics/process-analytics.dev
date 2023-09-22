@@ -23,8 +23,8 @@ export const socialLinkContent: SocialLinkContent[] = [
   },
   {
     url: 'https://twitter.com/ProcessAnalyti1',
-    name: 'Twitter',
-    icon: 'twitter',
+    name: 'X',
+    icon: 'x-twitter',
   },
   {
     url: 'https://medium.com/@process-analytics',

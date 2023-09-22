@@ -17,19 +17,18 @@ import * as React from 'react';
 
 import { HeadProps } from 'gatsby';
 
-import { DataProps } from '../hooks/use-site-metadata';
-import { SEO } from '../components/seo';
-
-import { postsContent } from '../content/PostsContent';
-
-import { PAGE, SECTION } from '../helper/constants';
-import { PageWithPosts } from '../components';
+import { DataProps } from '../hooks';
+import { SEO, PageWithPosts } from '../components';
+import { footerContent, headerContent, postsContent } from '../content';
+import { PAGE, SECTION } from '../helper';
 
 const BlogPage = (): JSX.Element => (
   <PageWithPosts
     containerTitle={SECTION.blog}
-    postContents={postsContent.posts}
     description={postsContent.description}
+    postContents={postsContent.posts}
+    headerContent={headerContent}
+    footerContent={footerContent}
   />
 );
 

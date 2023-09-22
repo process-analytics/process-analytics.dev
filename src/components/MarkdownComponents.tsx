@@ -13,76 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { PropsWithChildren, ReactElement } from 'react';
-import { Text } from 'rebass';
-import styled from 'styled-components';
+import React from 'react';
+
+import { Link as MaterialLink } from '@mui/material';
+import { Link as GatsbyLink } from 'gatsby';
+
 import { MDXComponents } from 'mdx/types';
 
-const StyledLink = styled.a`
-  display: inline-block;
-  transition:
-    color 250ms,
-    text-shadow 250ms;
-  color: ${({ theme }) => theme.colors.text};
-  cursor: pointer;
-  position: relative;
-  text-decoration: none;
+const MarkdownParagraph: MDXComponents['p'] = ({ children }) => (
+  <p style={{ paddingBottom: '1rem' }}>{children}</p>
+);
 
-  &:after {
-    position: absolute;
-    z-index: -1;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: ${({ theme }) => theme.colors.secondary};
-    transition: all 250ms;
-  }
+const MarkdownList: MDXComponents['ol'] = ({ children }) => (
+  <ol style={{ margin: 0 }}>{children}</ol>
+);
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.background};
+const MarkdownUnorderedList: MDXComponents['ul'] = ({ children }) => (
+  <ul style={{ margin: 0 }}>{children}</ul>
+);
 
-    &::after {
-      height: 110%;
-      width: 110%;
-    }
-  }
-`;
+const MarkdownListItem: MDXComponents['li'] = ({ children }) => (
+  <li style={{ marginBottom: '1rem' }}>{children}</li>
+);
 
-const MarkdownParagraph = styled(Text)`
-  padding-bottom: 1em;
-`;
-
-const MarkdownList = styled.ul`
-  margin: 0;
-`;
-
-const MarkdownListItem = styled.li`
-  margin-bottom: 1em;
-`;
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const MarkdownLink = (
-  props: PropsWithChildren<any>,
-): ReactElement<any, any> => {
+const MarkdownLink: MDXComponents['a'] = props => {
   const href = props['href'] as string;
   const isInnerLink = href.startsWith('#');
 
   return isInnerLink ? (
-    <StyledLink href={href}>{props.children}</StyledLink>
+    <GatsbyLink to={href}>{props.children}</GatsbyLink>
   ) : (
-    <StyledLink href={href} target="_blank" rel="noreferrer">
+    <MaterialLink href={href} target="_blank" rel="noreferrer">
       {props.children}
-    </StyledLink>
+    </MaterialLink>
   );
 };
-/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export const StyledMDXComponents: MDXComponents = {
   p: MarkdownParagraph,
   ol: MarkdownList,
+  ul: MarkdownUnorderedList,
   li: MarkdownListItem,
   a: MarkdownLink,
 };

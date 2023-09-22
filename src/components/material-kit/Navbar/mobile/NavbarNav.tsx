@@ -30,8 +30,9 @@ import React, { useState } from 'react';
 import { Collapse } from '@mui/material';
 
 // Material Kit 2 React components
-import { MKBox, MKBoxProps } from '../..';
+import { MKBox } from '../..';
 import { HoverStyle, NavLink } from '../common';
+import { DropdownStyle } from '../desktop';
 
 import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
 
@@ -77,6 +78,6 @@ export const NavbarNav = ({
 type NavbarNavProps = {
   content: HeaderRoute[];
   isOpen: boolean;
-  dropdownStyle?: React.PropsWithoutRef<MKBoxProps>;
+  dropdownStyle?: DropdownStyle;
   hoverStyle: HoverStyle;
 };

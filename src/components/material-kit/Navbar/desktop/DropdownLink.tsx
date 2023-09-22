@@ -30,6 +30,7 @@ import React from 'react';
 import { Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
+import { borders } from '../../../../assets/theme';
 import { Link, LinkContent } from '../../..';
 import { MKBox, MKTypography } from '../..';
 import { HoverStyle, getHoverConfiguration } from '../common';
@@ -60,8 +61,8 @@ export const DropdownLink = ({
     fontWeight={description ? 'bold' : 'regular'}
     py={description ? 1 : 0.625}
     px={2}
-    sx={({ palette, borders: { borderRadius } }: Theme) => ({
-      borderRadius: borderRadius.md,
+    sx={({ palette }: Theme) => ({
+      borderRadius: borders.radius.md,
       cursor: 'pointer',
       transition: 'all 300ms linear',
       ...getHoverConfiguration(palette, hoverStyle),

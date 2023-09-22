@@ -34,6 +34,8 @@ import {
   FontWeight,
 } from '@mui/material/styles';
 
+import { linearGradient } from '../../../assets/theme';
+
 export type TypographyProps = {
   color?: PaletteColorKey | 'inherit' | 'text';
   textTransform?: TextTransform;
@@ -50,7 +52,7 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
   theme,
   ownerState,
 }) => {
-  const { palette, functions } = theme;
+  const { palette } = theme;
   const {
     color,
     textTransform,
@@ -59,8 +61,6 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
     opacity,
     textGradient,
   } = ownerState;
-
-  const { linearGradient } = functions;
 
   const calculatedColor =
     !color || color === 'inherit' || !palette[color]
@@ -77,7 +77,7 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
     opacity,
     verticalAlign,
     textDecoration: 'none',
-    textTransform,
+    textTransform: textTransform ?? 'none',
     color: calculatedColor,
     letterSpacing: '-0.125px',
     fontWeight,

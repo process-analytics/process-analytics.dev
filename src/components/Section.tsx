@@ -13,27 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
-import styled from 'styled-components';
-import { Heading } from 'rebass/styled-components';
+import { PaletteColorKey, styled } from '@mui/material';
 
 import { Link } from 'gatsby';
 
-import { MEDIA_QUERY_SMALL, SECTION, getSectionHref } from '../helper';
-import { theme } from '../assets/oldTheme';
+import { MKTypography } from '.';
 
-type SectionProps = StyledSectionProps &
-  SectionContainerProps & {
+import { MEDIA_QUERY_SMALL, SECTION, getSectionHref } from '../helper';
+
+type SectionContainerProps = {
+  justifyContent: string;
+};
+
+type SectionProps = Partial<StyledSectionProps> &
+  Partial<SectionContainerProps> & {
     id?: SECTION;
   };
 
-export const Section = ({
+type SectionHeaderProps = {
+  name: SECTION;
+  icon?: string;
+  label?: string;
+};
+
+export const Section: FC<PropsWithChildren<SectionProps>> = ({
   children,
   id,
-  backgroundColor = theme.colors.primaryLight,
+  backgroundColor = 'primaryLight',
   justifyContent = 'center',
-}: PropsWithChildren<SectionProps>): JSX.Element => (
+}) => (
   <StyledSection
     id={id && getSectionHref(id)}
     backgroundColor={backgroundColor}
@@ -44,12 +54,9 @@ export const Section = ({
   </StyledSection>
 );
 
-export const SectionWithTitle = ({
-  id,
-  children,
-  ...rest
-}: PropsWithChildren<SectionProps> &
-  Required<Pick<SectionProps, 'id'>>): JSX.Element => (
+export const SectionWithTitle: FC<
+  PropsWithChildren<SectionProps> & Required<Pick<SectionProps, 'id'>>
+> = ({ id, children, ...rest }) => (
   <Section id={id} {...rest}>
     <SectionHeader name={id} />
     {children}
@@ -57,13 +64,14 @@ export const SectionWithTitle = ({
 );
 
 type StyledSectionProps = {
-  backgroundColor?: string;
+  backgroundColor: PaletteColorKey;
 };
-const StyledSection = styled.section<StyledSectionProps>`
+
+const StyledSection = styled('section')<StyledSectionProps>`
   position: relative;
   display: block;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   @media only screen and (min-width: 61.188rem) {
     &:first-of-type {
@@ -87,7 +95,8 @@ const StyledSection = styled.section<StyledSectionProps>`
 
   &:nth-of-type(even) {
     position: relative;
-    background-color: ${({ backgroundColor }) => backgroundColor};
+    background-color: ${({ theme, backgroundColor }) =>
+      theme.palette[backgroundColor].main};
   }
   &:nth-of-type(even)::before {
     background-color: white;
@@ -105,7 +114,8 @@ const StyledSection = styled.section<StyledSectionProps>`
     background-color: white;
   }
   &:nth-of-type(odd)::before {
-    background-color: ${({ backgroundColor }) => backgroundColor};
+    background-color: ${({ theme, backgroundColor }) =>
+      theme.palette[backgroundColor].main};
     content: '';
     position: absolute;
     top: 0;
@@ -116,10 +126,25 @@ const StyledSection = styled.section<StyledSectionProps>`
   }
 `;
 
-type SectionContainerProps = {
-  justifyContent?: string;
-};
-const SectionContainer = styled.div<SectionContainerProps>`
+const SectionHeader: FC<SectionHeaderProps> = ({ name, icon, label }) => (
+  <MKTypography
+    component={Link}
+    variant="h2"
+    mb={4}
+    textAlign="center"
+    to={`#${getSectionHref(name)}`}
+    style={{ cursor: 'default' }}
+  >
+    {name}
+    {icon && (
+      <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+        {icon}
+      </span>
+    )}
+  </MKTypography>
+);
+
+const SectionContainer = styled('div')<SectionContainerProps>`
   min-width: 20rem;
   max-width: 87.5vw;
   display: flex;
@@ -134,34 +159,3 @@ const SectionContainer = styled.div<SectionContainerProps>`
     padding: 2em 1em;
   }
 `;
-
-type SectionHeaderProps = {
-  name: SECTION;
-  icon?: string;
-  label?: string;
-};
-const SectionHeader = ({
-  name,
-  icon,
-  label,
-}: SectionHeaderProps): JSX.Element => (
-  <Heading
-    color="text"
-    fontWeight="700"
-    fontSize="1.875rem"
-    margin="30px 65px"
-    textAlign="center"
-  >
-    <Link
-      to={`#${getSectionHref(name)}`}
-      style={{ color: 'inherit', cursor: 'default' }}
-    >
-      {name}
-      {icon && (
-        <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-          {icon}
-        </span>
-      )}
-    </Link>
-  </Heading>
-);

@@ -14,14 +14,25 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FC } from 'react';
 
-import { Box, Image, ImageProps } from 'rebass/styled-components';
 import { Fade } from 'react-awesome-reveal';
 
-import { Image as ImageType } from '../../assets/oldTheme';
+import { Box, BoxProps } from '@mui/material';
 
-function getImageProps(image: ImageType): ImageProps {
+export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
+export type Image = {
+  src: string;
+  alt: string;
+  positionFromMdx?: ImagePosition;
+};
+
+type ImagePanelProps = {
+  image: Image;
+  isFullPage: boolean;
+};
+
+function getImageProps(image: Image): BoxProps {
   switch (image.positionFromMdx) {
     case 'top':
       return { width: 1, mb: [3, 3, 4] };
@@ -36,7 +47,7 @@ function getImageProps(image: ImageType): ImageProps {
 }
 
 function convertPositionToFadeDirection(
-  image: ImageType,
+  image: Image,
 ): 'down' | 'up' | 'left' | 'right' {
   switch (image.positionFromMdx) {
     case 'top':
@@ -51,19 +62,14 @@ function convertPositionToFadeDirection(
   }
 }
 
-const ImagePanel = ({
-  image,
-  isFullPage,
-}: {
-  image: ImageType;
-  isFullPage: boolean;
-}): JSX.Element => (
+export const ImagePanel: FC<ImagePanelProps> = ({ image, isFullPage }) => (
   <Box
     width={[1, 1, isFullPage ? 1 : 1 / 3]}
     style={{
       margin: 'auto',
       maxWidth: isFullPage ? 'auto' : '300px',
     }}
+    {...getImageProps(image)}
   >
     {image && (
       <Fade
@@ -71,15 +77,16 @@ const ImagePanel = ({
         triggerOnce
         style={{ textAlign: 'center' }}
       >
-        <Image
+        <img
           height={'auto'}
-          style={{ borderRadius: '5px' }}
-          css={{ aspectRatio: 'attr(width) / attr(height)' }}
-          {...getImageProps(image)}
-          {...image}
+          src={image.src}
+          alt={image.alt}
+          style={{
+            borderRadius: '5px',
+            aspectRatio: 'attr(width) / attr(height)',
+          }}
         />
       </Fade>
     )}
   </Box>
 );
-export default ImagePanel;

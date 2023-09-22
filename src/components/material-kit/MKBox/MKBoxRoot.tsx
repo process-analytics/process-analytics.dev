@@ -27,7 +27,7 @@
 
 // @mui material components
 import {
-  BorderRadius,
+  BorderSize,
   BoxShadowColor,
   GreyColorName,
   Palette,
@@ -39,16 +39,19 @@ import {
 } from '@mui/material';
 
 import {
+  borders,
+  boxShadows,
   isGreyColorName,
   isPaletteColorName,
-} from '../../../assets/theme/base/colors';
+  linearGradient,
+} from '../../../assets/theme';
 
 export type BoxProps = {
   variant?: 'gradient' | 'contained';
-  bgColor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
+  bgcolor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
   color?: PaletteColorKey | GreyColorName | 'inherit';
   opacity?: number;
-  borderRadius?: keyof BorderRadius;
+  borderRadius?: keyof BorderSize;
   shadow?: {
     size?: keyof ShadowSize;
     color?: keyof BoxShadowColor;
@@ -74,36 +77,39 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
   theme,
   ownerState,
 }) => {
-  const { palette, functions, borders, boxShadows } = theme;
-  const { variant, bgColor, color, opacity, borderRadius, shadow } = ownerState;
+  const { palette } = theme;
+  const {
+    variant = 'contained',
+    bgcolor = 'inherit',
+    color,
+    opacity,
+    borderRadius,
+    shadow,
+  } = ownerState;
 
   // background value
   let backgroundValue;
   if (variant === 'gradient') {
     backgroundValue =
-      bgColor && isPaletteColorName(bgColor)
-        ? functions.linearGradient(palette[bgColor].main, palette[bgColor].dark)
+      bgcolor && isPaletteColorName(bgcolor)
+        ? linearGradient(palette[bgcolor].main, palette[bgcolor].dark)
         : 'White';
-  } else if (!bgColor || bgColor === 'transparent') {
-    backgroundValue = 'transparent';
-  } else if (bgColor === 'inherit') {
-    backgroundValue = 'inherit';
-  } else if (isPaletteColorName(bgColor) || isGreyColorName(bgColor)) {
-    backgroundValue = getColor(palette, bgColor);
+  } else if (isPaletteColorName(bgcolor) || isGreyColorName(bgcolor)) {
+    backgroundValue = getColor(palette, bgcolor);
   } else {
-    backgroundValue = bgColor;
+    backgroundValue = bgcolor;
   }
 
   // color value
   let colorValue;
   if (color && (isPaletteColorName(color) || isGreyColorName(color))) {
     colorValue = getColor(palette, color);
-  } else if (!bgColor) {
+  } else if (color && !bgcolor) {
     colorValue = color;
-  } else if (bgColor === 'inherit') {
+  } else if (bgcolor === 'inherit') {
     colorValue = 'inherit';
-  } else if (isPaletteColorName(bgColor)) {
-    colorValue = palette[bgColor].contrastText;
+  } else if (bgcolor && isPaletteColorName(bgcolor)) {
+    colorValue = palette[bgcolor].contrastText;
   } else {
     colorValue = palette.text.primary;
   }
@@ -112,7 +118,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
     opacity,
     background: backgroundValue,
     color: colorValue,
-    borderRadius: borderRadius ? borders.borderRadius[borderRadius] : 'none',
+    borderRadius: borderRadius ? borders.radius[borderRadius] : 'none',
     boxShadow: shadow?.size
       ? boxShadows[shadow.size]
       : shadow?.color

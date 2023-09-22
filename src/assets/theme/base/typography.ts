@@ -22,97 +22,107 @@
 
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
+import { fontSize, fontWeight } from '../helpers/font-utils';
+
 const baseHeadingProperties = {
   color: 'inherit',
-  fontWeight: 700,
+  fontWeight: fontWeight.bold,
   fontFamily: 'inherit',
-  margin: '1.5rem 0 1.5rem 0',
 };
 
-export const typography: TypographyOptions = {
-  fontFamily: ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'].join(','),
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 600,
-  fontWeightBold: 700,
+const fontFamilyForBigTitle = ['"Roboto Slab"', 'sans-serif'].join(',');
 
-  fontSize: 10,
-  htmlFontSize: 10,
+export const typography: TypographyOptions = {
+  fontFamily: ['"Roboto", "Helvetica", "Arial", sans-serif'].join(','),
+  fontWeightLight: fontWeight.light,
+  fontWeightRegular: fontWeight.regular,
+  fontWeightMedium: fontWeight.medium,
+  fontWeightBold: fontWeight.bold,
+
+  htmlFontSize: 10, // in px
 
   h1: {
+    ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
     fontSize: '3rem',
     lineHeight: 1.25,
-    ...baseHeadingProperties,
   },
 
   h2: {
+    ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
     fontSize: '2.25rem',
     lineHeight: 1.3,
-    ...baseHeadingProperties,
   },
 
   h3: {
-    fontSize: '1.875rem',
-    lineHeight: 1.375,
     ...baseHeadingProperties,
+    fontFamily: fontFamilyForBigTitle,
+    fontSize: fontSize['3xl'],
+    lineHeight: 1.375,
   },
 
   h4: {
-    fontSize: '1.5rem',
+    fontSize: fontSize['2xl'],
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h5: {
-    fontSize: '1.25rem',
+    fontSize: fontSize.xl,
     lineHeight: 1.375,
     ...baseHeadingProperties,
   },
 
   h6: {
-    fontSize: '1rem',
+    fontSize: fontSize.md,
     lineHeight: 1.625,
     ...baseHeadingProperties,
   },
 
   subtitle1: {
-    fontSize: '1.25rem',
-    fontWeight: 300,
+    fontSize: fontSize.xl,
+    fontWeight: fontWeight.light,
     lineHeight: 1.625,
   },
 
   subtitle2: {
-    fontSize: '1rem',
-    fontWeight: 300,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.light,
     lineHeight: 1.6,
   },
 
   body1: {
-    fontSize: '1.25rem',
-    fontWeight: 400,
+    fontSize: fontSize.xl,
+    fontWeight: fontWeight.regular,
     lineHeight: 1.625,
   },
 
   body2: {
-    fontSize: '1rem',
-    fontWeight: 300,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.light,
     lineHeight: 1.6,
   },
 
   button: {
-    fontSize: '0.875rem',
-    fontWeight: 300,
+    fontSize: fontSize.sm,
+    fontWeight: fontWeight.light,
     lineHeight: 1.5,
     textTransform: 'uppercase',
   },
 
   caption: {
-    fontSize: '0.75rem',
-    fontWeight: 300,
+    fontSize: fontSize.xs,
+    fontWeight: fontWeight.light,
     lineHeight: 1.25,
   },
 
   overline: {
-    // Keep default theme
+    fontSize: fontSize.xs,
+    fontWeight: 400,
+    lineHeight: 2.66,
+    letterSpacing: '-0.0078rem',
+    textTransform: 'none',
+    margin: 0,
   },
 };

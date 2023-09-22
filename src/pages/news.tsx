@@ -17,21 +17,20 @@ import * as React from 'react';
 
 import { HeadProps } from 'gatsby';
 
-import { DataProps } from '../hooks/use-site-metadata';
+import { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
-
-import { newsContent } from '../content/NewsContent';
-
+import { footerContent, headerContent, newsContent } from '../content';
 import { PAGE, SECTION } from '../helper';
 
 const NewsPage = (): JSX.Element => (
   <PageWithPosts
     containerTitle={SECTION.news}
-    postContents={newsContent.news}
     description={newsContent.description}
+    postContents={newsContent.news}
+    headerContent={headerContent}
+    footerContent={footerContent}
   />
 );
-
 export default NewsPage;
 
 /*

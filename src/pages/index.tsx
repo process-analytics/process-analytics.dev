@@ -17,16 +17,12 @@
 import * as React from 'react';
 import { HeadProps } from 'gatsby';
 
-import { SEO } from '../components';
-import { DataProps } from '../hooks/use-site-metadata';
-
-import { Landing, Blog, News, About, Libraries } from '../sections';
-
-import { Layout, MailingListSubscription } from '../components';
+import { Layout, SEO } from '../components';
+import { DataProps } from '../hooks';
+import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
 import { PAGE } from '../helper';
-
-import { footerContent } from '../content/FooterContent';
-import { headerContent } from '../content/HeaderContent';
+import { footerContent, headerContent } from '../content';
+import { Testimonials } from '../sections/home/Testimonials';
 
 const HomePage = (): JSX.Element => (
   <Layout footerContent={footerContent} headerContent={headerContent}>
@@ -35,10 +31,10 @@ const HomePage = (): JSX.Element => (
     <Libraries />
     <News />
     <Blog />
-    <MailingListSubscription />
+    <Testimonials />
+    <Newsletter />
   </Layout>
 );
-
 export default HomePage;
 
 /*

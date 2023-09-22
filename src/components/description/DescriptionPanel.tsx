@@ -13,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { FC } from 'react';
 
-import { Flex } from 'rebass/styled-components';
-
-import { Image } from '../../assets/oldTheme';
+import { Box } from '@mui/material';
 
 import { Divider } from '..';
-import ImagePanel from './ImagePanel';
-import MDXPanel from './MDXPanel';
+import { Image, ImagePanel } from './ImagePanel';
+import { MDXPanel } from './MDXPanel';
 
 export type DescriptionPanelContent = {
   mdx: JSX.Element;
@@ -34,10 +32,10 @@ type DescriptionPanelProps = {
   index: number;
 };
 
-export const DescriptionPanel = ({
+export const DescriptionPanel: FC<DescriptionPanelProps> = ({
   content: { mdx, image, withSeparator = false },
   index,
-}: DescriptionPanelProps): JSX.Element => {
+}) => {
   if (image && !image.positionFromMdx) {
     image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
   }
@@ -49,7 +47,8 @@ export const DescriptionPanel = ({
 
   return (
     <>
-      <Flex
+      <Box
+        display="flex"
         key={index}
         marginTop={['10px', '10px', '30px']}
         marginBottom={withSeparator ? ['10px', '10px', '30px'] : 0}
@@ -78,7 +77,7 @@ export const DescriptionPanel = ({
           {image && <ImagePanel image={image} isFullPage={isFullPage} />}
           <MDXPanel mdx={mdx} isFullPage={isFullPage} />
         </>
-      </Flex>
+      </Box>
       {withSeparator && <Divider />}
     </>
   );

@@ -30,20 +30,12 @@
  */
 
 import { Components, Theme } from '@mui/material';
+
 // @mui material components
 import Fade from '@mui/material/Fade';
 
-import { grey } from '@mui/material/colors';
-
 // Material Kit 2 React base styles
-import { typography } from '../base/typography';
-import { borders } from '../base/borders';
-
-// Material Kit 2 React helper functions
-import { pxToRem } from '../functions/pxToRem';
-
-const { fontWeightRegular } = typography;
-const { borderRadius } = borders;
+import { borders, fontSize } from '..';
 
 export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
   defaultProps: {
@@ -52,20 +44,20 @@ export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
   },
 
   styleOverrides: {
-    tooltip: {
-      maxWidth: pxToRem(200),
-      backgroundColor: grey[900],
-      color: grey[50],
-      fontSize: '0.875rem',
-      fontWeight: fontWeightRegular,
+    tooltip: ({ theme: { typography, palette } }) => ({
+      maxWidth: '12.5rem',
+      backgroundColor: 'black',
+      color: palette.grey.A200,
+      fontSize: fontSize.sm,
+      fontWeight: typography.fontWeightRegular,
       textAlign: 'center',
-      borderRadius: borderRadius.md,
+      borderRadius: borders.radius.md,
       opacity: 0.7,
-      padding: `${pxToRem(5)} ${pxToRem(8)} ${pxToRem(4)}`,
-    },
+      padding: '0.3125rem 0.5rem 0.25rem',
+    }),
 
     arrow: {
-      color: grey[900],
+      color: 'black',
     },
   },
 };
