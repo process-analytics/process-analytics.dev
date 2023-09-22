@@ -1,0 +1,54 @@
+name: ♿️ A11Y CI with Lighthouse
+on:
+  pull_request:
+    paths:
+      - '**/.github/workflows/lighthouse.yml'
+      - '**/.github/workflows/lighthouse-comment.js'
+      - '**/.github/workflows/lighthouse-budget.json'
+      - '.github/workflows/generate-site-preview.yml'
+      - 'src/**/*'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'gatsby-*.js'
+      - '.nvmrc'
+
+env:
+  WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
+
+jobs:
+  Lighthouse-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Using the Lighthouse GitHub Action
+      # @see https://github.com/marketplace/actions/lighthouse-ci-action
+      - name: Run Lighthouse GitHub Action
+        uses: treosh/lighthouse-ci-action@v10
+        id: lighthouse_audit
+        with:
+          urls: $WEBSITE_TO_AUDIT
+          budgetPath: .github/workflows/lighthouse-budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+      - name: Format lighthouse score
+        if: always()
+        id: format_lighthouse_score
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const lighthouseCommentMaker = require('./.github/workflows/lighthouse-comment.js');
+            const lighthouseOutputs = {
+              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
+              links: ${{ steps.lighthouse_audit.outputs.links }}
+            };
+            const comment = lighthouseCommentMaker({ lighthouseOutputs });
+            core.setOutput("comment", comment);
+      - name: Add Lighthouse stats as comment
+        if: always()
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
+          header: lighthouse-comment
+          recreate: true
+          message: ${{ steps.format_lighthouse_score.outputs.comment }}
