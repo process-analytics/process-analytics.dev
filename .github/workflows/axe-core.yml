@@ -1,0 +1,47 @@
+name: ♿️ A11Y CI with Axe Core
+on:
+  pull_request:
+    paths:
+      - '**/.github/workflows/axe-core.yml'
+      - '.github/workflows/generate-site-preview.yml'
+      - 'src/**/*'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'gatsby-*.js'
+      - '.nvmrc'
+
+env:
+  WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
+
+jobs:
+  Axe-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Chrome Driver
+        uses: nanasess/setup-chromedriver@v2
+      - name: Install Axe CLI
+        run: npm install -g @axe-core/cli
+
+      - name: Run Axe CLI
+        id: axe
+        uses: mathiasvr/command-output@v2.0.0
+        with:
+          run: axe $WEBSITE_TO_AUDIT --chromedriver-path="/usr/local/bin/chromedriver" --exit --tags wcag2aaa
+
+      - name: Comment pull request
+        if: always()
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
+          header: axe-core-comment
+          recreate: true
+          message: |
+            ## ♿️ Axe report
+            Audited website : ${{ env.WEBSITE_TO_AUDIT }}
+            ```
+            ${{ steps.axe.outputs.stdout }}
+            ${{ steps.axe.outputs.stderr }}
+            ```
+            *This report has been generated using [@axe-core/cli](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/cli).*
