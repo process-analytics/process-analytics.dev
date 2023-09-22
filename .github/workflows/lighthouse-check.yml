@@ -1,0 +1,32 @@
+name: ♿️ A11Y CI with Lighthouse Check
+on:
+  pull_request:
+    paths:
+      - '**/.github/workflows/lighthouse-check.yml'
+      - '.github/workflows/generate-site-preview.yml'
+      - 'src/**/*'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'gatsby-*.js'
+      - '.nvmrc'
+
+env:
+  WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
+
+jobs:
+  Lighthouse-Check-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Using the Lighthouse Check GitHub Action
+      # @see https://github.com/marketplace/actions/lighthouse-check
+      - name: Run Lighthouse Check GitHub Action
+        uses: foo-software/lighthouse-check-action@master
+        id: lighthouse_audit
+        with:
+          urls: ${{ env.WEBSITE_TO_AUDIT }}
+          gitHubAccessToken: ${{ secrets.GH_RELEASE_TOKEN }}
+          prCommentEnabled: true
+          prCommentSaveOld: false
+          device: all
