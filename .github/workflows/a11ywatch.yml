@@ -1,0 +1,34 @@
+name: ♿️ A11Y CI with a11ywatch
+on:
+  pull_request:
+    paths:
+      - '**/.github/workflows/axe-core.yml'
+      - '.github/workflows/generate-site-preview.yml'
+      - 'src/**/*'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'gatsby-*.js'
+      - '.nvmrc'
+
+env:
+  WEBSITE_TO_AUDIT: 'https://process-analytics-process-analytics-dev-site_preview-pr-${{ github.event.pull_request.number }}.surge.sh/'
+
+jobs:
+  a11ywatch-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Using the Web Accessibility Evaluation GitHub Action
+      # @see https://github.com/marketplace/actions/web-accessibility-evaluation
+      - uses: a11ywatch/github-action@v2.0.2
+        with:
+          WEBSITE_URL: ${{ env.WEBSITE_TO_AUDIT }}
+          SUBDOMAINS: true
+          TLD: false
+          SITEMAP: true
+          FAIL_ERRORS_COUNT: 2
+          LIST: true
+          FIX: false
+          UPGRADE: false
+          TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
