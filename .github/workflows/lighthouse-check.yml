@@ -23,10 +23,25 @@ jobs:
       # @see https://github.com/marketplace/actions/lighthouse-check
       - name: Run Lighthouse Check GitHub Action
         uses: foo-software/lighthouse-check-action@master
-        id: lighthouse_audit
+        id: lighthouseCheck
         with:
+          outputDirectory: ${{ github.workspace }}/tmp/artifacts
           urls: ${{ env.WEBSITE_TO_AUDIT }}
           gitHubAccessToken: ${{ secrets.GH_RELEASE_TOKEN }}
           prCommentEnabled: true
           prCommentSaveOld: false
           device: all
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: Lighthouse reports
+          path: ${{ github.workspace }}/tmp/artifacts
+      - name: Verify Lighthouse Check results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+          minAccessibilityScore: "90"
+          minBestPracticesScore: "50"
+          minPerformanceScore: "50"
+          minProgressiveWebAppScore: "50"
+          minSeoScore: "50"
