@@ -17,6 +17,14 @@ import { PostContent } from '../components';
 
 const news: PostContent[] = [
   {
+    title: 'September 2023 News',
+    text: 'In our September 2023 update, get ready for Hacktoberfest, explore new features, and see the latest in our demos and tools.',
+    cover: 'https://miro.medium.com/v2/resize:fit:700/0*XaEaRDck2ZflQIcr',
+    url: 'https://medium.com/@process-analytics/process-analytics-september-2023-news-7e1cbac38cb6',
+    date: 'October 2023',
+    time: 4,
+  },
+  {
     title: 'July 2023 News',
     text: 'This July project news update introduces a new experimental library and presents a fascinating new demo.',
     cover: 'https://miro.medium.com/v2/resize:fit:640/0*uLqnz2zGxEaNXKq1',
