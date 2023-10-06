@@ -40,15 +40,5 @@ export const footerContent: FooterContent = {
         { type: 'internal', name: 'blog', url: '/blog' },
       ],
     },
-    {
-      name: 'help & legal',
-      items: [
-        {
-          type: 'internal',
-          name: 'Terms & Policies',
-          url: '/model-generation-application-conditions',
-        },
-      ],
-    },
   ],
 };

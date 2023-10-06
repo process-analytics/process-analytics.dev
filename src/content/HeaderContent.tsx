@@ -47,10 +47,5 @@ export const headerContent: HeaderContent = {
     },
     { type: 'internal', name: 'news', url: '/news' },
     { type: 'internal', name: 'blog', url: '/blog' },
-    {
-      type: 'internal',
-      name: 'Terms & Policies',
-      url: '/model-generation-application-conditions',
-    },
   ],
 };
