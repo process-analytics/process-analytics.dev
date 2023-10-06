@@ -16,9 +16,6 @@
 
 import React, { FC } from 'react';
 
-import { faInfo } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { HeadProps } from 'gatsby';
 
 import { Box, BoxProps, Link } from '@mui/material';
@@ -26,7 +23,6 @@ import { Box, BoxProps, Link } from '@mui/material';
 import {
   SEO,
   Features,
-  Jotform,
   Section,
   Layout,
   PostContainer,
@@ -230,66 +226,6 @@ const ModelGenerationApplicationPage: FC = () => (
           </Paragraph>
         </Part>
       </PartWithSingleColumn>
-    </Section>
-    <Section>
-      <Part
-        flexDirection={['column', 'row']}
-        justifyContent="space-between"
-        alignItems="center"
-        padding="114px 24px"
-        width={['100%', '80%']}
-        marginX="auto"
-      >
-        <Box
-          display="flex"
-          flexShrink={0}
-          alignItems="center"
-          width={['5rem', '5.5rem', '6.875rem']}
-          height={['5rem', '5.5rem', '6.875rem']}
-          marginBottom={['3.25rem', 0]}
-          sx={{
-            color: 'secondary.main',
-            border: '5px solid',
-            borderRadius: '0.75rem',
-            borderColor: 'primary.main',
-            boxShadow:
-              'rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem',
-          }}
-        >
-          <FontAwesomeIcon
-            icon={faInfo}
-            width="100%"
-            height="100%"
-            size="2x"
-            color="inherit"
-          />
-        </Box>
-        <Paragraph marginLeft={['2rem', '3rem', '5rem']}>
-          This tool is currently in preview. We are working on improving the
-          performance and usability of the tool.
-          <br /> <br />
-          Please complete the form to send your events logs (anonymized or
-          without confidential data) and your email address. <br />
-          We will send you back the generated results as soon as they are ready.
-        </Paragraph>
-      </Part>
-    </Section>
-    <Section>
-      <Part
-        id={'form'}
-        marginY={[0, 0, 0, 3]}
-        style={{
-          boxSizing: 'border-box',
-          flexFlow: 'row wrap',
-          color: 'rgb(52, 71, 103)',
-          borderRadius: '0.75rem',
-          boxShadow:
-            'rgba(0, 0, 0, 0.1) 0rem 1.25rem 1.5625rem -0.3125rem, rgba(0, 0, 0, 0.04) 0rem 0.625rem 0.625rem -0.3125rem',
-          overflow: 'hidden',
-        }}
-      >
-        <Jotform />
-      </Part>
     </Section>
     <Section>
       <Part

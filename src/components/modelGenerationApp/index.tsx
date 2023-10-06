@@ -14,4 +14,3 @@
  * limitations under the License.
  */
 export { Features } from './Features';
-export { Jotform } from './Jotform';
