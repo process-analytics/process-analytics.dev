@@ -54,7 +54,10 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          process.env.GATSBY_GA_MEASUREMENT_ID, // Google Analytics
+          process.env.GATSBY_GA_MEASUREMENT_ID ??
+            (process.env.NODE_ENV !== 'production'
+              ? 'No id for development mode'
+              : undefined), // Google Analytics
         ],
         // This object gets passed directly to the gtag config command
         gtagConfig: {
