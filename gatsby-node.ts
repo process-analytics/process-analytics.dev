@@ -13,26 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { CreatePagesArgs } from 'gatsby';
+import type { GatsbyNode } from 'gatsby';
 
-import redirects from './redirects.json';
+// import redirects from './redirects.json';
 
-export async function createPages({ actions }: CreatePagesArgs): Promise<void> {
+export const createPages: GatsbyNode['createPages'] = ({ actions }) => {
   const { createRedirect } = actions;
 
   createRedirect({
     fromPath: '/model-generation-application-conditions/',
     toPath: '/',
+    redirectInBrowser: true,
     isPermanent: true,
     statusCode: 200,
   });
 
-  redirects.forEach(redirect =>
+  /*  redirects.forEach(redirect =>
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
       isPermanent: redirect.isPermanent,
       statusCode: redirect.statusCode,
     }),
-  );
-}
+  );*/
+};
+
+export const createPagesStatefully: GatsbyNode['createPagesStatefully'] = ({
+  actions,
+}) => {
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: '/model-generation-application-conditions/',
+    toPath: '/',
+    redirectInBrowser: true,
+    isPermanent: true,
+    statusCode: 200,
+  });
+
+  /*  redirects.forEach(redirect =>
+      createRedirect({
+        fromPath: redirect.fromPath,
+        toPath: redirect.toPath,
+        isPermanent: redirect.isPermanent,
+        statusCode: redirect.statusCode,
+      }),
+    );*/
+};
+
+/*export const onPostBuild: GatsbyNode['onPostBuild'] = ({ store }) => {
+  const { redirects } = store.getState();
+
+  console.log(redirects);
+};*/
