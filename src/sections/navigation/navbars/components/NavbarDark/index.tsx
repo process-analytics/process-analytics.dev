@@ -32,30 +32,29 @@ Coded by www.creative-tim.com
 // Material Kit 2 React components
 import React from 'react';
 
-import { MKBox } from '../../../../../components/MKBox';
+import { MKBox2, Navbar } from '../../../../../components';
 
 // Material Kit 2 React examples
-import DefaultNavbar from '../../../../../examples/Navbars/DefaultNavbar';
 
 import { routes } from '../../../../../routes';
 
 function NavbarDark(): JSX.Element {
   return (
-    <MKBox variant="gradient" bgColor="dark" shadow="sm" py={0.25}>
-      <DefaultNavbar
-        routes={routes}
+    <MKBox2 variant="gradient" bgColor="dark" shadow="sm" py={0.25}>
+      <Navbar
+        routeContent={routes}
         action={{
           type: 'external',
-          route: 'https://www.creative-tim.com/product/material-kit-react',
+          url: 'https://www.creative-tim.com/product/material-kit-react',
           label: 'free download',
           color: 'info',
         }}
+        bgcolor="primary"
         isTransparent
-        relative
-        light
-        center
+        isRelative
+        isCenter
       />
-    </MKBox>
+    </MKBox2>
   );
 }
 

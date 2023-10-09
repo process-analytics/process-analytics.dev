@@ -15,7 +15,7 @@
  */
 
 const bgImage =
-  '`${linearGradient(rgba(grey?.A700, 0.5), rgba(gradient.dark.dark, 0.5))}, url(${bgImage})`';
+  '`${linearGradient(rgba(grey?.A700, 0.5), rgba(gradient.primary.dark, 0.5))}, url(${bgImage})`';
 
 const headerOneCode = `// @mui material components
 import Container from "@mui/material/Container";
@@ -152,7 +152,7 @@ function HeaderOne() {
         alignItems="center"
         minHeight="100vh"
         sx={{
-          backgroundImage: ({ palette: { gradient }, functions: { linearGradient, rgba } }) => ${bgImage},
+          backgroundImage: ({ palette: { gradient }: { linearGradient, rgba } }) => ${bgImage},
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -19,14 +19,13 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKAlert } from '../../../../../components/MKAlert';
+import { MKBox2, MKAlert } from '../../../../../components';
 
 import React from 'react';
 
 function SimpleAlerts(): JSX.Element {
   return (
-    <MKBox component="section" py={6}>
+    <MKBox2 component="section" py={6}>
       <Container>
         <Grid container item xs={12} lg={10} mx="auto">
           <Grid item xs={12}>
@@ -61,16 +60,16 @@ function SimpleAlerts(): JSX.Element {
             <MKAlert color="info">A simple info alert—check it out!</MKAlert>
           </Grid>
 
-          <Grid item xs={12}>
+          {/*          <Grid item xs={12}>
             <MKAlert color="light">A simple light alert—check it out!</MKAlert>
           </Grid>
 
           <Grid item xs={12}>
             <MKAlert color="dark">A simple dark alert—check it out!</MKAlert>
-          </Grid>
+          </Grid>*/}
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

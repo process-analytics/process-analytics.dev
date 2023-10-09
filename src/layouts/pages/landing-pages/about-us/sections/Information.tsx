@@ -22,7 +22,7 @@ import Grid from '@mui/material/Grid';
 import { Apps, ChatBubble, Payments, Public } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
+import { MKBox2 } from '../../../../../components';
 
 // Material Kit 2 React examples
 import DefaultInfoCard from '../../../../../examples/Cards/InfoCards/DefaultInfoCard';
@@ -30,49 +30,49 @@ import CenteredBlogCard from '../../../../../examples/Cards/BlogCards/CenteredBl
 
 function Information(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container spacing={3} alignItems="center">
           <Grid item xs={12} lg={6}>
             <Grid container justifyContent="flex-start">
               <Grid item xs={12} md={6}>
-                <MKBox mb={5}>
+                <MKBox2 mb={5}>
                   <DefaultInfoCard
                     icon={<Public />}
                     title="Fully integrated"
                     description="We get insulted by others, lose trust for those We get back freezes"
                   />
-                </MKBox>
+                </MKBox2>
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <MKBox mb={5}>
+                <MKBox2 mb={5}>
                   <DefaultInfoCard
                     icon={<Payments />}
                     title="Payments functionality"
                     description="We get insulted by others, lose trust for those We get back freezes"
                   />
-                </MKBox>
+                </MKBox2>
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <MKBox mb={{ xs: 5, md: 0 }}>
+                <MKBox2 mb={{ xs: 5, md: 0 }}>
                   <DefaultInfoCard
                     icon={<Apps />}
                     title="Prebuilt components"
                     description="We get insulted by others, lose trust for those We get back freezes"
                   />
-                </MKBox>
+                </MKBox2>
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <MKBox mb={{ xs: 5, md: 0 }}>
+                <MKBox2 mb={{ xs: 5, md: 0 }}>
                   <DefaultInfoCard
                     icon={<ChatBubble />}
                     title="Improved platform"
                     description="We get insulted by others, lose trust for those We get back freezes"
                   />
-                </MKBox>
+                </MKBox2>
               </Grid>
             </Grid>
           </Grid>
@@ -92,7 +92,7 @@ function Information(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

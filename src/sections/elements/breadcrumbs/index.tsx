@@ -24,7 +24,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
+import { MKBox2 } from '../../../components';
 
 // Material Kit 2 React examples
 import { Breadcrumbs } from '../../../examples/Breadcrumbs';
@@ -48,7 +48,7 @@ function BreadcrumbsEl(): JSX.Element {
         ]}
       >
         <View title="Breadcrumbs" code={breadcrumbsCode}>
-          <MKBox component="section" bgColor="white" py={8}>
+          <MKBox2 component="section" bgColor="quaternary" py={8}>
             used
             <Container>
               <Grid container spacing={2} item xs={12} lg={10} mx="auto">
@@ -92,7 +92,7 @@ function BreadcrumbsEl(): JSX.Element {
                 </Grid>
               </Grid>
             </Container>
-          </MKBox>
+          </MKBox2>
         </View>
       </BaseLayout>
     </ThemeProvider>

@@ -20,8 +20,7 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 function HorizontalTeamCard({
   image,
@@ -33,8 +32,8 @@ function HorizontalTeamCard({
     <Card sx={{ mt: 3 }}>
       <Grid container>
         <Grid item xs={12} md={6} lg={4} sx={{ mt: -6 }}>
-          <MKBox width="100%" pt={2} pb={1} px={2}>
-            <MKBox
+          <MKBox2 width="100%" pt={2} pb={1} px={2}>
+            <MKBox2
               component="img"
               src={image}
               alt={name}
@@ -42,25 +41,25 @@ function HorizontalTeamCard({
               borderRadius="md"
               shadow="lg"
             />
-          </MKBox>
+          </MKBox2>
         </Grid>
 
         <Grid item xs={12} md={6} lg={8} sx={{ my: 'auto' }}>
-          <MKBox
+          <MKBox2
             pt={{ xs: 1, lg: 2.5 }}
             pb={2.5}
             pr={4}
             pl={{ xs: 4, lg: 1 }}
             lineHeight={1}
           >
-            <MKTypography variant="h5">{name}</MKTypography>
-            <MKTypography variant="h6" color={position.color} mb={1}>
+            <MKTypography2 variant="h5">{name}</MKTypography2>
+            <MKTypography2 variant="h6" color={position.color} mb={1}>
               {position.label}
-            </MKTypography>
-            <MKTypography variant="body2" color="text">
+            </MKTypography2>
+            <MKTypography2 variant="body2" color="text">
               {description}
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
         </Grid>
       </Grid>
     </Card>

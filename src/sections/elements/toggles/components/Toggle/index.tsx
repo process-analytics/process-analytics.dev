@@ -22,8 +22,7 @@ import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 import React from 'react';
 
@@ -32,13 +31,13 @@ function Toggle(): JSX.Element {
   const toggleSwitch = (): void => setChecked(!checked);
 
   return (
-    <MKBox component="section" py={8}>
+    <MKBox2 component="section" py={8}>
       <Container>
         <Grid container item xs={4} justifyContent="center" mx="auto">
-          <MKBox display="flex" alignItems="center">
+          <MKBox2 display="flex" alignItems="center">
             <Switch checked={checked} onChange={toggleSwitch} />
 
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="regular"
@@ -47,11 +46,11 @@ function Toggle(): JSX.Element {
               onClick={toggleSwitch}
             >
               Remember me
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

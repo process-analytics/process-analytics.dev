@@ -18,7 +18,7 @@
 import { StarOutline, Star, StarHalf, Schedule } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox, MKAvatar, MKTypography } from '../../../../components';
+import { MKBox2, MKAvatar, MKTypography2 } from '../../../../components';
 
 import React from 'react';
 
@@ -104,7 +104,7 @@ function DefaultReviewCard({
   };
 
   return (
-    <MKBox
+    <MKBox2
       variant={color === 'transparent' ? 'contained' : 'gradient'}
       bgColor={color}
       borderRadius="xl"
@@ -122,8 +122,8 @@ function DefaultReviewCard({
         />
       )}
 
-      <MKBox lineHeight={1}>
-        <MKTypography
+      <MKBox2 lineHeight={1}>
+        <MKTypography2
           display="block"
           variant={image ? 'button' : 'h6'}
           fontWeight="bold"
@@ -133,8 +133,8 @@ function DefaultReviewCard({
           mb={0.5}
         >
           {name}
-        </MKTypography>
-        <MKTypography
+        </MKTypography2>
+        <MKTypography2
           variant={image ? 'caption' : 'button'}
           fontWeight="regular"
           lineHeight={1}
@@ -146,16 +146,16 @@ function DefaultReviewCard({
           <Schedule />
           &nbsp;
           {date}
-        </MKTypography>
-      </MKBox>
-      <MKTypography
+        </MKTypography2>
+      </MKBox2>
+      <MKTypography2
         variant="body2"
         color={color === 'transparent' || color === 'light' ? 'text' : 'white'}
         my={4}
       >
         &quot;{review}&quot;
-      </MKTypography>
-      <MKTypography
+      </MKTypography2>
+      <MKTypography2
         variant="h4"
         color={color === 'transparent' || color === 'light' ? 'text' : 'white'}
         sx={{
@@ -168,8 +168,8 @@ function DefaultReviewCard({
         }}
       >
         {ratings[rating]}
-      </MKTypography>
-    </MKBox>
+      </MKTypography2>
+    </MKBox2>
   );
 }
 

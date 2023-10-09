@@ -38,14 +38,13 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKInput } from '../../../../../components/MKInput';
+import { MKBox2, MKInput } from '../../../../../components';
 
 import React from 'react';
 
 function InputIcon(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container item xs={12} lg={4} py={1} mx="auto">
           <MKInput
@@ -62,7 +61,7 @@ function InputIcon(): JSX.Element {
           />
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

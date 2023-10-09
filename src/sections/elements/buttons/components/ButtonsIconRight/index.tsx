@@ -22,14 +22,13 @@ import Stack from '@mui/material/Stack';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
+import { MKBox2, MKButton } from '../../../../../components';
 
 import React from 'react';
 
 function ButtonsIconRight(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="center" spacing={1}>
@@ -50,7 +49,7 @@ function ButtonsIconRight(): JSX.Element {
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

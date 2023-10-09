@@ -34,10 +34,12 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
-import { MKInput } from '../../../../../components/MKInput';
-import { MKButton } from '../../../../../components/MKButton';
+import {
+  MKBox2,
+  MKTypography2,
+  MKInput,
+  MKButton,
+} from '../../../../../components';
 
 // Images
 import macbook from '../../../../../assets/images/macbook.png';
@@ -46,7 +48,7 @@ import React from 'react';
 
 function Newsletter(): React.ReactElement {
   return (
-    <MKBox component="section" pt={6} my={6}>
+    <MKBox2 component="section" pt={6} my={6}>
       <Container>
         <Grid container alignItems="center">
           <Grid
@@ -54,14 +56,14 @@ function Newsletter(): React.ReactElement {
             md={6}
             sx={{ ml: { xs: 0, lg: 3 }, mb: { xs: 12, md: 0 } }}
           >
-            <MKTypography variant="h4">
+            <MKTypography2 variant="h4">
               Be the first to see the news
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography variant="body2" color="text" mb={3}>
+            <MKTypography2 variant="body2" color="text" mb={3}>
               Your company may not be in the software business, but eventually,
               a software company will be in your business.
-            </MKTypography>
+            </MKTypography2>
 
             <Grid container spacing={1}>
               <Grid item xs={8}>
@@ -81,13 +83,18 @@ function Newsletter(): React.ReactElement {
           </Grid>
 
           <Grid item xs={12} md={5} sx={{ ml: 'auto' }}>
-            <MKBox position="relative">
-              <MKBox component="img" src={macbook} alt="macbook" width="100%" />
-            </MKBox>
+            <MKBox2 position="relative">
+              <MKBox2
+                component="img"
+                src={macbook}
+                alt="macbook"
+                width="100%"
+              />
+            </MKBox2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

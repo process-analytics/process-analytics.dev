@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<< HEAD:src/content/HeaderContent.tsx
-=======
-import SvgLogoWhite from 'old/src/images/logo_white.svg';
->>>>>>> ffd0b73c (Move old theme in another folder):old/src/content/HeaderContent.tsx
 
 /**
 =========================================================

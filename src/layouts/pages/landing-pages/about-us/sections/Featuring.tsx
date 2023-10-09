@@ -19,7 +19,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
+import { MKBox2 } from '../../../../../components';
 
 // Material Kit 2 React examples
 import DefaultCounterCard from '../../../../../examples/Cards/CounterCards/DefaultCounterCard';
@@ -36,11 +36,11 @@ import React from 'react';
 
 function Featuring(): JSX.Element {
   return (
-    <MKBox component="section" pt={3} pb={8}>
+    <MKBox2 component="section" pt={3} pb={8}>
       <Container>
         <Grid container spacing={3} sx={{ mb: 12 }}>
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={coinbase}
               alt="coinbase"
@@ -50,7 +50,7 @@ function Featuring(): JSX.Element {
           </Grid>
 
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={nasa}
               alt="nasa"
@@ -60,7 +60,7 @@ function Featuring(): JSX.Element {
           </Grid>
 
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={netflix}
               alt="netflix"
@@ -70,7 +70,7 @@ function Featuring(): JSX.Element {
           </Grid>
 
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={pinterest}
               alt="pinterest"
@@ -80,7 +80,7 @@ function Featuring(): JSX.Element {
           </Grid>
 
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={spotify}
               alt="spotify"
@@ -90,7 +90,7 @@ function Featuring(): JSX.Element {
           </Grid>
 
           <Grid item xs={6} md={4} lg={2}>
-            <MKBox
+            <MKBox2
               component="img"
               src={vodafone}
               alt="vodafone"
@@ -130,7 +130,7 @@ function Featuring(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

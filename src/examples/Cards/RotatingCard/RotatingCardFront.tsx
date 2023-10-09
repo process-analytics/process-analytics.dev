@@ -18,12 +18,11 @@ import React from 'react';
 // @mui material components
 import Icon from '@mui/material/Icon';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
-import { BoxShadowColor, Theme } from '@mui/material';
+import { PaletteColorKey, Theme } from '@mui/material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
-import { MKTypography } from '../../../components/MKTypography';
-
+import { MKBox2, MKTypography2 } from '../../../components';
+import { linearGradient, rgba } from '../../../assets/theme';
 function RotatingCardFront({
   color,
   image,
@@ -32,7 +31,7 @@ function RotatingCardFront({
   description,
 }: RotatingCardFrontProps): JSX.Element {
   return (
-    <MKBox
+    <MKBox2
       display="flex"
       justifyContent="center"
       alignContent="center"
@@ -42,10 +41,7 @@ function RotatingCardFront({
       position="relative"
       zIndex={2}
       sx={{
-        backgroundImage: ({
-          palette,
-          functions: { linearGradient, rgba },
-        }: Theme) => {
+        backgroundImage: ({ palette }: Theme) => {
           return `${linearGradient(
             rgba(
               color && palette[color]
@@ -65,22 +61,22 @@ function RotatingCardFront({
         backfaceVisibility: 'hidden',
       }}
     >
-      <MKBox py={12} px={3} textAlign="center" lineHeight={1}>
+      <MKBox2 py={12} px={3} textAlign="center" lineHeight={1}>
         {icon && (
-          <MKTypography variant="h2" color="white" my={2}>
+          <MKTypography2 variant="h2" color="white" my={2}>
             {typeof icon === 'string' ? <Icon>{icon}</Icon> : icon}
-          </MKTypography>
+          </MKTypography2>
         )}
 
-        <MKTypography variant="h3" color="white" gutterBottom>
+        <MKTypography2 variant="h3" color="white" gutterBottom>
           {title}
-        </MKTypography>
+        </MKTypography2>
 
-        <MKTypography variant="body2" color="white" opacity={0.8}>
+        <MKTypography2 variant="body2" color="white" opacity={0.8}>
           {description}
-        </MKTypography>
-      </MKBox>
-    </MKBox>
+        </MKTypography2>
+      </MKBox2>
+    </MKBox2>
   );
 }
 
@@ -92,7 +88,7 @@ RotatingCardFront.defaultProps = {
 
 // Typechecking props for the RotatingCardFront
 interface RotatingCardFrontProps {
-  color?: keyof BoxShadowColor;
+  color?: PaletteColorKey;
   image: string;
   icon?: JSX.Element;
   title: JSX.Element | string;

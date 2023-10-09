@@ -40,51 +40,44 @@ import React from 'react';
 
 // @mui icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
-import { HeaderRoute } from './types';
+import { HeaderRoute } from './components/Header';
 
 export const paRoutes: HeaderRoute[] = [
   {
     name: 'about',
-    route: '/about',
+    url: '/about',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   {
     name: 'components',
-    route: '/components',
+    url: '/components',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   {
     name: 'news',
-    route: '/news',
+    url: '/news',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   {
     name: 'articles',
-    route: '/articles',
+    url: '/articles',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   {
     name: 'our team',
-    route: '/team',
+    url: '/team',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   {
     name: 'contact',
-    route: '/contact',
+    url: '/contact',
+    type: 'internal',
     icon: <DashboardIcon />,
-    columns: 1,
-    rowsPerColumn: 2,
   },
   /*  {
     name: 'sections',
@@ -97,12 +90,12 @@ export const paRoutes: HeaderRoute[] = [
         collapse: [
           {
             name: 'page headers',
-            route: '/sections/page-sections/page-headers',
+            url: '/sections/page-sections/page-headers',
             component: <PageHeaders />,
           },
           {
             name: 'features',
-            route: '/sections/page-sections/features',
+            url: '/sections/page-sections/features',
             component: <Features />,
           },
         ],
@@ -114,17 +107,17 @@ export const paRoutes: HeaderRoute[] = [
         collapse: [
           {
             name: 'navbars',
-            route: '/sections/navigation/navbars',
+            url: '/sections/navigation/navbars',
             component: <Navbars />,
           },
           {
             name: 'nav tabs',
-            route: '/sections/navigation/nav-tabs',
+            url: '/sections/navigation/nav-tabs',
             component: <NavTabs />,
           },
           {
             name: 'pagination',
-            route: '/sections/navigation/pagination',
+            url: '/sections/navigation/pagination',
             component: <Pagination />,
           },
         ],
@@ -136,12 +129,12 @@ export const paRoutes: HeaderRoute[] = [
         collapse: [
           {
             name: 'inputs',
-            route: '/sections/input-areas/inputs',
+            url: '/sections/input-areas/inputs',
             component: <Inputs />,
           },
           {
             name: 'forms',
-            route: '/sections/input-areas/forms',
+            url: '/sections/input-areas/forms',
             component: <Forms />,
           },
         ],
@@ -153,17 +146,17 @@ export const paRoutes: HeaderRoute[] = [
         collapse: [
           {
             name: 'alerts',
-            route: '/sections/attention-catchers/alerts',
+            url: '/sections/attention-catchers/alerts',
             component: <Alerts />,
           },
           {
             name: 'modals',
-            route: '/sections/attention-catchers/modals',
+            url: '/sections/attention-catchers/modals',
             component: <Modals />,
           },
           {
             name: 'tooltips & popovers',
-            route: '/sections/attention-catchers/tooltips-popovers',
+            url: '/sections/attention-catchers/tooltips-popovers',
             component: <TooltipsPopovers />,
           },
         ],
@@ -175,42 +168,42 @@ export const paRoutes: HeaderRoute[] = [
         collapse: [
           {
             name: 'avatars',
-            route: '/sections/elements/avatars',
+            url: '/sections/elements/avatars',
             component: <Avatars />,
           },
           {
             name: 'badges',
-            route: '/sections/elements/badges',
+            url: '/sections/elements/badges',
             component: <Badges />,
           },
           {
             name: 'breadcrumbs',
-            route: '/sections/elements/breadcrumbs',
+            url: '/sections/elements/breadcrumbs',
             component: <BreadcrumbsEl />,
           },
           {
             name: 'buttons',
-            route: '/sections/elements/buttons',
+            url: '/sections/elements/buttons',
             component: <Buttons />,
           },
           {
             name: 'dropdowns',
-            route: '/sections/elements/dropdowns',
+            url: '/sections/elements/dropdowns',
             component: <Dropdowns />,
           },
           {
             name: 'progress bars',
-            route: '/sections/elements/progress-bars',
+            url: '/sections/elements/progress-bars',
             component: <ProgressBars />,
           },
           {
             name: 'toggles',
-            route: '/sections/elements/toggles',
+            url: '/sections/elements/toggles',
             component: <Toggles />,
           },
           {
             name: 'typography',
-            route: '/sections/elements/typography',
+            url: '/sections/elements/typography',
             component: <Typography />,
           },
         ],

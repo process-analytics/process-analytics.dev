@@ -20,202 +20,201 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 function Typography(): JSX.Element {
   return (
-    <MKBox component="section" py={8}>
+    <MKBox2 component="section" py={8}>
       <Container>
-        <MKTypography variant="h2" mb={6}>
+        <MKTypography2 variant="h2" mb={6}>
           Typography - Font Family Roboto
-        </MKTypography>
+        </MKTypography2>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 1
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h1">H1 Material Kit</MKTypography>
+            <MKTypography2 variant="h1">H1 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 2
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h2">H2 Material Kit</MKTypography>
+            <MKTypography2 variant="h2">H2 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 3
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h3">H3 Material Kit</MKTypography>
+            <MKTypography2 variant="h3">H3 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 4
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h4">H4 Material Kit</MKTypography>
+            <MKTypography2 variant="h4">H4 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 5
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h5">H5 Material Kit</MKTypography>
+            <MKTypography2 variant="h5">H5 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Heading 6
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="h6">H6 Material Kit</MKTypography>
+            <MKTypography2 variant="h6">H6 Material Kit</MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Lead Text
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="body1" color="text">
+            <MKTypography2 variant="body1" color="text">
               I will be the leader of a company that ends up being worth
               billions of dollars, because I got the answers. I understand
               culture. I am the nucleus. I think that&apos;s a responsibility
               that I have, to push possibilities, to show people, this is the
               level that things could be at.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Paragraph
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9}>
-            <MKTypography variant="body2" color="text">
+            <MKTypography2 variant="body2" color="text">
               I will be the leader of a company that ends up being worth
               billions of dollars, because I got the answers. I understand
               culture. I am the nucleus. I think that&apos;s a responsibility
               that I have, to push possibilities, to show people, this is the
               level that things could be at.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Small
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9} lineHeight={1}>
-            <MKTypography variant="button" color="text">
+            <MKTypography2 variant="button" color="text">
               I will be the leader of a company that ends up being worth
               billions of dollars, because I got the answers. I understand
               culture. I am the nucleus. I think that&apos;s a responsibility
               that I have, to push possibilities, to show people, this is the
               level that things could be at.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
         <Grid container alignItems="center" py={2}>
           <Grid item xs={12} sm={3}>
-            <MKTypography
+            <MKTypography2
               variant="button"
               color="text"
               fontWeight="bold"
               textTransform="uppercase"
             >
               Tiny
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid item xs={12} sm={9} lineHeight={1}>
-            <MKTypography variant="caption" color="text">
+            <MKTypography2 variant="caption" color="text">
               I will be the leader of a company that ends up being worth
               billions of dollars, because I got the answers. I understand
               culture. I am the nucleus. I think that&apos;s a responsibility
               that I have, to push possibilities, to show people, this is the
               level that things could be at.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

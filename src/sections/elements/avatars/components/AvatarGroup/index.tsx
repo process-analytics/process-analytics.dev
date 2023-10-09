@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import MuiAvatarGroup from '@mui/material/AvatarGroup';
 
 // Material Kit 2 React components
-import { MKBox, MKAvatar } from '../../../../../components';
+import { MKBox2, MKAvatar } from '../../../../../components';
 
 // Images
 import team1 from '../../../../../assets/images/team-1.jpg';
@@ -31,7 +31,7 @@ import React from 'react';
 
 function AvatarGroup(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <MuiAvatarGroup spacing={12}>
@@ -42,7 +42,7 @@ function AvatarGroup(): JSX.Element {
           </MuiAvatarGroup>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

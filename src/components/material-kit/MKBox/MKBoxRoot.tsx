@@ -74,19 +74,16 @@ const getColor = (
     : getGreyColor(palette, color);
 
 export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
-  theme,
-  ownerState,
-}) => {
-  const { palette } = theme;
-  const {
+  theme: { palette },
+  ownerState: {
     variant = 'contained',
     bgcolor = 'inherit',
     color,
     opacity,
     borderRadius,
     shadow,
-  } = ownerState;
-
+  },
+}) => {
   // background value
   let backgroundValue;
   if (variant === 'gradient') {

@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
+import { MKBox } from '../../../components';
 
 function RotatingCard({
   children,

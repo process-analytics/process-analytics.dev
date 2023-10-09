@@ -25,10 +25,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '../../../components';
+import { MKBox2, MKTypography2, Navbar } from '../../../components';
 
 // Material Kit 2 React examples
-import DefaultNavbar from '../../../examples/Navbars/DefaultNavbar';
 import CenteredFooter from '../../../examples/Footers/CenteredFooter';
 import { BreadcrumbRoute, Breadcrumbs } from '../../../examples';
 
@@ -42,25 +41,25 @@ function BaseLayout({
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <MKBox
+      <MKBox2
         display="flex"
         flexDirection="column"
-        bgColor="white"
+        bgColor="quaternary"
         minHeight="100vh"
       >
-        <MKBox bgColor="white" shadow="sm" py={0.25}>
-          <DefaultNavbar
-            routes={routes}
+        <MKBox2 bgColor="quaternary" shadow="sm" py={0.25}>
+          <Navbar
+            routeContent={routes}
             action={{
               type: 'external',
-              route: 'https://www.creative-tim.com/product/material-kit-react',
+              url: 'https://www.creative-tim.com/product/material-kit-react',
               label: 'free download',
               color: 'info',
             }}
             isTransparent
-            relative
+            isRelative
           />
-        </MKBox>
+        </MKBox2>
 
         <Container sx={{ mt: 6 }}>
           <Grid
@@ -71,22 +70,22 @@ function BaseLayout({
             justifyContent="center"
             mx="auto"
           >
-            <MKBox width={{ xs: '100%', md: '50%', lg: '25%' }} mb={3}>
+            <MKBox2 width={{ xs: '100%', md: '50%', lg: '25%' }} mb={3}>
               <Breadcrumbs routes={breadcrumb} />
-            </MKBox>
+            </MKBox2>
 
-            <MKTypography variant="h3" mb={1}>
+            <MKTypography2 variant="h3" mb={1}>
               {title}
-            </MKTypography>
+            </MKTypography2>
 
             {children}
           </Grid>
         </Container>
 
-        <MKBox mt="auto">
+        <MKBox2 mt="auto">
           <CenteredFooter content={footerRoutes} />
-        </MKBox>
-      </MKBox>
+        </MKBox2>
+      </MKBox2>
     </ThemeProvider>
   );
 }

@@ -23,13 +23,11 @@ import Stack from '@mui/material/Stack';
 import Popover from '@mui/material/Popover';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKButton, MKTypography2 } from '../../../../../components';
 import React from 'react';
 
 function Popovers(): JSX.Element {
-  const [popover, setPopover] = useState(null);
+  const [popover, setPopover] = useState<HTMLButtonElement>();
   const [popoverOrigin, setPopoverOrigin] = useState({
     anchorOrigin: {
       vertical: 'top',
@@ -41,8 +39,10 @@ function Popovers(): JSX.Element {
     },
   });
 
-  const togglePopover = ({ currentTarget }): void => setPopover(currentTarget);
-  const closePopover = (): void => setPopover(null);
+  const togglePopover = ({
+    currentTarget,
+  }: React.MouseEvent<HTMLButtonElement>): void => setPopover(currentTarget);
+  const closePopover = (): void => setPopover(undefined);
 
   const popoverTemplate = (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -53,17 +53,17 @@ function Popovers(): JSX.Element {
       onClose={closePopover}
       {...popoverOrigin}
     >
-      <MKBox bgColor="white" py={1.5} px={2} lineHeight={0.8}>
-        <MKTypography variant="caption" color="text">
+      <MKBox2 bgColor="quaternary" py={1.5} px={2} lineHeight={0.8}>
+        <MKTypography2 variant="caption" color="text">
           That&apos;s the main thing people are controlled
           <br /> by! Thoughts- their perception of themselves!
-        </MKTypography>
-      </MKBox>
+        </MKTypography2>
+      </MKBox2>
     </Popover>
   );
 
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" spacing={1}>
@@ -150,7 +150,7 @@ function Popovers(): JSX.Element {
         </Grid>
         {popoverTemplate}
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

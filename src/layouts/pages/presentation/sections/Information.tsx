@@ -26,7 +26,7 @@ import {
 } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
+import { MKBox2 } from '../../../../components';
 
 // Material Kit 2 React examples
 import RotatingCard from '../../../../examples/Cards/RotatingCard';
@@ -42,7 +42,7 @@ import React from 'react';
 
 function Information(): JSX.Element {
   return (
-    <MKBox component="section" py={6} my={6}>
+    <MKBox2 component="section" py={6} my={6}>
       <Container>
         <Grid
           container
@@ -118,7 +118,7 @@ function Information(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

@@ -35,7 +35,7 @@ import { Components, Theme } from '@mui/material';
 import Fade from '@mui/material/Fade';
 
 // Material Kit 2 React base styles
-import { borders, fontSize } from '..';
+import { borders, fontSize, fontWeight } from '..';
 
 export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
   defaultProps: {
@@ -44,12 +44,12 @@ export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
   },
 
   styleOverrides: {
-    tooltip: ({ theme: { typography, palette } }) => ({
+    tooltip: ({ theme: { palette } }) => ({
       maxWidth: '12.5rem',
       backgroundColor: 'black',
       color: palette.grey.A200,
       fontSize: fontSize.sm,
-      fontWeight: typography.fontWeightRegular,
+      fontWeight: fontWeight.regular,
       textAlign: 'center',
       borderRadius: borders.radius.md,
       opacity: 0.7,

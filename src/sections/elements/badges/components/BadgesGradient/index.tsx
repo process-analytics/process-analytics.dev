@@ -20,14 +20,13 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKBadge } from '../../../../../components/MKBadge';
+import { MKBox2, MKBadge } from '../../../../../components';
 
 import React from 'react';
 
 function BadgesGradient(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="flex-end" spacing={0.5}>
@@ -37,12 +36,12 @@ function BadgesGradient(): JSX.Element {
             <MKBadge badgeContent="error" color="error" container />
             <MKBadge badgeContent="warning" color="warning" container />
             <MKBadge badgeContent="info" color="info" container />
-            <MKBadge badgeContent="light" color="light" container />
-            <MKBadge badgeContent="dark" color="dark" container />
+            {/*            <MKBadge badgeContent="light" color="light" container />
+            <MKBadge badgeContent="dark" color="dark" container />*/}
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 // Material Kit 2 React components
-import { MKBox, MKAvatar } from '../../../../../components';
+import { MKBox2, MKAvatar } from '../../../../../components';
 
 // Images
 import team4 from '../../../../../assets/images/team-4.jpg';
@@ -28,7 +28,7 @@ import React from 'react';
 
 function AvatarSize(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="flex-end" spacing={1}>
@@ -41,7 +41,7 @@ function AvatarSize(): JSX.Element {
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

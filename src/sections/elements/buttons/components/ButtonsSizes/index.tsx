@@ -21,12 +21,11 @@ import Stack from '@mui/material/Stack';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
+import { MKBox2, MKButton } from '../../../../../components';
 
 function ButtonsSizes(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="center" spacing={1}>
@@ -40,7 +39,7 @@ function ButtonsSizes(): JSX.Element {
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

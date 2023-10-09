@@ -30,12 +30,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 function Footer(): JSX.Element {
   return (
-    <MKBox component="footer" py={6}>
+    <MKBox2 component="footer" py={6}>
       <Container>
         <Grid container>
           <Grid
@@ -46,13 +45,13 @@ function Footer(): JSX.Element {
             mr="auto"
             mb={{ xs: 3, lg: 0 }}
           >
-            <MKTypography
+            <MKTypography2
               variant="h6"
               textTransform="uppercase"
               mb={{ xs: 2, lg: 3 }}
             >
               Material Design
-            </MKTypography>
+            </MKTypography2>
             <Stack
               component="ul"
               direction="row"
@@ -63,8 +62,8 @@ function Footer(): JSX.Element {
               mb={3}
               sx={{ listStyle: 'none' }}
             >
-              <MKBox component="li">
-                <MKTypography
+              <MKBox2 component="li">
+                <MKTypography2
                   variant="button"
                   fontWeight="regular"
                   opacity={0.8}
@@ -74,11 +73,11 @@ function Footer(): JSX.Element {
                   rel="noreferrer"
                 >
                   Home
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
 
-              <MKBox component="li">
-                <MKTypography
+              <MKBox2 component="li">
+                <MKTypography2
                   variant="button"
                   fontWeight="regular"
                   opacity={0.8}
@@ -88,11 +87,11 @@ function Footer(): JSX.Element {
                   rel="noreferrer"
                 >
                   About
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
 
-              <MKBox component="li">
-                <MKTypography
+              <MKBox2 component="li">
+                <MKTypography2
                   variant="button"
                   fontWeight="regular"
                   opacity={0.8}
@@ -102,11 +101,11 @@ function Footer(): JSX.Element {
                   rel="noreferrer"
                 >
                   Blog
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
 
-              <MKBox component="li">
-                <MKTypography
+              <MKBox2 component="li">
+                <MKTypography2
                   variant="button"
                   fontWeight="regular"
                   opacity={0.8}
@@ -116,14 +115,14 @@ function Footer(): JSX.Element {
                   rel="noreferrer"
                 >
                   Services
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
             </Stack>
 
-            <MKTypography variant="button" opacity={0.8}>
+            <MKTypography2 variant="button" opacity={0.8}>
               Copyright © {new Date().getFullYear()}-2021 Material Design by
               Creative Tim.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid
@@ -133,7 +132,7 @@ function Footer(): JSX.Element {
             ml="auto"
             textAlign={{ xs: 'center', lg: 'right' }}
           >
-            <MKTypography
+            <MKTypography2
               variant="body1"
               fontWeight="bold"
               mb={6}
@@ -141,8 +140,8 @@ function Footer(): JSX.Element {
             >
               The reward for getting on the stage is fame. The price of fame is
               you can't get off the stage.
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               component={Link}
               href="#dribbble"
               target="_blank"
@@ -153,8 +152,8 @@ function Footer(): JSX.Element {
               mr={3}
             >
               <FontAwesomeIcon icon={faDribbble} />
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               component={Link}
               href="#twitter"
               target="_blank"
@@ -165,8 +164,8 @@ function Footer(): JSX.Element {
               mr={3}
             >
               <FontAwesomeIcon icon={faTwitter} />
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               component={Link}
               href="#pinterest"
               target="_blank"
@@ -177,8 +176,8 @@ function Footer(): JSX.Element {
               mr={3}
             >
               <FontAwesomeIcon icon={faPinterest} />
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               component={Link}
               href="#github"
               target="_blank"
@@ -188,11 +187,11 @@ function Footer(): JSX.Element {
               opacity={0.5}
             >
               <FontAwesomeIcon icon={faGithub} />
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

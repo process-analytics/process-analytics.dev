@@ -25,7 +25,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
+import { MKBox2 } from '../../../components';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';
@@ -50,12 +50,12 @@ function Navbars(): JSX.Element {
         ]}
       >
         <View title="Navbar dark" code={navbarDarkCode}>
-          <MKBox py={6}>
+          <MKBox2 py={6}>
             <NavbarDark />
-          </MKBox>
+          </MKBox2>
         </View>
         <View title="Navigation Pills from Material UI Kit V1" code={''}>
-          <MKBox py={6}>
+          <MKBox2 py={6}>
             <NavPills
               color="primary"
               tabs={[
@@ -147,10 +147,10 @@ function Navbars(): JSX.Element {
                 },
               ]}
             />
-          </MKBox>
+          </MKBox2>
         </View>
         <View title="Navigation Pills from Material UI Kit V1" code={''}>
-          <MKBox py={6}>
+          <MKBox2 py={6}>
             <NavPills
               color="rose"
               horizontal={{
@@ -215,7 +215,7 @@ function Navbars(): JSX.Element {
                 },
               ]}
             />
-          </MKBox>
+          </MKBox2>
         </View>
       </BaseLayout>
     </ThemeProvider>

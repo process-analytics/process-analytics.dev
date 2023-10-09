@@ -29,7 +29,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 // @mui material components
 import Container from '@mui/material/Container';
@@ -41,8 +41,11 @@ import Tab from '@mui/material/Tab';
 import React from 'react';
 
 function TabsSimple(): JSX.Element {
-  const [activeTab, setActiveTab] = useState(0);
-  const handleTabType = (event, newValue): void => setActiveTab(newValue);
+  const [activeTab, setActiveTab] = useState(false);
+  const handleTabType = (
+    event: SyntheticEvent<Element, Event>,
+    newValue: boolean,
+  ): void => setActiveTab(newValue);
 
   return (
     <Container>

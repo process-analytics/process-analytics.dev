@@ -35,22 +35,25 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKInput } from '../../../../../components/MKInput';
-import { MKButton } from '../../../../../components/MKButton';
-import { MKTypography } from '../../../../../components/MKTypography';
+import {
+  MKBox2,
+  MKInput,
+  MKButton,
+  MKTypography,
+} from '../../../../../components';
 
 // Images
 import bgImage from '../../../../../assets/images/examples/blog2.jpg';
+import { linearGradient, rgba } from '../../../../../assets/theme';
 
 function Contact(): JSX.Element {
   return (
-    <MKBox component="section" py={{ xs: 0, lg: 6 }}>
+    <MKBox2 component="section" py={{ xs: 0, lg: 6 }}>
       <Container>
         <Grid container item>
-          <MKBox
+          <MKBox2
             width="100%"
-            bgColor="white"
+            bgColor="quaternary"
             borderRadius="xl"
             shadow="xl"
             mb={6}
@@ -64,26 +67,23 @@ function Contact(): JSX.Element {
                 position="relative"
                 px={0}
                 sx={{
-                  backgroundImage: ({
-                    palette: { grey, dark },
-                    functions: { rgba, linearGradient },
-                  }: Theme) =>
+                  backgroundImage: ({ palette: { grey, primary } }: Theme) =>
                     `${linearGradient(
                       rgba(grey?.A700, 0.8),
-                      rgba(dark.dark, 0.8),
+                      rgba(primary.dark, 0.8),
                     )}, url(${bgImage})`,
 
                   backgroundSize: 'cover',
                 }}
               >
-                <MKBox
+                <MKBox2
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
                   width="100%"
                   height="100%"
                 >
-                  <MKBox py={6} pr={6} pl={{ xs: 6, sm: 12 }} my="auto">
+                  <MKBox2 py={6} pr={6} pl={{ xs: 6, sm: 12 }} my="auto">
                     <MKTypography variant="h3" color="white" mb={1}>
                       Contact Information
                     </MKTypography>
@@ -98,7 +98,7 @@ function Contact(): JSX.Element {
                       24 hours.
                     </MKTypography>
 
-                    <MKBox display="flex" p={1}>
+                    <MKBox2 display="flex" p={1}>
                       <MKTypography variant="button" color="white">
                         <FontAwesomeIcon icon={faPhone} />
                       </MKTypography>
@@ -112,9 +112,9 @@ function Contact(): JSX.Element {
                       >
                         (+40) 772 100 200
                       </MKTypography>
-                    </MKBox>
+                    </MKBox2>
 
-                    <MKBox display="flex" color="white" p={1}>
+                    <MKBox2 display="flex" color="white" p={1}>
                       <MKTypography variant="button" color="white">
                         <FontAwesomeIcon icon={faEnvelope} />
                       </MKTypography>
@@ -128,9 +128,9 @@ function Contact(): JSX.Element {
                       >
                         hello@creative-tim.com
                       </MKTypography>
-                    </MKBox>
+                    </MKBox2>
 
-                    <MKBox display="flex" color="white" p={1}>
+                    <MKBox2 display="flex" color="white" p={1}>
                       <MKTypography variant="button" color="white">
                         <FontAwesomeIcon icon={faMapMarkerAlt} />
                       </MKTypography>
@@ -144,9 +144,9 @@ function Contact(): JSX.Element {
                       >
                         Dyonisie Wolf Bucharest, RO 010458
                       </MKTypography>
-                    </MKBox>
+                    </MKBox2>
 
-                    <MKBox mt={3}>
+                    <MKBox2 mt={3}>
                       <MKButton
                         variant="text"
                         color="white"
@@ -194,14 +194,14 @@ function Contact(): JSX.Element {
                           style={{ fontSize: '1.25rem' }}
                         />
                       </MKButton>
-                    </MKBox>
-                  </MKBox>
-                </MKBox>
+                    </MKBox2>
+                  </MKBox2>
+                </MKBox2>
               </Grid>
 
               <Grid item xs={12} lg={7}>
-                <MKBox component="form" p={2} method="post">
-                  <MKBox px={3} py={{ xs: 2, sm: 6 }}>
+                <MKBox2 component="form" p={2} method="post">
+                  <MKBox2 px={3} py={{ xs: 2, sm: 6 }}>
                     <MKTypography variant="h2" mb={1}>
                       Say Hi!
                     </MKTypography>
@@ -209,9 +209,9 @@ function Contact(): JSX.Element {
                     <MKTypography variant="body1" color="text" mb={2}>
                       We&apos;d like to talk with you.
                     </MKTypography>
-                  </MKBox>
+                  </MKBox2>
 
-                  <MKBox pt={0.5} pb={3} px={3}>
+                  <MKBox2 pt={0.5} pb={3} px={3}>
                     <Grid container>
                       <Grid item xs={12} pr={1} mb={6}>
                         <MKInput
@@ -258,14 +258,14 @@ function Contact(): JSX.Element {
                         Send Message
                       </MKButton>
                     </Grid>
-                  </MKBox>
-                </MKBox>
+                  </MKBox2>
+                </MKBox2>
               </Grid>
             </Grid>
-          </MKBox>
+          </MKBox2>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

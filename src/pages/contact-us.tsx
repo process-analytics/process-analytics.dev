@@ -19,30 +19,35 @@ import { ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
 import bgImage from '../assets/images/illustrations/illustration-reset.jpg';
 import { theme } from '../assets/theme';
-import { MKBox, MKButton, MKInput, MKTypography } from '../components';
+import {
+  MKBox2,
+  MKButton,
+  MKInput,
+  MKTypography2,
+  Navbar,
+} from '../components';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import { footerRoutes } from '../footer.routes';
 import { routes } from '../routes';
 
 const ContactPage = (): JSX.Element => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <MKBox position="fixed" top="0.5rem" width="100%">
-      <DefaultNavbar
-        routes={routes}
+    <MKBox2 position="fixed" top="0.5rem" width="100%">
+      <Navbar
+        routeContent={routes}
         action={{
           type: 'external',
-          route: 'https://www.creative-tim.com/product/material-kit-react',
+          url: 'https://www.creative-tim.com/product/material-kit-react',
           label: 'free download',
           color: 'info',
         }}
       />
-    </MKBox>
+    </MKBox2>
 
     <Grid container spacing={3} alignItems="center">
       <Grid item xs={12} lg={6}>
-        <MKBox
+        <MKBox2
           display={{ xs: 'none', lg: 'flex' }}
           width="calc(100% - 2rem)"
           height="calc(100vh - 2rem)"
@@ -62,7 +67,7 @@ const ContactPage = (): JSX.Element => (
         ml={{ xs: 'auto', lg: 6 }}
         mr={{ xs: 'auto', lg: 6 }}
       >
-        <MKBox
+        <MKBox2
           bgColor="default"
           borderRadius="xl"
           shadow="lg"
@@ -73,7 +78,7 @@ const ContactPage = (): JSX.Element => (
           mb={{ xs: 20, sm: 18, md: 20 }}
           mx={3}
         >
-          <MKBox
+          <MKBox2
             variant="gradient"
             bgColor="info"
             shadowColor="info"
@@ -82,18 +87,18 @@ const ContactPage = (): JSX.Element => (
             mx={2}
             mt={-3}
           >
-            <MKTypography variant="h3" color="white">
+            <MKTypography2 variant="h3" color="white">
               Contact us
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
 
-          <MKBox p={3}>
-            <MKTypography variant="body2" color="text" mb={3}>
+          <MKBox2 p={3}>
+            <MKTypography2 variant="body2" color="text" mb={3}>
               For further questions, including partnership opportunities, please
               email hello@creative-tim.com or contact using our contact form.
-            </MKTypography>
+            </MKTypography2>
 
-            <MKBox
+            <MKBox2
               width="100%"
               component="form"
               method="post"
@@ -144,15 +149,15 @@ const ContactPage = (): JSX.Element => (
                   Send Message
                 </MKButton>
               </Grid>
-            </MKBox>
-          </MKBox>
-        </MKBox>
+            </MKBox2>
+          </MKBox2>
+        </MKBox2>
       </Grid>
     </Grid>
 
-    <MKBox pt={6} px={1} mt={6}>
+    <MKBox2 pt={6} px={1} mt={6}>
       <DefaultFooter content={footerRoutes} />
-    </MKBox>
+    </MKBox2>
   </ThemeProvider>
 );
 

@@ -40,3 +40,4 @@ export default NewsPage;
  */
 export const Head = ({ location }: HeadProps<DataProps>): JSX.Element => (
   <SEO title={PAGE.news} pathname={location.pathname} />
+);

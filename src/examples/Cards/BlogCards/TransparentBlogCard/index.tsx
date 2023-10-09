@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
+import React from 'react';
+import { Link } from 'gatsby';
+
 // @mui material components
 import Card from '@mui/material/Card';
 import MuiLink from '@mui/material/Link';
 import { ArrowForward } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
-import React from 'react';
-import { Link } from 'gatsby';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 function TransparentBlogCard({
   image,
@@ -48,8 +48,8 @@ function TransparentBlogCard({
   };
 
   const imageTemplate = (
-    <MKBox position="relative" borderRadius="lg">
-      <MKBox
+    <MKBox2 position="relative" borderRadius="lg">
+      <MKBox2
         component="img"
         src={image}
         alt={title}
@@ -59,7 +59,7 @@ function TransparentBlogCard({
         position="relative"
         zIndex={1}
       />
-      <MKBox
+      <MKBox2
         borderRadius="lg"
         shadow="md"
         width="100%"
@@ -74,7 +74,7 @@ function TransparentBlogCard({
           backgroundSize: 'cover',
         }}
       />
-    </MKBox>
+    </MKBox2>
   );
 
   return (
@@ -93,14 +93,14 @@ function TransparentBlogCard({
         </MuiLink>
       )}
 
-      <MKBox pt={2} pb={3}>
+      <MKBox2 pt={2} pb={3}>
         {action.type === 'internal' ? (
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           <Link to={action.route} sx={cardActionStyles}>
-            <MKTypography variant="h5" gutterBottom>
+            <MKTypography2 variant="h5" gutterBottom>
               {title}
-            </MKTypography>
+            </MKTypography2>
           </Link>
         ) : (
           <MuiLink
@@ -109,18 +109,18 @@ function TransparentBlogCard({
             rel="noreferrer"
             sx={cardActionStyles}
           >
-            <MKTypography variant="h5" gutterBottom>
+            <MKTypography2 variant="h5" gutterBottom>
               {title}
-            </MKTypography>
+            </MKTypography2>
           </MuiLink>
         )}
 
-        <MKTypography variant="body2" component="p" color="text" mb={3}>
+        <MKTypography2 variant="body2" component="p" color="text" mb={3}>
           {description}
-        </MKTypography>
+        </MKTypography2>
 
         {action.type === 'internal' ? (
-          <MKTypography
+          <MKTypography2
             component={Link}
             to={action.route}
             variant="body2"
@@ -132,9 +132,9 @@ function TransparentBlogCard({
             {action.label}
 
             <ArrowForward sx={{ fontWeight: 'bold' }} />
-          </MKTypography>
+          </MKTypography2>
         ) : (
-          <MKTypography
+          <MKTypography2
             component={MuiLink}
             href={action.route}
             target="_blank"
@@ -148,9 +148,9 @@ function TransparentBlogCard({
             {action.label}
 
             <ArrowForward sx={{ fontWeight: 'bold' }} />
-          </MKTypography>
+          </MKTypography2>
         )}
-      </MKBox>
+      </MKBox2>
     </Card>
   );
 }

@@ -22,33 +22,37 @@ import LogoDevIcon from '@mui/icons-material/LogoDev';
 import { faMedium } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { FooterRoutes } from './types';
-
 // Images
 import logo from './assets/PA-images/logo.svg';
+import { FooterContent } from './components';
 
-export const paRooterRoutes: FooterRoutes = {
+export const paRooterRoutes: FooterContent = {
   brand: {
     name: 'Process Analytics',
-    image: logo,
-    route: '/',
+    logo: { primary: logo, light: logo },
+    url: '/',
+    type: 'internal',
   },
   copyright: { name: 'Bonitasoft S.A.', url: 'https://www.bonitasoft.com' },
   socials: [
     {
+      name: 'github',
       icon: <GitHubIcon />,
       url: 'https://github.com/process-analytics',
     },
     {
+      name: 'twitter',
       icon: <TwitterIcon />,
       url: 'https://twitter.com/ProcessAnalyti1',
     },
 
     {
+      name: 'dev.to',
       icon: <LogoDevIcon />,
       url: 'https://dev.to/process-analytics',
     },
     {
+      name: 'medium',
       icon: <FontAwesomeIcon icon={faMedium} />,
       url: 'https://medium.com/@process-analytics',
     },
@@ -60,27 +64,32 @@ export const paRooterRoutes: FooterRoutes = {
       items: [
         {
           name: 'model generation application',
-          route: '/model-generation-application',
+          url: '/model-generation-application',
+          type: 'internal',
         },
-        { name: 'libraries', route: '/libraries' },
+        { name: 'libraries', url: '/libraries', type: 'internal' },
       ],
     },
     {
       name: 'learn',
       items: [
-        { name: 'news', route: '/news' },
-        { name: 'blog', route: '/blog' },
+        { name: 'news', url: '/news', type: 'internal' },
+        { name: 'blog', url: '/blog', type: 'internal' },
       ],
     },
     {
       name: 'help & support',
-      items: [{ name: 'contact us', route: '/contact-us' }],
+      items: [{ name: 'contact us', url: '/contact-us', type: 'internal' }],
     },
     {
       name: 'Project',
       items: [
-        { name: 'about us', route: '/about-us' },
-        { name: 'terms & policies', route: '/terms-and-policies' },
+        { name: 'about us', url: '/about-us', type: 'internal' },
+        {
+          name: 'terms & policies',
+          url: '/terms-and-policies',
+          type: 'internal',
+        },
       ],
     },
   ],

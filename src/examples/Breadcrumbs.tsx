@@ -22,7 +22,7 @@ import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox, MKTypography } from '../components';
+import { MKBox2, MKTypography2 } from '../components';
 
 export interface BreadcrumbRoute {
   label: string;
@@ -39,11 +39,11 @@ export const Breadcrumbs = ({
   ...rest
 }: BreadcrumbsProps): JSX.Element => {
   return (
-    <MKBox bgColor="light" borderRadius="md" py={1} px={2} width="100%">
+    <MKBox2 bgColor="light" borderRadius="md" py={1} px={2} width="100%">
       <MuiBreadcrumbs {...rest}>
         {routes.map(({ label, route }) =>
           route ? (
-            <MKTypography
+            <MKTypography2
               key={label}
               component={Link}
               to={route}
@@ -59,14 +59,14 @@ export const Breadcrumbs = ({
               }}
             >
               {label}
-            </MKTypography>
+            </MKTypography2>
           ) : (
-            <MKTypography key={label} variant="button" fontWeight="regular">
+            <MKTypography2 key={label} variant="button" fontWeight="regular">
               {label}
-            </MKTypography>
+            </MKTypography2>
           ),
         )}
       </MuiBreadcrumbs>
-    </MKBox>
+    </MKBox2>
   );
 };

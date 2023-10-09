@@ -35,18 +35,17 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKInput } from '../../../../../components/MKInput';
+import { MKBox2, MKInput } from '../../../../../components';
 
 function InputSuccess(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container item xs={12} lg={4} py={1} mx="auto">
           <MKInput label="Success" fullWidth success />
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

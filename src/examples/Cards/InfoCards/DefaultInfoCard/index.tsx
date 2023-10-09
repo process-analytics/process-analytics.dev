@@ -20,9 +20,7 @@ import Icon from '@mui/material/Icon';
 
 // Material Kit 2 React components
 
-import { MKBox } from '../../../../components/MKBox';
-
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 function DefaultInfoCard({
   color,
@@ -33,24 +31,24 @@ function DefaultInfoCard({
   small,
 }: DefaultInfoCardProps): JSX.Element {
   return (
-    <MKBox
+    <MKBox2
       lineHeight={1}
       p={direction === 'center' ? 2 : 0}
       textAlign={direction}
     >
       {typeof icon === 'string' ? (
-        <MKTypography
+        <MKTypography2
           display="block"
           variant={direction === 'center' ? 'h2' : 'h3'}
           color={color}
           textGradient
         >
           <Icon>{icon}</Icon>
-        </MKTypography>
+        </MKTypography2>
       ) : (
         icon
       )}
-      <MKTypography
+      <MKTypography2
         display="block"
         variant="h5"
         fontWeight="bold"
@@ -58,8 +56,8 @@ function DefaultInfoCard({
         mb={1.5}
       >
         {title}
-      </MKTypography>
-      <MKTypography
+      </MKTypography2>
+      <MKTypography2
         display="block"
         variant={small ? 'button' : 'body2'}
         color="text"
@@ -67,8 +65,8 @@ function DefaultInfoCard({
         pl={direction === 'right' ? 6 : 0}
       >
         {description}
-      </MKTypography>
-    </MKBox>
+      </MKTypography2>
+    </MKBox2>
   );
 }
 

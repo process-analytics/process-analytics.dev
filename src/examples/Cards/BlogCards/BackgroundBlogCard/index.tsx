@@ -20,11 +20,11 @@ import MuiLink from '@mui/material/Link';
 import { ArrowForward } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 import React from 'react';
 import { Link } from 'gatsby';
+import { fontSize, linearGradient, rgba } from '../../../../assets/theme';
 
 function BackgroundBlogCard({
   image,
@@ -51,36 +51,33 @@ function BackgroundBlogCard({
   return (
     <Card
       sx={{
-        backgroundImage: ({
-          palette: { black },
-          functions: { linearGradient, rgba },
-        }) =>
+        backgroundImage: ({ palette: { common } }) =>
           `${linearGradient(
-            rgba(black.main, 0.5),
-            rgba(black.main, 0.5),
+            rgba(common.black, 0.5),
+            rgba(common.black, 0.5),
           )}, url(${image})`,
         backgroundSize: 'cover',
       }}
     >
-      <MKBox p={3}>
-        <MKBox minHeight="20.625rem" my="auto" py={3}>
-          <MKTypography
+      <MKBox2 p={3}>
+        <MKBox2 minHeight="20.625rem" my="auto" py={3}>
+          <MKTypography2
             variant="h2"
             color="white"
             mb={1}
-            sx={({ breakpoints, typography }) => ({
+            sx={({ breakpoints }) => ({
               [breakpoints.down('md')]: {
-                fontSize: typography.size['3xl'],
+                fontSize: fontSize['3xl'],
               },
             })}
           >
             {title}
-          </MKTypography>
-          <MKTypography variant="body2" color="white" my={3}>
+          </MKTypography2>
+          <MKTypography2 variant="body2" color="white" my={3}>
             {description}
-          </MKTypography>
+          </MKTypography2>
           {action.type === 'internal' ? (
-            <MKTypography
+            <MKTypography2
               component={Link}
               to={action.route}
               variant="body2"
@@ -91,9 +88,9 @@ function BackgroundBlogCard({
             >
               {action.label}
               <ArrowForward sx={{ fontWeight: 'bold' }} />
-            </MKTypography>
+            </MKTypography2>
           ) : (
-            <MKTypography
+            <MKTypography2
               component={MuiLink}
               href={action.route}
               target="_blank"
@@ -106,10 +103,10 @@ function BackgroundBlogCard({
             >
               {action.label}
               <ArrowForward sx={{ fontWeight: 'bold' }} />
-            </MKTypography>
+            </MKTypography2>
           )}
-        </MKBox>
-      </MKBox>
+        </MKBox2>
+      </MKBox2>
     </Card>
   );
 }

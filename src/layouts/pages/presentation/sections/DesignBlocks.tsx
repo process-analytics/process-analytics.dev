@@ -21,9 +21,7 @@ import Grid from '@mui/material/Grid';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKBadge } from '../../../../components/MKBadge';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2, MKBadge } from '../../../../components';
 
 // Presentation page components
 import ExampleCard from '../components/ExampleCard';
@@ -37,12 +35,12 @@ function DesignBlocks(): JSX.Element {
   const renderData = data.map(({ title, description, items }) => (
     <Grid container spacing={3} sx={{ mb: 10 }} key={title}>
       <Grid item xs={12} lg={3}>
-        <MKBox position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
-          <MKTypography variant="h3" fontWeight="bold" mb={1}>
+        <MKBox2 position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
+          <MKTypography2 variant="h3" fontWeight="bold" mb={1}>
             {title}
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography
+          <MKTypography2
             variant="body2"
             fontWeight="regular"
             color="secondary"
@@ -50,21 +48,16 @@ function DesignBlocks(): JSX.Element {
             pr={2}
           >
             {description}
-          </MKTypography>
-        </MKBox>
+          </MKTypography2>
+        </MKBox2>
       </Grid>
 
       <Grid item xs={12} lg={9}>
         <Grid container spacing={3}>
-          {items.map(({ image, name, count, route, pro }) => (
+          {items.map(({ image, name, count, route }) => (
             <Grid item xs={12} md={4} sx={{ mb: 2 }} key={name}>
-              <Link to={pro ? '/' : route}>
-                <ExampleCard
-                  image={image}
-                  name={name}
-                  count={count}
-                  pro={pro}
-                />
+              <Link to={route}>
+                <ExampleCard image={image} name={name} count={count} />
               </Link>
             </Grid>
           ))}
@@ -74,7 +67,7 @@ function DesignBlocks(): JSX.Element {
   ));
 
   return (
-    <MKBox component="section" my={6} py={6}>
+    <MKBox2 component="section" my={6} py={6}>
       <Container>
         <Grid
           container
@@ -95,19 +88,19 @@ function DesignBlocks(): JSX.Element {
             sx={{ mb: 2 }}
           />
 
-          <MKTypography variant="h2" fontWeight="bold">
+          <MKTypography2 variant="h2" fontWeight="bold">
             Huge collection of sections
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography variant="body1" color="text">
+          <MKTypography2 variant="body1" color="text">
             We have created multiple options for you to put together and
             customise into pixel perfect pages.
-          </MKTypography>
+          </MKTypography2>
         </Grid>
       </Container>
 
       <Container sx={{ mt: 6 }}>{renderData}</Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

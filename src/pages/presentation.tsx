@@ -15,7 +15,6 @@
  */
 
 import { Apps, Flag, PrecisionManufacturing } from '@mui/icons-material';
-import { Theme } from '@mui/material';
 import Link from '@mui/material/Link';
 import React from 'react';
 
@@ -34,12 +33,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
-import { MKBox } from '../components/MKBox';
-import { MKTypography } from '../components/MKTypography';
-import { MKSocialButton } from '../components/MKSocialButton';
+import { MKBox2, MKTypography2, MKSocialButton, Navbar } from '../components';
 
 // Material Kit 2 React examples
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
 import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 
@@ -55,7 +51,7 @@ import Download from '../layouts/pages/presentation/sections/Download';
 import BuiltByDevelopers from '../layouts/pages/presentation/components/BuiltByDevelopers';
 
 // Material Kit 2 React themes
-import { theme } from '../assets/theme';
+import { boxShadows, fontSize, rgba, theme } from '../assets/theme';
 
 // Routes
 import { footerRoutes } from '../footer.routes';
@@ -68,17 +64,17 @@ const Presentation = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <DefaultNavbar
-        routes={routes}
+      <Navbar
+        routeContent={routes}
         action={{
           type: 'external',
-          route: 'https://www.creative-tim.com/product/material-kit-react',
+          url: 'https://www.creative-tim.com/product/material-kit-react',
           label: 'free download',
           color: 'info',
         }}
-        sticky
+        isSticky
       />
-      <MKBox
+      <MKBox2
         minHeight="75vh"
         width="100%"
         sx={{
@@ -91,20 +87,20 @@ const Presentation = (): JSX.Element => {
       >
         <Container>
           <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
-            <MKTypography
+            <MKTypography2
               variant="h1"
               color="white"
               mt={-6}
               mb={1}
-              sx={({ breakpoints, typography }) => ({
+              sx={({ breakpoints }) => ({
                 [breakpoints.down('md')]: {
-                  fontSize: typography.size['3xl'],
+                  fontSize: fontSize['3xl'],
                 },
               })}
             >
               Material Kit 2 React
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               variant="body1"
               color="white"
               textAlign="center"
@@ -113,20 +109,19 @@ const Presentation = (): JSX.Element => {
             >
               Free & Open Source Web UI Kit built over ReactJS &amp; MUI. Join
               over 1.6 million developers around the world.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Container>
-      </MKBox>
+      </MKBox2>
       <Card
         sx={{
           p: 2,
           mx: { xs: 2, lg: 3 },
           mt: -8,
           mb: 4,
-          backgroundColor: ({ functions: { rgba } }: Theme) =>
-            rgba('white', 0.8),
+          backgroundColor: rgba('white', 0.8),
           backdropFilter: 'saturate(200%) blur(30px)',
-          boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
+          boxShadow: () => boxShadows.xxl,
         }}
       >
         <Counters />
@@ -189,7 +184,7 @@ const Presentation = (): JSX.Element => {
         <Testimonials />
         <Download />
 
-        <MKBox pt={18} pb={6}>
+        <MKBox2 pt={18} pb={6}>
           <Container>
             <Grid container spacing={3}>
               <Grid
@@ -199,13 +194,13 @@ const Presentation = (): JSX.Element => {
                 ml="auto"
                 sx={{ textAlign: { xs: 'center', lg: 'left' } }}
               >
-                <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
+                <MKTypography2 variant="h4" fontWeight="bold" mb={0.5}>
                   Thank you for your support!
-                </MKTypography>
+                </MKTypography2>
 
-                <MKTypography variant="body1" color="text">
+                <MKTypography2 variant="body1" color="text">
                   We deliver the best web products
-                </MKTypography>
+                </MKTypography2>
               </Grid>
               <Grid
                 item
@@ -229,7 +224,7 @@ const Presentation = (): JSX.Element => {
                   component={Link}
                   href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit-react"
                   target="_blank"
-                  color="facebook"
+                  color="twitter"
                   sx={{ mr: 1 }}
                 >
                   <FontAwesomeIcon icon={faFacebook} />
@@ -247,12 +242,12 @@ const Presentation = (): JSX.Element => {
               </Grid>
             </Grid>
           </Container>
-        </MKBox>
+        </MKBox2>
       </Card>
 
-      <MKBox pt={6} px={1} mt={6}>
+      <MKBox2 pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />
-      </MKBox>
+      </MKBox2>
     </ThemeProvider>
   );
 };

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 
 // react-copy-to-clipboard components
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -32,13 +32,16 @@ import Slide from '@mui/material/Slide';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { theme } from '../../../assets/theme';
+import { borders, fontSize, theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
-import { MKAlert } from '../../../components/MKAlert';
-import { MKButton } from '../../../components/MKButton';
-import { MKTypography } from '../../../components/MKTypography';
+import {
+  MKBox2,
+  MKAlert,
+  MKButton,
+  MKTypography,
+  MKTypography2,
+} from '../../../components';
 
 // Material Kit 2 React base styles
 import { palette } from '../../../assets/theme/base/colors';
@@ -55,8 +58,10 @@ function View({
   const [activeTab, setActiveTab] = useState(0);
   const [success, setSuccess] = useState(false);
 
-  const handleTabType = (event: Event, newValue: number): void =>
-    setActiveTab(newValue);
+  const handleTabType = (
+    event: SyntheticEvent<Element, Event>,
+    newValue: number,
+  ): void => setActiveTab(newValue);
 
   useEffect(() => {
     setTimeout(() => setSuccess(false), 3000);
@@ -65,7 +70,7 @@ function View({
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <MKBox
+      <MKBox2
         width="100%"
         position="relative"
         borderRadius="xl"
@@ -74,18 +79,17 @@ function View({
         sx={{ overflow: 'hidden' }}
         {...rest}
       >
-        <MKBox
+        <MKBox2
           px={3}
           sx={{
-            borderBottom: ({ borders: { borderWidth, borderColor } }) =>
-              `${borderWidth[1]} solid ${borderColor}`,
+            borderBottom: () => `${borders.width.sm} solid ${borders.color}`,
           }}
         >
           <Grid container spacing={2} justifyContent="space-between" py={1}>
             <Grid item xs={12} lg={3}>
-              <MKTypography variant="body1" pt={0.5}>
+              <MKTypography2 variant="body1" pt={0.5}>
                 {title}
-              </MKTypography>
+              </MKTypography2>
             </Grid>
 
             <Grid item xs={12} lg={3}>
@@ -93,12 +97,12 @@ function View({
                 <Tabs value={activeTab} onChange={handleTabType}>
                   <Tab
                     icon={
-                      <MKBox
+                      <MKBox2
                         component="i"
                         color="dark"
                         mr={1.25}
                         sx={{
-                          fontSize: ({ typography: { size } }) => size.sm,
+                          fontSize: fontSize.sm,
                         }}
                         className="fas fa-desktop"
                       />
@@ -108,12 +112,12 @@ function View({
 
                   <Tab
                     icon={
-                      <MKBox
+                      <MKBox2
                         component="i"
                         color="dark"
                         mr={1.25}
                         sx={{
-                          fontSize: ({ typography: { size } }) => size.sm,
+                          fontSize: () => fontSize.sm,
                         }}
                         className="fas fa-code"
                       />
@@ -124,11 +128,11 @@ function View({
               </AppBar>
             </Grid>
           </Grid>
-        </MKBox>
+        </MKBox2>
 
-        <MKBox display={activeTab === 0 ? 'block' : 'none'}>
-          <MKBox width="100%" p={3}>
-            <MKBox
+        <MKBox2 display={activeTab === 0 ? 'block' : 'none'}>
+          <MKBox2 width="100%" p={3}>
+            <MKBox2
               bgColor="grey-100"
               width="100%"
               height={height}
@@ -137,12 +141,12 @@ function View({
               sx={{ overflowX: 'hidden', overflowY: 'scroll' }}
             >
               {children}
-            </MKBox>
-          </MKBox>
-        </MKBox>
+            </MKBox2>
+          </MKBox2>
+        </MKBox2>
 
-        <MKBox display={activeTab === 1 ? 'block' : 'none'} p={3}>
-          <MKBox
+        <MKBox2 display={activeTab === 1 ? 'block' : 'none'} p={3}>
+          <MKBox2
             bgColor="grey-100"
             position="relative"
             width="100%"
@@ -152,17 +156,17 @@ function View({
             <CopyToClipboard text={code}>
               <MKButton
                 variant="gradient"
-                color="dark"
+                color="primary"
                 size="small"
                 sx={{ position: 'absolute', top: '0.5rem', right: '0.5rem' }}
                 onClick={() => setSuccess(true)}
               >
-                <MKBox color="white" mr={0.5} className="fas fa-copy" /> Copy
+                <MKBox2 color="white" mr={0.5} className="fas fa-copy" /> Copy
               </MKButton>
             </CopyToClipboard>
 
             <Slide direction="down" in={success} unmountOnExit>
-              <MKBox position="absolute" top="0.5rem" left={0} width="100%">
+              <MKBox2 position="absolute" top="0.5rem" left={0} width="100%">
                 <MKAlert
                   width="25%"
                   mx="auto"
@@ -181,7 +185,7 @@ function View({
                     Code successfully copied!
                   </MKTypography>
                 </MKAlert>
-              </MKBox>
+              </MKBox2>
             </Slide>
 
             <SyntaxHighlighter
@@ -200,9 +204,9 @@ function View({
             >
               {code}
             </SyntaxHighlighter>
-          </MKBox>
-        </MKBox>
-      </MKBox>
+          </MKBox2>
+        </MKBox2>
+      </MKBox2>
     </ThemeProvider>
   );
 }

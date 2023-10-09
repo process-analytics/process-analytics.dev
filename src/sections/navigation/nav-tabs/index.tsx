@@ -25,7 +25,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
+import { MKBox2 } from '../../../components';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';
@@ -50,12 +50,12 @@ function NavTabs(): JSX.Element {
         ]}
       >
         <View title="Tabs simple" code={tabsSimpleCode}>
-          <MKBox bgColor="white" py={6}>
+          <MKBox2 bgColor="quaternary" py={6}>
             <TabsSimple />
-          </MKBox>
+          </MKBox2>
         </View>
         <View title="Tabs with Icons on Card from Material UI Kit V1" code={''}>
-          <MKBox bgColor="white" py={6}>
+          <MKBox2 bgColor="quaternary" py={6}>
             <CustomTabs
               headerColor="primary"
               tabs={[
@@ -107,10 +107,10 @@ function NavTabs(): JSX.Element {
                 },
               ]}
             />
-          </MKBox>
+          </MKBox2>
         </View>
         <View title="Tabs on Plain Card from Material UI Kit V1" code={''}>
-          <MKBox bgColor="white" py={6}>
+          <MKBox2 bgColor="quaternary" py={6}>
             <CustomTabs
               plainTabs
               headerColor="danger"
@@ -160,7 +160,7 @@ function NavTabs(): JSX.Element {
                 },
               ]}
             />
-          </MKBox>
+          </MKBox2>
         </View>
       </BaseLayout>
     </ThemeProvider>

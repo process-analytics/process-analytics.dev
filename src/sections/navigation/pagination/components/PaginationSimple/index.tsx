@@ -37,7 +37,7 @@ import Grid from '@mui/material/Grid';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKPagination } from '../../../../../components/MKPagination';
+import { MKPagination } from '../../../../../components';
 
 function PaginationSimple(): JSX.Element {
   return (

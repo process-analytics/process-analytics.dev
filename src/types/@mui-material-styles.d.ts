@@ -13,14 +13,75 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
-import { TypographyStyle } from '@mui/material/styles/createTypography';
-import { Color } from 'chroma-js';
+import type {} from '@mui/material/styles';
+import {
+  FontStyle,
+  TypographyStyle,
+  TypographyUtils,
+  Variant,
+} from '@mui/material/styles/createTypography';
 
 declare module '@mui/material/styles' {
-  export type BoxShadowColor = PaletteOptions & {
+  interface BreakpointOverrides {
+    xxl: true;
+  }
+
+  interface Typography
+    extends Record<Variant, TypographyStyle>,
+      FontStyle,
+      TypographyUtils {
+    [key: string]: TypographyStyle; // add index signature to allow any string keys
+  }
+
+  type BoxShadowColor = {
     white: string;
+
+    /* [key: PaletteColorKey]: string;*/
+
+    primary: string;
+    secondary: string;
+    error: string;
+    warning: string;
+    info: string;
+    success: string;
+    tertiary: string;
+    quaternary: string;
+    primaryLight: string;
+    secondaryLight: string;
+    spicy: string;
+    sweet: string;
+    manufacture: string;
+    education: string;
+    telecom: string;
+    financial: string;
+    energy: string;
+    health: string;
+    government: string;
+    distribution: string;
+  };
+
+  type BorderSize = {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    xxl: string;
+  };
+
+  type BorderRadius = {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    xxl: string;
+    section: string;
+  };
+  export type Borders = {
+    borderColor?: string;
+    borderWidth: BorderSize;
+    borderRadius: BorderRadius;
   };
 
   type ShadowSize = {
@@ -43,160 +104,64 @@ declare module '@mui/material/styles' {
     };
   };
 
-  type BorderRadius = {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    xxl: string;
-    section: string;
-  };
-  export type Borders = {
-    borderColor?: string;
-    borderWidth: {
-      0: string;
-      1: string;
-      2: string;
-      3: string;
-      4: string;
-      5: string;
-    };
-    borderRadius: BorderRadius;
-  };
-
-  type Functions = {
-    boxShadow: (
-      offset?: number[],
-      radius?: number[],
-      color: string | number | Color,
-      opacity: number,
-      inset?: string,
-    ) => string;
-    hexToRgb: (color: string | number | Color) => string;
-    linearGradient: (
-      color: string | number | Color,
-      colorState: string | number | Color,
-      angle?: number,
-    ) => string;
-    pxToRem: (number: number, baseNumber?: number) => string;
-    rgba: (color: string | number | Color, opacity: number) => string;
-  };
-
-  export interface Theme {
-    /*    mixins: Mixins;
-    shadows: Shadows;
-    transitions: Transitions; */
-
-    palette: Palette & CustomPalette & SocialPalette;
-    typography: Typography & CustomTypography;
-
-    boxShadows: BoxShadows;
-    borders: Borders;
-    functions: Functions;
+  interface Theme {
+    palette: Palette & SocialPalette;
   }
 
-  export interface CustomPalette {
-    tertiary: PaletteColor;
-    spicy: PaletteColor;
-    sweet: PaletteColor;
-    manufacture: PaletteColor;
-    education: PaletteColor;
-    telecom: PaletteColor;
-    financial: PaletteColor;
-    energy: PaletteColor;
-    health: PaletteColor;
-    government: PaletteColor;
-    distribution: PaletteColor;
-
-    // TODO: To delete. Calculate the color of the font from the color of its parent container
-    light: PaletteColor;
-    dark: PaletteColor;
+  interface Palette {
+    tertiary: Palette['primary'];
+    quaternary: Palette['primary'];
+    primaryLight: Palette['primary'];
+    secondaryLight: Palette['primary'];
+    spicy: Palette['primary'];
+    sweet: Palette['primary'];
+    manufacture: Palette['primary'];
+    education: Palette['primary'];
+    telecom: Palette['primary'];
+    financial: Palette['primary'];
+    energy: Palette['primary'];
+    health: Palette['primary'];
+    government: Palette['primary'];
+    distribution: Palette['primary'];
   }
-
-  export interface SocialPalette {
-    facebook: PaletteColor;
-    twitter: PaletteColor;
-    instagram: PaletteColor;
-    linkedin: PaletteColor;
-    pinterest: PaletteColor;
-    youtube: PaletteColor;
-    slack: PaletteColor;
-    dribbble: PaletteColor;
-    github: PaletteColor;
-    reddit: PaletteColor;
-    tumblr: PaletteColor;
-  }
-
-  export interface CustomTypography {
-    fontWeightLighter: number;
-    d1: TypographyStyle;
-    d2: TypographyStyle;
-    d3: TypographyStyle;
-    d4: TypographyStyle;
-    d5: TypographyStyle;
-    d6: TypographyStyle;
-    size: {
-      xxs: string;
-      xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-      '2xl': string;
-      '3xl': string;
-    };
-
-    lineHeight: {
-      sm: number;
-      md: number;
-      lg: number;
-    };
+  interface SocialPalette {
+    twitter: Palette['primary'];
+    pinterest: Palette['primary'];
+    youtube: Palette['primary'];
+    slack: Palette['primary'];
+    github: Palette['primary'];
   }
 
   // allow configuration using `createTheme`
-  export interface ThemeOptions {
-    palette: PaletteOptions & CustomPaletteOptions & SocialPaletteOptions;
-    typography: TypographyOptions & CustomTypography;
-
-    boxShadows?: BoxShadows;
-    borders?: Borders;
-    functions?: Functions;
+  interface ThemeOptions {
+    palette?: PaletteOptions & SocialPaletteOptions;
   }
 
-  interface CustomPaletteOptions {
-    tertiary: PaletteColorOptions;
-    spicy: PaletteColorOptions;
-    sweet: PaletteColorOptions;
-    manufacture: PaletteColorOptions;
-    education: PaletteColorOptions;
-    telecom: PaletteColorOptions;
-    financial: PaletteColorOptions;
-    energy: PaletteColorOptions;
-    health: PaletteColorOptions;
-    government: PaletteColorOptions;
-    distribution: PaletteColorOptions;
-
-    // TODO: To delete. Calculate the color of the font from the color of its parent container
-    light: PaletteColorOptions;
-    dark: PaletteColorOptions;
+  interface PaletteOptions {
+    tertiary: PaletteOptions['primary'];
+    quaternary: PaletteOptions['primary'];
+    primaryLight: PaletteOptions['primary'];
+    secondaryLight: PaletteOptions['primary'];
+    spicy: PaletteOptions['primary'];
+    sweet: PaletteOptions['primary'];
+    manufacture: PaletteOptions['primary'];
+    education: PaletteOptions['primary'];
+    telecom: PaletteOptions['primary'];
+    financial: PaletteOptions['primary'];
+    energy: PaletteOptions['primary'];
+    health: PaletteOptions['primary'];
+    government: PaletteOptions['primary'];
+    distribution: PaletteOptions['primary'];
+  }
+  interface SocialPaletteOptions {
+    twitter: PaletteOptions['primary'];
+    pinterest: PaletteOptions['primary'];
+    youtube: PaletteOptions['primary'];
+    slack: PaletteOptions['primary'];
+    github: PaletteOptions['primary'];
   }
 
-  export interface SocialPaletteOptions {
-    facebook: PaletteColorOptions;
-    twitter: PaletteColorOptions;
-    instagram: PaletteColorOptions;
-    linkedin: PaletteColorOptions;
-    pinterest: PaletteColorOptions;
-    youtube: PaletteColorOptions;
-    slack: PaletteColorOptions;
-    dribbble: PaletteColorOptions;
-    github: PaletteColorOptions;
-    reddit: PaletteColorOptions;
-    tumblr: PaletteColorOptions;
-  }
-
-  export type GreyColorName =
+  type GreyColorName =
     | 'grey-100'
     | 'grey-200'
     | 'grey-300'
@@ -207,20 +172,33 @@ declare module '@mui/material/styles' {
     | 'grey-800'
     | 'grey-900';
 
-  export type PaletteColorKey =
+  type PaletteColorKey =
     | 'primary'
     | 'secondary'
     | 'error'
     | 'warning'
     | 'info'
     | 'success'
-    | keyof CustomPaletteOptions;
+    | 'tertiary'
+    | 'quaternary'
+    | 'primaryLight'
+    | 'secondaryLight'
+    | 'spicy'
+    | 'sweet'
+    | 'manufacture'
+    | 'education'
+    | 'telecom'
+    | 'financial'
+    | 'energy'
+    | 'health'
+    | 'government'
+    | 'distribution';
 
-  export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
+  type FontWeight = 'light' | 'regular' | 'medium' | 'bold' | string;
 
-  export type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
+  type TextTransform = 'capitalize' | 'uppercase' | 'lowercase';
 
-  export type VerticalAlign =
+  type VerticalAlign =
     | 'unset'
     | 'baseline'
     | 'sub'

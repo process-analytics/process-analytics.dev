@@ -24,8 +24,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
+import { MKBox2, MKButton } from '../../../../../components';
 
 import React from 'react';
 
@@ -61,7 +60,7 @@ function DropdownAndDropup(): JSX.Element {
   };
 
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6} textAlign="center">
@@ -105,7 +104,7 @@ function DropdownAndDropup(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

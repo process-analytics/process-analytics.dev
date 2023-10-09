@@ -21,12 +21,11 @@ import Stack from '@mui/material/Stack';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKProgress } from '../../../../../components/MKProgress';
+import { MKBox2, MKProgress } from '../../../../../components';
 
 function ProgressSimple(): JSX.Element {
   return (
-    <MKBox component="section" bgColor="white" py={12}>
+    <MKBox2 component="section" bgColor="quaternary" py={12}>
       <Container>
         <Grid container item xs={12} lg={6} justifyContent="center" mx="auto">
           <Stack spacing={2} width="100%">
@@ -36,11 +35,11 @@ function ProgressSimple(): JSX.Element {
             <MKProgress color="info" value={50} />
             <MKProgress color="warning" value={50} />
             <MKProgress color="error" value={50} />
-            <MKProgress color="dark" value={50} />
+            {/* <MKProgress color="dark" value={50} />*/}
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

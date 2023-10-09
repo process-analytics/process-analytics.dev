@@ -31,19 +31,21 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 
 // Material Kit 2 React components
-import { MKBox } from '../components/MKBox';
-import { MKTypography } from '../components/MKTypography';
-import { MKInput } from '../components/MKInput';
-import { MKButton } from '../components/MKButton';
+import {
+  MKBox2,
+  MKTypography2,
+  MKInput,
+  MKButton,
+  Navbar,
+} from '../components';
 
 // Material Kit 2 React example components
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import SimpleFooter from '../examples/Footers/SimpleFooter';
 
 // Images
 import bgImage from '../assets/images/bg-sign-in-basic.jpeg';
 
-import { theme } from '../assets/theme';
+import { linearGradient, rgba, theme } from '../assets/theme';
 
 import { routes } from '../routes';
 
@@ -56,19 +58,19 @@ const SignInPage = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <DefaultNavbar
-        routes={routes}
+      <Navbar
+        routeContent={routes}
         action={{
           type: 'external',
-          route: 'https://www.creative-tim.com/product/material-kit-react',
+          url: 'https://www.creative-tim.com/product/material-kit-react',
           label: 'free download',
           color: 'info',
         }}
+        color="primary"
         isTransparent
-        light
       />
 
-      <MKBox
+      <MKBox2
         position="absolute"
         top={0}
         left={0}
@@ -76,13 +78,10 @@ const SignInPage = (): JSX.Element => {
         width="100%"
         minHeight="100vh"
         sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { dark, grey },
-          }: Theme) =>
+          backgroundImage: ({ palette: { primary, grey } }: Theme) =>
             `${linearGradient(
               rgba(grey?.A700, 0.6),
-              rgba(dark.dark, 0.6),
+              rgba(primary.dark, 0.6),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -90,7 +89,7 @@ const SignInPage = (): JSX.Element => {
         }}
       />
 
-      <MKBox
+      <MKBox2
         px={1}
         width="100%"
         height="100vh"
@@ -107,7 +106,7 @@ const SignInPage = (): JSX.Element => {
         >
           <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
             <Card>
-              <MKBox
+              <MKBox2
                 variant="gradient"
                 bgColor="info"
                 borderRadius="lg"
@@ -118,14 +117,14 @@ const SignInPage = (): JSX.Element => {
                 mb={1}
                 textAlign="center"
               >
-                <MKTypography
+                <MKTypography2
                   variant="h4"
                   fontWeight="medium"
                   color="white"
                   mt={1}
                 >
                   Sign in
-                </MKTypography>
+                </MKTypography2>
 
                 <Grid
                   container
@@ -134,57 +133,57 @@ const SignInPage = (): JSX.Element => {
                   sx={{ mt: 1, mb: 2 }}
                 >
                   <Grid item xs={2}>
-                    <MKTypography
+                    <MKTypography2
                       component={MuiLink}
                       href="#"
                       variant="body1"
                       color="white"
                     >
                       <FacebookIcon color="inherit" />
-                    </MKTypography>
+                    </MKTypography2>
                   </Grid>
 
                   <Grid item xs={2}>
-                    <MKTypography
+                    <MKTypography2
                       component={MuiLink}
                       href="#"
                       variant="body1"
                       color="white"
                     >
                       <GitHubIcon color="inherit" />
-                    </MKTypography>
+                    </MKTypography2>
                   </Grid>
 
                   <Grid item xs={2}>
-                    <MKTypography
+                    <MKTypography2
                       component={MuiLink}
                       href="#"
                       variant="body1"
                       color="white"
                     >
                       <GoogleIcon color="inherit" />
-                    </MKTypography>
+                    </MKTypography2>
                   </Grid>
                 </Grid>
-              </MKBox>
+              </MKBox2>
 
-              <MKBox pt={4} pb={3} px={3}>
-                <MKBox component="form" role="form">
-                  <MKBox mb={2}>
+              <MKBox2 pt={4} pb={3} px={3}>
+                <MKBox2 component="form" role="form">
+                  <MKBox2 mb={2}>
                     <MKInput type="email" label="Email" fullWidth />
-                  </MKBox>
+                  </MKBox2>
 
-                  <MKBox mb={2}>
+                  <MKBox2 mb={2}>
                     <MKInput type="password" label="Password" fullWidth />
-                  </MKBox>
+                  </MKBox2>
 
-                  <MKBox display="flex" alignItems="center" ml={-1}>
+                  <MKBox2 display="flex" alignItems="center" ml={-1}>
                     <Switch
                       checked={rememberMe}
                       onChange={handleSetRememberMe}
                     />
 
-                    <MKTypography
+                    <MKTypography2
                       variant="button"
                       fontWeight="regular"
                       color="text"
@@ -192,19 +191,19 @@ const SignInPage = (): JSX.Element => {
                       sx={{ cursor: 'pointer', userSelect: 'none', ml: -1 }}
                     >
                       &nbsp;&nbsp;Remember me
-                    </MKTypography>
-                  </MKBox>
+                    </MKTypography2>
+                  </MKBox2>
 
-                  <MKBox mt={4} mb={1}>
+                  <MKBox2 mt={4} mb={1}>
                     <MKButton variant="gradient" color="info" fullWidth>
                       sign in
                     </MKButton>
-                  </MKBox>
+                  </MKBox2>
 
-                  <MKBox mt={3} mb={1} textAlign="center">
-                    <MKTypography variant="button" color="text">
+                  <MKBox2 mt={3} mb={1} textAlign="center">
+                    <MKTypography2 variant="button" color="text">
                       Don&apos;t have an account?{' '}
-                      <MKTypography
+                      <MKTypography2
                         component={Link}
                         to="/authentication/sign-up/cover"
                         variant="button"
@@ -213,19 +212,19 @@ const SignInPage = (): JSX.Element => {
                         textGradient
                       >
                         Sign up
-                      </MKTypography>
-                    </MKTypography>
-                  </MKBox>
-                </MKBox>
-              </MKBox>
+                      </MKTypography2>
+                    </MKTypography2>
+                  </MKBox2>
+                </MKBox2>
+              </MKBox2>
             </Card>
           </Grid>
         </Grid>
-      </MKBox>
+      </MKBox2>
 
-      <MKBox width="100%" position="absolute" zIndex={2} bottom="1.625rem">
+      <MKBox2 width="100%" position="absolute" zIndex={2} bottom="1.625rem">
         <SimpleFooter light />
-      </MKBox>
+      </MKBox2>
     </ThemeProvider>
   );
 };

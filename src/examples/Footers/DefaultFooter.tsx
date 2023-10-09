@@ -24,23 +24,16 @@ import Grid from '@mui/material/Grid';
 import MaterialLink from '@mui/material/Link';
 
 // Material Kit 2 React components
-import { MKBox } from '../../components/MKBox';
-import { MKTypography } from '../../components/MKTypography';
+import { FooterProps, MKBox2, MKTypography2 } from '../../components';
+import { FooterMenu } from '../../components/Footer';
 
-import {
-  FooterRoutes,
-  Link as FooterLink,
-  FooterMenu,
-  SocialLink,
-} from '../../types';
-
-function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
+function DefaultFooter({ content }: FooterProps): JSX.Element {
   const { brand, socials, menus, copyright } = content;
 
   const year = new Date().getFullYear();
 
   return (
-    <MKBox component="footer" py={6}>
+    <MKBox2 component="footer" py={6}>
       <Container maxWidth="xl">
         <Grid
           container
@@ -49,37 +42,35 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
           alignItems={['center', undefined]}
         >
           <Grid item xs={4} md={3} sx={{ mb: 3 }}>
-            <MKBox>
-              <GatsbyLink to={brand.route}>
-                <MKBox
+            <MKBox2>
+              <GatsbyLink to={brand.url}>
+                <MKBox2
                   component="img"
-                  src={brand.image}
+                  src={brand.logo.primary}
                   alt={brand.name}
                   maxWidth="3rem"
                   mb={2}
                 />
               </GatsbyLink>
-              <MKTypography variant="h6">{brand.name}</MKTypography>
-            </MKBox>
-            <MKBox display="flex" alignItems="center" mt={3}>
-              {socials.map(
-                ({ icon, url }: Omit<SocialLink, 'name'>, key: number) => (
-                  <MKTypography
-                    key={url}
-                    component={MaterialLink}
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="h5"
-                    color="primary"
-                    opacity={0.8}
-                    mr={key === socials.length - 1 ? 0 : 2.5}
-                  >
-                    {icon}
-                  </MKTypography>
-                ),
-              )}
-            </MKBox>
+              <MKTypography2 variant="h6">{brand.name}</MKTypography2>
+            </MKBox2>
+            <MKBox2 display="flex" alignItems="center" mt={3}>
+              {socials.map(({ icon, url }, key: number) => (
+                <MKTypography2
+                  key={url}
+                  component={MaterialLink}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="h5"
+                  color="primary"
+                  opacity={0.8}
+                  mr={key === socials.length - 1 ? 0 : 2.5}
+                >
+                  {icon}
+                </MKTypography2>
+              ))}
+            </MKBox2>
           </Grid>
 
           <Grid
@@ -94,7 +85,7 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
           >
             {menus.map(({ name, items }: FooterMenu) => (
               <Grid key={name} item xs={false} md={2} sx={{ mb: [3, 0] }}>
-                <MKTypography
+                <MKTypography2
                   display="block"
                   variant="button"
                   fontWeight="bold"
@@ -102,48 +93,48 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
                   mb={1}
                 >
                   {name}
-                </MKTypography>
+                </MKTypography2>
 
-                <MKBox component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
-                  {items.map(({ name, route }: FooterLink) => (
-                    <MKBox
+                <MKBox2 component="ul" p={0} m={0} sx={{ listStyle: 'none' }}>
+                  {items.map(({ name, url }) => (
+                    <MKBox2
                       key={name}
                       component="li"
                       p={0}
                       m={0}
                       lineHeight={1.25}
                     >
-                      <MKTypography
+                      <MKTypography2
                         component={GatsbyLink}
-                        to={route}
+                        to={url}
                         rel="noreferrer"
                         variant="button"
                         fontWeight="regular"
                         textTransform="capitalize"
                       >
                         {name}
-                      </MKTypography>
-                    </MKBox>
+                      </MKTypography2>
+                    </MKBox2>
                   ))}
-                </MKBox>
+                </MKBox2>
               </Grid>
             ))}
           </Grid>
 
           <Grid item xs={12} sx={{ textAlign: 'center', my: 3 }}>
-            <MKTypography variant="caption" fontWeight="regular">
+            <MKTypography2 variant="caption" fontWeight="regular">
               Copyright &copy; {year}{' '}
-              <MKTypography
+              <MKTypography2
                 component={GatsbyLink}
-                to={brand.route}
+                to={brand.url}
                 rel="noreferrer"
                 variant="caption"
                 fontWeight="regular"
               >
                 {brand.name}
-              </MKTypography>{' '}
+              </MKTypography2>{' '}
               by{' '}
-              <MKTypography
+              <MKTypography2
                 component={MaterialLink}
                 href={copyright.url}
                 target="_blank"
@@ -152,18 +143,13 @@ function DefaultFooter({ content }: DefaultFooterProps): JSX.Element {
                 fontWeight="regular"
               >
                 {copyright.name}
-              </MKTypography>
-            </MKTypography>
+              </MKTypography2>
+            </MKTypography2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
-}
-
-// Typechecking props for the DefaultFooter
-interface DefaultFooterProps {
-  content: FooterRoutes;
 }
 
 export default DefaultFooter;

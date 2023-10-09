@@ -19,8 +19,7 @@ import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 function ExampleCard({
   image,
@@ -30,8 +29,8 @@ function ExampleCard({
   ...rest
 }: ExampleCardProps): JSX.Element {
   const imageTemplate = (
-    <MKBox
-      bgColor="white"
+    <MKBox2
+      bgColor="quaternary"
       borderRadius="xl"
       shadow="lg"
       minHeight="10rem"
@@ -51,7 +50,7 @@ function ExampleCard({
       {...rest}
     >
       {pro && (
-        <MKBox position="absolute" top={0} right={0} zIndex={2} p={1}>
+        <MKBox2 position="absolute" top={0} right={0} zIndex={2} p={1}>
           <svg
             width="24px"
             height="24px"
@@ -79,9 +78,9 @@ function ExampleCard({
               </g>
             </g>
           </svg>
-        </MKBox>
+        </MKBox2>
       )}
-      <MKBox
+      <MKBox2
         component="img"
         src={image}
         alt={name}
@@ -89,11 +88,11 @@ function ExampleCard({
         my="auto"
         opacity={pro ? 0.6 : 1}
       />
-    </MKBox>
+    </MKBox2>
   );
 
   return (
-    <MKBox position="relative">
+    <MKBox2 position="relative">
       {pro ? (
         <Tooltip title="Pro Element" placement="top">
           {imageTemplate}
@@ -103,25 +102,25 @@ function ExampleCard({
       )}
 
       {name || count ? (
-        <MKBox mt={1} ml={1} lineHeight={1}>
+        <MKBox2 mt={1} ml={1} lineHeight={1}>
           {name && (
-            <MKTypography variant="h6" fontWeight="bold">
+            <MKTypography2 variant="h6" fontWeight="bold">
               {name}
-            </MKTypography>
+            </MKTypography2>
           )}
 
           {count && (
-            <MKTypography
+            <MKTypography2
               variant="button"
               fontWeight="regular"
               color="secondary"
             >
               {count} {count === 1 ? 'Example' : 'Examples'}
-            </MKTypography>
+            </MKTypography2>
           )}
-        </MKBox>
+        </MKBox2>
       ) : null}
-    </MKBox>
+    </MKBox2>
   );
 }
 

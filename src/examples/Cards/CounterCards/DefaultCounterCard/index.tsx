@@ -20,8 +20,7 @@ import React from 'react';
 import CountUp from 'react-countup';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 function DefaultCounterCard({
   color,
@@ -31,21 +30,21 @@ function DefaultCounterCard({
   ...rest
 }: DefaultCounterCardProps): JSX.Element {
   return (
-    <MKBox p={2} textAlign="center" lineHeight={1}>
-      <MKTypography variant="h1" color={color} textGradient>
+    <MKBox2 p={2} textAlign="center" lineHeight={1}>
+      <MKTypography2 variant="h1" color={color} textGradient>
         <CountUp end={count} duration={1} {...rest} />
-      </MKTypography>
+      </MKTypography2>
       {title && (
-        <MKTypography variant="h5" mt={2} mb={1}>
+        <MKTypography2 variant="h5" mt={2} mb={1}>
           {title}
-        </MKTypography>
+        </MKTypography2>
       )}
       {description && (
-        <MKTypography variant="body2" color="text">
+        <MKTypography2 variant="body2" color="text">
           {description}
-        </MKTypography>
+        </MKTypography2>
       )}
-    </MKBox>
+    </MKBox2>
   );
 }
 

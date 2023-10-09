@@ -22,8 +22,7 @@ import MuiLink from '@mui/material/Link';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../components';
 
 function FilledInfoCard({
   variant,
@@ -58,7 +57,7 @@ function FilledInfoCard({
   }
 
   return (
-    <MKBox
+    <MKBox2
       display={{ xs: 'block', md: 'flex' }}
       variant={variant}
       bgColor={variant === 'contained' ? 'grey-100' : color}
@@ -68,7 +67,7 @@ function FilledInfoCard({
       px={3}
     >
       {iconColor && (
-        <MKTypography
+        <MKTypography2
           display="block"
           variant="h3"
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -78,10 +77,10 @@ function FilledInfoCard({
           mt={-0.625}
         >
           {typeof icon === 'string' ? <Icon>{icon}</Icon> : icon}
-        </MKTypography>
+        </MKTypography2>
       )}
-      <MKBox pt={{ xs: 3, md: 0 }} pl={{ xs: 0, md: 2 }} lineHeight={1}>
-        <MKTypography
+      <MKBox2 pt={{ xs: 3, md: 0 }} pl={{ xs: 0, md: 2 }} lineHeight={1}>
+        <MKTypography2
           display="block"
           variant="h5"
           color={
@@ -91,8 +90,8 @@ function FilledInfoCard({
           mb={1}
         >
           {title}
-        </MKTypography>
-        <MKTypography
+        </MKTypography2>
+        <MKTypography2
           display="block"
           variant="body2"
           color={
@@ -101,10 +100,10 @@ function FilledInfoCard({
           mb={2}
         >
           {description}
-        </MKTypography>
+        </MKTypography2>
 
         {action && typeof action !== 'boolean' && action.type === 'external' ? (
-          <MKTypography
+          <MKTypography2
             component={MuiLink}
             href={action.route}
             target="_blank"
@@ -115,11 +114,11 @@ function FilledInfoCard({
             sx={buttonStyles}
           >
             {action.label} <ArrowForward sx={{ fontWeight: 'bold' }} />
-          </MKTypography>
+          </MKTypography2>
         ) : null}
 
         {action && typeof action !== 'boolean' && action.type === 'internal' ? (
-          <MKTypography
+          <MKTypography2
             component={Link}
             to={action.route}
             variant="body2"
@@ -128,10 +127,10 @@ function FilledInfoCard({
             sx={buttonStyles}
           >
             {action.label} <ArrowForward sx={{ fontWeight: 'bold' }} />
-          </MKTypography>
+          </MKTypography2>
         ) : null}
-      </MKBox>
-    </MKBox>
+      </MKBox2>
+    </MKBox2>
   );
 }
 

@@ -23,9 +23,8 @@ import MuiLink from '@mui/material/Link';
 import { SimplePaletteColorOptions } from '@mui/material/styles/createPalette';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
-import { MKTypography } from '../../../components/MKTypography';
-import { MKButton } from '../../../components/MKButton';
+import { MKBox2, MKTypography2, MKButton } from '../../../components';
+import { linearGradient, rgba } from '../../../assets/theme';
 
 function RotatingCard({
   color,
@@ -35,7 +34,7 @@ function RotatingCard({
   action,
 }: RotatingCardProps): JSX.Element {
   return (
-    <MKBox
+    <MKBox2
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -48,10 +47,7 @@ function RotatingCard({
       left={0}
       zIndex={5}
       sx={{
-        backgroundImage: ({
-          palette,
-          functions: { linearGradient, rgba },
-        }: Theme) => {
+        backgroundImage: ({ palette }: Theme) => {
           return `${linearGradient(
             rgba(
               color && palette[color]
@@ -72,17 +68,17 @@ function RotatingCard({
         transform: 'rotateY(180deg)',
       }}
     >
-      <MKBox pt={12} pb={2} px={2} textAlign="center" lineHeight={1}>
-        <MKTypography variant="h3" color="white" gutterBottom>
+      <MKBox2 pt={12} pb={2} px={2} textAlign="center" lineHeight={1}>
+        <MKTypography2 variant="h3" color="white" gutterBottom>
           {title}
-        </MKTypography>
+        </MKTypography2>
 
-        <MKTypography variant="body2" color="white" opacity={0.8}>
+        <MKTypography2 variant="body2" color="white" opacity={0.8}>
           {description}
-        </MKTypography>
+        </MKTypography2>
 
         {action && (
-          <MKBox width="50%" mt={4} mb={2} mx="auto">
+          <MKBox2 width="50%" mt={4} mb={2} mx="auto">
             {action.type === 'external' ? (
               <MKButton
                 component={MuiLink}
@@ -106,10 +102,10 @@ function RotatingCard({
                 {action.label}
               </MKButton>
             )}
-          </MKBox>
+          </MKBox2>
         )}
-      </MKBox>
-    </MKBox>
+      </MKBox2>
+    </MKBox2>
   );
 }
 

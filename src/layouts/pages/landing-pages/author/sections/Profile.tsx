@@ -21,9 +21,12 @@ import Grid from '@mui/material/Grid';
 import { ArrowForward } from '@mui/icons-material';
 
 // Material Kit 2 React components
-import { MKBox, MKAvatar } from '../../../../../components';
-import { MKButton } from '../../../../../components/MKButton';
-import { MKTypography } from '../../../../../components/MKTypography';
+import {
+  MKBox2,
+  MKTypography2,
+  MKAvatar,
+  MKButton,
+} from '../../../../../components';
 
 // Images
 import profilePicture from '../../../../../assets/images/bruce-mars.jpg';
@@ -31,80 +34,80 @@ import { Link } from '@mui/material';
 
 function Profile(): JSX.Element {
   return (
-    <MKBox component="section" py={{ xs: 6, sm: 12 }}>
+    <MKBox2 component="section" py={{ xs: 6, sm: 12 }}>
       <Container>
         <Grid container item xs={12} justifyContent="center" mx="auto">
-          <MKBox mt={{ xs: -16, md: -20 }} textAlign="center">
+          <MKBox2 mt={{ xs: -16, md: -20 }} textAlign="center">
             <MKAvatar
               src={profilePicture}
               alt="Burce Mars"
               size="xxl"
               shadow="xl"
             />
-          </MKBox>
+          </MKBox2>
 
           <Grid container justifyContent="center" py={6}>
             <Grid item xs={12} md={7} mx={{ xs: 'auto', sm: 6, md: 1 }}>
-              <MKBox
+              <MKBox2
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
                 mb={1}
               >
-                <MKTypography variant="h3">Michael Roven</MKTypography>
+                <MKTypography2 variant="h3">Michael Roven</MKTypography2>
                 <MKButton variant="outlined" color="info" size="small">
                   Follow
                 </MKButton>
-              </MKBox>
+              </MKBox2>
 
               <Grid container spacing={3} mb={3}>
                 <Grid item>
-                  <MKTypography
+                  <MKTypography2
                     component="span"
                     variant="body2"
                     fontWeight="bold"
                   >
                     323
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
+                  </MKTypography2>
+                  <MKTypography2 component="span" variant="body2" color="text">
                     Posts
-                  </MKTypography>
+                  </MKTypography2>
                 </Grid>
 
                 <Grid item>
-                  <MKTypography
+                  <MKTypography2
                     component="span"
                     variant="body2"
                     fontWeight="bold"
                   >
                     3.5k
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
+                  </MKTypography2>
+                  <MKTypography2 component="span" variant="body2" color="text">
                     Followers
-                  </MKTypography>
+                  </MKTypography2>
                 </Grid>
 
                 <Grid item>
-                  <MKTypography
+                  <MKTypography2
                     component="span"
                     variant="body2"
                     fontWeight="bold"
                   >
                     260
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
+                  </MKTypography2>
+                  <MKTypography2 component="span" variant="body2" color="text">
                     Following
-                  </MKTypography>
+                  </MKTypography2>
                 </Grid>
               </Grid>
 
-              <MKTypography variant="body1" fontWeight="light" color="text">
+              <MKTypography2 variant="body1" fontWeight="light" color="text">
                 Decisions: If you can't decide, the answer is no. If two equally
                 difficult paths, choose the one more painful in the short term
                 (pain avoidance is creating an illusion of equality). Choose the
                 path that leaves you more equanimous.
                 <br />
-                <MKTypography
+                <MKTypography2
                   component={Link}
                   href="#"
                   variant="body1"
@@ -130,13 +133,13 @@ function Profile(): JSX.Element {
                 >
                   More about me
                   <ArrowForward sx={{ fontWeight: 'bold' }} />
-                </MKTypography>
-              </MKTypography>
+                </MKTypography2>
+              </MKTypography2>
             </Grid>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

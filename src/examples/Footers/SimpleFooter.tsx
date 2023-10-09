@@ -20,14 +20,10 @@ import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 
 // Material Kit 2 React components
-import { MKBox } from '../../components/MKBox';
-import { MKTypography } from '../../components/MKTypography';
-
-// Material Kit 2 React base styles
-import typography from '../../assets/theme/base/typography';
+import { LinkContent, MKBox2, MKTypography2 } from '../../components';
 
 import React from 'react';
-import { Link } from '../../types';
+import { fontSize } from '../../assets/theme';
 
 function SimpleFooter({
   company,
@@ -35,69 +31,68 @@ function SimpleFooter({
   light,
 }: SimpleFooterProps): JSX.Element {
   const { href, name } = company ?? { href: '#', name: 'Creative Tim' };
-  const { size } = typography;
 
   const renderLinks = (): undefined | JSX.Element[] =>
     links &&
     links.map((link, key) => (
-      <MKBox
+      <MKBox2
         key={link.name}
         component="li"
         pl={key === 0 ? 0 : 2}
         pr={key === links.length - 1 ? 0 : 2}
         lineHeight={1}
       >
-        <MuiLink href={link.href} target="_blank">
-          <MKTypography
+        <MuiLink href={link.url} target="_blank">
+          <MKTypography2
             variant="button"
             fontWeight="regular"
             color={light ? 'white' : 'text'}
           >
             {link.name}
-          </MKTypography>
+          </MKTypography2>
         </MuiLink>
-      </MKBox>
+      </MKBox2>
     ));
 
   return (
     <Container>
-      <MKBox
+      <MKBox2
         width="100%"
         display="flex"
         flexDirection={{ xs: 'column', lg: 'row' }}
         justifyContent="space-between"
         alignItems="center"
       >
-        <MKBox
+        <MKBox2
           display="flex"
           justifyContent="center"
           alignItems="center"
           flexWrap="wrap"
           color={light ? 'white' : 'text'}
-          fontSize={size.sm}
+          fontSize={fontSize.sm}
         >
           &copy; {new Date().getFullYear()}, made with
-          <MKBox
-            fontSize={size.md}
+          <MKBox2
+            fontSize={fontSize.md}
             color={light ? 'white' : 'text'}
             mb={-0.5}
             mx={0.25}
           >
             <Favorite color="inherit" fontSize="inherit" />
-          </MKBox>
+          </MKBox2>
           by
           <MuiLink href={href} target="_blank">
-            <MKTypography
+            <MKTypography2
               variant="button"
               fontWeight="medium"
               color={light ? 'white' : 'dark'}
             >
               &nbsp;{name}&nbsp;
-            </MKTypography>
+            </MKTypography2>
           </MuiLink>
           for a better web.
-        </MKBox>
-        <MKBox
+        </MKBox2>
+        <MKBox2
           component="ul"
           sx={({ breakpoints }) => ({
             display: 'flex',
@@ -115,8 +110,8 @@ function SimpleFooter({
           })}
         >
           {renderLinks()}
-        </MKBox>
-      </MKBox>
+        </MKBox2>
+      </MKBox2>
     </Container>
   );
 }
@@ -136,7 +131,7 @@ SimpleFooter.defaultProps = {
 // Typechecking props for the SimpleFooter
 interface SimpleFooterProps {
   company?: { href: string; name: string };
-  links?: Omit<Link, 'description' | 'route'>[];
+  links?: Omit<LinkContent, 'description' | 'route'>[];
   light?: boolean;
 }
 

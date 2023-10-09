@@ -29,7 +29,13 @@ const style = {
   },
 };
 
-const GridItem = ({ classes, children, className, ...rest }): JSX.Element => (
+const GridItem = ({
+  classes,
+  children,
+  className,
+  ...rest
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+any): JSX.Element => (
   <Grid item {...rest} className={classes.grid + ' ' + className}>
     {children}
   </Grid>

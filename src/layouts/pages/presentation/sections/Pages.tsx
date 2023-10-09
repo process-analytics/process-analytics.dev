@@ -20,9 +20,7 @@ import Grid from '@mui/material/Grid';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKBadge } from '../../../../components/MKBadge';
-import { MKTypography } from '../../../../components/MKTypography';
+import { MKBox2, MKTypography2, MKBadge } from '../../../../components';
 
 // Presentation page components
 import ExampleCard from '../components/ExampleCard';
@@ -47,7 +45,7 @@ function Pages(): JSX.Element {
   ));
 
   return (
-    <MKBox component="section" py={6}>
+    <MKBox2 component="section" py={6}>
       <Container>
         <Grid
           container
@@ -68,14 +66,14 @@ function Pages(): JSX.Element {
             sx={{ mb: 2 }}
           />
 
-          <MKTypography variant="h2" fontWeight="bold">
+          <MKTypography2 variant="h2" fontWeight="bold">
             With our coded pages
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography variant="body1" color="text">
+          <MKTypography2 variant="body1" color="text">
             The easiest way to get started is to use one of our
             <br /> pre-built example pages.
-          </MKTypography>
+          </MKTypography2>
         </Grid>
       </Container>
 
@@ -88,12 +86,12 @@ function Pages(): JSX.Element {
           </Grid>
 
           <Grid item xs={12} lg={3}>
-            <MKBox position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
-              <MKTypography variant="h3" fontWeight="bold" mb={1}>
+            <MKBox2 position="sticky" top="100px" pb={{ xs: 2, lg: 6 }}>
+              <MKTypography2 variant="h3" fontWeight="bold" mb={1}>
                 Presentation Pages for Company, Landing Pages, Blogs and Support
-              </MKTypography>
+              </MKTypography2>
 
-              <MKTypography
+              <MKTypography2
                 variant="body2"
                 fontWeight="regular"
                 color="secondary"
@@ -102,12 +100,12 @@ function Pages(): JSX.Element {
               >
                 These is just a small selection of the multiple possibitilies
                 you have. Focus on the business, not on the design.
-              </MKTypography>
-            </MKBox>
+              </MKTypography2>
+            </MKBox2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

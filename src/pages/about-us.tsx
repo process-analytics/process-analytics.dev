@@ -33,12 +33,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Material Kit 2 React components
-import { MKBox } from '../components/MKBox';
-import { MKTypography } from '../components/MKTypography';
-import { MKButton } from '../components/MKButton';
+import { MKBox2, MKTypography2, MKButton, Navbar } from '../components';
 
 // Material Kit 2 React examples
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
 
 // About Us page sections
@@ -51,7 +48,13 @@ import Newsletter from '../layouts/pages/landing-pages/about-us/sections/Newslet
 import { footerRoutes } from '../footer.routes';
 import { routes } from '../routes';
 
-import { theme } from '../assets/theme';
+import {
+  boxShadows,
+  fontSize,
+  linearGradient,
+  rgba,
+  theme,
+} from '../assets/theme';
 
 // Images
 import bgImage from '../assets/images/bg-about-us.jpg';
@@ -59,28 +62,24 @@ import bgImage from '../assets/images/bg-about-us.jpg';
 const AboutPage = (): JSX.Element => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <DefaultNavbar
-      routes={routes}
+    <Navbar
+      routeContent={routes}
       action={{
         type: 'external',
-        route: 'https://www.creative-tim.com/product/material-kit-react',
+        url: 'https://www.creative-tim.com/product/material-kit-react',
         label: 'free download',
-        color: 'default',
       }}
+      color="primary"
       isTransparent
-      light
     />
-    <MKBox
+    <MKBox2
       minHeight="75vh"
       width="100%"
       sx={{
-        backgroundImage: ({
-          functions: { linearGradient, rgba },
-          palette: { dark, grey },
-        }: Theme) =>
+        backgroundImage: ({ palette: { primary, grey } }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.6),
-            rgba(dark.dark, 0.6),
+            rgba(primary.dark, 0.6),
           )}, url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -99,19 +98,19 @@ const AboutPage = (): JSX.Element => (
           flexDirection="column"
           sx={{ mx: 'auto', textAlign: 'center' }}
         >
-          <MKTypography
+          <MKTypography2
             variant="h1"
             color="white"
-            sx={({ breakpoints, typography }) => ({
+            sx={({ breakpoints }) => ({
               [breakpoints.down('md')]: {
-                fontSize: typography.size['3xl'],
+                fontSize: fontSize['3xl'],
               },
             })}
           >
             Work with an amazing design
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography
+          <MKTypography2
             variant="body1"
             color="white"
             opacity={0.8}
@@ -120,7 +119,7 @@ const AboutPage = (): JSX.Element => (
           >
             We&apos;re constantly trying to express ourselves and actualize our
             dreams. If you have the opportunity to play this game
-          </MKTypography>
+          </MKTypography2>
 
           <MKButton
             color="default"
@@ -129,12 +128,12 @@ const AboutPage = (): JSX.Element => (
             create account
           </MKButton>
 
-          <MKTypography variant="h6" color="white" mt={8} mb={1}>
+          <MKTypography2 variant="h6" color="white" mt={8} mb={1}>
             Find us on
-          </MKTypography>
+          </MKTypography2>
 
-          <MKBox display="flex" justifyContent="center" alignItems="center">
-            <MKTypography
+          <MKBox2 display="flex" justifyContent="center" alignItems="center">
+            <MKTypography2
               component={Link}
               variant="body1"
               color="white"
@@ -142,9 +141,9 @@ const AboutPage = (): JSX.Element => (
               mr={3}
             >
               <FontAwesomeIcon icon={faFacebook} />
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography
+            <MKTypography2
               component={Link}
               variant="body1"
               color="white"
@@ -152,9 +151,9 @@ const AboutPage = (): JSX.Element => (
               mr={3}
             >
               <FontAwesomeIcon icon={faInstagram} />
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography
+            <MKTypography2
               component={Link}
               variant="body1"
               color="white"
@@ -162,27 +161,27 @@ const AboutPage = (): JSX.Element => (
               mr={3}
             >
               <FontAwesomeIcon icon={faTwitter} />
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography
+            <MKTypography2
               component={Link}
               variant="body1"
               color="white"
               href="#"
             >
               <FontAwesomeIcon icon={faGooglePlus} />
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
     <Card
       sx={{
         p: 2,
         mx: { xs: 2, lg: 3 },
         mt: -8,
         mb: 4,
-        boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
+        boxShadow: boxShadows.xxl,
       }}
     >
       <Information />
@@ -191,9 +190,9 @@ const AboutPage = (): JSX.Element => (
       <Newsletter />
     </Card>
 
-    <MKBox pt={6} px={1} mt={6}>
+    <MKBox2 pt={6} px={1} mt={6}>
       <DefaultFooter content={footerRoutes} />
-    </MKBox>
+    </MKBox2>
   </ThemeProvider>
 );
 

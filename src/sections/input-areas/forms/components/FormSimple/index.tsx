@@ -22,10 +22,12 @@ import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKInput } from '../../../../../components/MKInput';
-import { MKButton } from '../../../../../components/MKButton';
-import { MKTypography } from '../../../../../components/MKTypography';
+import {
+  MKBox2,
+  MKInput,
+  MKButton,
+  MKTypography2,
+} from '../../../../../components';
 
 import React from 'react';
 import { Link } from '@mui/material';
@@ -35,7 +37,7 @@ function FormSimple(): JSX.Element {
   const handleChecked = (): void => setChecked(!checked);
 
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid
           container
@@ -46,14 +48,19 @@ function FormSimple(): JSX.Element {
           mx="auto"
           textAlign="center"
         >
-          <MKTypography variant="h3" mb={1}>
+          <MKTypography2 variant="h3" mb={1}>
             Contact Us
-          </MKTypography>
+          </MKTypography2>
         </Grid>
 
         <Grid container item xs={12} lg={7} sx={{ mx: 'auto' }}>
-          <MKBox width="100%" component="form" method="post" autocomplete="off">
-            <MKBox p={3}>
+          <MKBox2
+            width="100%"
+            component="form"
+            method="post"
+            autocomplete="off"
+          >
+            <MKBox2 p={3}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
                   <MKInput variant="standard" label="First Name" fullWidth />
@@ -85,7 +92,7 @@ function FormSimple(): JSX.Element {
                 <Grid item xs={12} alignItems="center" ml={-1}>
                   <Switch checked={checked} onChange={handleChecked} />
 
-                  <MKTypography
+                  <MKTypography2
                     variant="button"
                     fontWeight="regular"
                     color="text"
@@ -94,9 +101,9 @@ function FormSimple(): JSX.Element {
                     onClick={handleChecked}
                   >
                     &nbsp;&nbsp;I agree the&nbsp;
-                  </MKTypography>
+                  </MKTypography2>
 
-                  <MKTypography
+                  <MKTypography2
                     component={Link}
                     href="#"
                     variant="button"
@@ -104,7 +111,7 @@ function FormSimple(): JSX.Element {
                     color="dark"
                   >
                     Terms and Conditions
-                  </MKTypography>
+                  </MKTypography2>
                 </Grid>
               </Grid>
 
@@ -112,17 +119,17 @@ function FormSimple(): JSX.Element {
                 <MKButton
                   type="submit"
                   variant="gradient"
-                  color="dark"
+                  color="secondary"
                   fullWidth
                 >
                   Send Message
                 </MKButton>
               </Grid>
-            </MKBox>
-          </MKBox>
+            </MKBox2>
+          </MKBox2>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

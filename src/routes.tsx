@@ -43,70 +43,43 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ViewDayIcon from '@mui/icons-material/ViewDay';
 import ArticleIcon from '@mui/icons-material/Article';
 
-// Pages
-import AboutUs from './pages/about-us';
-import ContactUs from './pages/contact-us';
-import Author from './pages/author';
-import SignIn from './pages/sign-in';
-
-// Sections
-import PageHeaders from './sections/page-sections/page-headers';
-import Features from './sections/page-sections/features';
-import Navbars from './sections/navigation/navbars';
-import NavTabs from './sections/navigation/nav-tabs';
-import Pagination from './sections/navigation/pagination';
-import Inputs from './sections/input-areas/inputs';
-import Forms from './sections/input-areas/forms';
-import Alerts from './sections/attention-catchers/alerts';
-import Modals from './sections/attention-catchers/modals';
-import TooltipsPopovers from './sections/attention-catchers/tooltips-popovers';
-import Avatars from './sections/elements/avatars';
-import Badges from './sections/elements/badges';
-import BreadcrumbsEl from './sections/elements/breadcrumbs';
-import Buttons from './sections/elements/buttons';
-import Dropdowns from './sections/elements/dropdowns';
-import ProgressBars from './sections/elements/progress-bars';
-import Toggles from './sections/elements/toggles';
-import Typography from './sections/elements/typography';
-
 import React from 'react';
-
-import { HeaderRoute } from './types';
+import { HeaderRoute } from './components/Header';
 
 export const routes: HeaderRoute[] = [
   {
     name: 'pages',
     icon: <DashboardIcon />,
-    columns: 1,
+    withColumns: true,
     rowsPerColumn: 2,
-    menu: [
+    menus: [
       {
         name: 'landing pages',
-        subItems: [
+        items: [
           {
             name: 'about us',
-            route: '/LandingPages/AboutUs',
-            component: <AboutUs />,
+            url: '/LandingPages/AboutUs',
+            type: 'internal',
           },
           {
             name: 'contact us',
-            route: '/LandingPages/ContactUs',
-            component: <ContactUs />,
+            url: '/LandingPages/ContactUs',
+            type: 'internal',
           },
           {
             name: 'author',
-            route: '/LandingPages/Author',
-            component: <Author />,
+            url: '/LandingPages/Author',
+            type: 'internal',
           },
         ],
       },
       {
         name: 'account',
-        subItems: [
+        items: [
           {
             name: 'sign in',
-            route: '/LandingPages/SignIn',
-            component: <SignIn />,
+            url: '/LandingPages/SignIn',
+            type: 'internal',
           },
         ],
       },
@@ -115,129 +88,124 @@ export const routes: HeaderRoute[] = [
   {
     name: 'sections',
     icon: <ViewDayIcon />,
-    menu: [
+    menus: [
       {
         name: 'page sections',
         description: 'See all sections',
-        dropdown: true,
-        subItems: [
+        items: [
           {
             name: 'page headers',
-            route: '/sections/page-sections/page-headers',
-            component: <PageHeaders />,
+            url: '/sections/page-sections/page-headers',
+            type: 'internal',
           },
           {
             name: 'features',
-            route: '/sections/page-sections/features',
-            component: <Features />,
+            url: '/sections/page-sections/features',
+            type: 'internal',
           },
         ],
       },
       {
         name: 'navigation',
         description: 'See all navigations',
-        dropdown: true,
-        subItems: [
+        items: [
           {
             name: 'navbars',
-            route: '/sections/navigation/navbars',
-            component: <Navbars />,
+            url: '/sections/navigation/navbars',
+            type: 'internal',
           },
           {
             name: 'nav tabs',
-            route: '/sections/navigation/nav-tabs',
-            component: <NavTabs />,
+            url: '/sections/navigation/nav-tabs',
+            type: 'internal',
           },
           {
             name: 'pagination',
-            route: '/sections/navigation/pagination',
-            component: <Pagination />,
+            url: '/sections/navigation/pagination',
+            type: 'internal',
           },
         ],
       },
       {
         name: 'input areas',
         description: 'See all input areas',
-        dropdown: true,
-        subItems: [
+        items: [
           {
             name: 'inputs',
-            route: '/sections/input-areas/inputs',
-            component: <Inputs />,
+            url: '/sections/input-areas/inputs',
+            type: 'internal',
           },
           {
             name: 'forms',
-            route: '/sections/input-areas/forms',
-            component: <Forms />,
+            url: '/sections/input-areas/forms',
+            type: 'internal',
           },
         ],
       },
       {
         name: 'attention catchers',
         description: 'See all examples',
-        dropdown: true,
-        subItems: [
+        items: [
           {
             name: 'alerts',
-            route: '/sections/attention-catchers/alerts',
-            component: <Alerts />,
+            url: '/sections/attention-catchers/alerts',
+            type: 'internal',
           },
           {
             name: 'modals',
-            route: '/sections/attention-catchers/modals',
-            component: <Modals />,
+            url: '/sections/attention-catchers/modals',
+            type: 'internal',
           },
           {
             name: 'tooltips & popovers',
-            route: '/sections/attention-catchers/tooltips-popovers',
-            component: <TooltipsPopovers />,
+            url: '/sections/attention-catchers/tooltips-popovers',
+            type: 'internal',
           },
         ],
       },
       {
         name: 'elements',
         description: 'See all 32 examples',
-        dropdown: true,
-        subItems: [
+        items: [
           {
             name: 'avatars',
-            route: '/sections/elements/avatars',
-            component: <Avatars />,
+            url: '/sections/elements/avatars',
+            type: 'internal',
           },
           {
             name: 'badges',
-            route: '/sections/elements/badges',
-            component: <Badges />,
+            url: '/sections/elements/badges',
+            type: 'internal',
           },
           {
             name: 'breadcrumbs',
-            route: '/sections/elements/breadcrumbs',
-            component: <BreadcrumbsEl />,
+            url: '/sections/elements/breadcrumbs',
+            type: 'internal',
           },
           {
             name: 'buttons',
-            route: '/sections/elements/buttons',
-            component: <Buttons />,
+            url: '/sections/elements/buttons',
+            type: 'internal',
           },
           {
             name: 'dropdowns',
-            route: '/sections/elements/dropdowns',
-            component: <Dropdowns />,
+            url: '/sections/elements/dropdowns',
+            type: 'internal',
           },
           {
             name: 'progress bars',
-            route: '/sections/elements/progress-bars',
-            component: <ProgressBars />,
+            url: '/sections/elements/progress-bars',
+            type: 'internal',
           },
           {
             name: 'toggles',
-            route: '/sections/elements/toggles',
-            component: <Toggles />,
+            url: '/sections/elements/toggles',
+            type: 'internal',
           },
           {
             name: 'typography',
-            route: '/sections/elements/typography',
-            component: <Typography />,
+            url: '/sections/elements/typography',
+            type: 'internal',
           },
         ],
       },
@@ -246,32 +214,37 @@ export const routes: HeaderRoute[] = [
   {
     name: 'docs',
     icon: <ArticleIcon />,
-    menu: [
+    menus: [
       {
         name: 'getting started',
         description: 'All about overview, quick start, license and contents',
-        href: 'https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/',
+        type: 'external',
       },
       {
         name: 'foundation',
         description: 'See our colors, icons and typography',
-        href: 'https://www.creative-tim.com/learning-lab/react/colors/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/colors/material-kit/',
+        type: 'external',
       },
       {
         name: 'components',
         description: 'Explore our collection of fully designed components',
-        href: 'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/alerts/material-kit/',
+        type: 'external',
       },
       {
         name: 'plugins',
         description: 'Check how you can integrate our plugins',
-        href: 'https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/',
+        url: 'https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/',
+        type: 'external',
       },
     ],
   },
   {
     name: 'github',
     icon: <GitHubIcon />,
-    href: 'https://www.github.com/creativetimofficial/material-kit-react',
+    url: 'https://www.github.com/creativetimofficial/material-kit-react',
+    type: 'external',
   },
 ];

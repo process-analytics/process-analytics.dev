@@ -64,7 +64,7 @@ type NavbarStyleProps = {
 };
 
 type CommonProps = {
-  brandContent: BrandContent;
+  brandContent?: BrandContent;
   routeContent: HeaderRoute[];
   action: Action;
   dropdownStyle?: DropdownStyle;

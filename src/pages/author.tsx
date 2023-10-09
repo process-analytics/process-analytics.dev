@@ -20,13 +20,10 @@ import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { theme } from '../assets/theme';
+import { boxShadows, linearGradient, rgba, theme } from '../assets/theme';
 
 // Material Kit 2 React components
-import { MKBox } from '../components/MKBox';
-
-// Material Kit 2 React examples
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
+import { MKBox2, Navbar } from '../components';
 
 // Author page sections
 import Profile from '../layouts/pages/landing-pages/author/sections/Profile';
@@ -44,30 +41,27 @@ import React from 'react';
 const AuthorPage = (): JSX.Element => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <DefaultNavbar
-      routes={routes}
+    <Navbar
+      routeContent={routes}
       action={{
         type: 'external',
-        route: 'https://www.creative-tim.com/product/material-kit-react',
+        url: 'https://www.creative-tim.com/product/material-kit-react',
         label: 'free download',
         color: 'info',
       }}
+      color="primary"
       isTransparent
-      light
     />
 
-    <MKBox bgColor="white">
-      <MKBox
+    <MKBox2 bgColor="quaternary">
+      <MKBox2
         minHeight="25rem"
         width="100%"
         sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { dark, grey },
-          }: Theme) =>
+          backgroundImage: ({ palette: { primary, grey } }: Theme) =>
             `${linearGradient(
               rgba(grey?.A700, 0.8),
-              rgba(dark.dark, 0.8),
+              rgba(primary.dark, 0.8),
             )}, url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -81,10 +75,9 @@ const AuthorPage = (): JSX.Element => (
           mx: { xs: 2, lg: 3 },
           mt: -8,
           mb: 4,
-          backgroundColor: ({ functions: { rgba } }: Theme) =>
-            rgba('white', 0.8),
+          backgroundColor: rgba('white', 0.8),
           backdropFilter: 'saturate(200%) blur(30px)',
-          boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
+          boxShadow: boxShadows.xxl,
         }}
       >
         <Profile />
@@ -92,7 +85,7 @@ const AuthorPage = (): JSX.Element => (
       </Card>
       <Contact />
       <Footer />
-    </MKBox>
+    </MKBox2>
   </ThemeProvider>
 );
 

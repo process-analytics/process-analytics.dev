@@ -19,8 +19,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 // Material Kit 2 React components
 import TransparentBlogCard from '../../../../../examples/Cards/BlogCards/TransparentBlogCard';
@@ -36,12 +35,12 @@ import React from 'react';
 
 function Places(): JSX.Element {
   return (
-    <MKBox component="section" py={2}>
+    <MKBox2 component="section" py={2}>
       <Container>
         <Grid container item xs={12} lg={6}>
-          <MKTypography variant="h3" mb={6}>
+          <MKTypography2 variant="h3" mb={6}>
             Check my latest blogposts
-          </MKTypography>
+          </MKTypography2>
         </Grid>
 
         <Grid container spacing={3}>
@@ -101,7 +100,7 @@ function Places(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

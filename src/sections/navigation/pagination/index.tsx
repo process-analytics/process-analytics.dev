@@ -22,7 +22,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../assets/theme';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../components/MKBox';
+import { MKBox2 } from '../../../components';
 
 // Sections components
 import BaseLayout from '../../components/BaseLayout';
@@ -47,12 +47,12 @@ function Pagination(): JSX.Element {
         ]}
       >
         <View title="Pagination simple" code={paginationSimpleCode}>
-          <MKBox py={3}>
+          <MKBox2 py={3}>
             <PaginationSimple />
-          </MKBox>
+          </MKBox2>
         </View>
         <View title="Pagination from Material UI Kit V1" code={''}>
-          <MKBox py={3}>
+          <MKBox2 py={3}>
             <Paginations
               pages={[
                 { text: 1 },
@@ -66,8 +66,8 @@ function Pagination(): JSX.Element {
                 { text: 12 },
               ]}
             />
-          </MKBox>
-          <MKBox py={3}>
+          </MKBox2>
+          <MKBox2 py={3}>
             <Paginations
               pages={[
                 { text: 'PREV' },
@@ -80,7 +80,7 @@ function Pagination(): JSX.Element {
               ]}
               color="info"
             />
-          </MKBox>
+          </MKBox2>
         </View>
       </BaseLayout>
     </ThemeProvider>

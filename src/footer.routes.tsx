@@ -20,32 +20,37 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-import { FooterRoutes } from './types';
+import { FooterContent } from './components';
 
 // Images
 import logoCT from './assets/images/logo-ct-dark.png';
 
-export const footerRoutes: FooterRoutes = {
+export const footerRoutes: FooterContent = {
   brand: {
     name: 'Material Kit 2',
-    image: logoCT,
-    route: '/',
+    logo: { primary: logoCT, light: logoCT },
+    url: '/',
+    type: 'internal',
   },
   copyright: { name: 'Material Kit', url: 'https://www.creative-tim.com' },
   socials: [
     {
+      name: 'facebook',
       icon: <FacebookIcon />,
       url: 'https://www.facebook.com/CreativeTim/',
     },
     {
+      name: 'twitter',
       icon: <TwitterIcon />,
       url: 'https://twitter.com/creativetim',
     },
     {
+      name: 'github',
       icon: <GitHubIcon />,
       url: 'https://github.com/creativetimofficial',
     },
     {
+      name: 'youtube',
       icon: <YouTubeIcon />,
       url: 'https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w',
     },
@@ -56,27 +61,43 @@ export const footerRoutes: FooterRoutes = {
       items: [
         {
           name: 'about us',
-          route: 'https://www.creative-tim.com/presentation',
+          url: 'https://www.creative-tim.com/presentation',
+          type: 'external',
         },
         {
           name: 'freebies',
-          route: 'https://www.creative-tim.com/templates/free',
+          url: 'https://www.creative-tim.com/templates/free',
+          type: 'external',
         },
         {
           name: 'premium tools',
-          route: 'https://www.creative-tim.com/templates/premium',
+          url: 'https://www.creative-tim.com/templates/premium',
+          type: 'external',
         },
-        { name: 'blog', route: 'https://www.creative-tim.com/blog' },
+        {
+          name: 'blog',
+          url: 'https://www.creative-tim.com/blog',
+          type: 'external',
+        },
       ],
     },
     {
       name: 'resources',
       items: [
-        { name: 'illustrations', route: 'https://iradesign.io/' },
-        { name: 'bits & snippets', route: 'https://www.creative-tim.com/bits' },
+        {
+          name: 'illustrations',
+          url: 'https://iradesign.io/',
+          type: 'external',
+        },
+        {
+          name: 'bits & snippets',
+          url: 'https://www.creative-tim.com/bits',
+          type: 'external',
+        },
         {
           name: 'affiliate program',
-          route: 'https://www.creative-tim.com/affiliates/new',
+          url: 'https://www.creative-tim.com/affiliates/new',
+          type: 'external',
         },
       ],
     },
@@ -85,19 +106,23 @@ export const footerRoutes: FooterRoutes = {
       items: [
         {
           name: 'contact us',
-          route: 'https://www.creative-tim.com/contact-us',
+          url: 'https://www.creative-tim.com/contact-us',
+          type: 'external',
         },
         {
           name: 'knowledge center',
-          route: 'https://www.creative-tim.com/knowledge-center',
+          url: 'https://www.creative-tim.com/knowledge-center',
+          type: 'external',
         },
         {
           name: 'custom development',
-          route: 'https://services.creative-tim.com/',
+          url: 'https://services.creative-tim.com/',
+          type: 'external',
         },
         {
           name: 'sponsorships',
-          route: 'https://www.creative-tim.com/sponsorships',
+          url: 'https://www.creative-tim.com/sponsorships',
+          type: 'external',
         },
       ],
     },
@@ -106,15 +131,18 @@ export const footerRoutes: FooterRoutes = {
       items: [
         {
           name: 'terms & conditions',
-          route: 'https://www.creative-tim.com/terms',
+          url: 'https://www.creative-tim.com/terms',
+          type: 'external',
         },
         {
           name: 'privacy policy',
-          route: 'https://www.creative-tim.com/privacy',
+          url: 'https://www.creative-tim.com/privacy',
+          type: 'external',
         },
         {
           name: 'licenses (EULA)',
-          route: 'https://www.creative-tim.com/license',
+          url: 'https://www.creative-tim.com/license',
+          type: 'external',
         },
       ],
     },

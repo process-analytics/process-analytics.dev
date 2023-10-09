@@ -21,12 +21,11 @@ import Stack from '@mui/material/Stack';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
+import { MKBox2, MKButton } from '../../../../../components';
 
 function ButtonsOutlined(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="flex-end" spacing={1}>
@@ -48,19 +47,19 @@ function ButtonsOutlined(): JSX.Element {
             <MKButton variant="outlined" color="error">
               error
             </MKButton>
-            <MKButton variant="outlined" color="light">
+            {/*            <MKButton variant="outlined" color="light">
               light
             </MKButton>
             <MKButton variant="outlined" color="dark">
               dark
-            </MKButton>
+            </MKButton>*/}
             <MKButton variant="outlined" color="white">
               white
             </MKButton>
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

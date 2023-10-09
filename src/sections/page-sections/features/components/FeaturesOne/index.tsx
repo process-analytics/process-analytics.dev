@@ -29,25 +29,24 @@ import {
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 function FeaturesOne(): JSX.Element {
   return (
-    <MKBox component="section" py={{ xs: 3, md: 12 }}>
+    <MKBox2 component="section" py={{ xs: 3, md: 12 }}>
       <Container>
         <Grid container alignItems="center">
           <Grid item xs={12} lg={5}>
-            <MKTypography variant="h3" my={1}>
+            <MKTypography2 variant="h3" my={1}>
               Read More About Us
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography variant="body2" color="text" mb={2}>
+            <MKTypography2 variant="body2" color="text" mb={2}>
               Pain is what we go through as we become older. We get insulted by
               others, lose trust for those others. We get back stabbed by
               friends. It becomes harder for us to give others a hand.
-            </MKTypography>
-            <MKTypography
+            </MKTypography2>
+            <MKTypography2
               component={Link}
               href="#"
               variant="body2"
@@ -72,7 +71,7 @@ function FeaturesOne(): JSX.Element {
             >
               More about us
               <ArrowForward sx={{ fontWeight: 'bold' }} />
-            </MKTypography>
+            </MKTypography2>
           </Grid>
 
           <Grid
@@ -82,8 +81,8 @@ function FeaturesOne(): JSX.Element {
             sx={{ ml: { xs: -2, lg: 'auto' }, mt: { xs: 6, lg: 0 } }}
           >
             <Stack>
-              <MKBox display="flex" alignItems="center" p={2}>
-                <MKBox
+              <MKBox2 display="flex" alignItems="center" p={2}>
+                <MKBox2
                   width="3rem"
                   height="3rem"
                   variant="gradient"
@@ -96,17 +95,17 @@ function FeaturesOne(): JSX.Element {
                   borderRadius="xl"
                 >
                   <Mediation fontSize="small" />
-                </MKBox>
+                </MKBox2>
 
-                <MKTypography variant="body2" color="text" pl={2}>
+                <MKTypography2 variant="body2" color="text" pl={2}>
                   It becomes harder for us to give others a hand.
                   <br />
                   We get our heart broken by people we love.
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
 
-              <MKBox display="flex" alignItems="center" p={2}>
-                <MKBox
+              <MKBox2 display="flex" alignItems="center" p={2}>
+                <MKBox2
                   width="3rem"
                   height="3rem"
                   variant="gradient"
@@ -119,17 +118,17 @@ function FeaturesOne(): JSX.Element {
                   borderRadius="xl"
                 >
                   <SettingsOverscan fontSize="small" />
-                </MKBox>
+                </MKBox2>
 
-                <MKTypography variant="body2" color="text" pl={2}>
+                <MKTypography2 variant="body2" color="text" pl={2}>
                   As we live, our hearts turn colder.
                   <br />
                   Cause pain is what we go through as we become older.
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
 
-              <MKBox display="flex" alignItems="center" p={2}>
-                <MKBox
+              <MKBox2 display="flex" alignItems="center" p={2}>
+                <MKBox2
                   width="3rem"
                   height="3rem"
                   variant="gradient"
@@ -142,19 +141,19 @@ function FeaturesOne(): JSX.Element {
                   borderRadius="xl"
                 >
                   <Token fontSize="small" />
-                </MKBox>
+                </MKBox2>
 
-                <MKTypography variant="body2" color="text" pl={2}>
+                <MKTypography2 variant="body2" color="text" pl={2}>
                   When we lose family over time.
                   <br />
                   What else could rust the heart more over time? Blackgold.
-                </MKTypography>
-              </MKBox>
+                </MKTypography2>
+              </MKBox2>
             </Stack>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

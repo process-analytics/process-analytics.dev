@@ -35,8 +35,9 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import PrimaryLogo from 'src/assets/images/logo.svg';
+import LightLogo from 'src/assets/images/logo_white.svg';
 import DefaultInfoCard from '../examples/Cards/InfoCards/DefaultInfoCard';
-import { MKBadge } from '../components/MKBadge';
 
 import {
   faPinterest,
@@ -46,12 +47,15 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Material Kit 2 React components
-import { MKBox } from '../components/MKBox';
-import { MKTypography } from '../components/MKTypography';
-import { MKSocialButton } from '../components/MKSocialButton';
+import {
+  MKBox2,
+  MKTypography2,
+  MKSocialButton,
+  MKBadge,
+  Navbar,
+} from '../components';
 
 // Material Kit 2 React examples
-import DefaultNavbar from '../examples/Navbars/DefaultNavbar';
 import DefaultFooter from '../examples/Footers/DefaultFooter';
 import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 
@@ -60,7 +64,13 @@ import FilledInfoCard from '../examples/Cards/InfoCards/FilledInfoCard';
 // Presentation page components
 
 // Material Kit 2 React themes
-import { theme } from '../assets/theme';
+import {
+  boxShadows,
+  fontSize,
+  linearGradient,
+  rgba,
+  theme,
+} from '../assets/theme';
 
 // Routes
 import { paRooterRoutes } from '../PA-footer.routes';
@@ -73,22 +83,26 @@ import BgImg from '../assets/PA-images/bg-presentation.png';
 import DayActivitiesImg from '../assets/PA-images/woman_daily_routine.jpg';
 
 const navbar = (
-  <DefaultNavbar
-    brand="Process Analytics"
-    routes={paRoutes}
+  <Navbar
+    brandContent={{
+      type: 'internal',
+      name: 'Process Analytics',
+      logo: { primary: PrimaryLogo, light: LightLogo },
+      url: '/',
+    }}
+    routeContent={paRoutes}
     action={{
       type: 'external',
-      route:
-        'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
+      url: 'https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/master/examples/index.html',
       label: 'Demo',
       color: 'secondary',
     }}
-    sticky
+    isSticky
   />
 );
 
 const header = (
-  <MKBox
+  <MKBox2
     minHeight="75vh"
     width="100%"
     sx={{
@@ -101,20 +115,20 @@ const header = (
   >
     <Container>
       <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
-        <MKTypography
+        <MKTypography2
           variant="h1"
           color="white"
           mt={-6}
           mb={1}
-          sx={({ breakpoints, typography }) => ({
+          sx={({ breakpoints }) => ({
             [breakpoints.down('md')]: {
-              fontSize: typography.size['3xl'],
+              fontSize: fontSize['3xl'],
             },
           })}
         >
           Process Analytics
-        </MKTypography>
-        <MKTypography
+        </MKTypography2>
+        <MKTypography2
           variant="body1"
           color="white"
           textAlign="center"
@@ -122,14 +136,14 @@ const header = (
           mt={1}
         >
           Open Source &amp; Customizable components based on BPMN 2.0
-        </MKTypography>
+        </MKTypography2>
       </Grid>
     </Container>
-  </MKBox>
+  </MKBox2>
 );
 
 const processSection = (
-  <MKBox component="section" my={6} py={6}>
+  <MKBox2 component="section" my={6} py={6}>
     <Container>
       <Grid
         container
@@ -150,25 +164,25 @@ const processSection = (
           sx={{ mb: 2 }}
         />
 
-        <MKTypography variant="h2" fontWeight="bold">
+        <MKTypography2 variant="h2" fontWeight="bold">
           Process
-        </MKTypography>
+        </MKTypography2>
 
-        <MKTypography variant="body1" color="text">
+        <MKTypography2 variant="body1" color="text">
           We can find process everywhere: in the real life, in the industry, in
           the software...
-        </MKTypography>
+        </MKTypography2>
       </Grid>
     </Container>
     <Container sx={{ mt: 6 }}>
       <Grid container spacing={3} sx={{ mb: 10 }}>
         <Grid item xs={12} lg={3} my="auto">
-          <MKBox pb={{ xs: 2, lg: 6 }}>
-            <MKTypography variant="h3" fontWeight="bold" mb={1}>
+          <MKBox2 pb={{ xs: 2, lg: 6 }}>
+            <MKTypography2 variant="h3" fontWeight="bold" mb={1}>
               Example
-            </MKTypography>
+            </MKTypography2>
 
-            <MKTypography
+            <MKTypography2
               variant="body2"
               fontWeight="regular"
               color="secondary"
@@ -176,11 +190,11 @@ const processSection = (
               pr={2}
             >
               Day Activity
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
         </Grid>
         <Grid item xs={12} lg={9}>
-          <MKBox
+          <MKBox2
             component="img"
             src={DayActivitiesImg}
             alt="pattern-lines"
@@ -193,8 +207,8 @@ const processSection = (
       </Grid>
     </Container>
     <Container sx={{ mt: 6 }}>
-      <MKBox pb={{ xs: 2, lg: 6 }} sx={{ textAlign: 'center' }}>
-        <MKTypography
+      <MKBox2 pb={{ xs: 2, lg: 6 }} sx={{ textAlign: 'center' }}>
+        <MKTypography2
           variant="h3"
           // fontWeight="bold"
           color="spicy"
@@ -202,14 +216,14 @@ const processSection = (
           pr={2}
         >
           One way to structure a process is to use the BPMN 2.0 standard.
-        </MKTypography>
-      </MKBox>
+        </MKTypography2>
+      </MKBox2>
     </Container>
-  </MKBox>
+  </MKBox2>
 );
 
 const dataSection = (
-  <MKBox component="section" my={6} py={6}>
+  <MKBox2 component="section" my={6} py={6}>
     <Container>
       <Grid
         container
@@ -230,21 +244,21 @@ const dataSection = (
           sx={{ mb: 2 }}
         />
 
-        <MKTypography variant="h2" fontWeight="bold">
+        <MKTypography2 variant="h2" fontWeight="bold">
           How generate Execution Data ?
-        </MKTypography>
+        </MKTypography2>
 
-        <MKTypography variant="body1" color="text">
+        <MKTypography2 variant="body1" color="text">
           On observe ce qui se passe et on enregistre les données. On peut en
           extraire des données communes à chaque activité/processus.
-        </MKTypography>
+        </MKTypography2>
       </Grid>
     </Container>
     {/*    <Container sx={{ mt: 6 }}>
       <Grid container spacing={3} sx={{ mb: 10 }}>
         <Grid item xs={12} lg={3}>
-          <MKBox my={2} py={6} pb={{ xs: 2, lg: 6 }}>
-            <MKTypography
+          <MKBox2 my={2} py={6} pb={{ xs: 2, lg: 6 }}>
+            <MKTypography2
               variant="body2"
               fontWeight="regular"
               color="primary"
@@ -271,8 +285,8 @@ const dataSection = (
                   des données de sortie: appel téléphonique, réponse à un client
                 </ListItem>
               </List>
-            </MKTypography>
-          </MKBox>
+            </MKTypography2>
+          </MKBox2>
         </Grid>
       </Grid>
     </Container>*/}
@@ -337,11 +351,11 @@ const dataSection = (
         </Grid>
       </Grid>
     </Container>
-  </MKBox>
+  </MKBox2>
 );
 
 const paSection = (
-  <MKBox component="section" my={6} py={6}>
+  <MKBox2 component="section" my={6} py={6}>
     <Container>
       <Grid
         container
@@ -362,33 +376,33 @@ const paSection = (
           sx={{ mb: 2 }}
         />
 
-        <MKTypography variant="h2" fontWeight="bold">
+        <MKTypography2 variant="h2" fontWeight="bold">
           Collisition entre 2 mondes
-        </MKTypography>
+        </MKTypography2>
 
-        <MKTypography variant="body1" color="text">
+        <MKTypography2 variant="body1" color="text">
           dans le monde du BPM: on est dans le cadre de processus structuré,
           cadré
-        </MKTypography>
-        <MKTypography variant="body1" color="text">
+        </MKTypography2>
+        <MKTypography2 variant="body1" color="text">
           dans le cadre de l’exemple précédent, processus implicite, non
           structuré, la donnée est brute
-        </MKTypography>
-        <MKTypography variant="body1" color="text">
+        </MKTypography2>
+        <MKTypography2 variant="body1" color="text">
           data mining: extraction et structuration de la donnée
-        </MKTypography>
-        <MKTypography variant="body1" color="text">
+        </MKTypography2>
+        <MKTypography2 variant="body1" color="text">
           process mining: faire parler les données pour faire émergé des
           processus et de nouvelles informations
-        </MKTypography>
+        </MKTypography2>
       </Grid>
     </Container>
-  </MKBox>
+  </MKBox2>
 );
 
 const componentsSection = (
-  <MKBox component="section">
-    <MKBox py={3}>
+  <MKBox2 component="section">
+    <MKBox2 py={3}>
       <Container>
         <Grid
           container
@@ -409,18 +423,18 @@ const componentsSection = (
             sx={{ mb: 2 }}
           />
 
-          <MKTypography variant="h2" fontWeight="bold">
+          <MKTypography2 variant="h2" fontWeight="bold">
             Let's talk about the components!
-          </MKTypography>
+          </MKTypography2>
         </Grid>
 
         <Grid container item xs={12} lg={9} sx={{ mx: 'auto' }}>
           <Grid item xs={12} md={4}>
-            <MKBox p={2} textAlign="center" lineHeight={1} bgColor="primary">
-              <MKTypography variant="h5" mt={2} mb={1} color="light">
+            <MKBox2 p={2} textAlign="center" lineHeight={1} bgColor="primary">
+              <MKTypography2 variant="h5" mt={2} mb={1} color="light">
                 Open Source
-              </MKTypography>
-            </MKBox>
+              </MKTypography2>
+            </MKBox2>
           </Grid>
 
           <Grid
@@ -434,11 +448,11 @@ const componentsSection = (
               orientation="vertical"
               sx={{ display: { xs: 'none', md: 'block' }, mx: 0 }}
             />
-            <MKBox p={2} textAlign="center" lineHeight={1}>
-              <MKTypography variant="h5" mt={2} mb={1} color="secondary">
+            <MKBox2 p={2} textAlign="center" lineHeight={1}>
+              <MKTypography2 variant="h5" mt={2} mb={1} color="secondary">
                 Customizable
-              </MKTypography>
-            </MKBox>
+              </MKTypography2>
+            </MKBox2>
             <Divider
               orientation="vertical"
               sx={{ display: { xs: 'none', md: 'block' }, ml: 0 }}
@@ -446,26 +460,26 @@ const componentsSection = (
           </Grid>
 
           <Grid item xs={12} md={4}>
-            <MKBox p={2} textAlign="center" lineHeight={1} bgColor="secondary">
-              <MKTypography variant="h5" mt={2} mb={1} color="light">
+            <MKBox2 p={2} textAlign="center" lineHeight={1} bgColor="secondary">
+              <MKTypography2 variant="h5" mt={2} mb={1} color="light">
                 Easy to use
-              </MKTypography>
-            </MKBox>
+              </MKTypography2>
+            </MKBox2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
-    <MKBox py={{ xs: 0, sm: 12 }}>
+    </MKBox2>
+    <MKBox2 py={{ xs: 0, sm: 12 }}>
       Example monitoring fréquence Style par défaut neutre, pour ne pas
       surcharger le rendu et facilite l’affichage des données spécifiques
-      <MKBox
+      <MKBox2
         variant="gradient"
         bgColor="dark"
         position="relative"
         borderRadius="xl"
         sx={{ overflow: 'hidden' }}
       >
-        <MKBox
+        <MKBox2
           borderRadius="xl"
           padding={1}
           component="img"
@@ -473,78 +487,78 @@ const componentsSection = (
           alt="pattern-lines"
           width="100%"
         />
-      </MKBox>
+      </MKBox2>
       <Container>
         <Grid container item xs={6} mx="auto">
-          <MKBox textAlign="center">
-            <MKTypography variant="h3" mt={6} mb={3}>
+          <MKBox2 textAlign="center">
+            <MKTypography2 variant="h3" mt={6} mb={3}>
               Available on these technologies
-            </MKTypography>
+            </MKTypography2>
 
             <Grid container spacing={3} justifyContent="center">
               <Grid item xs={4} lg={2}>
                 <Tooltip title="JavaScript">
-                  <MKBox
+                  <MKBox2
                     component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-js"
                     target="_blank"
                   >
-                    <MKBox
+                    <MKBox2
                       component="img"
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Javascript_Logo.png/640px-Javascript_Logo.png"
                       width="100%"
                     />
-                  </MKBox>
+                  </MKBox2>
                 </Tooltip>
               </Grid>
               <Grid item xs={4} lg={2}>
                 <Tooltip title="TypeScript">
-                  <MKBox
+                  <MKBox2
                     component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-js"
                     target="_blank"
                   >
-                    <MKBox
+                    <MKBox2
                       component="img"
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png?20210506173343"
                       width="100%"
                     />
-                  </MKBox>
+                  </MKBox2>
                 </Tooltip>
               </Grid>
               <Grid item xs={4} lg={2}>
                 <Tooltip title="Java">
-                  <MKBox
+                  <MKBox2
                     component={Link}
                     href="https://github.com/process-analytics/bpmn-layout-generators"
                     target="_blank"
                   >
-                    <MKBox
+                    <MKBox2
                       component="img"
                       src="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg"
                       width="100%"
                     />
-                  </MKBox>
+                  </MKBox2>
                 </Tooltip>
               </Grid>
               <Grid item xs={4} lg={2}>
                 <Tooltip title="R">
-                  <MKBox
+                  <MKBox2
                     component={Link}
                     href="https://github.com/process-analytics/bpmn-visualization-R"
                     target="_blank"
                   >
-                    <MKBox
+                    <MKBox2
                       component="img"
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1448px-R_logo.svg.png"
                       width="100%"
                     />
-                  </MKBox>
+                  </MKBox2>
                 </Tooltip>
               </Grid>
               <Grid item xs={4} lg={2}>
                 <Tooltip title="BPMN 2.0">
-                  <MKBox
+                  <MKBox2
                     component="img"
                     src="https://www.omg.org/images/logos/BPMN-logo.svg"
                     width="100%"
@@ -552,29 +566,26 @@ const componentsSection = (
                 </Tooltip>
               </Grid>
             </Grid>
-          </MKBox>
+          </MKBox2>
         </Grid>
       </Container>
-    </MKBox>
-  </MKBox>
+    </MKBox2>
+  </MKBox2>
 );
 
 const documentationSection = (
   <Container sx={{ mt: 6 }}>
-    <MKBox
+    <MKBox2
       display="flex"
       alignItems="center"
       borderRadius="xl"
       my={2}
       py={6}
       sx={{
-        backgroundImage: ({
-          functions: { linearGradient, rgba },
-          palette: { dark, grey },
-        }: Theme) =>
+        backgroundImage: ({ palette: { primary, grey } }: Theme) =>
           `${linearGradient(
             rgba(grey?.A700, 0.8),
-            rgba(dark.dark, 0.8),
+            rgba(primary.dark, 0.8),
           )}, url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -582,21 +593,21 @@ const documentationSection = (
     >
       <Container>
         <Grid container item xs={12} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
-          <MKTypography variant="h4" color="white" fontWeight="bold">
+          <MKTypography2 variant="h4" color="white" fontWeight="bold">
             Built by developers
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography variant="h1" color="white" mb={1}>
+          <MKTypography2 variant="h1" color="white" mb={1}>
             User Documentation
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
+          <MKTypography2 variant="body1" color="white" opacity={0.8} mb={2}>
             From BPMN support, theme customization, diagram navigation, custom
             behavior, overlays, style, and more, you will find the full
             documentation. Play with the style API and you will create unlimited
             combinations for our components.
-          </MKTypography>
-          <MKTypography
+          </MKTypography2>
+          <MKTypography2
             component={Link}
             href="https://process-analytics.github.io/bpmn-visualization-js/"
             target="_blank"
@@ -618,10 +629,10 @@ const documentationSection = (
             }}
           >
             Read docs <ArrowForward sx={{ fontWeight: 'bold' }} />
-          </MKTypography>
+          </MKTypography2>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   </Container>
 );
 
@@ -661,7 +672,7 @@ const moreSection = (
 );
 
 const conclusionSection = (
-  <MKBox pt={18} pb={6}>
+  <MKBox2 pt={18} pb={6}>
     <Container>
       <Grid container spacing={3}>
         <Grid
@@ -671,13 +682,13 @@ const conclusionSection = (
           ml="auto"
           sx={{ textAlign: { xs: 'center', lg: 'left' } }}
         >
-          <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
+          <MKTypography2 variant="h4" fontWeight="bold" mb={0.5}>
             Venez participer à notre communauté !
-          </MKTypography>
+          </MKTypography2>
 
-          <MKTypography variant="body1" color="text">
+          <MKTypography2 variant="body1" color="text">
             We deliver the best web products
-          </MKTypography>
+          </MKTypography2>
         </Grid>
         <Grid
           item
@@ -701,7 +712,7 @@ const conclusionSection = (
             component={Link}
             href="https://www.facebook.com/sharer/sharer.php?u=https://process-analytics.dev/"
             target="_blank"
-            color="facebook"
+            color="twitter"
             sx={{ mr: 1 }}
           >
             <FontAwesomeIcon icon={faFacebook} />
@@ -719,13 +730,13 @@ const conclusionSection = (
         </Grid>
       </Grid>
     </Container>
-  </MKBox>
+  </MKBox2>
 );
 
 const footer = (
-  <MKBox pt={6} px={1} mt={6}>
+  <MKBox2 pt={6} px={1} mt={6}>
     <DefaultFooter content={paRooterRoutes} />
-  </MKBox>
+  </MKBox2>
 );
 
 const HomePage = (): JSX.Element => (
@@ -739,9 +750,9 @@ const HomePage = (): JSX.Element => (
         mx: { xs: 2, lg: 3 },
         mt: -8,
         mb: 4,
-        backgroundColor: ({ functions: { rgba } }: Theme) => rgba('white', 0.8),
+        backgroundColor: rgba('white', 0.8),
         backdropFilter: 'saturate(200%) blur(30px)',
-        boxShadow: ({ boxShadows: { xxl } }: Theme) => xxl,
+        boxShadow: boxShadows.xxl,
       }}
     >
       {processSection}

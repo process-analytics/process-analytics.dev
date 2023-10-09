@@ -21,12 +21,11 @@ import Stack from '@mui/material/Stack';
 import React from 'react';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKButton } from '../../../../../components/MKButton';
+import { MKBox2, MKButton } from '../../../../../components';
 
 function ButtonsGradient(): JSX.Element {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox2 component="section" py={12}>
       <Container>
         <Grid container justifyContent="center">
           <Stack direction="row" alignItems="flex-end" spacing={1}>
@@ -48,19 +47,19 @@ function ButtonsGradient(): JSX.Element {
             <MKButton variant="gradient" color="error">
               error
             </MKButton>
-            <MKButton variant="gradient" color="light">
+            {/*            <MKButton variant="gradient" color="light">
               light
             </MKButton>
             <MKButton variant="gradient" color="dark">
               dark
-            </MKButton>
+            </MKButton>*/}
             <MKButton variant="gradient" color="white">
               white
             </MKButton>
           </Stack>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
+import { PaletteColorKey } from '@mui/material';
 // @mui material components
 import Card from '@mui/material/Card';
 import MuiLink from '@mui/material/Link';
 import { Link } from 'gatsby';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
-import { MKTypography } from '../../../../components/MKTypography';
-import { MKButton } from '../../../../components/MKButton';
+import { MKBox2, MKTypography2, MKButton } from '../../../../components';
 
 import React from 'react';
 
@@ -34,8 +33,8 @@ function CenteredBlogCard({
 }: CenteredBlogCardProps): JSX.Element {
   return (
     <Card>
-      <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
-        <MKBox
+      <MKBox2 position="relative" borderRadius="lg" mx={2} mt={-3}>
+        <MKBox2
           component="img"
           src={image}
           alt={title}
@@ -44,7 +43,7 @@ function CenteredBlogCard({
           position="relative"
           zIndex={1}
         />
-        <MKBox
+        <MKBox2
           borderRadius="lg"
           shadow="md"
           width="100%"
@@ -59,23 +58,23 @@ function CenteredBlogCard({
             backgroundSize: 'cover',
           }}
         />
-      </MKBox>
+      </MKBox2>
 
-      <MKBox p={3} mt={-1} textAlign="center">
-        <MKTypography
+      <MKBox2 p={3} mt={-1} textAlign="center">
+        <MKTypography2
           display="inline"
           variant="h5"
           textTransform="capitalize"
           fontWeight="regular"
         >
           {title}
-        </MKTypography>
+        </MKTypography2>
 
-        <MKBox mt={1} mb={3}>
-          <MKTypography variant="body2" component="p" color="text">
+        <MKBox2 mt={1} mb={3}>
+          <MKTypography2 variant="body2" component="p" color="text">
             {description}
-          </MKTypography>
-        </MKBox>
+          </MKTypography2>
+        </MKBox2>
 
         {action.type === 'external' ? (
           <MKButton
@@ -85,7 +84,7 @@ function CenteredBlogCard({
             rel="noreferrer"
             variant="gradient"
             size="small"
-            color={action.color ? action.color : 'dark'}
+            color={action.color ?? 'secondary'}
           >
             {action.label}
           </MKButton>
@@ -95,12 +94,12 @@ function CenteredBlogCard({
             to={action.route}
             variant="gradient"
             size="small"
-            color={action.color ? action.color : 'dark'}
+            color={action.color ?? 'secondary'}
           >
             {action.label}
           </MKButton>
         )}
-      </MKBox>
+      </MKBox2>
     </Card>
   );
 }
@@ -113,15 +112,7 @@ interface CenteredBlogCardProps {
   action: {
     type: 'external' | 'internal';
     route: string;
-    color?:
-      | 'primary'
-      | 'secondary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'error'
-      | 'light'
-      | 'dark';
+    color?: PaletteColorKey | 'white';
     label: string;
   };
 }

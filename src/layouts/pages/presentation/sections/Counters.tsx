@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../components/MKBox';
+import { MKBox2 } from '../../../../components';
 
 // Material Kit 2 React examples
 import DefaultCounterCard from '../../../../examples/Cards/CounterCards/DefaultCounterCard';
@@ -29,7 +29,7 @@ import React from 'react';
 
 function Counters(): JSX.Element {
   return (
-    <MKBox component="section" py={3}>
+    <MKBox2 component="section" py={3}>
       <Container>
         <Grid container item xs={12} lg={9} sx={{ mx: 'auto' }}>
           <Grid item xs={12} md={4}>
@@ -68,7 +68,7 @@ function Counters(): JSX.Element {
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

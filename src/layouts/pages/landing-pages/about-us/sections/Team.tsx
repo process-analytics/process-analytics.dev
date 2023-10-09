@@ -19,8 +19,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Material Kit 2 React components
-import { MKBox } from '../../../../../components/MKBox';
-import { MKTypography } from '../../../../../components/MKTypography';
+import { MKBox2, MKTypography2 } from '../../../../../components';
 
 // Material Kit 2 React examples
 import HorizontalTeamCard from '../../../../../examples/Cards/TeamCards/HorizontalTeamCard';
@@ -35,7 +34,7 @@ import React from 'react';
 
 function Team(): JSX.Element {
   return (
-    <MKBox
+    <MKBox2
       component="section"
       variant="gradient"
       bgColor="dark"
@@ -47,63 +46,63 @@ function Team(): JSX.Element {
       <Container>
         <Grid container>
           <Grid item xs={12} md={8} sx={{ mb: 6 }}>
-            <MKTypography variant="h3" color="white">
+            <MKTypography2 variant="h3" color="white">
               The Executive Team
-            </MKTypography>
-            <MKTypography variant="body2" color="white" opacity={0.8}>
+            </MKTypography2>
+            <MKTypography2 variant="body2" color="white" opacity={0.8}>
               There's nothing I really wanted to do in life that I wasn't able
               to get good at. That's my skill.
-            </MKTypography>
+            </MKTypography2>
           </Grid>
         </Grid>
 
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
-            <MKBox mb={1}>
+            <MKBox2 mb={1}>
               <HorizontalTeamCard
                 image={team1}
                 name="Emma Roberts"
                 position={{ color: 'info', label: 'UI Designer' }}
                 description="Artist is a term applied to a person who engages in an activity deemed to be an art."
               />
-            </MKBox>
+            </MKBox2>
           </Grid>
 
           <Grid item xs={12} lg={6}>
-            <MKBox mb={1}>
+            <MKBox2 mb={1}>
               <HorizontalTeamCard
                 image={team2}
                 name="William Pearce"
                 position={{ color: 'info', label: 'Boss' }}
                 description="Artist is a term applied to a person who engages in an activity deemed to be an art."
               />
-            </MKBox>
+            </MKBox2>
           </Grid>
 
           <Grid item xs={12} lg={6}>
-            <MKBox mb={{ xs: 1, lg: 0 }}>
+            <MKBox2 mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
                 image={team3}
                 name="Ivana Flow"
                 position={{ color: 'info', label: 'Athlete' }}
                 description="Artist is a term applied to a person who engages in an activity deemed to be an art."
               />
-            </MKBox>
+            </MKBox2>
           </Grid>
 
           <Grid item xs={12} lg={6}>
-            <MKBox mb={{ xs: 1, lg: 0 }}>
+            <MKBox2 mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
                 image={team4}
                 name="Marquez Garcia"
                 position={{ color: 'info', label: 'JS Developer' }}
                 description="Artist is a term applied to a person who engages in an activity deemed to be an art."
               />
-            </MKBox>
+            </MKBox2>
           </Grid>
         </Grid>
       </Container>
-    </MKBox>
+    </MKBox2>
   );
 }
 

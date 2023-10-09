@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
-
-import { SvgIcon } from '@mui/material';
 
 import { BrandContent, LinkContent } from '.';
 
@@ -34,7 +33,7 @@ export type HeaderRouteWithMenus = Required<Pick<LinkContent, 'name'>> & {
   /**
    * The icon of the route on the Navbar
    */
-  icon: typeof SvgIcon;
+  icon: IconName | JSX.Element;
   /**
    * For making a collapsible item on the Navbar that contains other routes inside (nested routes)
    */

@@ -23,10 +23,8 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 // Material Kit 2 React components
-import { MKBox } from '../../components/MKBox';
-import { MKTypography } from '../../components/MKTypography';
-
-import { FooterRoutes, Link, FooterMenu, SocialLink } from '../../types';
+import { FooterContent, MKBox2, MKTypography2 } from '../../components';
+import { FooterMenu } from '../../components/Footer';
 
 function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   const { brand, socials, menus, copyright } = content;
@@ -37,24 +35,24 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
   const renderLinks =
     menus &&
     menus.map((menu: FooterMenu) =>
-      menu.items.map((item: Link) => (
-        <MKTypography
+      menu.items.map(item => (
+        <MKTypography2
           key={item.name}
           component={GatsbyLink}
-          to={item.route}
+          to={item.url}
           variant="body2"
           fontWeight="regular"
           textTransform="capitalize"
         >
           {item.name}
-        </MKTypography>
+        </MKTypography2>
       )),
     );
 
   const renderSocials =
     socials &&
-    socials.map((social: Omit<SocialLink, 'name'>) => (
-      <MKTypography
+    socials.map(social => (
+      <MKTypography2
         key={social.url}
         component={MaterialLink}
         href={social.url}
@@ -62,24 +60,24 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         fontWeight="regular"
       >
         {social.icon}
-      </MKTypography>
+      </MKTypography2>
     ));
 
   const renderCopyright = (
-    <MKTypography variant="caption">
+    <MKTypography2 variant="caption">
       Copyright &copy; {year}{' '}
-      <MKTypography
+      <MKTypography2
         component={GatsbyLink}
-        to={brand.route}
+        to={brand.url}
         rel="noreferrer"
         variant="caption"
         fontWeight="regular"
         style={{ textDecoration: `underline dotted ${color}` }}
       >
         {brand.name}
-      </MKTypography>{' '}
+      </MKTypography2>{' '}
       by{' '}
-      <MKTypography
+      <MKTypography2
         component={MaterialLink}
         href={copyright.url}
         target="_blank"
@@ -87,12 +85,12 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
         variant="caption"
       >
         {copyright.name}
-      </MKTypography>
-    </MKTypography>
+      </MKTypography2>
+    </MKTypography2>
   );
 
   return (
-    <MKBox component="footer" py={6} color={color}>
+    <MKBox2 component="footer" py={6} color={color}>
       <Grid container justifyContent="center">
         <Grid item xs={10} lg={8}>
           <Stack
@@ -123,7 +121,7 @@ function CenteredFooter({ content, light }: CenteredFooterProps): JSX.Element {
           {renderCopyright}
         </Grid>
       </Grid>
-    </MKBox>
+    </MKBox2>
   );
 }
 
@@ -134,7 +132,7 @@ CenteredFooter.defaultProps = {
 
 // Typechecking props for the CenteredFooter
 interface CenteredFooterProps {
-  content: FooterRoutes;
+  content: FooterContent;
   light?: boolean;
 }
 

@@ -25,10 +25,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import React, { PropsWithChildren } from 'react';
 
 // @mui material components
-import { Collapse, SvgIcon, Theme } from '@mui/material';
+import { Collapse, Theme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { useMobileViewStatus } from '../../../../hooks';
@@ -45,7 +46,7 @@ type TitleContainerProps = {
 
 type TitleProps = TitleContainerProps & {
   name: string;
-  icon?: typeof SvgIcon;
+  icon?: IconName | JSX.Element;
 };
 
 export type NavbarItemProps = React.PropsWithoutRef<
