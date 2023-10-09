@@ -15,9 +15,9 @@
  */
 import React from 'react';
 
-import { SvgIcon } from '@mui/material';
+import type { SvgIcon } from '@mui/material';
 
-import { BrandContent, LinkContent } from '.';
+import type { BrandContent, LinkContent } from '.';
 
 import { Navbar } from './material-kit';
 

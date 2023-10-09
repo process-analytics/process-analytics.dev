@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
 
-import { Box, BoxProps } from '@mui/material';
+import type { BoxProps } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { CardWithIcon } from './CardWithIcon';
 

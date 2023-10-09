@@ -26,17 +26,16 @@
  */
 
 // @mui material components
-import {
+import type {
   BorderSize,
   BoxShadowColor,
   GreyColorName,
   Palette,
   PaletteColorKey,
   ShadowSize,
-  styled,
-  Box,
   Color,
 } from '@mui/material';
+import { styled, Box } from '@mui/material';
 
 import {
   borders,

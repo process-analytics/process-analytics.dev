@@ -14,7 +14,13 @@
     ],
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types/mdx"]
+    "typeRoots": ["node_modules/@types/mdx"],
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "alwaysStrict": true,
+    "strictFunctionTypes": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "public", ".cache"]

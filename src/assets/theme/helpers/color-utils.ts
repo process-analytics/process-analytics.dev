@@ -15,9 +15,14 @@
  */
 
 // chroma-js is a library for all kinds of color conversions and color scales.
-import chroma, { Color } from 'chroma-js';
+import type { Color } from 'chroma-js';
+import chroma from 'chroma-js';
 
-import { GreyColorName, PaletteColorKey, PaletteOptions } from '@mui/material';
+import type {
+  GreyColorName,
+  PaletteColorKey,
+  PaletteOptions,
+} from '@mui/material';
 
 export const paletteKeys: (keyof PaletteOptions)[] = [
   'primary',

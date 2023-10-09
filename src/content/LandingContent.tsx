@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LandingContent } from '../sections/home/Landing';
+import type { LandingContent } from '../sections/home/Landing';
 import { socialLinkContent } from './SocialLinkContent';
 
 export const landingContent: LandingContent = {

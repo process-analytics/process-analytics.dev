@@ -20,7 +20,7 @@
  * You can customize the typography styles for the entire Material Kit 2 React using this file.
  */
 
-import { TypographyOptions } from '@mui/material/styles/createTypography';
+import type { TypographyOptions } from '@mui/material/styles/createTypography';
 
 import { fontSize, fontWeight } from '../helpers/font-utils';
 

@@ -25,7 +25,8 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { Grid } from '@mui/material';
 
@@ -33,9 +34,9 @@ import { Column } from './Column';
 
 import { splitArrayByColumns } from '../../../../../helper';
 
-import { HeaderMenu } from '../../../../Header';
+import type { HeaderMenu } from '../../../../Header';
 
-import { HoverStyle } from '../../common';
+import type { HoverStyle } from '../../common';
 
 type ColumnNavDropdownProps = {
   content: HeaderMenu[];

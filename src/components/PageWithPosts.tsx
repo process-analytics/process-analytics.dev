@@ -15,18 +15,16 @@
  */
 import * as React from 'react';
 
+import type { PostContent, FooterContent, HeaderContent } from '../components';
 import {
   Layout,
   Section,
   PostContainer,
-  PostContent,
-  FooterContent,
-  HeaderContent,
   MKBox,
   MKTypography,
 } from '../components';
 
-import { SECTION } from '../helper';
+import type { SECTION } from '../helper';
 
 // TODO duplicated from Landing.tsx
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };

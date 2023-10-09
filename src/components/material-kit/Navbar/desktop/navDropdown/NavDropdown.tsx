@@ -25,12 +25,13 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC, PropsWithChildren, useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useState } from 'react';
 
 import { Box, Grow, Popper } from '@mui/material';
 import { ArrowDropUp } from '@mui/icons-material';
 
-import { DropdownStyle } from '../Dropdown';
+import type { DropdownStyle } from '../Dropdown';
 import { MKBox, MKTypography } from '../../..';
 
 export type NavDropdownProps = {

@@ -18,7 +18,7 @@ import React from 'react';
 import { Link as MaterialLink } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby';
 
-import { MDXComponents } from 'mdx/types';
+import type { MDXComponents } from 'mdx/types';
 
 const MarkdownParagraph: MDXComponents['p'] = ({ children }) => (
   <p style={{ paddingBottom: '1rem' }}>{children}</p>
@@ -37,7 +37,7 @@ const MarkdownListItem: MDXComponents['li'] = ({ children }) => (
 );
 
 const MarkdownLink: MDXComponents['a'] = props => {
-  const href = props['href'] as string;
+  const href = props.href as string;
   const isInnerLink = href.startsWith('#');
 
   return isInnerLink ? (

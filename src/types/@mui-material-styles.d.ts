@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import type {} from '@mui/material/styles';
-import {
+import type {
   FontStyle,
   TypographyStyle,
   TypographyUtils,

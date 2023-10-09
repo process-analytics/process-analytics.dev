@@ -15,16 +15,20 @@
  */
 export { Button } from './Button';
 export { Divider } from './Divider';
-export { Footer, FooterProps, FooterContent } from './Footer';
-export { Header, HeaderContent } from './Header';
+export { Footer, type FooterProps, type FooterContent } from './Footer';
+export { Header, type HeaderContent } from './Header';
 export { Layout } from './Layout';
-export { Library, LibraryProps, LibraryContent } from './Library';
-export { LinkContent, Link } from './Link';
+export { Library, type LibraryProps, type LibraryContent } from './Library';
+export { type LinkContent, Link } from './Link';
 export { PageWithPosts } from './PageWithPosts';
-export { PostContainer, PostContent } from './PostContainer';
+export { PostContainer, type PostContent } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export { SEO } from './SEO';
-export { SocialLink, SocialLinkProps, SocialLinkContent } from './SocialLink';
+export {
+  SocialLink,
+  type SocialLinkProps,
+  type SocialLinkContent,
+} from './SocialLink';
 export { Features } from './modelGenerationApp';
 export * from './description';
 export * from './material-kit';

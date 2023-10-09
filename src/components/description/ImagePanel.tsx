@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 
-import { Box, BoxProps } from '@mui/material';
+import type { BoxProps } from '@mui/material';
+import { Box } from '@mui/material';
 
 export type ImagePosition = 'left' | 'right' | 'top' | 'bottom';
 export type Image = {

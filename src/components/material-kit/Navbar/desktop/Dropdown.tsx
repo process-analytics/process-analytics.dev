@@ -25,21 +25,22 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, FC, SetStateAction, useState } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
+import React, { useState } from 'react';
 
 import { ColumnNavDropdown } from './columnNavDropdown';
 import { ListNavDropdown } from './listNavDropdown';
 
 import { NavDropdown } from './navDropdown';
 import { DropdownDropdown } from './DropdownDropdown';
-import { HoverStyle } from '../common';
+import type { HoverStyle } from '../common';
 
-import {
+import type {
   HeaderMenuWithItems,
   HeaderRouteWithMenus,
-  isHeaderMenuWithItems,
 } from '../../../Header';
-import { MKBoxProps } from '../..';
+import { isHeaderMenuWithItems } from '../../../Header';
+import type { MKBoxProps } from '../..';
 
 export type DropdownStyle = React.PropsWithoutRef<
   Omit<MKBoxProps, 'variant' | 'opacity'>

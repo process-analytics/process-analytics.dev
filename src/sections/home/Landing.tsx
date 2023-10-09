@@ -15,16 +15,13 @@
  */
 import React from 'react';
 
-import { Box, Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { Fade } from 'react-awesome-reveal';
 
-import {
-  MKTypography,
-  Section,
-  SocialLink,
-  SocialLinkContent,
-} from '../../components';
+import type { SocialLinkContent } from '../../components';
+import { MKTypography, Section, SocialLink } from '../../components';
 import { SECTION } from '../../helper';
 import { landingContent } from '../../content';
 

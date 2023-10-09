@@ -25,14 +25,17 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
+import React from 'react';
 
 // @mui material components
-import { Collapse, SvgIcon, Theme } from '@mui/material';
+import type { SvgIcon, Theme } from '@mui/material';
+import { Collapse } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 
 import { useMobileViewStatus } from '../../../../hooks';
-import { getHoverConfiguration, HoverStyle } from './HoverStyle';
+import type { HoverStyle } from './HoverStyle';
+import { getHoverConfiguration } from './HoverStyle';
 import { MKBox, MKTypography } from '../..';
 
 type TitleContainerProps = {

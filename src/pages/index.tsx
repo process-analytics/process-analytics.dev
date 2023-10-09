@@ -15,10 +15,10 @@
  */
 
 import * as React from 'react';
-import { HeadProps } from 'gatsby';
+import type { HeadProps } from 'gatsby';
 
 import { Layout, SEO } from '../components';
-import { DataProps } from '../hooks';
+import type { DataProps } from '../hooks';
 import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
 import { PAGE } from '../helper';
 import { footerContent, headerContent } from '../content';

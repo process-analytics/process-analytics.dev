@@ -25,15 +25,18 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
-import { Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
 
 import { borders } from '../../../../../assets/theme';
 
-import { Link, LinkContent } from '../../../..';
+import type { LinkContent } from '../../../..';
+import { Link } from '../../../..';
 import { MKBox, MKTypography } from '../../..';
-import { getHoverConfiguration, HoverStyle } from '../../common';
+import type { HoverStyle } from '../../common';
+import { getHoverConfiguration } from '../../common';
 
 type DropdownLinkProps = {
   content: LinkContent;

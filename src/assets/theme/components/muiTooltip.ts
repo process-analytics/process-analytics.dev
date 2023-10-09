@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import { Components, Theme } from '@mui/material';
+import type { Components, Theme } from '@mui/material';
 
 // @mui material components
 import Fade from '@mui/material/Fade';

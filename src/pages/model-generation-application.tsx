@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
-import { HeadProps } from 'gatsby';
+import type { HeadProps } from 'gatsby';
 
-import { Box, BoxProps, Link } from '@mui/material';
+import type { BoxProps } from '@mui/material';
+import { Box, Link } from '@mui/material';
 
 import {
   SEO,
@@ -30,7 +32,7 @@ import {
 } from '../components';
 import { postsContent, footerContent, headerContent } from '../content';
 import { PAGE } from '../helper';
-import { DataProps } from '../hooks';
+import type { DataProps } from '../hooks';
 
 import AppPreview from '../assets/images/model-generation-app/model_generation_app_preview.gif';
 import HowItWorksImg from '../assets/images/model-generation-app/how_it_works.png';

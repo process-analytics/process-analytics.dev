@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { PaletteOptions, SocialPaletteOptions } from '@mui/material';
+import type { PaletteOptions, SocialPaletteOptions } from '@mui/material';
 
 /**
  * The base colors for the Material Kit 2 React.

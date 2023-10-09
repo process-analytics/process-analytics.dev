@@ -15,7 +15,7 @@
  */
 import { brandContent } from './BrandContent';
 import { socialLinkContent } from './SocialLinkContent';
-import { FooterContent } from '../components';
+import type { FooterContent } from '../components';
 
 export const footerContent: FooterContent = {
   brand: brandContent,

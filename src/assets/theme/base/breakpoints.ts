@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { BreakpointsOptions } from '@mui/material';
+import type { BreakpointsOptions } from '@mui/material';
 
 /**
  * To customize the breakpoints: https://mui.com/material-ui/customization/breakpoints/

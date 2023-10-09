@@ -13,15 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
-import {
-  Button as MaterialButton,
-  PaletteColorKey,
-  Theme,
-} from '@mui/material';
+import type { PaletteColorKey, Theme } from '@mui/material';
+import { Button as MaterialButton } from '@mui/material';
 
-import { Link, LinkContent } from './Link';
+import type { LinkContent } from './Link';
+import { Link } from './Link';
 
 type ButtonProps = {
   content: Omit<LinkContent, 'description'>;

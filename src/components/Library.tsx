@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import {
   GitHub,
@@ -22,7 +23,7 @@ import {
 } from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
 
-import { Action } from './material-kit/Navbar/common';
+import type { Action } from './material-kit/Navbar/common';
 import { LibraryCard, MKBox } from './material-kit';
 
 export type LibraryProps = {

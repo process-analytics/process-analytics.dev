@@ -16,11 +16,8 @@
 import React from 'react';
 
 import { aboutContent } from '../../content';
-import {
-  SectionWithTitle,
-  DescriptionPanel,
-  DescriptionPanelContent,
-} from '../../components';
+import type { DescriptionPanelContent } from '../../components';
+import { SectionWithTitle, DescriptionPanel } from '../../components';
 import { SECTION } from '../../helper';
 
 export type AboutContent = DescriptionPanelContent[];

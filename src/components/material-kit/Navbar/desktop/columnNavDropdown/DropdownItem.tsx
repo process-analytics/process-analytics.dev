@@ -25,16 +25,18 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { DropdownDropdown } from './DropdownDropdown';
 
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import type { HeaderMenu } from '../../../../Header';
+import { isHeaderMenuWithItems } from '../../../../Header';
 import { Link } from '../../../..';
 
 import { MKTypography } from '../../..';
 
-import { HoverStyle } from '../../common';
+import type { HoverStyle } from '../../common';
 
 type DropdownItemProps = {
   content: HeaderMenu;

@@ -29,31 +29,28 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC, useState } from 'react';
+import type { FC } from 'react';
+import React, { useState } from 'react';
 
 // @mui material components
 import { Container } from '@mui/material';
 
 // Material Kit 2 React components
-import { MKBox, MKBoxProps } from '..';
+import type { MKBoxProps } from '..';
+import { MKBox } from '..';
 
 // Material Kit 2 React example components
-import { Action, ActionButton, BrandLink, HoverStyle } from './common';
+import type { Action, HoverStyle } from './common';
+import { ActionButton, BrandLink } from './common';
 import { NavbarButton, NavbarNav as MobileNavbarNav } from './mobile';
-import {
-  Dropdown,
-  NavbarNav as DesktopNavbarNav,
-  DropdownStyle,
-} from './desktop';
+import type { DropdownStyle } from './desktop';
+import { Dropdown, NavbarNav as DesktopNavbarNav } from './desktop';
 
 import { useMobileViewStatus } from '../../../hooks';
 
-import { BrandContent } from '../..';
-import {
-  HeaderRoute,
-  HeaderRouteWithMenus,
-  isHeaderRouteWithMenus,
-} from '../../Header';
+import type { BrandContent } from '../..';
+import type { HeaderRoute, HeaderRouteWithMenus } from '../../Header';
+import { isHeaderRouteWithMenus } from '../../Header';
 
 type NavbarStyleProps = {
   isTransparent: boolean;

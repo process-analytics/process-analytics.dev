@@ -29,11 +29,12 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby-link';
 
-import { LinkContent } from '../../../';
+import type { LinkContent } from '../../../';
 
 import { MKBox, MKTypography } from '../..';
 

@@ -25,11 +25,13 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
+import React from 'react';
 
-import { HeaderMenu, isHeaderMenuWithItems } from '../../../../Header';
+import type { HeaderMenu } from '../../../../Header';
+import { isHeaderMenuWithItems } from '../../../../Header';
 
-import { HoverStyle } from '../../common';
+import type { HoverStyle } from '../../common';
 
 import { DropdownDropdown } from './DropdownDropdown';
 import { DropdownLink } from './DropdownLink';

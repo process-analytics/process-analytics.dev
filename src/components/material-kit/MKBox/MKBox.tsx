@@ -26,11 +26,12 @@
  */
 import React, { forwardRef } from 'react';
 
-import { BoxTypeMap } from '@mui/system';
-import { BoxProps as MuiBoxProps } from '@mui/material';
+import type { BoxTypeMap } from '@mui/system';
+import type { BoxProps as MuiBoxProps } from '@mui/material';
 
 // Custom styles for MKBox
-import { MKBoxRoot, BoxProps } from './MKBoxRoot';
+import type { BoxProps } from './MKBoxRoot';
+import { MKBoxRoot } from './MKBoxRoot';
 
 export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
   (

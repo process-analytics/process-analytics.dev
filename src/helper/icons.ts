@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  library,
+import type {
   IconName,
-  findIconDefinition,
   IconDefinition,
 } from '@fortawesome/fontawesome-svg-core';
+import { library, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faDev,
   faDiscord,

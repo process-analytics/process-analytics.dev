@@ -30,7 +30,8 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import { createTheme, Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
+import { createTheme } from '@mui/material';
 
 import { responsiveFontSizes } from './responsiveFont';
 

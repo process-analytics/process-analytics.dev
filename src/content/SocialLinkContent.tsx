@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SocialLinkContent } from '../components';
+import type { SocialLinkContent } from '../components';
 
 export const socialLinkContent: SocialLinkContent[] = [
   {

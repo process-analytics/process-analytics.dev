@@ -30,10 +30,12 @@
  */
 import React from 'react';
 
-import { Button, ButtonProps } from '@mui/material';
+import type { ButtonProps } from '@mui/material';
+import { Button } from '@mui/material';
 
 import { MKBox } from '../..';
-import { LinkContent, Link } from '../../..';
+import type { LinkContent } from '../../..';
+import { Link } from '../../..';
 
 export type Action = Required<Pick<LinkContent, 'url' | 'type'>> & {
   label: string;

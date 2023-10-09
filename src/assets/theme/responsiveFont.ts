@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Theme } from '@mui/material';
-import {
+import type { Theme } from '@mui/material';
+import type {
   CSSProperties,
   Typography,
   TypographyStyle,
 } from '@mui/material/styles/createTypography';
+import type { ResponsivePropertyParams } from '@mui/material/styles/cssUtils';
 import {
   alignProperty,
   convertLength,
   fontGrid,
   isUnitless,
-  ResponsivePropertyParams,
 } from '@mui/material/styles/cssUtils';
-import { ResponsiveFontSizesOptions } from '@mui/material/styles/responsiveFontSizes';
+import type { ResponsiveFontSizesOptions } from '@mui/material/styles/responsiveFontSizes';
 import { formatMuiErrorMessage as _formatMuiErrorMessage } from '@mui/utils';
 
 // ---------- OVERRIDE SOME FUNCTIONS OF MATERIAL UI ----------

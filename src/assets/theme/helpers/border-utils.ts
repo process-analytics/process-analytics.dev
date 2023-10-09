@@ -20,7 +20,7 @@
  * You can customize the borders value for the entire Material Kit 2 React using this file.
  */
 
-import { BorderSize } from '@mui/material';
+import type { BorderSize } from '@mui/material';
 
 // Material Kit 2 React Base Styles
 import { palette } from '../base';
