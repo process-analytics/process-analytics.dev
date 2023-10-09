@@ -26,13 +26,14 @@
  */
 import React, { forwardRef } from 'react';
 
-import {
+import type {
   TypographyProps as MuiTypographyProps,
   TypographyTypeMap,
 } from '@mui/material';
 
 // Custom styles for MKTypography
-import { MKTypographyRoot, TypographyProps } from './MKTypographyRoot';
+import type { TypographyProps } from './MKTypographyRoot';
+import { MKTypographyRoot } from './MKTypographyRoot';
 
 export const MKTypography = forwardRef<
   HTMLSpanElement | HTMLLinkElement | HTMLElement,

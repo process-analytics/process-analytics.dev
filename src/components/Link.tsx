@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import React, { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
+import React from 'react';
 
 import { Link as MaterialLink } from '@mui/material';
 
-import {
+import type {
   OverridableComponent,
   OverridableTypeMap,
 } from '@mui/material/OverridableComponent';

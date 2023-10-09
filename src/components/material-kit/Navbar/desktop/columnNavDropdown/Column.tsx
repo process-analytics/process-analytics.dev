@@ -25,13 +25,14 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { Divider, Grid } from '@mui/material';
 
 import { DropdownItem } from './DropdownItem';
-import { HeaderMenu } from '../../../../Header';
-import { HoverStyle } from '../../common';
+import type { HeaderMenu } from '../../../../Header';
+import type { HoverStyle } from '../../common';
 
 type ColumnProps = {
   rowsPerColumn: number;

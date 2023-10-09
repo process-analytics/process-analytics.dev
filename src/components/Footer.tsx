@@ -39,13 +39,8 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import { GATSBY_URL } from '../helper';
 
-import {
-  BrandContent,
-  Link,
-  LinkContent,
-  SocialLinkContent,
-  SocialLink,
-} from '.';
+import type { BrandContent, LinkContent, SocialLinkContent } from '.';
+import { Link, SocialLink } from '.';
 
 export type FooterProps = {
   content: FooterContent;

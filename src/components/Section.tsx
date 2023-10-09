@@ -13,15 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
 
-import { PaletteColorKey, styled } from '@mui/material';
+import type { PaletteColorKey } from '@mui/material';
+import { styled } from '@mui/material';
 
 import { Link } from 'gatsby';
 
 import { MKTypography } from '.';
 
-import { MEDIA_QUERY_SMALL, SECTION, getSectionHref } from '../helper';
+import type { SECTION } from '../helper';
+import { MEDIA_QUERY_SMALL, getSectionHref } from '../helper';
 
 type SectionContainerProps = {
   justifyContent: string;

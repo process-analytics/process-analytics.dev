@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { LibraryContent } from '../components';
+import type { LibraryContent } from '../components';
 
 export const libraryContent: LibraryContent[] = [
   {

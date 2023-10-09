@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Palette, PaletteColorKey, SocialPalette } from '@mui/material';
-import { SxProps } from '@mui/system/styleFunctionSx';
+import type { Palette, PaletteColorKey, SocialPalette } from '@mui/material';
+import type { SxProps } from '@mui/system/styleFunctionSx';
 
 export type HoverStyle = {
   backgroundColor?: PaletteColorKey;

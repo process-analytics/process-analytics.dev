@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import { Components, Palette, PaletteColor, Theme } from '@mui/material';
+import type { Components, Palette, PaletteColor, Theme } from '@mui/material';
 
 import { fontSize } from '../..';
 

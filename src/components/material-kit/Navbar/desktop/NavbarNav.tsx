@@ -25,11 +25,14 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 
-import { NavbarItem, HoverStyle, NavLink } from '../common';
+import type { HoverStyle } from '../common';
+import { NavbarItem, NavLink } from '../common';
 
-import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
+import type { HeaderRoute } from '../../../Header';
+import { isHeaderRouteWithMenus } from '../../../Header';
 import { MKBox } from '../..';
 
 type NavbarNavProps = {

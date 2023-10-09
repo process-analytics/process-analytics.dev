@@ -25,12 +25,14 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
-import { HeaderRouteAsLink } from '../../../Header';
+import type { HeaderRouteAsLink } from '../../../Header';
 import { Link } from '../../..';
 
-import { NavbarItem, HoverStyle } from '../common';
+import type { HoverStyle } from '../common';
+import { NavbarItem } from '../common';
 
 type NavLinkProps = HeaderRouteAsLink & {
   hoverStyle: HoverStyle;

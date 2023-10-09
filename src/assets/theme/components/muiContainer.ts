@@ -29,8 +29,8 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import { Breakpoint, Components, Theme } from '@mui/material';
-import { OverridesStyleRules } from '@mui/material/styles/overrides';
+import type { Breakpoint, Components, Theme } from '@mui/material';
+import type { OverridesStyleRules } from '@mui/material/styles/overrides';
 
 // Material Kit 2 React base styles
 import { breakpoints } from '../base/breakpoints';

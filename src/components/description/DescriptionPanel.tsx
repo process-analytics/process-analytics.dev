@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 import { Box } from '@mui/material';
 
 import { Divider } from '..';
-import { Image, ImagePanel } from './ImagePanel';
+import type { Image } from './ImagePanel';
+import { ImagePanel } from './ImagePanel';
 import { MDXPanel } from './MDXPanel';
 
 export type DescriptionPanelContent = {

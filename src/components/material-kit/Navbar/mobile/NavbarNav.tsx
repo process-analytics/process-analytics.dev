@@ -31,10 +31,12 @@ import { Collapse } from '@mui/material';
 
 // Material Kit 2 React components
 import { MKBox } from '../..';
-import { HoverStyle, NavLink } from '../common';
-import { DropdownStyle } from '../desktop';
+import type { HoverStyle } from '../common';
+import { NavLink } from '../common';
+import type { DropdownStyle } from '../desktop';
 
-import { HeaderRoute, isHeaderRouteWithMenus } from '../../../Header';
+import type { HeaderRoute } from '../../../Header';
+import { isHeaderRouteWithMenus } from '../../../Header';
 
 // Material Kit 2 React example components
 import { NavDropdown } from './NavDropdown';

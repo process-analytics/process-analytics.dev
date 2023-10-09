@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { Action, ActionButton } from './ActionButton';
+export { type Action, ActionButton } from './ActionButton';
 export { BrandLink } from './BrandLink';
-export { NavbarItem, NavbarItemProps } from './NavbarItem';
-export { HoverStyle, getHoverConfiguration } from './HoverStyle';
+export { NavbarItem, type NavbarItemProps } from './NavbarItem';
+export { type HoverStyle, getHoverConfiguration } from './HoverStyle';
 export { NavLink } from './NavLink';

@@ -20,14 +20,14 @@
  * You can customize the box-shadow for the entire Material Kit 2 React using this file.
  */
 import grey from '@mui/material/colors/grey';
-import {
+import type {
   PaletteColor,
   BoxShadowColor,
   PaletteOptions,
   ShadowSize,
 } from '@mui/material';
 
-import { Color } from 'chroma-js';
+import type { Color } from 'chroma-js';
 
 import { paletteKeys, rgba } from './color-utils';
 import { pxToRem } from './px-to-rem';

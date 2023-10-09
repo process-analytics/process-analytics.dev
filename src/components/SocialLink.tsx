@@ -16,15 +16,17 @@
 
 import React from 'react';
 
-import { Link, LinkProps, styled } from '@mui/material';
+import type { LinkProps } from '@mui/material';
+import { Link, styled } from '@mui/material';
 
 import Tippy from '@tippyjs/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 
 import { getIconDefinition } from '../helper';
-import { MKTypography, MKTypographyProps } from '.';
+import type { MKTypographyProps } from '.';
+import { MKTypography } from '.';
 
 export type SocialLinkProps = {
   content: SocialLinkContent;

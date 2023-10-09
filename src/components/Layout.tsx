@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import React, { PropsWithChildren, useEffect } from 'react';
+import type { PropsWithChildren } from 'react';
+import React, { useEffect } from 'react';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -25,7 +26,8 @@ import { initCookieConsentBanner } from './CookieConsentBanner';
 import { theme } from '../assets/theme';
 import { loadIcons } from '../helper';
 
-import { Footer, FooterContent, Header, HeaderContent } from '.';
+import type { FooterContent, HeaderContent } from '.';
+import { Footer, Header } from '.';
 
 loadIcons();
 

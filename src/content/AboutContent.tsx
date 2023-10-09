@@ -15,7 +15,7 @@
  */
 import * as React from 'react';
 
-import { AboutContent } from '../sections/home/About';
+import type { AboutContent } from '../sections/home/About';
 
 import Logo from '../assets/images/logo.svg';
 import WhyDiagram from '../assets/images/why_diagram.svg';

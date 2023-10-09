@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
-import { HeadProps, Link } from 'gatsby';
+import type { HeadProps } from 'gatsby';
+import { Link } from 'gatsby';
 
 import { Box } from '@mui/material';
 
-import { DataProps } from '../hooks';
+import type { DataProps } from '../hooks';
 
 import { footerContent, headerContent } from '../content';
 

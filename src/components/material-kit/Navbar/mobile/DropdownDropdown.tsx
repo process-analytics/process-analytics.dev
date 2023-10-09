@@ -27,11 +27,12 @@
 
 import React from 'react';
 
-import { Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
 
 import { borders } from '../../../../assets/theme';
-import { HeaderMenuWithItems } from '../../../Header';
-import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
+import type { HeaderMenuWithItems } from '../../../Header';
+import type { HoverStyle } from '../common/HoverStyle';
+import { getHoverConfiguration } from '../common/HoverStyle';
 
 import { MKTypography } from '../..';
 import { Link } from '../../..';

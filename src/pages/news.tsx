@@ -15,9 +15,9 @@
  */
 import * as React from 'react';
 
-import { HeadProps } from 'gatsby';
+import type { HeadProps } from 'gatsby';
 
-import { DataProps } from '../hooks';
+import type { DataProps } from '../hooks';
 import { SEO, PageWithPosts } from '../components';
 import { footerContent, headerContent, newsContent } from '../content';
 import { PAGE, SECTION } from '../helper';

@@ -27,14 +27,16 @@
 
 import React from 'react';
 
-import { Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
 
 import { borders } from '../../../../assets/theme';
 
-import { getHoverConfiguration, HoverStyle } from '../common/HoverStyle';
+import type { HoverStyle } from '../common/HoverStyle';
+import { getHoverConfiguration } from '../common/HoverStyle';
 
 import { MKBox, MKTypography } from '../..';
-import { LinkContent, Link } from '../../..';
+import type { LinkContent } from '../../..';
+import { Link } from '../../..';
 
 type DropdownLinkProps = {
   id: number;

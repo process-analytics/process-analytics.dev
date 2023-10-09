@@ -33,7 +33,7 @@ Coded by www.creative-tim.com
  */
 
 import { brandContent } from './BrandContent';
-import { HeaderContent } from '../components';
+import type { HeaderContent } from '../components';
 
 export const headerContent: HeaderContent = {
   brand: brandContent,

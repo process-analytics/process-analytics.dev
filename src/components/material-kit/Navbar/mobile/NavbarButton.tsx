@@ -33,7 +33,8 @@ import React from 'react';
 
 import { Close, Menu } from '@mui/icons-material';
 
-import { MKBox, MKBoxProps } from '../..';
+import type { MKBoxProps } from '../..';
+import { MKBox } from '../..';
 
 type NavbarButtonProps = Pick<MKBoxProps, 'onClick'> & {
   isOpen: boolean;

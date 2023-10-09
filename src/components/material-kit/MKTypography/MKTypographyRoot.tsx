@@ -26,13 +26,13 @@
  */
 // @mui material components
 import Typography from '@mui/material/Typography';
-import {
+import type {
   PaletteColorKey,
-  styled,
   TextTransform,
   VerticalAlign,
   FontWeight,
 } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 import { linearGradient } from '../../../assets/theme';
 

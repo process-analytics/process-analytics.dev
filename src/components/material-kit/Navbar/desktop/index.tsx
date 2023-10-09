@@ -13,5 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { Dropdown, DropdownStyle } from './Dropdown';
+export { Dropdown, type DropdownStyle } from './Dropdown';
 export { NavbarNav } from './NavbarNav';

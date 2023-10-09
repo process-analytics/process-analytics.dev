@@ -27,11 +27,13 @@
 
 import React from 'react';
 
-import { HeaderRouteWithMenus, isHeaderMenuWithItems } from '../../../Header';
+import type { HeaderRouteWithMenus } from '../../../Header';
+import { isHeaderMenuWithItems } from '../../../Header';
 
 import { MKBox } from '../..';
 
-import { NavbarItem, HoverStyle } from '../common';
+import type { HoverStyle } from '../common';
+import { NavbarItem } from '../common';
 import { DropdownDropdown } from './DropdownDropdown';
 import { DropdownLink } from './DropdownLink';
 
