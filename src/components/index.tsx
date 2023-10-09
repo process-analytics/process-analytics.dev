@@ -25,6 +25,6 @@ export { PostContainer, PostContent } from './PostContainer';
 export { Section, SectionWithTitle } from './Section';
 export { SEO } from './SEO';
 export { SocialLink, SocialLinkProps, SocialLinkContent } from './SocialLink';
-export { Features, Jotform } from './modelGenerationApp';
+export { Features } from './modelGenerationApp';
 export * from './description';
 export * from './material-kit';
