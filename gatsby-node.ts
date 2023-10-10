@@ -15,54 +15,16 @@
  */
 import type { GatsbyNode } from 'gatsby';
 
-// import redirects from './redirects.json';
-
-export const createPages: GatsbyNode['createPages'] = ({ actions }) => {
-  const { createRedirect } = actions;
-
-  createRedirect({
-    fromPath: '/model-generation-application-conditions/',
-    toPath: '/',
-    redirectInBrowser: true,
-    isPermanent: true,
-    statusCode: 200,
-  });
-
-  /*  redirects.forEach(redirect =>
-    createRedirect({
-      fromPath: redirect.fromPath,
-      toPath: redirect.toPath,
-      isPermanent: redirect.isPermanent,
-      statusCode: redirect.statusCode,
-    }),
-  );*/
-};
-
 export const createPagesStatefully: GatsbyNode['createPagesStatefully'] = ({
   actions,
 }) => {
   const { createRedirect } = actions;
 
   createRedirect({
-    fromPath: '/model-generation-application-conditions/',
+    fromPath: '/model-generation-application-conditions',
     toPath: '/',
     redirectInBrowser: true,
     isPermanent: true,
     statusCode: 200,
   });
-
-  /*  redirects.forEach(redirect =>
-      createRedirect({
-        fromPath: redirect.fromPath,
-        toPath: redirect.toPath,
-        isPermanent: redirect.isPermanent,
-        statusCode: redirect.statusCode,
-      }),
-    );*/
 };
-
-/*export const onPostBuild: GatsbyNode['onPostBuild'] = ({ store }) => {
-  const { redirects } = store.getState();
-
-  console.log(redirects);
-};*/
