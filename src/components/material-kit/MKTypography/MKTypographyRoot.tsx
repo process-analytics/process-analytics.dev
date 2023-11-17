@@ -66,8 +66,8 @@ export const MKTypographyRoot = styled(Typography)<MKTypographyRootProps>(({
     !color || color === 'inherit' || !palette[color]
       ? 'inherit'
       : color === 'text'
-      ? palette.text.primary
-      : palette[color].main;
+        ? palette.text.primary
+        : palette[color].main;
   const backgroundColor =
     color &&
     (color !== 'text' && color !== 'inherit'

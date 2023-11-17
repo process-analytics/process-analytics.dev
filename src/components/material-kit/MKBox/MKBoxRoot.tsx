@@ -121,7 +121,7 @@ export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
     boxShadow: shadow?.size
       ? boxShadows[shadow.size]
       : shadow?.color
-      ? boxShadows.colored[shadow.color]
-      : 'none',
+        ? boxShadows.colored[shadow.color]
+        : 'none',
   };
 });

@@ -63,8 +63,8 @@ export const DescriptionPanel: FC<DescriptionPanelProps> = ({
               ? 'column-reverse'
               : 'column'
             : image.positionFromMdx === 'right'
-            ? 'row-reverse'
-            : 'row'
+              ? 'row-reverse'
+              : 'row'
         }
         sx={{
           ':first-of-type': {
