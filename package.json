@@ -38,10 +38,10 @@
   "devDependencies": {
     "@types/chroma-js": "^2.4.3",
     "@types/react": "^18.2.37",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
     "babel-plugin-styled-components": "^2.1.4",
-    "eslint": "^8.53.0",
+    "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-mdx": "^2.2.0",
