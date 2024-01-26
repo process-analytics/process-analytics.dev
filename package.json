@@ -61,7 +61,7 @@
     "gatsby-remark-responsive-iframe": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
-    "husky": "^8.0.3",
+    "husky": "^9.0.6",
     "lint-staged": "^15.2.0",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
