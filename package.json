@@ -16,7 +16,7 @@
     "check-types": "tsc -p . --noEmit",
     "lint": "eslint \"*/**/*.{js,ts,tsx,mdx}\" --max-warnings 0 --fix",
     "lint-check": "eslint \"*/**/*.{js,ts,tsx,mdx}\" --max-warnings 0",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
