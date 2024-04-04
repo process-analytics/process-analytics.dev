@@ -1,17 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "CommonJS",
+    // Enable latest features
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+
     "declaration": true,
     "outDir": "build/lib",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "jsx": "react",
-    "lib": [
-      "es6",
-      "dom"
-    ],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types/mdx"],
