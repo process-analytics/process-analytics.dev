@@ -4,11 +4,8 @@ description: 'Setup node and install dependencies'
 runs:
   using: 'composite'
   steps:
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version-file: '.nvmrc'
+    - name: Setup bun 🔧
+      uses: oven-sh/setup-bun@v1
     - name: Install dependencies
-      uses: bahmutov/npm-install@v1
-      with:
-        install-command: npm ci --prefer-offline --audit false
+      shell: bash
+      run: bun install

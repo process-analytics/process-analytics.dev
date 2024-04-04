@@ -47,4 +47,4 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            npm run build
+            bun run build
