@@ -103,4 +103,13 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: [
+    '.cache/',
+    'node_modules/',
+    'public/',
+    'build/',
+    '.github/',
+    '.idea/',
+    '/config/',
+  ],
 };
