@@ -17,16 +17,14 @@
 import noticePlugin from "eslint-plugin-notice";
 import importPlugin from "eslint-plugin-import";
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 // import eslintPluginImport from 'eslint-plugin-import';
 import * as eslintPluginMdx from 'eslint-plugin-mdx'
 
 
-
 const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx'];
-
 const allExtensions = [...typeScriptExtensions, '.js', '.jsx'];
-
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
@@ -71,11 +69,9 @@ export default [
     },
 
     // typescript
+    { ...eslint.configs.recommended, files: ['**/*.ts', '**/*.tsx'] },
+    ...tseslint.configs.recommended.map(conf => ({ ...conf, files: ['**/*.ts', '**/*.tsx'] })),
     /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
-    ...tseslint.configs.recommended.map(conf => ({
-        ...conf,
-        files: ['**/*.ts', '**/*.tsx'],
-    })),
     {
         files: ['**/*.ts', '**/*.tsx'],
         // ...eslintPluginImport.configs.recommended, // To uncomment when it will support flat config
