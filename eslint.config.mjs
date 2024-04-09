@@ -20,7 +20,6 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import tseslint from 'typescript-eslint';
 // import eslintPluginImport from 'eslint-plugin-import';
 import * as eslintPluginMdx from 'eslint-plugin-mdx'
-import eslintParser from '@typescript-eslint/parser';
 
 
 const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx'];
@@ -115,8 +114,6 @@ export default [
                 ecmaVersion: 2018,
                 /////////////////////////////////////////////////////////////////
 
-
-                parser: eslintParser,
 
                 // This setting is required if you want to use rules which require type information
                 // https://typescript-eslint.io/packages/parser/#project
