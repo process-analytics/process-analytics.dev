@@ -153,10 +153,7 @@ const Form: FC<FormProps> = props => {
     <Grid
       component="form"
       container
-      onSubmit={
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        handleSubmit
-      }
+      onSubmit={handleSubmit}
       justifyContent={['center', 'start']}
     >
       <Grid

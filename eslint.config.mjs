@@ -23,11 +23,8 @@ import * as eslintPluginMdx from 'eslint-plugin-mdx'
 import eslintParser from '@typescript-eslint/parser';
 
 
-
 const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx'];
-
 const allExtensions = [...typeScriptExtensions, '.js', '.jsx'];
-
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
