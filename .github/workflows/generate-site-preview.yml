@@ -23,7 +23,7 @@ jobs:
   site_preview:
     runs-on: ubuntu-20.04
     steps:
-      - uses: bonitasoft/actions/packages/surge-preview-tools@v2.2.0
+      - uses: bonitasoft/actions/packages/surge-preview-tools@v3
         id: surge-preview-tools
         with:
           surge-token: ${{ secrets.SURGE_TOKEN }}
