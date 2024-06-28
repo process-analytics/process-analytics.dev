@@ -36,17 +36,17 @@
     "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.5.0",
+    "@eslint/js": "^9.8.0",
     "@types/chroma-js": "^2.4.4",
     "@types/react": "^18.3.3",
     "babel-plugin-styled-components": "^2.1.4",
-    "eslint": "^9.5.0",
+    "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-mdx": "^3.1.5",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-mdx": "^3.1.5",
-    "eslint-plugin-notice": "^1.0.0",
+    "eslint-plugin-notice": "^1.0.0-eslint9",
     "eslint-plugin-prettier": "^5.2.1",
     "gatsby": "^5.13.7",
     "gatsby-plugin-google-gtag": "^5.13.1",
@@ -56,7 +56,7 @@
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.13.1",
-    "gatsby-plugin-typescript": "^5.9.0",
+    "gatsby-plugin-typescript": "^5.13.1",
     "gatsby-remark-responsive-iframe": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
@@ -64,7 +64,7 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^7.13.1"
+    "typescript-eslint": "^7.18.0"
   },
   "lint-staged": {
     "*.{js,ts,tsx,mdx}": [
