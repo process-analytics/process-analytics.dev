@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkprocess_analytics=self.webpackChunkprocess_analytics||[]).push([[114],{8596:function(e,t,n){n.r(t),n.d(t,{Head:function(){return o}});var s=n(7294),a=n(5174),r=n(7558),c=n(2685);t.default=()=>s.createElement(a.rL,{containerTitle:c.bQ.news,description:r.UW.description,postContents:r.UW.news,headerContent:r.Vd,footerContent:r.QY});const o=e=>{let{location:t}=e;return s.createElement(a.HJ,{title:c.qX.news,pathname:t.pathname})}}}]);
-//# sourceMappingURL=component---src-pages-news-tsx-6f74e9a53c8641b77ca9.js.map
