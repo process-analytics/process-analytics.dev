@@ -116,7 +116,7 @@ export default [
 
                 // This setting is required if you want to use rules which require type information
                 // https://typescript-eslint.io/packages/parser/#project
-                project: ['./tsconfig.json'],
+                projectService: true,
             },
         },
         rules: {
