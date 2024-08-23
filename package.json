@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/chroma-js": "^2.4.4",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.4",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
     "babel-plugin-styled-components": "^2.1.4",
