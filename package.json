@@ -58,7 +58,7 @@
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-plugin-typescript": "^5.9.0",
-    "gatsby-remark-responsive-iframe": "^6.13.1",
+    "gatsby-remark-responsive-iframe": "^6.13.2",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "husky": "^9.1.5",
