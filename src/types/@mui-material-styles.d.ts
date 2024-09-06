@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import type { ComponentsOverrides, ComponentsVariants } from '@mui/material';
 import type {} from '@mui/material/styles';
 import type {
   FontStyle,
@@ -20,6 +21,7 @@ import type {
   TypographyUtils,
   Variant,
 } from '@mui/material/styles/createTypography';
+import type { MKBoxRootProps } from 'src/components/material-kit/MKBox/MKBoxRoot';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -184,4 +186,20 @@ declare module '@mui/material/styles' {
     | 'middle'
     | 'top'
     | 'bottom';
+
+  interface ComponentNameToClassKey {
+    MKBox: 'root';
+  }
+
+  interface ComponentsPropsList {
+    MKBox: Partial<MKBoxRootProps>;
+  }
+
+  interface Components {
+    MKBox?: {
+      defaultProps?: ComponentsPropsList['MKBox'];
+      styleOverrides?: ComponentsOverrides<Theme>['MKBox'];
+      variants?: ComponentsVariants['MKBox'];
+    };
+  }
 }

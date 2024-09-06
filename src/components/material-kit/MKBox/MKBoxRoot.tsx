@@ -35,7 +35,7 @@ import type {
   ShadowSize,
   Color,
 } from '@mui/material';
-import { styled, Box } from '@mui/material';
+import { styled } from '@mui/material';
 
 import {
   borders,
@@ -45,7 +45,7 @@ import {
   linearGradient,
 } from '../../../assets/theme';
 
-export type BoxProps = {
+export type MKBoxRootProps = {
   variant?: 'gradient' | 'contained';
   bgcolor?: PaletteColorKey | GreyColorName | 'transparent' | 'inherit';
   color?: PaletteColorKey | GreyColorName | 'inherit';
@@ -57,9 +57,7 @@ export type BoxProps = {
   };
 };
 
-type MKBoxRootProps = {
-  ownerState: BoxProps;
-};
+type MKBoxOwnerState = MKBoxRootProps;
 
 const getGreyColor = (palette: Palette, color: GreyColorName): string =>
   palette.grey[color.substr(5) as keyof Color];
@@ -72,10 +70,10 @@ const getColor = (
     ? palette[color].main
     : getGreyColor(palette, color);
 
-export const MKBoxRoot = styled(Box)<MKBoxRootProps>(({
-  theme,
-  ownerState,
-}) => {
+export const MKBoxRoot = styled('div', {
+  name: 'MKBox',
+  slot: 'root',
+})<{ ownerState: MKBoxOwnerState }>(({ theme, ownerState }) => {
   const { palette } = theme;
   const {
     variant = 'contained',

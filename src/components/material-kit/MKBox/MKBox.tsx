@@ -24,16 +24,17 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+import type { PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxTypeMap } from '@mui/system';
 import type { BoxProps as MuiBoxProps } from '@mui/material';
 
 // Custom styles for MKBox
-import type { BoxProps } from './MKBoxRoot';
+import type { MKBoxRootProps } from './MKBoxRoot';
 import { MKBoxRoot } from './MKBoxRoot';
 
-export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
+export const MKBox = forwardRef<HTMLDivElement, MKBoxProps>(
   (
     {
       variant,
@@ -65,5 +66,10 @@ export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
 );
 
 export type MKBoxProps<
-  D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = React.PropsWithChildren<Partial<BoxProps>> & MuiBoxProps<D>;
+  RootComponent extends React.ElementType = BoxTypeMap['defaultComponent'],
+  AdditionalProps = object,
+  P extends React.ElementType = React.ElementType,
+> = PropsWithChildren<MKBoxRootProps> &
+  MuiBoxProps<RootComponent, AdditionalProps> & {
+    component?: P;
+  } & React.ComponentProps<P>;
