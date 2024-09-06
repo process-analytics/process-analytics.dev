@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../theme';
 
 import { borders, boxShadows } from '..';
 
-export const MuiPopover: Components<Theme>['MuiPopover'] = {
+export const MuiPopover: ThemeComponentOptions['MuiPopover'] = {
   styleOverrides: {
     paper: {
       backgroundColor: 'transparent',

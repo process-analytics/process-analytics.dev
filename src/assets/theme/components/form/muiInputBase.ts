@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { fontSize } from '../..';
 
-export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
+export const MuiInputBase: ThemeComponentOptions['MuiInputBase'] = {
   styleOverrides: {
     root: {
       fontSize: `${fontSize.sm} !important`,

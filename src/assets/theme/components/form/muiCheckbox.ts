@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { borders, linearGradient } from '../..';
 
-export const MuiCheckbox: Components<Theme>['MuiCheckbox'] = {
+export const MuiCheckbox: ThemeComponentOptions['MuiCheckbox'] = {
   styleOverrides: {
     root: ({ theme: { palette }, ownerState: { color } }) => {
       const usedColor =

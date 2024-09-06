@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../theme';
 
 import { borders, boxShadow } from '..';
 
-export const MuiSlider: Components<Theme>['MuiSlider'] = {
+export const MuiSlider: ThemeComponentOptions['MuiSlider'] = {
   styleOverrides: {
     root: {
       width: '100%',

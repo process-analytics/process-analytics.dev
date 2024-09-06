@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { borders, fontWeight, fontSize, dark } from '../..';
 
-export const MuiTab: Components<Theme>['MuiTab'] = {
+export const MuiTab: ThemeComponentOptions['MuiTab'] = {
   styleOverrides: {
     root: {
       display: 'flex',

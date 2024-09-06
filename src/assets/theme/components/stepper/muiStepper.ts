@@ -29,12 +29,12 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 import type { PaletteColorKey } from '@mui/material/styles';
 
 import { borders, boxShadows, isPaletteColorName, linearGradient } from '../..';
 
-export const MuiStepper: Components<Theme>['MuiStepper'] = {
+export const MuiStepper: ThemeComponentOptions['MuiStepper'] = {
   styleOverrides: {
     root: ({ theme: { palette }, ownerState: { color } }) => {
       const usedColor =

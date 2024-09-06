@@ -30,8 +30,9 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import type { Theme } from '@mui/material';
+import type { Components, Theme } from '@mui/material';
 import { createTheme } from '@mui/material';
+import type { CssVarsTheme } from '@mui/material/styles/createThemeWithVars';
 
 import { responsiveFontSizes } from './responsiveFont';
 
@@ -92,6 +93,10 @@ import {
   MuiTextField,
   MuiTooltip,
 } from './components';
+
+export type ThemeComponentOptions = Components<
+  Omit<Theme, 'components' | 'palette'> & CssVarsTheme
+>;
 
 const generatedTheme = createTheme({
   breakpoints,

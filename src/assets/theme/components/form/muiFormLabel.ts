@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { fontSize } from '../..';
 
-export const MuiFormLabel: Components<Theme>['MuiFormLabel'] = {
+export const MuiFormLabel: ThemeComponentOptions['MuiFormLabel'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.text.primary,
