@@ -29,7 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../theme';
 
 // @mui material components
 import Fade from '@mui/material/Fade';
@@ -37,7 +37,7 @@ import Fade from '@mui/material/Fade';
 // Material Kit 2 React base styles
 import { borders, fontSize } from '..';
 
-export const MuiTooltip: Components<Theme>['MuiTooltip'] = {
+export const MuiTooltip: ThemeComponentOptions['MuiTooltip'] = {
   defaultProps: {
     arrow: true,
     TransitionComponent: Fade,

@@ -29,8 +29,10 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Breakpoint, Components, Theme } from '@mui/material';
+import type { Breakpoint, Theme } from '@mui/material';
 import type { OverridesStyleRules } from '@mui/material/styles/overrides';
+
+import type { ThemeComponentOptions } from '../theme';
 
 // Material Kit 2 React base styles
 import { breakpoints } from '../base/breakpoints';
@@ -40,7 +42,7 @@ const {
 } = breakpoints;
 
 const buildMaxWidthByBreakpoint = (
-  theme: Theme,
+  theme: Omit<Theme, 'components' | 'palette'>,
   breakpoint: Breakpoint,
   maxWidth: number,
 ): OverridesStyleRules => ({
@@ -49,9 +51,9 @@ const buildMaxWidthByBreakpoint = (
   },
 });
 
-export const MuiContainer: Components<Theme>['MuiContainer'] = {
+export const MuiContainer: ThemeComponentOptions['MuiContainer'] = {
   styleOverrides: {
-    root: ({ theme }: { theme: Theme }) => ({
+    root: ({ theme }) => ({
       paddingRight: '2rem !important',
       paddingLeft: '2rem !important',
       marginRight: 'auto !important',

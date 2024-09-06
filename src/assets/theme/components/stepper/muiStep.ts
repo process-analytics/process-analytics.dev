@@ -29,9 +29,9 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
-export const MuiStep: Components<Theme>['MuiStep'] = {
+export const MuiStep: ThemeComponentOptions['MuiStep'] = {
   styleOverrides: {
     root: {
       padding: '0 0.375rem',

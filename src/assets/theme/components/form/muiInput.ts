@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { dark, fontSize } from '../..';
 
-export const MuiInput: Components<Theme>['MuiInput'] = {
+export const MuiInput: ThemeComponentOptions['MuiInput'] = {
   styleOverrides: {
     root: ({ theme: { palette }, ownerState: { color } }) => ({
       fontSize: `${fontSize.sm} !important`,

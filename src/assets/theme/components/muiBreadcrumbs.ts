@@ -29,11 +29,10 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
-
+import type { ThemeComponentOptions } from '../theme';
 import { fontSize } from '..';
 
-export const MuiBreadcrumbs: Components<Theme>['MuiBreadcrumbs'] = {
+export const MuiBreadcrumbs: ThemeComponentOptions['MuiBreadcrumbs'] = {
   styleOverrides: {
     li: {
       lineHeight: 0,

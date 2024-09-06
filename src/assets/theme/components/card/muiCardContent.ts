@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import type { Components, Theme } from '@mui/material';
-
 /**
  =========================================================
  * Material Kit 2 React - v2.1.0
@@ -31,7 +29,9 @@ import type { Components, Theme } from '@mui/material';
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-export const MuiCardContent: Components<Theme>['MuiCardContent'] = {
+import type { ThemeComponentOptions } from '../../theme';
+
+export const MuiCardContent: ThemeComponentOptions['MuiCardContent'] = {
   styleOverrides: {
     root: {
       marginTop: 0,

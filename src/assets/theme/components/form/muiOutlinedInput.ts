@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { fontSize } from '../..';
 
-export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
+export const MuiOutlinedInput: ThemeComponentOptions['MuiOutlinedInput'] = {
   styleOverrides: {
     root: ({ theme: { palette }, ownerState: { color } }) => ({
       backgroundColor: `${palette.quaternary.main} !important`,

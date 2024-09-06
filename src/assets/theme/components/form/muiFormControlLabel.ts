@@ -29,30 +29,31 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { dark, fontSize, fontWeight } from '../..';
 
-export const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
-  styleOverrides: {
-    root: {
-      display: 'block',
-      minHeight: '1.5rem',
-      marginBottom: '0.125rem',
-    },
+export const MuiFormControlLabel: ThemeComponentOptions['MuiFormControlLabel'] =
+  {
+    styleOverrides: {
+      root: {
+        display: 'block',
+        minHeight: '1.5rem',
+        marginBottom: '0.125rem',
+      },
 
-    label: {
-      display: 'inline-block',
-      fontSize: fontSize.sm,
-      fontWeight: fontWeight.bold,
-      color: dark,
-      lineHeight: 1,
-      transform: 'translateY(0.0625rem)',
-      marginLeft: '0.25rem',
-
-      '&.Mui-disabled': {
+      label: {
+        display: 'inline-block',
+        fontSize: fontSize.sm,
+        fontWeight: fontWeight.bold,
         color: dark,
+        lineHeight: 1,
+        transform: 'translateY(0.0625rem)',
+        marginLeft: '0.25rem',
+
+        '&.Mui-disabled': {
+          color: dark,
+        },
       },
     },
-  },
-};
+  };
