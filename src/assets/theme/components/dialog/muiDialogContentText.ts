@@ -29,15 +29,16 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 import { fontSize } from '../..';
 
-export const MuiDialogContentText: Components<Theme>['MuiDialogContentText'] = {
-  styleOverrides: {
-    root: ({ theme: { palette } }) => ({
-      fontSize: fontSize.md,
-      color: palette.text.primary,
-    }),
-  },
-};
+export const MuiDialogContentText: ThemeComponentOptions['MuiDialogContentText'] =
+  {
+    styleOverrides: {
+      root: ({ theme: { palette } }) => ({
+        fontSize: fontSize.md,
+        color: palette.text.primary,
+      }),
+    },
+  };

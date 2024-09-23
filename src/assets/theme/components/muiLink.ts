@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../theme';
 
 /**
 =========================================================
@@ -31,7 +31,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-export const MuiLink: Components<Theme>['MuiLink'] = {
+export const MuiLink: ThemeComponentOptions['MuiLink'] = {
   defaultProps: {
     underline: 'none',
     color: 'inherit',

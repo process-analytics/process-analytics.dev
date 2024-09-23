@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../../theme';
 
 /**
  =========================================================
@@ -31,7 +31,7 @@ import type { Components, Theme } from '@mui/material';
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-export const MuiDialogActions: Components<Theme>['MuiDialogActions'] = {
+export const MuiDialogActions: ThemeComponentOptions['MuiDialogActions'] = {
   styleOverrides: {
     root: {
       padding: '1rem',

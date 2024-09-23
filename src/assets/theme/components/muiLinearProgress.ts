@@ -29,11 +29,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Components, Theme } from '@mui/material';
+import type { ThemeComponentOptions } from '../theme';
 
 import { borders } from '..';
 
-export const MuiLinearProgress: Components<Theme>['MuiLinearProgress'] = {
+export const MuiLinearProgress: ThemeComponentOptions['MuiLinearProgress'] = {
   styleOverrides: {
     root: ({ theme: { palette } }) => ({
       height: '0.375rem',
