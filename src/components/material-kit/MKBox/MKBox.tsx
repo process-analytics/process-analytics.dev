@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import type { OverrideProps } from '@mui/material/OverridableComponent';
+import type { TypographyTypeMap } from '@mui/material/Typography/Typography';
+import { components } from 'gatsby/dist/redux/reducers';
 /**
  =========================================================
  * Material Kit 2 React - v2.0.0
@@ -24,16 +27,17 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+import type { PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxTypeMap } from '@mui/system';
 import type { BoxProps as MuiBoxProps } from '@mui/material';
 
 // Custom styles for MKBox
-import type { BoxProps } from './MKBoxRoot';
+import type { MKBoxRootProps } from './MKBoxRoot';
 import { MKBoxRoot } from './MKBoxRoot';
 
-export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
+export const MKBox = forwardRef<HTMLDivElement, MKBoxProps>(
   (
     {
       variant,
@@ -43,6 +47,7 @@ export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
       borderRadius,
       shadow,
       children,
+      component,
       ...rest
     },
     ref,
@@ -50,6 +55,7 @@ export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
     <MKBoxRoot
       {...rest}
       ref={ref}
+      as={component || 'div'}
       ownerState={{
         variant,
         bgcolor,
@@ -65,5 +71,10 @@ export const MKBox = forwardRef<JSX.Element, MKBoxProps<React.ElementType>>(
 );
 
 export type MKBoxProps<
-  D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = React.PropsWithChildren<Partial<BoxProps>> & MuiBoxProps<D>;
+  RootComponent extends React.ElementType = BoxTypeMap['defaultComponent'],
+  AdditionalProps = object,
+  P extends React.ElementType = React.ElementType,
+> = PropsWithChildren<MKBoxRootProps> &
+  MuiBoxProps<RootComponent, AdditionalProps> & {
+    component?: P;
+  } & React.ComponentProps<P>;
