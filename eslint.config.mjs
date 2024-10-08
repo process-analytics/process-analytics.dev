@@ -96,6 +96,7 @@ export default tseslint.config(
         },
         rules: {
             // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+            '@typescript-eslint/consistent-type-definitions': 'off',
             '@typescript-eslint/explicit-function-return-type': [
                 'warn',
                 {
