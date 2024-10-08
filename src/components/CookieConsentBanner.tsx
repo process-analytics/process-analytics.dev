@@ -99,7 +99,7 @@ const getEn = (): CookieConsent.Translation => ({
   },
 });
 
-const getCategories = (): { [key: string]: Category } => ({
+const getCategories = (): Record<string, Category> => ({
   necessary: { enabled: true, readOnly: true },
   [analyticsCookieCategory]: {
     enabled: false,

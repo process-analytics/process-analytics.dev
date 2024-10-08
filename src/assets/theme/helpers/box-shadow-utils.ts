@@ -68,7 +68,7 @@ const getColored = (): BoxShadowColor => {
   const colored = {} as Partial<BoxShadowColor>;
   paletteKeys.forEach(key => {
     colored[key as keyof BoxShadowColor] = buildBoxShadowForPaletteColor(
-      <PaletteColor>palette[key as keyof PaletteOptions],
+      palette[key as keyof PaletteOptions] as PaletteColor,
     );
   });
   return {

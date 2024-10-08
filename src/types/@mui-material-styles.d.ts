@@ -26,6 +26,7 @@ declare module '@mui/material/styles' {
     xxl: true;
   }
 
+  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   interface Typography
     extends Record<Variant, TypographyStyle>,
       FontStyle,
