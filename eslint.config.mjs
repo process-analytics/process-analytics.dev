@@ -15,27 +15,24 @@
  */
 
 import noticePlugin from "eslint-plugin-notice";
-import importPlugin from "eslint-plugin-import";
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-// import eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginImport from 'eslint-plugin-import';
 import * as eslintPluginMdx from 'eslint-plugin-mdx'
 
-
-const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx'];
-const allExtensions = [...typeScriptExtensions, '.js', '.jsx'];
-
 /** @type {import('eslint').Linter.FlatConfig[]} */
-export default [
-    eslintPluginPrettierRecommended, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
-
+export default tseslint.config(
     {
         plugins: {
-            notice: noticePlugin,
-            import: importPlugin
+            '@typescript-eslint': tseslint.plugin
         },
+        extends: [
+            // eslint.configs.recommended,
+            eslintPluginPrettierRecommended, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
+        ],
         languageOptions: {
+            parser: tseslint.parser,
             parserOptions: {
                 ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
                 sourceType: 'module', // Allows for the use of imports
@@ -52,10 +49,19 @@ export default [
         ],
     },
 
+    {
+        // disable type-aware linting on JS files
+        files: ['**/*.js'],
+        ...tseslint.configs.disableTypeChecked,
+    },
+
     // File-pattern specific overrides
     // javascript & typescript
     {
-        files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+        files: ['*.js', '*.ts', '*.tsx'],
+        plugins: {
+            notice: noticePlugin
+        },
         rules: {
             'notice/notice': [
                 'error',
@@ -69,37 +75,12 @@ export default [
     },
 
     // typescript
-    { ...eslint.configs.recommended, files: ['**/*.ts', '**/*.tsx'] },
-    ...tseslint.configs.recommended.map(conf => ({ ...conf, files: ['**/*.ts', '**/*.tsx'] })),
     /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
     {
         files: ['**/*.ts', '**/*.tsx'],
-        // ...eslintPluginImport.configs.recommended, // To uncomment when it will support flat config
-        // ...eslintPluginImport.configs.typescript, // To uncomment when it will support flat config
-
-        // To remove when eslintPluginImport will support flat config
-        plugins: { import: importPlugin },
-        /////////////////////////////////////////////////////////////////
-
+        extends: [...tseslint.configs.recommended, ...tseslint.configs.stylistic, eslintPluginImport.flatConfigs.recommended, eslintPluginImport.flatConfigs.typescript],
         settings: {
-            // To remove when eslintPluginImport will support flat config
-            'import/extensions': allExtensions,
-            'import/external-module-folders': ['node_modules', 'node_modules/@types'],
-            'import/parsers': {
-                '@typescript-eslint/parser': typeScriptExtensions,
-            },
-            /////////////////////////////////////////////////////////////////
-
-
-
             'import/resolver': {
-                // To remove when eslintPluginImport will support flat config
-                node: {
-                    extensions: allExtensions,
-                },
-                /////////////////////////////////////////////////////////////////
-
-
                 typescript: {
                     alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
                     project: './tsconfig.json',
@@ -108,34 +89,12 @@ export default [
         },
         languageOptions: {
             parserOptions: {
-                // To remove when eslintPluginImport will support flat config
-                sourceType: 'module',
-                ecmaVersion: 2018,
-                /////////////////////////////////////////////////////////////////
-
-
                 // This setting is required if you want to use rules which require type information
                 // https://typescript-eslint.io/packages/parser/#project
                 projectService: true,
             },
         },
         rules: {
-            // To remove when eslintPluginImport will support flat config
-            // analysis/correctness
-            //'import/no-unresolved': 'error',
-           // 'import/namespace': 'error',
-           // 'import/default': 'error',
-          //  'import/export': 'error',
-
-            // red flags (thus, warnings)
-           // 'import/no-named-as-default': 'off',
-           // 'import/no-named-as-default-member': 'off',
-           // 'import/no-duplicates': 'warn',
-
-          //  'import/named': 'off',
-            /////////////////////////////////////////////////////////////////
-
-
             // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
             '@typescript-eslint/explicit-function-return-type': [
                 'warn',
@@ -182,5 +141,4 @@ export default [
             'prefer-const': 'error',
         },
     },
-]
-;
+);
