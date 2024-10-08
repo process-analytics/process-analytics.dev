@@ -1,0 +1,66 @@
+# Add 'enhancement' label to any PR where the head branch name starts with `feat/`
+enhancement:
+  - head-branch: ['^feat/']
+
+# Add 'bug' label to any PR where the head branch name starts with `fix/`
+bug:
+  - head-branch: ['^fix/']
+
+# Add 'build' label to any PR where the head branch name starts with `build/`
+build:
+  - head-branch: ['^build/']
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.npmrc'
+      - '.nvmrc'
+      - 'gatsby-browser.tsx'
+      - 'gatsby-config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+
+# Add 'ci' label to any PR where the head branch name starts with `ci/`
+github_actions:
+  - head-branch: ['^ci/']
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/**/*' # Any change to files within '.github' folder or any subfolders
+
+# Add 'documentation' label
+documentation:
+  - head-branch: ['^docs/'] # Any PR where the head branch name starts with `docs/`
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
+
+# Add 'poc' label to any PR where the head branch name starts with `poc/`
+poc:
+  - head-branch: ['^poc/']
+
+# Add 'refactoring' label to any PR where the head branch name starts with `refactor/`
+refactoring:
+  - head-branch: ['^refactor/']
+
+news:
+  - head-branch: ['^news/']
+
+post:
+  - head-branch: ['^post/']
+
+# Add 'chore' label to any PR where the head branch name starts with `chore/`
+chore:
+  - head-branch: ['^chore/']
+  - changed-files:
+      - all-globs-to-all-files: # EXCEPT the following files
+        - '!.npmrc'
+        - '!.nvmrc'
+        - '!gatsby-browser.tsx'
+        - '!gatsby-config.ts'
+        - '!package.json'
+        - '!package-lock.json'
+        - '!.github/**/*'
+        - '!README.md'
+        - '!CONTRIBUTING.md'
+        - '!LICENSE'
+        - '!src/**'
