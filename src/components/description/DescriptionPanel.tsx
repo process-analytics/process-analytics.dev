@@ -39,7 +39,7 @@ export const DescriptionPanel: FC<DescriptionPanelProps> = ({
   index,
 }) => {
   if (image && !image.positionFromMdx) {
-    image.positionFromMdx = Boolean(index % 2) ? 'left' : 'right';
+    image.positionFromMdx = index % 2 ? 'left' : 'right';
   }
 
   const isFullPage =

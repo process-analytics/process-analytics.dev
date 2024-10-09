@@ -20,9 +20,8 @@ declare module 'gatsby-plugin-mailchimp' {
     result: MailchimpResult;
     msg: string;
   }
-  export interface MailchimpFields {
-    [key: string]: string;
-  }
+
+  export type MailchimpFields = Record<string, string>;
 
   // This function is made available by the plugin gatsby-plugin-mailchimp at runtime
   /*email: String – required; the email address you want to subscribe
