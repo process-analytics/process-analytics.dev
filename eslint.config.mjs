@@ -15,52 +15,34 @@
  */
 
 import noticePlugin from "eslint-plugin-notice";
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import eslintPluginImport from 'eslint-plugin-import';
-import * as eslintPluginMdx from 'eslint-plugin-mdx'
+import * as mdxPlugin from 'eslint-plugin-mdx';
+import importPlugin from 'eslint-plugin-import';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
     {
-        plugins: {
-            '@typescript-eslint': tseslint.plugin
-        },
-        extends: [
-            // eslint.configs.recommended,
-            eslintPluginPrettierRecommended, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
-        ],
-        languageOptions: {
-            parser: tseslint.parser,
-            parserOptions: {
-                ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-                sourceType: 'module', // Allows for the use of imports
-            },
-        },
-        ignores: [
-            '.cache/',
-            'node_modules/',
-            'public/',
-            'build/',
-            '.github/',
-            '.idea/',
-            '/config/',
-        ],
-    },
-
-    {
-        // disable type-aware linting on JS files
-        files: ['**/*.js'],
-        ...tseslint.configs.disableTypeChecked,
+    	// Actually, the new feature to ignore folders in conf file or in commande line, seems to not work after several tests.
+    	// https://eslint.org/docs/latest/use/configure/ignore
+        ignores: [ ".cache/", "node_modules/",  "public/", "build/", ".github/", ".idea/", "/config/" ],
     },
 
     // File-pattern specific overrides
     // javascript & typescript
     {
-        files: ['*.js', '*.ts', '*.tsx'],
+        files: ['**/*.js', '**/*.ts', '**/*.tsx'],
+        ...eslint.configs.recommended,
+        ...prettierRecommendedConfig, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
         plugins: {
             notice: noticePlugin
+        },
+        languageOptions: {
+            parserOptions: {
+                ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+                sourceType: 'module', // Allows for the use of imports
+            },
         },
         rules: {
             'notice/notice': [
@@ -74,11 +56,22 @@ export default tseslint.config(
         },
     },
 
+    // disable type-aware linting on JS and markdown files
+    {
+        files: ['**/*.js', '**/*.mdx, **/*.md'],
+        ...tseslint.configs.disableTypeChecked,
+    },
+
     // typescript
     /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
     {
         files: ['**/*.ts', '**/*.tsx'],
-        extends: [...tseslint.configs.recommended, ...tseslint.configs.stylistic, eslintPluginImport.flatConfigs.recommended, eslintPluginImport.flatConfigs.typescript],
+        extends: [ // Feature of `typescript-eslint` to extend multiple configs: https://typescript-eslint.io/packages/typescript-eslint/#flat-config-extends
+            ...tseslint.configs.recommended,
+            ...tseslint.configs.stylistic,
+        ],
+        ...importPlugin.flatConfigs.recommended,
+        ...importPlugin.flatConfigs.typescript,
         settings: {
             'import/resolver': {
                 typescript: {
@@ -127,16 +120,16 @@ export default tseslint.config(
 
     // markdown
     {
-        ...eslintPluginMdx.flat,
+        ...mdxPlugin.flat,
         // optional, if you want to lint code blocks at the same
-        processor: eslintPluginMdx.createRemarkProcessor({
+        processor: mdxPlugin.createRemarkProcessor({
             lintCodeBlocks: true,
         }),
     },
     {
-        ...eslintPluginMdx.flatCodeBlocks,
+        ...mdxPlugin.flatCodeBlocks,
         rules: {
-            ...eslintPluginMdx.rules,
+            ...mdxPlugin.rules,
             // if you want to override some rules for code blocks
             'no-var': 'error',
             'prefer-const': 'error',
