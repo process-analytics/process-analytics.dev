@@ -23,23 +23,10 @@ import importPlugin from 'eslint-plugin-import';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
-    prettierRecommendedConfig, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
     {
     	// Actually, the new feature to ignore folders in conf file or in commande line, seems to not work after several tests.
     	// https://eslint.org/docs/latest/use/configure/ignore
         ignores: [ ".cache/", "node_modules/",  "public/", "build/", ".github/", ".idea/", "/config/" ],
-        languageOptions: {
-            parserOptions: {
-                ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-                sourceType: 'module', // Allows for the use of imports
-            },
-        },
-    },
-
-    // disable type-aware linting on JS and markdown files
-    {
-        files: ['**/*.js', '**/*.mdx, **/*.md'],
-        ...tseslint.configs.disableTypeChecked,
     },
 
     // File-pattern specific overrides
@@ -47,8 +34,15 @@ export default tseslint.config(
     {
         files: ['**/*.js', '**/*.ts', '**/*.tsx'],
         ...eslint.configs.recommended,
+        ...prettierRecommendedConfig, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
         plugins: {
             notice: noticePlugin
+        },
+        languageOptions: {
+            parserOptions: {
+                ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+                sourceType: 'module', // Allows for the use of imports
+            },
         },
         rules: {
             'notice/notice': [
@@ -60,6 +54,12 @@ export default tseslint.config(
             ],
             'no-console': ['error', { allow: ['warn', 'error'] }],
         },
+    },
+
+    // disable type-aware linting on JS and markdown files
+    {
+        files: ['**/*.js', '**/*.mdx, **/*.md'],
+        ...tseslint.configs.disableTypeChecked,
     },
 
     // typescript
