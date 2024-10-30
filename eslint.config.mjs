@@ -25,25 +25,19 @@ import importPlugin from 'eslint-plugin-import';
 export default tseslint.config(
     prettierRecommendedConfig, // Enables eslint-plugin-prettier, eslint-config-prettier and prettier/prettier. This will display prettier errors as ESLint errors.
     {
+    	// Actually, the new feature to ignore folders in conf file or in commande line, seems to not work after several tests.
+    	// https://eslint.org/docs/latest/use/configure/ignore
+        ignores: [ ".cache/", "node_modules/",  "public/", "build/", ".github/", ".idea/", "/config/" ],
         languageOptions: {
             parserOptions: {
                 ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
                 sourceType: 'module', // Allows for the use of imports
             },
         },
-        ignores: [
-            '.cache/',
-            'node_modules/',
-            'public/',
-            'build/',
-            '.github/',
-            '.idea/',
-            '/config/',
-        ],
     },
 
+    // disable type-aware linting on JS and markdown files
     {
-        // disable type-aware linting on JS and markdown files
         files: ['**/*.js', '**/*.mdx, **/*.md'],
         ...tseslint.configs.disableTypeChecked,
     },
