@@ -29,7 +29,7 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@tippyjs/react": "^4.2.6",
-    "chroma-js": "^3.1.1",
+    "chroma-js": "^3.1.2",
     "react": "^18.3.1",
     "react-awesome-reveal": "^4.2.14",
     "react-dom": "^18.3.1",
