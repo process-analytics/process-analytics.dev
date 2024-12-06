@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { FC, PropsWithChildren } from 'react';
+import type {FC, PropsWithChildren, JSX} from 'react';
 import React from 'react';
 
 import type { BoxProps } from '@mui/material';

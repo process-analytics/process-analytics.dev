@@ -29,6 +29,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
+import type {JSX} from 'react';
 import React from 'react';
 
 import { Close, Menu } from '@mui/icons-material';

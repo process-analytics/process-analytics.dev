@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import type { PropsWithChildren } from 'react';
+import type {PropsWithChildren, JSX} from 'react';
 import React, { useEffect } from 'react';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';

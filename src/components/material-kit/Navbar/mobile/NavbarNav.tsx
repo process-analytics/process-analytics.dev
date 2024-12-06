@@ -24,7 +24,8 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
-import React, { useState } from 'react';
+import type {JSX} from 'react';
+import React, { useState} from 'react';
 
 // @mui material components
 import { Collapse } from '@mui/material';
