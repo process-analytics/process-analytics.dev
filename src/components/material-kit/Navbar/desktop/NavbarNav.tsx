@@ -25,7 +25,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
-import type { Dispatch, SetStateAction } from 'react';
+import type {Dispatch, JSX, SetStateAction} from 'react';
 import React from 'react';
 
 import type { HoverStyle } from '../common';
