@@ -24,7 +24,8 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
-import React, { forwardRef } from 'react';
+import type {JSX} from "react";
+import React, {forwardRef} from 'react';
 
 import type { BoxTypeMap } from '@mui/system';
 import type { BoxProps as MuiBoxProps } from '@mui/material';

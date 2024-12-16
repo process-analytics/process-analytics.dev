@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import type {JSX} from 'react';
 import React from 'react';
 
 import type { LinkProps } from '@mui/material';
