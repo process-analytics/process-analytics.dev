@@ -36,7 +36,7 @@
     "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.16.0",
+    "@eslint/js": "^9.17.0",
     "@types/chroma-js": "^2.4.4",
     "@types/eslint__js": "^8.42.3",
     "@types/react": "^18.3.12",
@@ -62,10 +62,10 @@
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-remark": "^6.14.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.3.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.17.0"
+    "typescript-eslint": "^8.19.0"
   },
   "lint-staged": {
     "*.{js,ts,tsx,mdx}": [
