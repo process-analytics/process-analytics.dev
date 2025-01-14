@@ -87,14 +87,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint:
-          'https://gmail.us20.list-manage.com/subscribe/post?u=98bed213911ed14e04f519b82&amp;id=9c27a4ee73',
-        timeout: 3500, //the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [`gatsby-remark-responsive-iframe`],
