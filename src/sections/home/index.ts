@@ -18,4 +18,3 @@ export { Blog } from './Blog';
 export { Landing } from './Landing';
 export { Libraries } from './Libraries';
 export { News } from './News';
-export { Newsletter } from './Newsletter';

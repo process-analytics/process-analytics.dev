@@ -20,7 +20,7 @@ import type { HeadProps } from 'gatsby';
 
 import { Layout, SEO } from '../components';
 import type { DataProps } from '../hooks';
-import { About, Blog, Landing, Libraries, News, Newsletter } from '../sections';
+import { About, Blog, Landing, Libraries, News } from '../sections';
 import { PAGE } from '../helper';
 import { footerContent, headerContent } from '../content';
 import { Testimonials } from '../sections/home/Testimonials';
@@ -33,7 +33,6 @@ const HomePage = (): JSX.Element => (
     <News />
     <Blog />
     <Testimonials />
-    <Newsletter />
   </Layout>
 );
 export default HomePage;
