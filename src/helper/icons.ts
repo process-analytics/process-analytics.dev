@@ -20,7 +20,6 @@ import type {
 import { library, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faDev,
-  faDiscord,
   faGithub,
   faMedium,
   faXTwitter,
@@ -45,7 +44,6 @@ const ICONS: IconDefinition[] = [
   faGithub,
   faMedium,
   faXTwitter,
-  faDiscord,
   faYoutube,
   // solid
   faArrowRight,
