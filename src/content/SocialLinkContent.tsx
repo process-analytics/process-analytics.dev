@@ -37,11 +37,6 @@ export const socialLinkContent: SocialLinkContent[] = [
     icon: 'dev',
   },
   {
-    url: 'https://discord.gg/HafnBYsRXd',
-    name: 'Discord',
-    icon: 'discord',
-  },
-  {
     url: 'https://www.youtube.com/channel/UCzmcChXi_YmQGmPizzKX8pA',
     name: 'Youtube',
     icon: 'youtube',
