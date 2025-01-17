@@ -7,7 +7,7 @@ on:
 jobs:
   pr-title:
     if: contains(fromJSON('["opened", "edited", "reopened"]'), github.event.action)
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       pull-requests: write # post comments when the PR title doesn't match the "Conventional Commits" rules
     steps:
@@ -16,7 +16,7 @@ jobs:
 
   add-labels:
     if: contains(fromJSON('["opened", "synchronize", "reopened"]'), github.event.action)
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pull-requests: write
