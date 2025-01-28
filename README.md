@@ -24,40 +24,43 @@
 
 This site is created with Gatsby. 
 
-1. **Prerequisites**
+### Prerequisites
 
-   Minimal node version: See the [`.nvmrc` file](.nvmrc). 
+Minimal node version: See the [`.nvmrc` file](.nvmrc). 
 
-   If you use `nvm`, you can change the node version used locally with `nvm use`. \
-   It loads the version specified in the `.nvmrc` file.
+If you use `nvm`, you can change the node version used locally with `nvm use`. \
+It loads the version specified in the `.nvmrc` file.
 
+### Start developing
 
-2. **Start developing**
+#### Install dependencies
+```shell
+  npm install
+```
 
-   Install dependencies.
-   ```shell
-   npm install
-   ```
+#### Start the development server
+```shell
+  npm start
+```
 
-   Start the development server
-    ```shell
-    npm start
-    ```
+Your site is now running at http://localhost:8000! \
+You can modify a file from `src` to see your site update in real-time!
 
-    Your site is now running at http://localhost:8000! \
-    You can modify a file from `src` to see your site update in real-time!
-    
+## Pull Request Previews
 
-3. **Learn more**
+In Pull Request, a preview is generated to see how the modified website will look.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Learn more
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+- [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
