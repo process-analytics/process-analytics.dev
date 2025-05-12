@@ -137,6 +137,15 @@ const posts: PostContent[] = [
     time: 7,
   },
   {
+    title: 'The bpmn-visualization project celebrates its 1st anniversary'
+    text: 'To celebrate the first year of our work on the bpmn-visualization library, here is a look back.',
+    cover:
+      'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fqfaqgib7iz9v1ehrppv8.png', // from the dev.to article
+    url: 'https://community.bonitasoft.com/blog/bonita-ui-designer-custom-widget-bpmn-visualization', // https://dev.to/aibcmars/bonita-ui-designer-creating-custom-widget-for-bpmn-visualization-44lk
+    date: 'May 2021',
+    time: 4,
+  },
+  {
     title:
       'Automated visual regression testing with TypeScript, Playwright and Jest', // original title which would have been truncated: 'Automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot'
     text: 'Learn how to set up and to run automated visual regression testing with TypeScript, Playwright, Jest and Jest Image Snapshot.',
