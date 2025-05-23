@@ -141,7 +141,7 @@ const posts: PostContent[] = [
     text: 'To celebrate the first year of our work on the bpmn-visualization library, here is a look back.',
     cover:
       'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fqfaqgib7iz9v1ehrppv8.png', // from the dev.to article
-    url: 'https://community.bonitasoft.com/blog/bonita-ui-designer-custom-widget-bpmn-visualization', // https://dev.to/aibcmars/bonita-ui-designer-creating-custom-widget-for-bpmn-visualization-44lk
+    url: 'https://www.linkedin.com/pulse/bpmn-visualization-project-celebrates-its-1st-thomas-bouffard/', // https://dev.to/process-analytics/the-bpmn-visualization-project-celebrates-its-1st-anniversary-4ae2
     date: 'May 2021',
     time: 4,
   },
